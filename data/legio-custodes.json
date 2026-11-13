@@ -1,0 +1,277 @@
+{
+ "id": "legio-custodes",
+ "name": "Legio Custodes (Héritages)",
+ "lang": "fr",
+ "army": "cust",
+ "legacy": true,
+ "incomplete": true,
+ "source": "Héritages – Legio Custodes v1.0 (FR) / Legacies – Legio Custodes v1.0 (EN)",
+ "units": [
+  {
+   "id": "cust-sodalite-de-gardes-adrasites",
+   "name": "Sodalité de Gardes Adrasites",
+   "lang": "fr",
+   "role": "EL",
+   "points": 360,
+   "page": 3,
+   "models": [
+    {
+     "name": "Gardes Adrasites",
+     "count": 6
+    }
+   ],
+   "profiles": [
+    {
+     "name": "Garde Adrasite",
+     "stats": [
+      "8",
+      "5",
+      "5",
+      "5",
+      "5",
+      "2",
+      "5",
+      "3",
+      "10",
+      "10",
+      "8",
+      "8",
+      "2+",
+      "6+"
+     ]
+    }
+   ],
+   "wargear": [
+    "Lance adrasite",
+    "Misericordia"
+   ],
+   "rules": [
+    "Massif (2)",
+    "Guerrier Éternel (1)",
+    "Coups Éclairs",
+    "Avant-garde (2)"
+   ],
+   "types": [
+    "Infanterie"
+   ],
+   "traits": [
+    "Loyaliste",
+    "Legio Custodes",
+    "La Sodalité"
+   ],
+   "options": [
+    {
+     "text": "Un Garde Adrasite de cette Unité peut échanger gratuitement sa lance adrasite contre un vexillum du Magisterium.",
+     "max": 1,
+     "choices": [
+      {
+       "name": "Vexillum du Magisterium",
+       "points": 0
+      }
+     ]
+    }
+   ],
+   "army": "cust",
+   "legacy": true,
+   "source": "Héritages – Legio Custodes v1.0 (FR)",
+   "i18n": {
+    "en": {
+     "name": "Adrasite Guard Sodality",
+     "models": [
+      {
+       "name": "Adrasite Guards",
+       "count": 6
+      }
+     ],
+     "wargear": [
+      "Adrasite spear",
+      "Misericordia"
+     ],
+     "rules": [
+      "Bulky (2)",
+      "Eternal Warrior (1)",
+      "Lightning Blows",
+      "Vanguard (2)"
+     ]
+    }
+   }
+  },
+  {
+   "id": "cust-sodalite-de-gardes-pyrithites",
+   "name": "Sodalité de Gardes Pyrithites",
+   "lang": "fr",
+   "role": "EL",
+   "points": 360,
+   "page": 4,
+   "models": [
+    {
+     "name": "Gardes Pyrithites",
+     "count": 6
+    }
+   ],
+   "profiles": [
+    {
+     "name": "Garde Pyrithite",
+     "stats": [
+      "8",
+      "5",
+      "5",
+      "5",
+      "5",
+      "2",
+      "5",
+      "3",
+      "10",
+      "10",
+      "8",
+      "8",
+      "2+",
+      "6+"
+     ]
+    }
+   ],
+   "wargear": [
+    "Lance pyrithite",
+    "Misericordia"
+   ],
+   "rules": [
+    "Massif (2)",
+    "Guerrier Éternel (1)",
+    "Coups Éclairs",
+    "Avant-garde (2)"
+   ],
+   "types": [
+    "Infanterie"
+   ],
+   "traits": [
+    "Loyaliste",
+    "Legio Custodes",
+    "La Sodalité"
+   ],
+   "options": [
+    {
+     "text": "Un Garde Pyrithite de cette Unité peut échanger gratuitement sa lance pyrithite contre un vexillum du Magisterium.",
+     "max": 1,
+     "choices": [
+      {
+       "name": "Vexillum du Magisterium",
+       "points": 0
+      }
+     ]
+    }
+   ],
+   "army": "cust",
+   "legacy": true,
+   "source": "Héritages – Legio Custodes v1.0 (FR)",
+   "i18n": {
+    "en": {
+     "name": "Pyrithite Guard Sodality",
+     "models": [
+      {
+       "name": "Pyrithite Guards",
+       "count": 6
+      }
+     ],
+     "wargear": [
+      "Pyrithite spear",
+      "Misericordia"
+     ],
+     "rules": [
+      "Bulky (2)",
+      "Eternal Warrior (1)",
+      "Lightning Blows",
+      "Vanguard (2)"
+     ]
+    }
+   }
+  },
+  {
+   "id": "cust-sodalite-de-gardes-sagittarii",
+   "name": "Sodalité de Gardes Sagittarii",
+   "lang": "fr",
+   "role": "AP",
+   "points": 240,
+   "page": 5,
+   "models": [
+    {
+     "name": "Gardes Sagittarii",
+     "count": 6
+    }
+   ],
+   "profiles": [
+    {
+     "name": "Garde Sagittarii",
+     "stats": [
+      "8",
+      "5",
+      "5",
+      "5",
+      "5",
+      "2",
+      "5",
+      "2",
+      "10",
+      "10",
+      "8",
+      "8",
+      "2+",
+      "6+"
+     ]
+    }
+   ],
+   "wargear": [
+    "Arquebuse à bolts Adrastus",
+    "Misericordia"
+   ],
+   "rules": [
+    "Massif (2)",
+    "Guerrier Éternel (1)",
+    "Avant-garde (2)"
+   ],
+   "types": [
+    "Infanterie"
+   ],
+   "traits": [
+    "Loyaliste",
+    "Legio Custodes",
+    "La Sodalité"
+   ],
+   "options": [
+    {
+     "text": "Un Garde Sagittarii de cette Unité peut échanger gratuitement son arquebuse à bolts Adrastus contre un vexillum du Magisterium.",
+     "max": 1,
+     "choices": [
+      {
+       "name": "Vexillum du Magisterium",
+       "points": 0
+      }
+     ]
+    }
+   ],
+   "army": "cust",
+   "legacy": true,
+   "source": "Héritages – Legio Custodes v1.0 (FR)",
+   "i18n": {
+    "en": {
+     "name": "Sagittarum Guard Sodality",
+     "models": [
+      {
+       "name": "Sagittarum Guards",
+       "count": 6
+      }
+     ],
+     "wargear": [
+      "Adrastus bolt caliver",
+      "Misericordia"
+     ],
+     "rules": [
+      "Bulky (2)",
+      "Eternal Warrior (1)",
+      "Vanguard (2)"
+     ]
+    }
+   }
+  }
+ ],
+ "detachments": []
+}

@@ -1,0 +1,2984 @@
+{
+ "id": "solar-auxilia",
+ "name": "Liber Auxilia",
+ "lang": "en",
+ "army": "aux",
+ "source": "Liber Auxilia, English edition 2025 (photographed pages) — pages are PDF page numbers; Tercio Transport slots read as Heavy Transport from the icons, to be checked",
+ "equipmentLists": {
+  "Auxilia Melee Weapons": [
+   {
+    "name": "Charnabal sabre",
+    "points": 3
+   },
+   {
+    "name": "Power sword",
+    "points": 5
+   },
+   {
+    "name": "Power fist",
+    "points": 10
+   }
+  ],
+  "Auxilia Pistols": [
+   {
+    "name": "Blast pistol",
+    "points": 3
+   },
+   {
+    "name": "Needle pistol",
+    "points": 5
+   },
+   {
+    "name": "Volkite serpenta",
+    "points": 5
+   },
+   {
+    "name": "Hand flamer",
+    "points": 5
+   },
+   {
+    "name": "Plasma pistol",
+    "points": 5
+   }
+  ],
+  "Auxilia Hull Weapons": [
+   {
+    "name": "Hull Mounted heavy bolter",
+    "points": 0
+   },
+   {
+    "name": "Hull Mounted heavy flamer",
+    "points": 0
+   },
+   {
+    "name": "Hull Mounted multi-laser",
+    "points": 0
+   },
+   {
+    "name": "Hull Mounted autocannon",
+    "points": 5
+   },
+   {
+    "name": "Hull Mounted lascannon",
+    "points": 10
+   }
+  ],
+  "Auxilia Sponson Weapons": [
+   {
+    "name": "Two Sponson Mounted heavy bolters",
+    "points": 0
+   },
+   {
+    "name": "Two Sponson Mounted heavy flamers",
+    "points": 0
+   },
+   {
+    "name": "Two Sponson Mounted multi-lasers",
+    "points": 0
+   },
+   {
+    "name": "Two Sponson Mounted autocannon",
+    "points": 10
+   },
+   {
+    "name": "Two Sponson Mounted lascannon",
+    "points": 20
+   }
+  ],
+  "Auxilia Pintle Weapons": [
+   {
+    "name": "Pintle Mounted heavy stubber",
+    "points": 5
+   },
+   {
+    "name": "Pintle Mounted heavy flamer",
+    "points": 10
+   },
+   {
+    "name": "Pintle Mounted multi-laser",
+    "points": 10
+   }
+  ]
+ },
+ "detachments": [
+  {
+   "id": "tercio-veletaris",
+   "name": "Veletaris Tercio",
+   "kind": "aux",
+   "requires": "Veletaris Command Section",
+   "only": {
+    "EL": [
+     "Veletaris Storm Section",
+     "Veletaris Vanguard Section"
+    ],
+    "AP": [
+     "Hermes Veletaris Squadron"
+    ]
+   },
+   "note": "Gain the Veletaris Tercio Trait. Elites: Veletaris Storm or Vanguard Sections; Support: Hermes Veletaris Squadrons.",
+   "slots": [
+    {
+     "role": "EL",
+     "prime": true
+    },
+    {
+     "role": "EL"
+    },
+    {
+     "role": "AP"
+    },
+    {
+     "role": "TL"
+    },
+    {
+     "role": "TL"
+    }
+   ]
+  },
+  {
+   "id": "tercio-infantry",
+   "name": "Infantry Tercio",
+   "kind": "aux",
+   "requires": "Line Command Section",
+   "only": {
+    "TR": [
+     "Lasrifle Section"
+    ],
+    "RE": [
+     "Hermes Light Sentinel Squadron"
+    ]
+   },
+   "note": "Gain the Infantry Tercio Trait. Troops: Lasrifle Sections; Recon: Hermes Light Sentinel Squadrons.",
+   "slots": [
+    {
+     "role": "TR",
+     "prime": true
+    },
+    {
+     "role": "TR"
+    },
+    {
+     "role": "RE"
+    },
+    {
+     "role": "TL"
+    },
+    {
+     "role": "TL"
+    }
+   ]
+  },
+  {
+   "id": "tercio-artillery",
+   "name": "Artillery Tercio",
+   "kind": "aux",
+   "requires": "Artillery Command Section",
+   "only": {
+    "AP": [
+     "Rapier Section",
+     "Basilisk Artillery Tank",
+     "Medusa Artillery Tank"
+    ]
+   },
+   "note": "Gain the Artillery Tercio Trait. Support: Rapier Sections, Basilisks, Medusas.",
+   "slots": [
+    {
+     "role": "AP"
+    },
+    {
+     "role": "AP"
+    },
+    {
+     "role": "AP"
+    }
+   ]
+  },
+  {
+   "id": "tercio-armour",
+   "name": "Armour Tercio",
+   "kind": "aux",
+   "requires": "Armoured Command Section",
+   "only": {
+    "BL": [
+     "Leman Russ Strike Tank",
+     "Leman Russ Assault Tank",
+     "Malcador Heavy Tank"
+    ]
+   },
+   "note": "Gain the Armour Tercio Trait. Armour: Leman Russ Strike / Assault, Malcador.",
+   "slots": [
+    {
+     "role": "BL"
+    },
+    {
+     "role": "BL"
+    },
+    {
+     "role": "BL"
+    }
+   ]
+  },
+  {
+   "id": "tercio-scout",
+   "name": "Scout Tercio",
+   "kind": "aux",
+   "requires": "Hermes Command Section",
+   "only": {
+    "RE": [
+     "Hermes Light Sentinel Squadron"
+    ],
+    "EG": [
+     "Aethon Heavy Sentinel Squadron"
+    ]
+   },
+   "note": "Gain the Scout Tercio Trait. Recon: Hermes Light Sentinels; War Engine: Aethon Heavy Sentinels.",
+   "slots": [
+    {
+     "role": "RE"
+    },
+    {
+     "role": "RE"
+    },
+    {
+     "role": "EG"
+    }
+   ]
+  },
+  {
+   "id": "tercio-iron",
+   "name": "Iron Tercio",
+   "kind": "aux",
+   "doctrine": "iron",
+   "foreign": "mech",
+   "only": {
+    "AL": [
+     "Manipule Castellax Destructor"
+    ],
+    "TR": [
+     "Technoprêtre"
+    ],
+    "AP": [
+     "Manipule de Combat Castellax",
+     "Cohorte de Thallax"
+    ]
+   },
+   "note": "Iron Pattern Cohort only. Units from Liber Mechanicum, which gain the Iron Tercio Faction Trait.",
+   "slots": [
+    {
+     "role": "AL"
+    },
+    {
+     "role": "TR"
+    },
+    {
+     "role": "AP"
+    }
+   ]
+  }
+ ],
+ "rules": {},
+ "units": [
+  {
+   "id": "aux-legatine-command-section",
+   "name": "Legatine Command Section",
+   "role": "QG",
+   "points": 125,
+   "page": 13,
+   "models": [
+    {
+     "name": "Legate Marshal",
+     "count": 1
+    },
+    {
+     "name": "Lifeward",
+     "count": 4
+    }
+   ],
+   "extra": {
+    "model": "Lifeward",
+    "max": 5,
+    "points": 14
+   },
+   "profiles": [
+    {
+     "name": "Lifeward",
+     "stats": [
+      "6",
+      "4",
+      "4",
+      "3",
+      "3",
+      "2",
+      "4",
+      "2",
+      "8",
+      "8",
+      "6",
+      "6",
+      "3+",
+      "5+"
+     ]
+    },
+    {
+     "name": "Legate Marshal",
+     "stats": [
+      "6",
+      "5",
+      "5",
+      "3",
+      "3",
+      "4",
+      "4",
+      "4",
+      "10",
+      "8",
+      "7",
+      "7",
+      "2+",
+      "5+"
+     ]
+    }
+   ],
+   "wargear": [
+    "Lasrifle (Lifeward only)",
+    "Laspistol (Legate Marshal only)",
+    "Charnabal sabre (Legate Marshal only)",
+    "Frag grenades",
+    "Krak grenades"
+   ],
+   "rules": [
+    "Line (2)"
+   ],
+   "types": [
+    "Legate Marshal : Infantry (Command)",
+    "Lifeward : Infantry"
+   ],
+   "traits": [
+    "[Allegiance]",
+    "Solar Auxilia",
+    "Cohort Supreme Command"
+   ],
+   "options": [
+    {
+     "text": "Legate Marshal: exchange charnabal sabre",
+     "max": 1,
+     "choices": [
+      {
+       "name": "Thunder hammer",
+       "points": 10
+      },
+      {
+       "name": "Paragon blade",
+       "points": 10
+      }
+     ],
+     "list": "Auxilia Melee Weapons"
+    },
+    {
+     "text": "Legate Marshal: exchange laspistol",
+     "max": 1,
+     "choices": [
+      {
+       "name": "Archaeotech pistol",
+       "points": 10
+      },
+      {
+       "name": "Inferno pistol",
+       "points": 10
+      }
+     ],
+     "list": "Auxilia Pistols"
+    },
+    {
+     "text": "Any Lifeward: exchange lasrifle for laspistol and charnabal sabre",
+     "max": "models",
+     "choices": [
+      {
+       "name": "Laspistol and charnabal sabre",
+       "points": 0
+      }
+     ]
+    },
+    {
+     "text": "Lifewards so exchanged: exchange charnabal sabre",
+     "max": "models",
+     "list": "Auxilia Melee Weapons"
+    },
+    {
+     "text": "Lifewards so exchanged: exchange laspistol",
+     "max": "models",
+     "list": "Auxilia Pistols"
+    },
+    {
+     "text": "Any Model with a lasrifle",
+     "max": "models",
+     "choices": [
+      {
+       "name": "Bayonet",
+       "points": 1
+      },
+      {
+       "name": "Blast-charger",
+       "points": 1
+      }
+     ]
+    },
+    {
+     "text": "One Lifeward",
+     "max": 2,
+     "choices": [
+      {
+       "name": "Command vox",
+       "points": 10
+      },
+      {
+       "name": "Augury scanner",
+       "points": 10
+      }
+     ],
+     "unique": true
+    },
+    {
+     "text": "One Lifeward",
+     "max": 1,
+     "choices": [
+      {
+       "name": "Auxilia vexilla",
+       "points": 5
+      },
+      {
+       "name": "Cohorts vexilla",
+       "points": 15
+      }
+     ]
+    },
+    {
+     "text": "One Lifeward",
+     "max": 1,
+     "choices": [
+      {
+       "name": "Melta bombs",
+       "points": 10
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "aux-tactical-command-section",
+   "name": "Tactical Command Section",
+   "role": "EM",
+   "points": 100,
+   "page": 14,
+   "models": [
+    {
+     "name": "Auxilia Captain",
+     "count": 1
+    },
+    {
+     "name": "Companion",
+     "count": 4
+    }
+   ],
+   "extra": {
+    "model": "Companion",
+    "max": 5,
+    "points": 12
+   },
+   "profiles": [
+    {
+     "name": "Companion",
+     "stats": [
+      "6",
+      "4",
+      "4",
+      "3",
+      "3",
+      "2",
+      "4",
+      "2",
+      "8",
+      "8",
+      "6",
+      "6",
+      "4+",
+      "5+"
+     ]
+    },
+    {
+     "name": "Auxilia Captain",
+     "stats": [
+      "6",
+      "4",
+      "4",
+      "3",
+      "3",
+      "3",
+      "4",
+      "3",
+      "9",
+      "8",
+      "7",
+      "7",
+      "3+",
+      "5+"
+     ]
+    }
+   ],
+   "wargear": [
+    "Lasrifle (Companions only)",
+    "Laspistol (Auxilia Captain only)",
+    "Charnabal sabre (Auxilia Captain only)",
+    "Frag grenades",
+    "Krak grenades"
+   ],
+   "rules": [
+    "Line (1)",
+    "Officer of the Line (2) (Auxilia Captain only)"
+   ],
+   "types": [
+    "Auxilia Captain : Infantry (Command)",
+    "Companion : Infantry"
+   ],
+   "traits": [
+    "[Allegiance]",
+    "Solar Auxilia"
+   ],
+   "options": [
+    {
+     "text": "Auxilia Captain: exchange charnabal sabre",
+     "max": 1,
+     "choices": [
+      {
+       "name": "Thunder hammer",
+       "points": 10
+      }
+     ],
+     "list": "Auxilia Melee Weapons"
+    },
+    {
+     "text": "Auxilia Captain: exchange laspistol",
+     "max": 1,
+     "list": "Auxilia Pistols"
+    },
+    {
+     "text": "Any Companion: exchange lasrifle for laspistol and charnabal sabre",
+     "max": "models",
+     "choices": [
+      {
+       "name": "Laspistol and charnabal sabre",
+       "points": 0
+      }
+     ]
+    },
+    {
+     "text": "Companions so exchanged: exchange laspistol",
+     "max": "models",
+     "list": "Auxilia Pistols"
+    },
+    {
+     "text": "Companions so exchanged: exchange charnabal sabre",
+     "max": "models",
+     "list": "Auxilia Melee Weapons"
+    },
+    {
+     "text": "Any Model with a lasrifle",
+     "max": "models",
+     "choices": [
+      {
+       "name": "Bayonet",
+       "points": 1
+      },
+      {
+       "name": "Blast-charger",
+       "points": 1
+      }
+     ]
+    },
+    {
+     "text": "One Companion",
+     "max": 2,
+     "choices": [
+      {
+       "name": "Command vox",
+       "points": 10
+      },
+      {
+       "name": "Augury scanner",
+       "points": 10
+      }
+     ],
+     "unique": true
+    },
+    {
+     "text": "One Companion",
+     "max": 1,
+     "choices": [
+      {
+       "name": "Auxilia vexilla",
+       "points": 5
+      },
+      {
+       "name": "Cohorts vexilla",
+       "points": 15
+      }
+     ]
+    },
+    {
+     "text": "One Companion",
+     "max": 1,
+     "choices": [
+      {
+       "name": "Melta bombs",
+       "points": 10
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "aux-line-command-section",
+   "name": "Line Command Section",
+   "role": "EM",
+   "points": 65,
+   "page": 15,
+   "models": [
+    {
+     "name": "Troop Master",
+     "count": 1
+    },
+    {
+     "name": "Veteran",
+     "count": 4
+    }
+   ],
+   "extra": {
+    "model": "Veteran",
+    "max": 5,
+    "points": 7
+   },
+   "profiles": [
+    {
+     "name": "Veteran",
+     "stats": [
+      "6",
+      "3",
+      "4",
+      "3",
+      "3",
+      "1",
+      "3",
+      "1",
+      "7",
+      "7",
+      "6",
+      "6",
+      "4+",
+      "-"
+     ]
+    },
+    {
+     "name": "Troop Master",
+     "stats": [
+      "6",
+      "4",
+      "4",
+      "3",
+      "3",
+      "2",
+      "3",
+      "2",
+      "8",
+      "8",
+      "7",
+      "7",
+      "4+",
+      "-"
+     ]
+    }
+   ],
+   "wargear": [
+    "Lasrifle",
+    "Frag grenades",
+    "Krak grenades"
+   ],
+   "rules": [
+    "Close Order (Troop Master only)"
+   ],
+   "types": [
+    "Troop Master : Infantry (Sergeant)",
+    "Veteran : Infantry"
+   ],
+   "traits": [
+    "[Allegiance]",
+    "Solar Auxilia",
+    "Infantry Tercio"
+   ],
+   "options": [
+    {
+     "text": "Troop Master: exchange lasrifle for laspistol and charnabal sabre",
+     "max": 1,
+     "choices": [
+      {
+       "name": "Laspistol and charnabal sabre",
+       "points": 0
+      }
+     ]
+    },
+    {
+     "text": "Troop Master (if exchanged): exchange charnabal sabre",
+     "max": 1,
+     "choices": [
+      {
+       "name": "Thunder hammer",
+       "points": 10
+      }
+     ],
+     "list": "Auxilia Melee Weapons"
+    },
+    {
+     "text": "Troop Master (if exchanged): exchange laspistol",
+     "max": 1,
+     "list": "Auxilia Pistols"
+    },
+    {
+     "text": "Any Model with a lasrifle",
+     "max": "models",
+     "choices": [
+      {
+       "name": "Bayonet",
+       "points": 1
+      },
+      {
+       "name": "Blast-charger",
+       "points": 1
+      }
+     ]
+    },
+    {
+     "text": "One Veteran",
+     "max": 4,
+     "choices": [
+      {
+       "name": "Command vox",
+       "points": 10
+      },
+      {
+       "name": "Augury scanner",
+       "points": 10
+      },
+      {
+       "name": "Auxilia vexilla",
+       "points": 5
+      },
+      {
+       "name": "Melta bombs",
+       "points": 10
+      }
+     ],
+     "unique": true
+    }
+   ]
+  },
+  {
+   "id": "aux-veletaris-command-section",
+   "name": "Veletaris Command Section",
+   "role": "EM",
+   "points": 75,
+   "page": 16,
+   "models": [
+    {
+     "name": "First Prime",
+     "count": 1
+    },
+    {
+     "name": "Veletarii",
+     "count": 4
+    }
+   ],
+   "extra": {
+    "model": "Veletarii",
+    "max": 5,
+    "points": 8
+   },
+   "profiles": [
+    {
+     "name": "Veletarii",
+     "stats": [
+      "6",
+      "4",
+      "4",
+      "3",
+      "3",
+      "1",
+      "3",
+      "2",
+      "7",
+      "8",
+      "6",
+      "6",
+      "4+",
+      "-"
+     ]
+    },
+    {
+     "name": "First Prime",
+     "stats": [
+      "6",
+      "4",
+      "4",
+      "3",
+      "3",
+      "2",
+      "3",
+      "3",
+      "8",
+      "9",
+      "7",
+      "7",
+      "4+",
+      "-"
+     ]
+    }
+   ],
+   "wargear": [
+    "Volkite charger",
+    "Frag grenades",
+    "Krak grenades"
+   ],
+   "rules": [
+    "Vanguard (3)",
+    "Hold the Line (First Prime only)"
+   ],
+   "types": [
+    "First Prime : Infantry (Champion, Sergeant)",
+    "Veletarii : Infantry"
+   ],
+   "traits": [
+    "[Allegiance]",
+    "Solar Auxilia"
+   ],
+   "options": [
+    {
+     "text": "First Prime: exchange volkite charger for laspistol and charnabal tabar",
+     "max": 1,
+     "choices": [
+      {
+       "name": "Laspistol and charnabal tabar",
+       "points": 0
+      }
+     ]
+    },
+    {
+     "text": "First Prime (if exchanged): exchange charnabal tabar",
+     "max": 1,
+     "choices": [
+      {
+       "name": "Thunder hammer",
+       "points": 10
+      }
+     ],
+     "list": "Auxilia Melee Weapons"
+    },
+    {
+     "text": "First Prime (if exchanged): exchange laspistol",
+     "max": 1,
+     "list": "Auxilia Pistols"
+    },
+    {
+     "text": "Any Model: exchange volkite charger",
+     "max": "models",
+     "choices": [
+      {
+       "name": "Storm axe",
+       "points": 3
+      }
+     ]
+    },
+    {
+     "text": "One Veletarii",
+     "max": 3,
+     "choices": [
+      {
+       "name": "Command vox",
+       "points": 10
+      },
+      {
+       "name": "Augury scanner",
+       "points": 10
+      },
+      {
+       "name": "Auxilia vexilla",
+       "points": 5
+      }
+     ],
+     "unique": true
+    }
+   ]
+  },
+  {
+   "id": "aux-hermes-command-section",
+   "name": "Hermes Command Section",
+   "role": "EM",
+   "points": 75,
+   "page": 17,
+   "models": [
+    {
+     "name": "Hermes Lead",
+     "count": 1
+    },
+    {
+     "name": "Hermes Pathfinder",
+     "count": 1
+    }
+   ],
+   "extra": {
+    "model": "Hermes Pathfinder",
+    "max": 4,
+    "points": 18
+   },
+   "profiles": [
+    {
+     "name": "Hermes Pathfinder",
+     "stats": [
+      "10",
+      "3",
+      "4",
+      "5",
+      "5",
+      "2",
+      "3",
+      "1",
+      "7",
+      "8",
+      "6",
+      "6",
+      "4+",
+      "-"
+     ]
+    },
+    {
+     "name": "Hermes Lead",
+     "stats": [
+      "10",
+      "4",
+      "4",
+      "5",
+      "5",
+      "3",
+      "3",
+      "2",
+      "8",
+      "9",
+      "7",
+      "7",
+      "4+",
+      "-"
+     ]
+    }
+   ],
+   "wargear": [
+    "Multi-laser",
+    "Frag grenades",
+    "Krak grenades"
+   ],
+   "rules": [
+    "Bulky (2)",
+    "Implacable Advance",
+    "Move Through Cover",
+    "Outflank",
+    "Pre-emptive Strike (Hermes Lead only)"
+   ],
+   "types": [
+    "Hermes Lead : Cavalry (Sergeant, Light)",
+    "Hermes Pathfinder : Cavalry (Light)"
+   ],
+   "traits": [
+    "[Allegiance]",
+    "Solar Auxilia",
+    "Scout Tercio"
+   ],
+   "options": [
+    {
+     "text": "Any Model: exchange multi-laser",
+     "max": "models",
+     "choices": [
+      {
+       "name": "Volkite caliver",
+       "points": 0
+      },
+      {
+       "name": "Heavy flamer",
+       "points": 3
+      },
+      {
+       "name": "Hermes grenade launcher",
+       "points": 5
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "aux-artillery-command-section",
+   "name": "Artillery Command Section",
+   "role": "EM",
+   "points": 65,
+   "page": 18,
+   "models": [
+    {
+     "name": "Ordnance Master",
+     "count": 1
+    },
+    {
+     "name": "Veteran",
+     "count": 4
+    }
+   ],
+   "extra": {
+    "model": "Veteran",
+    "max": 5,
+    "points": 7
+   },
+   "profiles": [
+    {
+     "name": "Veteran",
+     "stats": [
+      "6",
+      "3",
+      "4",
+      "3",
+      "3",
+      "1",
+      "3",
+      "1",
+      "7",
+      "7",
+      "6",
+      "6",
+      "4+",
+      "-"
+     ]
+    },
+    {
+     "name": "Ordnance Master",
+     "stats": [
+      "6",
+      "4",
+      "4",
+      "3",
+      "3",
+      "2",
+      "3",
+      "2",
+      "8",
+      "8",
+      "7",
+      "7",
+      "4+",
+      "-"
+     ]
+    }
+   ],
+   "wargear": [
+    "Lasrifle",
+    "Frag grenades",
+    "Krak grenades"
+   ],
+   "rules": [
+    "Precision Bombardment (Ordnance Master only)"
+   ],
+   "types": [
+    "Ordnance Master : Infantry (Sergeant)",
+    "Veteran : Infantry"
+   ],
+   "traits": [
+    "[Allegiance]",
+    "Solar Auxilia"
+   ],
+   "options": [
+    {
+     "text": "Ordnance Master: exchange lasrifle for laspistol and charnabal sabre",
+     "max": 1,
+     "choices": [
+      {
+       "name": "Laspistol and charnabal sabre",
+       "points": 0
+      }
+     ]
+    },
+    {
+     "text": "Ordnance Master (if exchanged): exchange charnabal sabre",
+     "max": 1,
+     "choices": [
+      {
+       "name": "Thunder hammer",
+       "points": 10
+      }
+     ],
+     "list": "Auxilia Melee Weapons"
+    },
+    {
+     "text": "Ordnance Master (if exchanged): exchange laspistol",
+     "max": 1,
+     "list": "Auxilia Pistols"
+    },
+    {
+     "text": "Any Model with a lasrifle",
+     "max": "models",
+     "choices": [
+      {
+       "name": "Bayonet",
+       "points": 1
+      },
+      {
+       "name": "Blast-charger",
+       "points": 1
+      }
+     ]
+    },
+    {
+     "text": "One Veteran",
+     "max": 4,
+     "choices": [
+      {
+       "name": "Command vox",
+       "points": 10
+      },
+      {
+       "name": "Augury scanner",
+       "points": 10
+      },
+      {
+       "name": "Auxilia vexilla",
+       "points": 5
+      },
+      {
+       "name": "Melta bombs",
+       "points": 10
+      }
+     ],
+     "unique": true
+    }
+   ]
+  },
+  {
+   "id": "aux-armoured-command-section",
+   "name": "Armoured Command Section",
+   "role": "EM",
+   "points": 150,
+   "page": 19,
+   "models": [
+    {
+     "name": "Command Tank",
+     "count": 1
+    }
+   ],
+   "profiles": [
+    {
+     "name": "Command Tank",
+     "stats": [
+      "10",
+      "4",
+      "14",
+      "13",
+      "10",
+      "6",
+      "-"
+     ],
+     "vehicle": true
+    }
+   ],
+   "wargear": [
+    "Turret Mounted battlecannon",
+    "Hull (Front) Mounted heavy bolter"
+   ],
+   "rules": [
+    "Auto-repair (4+)",
+    "Armoured Warfare"
+   ],
+   "types": [
+    "Vehicle"
+   ],
+   "traits": [
+    "[Allegiance]",
+    "Solar Auxilia",
+    "Armour Tercio",
+    "Smokescreen"
+   ],
+   "options": [
+    {
+     "text": "Exchange battlecannon",
+     "max": 1,
+     "choices": [
+      {
+       "name": "Turret Mounted gravis autocannon",
+       "points": 0
+      },
+      {
+       "name": "Turret Mounted twin lascannon",
+       "points": 0
+      },
+      {
+       "name": "Turret Mounted vanquisher cannon and Co-axial heavy stubber",
+       "points": 10
+      },
+      {
+       "name": "Turret Mounted demolisher cannon",
+       "points": 30
+      },
+      {
+       "name": "Turret Mounted executioner plasma destroyer",
+       "points": 25
+      },
+      {
+       "name": "Turret Mounted volkite macro-saker",
+       "points": 0
+      }
+     ]
+    },
+    {
+     "text": "Exchange heavy bolter",
+     "max": 1,
+     "list": "Auxilia Hull Weapons"
+    },
+    {
+     "text": "Pintle weapon",
+     "max": 1,
+     "list": "Auxilia Pintle Weapons"
+    },
+    {
+     "text": "Any of the following (one of each)",
+     "max": 4,
+     "choices": [
+      {
+       "name": "Hunter-killer missile",
+       "points": 5
+      },
+      {
+       "name": "Searchlights",
+       "points": 5
+      },
+      {
+       "name": "Dozer blade",
+       "points": 5
+      },
+      {
+       "name": "Flare shield",
+       "points": 20
+      }
+     ],
+     "unique": true
+    }
+   ]
+  },
+  {
+   "id": "aux-veletaris-storm-section",
+   "name": "Veletaris Storm Section",
+   "role": "EL",
+   "points": 90,
+   "page": 20,
+   "models": [
+    {
+     "name": "Veletarii Prime",
+     "count": 1
+    },
+    {
+     "name": "Veletarii",
+     "count": 9
+    }
+   ],
+   "extra": {
+    "model": "Veletarii",
+    "max": 10,
+    "points": 8
+   },
+   "profiles": [
+    {
+     "name": "Veletarii",
+     "stats": [
+      "6",
+      "4",
+      "4",
+      "3",
+      "3",
+      "1",
+      "3",
+      "2",
+      "7",
+      "8",
+      "6",
+      "6",
+      "4+",
+      "-"
+     ]
+    },
+    {
+     "name": "Veletarii Prime",
+     "stats": [
+      "6",
+      "4",
+      "4",
+      "3",
+      "3",
+      "1",
+      "3",
+      "2",
+      "8",
+      "8",
+      "6",
+      "6",
+      "4+",
+      "-"
+     ]
+    }
+   ],
+   "wargear": [
+    "Volkite charger",
+    "Frag grenades",
+    "Krak grenades"
+   ],
+   "rules": [
+    "Vanguard (3)"
+   ],
+   "types": [
+    "Veletarii Prime : Infantry (Sergeant)",
+    "Veletarii : Infantry"
+   ],
+   "traits": [
+    "[Allegiance]",
+    "Solar Auxilia"
+   ],
+   "options": [
+    {
+     "text": "Veletarii Prime: exchange volkite charger for laspistol and charnabal tabar",
+     "max": 1,
+     "choices": [
+      {
+       "name": "Laspistol and charnabal tabar",
+       "points": 0
+      }
+     ]
+    },
+    {
+     "text": "Veletarii Prime (if exchanged): exchange charnabal tabar",
+     "max": 1,
+     "choices": [
+      {
+       "name": "Thunder hammer",
+       "points": 10
+      }
+     ],
+     "list": "Auxilia Melee Weapons"
+    },
+    {
+     "text": "Veletarii Prime (if exchanged): exchange laspistol",
+     "max": 1,
+     "list": "Auxilia Pistols"
+    },
+    {
+     "text": "Any Model: exchange volkite charger",
+     "max": "models",
+     "choices": [
+      {
+       "name": "Storm axe",
+       "points": 3
+      }
+     ]
+    },
+    {
+     "text": "One Veletarii",
+     "max": 2,
+     "choices": [
+      {
+       "name": "Vox interlock",
+       "points": 5
+      },
+      {
+       "name": "Auxilia vexilla",
+       "points": 5
+      }
+     ],
+     "unique": true
+    }
+   ]
+  },
+  {
+   "id": "aux-veletaris-vanguard-section",
+   "name": "Veletaris Vanguard Section",
+   "role": "EL",
+   "points": 100,
+   "page": 21,
+   "models": [
+    {
+     "name": "Veletarii Prime",
+     "count": 1
+    },
+    {
+     "name": "Veletarii",
+     "count": 9
+    }
+   ],
+   "extra": {
+    "model": "Veletarii",
+    "max": 10,
+    "points": 9
+   },
+   "profiles": [
+    {
+     "name": "Veletarii",
+     "stats": [
+      "6",
+      "4",
+      "4",
+      "3",
+      "3",
+      "1",
+      "3",
+      "2",
+      "7",
+      "8",
+      "6",
+      "6",
+      "4+",
+      "-"
+     ]
+    },
+    {
+     "name": "Veletarii Prime",
+     "stats": [
+      "6",
+      "4",
+      "4",
+      "3",
+      "3",
+      "1",
+      "3",
+      "2",
+      "8",
+      "8",
+      "6",
+      "6",
+      "4+",
+      "-"
+     ]
+    }
+   ],
+   "wargear": [
+    "Heavy flamer",
+    "Frag grenades",
+    "Krak grenades"
+   ],
+   "rules": [
+    "Vanguard (3)",
+    "Implacable Advance"
+   ],
+   "types": [
+    "Veletarii Prime : Infantry (Sergeant)",
+    "Veletarii : Infantry"
+   ],
+   "traits": [
+    "[Allegiance]",
+    "Solar Auxilia"
+   ],
+   "options": [
+    {
+     "text": "Veletarii Prime: exchange heavy flamer for laspistol and charnabal tabar",
+     "max": 1,
+     "choices": [
+      {
+       "name": "Laspistol and charnabal tabar",
+       "points": 0
+      }
+     ]
+    },
+    {
+     "text": "Veletarii Prime (if exchanged): exchange charnabal tabar",
+     "max": 1,
+     "choices": [
+      {
+       "name": "Thunder hammer",
+       "points": 10
+      }
+     ],
+     "list": "Auxilia Melee Weapons"
+    },
+    {
+     "text": "Veletarii Prime (if exchanged): exchange laspistol",
+     "max": 1,
+     "list": "Auxilia Pistols"
+    },
+    {
+     "text": "One Veletarii",
+     "max": 2,
+     "choices": [
+      {
+       "name": "Vox interlock",
+       "points": 5
+      },
+      {
+       "name": "Auxilia vexilla",
+       "points": 5
+      }
+     ],
+     "unique": true
+    }
+   ]
+  },
+  {
+   "id": "aux-charonite-ogryn-section",
+   "name": "Charonite Ogryn Section",
+   "role": "AL",
+   "points": 120,
+   "page": 22,
+   "models": [
+    {
+     "name": "Charonite Ogryn",
+     "count": 3
+    }
+   ],
+   "extra": {
+    "model": "Charonite Ogryn",
+    "max": 6,
+    "points": 40
+   },
+   "profiles": [
+    {
+     "name": "Charonite Ogryn",
+     "stats": [
+      "7",
+      "4",
+      "2",
+      "5",
+      "5",
+      "4",
+      "2",
+      "4",
+      "12",
+      "10",
+      "6",
+      "2",
+      "4+",
+      "-"
+     ]
+    }
+   ],
+   "wargear": [
+    "Charonite claws"
+   ],
+   "rules": [
+    "Heedless",
+    "Bitter Duty",
+    "Bulky (4)",
+    "Expendable (2)",
+    "Feel No Pain (5+)",
+    "Impact (A)"
+   ],
+   "types": [
+    "Infantry (Skirmish)"
+   ],
+   "traits": [
+    "[Allegiance]",
+    "Solar Auxilia"
+   ],
+   "options": []
+  },
+  {
+   "id": "aux-lasrifle-section",
+   "name": "Lasrifle Section",
+   "role": "TR",
+   "points": 50,
+   "page": 23,
+   "models": [
+    {
+     "name": "Auxilia Sergeant",
+     "count": 1
+    },
+    {
+     "name": "Auxiliary",
+     "count": 9
+    }
+   ],
+   "extra": {
+    "model": "Auxiliary",
+    "max": 10,
+    "points": 4
+   },
+   "profiles": [
+    {
+     "name": "Auxiliary",
+     "stats": [
+      "6",
+      "3",
+      "3",
+      "3",
+      "3",
+      "1",
+      "3",
+      "1",
+      "6",
+      "6",
+      "6",
+      "6",
+      "4+",
+      "-"
+     ]
+    },
+    {
+     "name": "Auxilia Sergeant",
+     "stats": [
+      "6",
+      "3",
+      "3",
+      "3",
+      "3",
+      "1",
+      "3",
+      "1",
+      "7",
+      "7",
+      "7",
+      "7",
+      "4+",
+      "-"
+     ]
+    }
+   ],
+   "wargear": [
+    "Lasrifle",
+    "Frag grenades",
+    "Krak grenades"
+   ],
+   "rules": [
+    "Line (1)"
+   ],
+   "types": [
+    "Auxilia Sergeant : Infantry (Sergeant)",
+    "Auxiliary : Infantry"
+   ],
+   "traits": [
+    "[Allegiance]",
+    "Solar Auxilia",
+    "Infantry Tercio"
+   ],
+   "options": [
+    {
+     "text": "Auxilia Sergeant: exchange lasrifle for laspistol and charnabal sabre",
+     "max": 1,
+     "choices": [
+      {
+       "name": "Laspistol and charnabal sabre",
+       "points": 0
+      }
+     ]
+    },
+    {
+     "text": "Auxilia Sergeant (if exchanged): exchange charnabal sabre",
+     "max": 1,
+     "choices": [
+      {
+       "name": "Thunder hammer",
+       "points": 10
+      }
+     ],
+     "list": "Auxilia Melee Weapons"
+    },
+    {
+     "text": "Auxilia Sergeant (if exchanged): exchange laspistol",
+     "max": 1,
+     "list": "Auxilia Pistols"
+    },
+    {
+     "text": "Any Model with a lasrifle",
+     "max": "models",
+     "choices": [
+      {
+       "name": "Bayonet",
+       "points": 1
+      },
+      {
+       "name": "Blast-charger",
+       "points": 1
+      }
+     ]
+    },
+    {
+     "text": "One Auxiliary",
+     "max": 2,
+     "choices": [
+      {
+       "name": "Vox interlock",
+       "points": 5
+      },
+      {
+       "name": "Auxilia vexilla",
+       "points": 5
+      }
+     ],
+     "unique": true
+    },
+    {
+     "text": "Auxilia Sergeant",
+     "max": 1,
+     "choices": [
+      {
+       "name": "Melta bombs",
+       "points": 10
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "aux-basilisk-artillery-tank",
+   "name": "Basilisk Artillery Tank",
+   "role": "AP",
+   "points": 120,
+   "page": 24,
+   "models": [
+    {
+     "name": "Basilisk",
+     "count": 1
+    }
+   ],
+   "profiles": [
+    {
+     "name": "Basilisk",
+     "stats": [
+      "10",
+      "3",
+      "12",
+      "12",
+      "10",
+      "5",
+      "-"
+     ],
+     "vehicle": true
+    }
+   ],
+   "wargear": [
+    "Centreline Mounted earthshaker cannon"
+   ],
+   "rules": [],
+   "types": [
+    "Vehicle"
+   ],
+   "traits": [
+    "[Allegiance]",
+    "Solar Auxilia"
+   ],
+   "options": [
+    {
+     "text": "Pintle weapon",
+     "max": 1,
+     "list": "Auxilia Pintle Weapons"
+    },
+    {
+     "text": "Any of the following (one of each)",
+     "max": 4,
+     "choices": [
+      {
+       "name": "Hunter-killer missile",
+       "points": 5
+      },
+      {
+       "name": "Searchlights",
+       "points": 5
+      },
+      {
+       "name": "Dozer blade",
+       "points": 5
+      }
+     ],
+     "unique": true
+    }
+   ]
+  },
+  {
+   "id": "aux-medusa-artillery-tank",
+   "name": "Medusa Artillery Tank",
+   "role": "AP",
+   "points": 140,
+   "page": 25,
+   "models": [
+    {
+     "name": "Medusa",
+     "count": 1
+    }
+   ],
+   "profiles": [
+    {
+     "name": "Medusa",
+     "stats": [
+      "10",
+      "3",
+      "12",
+      "12",
+      "10",
+      "5",
+      "-"
+     ],
+     "vehicle": true
+    }
+   ],
+   "wargear": [
+    "Centreline Mounted Medusa mortar"
+   ],
+   "rules": [],
+   "types": [
+    "Vehicle"
+   ],
+   "traits": [
+    "[Allegiance]",
+    "Solar Auxilia",
+    "Smokescreen"
+   ],
+   "options": [
+    {
+     "text": "Pintle weapon",
+     "max": 1,
+     "list": "Auxilia Pintle Weapons"
+    },
+    {
+     "text": "Any of the following (one of each)",
+     "max": 4,
+     "choices": [
+      {
+       "name": "Hunter-killer missile",
+       "points": 5
+      },
+      {
+       "name": "Searchlights",
+       "points": 5
+      },
+      {
+       "name": "Dozer blade",
+       "points": 5
+      }
+     ],
+     "unique": true
+    }
+   ]
+  },
+  {
+   "id": "aux-hermes-veletaris-squadron",
+   "name": "Hermes Veletaris Squadron",
+   "role": "AP",
+   "points": 40,
+   "page": 27,
+   "models": [
+    {
+     "name": "Hermes Veletaris Sentinel",
+     "count": 2
+    }
+   ],
+   "extra": {
+    "model": "Hermes Veletaris Sentinel",
+    "max": 4,
+    "points": 20
+   },
+   "profiles": [
+    {
+     "name": "Hermes Veletaris Sentinel",
+     "stats": [
+      "8",
+      "4",
+      "4",
+      "5",
+      "5",
+      "2",
+      "3",
+      "1",
+      "7",
+      "9",
+      "6",
+      "6",
+      "3+",
+      "-"
+     ]
+    }
+   ],
+   "wargear": [
+    "Volkite caliver",
+    "Frag grenades",
+    "Krak grenades"
+   ],
+   "rules": [
+    "Bulky (2)",
+    "Implacable Advance",
+    "Move Through Cover",
+    "Vanguard (2)"
+   ],
+   "types": [
+    "Cavalry"
+   ],
+   "traits": [
+    "[Allegiance]",
+    "Solar Auxilia"
+   ],
+   "options": [
+    {
+     "text": "Any Model: exchange volkite caliver",
+     "max": "models",
+     "choices": [
+      {
+       "name": "Heavy flamer",
+       "points": 3
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "aux-aethon-heavy-sentinel-squadron",
+   "name": "Aethon Heavy Sentinel Squadron",
+   "role": "EG",
+   "points": 60,
+   "page": 28,
+   "models": [
+    {
+     "name": "Aethon Heavy Sentinel",
+     "count": 1
+    }
+   ],
+   "extra": {
+    "model": "Aethon Heavy Sentinel",
+    "max": 2,
+    "points": 60
+   },
+   "profiles": [
+    {
+     "name": "Aethon Heavy Sentinel",
+     "stats": [
+      "7",
+      "3",
+      "3",
+      "6",
+      "6",
+      "5",
+      "3",
+      "2",
+      "9",
+      "10",
+      "6",
+      "2",
+      "2+",
+      "-"
+     ]
+    }
+   ],
+   "wargear": [
+    "Multi-laser",
+    "Aethon missile battery"
+   ],
+   "rules": [
+    "Bulky (6)",
+    "Slow and Purposeful"
+   ],
+   "types": [
+    "Walker (Skirmish)"
+   ],
+   "traits": [
+    "[Allegiance]",
+    "Solar Auxilia"
+   ],
+   "options": [
+    {
+     "text": "Any Model: exchange multi-laser",
+     "max": "models",
+     "choices": [
+      {
+       "name": "Autocannon",
+       "points": 10
+      },
+      {
+       "name": "Volkite culverin",
+       "points": 7
+      },
+      {
+       "name": "Lascannon",
+       "points": 15
+      },
+      {
+       "name": "Heavy incinerator",
+       "points": 10
+      },
+      {
+       "name": "Melta lance",
+       "points": 20
+      }
+     ]
+    },
+    {
+     "text": "Any Model: exchange Aethon missile battery",
+     "max": "models",
+     "choices": [
+      {
+       "name": "Hunter-killer missile battery",
+       "points": 15
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "aux-arvus-lighter",
+   "name": "Arvus Lighter",
+   "role": "TP",
+   "points": 75,
+   "page": 29,
+   "models": [
+    {
+     "name": "Arvus Lighter",
+     "count": 1
+    }
+   ],
+   "profiles": [
+    {
+     "name": "Arvus Lighter",
+     "stats": [
+      "18",
+      "3",
+      "11",
+      "11",
+      "11",
+      "4",
+      "12"
+     ],
+     "vehicle": true
+    }
+   ],
+   "wargear": [
+    "Searchlights"
+   ],
+   "rules": [
+    "Light Transport"
+   ],
+   "types": [
+    "Vehicle (Transport, Flyer)"
+   ],
+   "traits": [
+    "[Allegiance]",
+    "Solar Auxilia"
+   ],
+   "options": [
+    {
+     "text": "Hull (Rear) Mounted multi-laser",
+     "max": 1,
+     "choices": [
+      {
+       "name": "Hull (Rear) Mounted multi-laser",
+       "points": 10
+      }
+     ]
+    },
+    {
+     "text": "Flare launchers",
+     "max": 1,
+     "choices": [
+      {
+       "name": "Flare launchers",
+       "points": 5
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "aux-dracosan-armoured-transport",
+   "name": "Dracosan Armoured Transport",
+   "role": "TL",
+   "points": 140,
+   "page": 30,
+   "models": [
+    {
+     "name": "Dracosan",
+     "count": 1
+    }
+   ],
+   "profiles": [
+    {
+     "name": "Dracosan",
+     "stats": [
+      "12",
+      "3",
+      "13",
+      "13",
+      "11",
+      "7",
+      "22"
+     ],
+     "vehicle": true
+    }
+   ],
+   "wargear": [
+    "Hull (Front) Mounted twin lascannon"
+   ],
+   "rules": [
+    "Light Transport"
+   ],
+   "types": [
+    "Vehicle (Transport)"
+   ],
+   "traits": [
+    "[Allegiance]",
+    "Solar Auxilia",
+    "Smokescreen"
+   ],
+   "options": [
+    {
+     "text": "Exchange twin lascannon",
+     "max": 1,
+     "choices": [
+      {
+       "name": "Hull (Front) Mounted demolisher cannon",
+       "points": 35
+      }
+     ]
+    },
+    {
+     "text": "Pintle weapon",
+     "max": 1,
+     "list": "Auxilia Pintle Weapons"
+    },
+    {
+     "text": "Hull (Front) Mounted hunter-killer missiles, up to two",
+     "max": 2,
+     "choices": [
+      {
+       "name": "Hunter-killer missile",
+       "points": 5
+      }
+     ]
+    },
+    {
+     "text": "Any of the following (one of each)",
+     "max": 4,
+     "choices": [
+      {
+       "name": "Hunter-killer missile",
+       "points": 5
+      },
+      {
+       "name": "Searchlights",
+       "points": 5
+      },
+      {
+       "name": "Dozer blade",
+       "points": 5
+      },
+      {
+       "name": "Flare shield",
+       "points": 20
+      }
+     ],
+     "unique": true
+    }
+   ]
+  },
+  {
+   "id": "aux-primaris-lightning-strike-fighter",
+   "name": "Primaris-Lightning Strike Fighter",
+   "role": "AR",
+   "points": 160,
+   "page": 32,
+   "models": [
+    {
+     "name": "Primaris-Lightning",
+     "count": 1
+    }
+   ],
+   "profiles": [
+    {
+     "name": "Primaris-Lightning",
+     "stats": [
+      "26",
+      "3",
+      "11",
+      "11",
+      "11",
+      "4",
+      "-"
+     ],
+     "vehicle": true
+    }
+   ],
+   "wargear": [
+    "Centreline Mounted twin lascannon",
+    "Six Centreline Mounted hellstrike missiles"
+   ],
+   "rules": [],
+   "types": [
+    "Vehicle (Flyer)"
+   ],
+   "traits": [
+    "[Allegiance]",
+    "Solar Auxilia",
+    "Interceptor"
+   ],
+   "options": []
+  },
+  {
+   "id": "aux-thunderbolt-heavy-fighter",
+   "name": "Thunderbolt Heavy Fighter",
+   "role": "AR",
+   "points": 120,
+   "page": 33,
+   "models": [
+    {
+     "name": "Thunderbolt",
+     "count": 1
+    }
+   ],
+   "profiles": [
+    {
+     "name": "Thunderbolt",
+     "stats": [
+      "22",
+      "3",
+      "12",
+      "12",
+      "12",
+      "5",
+      "-"
+     ],
+     "vehicle": true
+    }
+   ],
+   "wargear": [
+    "Centreline Mounted twin lascannon",
+    "Two Centreline Mounted gravis autocannon"
+   ],
+   "rules": [],
+   "types": [
+    "Vehicle (Flyer)"
+   ],
+   "traits": [
+    "[Allegiance]",
+    "Solar Auxilia"
+   ],
+   "options": []
+  },
+  {
+   "id": "aux-malcador-heavy-tank",
+   "name": "Malcador Heavy Tank",
+   "role": "BL",
+   "points": 180,
+   "page": 34,
+   "models": [
+    {
+     "name": "Malcador",
+     "count": 1
+    }
+   ],
+   "profiles": [
+    {
+     "name": "Malcador",
+     "stats": [
+      "12",
+      "3",
+      "13",
+      "13",
+      "11",
+      "7",
+      "-"
+     ],
+     "vehicle": true
+    }
+   ],
+   "wargear": [
+    "Hull (Front) Mounted battlecannon",
+    "Hull (Front) Mounted heavy bolter",
+    "Two Sponson Mounted multi-lasers"
+   ],
+   "rules": [
+    "Independent Fire"
+   ],
+   "types": [
+    "Vehicle"
+   ],
+   "traits": [
+    "[Allegiance]",
+    "Solar Auxilia",
+    "Smokescreen"
+   ],
+   "options": [
+    {
+     "text": "Exchange battlecannon",
+     "max": 1,
+     "choices": [
+      {
+       "name": "Hull (Front) Mounted twin lascannon",
+       "points": 0
+      },
+      {
+       "name": "Hull (Front) Mounted vanquisher cannon",
+       "points": 10
+      }
+     ]
+    },
+    {
+     "text": "Exchange Hull (Front) heavy bolter",
+     "max": 1,
+     "choices": [
+      {
+       "name": "Hull (Front) Mounted demolisher cannon",
+       "points": 40
+      }
+     ],
+     "list": "Auxilia Hull Weapons"
+    },
+    {
+     "text": "Exchange both Sponson multi-lasers",
+     "max": 1,
+     "list": "Auxilia Sponson Weapons"
+    },
+    {
+     "text": "Pintle weapon",
+     "max": 1,
+     "list": "Auxilia Pintle Weapons"
+    },
+    {
+     "text": "Any of the following (one of each)",
+     "max": 4,
+     "choices": [
+      {
+       "name": "Hunter-killer missile",
+       "points": 5
+      },
+      {
+       "name": "Searchlights",
+       "points": 5
+      },
+      {
+       "name": "Dozer blade",
+       "points": 5
+      },
+      {
+       "name": "Flare shield",
+       "points": 20
+      }
+     ],
+     "unique": true
+    }
+   ]
+  },
+  {
+   "id": "aux-leman-russ-assault-tank",
+   "name": "Leman Russ Assault Tank",
+   "role": "BL",
+   "points": 140,
+   "page": 35,
+   "models": [
+    {
+     "name": "Leman Russ Assault Tank",
+     "count": 1
+    }
+   ],
+   "profiles": [
+    {
+     "name": "Leman Russ Assault Tank",
+     "stats": [
+      "10",
+      "3",
+      "14",
+      "13",
+      "10",
+      "6",
+      "-"
+     ],
+     "vehicle": true
+    }
+   ],
+   "wargear": [
+    "Turret Mounted volkite macro-saker",
+    "Hull (Front) Mounted heavy bolter"
+   ],
+   "rules": [],
+   "types": [
+    "Vehicle"
+   ],
+   "traits": [
+    "[Allegiance]",
+    "Solar Auxilia",
+    "Smokescreen"
+   ],
+   "options": [
+    {
+     "text": "Exchange volkite macro-saker",
+     "max": 1,
+     "choices": [
+      {
+       "name": "Turret Mounted executioner plasma destroyer",
+       "points": 25
+      },
+      {
+       "name": "Turret Mounted demolisher cannon",
+       "points": 30
+      }
+     ]
+    },
+    {
+     "text": "Exchange heavy bolter",
+     "max": 1,
+     "list": "Auxilia Hull Weapons"
+    },
+    {
+     "text": "Pintle weapon",
+     "max": 1,
+     "list": "Auxilia Pintle Weapons"
+    },
+    {
+     "text": "Any of the following (one of each)",
+     "max": 4,
+     "choices": [
+      {
+       "name": "Hunter-killer missile",
+       "points": 5
+      },
+      {
+       "name": "Searchlights",
+       "points": 5
+      },
+      {
+       "name": "Dozer blade",
+       "points": 5
+      }
+     ],
+     "unique": true
+    }
+   ]
+  },
+  {
+   "id": "aux-leman-russ-strike-tank",
+   "name": "Leman Russ Strike Tank",
+   "role": "BL",
+   "points": 140,
+   "page": 36,
+   "models": [
+    {
+     "name": "Leman Russ Strike Tank",
+     "count": 1
+    }
+   ],
+   "profiles": [
+    {
+     "name": "Leman Russ Strike Tank",
+     "stats": [
+      "10",
+      "3",
+      "14",
+      "13",
+      "10",
+      "6",
+      "-"
+     ],
+     "vehicle": true
+    }
+   ],
+   "wargear": [
+    "Turret Mounted battlecannon",
+    "Hull (Front) Mounted heavy bolter"
+   ],
+   "rules": [],
+   "types": [
+    "Vehicle"
+   ],
+   "traits": [
+    "[Allegiance]",
+    "Solar Auxilia",
+    "Smokescreen"
+   ],
+   "options": [
+    {
+     "text": "Exchange battlecannon",
+     "max": 1,
+     "choices": [
+      {
+       "name": "Turret Mounted gravis autocannon",
+       "points": 0
+      },
+      {
+       "name": "Turret Mounted twin lascannon",
+       "points": 0
+      },
+      {
+       "name": "Turret Mounted vanquisher cannon and Co-axial heavy stubber",
+       "points": 10
+      }
+     ]
+    },
+    {
+     "text": "Exchange heavy bolter",
+     "max": 1,
+     "list": "Auxilia Hull Weapons"
+    },
+    {
+     "text": "Pintle weapon",
+     "max": 1,
+     "list": "Auxilia Pintle Weapons"
+    },
+    {
+     "text": "Any of the following (one of each)",
+     "max": 4,
+     "choices": [
+      {
+       "name": "Hunter-killer missile",
+       "points": 5
+      },
+      {
+       "name": "Searchlights",
+       "points": 5
+      },
+      {
+       "name": "Dozer blade",
+       "points": 5
+      }
+     ],
+     "unique": true
+    }
+   ]
+  },
+  {
+   "id": "aux-valdor-tank-destroyer",
+   "name": "Valdor Tank Destroyer",
+   "role": "BL",
+   "points": 190,
+   "page": 38,
+   "models": [
+    {
+     "name": "Valdor Tank Destroyer",
+     "count": 1
+    }
+   ],
+   "profiles": [
+    {
+     "name": "Valdor Tank Destroyer",
+     "stats": [
+      "12",
+      "3",
+      "13",
+      "13",
+      "11",
+      "7",
+      "-"
+     ],
+     "vehicle": true
+    }
+   ],
+   "wargear": [
+    "Centreline Mounted neutron beam laser",
+    "Sponson (Right) Mounted multi-laser"
+   ],
+   "rules": [
+    "Explodes (5+)"
+   ],
+   "types": [
+    "Vehicle"
+   ],
+   "traits": [
+    "[Allegiance]",
+    "Solar Auxilia",
+    "Smokescreen"
+   ],
+   "options": [
+    {
+     "text": "Exchange Sponson (Right) multi-laser",
+     "max": 1,
+     "choices": [
+      {
+       "name": "Sponson (Right) heavy bolter",
+       "points": 0
+      },
+      {
+       "name": "Sponson (Right) heavy flamer",
+       "points": 0
+      },
+      {
+       "name": "Sponson (Right) autocannon",
+       "points": 5
+      },
+      {
+       "name": "Sponson (Right) lascannon",
+       "points": 10
+      }
+     ]
+    },
+    {
+     "text": "Pintle weapon",
+     "max": 1,
+     "list": "Auxilia Pintle Weapons"
+    },
+    {
+     "text": "Any of the following (one of each)",
+     "max": 4,
+     "choices": [
+      {
+       "name": "Hunter-killer missile",
+       "points": 5
+      },
+      {
+       "name": "Searchlights",
+       "points": 5
+      },
+      {
+       "name": "Dozer blade",
+       "points": 5
+      },
+      {
+       "name": "Flare shield",
+       "points": 20
+      }
+     ],
+     "unique": true
+    }
+   ]
+  },
+  {
+   "id": "aux-stormhammer-super-heavy-assault-tank",
+   "name": "Stormhammer Super-Heavy Assault Tank",
+   "role": "SB",
+   "points": 500,
+   "page": 39,
+   "models": [
+    {
+     "name": "Stormhammer",
+     "count": 1
+    }
+   ],
+   "profiles": [
+    {
+     "name": "Stormhammer",
+     "stats": [
+      "10",
+      "3",
+      "14",
+      "13",
+      "12",
+      "16",
+      "-"
+     ],
+     "vehicle": true
+    }
+   ],
+   "wargear": [
+    "Turret Mounted Stormhammer cannon",
+    "Co-axial (Stormhammer cannon) Mounted multi-laser",
+    "Hull (Front) Mounted twin battlecannon",
+    "Hull (Front) Mounted multi-laser",
+    "Three Hull (Left) Mounted multi-lasers",
+    "Three Hull (Right) Mounted multi-lasers"
+   ],
+   "rules": [],
+   "types": [
+    "Vehicle (Super-heavy)"
+   ],
+   "traits": [
+    "[Allegiance]",
+    "Solar Auxilia",
+    "Smokescreen"
+   ],
+   "options": [
+    {
+     "text": "Exchange Hull (Front) multi-laser",
+     "max": 1,
+     "choices": [
+      {
+       "name": "Hull (Front) Mounted lascannon",
+       "points": 10
+      }
+     ]
+    },
+    {
+     "text": "Exchange the three Hull (Left) and three Hull (Right) multi-lasers",
+     "max": 1,
+     "choices": [
+      {
+       "name": "Six heavy bolters",
+       "points": 0
+      },
+      {
+       "name": "Six heavy flamers",
+       "points": 0
+      },
+      {
+       "name": "Six lascannon",
+       "points": 50
+      }
+     ]
+    },
+    {
+     "text": "Pintle weapon",
+     "max": 1,
+     "list": "Auxilia Pintle Weapons"
+    },
+    {
+     "text": "Any of the following (one of each)",
+     "max": 4,
+     "choices": [
+      {
+       "name": "Hunter-killer missile",
+       "points": 5
+      },
+      {
+       "name": "Searchlights",
+       "points": 5
+      },
+      {
+       "name": "Flare shield",
+       "points": 20
+      }
+     ],
+     "unique": true
+    }
+   ]
+  },
+  {
+   "id": "aux-rapier-section",
+   "name": "Rapier Section",
+   "role": "AP",
+   "points": 30,
+   "page": 26,
+   "models": [
+    {
+     "name": "Rapier Gunner",
+     "count": 1
+    },
+    {
+     "name": "Rapier Carrier",
+     "count": 1
+    }
+   ],
+   "extra": {
+    "model": "Rapier Crew (Gunner + Carrier)",
+    "max": 3,
+    "points": 30
+   },
+   "profiles": [
+    {
+     "name": "Rapier Gunner",
+     "stats": [
+      "6",
+      "3",
+      "3",
+      "3",
+      "3",
+      "1",
+      "3",
+      "1",
+      "6",
+      "7",
+      "6",
+      "6",
+      "4+",
+      "-"
+     ]
+    },
+    {
+     "name": "Rapier Carrier",
+     "stats": [
+      "6",
+      "1",
+      "3",
+      "4",
+      "6",
+      "3",
+      "1",
+      "-",
+      "6",
+      "7",
+      "6",
+      "1",
+      "3+",
+      "-"
+     ]
+    }
+   ],
+   "wargear": [
+    "Rapier Gunner : lasrifle, frag grenades, krak grenades",
+    "Rapier Carrier : Gravis multi-laser array"
+   ],
+   "rules": [
+    "Bulky (4) (Rapier Carrier only)",
+    "Slow and Purposeful",
+    "Support Unit (1)",
+    "Rapier Section"
+   ],
+   "types": [
+    "Rapier Gunner : Infantry (Sergeant)",
+    "Rapier Carrier : Infantry"
+   ],
+   "traits": [
+    "[Allegiance]",
+    "Solar Auxilia"
+   ],
+   "options": [
+    {
+     "text": "Each Rapier Carrier: exchange Gravis multi-laser array",
+     "max": "models",
+     "choices": [
+      {
+       "name": "Gravis heavy bolter battery",
+       "points": 5
+      },
+      {
+       "name": "Laser destroyer",
+       "points": 25
+      },
+      {
+       "name": "Quad launcher",
+       "points": 20
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "aux-hermes-light-sentinel-squadron",
+   "name": "Hermes Light Sentinel Squadron",
+   "role": "RE",
+   "points": 32,
+   "page": 31,
+   "models": [
+    {
+     "name": "Hermes Light Sentinel",
+     "count": 2
+    }
+   ],
+   "extra": {
+    "model": "Hermes Light Sentinel",
+    "max": 4,
+    "points": 16
+   },
+   "profiles": [
+    {
+     "name": "Hermes Light Sentinel",
+     "stats": [
+      "10",
+      "3",
+      "3",
+      "5",
+      "5",
+      "2",
+      "3",
+      "1",
+      "7",
+      "8",
+      "6",
+      "6",
+      "4+",
+      "-"
+     ]
+    }
+   ],
+   "wargear": [
+    "Multi-laser",
+    "Frag grenades",
+    "Krak grenades"
+   ],
+   "rules": [
+    "Bulky (2)",
+    "Implacable Advance",
+    "Move Through Cover",
+    "Outflank"
+   ],
+   "types": [
+    "Cavalry (Light)"
+   ],
+   "traits": [
+    "[Allegiance]",
+    "Solar Auxilia"
+   ],
+   "options": [
+    {
+     "text": "Any Model: exchange multi-laser",
+     "max": "models",
+     "choices": [
+      {
+       "name": "Hermes grenade launcher",
+       "points": 5
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "aux-malcador-infernus-special-weapons-tank",
+   "name": "Malcador Infernus Special Weapons Tank",
+   "role": "BL",
+   "points": 205,
+   "page": 37,
+   "models": [
+    {
+     "name": "Malcador Infernus",
+     "count": 1
+    }
+   ],
+   "profiles": [
+    {
+     "name": "Malcador Infernus",
+     "stats": [
+      "12",
+      "3",
+      "13",
+      "13",
+      "10",
+      "7",
+      "-"
+     ],
+     "vehicle": true
+    }
+   ],
+   "wargear": [
+    "Centreline Mounted infernus cannon",
+    "Two Sponson Mounted multi-lasers"
+   ],
+   "rules": [
+    "Explodes (3+)"
+   ],
+   "types": [
+    "Vehicle"
+   ],
+   "traits": [
+    "[Allegiance]",
+    "Solar Auxilia",
+    "Smokescreen"
+   ],
+   "options": [
+    {
+     "text": "Exchange both Sponson multi-lasers",
+     "max": 1,
+     "list": "Auxilia Sponson Weapons"
+    },
+    {
+     "text": "Pintle weapon",
+     "max": 1,
+     "list": "Auxilia Pintle Weapons"
+    },
+    {
+     "text": "Any of the following (one of each)",
+     "max": 4,
+     "choices": [
+      {
+       "name": "Hunter-killer missile",
+       "points": 5
+      },
+      {
+       "name": "Searchlights",
+       "points": 5
+      },
+      {
+       "name": "Dozer blade",
+       "points": 5
+      },
+      {
+       "name": "Flare shield",
+       "points": 20
+      }
+     ],
+     "unique": true
+    }
+   ]
+  }
+ ]
+}

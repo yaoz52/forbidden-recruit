@@ -1,0 +1,528 @@
+{
+ "id": "conclaves-skitarii",
+ "name": "Conclaves Skitarii",
+ "lang": "fr",
+ "army": "skit",
+ "source": "Conclaves Skitarii v1.0 (FR)",
+ "units": [
+  {
+   "id": "skit-marechal-des-peregrins-de-combat-skitarii",
+   "name": "Maréchal des Pérégrins de Combat Skitarii",
+   "lang": "fr",
+   "role": "EM",
+   "points": 100,
+   "page": 4,
+   "models": [
+    {
+     "name": "Maréchal des Pérégrins de Combat Skitarii",
+     "count": 1
+    }
+   ],
+   "profiles": [
+    {
+     "name": "Maréchal",
+     "stats": [
+      "6",
+      "5",
+      "4",
+      "3",
+      "4",
+      "4",
+      "4",
+      "4",
+      "9",
+      "8",
+      "8",
+      "8",
+      "4+",
+      "5+"
+     ]
+    }
+   ],
+   "wargear": [
+    "Arme de poing volt",
+    "Sceptre auctorite",
+    "Grenades Frag",
+    "Grenades Krak"
+   ],
+   "rules": [
+    "Vif (2)"
+   ],
+   "types": [
+    "Infanterie (État-major)"
+   ],
+   "traits": [
+    "[Allégeance]",
+    "[Skitarii]"
+   ],
+   "options": [
+    {
+     "text": "Cette Figurine peut échanger son sceptre auctorite contre une des options suivantes :",
+     "max": 1,
+     "choices": [
+      {
+       "name": "Griffe de phase",
+       "points": 20
+      },
+      {
+       "name": "Bâton foudroyant",
+       "points": 15
+      }
+     ]
+    },
+    {
+     "text": "Cette Figurine peut échanger son arme de poing volt contre un pistolet archéotech pour +5 Points.",
+     "max": 1,
+     "choices": [
+      {
+       "name": "Pistolet archéotech",
+       "points": 5
+      }
+     ]
+    },
+    {
+     "text": "Cette Figurine peut être dotée de charges Rad pour +2 Points.",
+     "max": 1,
+     "choices": [
+      {
+       "name": "Charges Rad",
+       "points": 2
+      }
+     ]
+    },
+    {
+     "text": "Cette Figurine peut être dotée de grenades disruptrices pour +2 Points.",
+     "max": 1,
+     "choices": [
+      {
+       "name": "Grenades disruptrices",
+       "points": 2
+      }
+     ]
+    }
+   ],
+   "army": "skit",
+   "source": "Conclaves Skitarii v1.0 (FR)"
+  },
+  {
+   "id": "skit-corpus-de-peregrins-de-combat-skitarii",
+   "name": "Corpus de Pérégrins de Combat Skitarii",
+   "lang": "fr",
+   "role": "TR",
+   "points": 0,
+   "page": 5,
+   "models": [
+    {
+     "name": "Ordinator Skitarii",
+     "count": 1
+    },
+    {
+     "name": "Pérégrins de Combat Skitarii",
+     "count": 7
+    }
+   ],
+   "extra": {
+    "model": "Pérégrins de Combat Skitarii",
+    "max": 8,
+    "points": 10
+   },
+   "profiles": [
+    {
+     "name": "Pérégrin de Combat",
+     "stats": [
+      "6",
+      "3",
+      "3",
+      "3",
+      "4",
+      "2",
+      "3",
+      "2",
+      "7",
+      "8",
+      "8",
+      "7",
+      "4+",
+      "6+"
+     ]
+    },
+    {
+     "name": "Ordinator",
+     "stats": [
+      "6",
+      "4",
+      "3",
+      "3",
+      "4",
+      "2",
+      "3",
+      "3",
+      "8",
+      "8",
+      "8",
+      "7",
+      "4+",
+      "6+"
+     ]
+    }
+   ],
+   "wargear": [
+    "Arquebuse volt",
+    "Grenades Frag",
+    "Grenades Krak"
+   ],
+   "rules": [
+    "Vif (2)"
+   ],
+   "types": [
+    "Pérégrin de Combat : Infanterie",
+    "Ordinator : Infanterie (Sergent)"
+   ],
+   "traits": [
+    "[Allégeance]",
+    "[Skitarii]"
+   ],
+   "options": [
+    {
+     "text": "Toute Figurine de cette Unité peut être dotée de charges Rad pour +2 Points par Figurine.",
+     "max": "models",
+     "choices": [
+      {
+       "name": "Charges Rad",
+       "points": 2
+      }
+     ]
+    },
+    {
+     "text": "Toute Figurine de cette Unité peut être dotée de grenades disruptrices pour +2 Points par Figurine.",
+     "max": "models",
+     "choices": [
+      {
+       "name": "Grenades disruptrices",
+       "points": 2
+      }
+     ]
+    }
+   ],
+   "optionsPending": true,
+   "army": "skit",
+   "source": "Conclaves Skitarii v1.0 (FR)"
+  },
+  {
+   "id": "skit-ost-de-glaneurs",
+   "name": "Ost de Glaneurs",
+   "lang": "fr",
+   "role": "AP",
+   "points": 50,
+   "page": 6,
+   "models": [
+    {
+     "name": "Glaneurs",
+     "count": 10
+    }
+   ],
+   "profiles": [
+    {
+     "name": "Glaneur",
+     "stats": [
+      "6",
+      "2",
+      "2",
+      "3",
+      "3",
+      "1",
+      "2",
+      "1",
+      "4",
+      "4",
+      "4",
+      "4",
+      "6+",
+      "-"
+     ]
+    }
+   ],
+   "wargear": [
+    "Mousquet laser"
+   ],
+   "rules": [
+    "Sacrifiable (2)",
+    "Unité d'Appui (1)",
+    "Suiveurs Zélés"
+   ],
+   "types": [
+    "Infanterie"
+   ],
+   "traits": [
+    "[Allégeance]",
+    "[Skitarii]"
+   ],
+   "options": [],
+   "army": "skit",
+   "source": "Conclaves Skitarii v1.0 (FR)"
+  },
+  {
+   "id": "skit-automate-stratos-vultarax-skitarii",
+   "name": "Automate-stratos Vultarax Skitarii",
+   "lang": "fr",
+   "role": "AR",
+   "points": 100,
+   "page": 7,
+   "models": [
+    {
+     "name": "Vultarax",
+     "count": 1
+    }
+   ],
+   "profiles": [
+    {
+     "name": "Vultarax",
+     "stats": [
+      "12",
+      "3",
+      "3",
+      "5",
+      "6",
+      "6",
+      "4",
+      "3",
+      "7",
+      "12",
+      "4",
+      "4",
+      "3+",
+      "5+"
+     ]
+    }
+   ],
+   "wargear": [
+    "Électro-éclateur",
+    "Lance-missiles Vultarax",
+    "Serres dendrites"
+   ],
+   "rules": [
+    "Massif (6)",
+    "Avance Implacable",
+    "Explose (6+)",
+    "Protocoles de Tir (2)",
+    "Orage de Feu"
+   ],
+   "types": [
+    "Automate (Antigrav)"
+   ],
+   "traits": [
+    "[Allégeance]",
+    "[Skitarii]"
+   ],
+   "options": [],
+   "optionsPending": true,
+   "army": "skit",
+   "source": "Conclaves Skitarii v1.0 (FR)"
+  },
+  {
+   "id": "skit-convoyeur-blinde-triaros-skitarii",
+   "name": "Convoyeur Blindé Triaros Skitarii",
+   "lang": "fr",
+   "role": "TL",
+   "points": 200,
+   "page": 8,
+   "models": [
+    {
+     "name": "Triaros Skitarii",
+     "count": 1
+    }
+   ],
+   "profiles": [
+    {
+     "name": "Triaros Skitarii",
+     "stats": [
+      "10",
+      "4",
+      "14",
+      "12",
+      "12",
+      "7",
+      "22"
+     ],
+     "vehicle": true
+    }
+   ],
+   "wargear": [
+    "Deux arquebuses volkites d'Axe Central",
+    "Canon à bolts Mauler jumelé sur Pivot",
+    "Bouclier répulsif",
+    "Projecteurs"
+   ],
+   "rules": [
+    "Autoréparation (4+)",
+    "Bélier-choc"
+   ],
+   "types": [
+    "Véhicule (Transport)"
+   ],
+   "traits": [
+    "[Allégeance]",
+    "[Skitarii]"
+   ],
+   "options": [],
+   "optionsPending": true,
+   "army": "skit",
+   "source": "Conclaves Skitarii v1.0 (FR)"
+  },
+  {
+   "id": "skit-char-d-assaut-karacnos-skitarii",
+   "name": "Char d'Assaut Karacnos Skitarii",
+   "lang": "fr",
+   "role": "BL",
+   "points": 235,
+   "page": 9,
+   "models": [
+    {
+     "name": "Karacnos Skitarii",
+     "count": 1
+    }
+   ],
+   "profiles": [
+    {
+     "name": "Karacnos Skitarii",
+     "stats": [
+      "10",
+      "4",
+      "14",
+      "12",
+      "12",
+      "7",
+      "-"
+     ],
+     "vehicle": true
+    }
+   ],
+   "wargear": [
+    "Batterie de mortiers Karacnos de Coque (Avant)",
+    "Deux mousquets à foudre Latéraux",
+    "Bouclier répulsif",
+    "Projecteurs"
+   ],
+   "rules": [
+    "Autoréparation (4+)",
+    "Bélier-choc",
+    "Explose (6+)"
+   ],
+   "types": [
+    "Véhicule"
+   ],
+   "traits": [
+    "[Allégeance]",
+    "[Skitarii]"
+   ],
+   "options": [],
+   "optionsPending": true,
+   "army": "skit",
+   "source": "Conclaves Skitarii v1.0 (FR)"
+  },
+  {
+   "id": "skit-char-de-combat-krios-skitarii",
+   "name": "Char de Combat Krios Skitarii",
+   "lang": "fr",
+   "role": "BL",
+   "points": 135,
+   "page": 10,
+   "models": [
+    {
+     "name": "Krios Skitarii",
+     "count": 1
+    }
+   ],
+   "profiles": [
+    {
+     "name": "Krios Skitarii",
+     "stats": [
+      "14",
+      "4",
+      "13",
+      "12",
+      "10",
+      "5",
+      "-"
+     ],
+     "vehicle": true
+    }
+   ],
+   "wargear": [
+    "Canon à foudre d'Axe Central"
+   ],
+   "rules": [
+    "Autoréparation (4+)"
+   ],
+   "types": [
+    "Véhicule (Rapide)"
+   ],
+   "traits": [
+    "[Allégeance]",
+    "[Skitarii]"
+   ],
+   "options": [],
+   "optionsPending": true,
+   "army": "skit",
+   "source": "Conclaves Skitarii v1.0 (FR)"
+  },
+  {
+   "id": "skit-chasseur-de-chars-krios-venator-skitarii",
+   "name": "Chasseur de Chars Krios Venator Skitarii",
+   "lang": "fr",
+   "role": "BL",
+   "points": 160,
+   "page": 11,
+   "models": [
+    {
+     "name": "Krios Venator Skitarii",
+     "count": 1
+    }
+   ],
+   "profiles": [
+    {
+     "name": "Krios Venator Skitarii",
+     "stats": [
+      "14",
+      "4",
+      "13",
+      "12",
+      "10",
+      "5",
+      "-"
+     ],
+     "vehicle": true
+    }
+   ],
+   "wargear": [
+    "Pulsar pilonneur d'Axe Central"
+   ],
+   "rules": [
+    "Autoréparation (4+)"
+   ],
+   "types": [
+    "Véhicule (Rapide)"
+   ],
+   "traits": [
+    "[Allégeance]",
+    "[Skitarii]"
+   ],
+   "options": [
+    {
+     "text": "Cette Figurine peut être dotée de deux arquebuses volkites Latérales pour +15 Points.",
+     "max": 1,
+     "choices": [
+      {
+       "name": "Deux arquebuses volkites Latérales",
+       "points": 15
+      }
+     ]
+    }
+   ],
+   "optionsPending": true,
+   "army": "skit",
+   "source": "Conclaves Skitarii v1.0 (FR)"
+  }
+ ],
+ "detachments": []
+}

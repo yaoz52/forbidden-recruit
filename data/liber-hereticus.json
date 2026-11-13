@@ -1,0 +1,4745 @@
+{
+ "id": "liber-hereticus",
+ "name": "Liber Hereticus",
+ "lang": "fr",
+ "army": "la",
+ "source": "Liber Hereticus, édition française 2025 — unités des neuf Légions renégates (les unités communes sont identiques à celles du Liber Astartes)",
+ "equipmentLists": {},
+ "detachments": [
+  {
+   "id": "escadre-primaute",
+   "name": "Escadre de Primauté",
+   "kind": "aux",
+   "faction": "Emperor's Children",
+   "slots": [
+    {
+     "role": "SU"
+    },
+    {
+     "role": "EL"
+    },
+    {
+     "role": "AR"
+    },
+    {
+     "role": "AR"
+    }
+   ]
+  },
+  {
+   "id": "cohorte-feu-de-fer",
+   "name": "La Cohorte Feu de Fer",
+   "kind": "aux",
+   "faction": "Iron Warriors",
+   "slots": [
+    {
+     "role": "BL",
+     "prime": true
+    },
+    {
+     "role": "BL"
+    },
+    {
+     "role": "AP"
+    },
+    {
+     "role": "AP"
+    }
+   ],
+   "only": {
+    "BL": [
+     "Bombarde Arquitor"
+    ]
+   },
+   "note": "cases BL : Bombarde Arquitor"
+  },
+  {
+   "id": "marteau-olympia",
+   "name": "Le Marteau d'Olympia",
+   "kind": "apex",
+   "faction": "Iron Warriors",
+   "slots": [
+    {
+     "role": "AL",
+     "prime": true
+    },
+    {
+     "role": "AL"
+    },
+    {
+     "role": "BL"
+    },
+    {
+     "role": "TR"
+    },
+    {
+     "role": "TR"
+    }
+   ],
+   "needsUnit": [
+    "Forgeguerre",
+    "Perturabo"
+   ]
+  },
+  {
+   "id": "assaut-terreur",
+   "name": "Assaut de Terreur",
+   "kind": "aux",
+   "faction": "Night Lords",
+   "slots": [
+    {
+     "role": "TR",
+     "prime": true
+    },
+    {
+     "role": "TR"
+    },
+    {
+     "role": "AR"
+    },
+    {
+     "role": "AR"
+    }
+   ],
+   "only": {
+    "TR": [
+     "Escouade Terreur"
+    ]
+   },
+   "note": "cases TR : Escouade Terreur"
+  },
+  {
+   "id": "chasse-atramentar",
+   "name": "Chasse Atramentar",
+   "kind": "apex",
+   "faction": "Night Lords",
+   "slots": [
+    {
+     "role": "SU",
+     "prime": true
+    },
+    {
+     "role": "AL"
+    },
+    {
+     "role": "AL"
+    }
+   ],
+   "only": {
+    "SU": [
+     "Escouade d'État-major Terminator Cataphractii",
+     "Escouade d'État-major Terminator Tartaros"
+    ],
+    "AL": [
+     "Escouade Terminator Cataphractii",
+     "Escouade Terminator Tartaros"
+    ]
+   },
+   "note": "cases SU : Escouade d'État-major Terminator Cataphractii, Escouade d'État-major Terminator Tartaros ; cases AL : Escouade Terminator Cataphractii, Escouade Terminator Tartaros"
+  },
+  {
+   "id": "cadre-berserkers",
+   "name": "Cadre de Berserkers",
+   "kind": "aux",
+   "faction": "World Eaters",
+   "slots": [
+    {
+     "role": "TR",
+     "prime": true
+    },
+    {
+     "role": "AL"
+    },
+    {
+     "role": "AL"
+    },
+    {
+     "role": "EL"
+    }
+   ],
+   "only": {
+    "AL": [
+     "Escouade Saccageuse"
+    ]
+   },
+   "note": "cases AL : Escouade Saccageuse"
+  },
+  {
+   "id": "ost-moissonneur",
+   "name": "Ost Moissonneur",
+   "kind": "aux",
+   "faction": "Death Guard",
+   "slots": [
+    {
+     "role": "TR",
+     "prime": true
+    },
+    {
+     "role": "TR"
+    },
+    {
+     "role": "AP"
+    },
+    {
+     "role": "AL"
+    }
+   ],
+   "except": {
+    "TR": [
+     "Escouade d'Assaut"
+    ]
+   },
+   "note": "Les cases Troupes ne peuvent pas recevoir d'Escouade d'Assaut."
+  },
+  {
+   "id": "convocation-prospero",
+   "name": "Convocation de Prospero",
+   "kind": "aux",
+   "faction": "Thousand Sons",
+   "slots": [
+    {
+     "role": "TR",
+     "prime": true
+    },
+    {
+     "role": "AR"
+    },
+    {
+     "role": "EL"
+    },
+    {
+     "role": "BL"
+    }
+   ]
+  },
+  {
+   "id": "cadre-suprematie",
+   "name": "Cadre de Suprématie",
+   "kind": "aux",
+   "faction": "Sons of Horus",
+   "slots": [
+    {
+     "role": "TR",
+     "prime": true
+    },
+    {
+     "role": "TR"
+    },
+    {
+     "role": "AL"
+    },
+    {
+     "role": "EL"
+    }
+   ]
+  },
+  {
+   "id": "conclave-exalte",
+   "name": "Conclave Exalté",
+   "kind": "apex",
+   "faction": "Word Bearers",
+   "slots": [
+    {
+     "role": "TR",
+     "prime": true
+    },
+    {
+     "role": "TR"
+    },
+    {
+     "role": "EL"
+    },
+    {
+     "role": "EL"
+    }
+   ],
+   "allegiance": "Renégat"
+  },
+  {
+   "id": "leviathal",
+   "name": "Léviathal de Chasseurs de Têtes",
+   "kind": "aux",
+   "faction": "Alpha Legion",
+   "slots": [
+    {
+     "role": "RE",
+     "prime": true
+    },
+    {
+     "role": "RE"
+    },
+    {
+     "role": "EL"
+    },
+    {
+     "role": "EL"
+    }
+   ],
+   "only": {
+    "EL": [
+     "Escouade Traqueuse",
+     "Section de Chasseurs de Têtes"
+    ]
+   },
+   "note": "cases EL : Escouade Traqueuse, Section de Chasseurs de Têtes"
+  }
+ ],
+ "rules": {},
+ "units": [
+  {
+   "id": "fulgrim",
+   "name": "Fulgrim",
+   "role": "SG",
+   "points": 425,
+   "page": 130,
+   "models": [
+    {
+     "name": "Fulgrim",
+     "count": 1
+    }
+   ],
+   "profiles": [
+    {
+     "name": "Fulgrim",
+     "stats": [
+      "8",
+      "8",
+      "6",
+      "6",
+      "6",
+      "6",
+      "8",
+      "6",
+      "12",
+      "10",
+      "10",
+      "10",
+      "2+",
+      "4+"
+     ]
+    }
+   ],
+   "wargear": [
+    "Lame laërienne",
+    "Flambeau"
+   ],
+   "rules": [
+    "Sire des Emperor's Children",
+    "Massif (4)",
+    "Sublime Spadassin",
+    "Guerrier Éternel (2)"
+   ],
+   "types": [
+    "Parangon (Unique)"
+   ],
+   "traits": [
+    "Renégat",
+    "Emperor's Children",
+    "Maître de la Légion"
+   ],
+   "faction": "Emperor's Children",
+   "options": []
+  },
+  {
+   "id": "fulgrim-transfigure",
+   "name": "Fulgrim Transfiguré",
+   "role": "SG",
+   "points": 600,
+   "page": 132,
+   "models": [
+    {
+     "name": "Fulgrim Transfiguré",
+     "count": 1
+    }
+   ],
+   "profiles": [
+    {
+     "name": "Fulgrim Transfiguré",
+     "stats": [
+      "14",
+      "8",
+      "6",
+      "7",
+      "7",
+      "7",
+      "8",
+      "7",
+      "12",
+      "10",
+      "12",
+      "8",
+      "2+",
+      "4+"
+     ]
+    }
+   ],
+   "wargear": [
+    "Lames du Phénicien"
+   ],
+   "rules": [
+    "Massif (7)",
+    "Rejeton de la Corruption",
+    "Avatar de la Perfection",
+    "Frappe en Profondeur",
+    "Guerrier Éternel (2)",
+    "Peur (2)"
+   ],
+   "types": [
+    "Parangon (Unique, Antigrav, Maléfique)"
+   ],
+   "traits": [
+    "Renégat",
+    "Emperor's Children",
+    "Maître de la Légion"
+   ],
+   "faction": "Emperor's Children",
+   "options": []
+  },
+  {
+   "id": "seigneur-commandant-eidolon",
+   "name": "Seigneur Commandant Eidolon",
+   "role": "QG",
+   "points": 215,
+   "page": 134,
+   "models": [
+    {
+     "name": "Seigneur Commandant Eidolon",
+     "count": 1
+    }
+   ],
+   "profiles": [
+    {
+     "name": "Seigneur Commandant Eidolon",
+     "stats": [
+      "12",
+      "6",
+      "5",
+      "4",
+      "4",
+      "4",
+      "5",
+      "5",
+      "10",
+      "9",
+      "9",
+      "9",
+      "2+",
+      "4+"
+     ]
+    }
+   ],
+   "wargear": [
+    "Gloria Aeterna",
+    "Pistolet archéotech",
+    "Hurleurs soniques",
+    "Cri Mortel",
+    "Grenades Frag",
+    "Grenades Krak"
+   ],
+   "rules": [
+    "Impact (A)",
+    "Massif (2)",
+    "Frappe en Profondeur"
+   ],
+   "types": [
+    "Infanterie (Unique, État-major, Antigrav)"
+   ],
+   "traits": [
+    "Renégat",
+    "Emperor's Children",
+    "Maître de la Légion"
+   ],
+   "faction": "Emperor's Children",
+   "options": []
+  },
+  {
+   "id": "capitaine-lucius",
+   "name": "Capitaine Lucius",
+   "role": "EM",
+   "points": 215,
+   "page": 135,
+   "models": [
+    {
+     "name": "Capitaine Lucius",
+     "count": 1
+    }
+   ],
+   "profiles": [
+    {
+     "name": "Capitaine Lucius",
+     "stats": [
+      "7",
+      "7",
+      "5",
+      "4",
+      "4",
+      "3",
+      "6",
+      "5",
+      "9",
+      "8",
+      "8",
+      "7",
+      "2+",
+      "4+"
+     ]
+    }
+   ],
+   "wargear": [
+    "Lames de Lucius",
+    "Pistolet bolter",
+    "Grenades Frag",
+    "Grenades Krak"
+   ],
+   "rules": [
+    "La Lame Exemplaire"
+   ],
+   "types": [
+    "Infanterie (Unique, État-major)"
+   ],
+   "traits": [
+    "Renégat",
+    "Emperor's Children"
+   ],
+   "faction": "Emperor's Children",
+   "options": [
+    {
+     "text": "Hurleurs soniques",
+     "max": 1,
+     "choices": [
+      {
+       "name": "Hurleurs soniques",
+       "points": 15
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "saul-tarvitz",
+   "name": "Saul Tarvitz",
+   "role": "EM",
+   "points": 215,
+   "page": 136,
+   "models": [
+    {
+     "name": "Saul Tarvitz",
+     "count": 1
+    }
+   ],
+   "profiles": [
+    {
+     "name": "Saul Tarvitz",
+     "stats": [
+      "7",
+      "6",
+      "5",
+      "4",
+      "4",
+      "3",
+      "5",
+      "4",
+      "10",
+      "9",
+      "9",
+      "9",
+      "2+",
+      "4+"
+     ]
+    }
+   ],
+   "wargear": [
+    "Espadon charnabal",
+    "Bolter Némésis",
+    "Pistolet bolter",
+    "Grenades Frag",
+    "Grenades Krak"
+   ],
+   "rules": [
+    "Haine (Renégats)",
+    "Officier de Ligne (2)",
+    "Un Frère Trahi"
+   ],
+   "types": [
+    "Infanterie (Unique, État-major)"
+   ],
+   "traits": [
+    "Loyaliste",
+    "Emperor's Children",
+    "Maître de la Légion"
+   ],
+   "faction": "Emperor's Children",
+   "options": []
+  },
+  {
+   "id": "escouade-terminator-phenix",
+   "name": "Escouade Terminator Phénix",
+   "role": "SU",
+   "points": 200,
+   "page": 137,
+   "models": [
+    {
+     "name": "Champion Phénix",
+     "count": 1
+    },
+    {
+     "name": "Terminator Phénix",
+     "count": 4
+    }
+   ],
+   "extra": {
+    "model": "Terminator Phénix",
+    "max": 5,
+    "points": 35
+   },
+   "profiles": [
+    {
+     "name": "Terminator Phénix",
+     "stats": [
+      "7",
+      "5",
+      "4",
+      "4",
+      "5",
+      "2",
+      "4",
+      "2",
+      "8",
+      "8",
+      "7",
+      "7",
+      "2+",
+      "5+"
+     ]
+    },
+    {
+     "name": "Champion Phénix",
+     "stats": [
+      "7",
+      "5",
+      "4",
+      "4",
+      "5",
+      "2",
+      "4",
+      "3",
+      "9",
+      "9",
+      "7",
+      "7",
+      "2+",
+      "5+"
+     ]
+    }
+   ],
+   "wargear": [
+    "Lance énergétique Phénix"
+   ],
+   "rules": [
+    "Massif (2)",
+    "Adresse Inégalée"
+   ],
+   "types": [
+    "Champion Phénix : Infanterie (Champion, Sergent)",
+    "Terminator Phénix : Infanterie"
+   ],
+   "traits": [
+    "[Allégeance]",
+    "Emperor's Children"
+   ],
+   "faction": "Emperor's Children",
+   "options": [
+    {
+     "text": "Unité entièrement Renégate : même objet pour toutes les figurines",
+     "max": 1,
+     "choices": [
+      {
+       "name": "Hurleurs soniques (+5 par figurine)",
+       "points": 5
+      },
+      {
+       "name": "Lance sonique (+5 par figurine)",
+       "points": 5
+      }
+     ],
+     "all": true
+    }
+   ]
+  },
+  {
+   "id": "escouade-de-lames-palatines",
+   "name": "Escouade de Lames Palatines",
+   "role": "EL",
+   "points": 165,
+   "page": 138,
+   "models": [
+    {
+     "name": "Prefector Palatin",
+     "count": 1
+    },
+    {
+     "name": "Guerrier Palatin",
+     "count": 4
+    }
+   ],
+   "extra": {
+    "model": "Guerrier Palatin",
+    "max": 5,
+    "points": 28
+   },
+   "profiles": [
+    {
+     "name": "Guerrier Palatin",
+     "stats": [
+      "7",
+      "5",
+      "4",
+      "4",
+      "4",
+      "2",
+      "4",
+      "3",
+      "8",
+      "8",
+      "7",
+      "7",
+      "2+",
+      "-"
+     ]
+    },
+    {
+     "name": "Prefector Palatin",
+     "stats": [
+      "7",
+      "5",
+      "4",
+      "4",
+      "4",
+      "2",
+      "4",
+      "3",
+      "8",
+      "8",
+      "7",
+      "7",
+      "2+",
+      "-"
+     ]
+    }
+   ],
+   "wargear": [
+    "Lame palatine",
+    "Pistolet bolter",
+    "Grenades Frag",
+    "Grenades Krak"
+   ],
+   "rules": [
+    "Avant-garde (3)"
+   ],
+   "types": [
+    "Prefector Palatin : Infanterie (Champion, Sergent)",
+    "Guerrier Palatin : Infanterie"
+   ],
+   "traits": [
+    "[Allégeance]",
+    "Emperor's Children"
+   ],
+   "faction": "Emperor's Children",
+   "options": [
+    {
+     "text": "Toute figurine : remplacer la lame palatine",
+     "max": "models",
+     "choices": [
+      {
+       "name": "Lance énergétique Phénix",
+       "points": 0
+      }
+     ]
+    },
+    {
+     "text": "Prefector Palatin : remplacer le pistolet bolter",
+     "max": 1,
+     "list": "Pistolets de Légion"
+    },
+    {
+     "text": "Unité entièrement Renégate : même objet pour toutes les figurines",
+     "max": 1,
+     "choices": [
+      {
+       "name": "Hurleurs soniques (+5 par figurine)",
+       "points": 5
+      },
+      {
+       "name": "Lance sonique (+5 par figurine)",
+       "points": 5
+      }
+     ],
+     "all": true
+    }
+   ]
+  },
+  {
+   "id": "escouade-kakophoni",
+   "name": "Escouade Kakophoni",
+   "role": "AP",
+   "points": 150,
+   "page": 139,
+   "models": [
+    {
+     "name": "Orchestrateur",
+     "count": 1
+    },
+    {
+     "name": "Choriste",
+     "count": 4
+    }
+   ],
+   "extra": {
+    "model": "Choriste",
+    "max": 5,
+    "points": 25
+   },
+   "profiles": [
+    {
+     "name": "Choriste",
+     "stats": [
+      "7",
+      "4",
+      "4",
+      "4",
+      "4",
+      "1",
+      "4",
+      "1",
+      "9",
+      "8",
+      "7",
+      "7",
+      "3+",
+      "-"
+     ]
+    },
+    {
+     "name": "Orchestrateur",
+     "stats": [
+      "7",
+      "4",
+      "4",
+      "4",
+      "4",
+      "1",
+      "4",
+      "1",
+      "10",
+      "9",
+      "7",
+      "7",
+      "3+",
+      "-"
+     ]
+    }
+   ],
+   "wargear": [
+    "La Cacophonie",
+    "Hurleurs soniques",
+    "Pistolet bolter",
+    "Grenades Frag",
+    "Grenades Krak"
+   ],
+   "rules": [],
+   "types": [
+    "Orchestrateur : Infanterie (Sergent)",
+    "Choriste : Infanterie"
+   ],
+   "traits": [
+    "Renégat",
+    "Emperor's Children"
+   ],
+   "faction": "Emperor's Children",
+   "options": []
+  },
+  {
+   "id": "forgeguerre",
+   "name": "Forgeguerre",
+   "role": "QG",
+   "points": 165,
+   "page": 152,
+   "models": [
+    {
+     "name": "Forgeguerre",
+     "count": 1
+    }
+   ],
+   "profiles": [
+    {
+     "name": "Forgeguerre",
+     "stats": [
+      "6",
+      "6",
+      "5",
+      "4",
+      "5",
+      "5",
+      "5",
+      "5",
+      "10",
+      "9",
+      "9",
+      "10",
+      "2+",
+      "4+"
+     ]
+    }
+   ],
+   "wargear": [
+    "Broyeur à gravitons",
+    "Combi-grav",
+    "Servobras",
+    "Contrôleur de cortex",
+    "Cognis-signum"
+   ],
+   "rules": [
+    "Massif (2)",
+    "Guerrier-artisan (2)",
+    "Avance Implacable",
+    "Lent et Méthodique"
+   ],
+   "types": [
+    "Infanterie (État-major, Lourd)"
+   ],
+   "traits": [
+    "[Allégeance]",
+    "Iron Warriors",
+    "Maître de la Légion"
+   ],
+   "faction": "Iron Warriors",
+   "options": [
+    {
+     "text": "Cyber-familier",
+     "max": 1,
+     "choices": [
+      {
+       "name": "Cyber-familier",
+       "points": 10
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "escouade-terminator-tyrans-de-siege",
+   "name": "Escouade Terminator Tyrans de Siège",
+   "role": "AL",
+   "points": 300,
+   "page": 153,
+   "models": [
+    {
+     "name": "Maître de Siège",
+     "count": 1
+    },
+    {
+     "name": "Tyran",
+     "count": 4
+    }
+   ],
+   "extra": {
+    "model": "Tyran",
+    "max": 5,
+    "points": 55
+   },
+   "profiles": [
+    {
+     "name": "Tyran",
+     "stats": [
+      "6",
+      "4",
+      "4",
+      "4",
+      "5",
+      "2",
+      "4",
+      "2",
+      "8",
+      "8",
+      "7",
+      "7",
+      "2+",
+      "4+"
+     ]
+    },
+    {
+     "name": "Maître de Siège",
+     "stats": [
+      "6",
+      "4",
+      "4",
+      "4",
+      "5",
+      "2",
+      "4",
+      "2",
+      "9",
+      "8",
+      "7",
+      "7",
+      "2+",
+      "4+"
+     ]
+    }
+   ],
+   "wargear": [
+    "Lance-roquettes Tyran",
+    "Combi-bolter",
+    "Gantelet énergétique"
+   ],
+   "rules": [
+    "Massif (2)",
+    "Avance Implacable",
+    "Lent et Méthodique",
+    "Protocoles de Tir (2)",
+    "Unité d'Appui (1)"
+   ],
+   "types": [
+    "Maître de Siège : Infanterie (Sergent, Lourd)",
+    "Tyran : Infanterie (Lourd)"
+   ],
+   "traits": [
+    "[Allégeance]",
+    "Iron Warriors"
+   ],
+   "faction": "Iron Warriors",
+   "options": [
+    {
+     "text": "Toute figurine : remplacer le combi-bolter",
+     "max": "models",
+     "list": "Armes Combinées de Légion"
+    },
+    {
+     "text": "Maître de Siège",
+     "max": 1,
+     "choices": [
+      {
+       "name": "Omniscope",
+       "points": 10
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "konrad-curze",
+   "name": "Konrad Curze",
+   "role": "SG",
+   "points": 450,
+   "page": 166,
+   "models": [
+    {
+     "name": "Konrad Curze",
+     "count": 1
+    }
+   ],
+   "profiles": [
+    {
+     "name": "Konrad Curze",
+     "stats": [
+      "8",
+      "7",
+      "7",
+      "6",
+      "6",
+      "6",
+      "7",
+      "6",
+      "12",
+      "10",
+      "8",
+      "10",
+      "2+",
+      "4+"
+     ]
+    }
+   ],
+   "wargear": [
+    "Miséricorde et Pardon",
+    "Les Endeuilleurs"
+   ],
+   "rules": [
+    "Sire des Night Lords",
+    "Massif (4)",
+    "Une Mort Annoncée de Longue Date",
+    "Peur (2)",
+    "Guerrier Éternel (2)"
+   ],
+   "types": [
+    "Parangon (Unique)"
+   ],
+   "traits": [
+    "Renégat",
+    "Night Lords",
+    "Maître de la Légion"
+   ],
+   "faction": "Night Lords",
+   "options": []
+  },
+  {
+   "id": "sevatar",
+   "name": "Sevatar",
+   "role": "QG",
+   "points": 220,
+   "page": 168,
+   "models": [
+    {
+     "name": "Sevatar",
+     "count": 1
+    }
+   ],
+   "profiles": [
+    {
+     "name": "Sevatar",
+     "stats": [
+      "7",
+      "7",
+      "5",
+      "4",
+      "4",
+      "4",
+      "5",
+      "5",
+      "10",
+      "9",
+      "8",
+      "8",
+      "2+",
+      "4+"
+     ]
+    }
+   ],
+   "wargear": [
+    "Murmure de la Nuit",
+    "Pistolet bolter",
+    "Grenades Frag",
+    "Grenades Krak"
+   ],
+   "rules": [
+    "Précision (4+)",
+    "Peur (2)",
+    "Combattant Déloyal",
+    "Songes Ténébreux"
+   ],
+   "types": [
+    "Infanterie (Unique, État-major)"
+   ],
+   "traits": [
+    "Renégat",
+    "Night Lords",
+    "Maître de la Légion"
+   ],
+   "faction": "Night Lords",
+   "options": []
+  },
+  {
+   "id": "escouade-terminator-contekar",
+   "name": "Escouade Terminator Contekar",
+   "role": "EL",
+   "points": 225,
+   "page": 171,
+   "models": [
+    {
+     "name": "Dissident",
+     "count": 1
+    },
+    {
+     "name": "Contekar",
+     "count": 4
+    }
+   ],
+   "extra": {
+    "model": "Contekar",
+    "max": 10,
+    "points": 40
+   },
+   "profiles": [
+    {
+     "name": "Contekar",
+     "stats": [
+      "7",
+      "5",
+      "4",
+      "4",
+      "5",
+      "2",
+      "4",
+      "3",
+      "8",
+      "8",
+      "7",
+      "7",
+      "2+",
+      "5+"
+     ]
+    },
+    {
+     "name": "Dissident",
+     "stats": [
+      "7",
+      "5",
+      "4",
+      "4",
+      "5",
+      "2",
+      "4",
+      "3",
+      "9",
+      "8",
+      "7",
+      "7",
+      "2+",
+      "5+"
+     ]
+    }
+   ],
+   "wargear": [
+    "Lame tronçonneuse",
+    "Caviteur volkite"
+   ],
+   "rules": [
+    "Massif (2)",
+    "Avance Implacable",
+    "Frappe en Profondeur",
+    "Avant-garde (3)",
+    "Peur (1)"
+   ],
+   "types": [
+    "Dissident : Infanterie (Sergent)",
+    "Contekar : Infanterie"
+   ],
+   "traits": [
+    "[Allégeance]",
+    "Night Lords"
+   ],
+   "faction": "Night Lords",
+   "options": [
+    {
+     "text": "Dissident : remplacer la lame tronçonneuse",
+     "max": 1,
+     "choices": [
+      {
+       "name": "Griffe énergétique Escaton",
+       "points": 10
+      }
+     ]
+    },
+    {
+     "text": "Toute figurine : remplacer le caviteur volkite",
+     "max": "models",
+     "choices": [
+      {
+       "name": "Lance-flammes lourd",
+       "points": 0
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "escouade-terreur",
+   "name": "Escouade Terreur",
+   "role": "TR",
+   "points": 115,
+   "page": 172,
+   "models": [
+    {
+     "name": "Bourreau",
+     "count": 1
+    },
+    {
+     "name": "Exécuteur",
+     "count": 4
+    }
+   ],
+   "extra": {
+    "model": "Exécuteur",
+    "max": 10,
+    "points": 18
+   },
+   "profiles": [
+    {
+     "name": "Exécuteur",
+     "stats": [
+      "7",
+      "4",
+      "4",
+      "4",
+      "4",
+      "1",
+      "4",
+      "2",
+      "8",
+      "8",
+      "7",
+      "7",
+      "3+",
+      "-"
+     ]
+    },
+    {
+     "name": "Bourreau",
+     "stats": [
+      "7",
+      "4",
+      "4",
+      "4",
+      "4",
+      "1",
+      "4",
+      "3",
+      "9",
+      "8",
+      "7",
+      "7",
+      "3+",
+      "-"
+     ]
+    }
+   ],
+   "wargear": [
+    "Épée tronçonneuse",
+    "Pistolet bolter",
+    "Grenades Frag",
+    "Grenades Krak"
+   ],
+   "rules": [
+    "Haine (Infanterie)",
+    "Peur (1)",
+    "Avant-garde (2)"
+   ],
+   "types": [
+    "Bourreau : Infanterie (Sergent)",
+    "Exécuteur : Infanterie"
+   ],
+   "traits": [
+    "[Allégeance]",
+    "Night Lords"
+   ],
+   "faction": "Night Lords",
+   "options": [
+    {
+     "text": "Toute figurine : remplacer l'épée tronçonneuse",
+     "max": "models",
+     "choices": [
+      {
+       "name": "Bolter",
+       "points": 0
+      },
+      {
+       "name": "Chargeur volkite",
+       "points": 2
+      },
+      {
+       "name": "Canon rotor",
+       "points": 5
+      },
+      {
+       "name": "Lance-flammes",
+       "points": 5
+      },
+      {
+       "name": "Hache tronçonneuse",
+       "points": 0
+      },
+      {
+       "name": "Vouge tronçonneur",
+       "points": 5
+      }
+     ]
+    },
+    {
+     "text": "Bourreau : remplacer l'épée tronçonneuse",
+     "max": 1,
+     "list": "Armes de Mêlée de Sergent de Légion"
+    },
+    {
+     "text": "Bourreau : remplacer le pistolet bolter",
+     "max": 1,
+     "choices": [
+      {
+       "name": "Pistolet désintégrateur",
+       "points": 10
+      }
+     ],
+     "list": "Pistolets de Légion"
+    },
+    {
+     "text": "Un Exécuteur",
+     "max": 1,
+     "choices": [
+      {
+       "name": "Vexillum",
+       "points": 10
+      }
+     ]
+    },
+    {
+     "text": "Toute figurine ayant un bolter",
+     "max": "models",
+     "choices": [
+      {
+       "name": "Baïonnette",
+       "points": 1
+      },
+      {
+       "name": "Baïonnette tronçonneuse",
+       "points": 2
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "escouade-de-rapaces-nocturnes",
+   "name": "Escouade de Rapaces Nocturnes",
+   "role": "AR",
+   "points": 150,
+   "page": 173,
+   "models": [
+    {
+     "name": "Maître de Chasse",
+     "count": 1
+    },
+    {
+     "name": "Rapace Nocturne",
+     "count": 4
+    }
+   ],
+   "extra": {
+    "model": "Rapace Nocturne",
+    "max": 10,
+    "points": 25
+   },
+   "profiles": [
+    {
+     "name": "Rapace Nocturne",
+     "stats": [
+      "12",
+      "5",
+      "4",
+      "4",
+      "4",
+      "2",
+      "4",
+      "3",
+      "8",
+      "8",
+      "7",
+      "7",
+      "3+",
+      "-"
+     ]
+    },
+    {
+     "name": "Maître de Chasse",
+     "stats": [
+      "12",
+      "5",
+      "4",
+      "4",
+      "4",
+      "2",
+      "4",
+      "3",
+      "8",
+      "8",
+      "7",
+      "7",
+      "3+",
+      "-"
+     ]
+    }
+   ],
+   "wargear": [
+    "Épée tronçonneuse",
+    "Pistolet bolter",
+    "Grenades Frag",
+    "Grenades Krak"
+   ],
+   "rules": [
+    "Impact (l)",
+    "Peur (1)",
+    "Avant-garde (4)",
+    "Massif (2)",
+    "Frappe en Profondeur"
+   ],
+   "types": [
+    "Maître de Chasse : Infanterie (Sergent, Antigrav)",
+    "Rapace Nocturne : Infanterie (Antigrav)"
+   ],
+   "traits": [
+    "[Allégeance]",
+    "Night Lords"
+   ],
+   "faction": "Night Lords",
+   "options": [
+    {
+     "text": "Toute figurine : remplacer l'épée tronçonneuse",
+     "max": "models",
+     "choices": [
+      {
+       "name": "Vouge tronçonneur",
+       "points": 5
+      }
+     ],
+     "list": "Armes de Mêlée de Sergent de Légion"
+    }
+   ]
+  },
+  {
+   "id": "angron",
+   "name": "Angron",
+   "role": "SG",
+   "points": 450,
+   "page": 186,
+   "models": [
+    {
+     "name": "Angron",
+     "count": 1
+    }
+   ],
+   "profiles": [
+    {
+     "name": "Angron",
+     "stats": [
+      "8",
+      "8",
+      "6",
+      "6",
+      "6",
+      "6",
+      "6",
+      "6",
+      "12",
+      "10",
+      "10",
+      "10",
+      "2+",
+      "4+"
+     ]
+    }
+   ],
+   "wargear": [
+    "La Carnivore et la Carnassière",
+    "Le Fourneau de Hargne",
+    "Grenades Frag",
+    "Grenades Krak"
+   ],
+   "rules": [
+    "Sire des World Eaters",
+    "Massif (4)",
+    "Impact (F)",
+    "Seigneur des Sables Écarlates",
+    "Guerrier Éternel (2)"
+   ],
+   "types": [
+    "Parangon (Unique)"
+   ],
+   "traits": [
+    "Renégat",
+    "World Eaters",
+    "Maître de la Légion"
+   ],
+   "faction": "World Eaters",
+   "options": []
+  },
+  {
+   "id": "angron-transfigure",
+   "name": "Angron Transfiguré",
+   "role": "SG",
+   "points": 600,
+   "page": 188,
+   "models": [
+    {
+     "name": "Angron Transfiguré",
+     "count": 1
+    }
+   ],
+   "profiles": [
+    {
+     "name": "Angron Transfiguré",
+     "stats": [
+      "14",
+      "8",
+      "6",
+      "7",
+      "7",
+      "7",
+      "7",
+      "8",
+      "12",
+      "10",
+      "12",
+      "8",
+      "2+",
+      "4+"
+     ]
+    }
+   ],
+   "wargear": [
+    "Lames de l'Ange Rouge"
+   ],
+   "rules": [
+    "Massif (7)",
+    "Seigneur de la Corruption",
+    "Frappe en Profondeur",
+    "Guerrier Éternel (2)",
+    "Peur (2)"
+   ],
+   "types": [
+    "Parangon (Unique, Antigrav, Maléfique)"
+   ],
+   "traits": [
+    "Renégat",
+    "World Eaters",
+    "Maître de la Légion"
+   ],
+   "faction": "World Eaters",
+   "options": []
+  },
+  {
+   "id": "kharn-le-sanglant",
+   "name": "Khârn le Sanglant",
+   "role": "QG",
+   "points": 175,
+   "page": 189,
+   "models": [
+    {
+     "name": "Khârn le Sanglant",
+     "count": 1
+    }
+   ],
+   "profiles": [
+    {
+     "name": "Khârn le Sanglant",
+     "stats": [
+      "7",
+      "7",
+      "5",
+      "4",
+      "4",
+      "4",
+      "5",
+      "5",
+      "10",
+      "9",
+      "9",
+      "9",
+      "2+",
+      "4+"
+     ]
+    }
+   ],
+   "wargear": [
+    "La Trancheuse",
+    "Pistolet à plasma",
+    "Grenades Frag",
+    "Grenades Krak"
+   ],
+   "rules": [
+    "Fauchage (2)",
+    "Guerrier Éternel (1)",
+    "Précision (5+)"
+   ],
+   "types": [
+    "Infanterie (Unique, État-major)"
+   ],
+   "traits": [
+    "Renégat",
+    "World Eaters",
+    "Maître de la Légion"
+   ],
+   "faction": "World Eaters",
+   "options": [
+    {
+     "text": "Si Angron ne fait pas partie de l'armée : remplacer La Trancheuse",
+     "max": 1,
+     "choices": [
+      {
+       "name": "La Carnassière Reforgée",
+       "points": 10
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "lotara-sarrin",
+   "name": "Lotara Sarrin",
+   "role": "EM",
+   "points": 85,
+   "page": 190,
+   "models": [
+    {
+     "name": "Lotara Sarrin",
+     "count": 1
+    }
+   ],
+   "profiles": [
+    {
+     "name": "Lotara Sarrin",
+     "stats": [
+      "6",
+      "3",
+      "3",
+      "3",
+      "3",
+      "2",
+      "3",
+      "2",
+      "9",
+      "9",
+      "8",
+      "8",
+      "6+",
+      "5+"
+     ]
+    }
+   ],
+   "wargear": [
+    "Pistolet de dotation",
+    "La Morsure du Conqueror"
+   ],
+   "rules": [
+    "L'Ombre du Conqueror",
+    "Calme et Posée"
+   ],
+   "types": [
+    "Infanterie (Unique, Sergent, Spécialiste)"
+   ],
+   "traits": [
+    "Renégat",
+    "World Eaters"
+   ],
+   "faction": "World Eaters",
+   "options": []
+  },
+  {
+   "id": "bouchers-rouges",
+   "name": "Bouchers Rouges",
+   "role": "EL",
+   "points": 250,
+   "page": 192,
+   "models": [
+    {
+     "name": "Dévoré",
+     "count": 1
+    },
+    {
+     "name": "Boucher Rouge",
+     "count": 4
+    }
+   ],
+   "extra": {
+    "model": "Boucher Rouge",
+    "max": 5,
+    "points": 45
+   },
+   "profiles": [
+    {
+     "name": "Boucher Rouge",
+     "stats": [
+      "6",
+      "5",
+      "4",
+      "4",
+      "5",
+      "2",
+      "4",
+      "2",
+      "12",
+      "10",
+      "6",
+      "4",
+      "2+",
+      "4+"
+     ]
+    },
+    {
+     "name": "Dévoré",
+     "stats": [
+      "6",
+      "5",
+      "4",
+      "4",
+      "5",
+      "2",
+      "4",
+      "3",
+      "12",
+      "10",
+      "6",
+      "4",
+      "2+",
+      "4+"
+     ]
+    }
+   ],
+   "wargear": [
+    "Haches énergétiques de Boucher"
+   ],
+   "rules": [
+    "Massif (2)",
+    "Lent et Méthodique",
+    "Négligence",
+    "Fous Furieux",
+    "Guerrier Éternel (1)"
+   ],
+   "types": [
+    "Dévoré : Infanterie (Sergent, Lourd)",
+    "Boucher Rouge : Infanterie (Lourd)"
+   ],
+   "traits": [
+    "Renégat",
+    "World Eaters"
+   ],
+   "faction": "World Eaters",
+   "options": [
+    {
+     "text": "Dévoré : remplacer les haches énergétiques de Boucher",
+     "max": 1,
+     "choices": [
+      {
+       "name": "Poings tronçonneurs de Boucher",
+       "points": 10
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "escouade-saccageuse",
+   "name": "Escouade Saccageuse",
+   "role": "AL",
+   "points": 135,
+   "page": 193,
+   "models": [
+    {
+     "name": "Champion Saccageur",
+     "count": 1
+    },
+    {
+     "name": "Saccageur",
+     "count": 4
+    }
+   ],
+   "extra": {
+    "model": "Saccageur",
+    "max": 10,
+    "points": 22
+   },
+   "profiles": [
+    {
+     "name": "Saccageur",
+     "stats": [
+      "7",
+      "5",
+      "4",
+      "4",
+      "4",
+      "2",
+      "4",
+      "2",
+      "8",
+      "8",
+      "7",
+      "7",
+      "3+",
+      "-"
+     ]
+    },
+    {
+     "name": "Champion Saccageur",
+     "stats": [
+      "7",
+      "5",
+      "4",
+      "4",
+      "4",
+      "2",
+      "4",
+      "3",
+      "9",
+      "8",
+      "7",
+      "7",
+      "3+",
+      "-"
+     ]
+    }
+   ],
+   "wargear": [
+    "Arme des Caedere",
+    "Grenades Frag",
+    "Grenades Krak"
+   ],
+   "rules": [
+    "Impact (F)",
+    "Avant-garde (3)"
+   ],
+   "types": [
+    "Champion Saccageur : Infanterie (Champion, Sergent)",
+    "Saccageur : Infanterie"
+   ],
+   "traits": [
+    "[Allégeance]",
+    "World Eaters"
+   ],
+   "faction": "World Eaters",
+   "options": [
+    {
+     "text": "Arme des Caedere : chaque Figurine doit être dotée d'un des choix suivants (Arsenal des World Eaters, p. 181).",
+     "max": "models",
+     "choices": [
+      {
+       "name": "Marteau météore",
+       "points": 0
+      },
+      {
+       "name": "Hache tronçonneuse Excoriator",
+       "points": 0
+      },
+      {
+       "name": "Paire de falax",
+       "points": 0
+      },
+      {
+       "name": "Fouet barbelé",
+       "points": 0
+      }
+     ],
+     "required": true
+    }
+   ]
+  },
+  {
+   "id": "mortarion",
+   "name": "Mortarion",
+   "role": "SG",
+   "points": 425,
+   "page": 204,
+   "models": [
+    {
+     "name": "Mortarion",
+     "count": 1
+    }
+   ],
+   "profiles": [
+    {
+     "name": "Mortarion",
+     "stats": [
+      "8",
+      "7",
+      "6",
+      "7",
+      "7",
+      "7",
+      "6",
+      "6",
+      "12",
+      "10",
+      "10",
+      "10",
+      "2+",
+      "4+"
+     ]
+    }
+   ],
+   "wargear": [
+    "Silence",
+    "La Lanterne",
+    "Bombes à phosphex",
+    "Grenades Frag",
+    "Grenades Krak"
+   ],
+   "rules": [
+    "Sire de la Death Guard",
+    "Massif (5)",
+    "Peur (1)",
+    "Ombre du Faucheur",
+    "Résistance Surnaturelle",
+    "Guerrier Éternel (3)",
+    "Néfos"
+   ],
+   "types": [
+    "Parangon (Unique)"
+   ],
+   "traits": [
+    "Renégat",
+    "Death Guard",
+    "Maître de la Légion"
+   ],
+   "faction": "Death Guard",
+   "options": []
+  },
+  {
+   "id": "calas-typhon",
+   "name": "Calas Typhon",
+   "role": "QG",
+   "points": 200,
+   "page": 206,
+   "models": [
+    {
+     "name": "Calas Typhon",
+     "count": 1
+    }
+   ],
+   "profiles": [
+    {
+     "name": "Calas Typhon",
+     "stats": [
+      "6",
+      "6",
+      "5",
+      "4",
+      "5",
+      "5",
+      "5",
+      "4",
+      "10",
+      "9",
+      "9",
+      "9",
+      "2+",
+      "4+"
+     ]
+    }
+   ],
+   "wargear": [
+    "Lakrimae",
+    "Rassasieuse"
+   ],
+   "rules": [
+    "Massif (2)",
+    "Avance Implacable",
+    "Lent et Méthodique",
+    "Guerrier Éternel (1)",
+    "Néfos",
+    "Sang de Sorcier"
+   ],
+   "types": [
+    "Infanterie (Unique, État-major, Lourd)"
+   ],
+   "traits": [
+    "Renégat",
+    "Death Guard",
+    "Psyker",
+    "Maître de la Légion"
+   ],
+   "faction": "Death Guard",
+   "options": []
+  },
+  {
+   "id": "escouade-terminator-du-linceul",
+   "name": "Escouade Terminator du Linceul",
+   "role": "SU",
+   "points": 100,
+   "page": 208,
+   "models": [
+    {
+     "name": "Deathshroud",
+     "count": 2
+    }
+   ],
+   "extra": {
+    "model": "Deathshroud",
+    "max": 8,
+    "points": 45
+   },
+   "profiles": [
+    {
+     "name": "Deathshroud",
+     "stats": [
+      "7",
+      "5",
+      "4",
+      "4",
+      "5",
+      "2",
+      "4",
+      "3",
+      "10",
+      "9",
+      "7",
+      "7",
+      "2+",
+      "5+"
+     ]
+    }
+   ],
+   "wargear": [
+    "Projecteur alchim",
+    "Faux énergétique"
+   ],
+   "rules": [
+    "Massif (2)",
+    "Avance Implacable",
+    "Guerrier Éternel (1)"
+   ],
+   "types": [
+    "Infanterie"
+   ],
+   "traits": [
+    "[Allégeance]",
+    "Death Guard"
+   ],
+   "faction": "Death Guard",
+   "options": []
+  },
+  {
+   "id": "escouade-terminator-garde-tombe",
+   "name": "Escouade Terminator Garde-tombe",
+   "role": "AL",
+   "points": 225,
+   "page": 209,
+   "models": [
+    {
+     "name": "Chimiarque",
+     "count": 1
+    },
+    {
+     "name": "Garde-tombe",
+     "count": 4
+    }
+   ],
+   "extra": {
+    "model": "Garde-tombe",
+    "max": 5,
+    "points": 40
+   },
+   "profiles": [
+    {
+     "name": "Garde-tombe",
+     "stats": [
+      "6",
+      "4",
+      "4",
+      "4",
+      "5",
+      "2",
+      "4",
+      "3",
+      "8",
+      "8",
+      "7",
+      "7",
+      "2+",
+      "4+"
+     ]
+    },
+    {
+     "name": "Chimiarque",
+     "stats": [
+      "6",
+      "4",
+      "4",
+      "4",
+      "5",
+      "2",
+      "4",
+      "3",
+      "8",
+      "8",
+      "7",
+      "7",
+      "2+",
+      "4+"
+     ]
+    }
+   ],
+   "wargear": [
+    "Lance-grenades d'assaut",
+    "Gantelet énergétique"
+   ],
+   "rules": [
+    "Massif (2)",
+    "Avance Implacable",
+    "Lent et Méthodique",
+    "Néfos",
+    "Avant-garde (3)"
+   ],
+   "types": [
+    "Chimiarque : Infanterie (Sergent, Lourd)",
+    "Garde-tombe : Infanterie (Lourd)"
+   ],
+   "traits": [
+    "[Allégeance]",
+    "Death Guard"
+   ],
+   "faction": "Death Guard",
+   "options": [
+    {
+     "text": "Chimiarque : remplacer le lance-grenades d'assaut (gratuit au lieu du coût de la liste)",
+     "max": 1,
+     "choices": [
+      {
+       "name": "Arme combinée de Légion au choix",
+       "points": 0
+      }
+     ]
+    },
+    {
+     "text": "Toute figurine : remplacer le gantelet énergétique",
+     "max": "models",
+     "choices": [
+      {
+       "name": "Poing tronçonneur",
+       "points": 5
+      }
+     ]
+    },
+    {
+     "text": "Un Garde-tombe par tranche de cinq figurines : remplacer le lance-grenades d'assaut",
+     "max": {
+      "per": 5
+     },
+     "choices": [
+      {
+       "name": "Lance-flammes lourd alchim",
+       "points": 5
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "magnus-le-rouge",
+   "name": "Magnus le Rouge",
+   "role": "SG",
+   "points": 470,
+   "page": 226,
+   "models": [
+    {
+     "name": "Magnus le Rouge",
+     "count": 1
+    }
+   ],
+   "profiles": [
+    {
+     "name": "Magnus le Rouge",
+     "stats": [
+      "8",
+      "7",
+      "6",
+      "6",
+      "6",
+      "6",
+      "6",
+      "6",
+      "12",
+      "10",
+      "11",
+      "10",
+      "2+",
+      "4+"
+     ]
+    }
+   ],
+   "wargear": [
+    "La Lame d'Ahn-nunurta",
+    "Serpentine à feu psychique"
+   ],
+   "rules": [
+    "Sire des Thousand Sons",
+    "Massif (5)",
+    "Sorcier Suprême",
+    "Dissimulation (6+)",
+    "Bataille des Volontés",
+    "Guerrier Éternel (2)"
+   ],
+   "types": [
+    "Parangon (Unique)"
+   ],
+   "traits": [
+    "Renégat",
+    "Thousand Sons",
+    "Psyker",
+    "Maître de la Légion"
+   ],
+   "faction": "Thousand Sons",
+   "options": []
+  },
+  {
+   "id": "ahzek-ahriman",
+   "name": "Ahzek Ahriman",
+   "role": "QG",
+   "points": 185,
+   "page": 228,
+   "models": [
+    {
+     "name": "Ahzek Ahriman",
+     "count": 1
+    }
+   ],
+   "profiles": [
+    {
+     "name": "Ahzek Ahriman",
+     "stats": [
+      "7",
+      "6",
+      "5",
+      "4",
+      "4",
+      "4",
+      "5",
+      "5",
+      "10",
+      "9",
+      "9",
+      "9",
+      "2+",
+      "4+"
+     ]
+    }
+   ],
+   "wargear": [
+    "Le Sceptre Corvidae",
+    "Pistolet bolter",
+    "Grenades Frag",
+    "Grenades Krak"
+   ],
+   "rules": [
+    "Archi-magister des Corvidae"
+   ],
+   "types": [
+    "Infanterie (Unique, État-major)"
+   ],
+   "traits": [
+    "Renégat",
+    "Thousand Sons",
+    "Psyker",
+    "Maître de la Légion"
+   ],
+   "faction": "Thousand Sons",
+   "options": []
+  },
+  {
+   "id": "magistus-amon",
+   "name": "Magistus Amon",
+   "role": "QG",
+   "points": 185,
+   "page": 229,
+   "models": [
+    {
+     "name": "Magistus Amon",
+     "count": 1
+    }
+   ],
+   "profiles": [
+    {
+     "name": "Magistus Amon",
+     "stats": [
+      "7",
+      "6",
+      "5",
+      "4",
+      "4",
+      "4",
+      "5",
+      "5",
+      "10",
+      "9",
+      "9",
+      "9",
+      "2+",
+      "4+"
+     ]
+    }
+   ],
+   "wargear": [
+    "Le Reliquaire de Cendres",
+    "Grenades Frag",
+    "Grenades Krak"
+   ],
+   "rules": [
+    "Infiltration (9)",
+    "Magister de la Poussière"
+   ],
+   "types": [
+    "Infanterie (Unique, État-major)"
+   ],
+   "traits": [
+    "Renégat",
+    "Thousand Sons",
+    "Psyker",
+    "Maître de la Légion"
+   ],
+   "faction": "Thousand Sons",
+   "options": []
+  },
+  {
+   "id": "sorcier-de-prospero",
+   "name": "Sorcier de Prospero",
+   "role": "EM",
+   "points": 105,
+   "page": 230,
+   "models": [
+    {
+     "name": "Sorcier de Prospero",
+     "count": 1
+    }
+   ],
+   "profiles": [
+    {
+     "name": "Sorcier de Prospero",
+     "stats": [
+      "7",
+      "5",
+      "5",
+      "4",
+      "4",
+      "3",
+      "5",
+      "4",
+      "8",
+      "7",
+      "9",
+      "8",
+      "2+",
+      "5+"
+     ]
+    }
+   ],
+   "wargear": [
+    "Bâton sorcier de Prospero",
+    "Pistolet bolter",
+    "Grenades Frag",
+    "Grenades Krak"
+   ],
+   "rules": [
+    "Sorcellerie de Prospero"
+   ],
+   "types": [
+    "Infanterie (État-major)"
+   ],
+   "traits": [
+    "[Allégeance]",
+    "Thousand Sons",
+    "Psyker"
+   ],
+   "faction": "Thousand Sons",
+   "options": [
+    {
+     "text": "Remplacer le pistolet bolter",
+     "max": 1,
+     "list": "Pistolets de Légion"
+    }
+   ]
+  },
+  {
+   "id": "cabale-de-terminators-sekhmet",
+   "name": "Cabale de Terminators Sekhmet",
+   "role": "EL",
+   "points": 250,
+   "page": 231,
+   "models": [
+    {
+     "name": "Initiateur Sekhmet",
+     "count": 1
+    },
+    {
+     "name": "Sekhmet",
+     "count": 4
+    }
+   ],
+   "extra": {
+    "model": "Sekhmet",
+    "max": 5,
+    "points": 45
+   },
+   "profiles": [
+    {
+     "name": "Sekhmet",
+     "stats": [
+      "6",
+      "5",
+      "4",
+      "4",
+      "5",
+      "2",
+      "4",
+      "3",
+      "8",
+      "8",
+      "8",
+      "7",
+      "2+",
+      "4+"
+     ]
+    },
+    {
+     "name": "Initiateur Sekhmet",
+     "stats": [
+      "6",
+      "5",
+      "4",
+      "4",
+      "5",
+      "2",
+      "4",
+      "3",
+      "9",
+      "9",
+      "8",
+      "7",
+      "2+",
+      "4+"
+     ]
+    }
+   ],
+   "wargear": [
+    "Combi-bolter",
+    "Épée de force modèle Achea"
+   ],
+   "rules": [
+    "Massif (2)",
+    "Avance Implacable",
+    "Lent et Méthodique",
+    "Avant-garde (3)"
+   ],
+   "types": [
+    "Initiateur Sekhmet : Infanterie (Sergent, Lourd)",
+    "Sekhmet : Infanterie (Lourd)"
+   ],
+   "traits": [
+    "[Allégeance]",
+    "Thousand Sons",
+    "Psyker"
+   ],
+   "faction": "Thousand Sons",
+   "options": [
+    {
+     "text": "Toute figurine : remplacer le combi-bolter",
+     "max": "models",
+     "choices": [
+      {
+       "name": "Chargeur volkite",
+       "points": 0
+      }
+     ],
+     "list": "Armes Combinées de Légion"
+    },
+    {
+     "text": "Toute figurine : remplacer l'épée de force modèle Achea",
+     "max": "models",
+     "choices": [
+      {
+       "name": "Griffe Lightning",
+       "points": 5
+      },
+      {
+       "name": "Gantelet énergétique",
+       "points": 10
+      },
+      {
+       "name": "Poing tronçonneur",
+       "points": 10
+      },
+      {
+       "name": "Marteau Thunder",
+       "points": 10
+      }
+     ]
+    },
+    {
+     "text": "Toute figurine : remplacer le combi-bolter et l'épée de force",
+     "max": "models",
+     "choices": [
+      {
+       "name": "Paire de griffes Lightning",
+       "points": 10
+      }
+     ]
+    },
+    {
+     "text": "Une figurine par tranche de cinq : remplacer le combi-bolter",
+     "max": {
+      "per": 5
+     },
+     "choices": [
+      {
+       "name": "Lance-flammes lourd",
+       "points": 10
+      },
+      {
+       "name": "Autocanon Reaper",
+       "points": 15
+      },
+      {
+       "name": "Éclateur à plasma",
+       "points": 10
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "cabale-du-khenetai-occulte",
+   "name": "Cabale du Khenetai Occulte",
+   "role": "EL",
+   "points": 145,
+   "page": 232,
+   "models": [
+    {
+     "name": "Maître des Lames Khenetai",
+     "count": 1
+    },
+    {
+     "name": "Lame Khenetai",
+     "count": 4
+    }
+   ],
+   "extra": {
+    "model": "Lame Khenetai",
+    "max": 5,
+    "points": 24
+   },
+   "profiles": [
+    {
+     "name": "Lame Khenetai",
+     "stats": [
+      "7",
+      "5",
+      "4",
+      "4",
+      "4",
+      "2",
+      "4",
+      "3",
+      "8",
+      "8",
+      "7",
+      "7",
+      "3+",
+      "-"
+     ]
+    },
+    {
+     "name": "Maître des Lames Khenetai",
+     "stats": [
+      "7",
+      "5",
+      "4",
+      "4",
+      "4",
+      "2",
+      "4",
+      "3",
+      "8",
+      "8",
+      "7",
+      "7",
+      "3+",
+      "-"
+     ]
+    }
+   ],
+   "wargear": [
+    "Paire d'épées de force Achea",
+    "Pistolet bolter",
+    "Grenades Frag",
+    "Grenades Krak"
+   ],
+   "rules": [
+    "Guerriers du Khenetai"
+   ],
+   "types": [
+    "Maître des Lames Khenetai : Infanterie (Sergent)",
+    "Lame Khenetai : Infanterie"
+   ],
+   "traits": [
+    "[Allégeance]",
+    "Thousand Sons",
+    "Psyker",
+    "Khenetai"
+   ],
+   "faction": "Thousand Sons",
+   "options": [
+    {
+     "text": "Maître des Lames Khenetai : remplacer le pistolet bolter",
+     "max": 1,
+     "list": "Pistolets de Légion"
+    }
+   ]
+  },
+  {
+   "id": "automate-castellax-achea",
+   "name": "Automate Castellax-Achea",
+   "role": "AP",
+   "points": 80,
+   "page": 234,
+   "models": [
+    {
+     "name": "Castellax-Achea",
+     "count": 1
+    }
+   ],
+   "profiles": [
+    {
+     "name": "Castellax-Achea",
+     "stats": [
+      "6",
+      "3",
+      "3",
+      "6",
+      "6",
+      "4",
+      "3",
+      "3",
+      "12",
+      "10",
+      "7",
+      "5",
+      "3+",
+      "5+"
+     ]
+    }
+   ],
+   "wargear": [
+    "Canon à bolts Asphyx",
+    "Griffes de force Achea",
+    "Deux bolters"
+   ],
+   "rules": [
+    "Massif (4)",
+    "Explose (6+)",
+    "Conduit Psychique",
+    "Avance Implacable",
+    "Orage de Feu",
+    "Protocoles de Tir (3)"
+   ],
+   "types": [
+    "Automate"
+   ],
+   "traits": [
+    "[Allégeance]",
+    "Thousand Sons"
+   ],
+   "faction": "Thousand Sons",
+   "options": [
+    {
+     "text": "Remplacer le canon à bolts Asphyx",
+     "max": 1,
+     "choices": [
+      {
+       "name": "Canon à étherfeu",
+       "points": 10
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "dreadnought-contemptor-osiron",
+   "name": "Dreadnought Contemptor-Osiron",
+   "role": "EG",
+   "points": 200,
+   "page": 236,
+   "models": [
+    {
+     "name": "Dreadnought Contemptor-Osiron",
+     "count": 1
+    }
+   ],
+   "profiles": [
+    {
+     "name": "Dreadnought Contemptor-Osiron",
+     "stats": [
+      "8",
+      "4",
+      "4",
+      "7",
+      "7",
+      "6",
+      "4",
+      "4",
+      "12",
+      "10",
+      "8",
+      "5",
+      "2+",
+      "5+"
+     ]
+    }
+   ],
+   "wargear": [
+    "Canon à bolts Gravis",
+    "Lame de force Gravis",
+    "Combi-bolter"
+   ],
+   "rules": [
+    "Massif (6)",
+    "Explose (5+)",
+    "Avance Implacable"
+   ],
+   "types": [
+    "Marcheur"
+   ],
+   "traits": [
+    "[Allégeance]",
+    "Thousand Sons",
+    "Écran de Fumée",
+    "Psyker"
+   ],
+   "faction": "Thousand Sons",
+   "options": [
+    {
+     "text": "Remplacer le canon à bolts Gravis",
+     "max": 1,
+     "choices": [
+      {
+       "name": "Canon à fusion Gravis",
+       "points": 15
+      },
+      {
+       "name": "Autocanon Gravis",
+       "points": 10
+      },
+      {
+       "name": "Canon à plasma Gravis",
+       "points": 10
+      }
+     ]
+    },
+    {
+     "text": "Remplacer le combi-bolter",
+     "max": 1,
+     "choices": [
+      {
+       "name": "Lance-flammes lourd",
+       "points": 5
+      },
+      {
+       "name": "Éclateur à plasma",
+       "points": 10
+      },
+      {
+       "name": "Fusil à gravitons",
+       "points": 15
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "horus-lupercal",
+   "name": "Horus Lupercal",
+   "role": "SG",
+   "points": 530,
+   "page": 250,
+   "models": [
+    {
+     "name": "Horus Lupercal",
+     "count": 1
+    }
+   ],
+   "profiles": [
+    {
+     "name": "Horus Lupercal",
+     "stats": [
+      "8",
+      "8",
+      "6",
+      "6",
+      "6",
+      "7",
+      "6",
+      "6",
+      "12",
+      "12",
+      "10",
+      "10",
+      "2+",
+      "4+"
+     ]
+    }
+   ],
+   "wargear": [
+    "La Serre du Maître de Guerre",
+    "Briseuse de Mondes"
+   ],
+   "rules": [
+    "Sire des Sons of Horus",
+    "Massif (6)",
+    "Frappe en Profondeur",
+    "Maître de la Guerre",
+    "Guerrier Éternel (2)"
+   ],
+   "types": [
+    "Parangon (Unique)"
+   ],
+   "traits": [
+    "Renégat",
+    "Sons of Horus",
+    "Maître de la Légion"
+   ],
+   "faction": "Sons of Horus",
+   "options": []
+  },
+  {
+   "id": "horus-exalte",
+   "name": "Horus Exalté",
+   "role": "SG",
+   "points": 850,
+   "page": 252,
+   "models": [
+    {
+     "name": "Horus Exalté",
+     "count": 1
+    }
+   ],
+   "profiles": [
+    {
+     "name": "Horus Exalté",
+     "stats": [
+      "8",
+      "9",
+      "7",
+      "8",
+      "8",
+      "8",
+      "7",
+      "7",
+      "14",
+      "12",
+      "12",
+      "10",
+      "2+",
+      "4+"
+     ]
+    }
+   ],
+   "wargear": [
+    "La Serre du Maître de Guerre",
+    "Briseuse de Mondes"
+   ],
+   "rules": [
+    "Massif (6)",
+    "Frappe en Profondeur",
+    "Insensible à la Douleur (5+)",
+    "Maître de la Guerre",
+    "La Corruption se Propage",
+    "Le Maître de Guerre Exalté",
+    "Guerrier Éternel (3)",
+    "Peur (1)",
+    "Parangon (Unique)"
+   ],
+   "types": [
+    "Parangon (Unique)"
+   ],
+   "traits": [
+    "Renégat",
+    "Sons of Horus",
+    "Maître de la Légion"
+   ],
+   "faction": "Sons of Horus",
+   "options": []
+  },
+  {
+   "id": "ezekyle-abaddon",
+   "name": "Ezekyle Abaddon",
+   "role": "QG",
+   "points": 250,
+   "page": 254,
+   "models": [
+    {
+     "name": "Ezekyle Abaddon",
+     "count": 1
+    }
+   ],
+   "profiles": [
+    {
+     "name": "Ezekyle Abaddon",
+     "stats": [
+      "6",
+      "7",
+      "5",
+      "4",
+      "5",
+      "5",
+      "5",
+      "6",
+      "10",
+      "9",
+      "9",
+      "9",
+      "2+",
+      "4+"
+     ]
+    }
+   ],
+   "wargear": [
+    "Combi-bolter Banestrike",
+    "Harnais à grenades",
+    "Griffe énergétique cthonienne"
+   ],
+   "rules": [
+    "Massif (2)",
+    "Avance Implacable",
+    "Lent et Méthodique",
+    "Frappe en Profondeur",
+    "Maître des Justaerin",
+    "Guerrier Éternel (1)"
+   ],
+   "types": [
+    "Infanterie (Unique, État-major, Lourd)"
+   ],
+   "traits": [
+    "Renégat",
+    "Sons of Horus",
+    "Maître de la Légion"
+   ],
+   "faction": "Sons of Horus",
+   "options": []
+  },
+  {
+   "id": "horus-aximand",
+   "name": "Horus Aximand",
+   "role": "QG",
+   "points": 170,
+   "page": 255,
+   "models": [
+    {
+     "name": "Horus Aximand",
+     "count": 1
+    }
+   ],
+   "profiles": [
+    {
+     "name": "Horus Aximand",
+     "stats": [
+      "7",
+      "6",
+      "5",
+      "4",
+      "4",
+      "4",
+      "5",
+      "5",
+      "10",
+      "9",
+      "9",
+      "9",
+      "2+",
+      "4+"
+     ]
+    }
+   ],
+   "wargear": [
+    "Deuil-de-Tout",
+    "Bolter Banestrike",
+    "Pistolet bolter",
+    "Grenades Frag",
+    "Grenades Krak"
+   ],
+   "rules": [
+    "Hanté",
+    "Impact (l)"
+   ],
+   "types": [
+    "Infanterie (Unique, État-major)"
+   ],
+   "traits": [
+    "Renégat",
+    "Sons of Horus",
+    "Maître de la Légion",
+    "Bouclier"
+   ],
+   "faction": "Sons of Horus",
+   "options": []
+  },
+  {
+   "id": "tybalt-marr",
+   "name": "Tybalt Marr",
+   "role": "QG",
+   "points": 160,
+   "page": 256,
+   "models": [
+    {
+     "name": "Tybalt Marr",
+     "count": 1
+    }
+   ],
+   "profiles": [
+    {
+     "name": "Tybalt Marr",
+     "stats": [
+      "7",
+      "6",
+      "5",
+      "4",
+      "4",
+      "3",
+      "5",
+      "5",
+      "10",
+      "9",
+      "9",
+      "9",
+      "2+",
+      "4+"
+     ]
+    }
+   ],
+   "wargear": [
+    "La Lame d'Abattage",
+    "Bolter Banestrike",
+    "Pistolet bolter",
+    "Grenades Frag",
+    "Grenades Krak"
+   ],
+   "rules": [
+    "Haine (Légions Brisées)"
+   ],
+   "types": [
+    "Infanterie (Unique, État-major)"
+   ],
+   "traits": [
+    "Renégat",
+    "Sons of Horus"
+   ],
+   "faction": "Sons of Horus",
+   "options": []
+  },
+  {
+   "id": "vheren-ashurhaddon",
+   "name": "Vheren Ashurhaddon",
+   "role": "QG",
+   "points": 205,
+   "page": 257,
+   "models": [
+    {
+     "name": "Vheren Ashurhaddon",
+     "count": 1
+    }
+   ],
+   "profiles": [
+    {
+     "name": "Vheren Ashurhaddon",
+     "stats": [
+      "7",
+      "7",
+      "5",
+      "4",
+      "4",
+      "4",
+      "5",
+      "5",
+      "10",
+      "9",
+      "9",
+      "9",
+      "2+",
+      "4+"
+     ]
+    }
+   ],
+   "wargear": [
+    "La Hache Serpentis",
+    "Paire de Pistolets Banestrike",
+    "Vexillum",
+    "Grenades Frag",
+    "Grenades Krak"
+   ],
+   "rules": [],
+   "types": [
+    "Infanterie (Unique, État-major)"
+   ],
+   "traits": [
+    "Renégat",
+    "Sons of Horus"
+   ],
+   "faction": "Sons of Horus",
+   "options": []
+  },
+  {
+   "id": "garviel-loken",
+   "name": "Garviel Loken",
+   "role": "QG",
+   "points": 175,
+   "page": 258,
+   "models": [
+    {
+     "name": "Garviel Loken",
+     "count": 1
+    }
+   ],
+   "profiles": [
+    {
+     "name": "Garviel Loken",
+     "stats": [
+      "7",
+      "6",
+      "5",
+      "4",
+      "4",
+      "4",
+      "5",
+      "5",
+      "10",
+      "9",
+      "9",
+      "9",
+      "2+",
+      "4+"
+     ]
+    }
+   ],
+   "wargear": [
+    "Lame de parangon",
+    "Pistolet bolter",
+    "Grenades Frag",
+    "Grenades Krak"
+   ],
+   "rules": [
+    "Haine (Renégats)",
+    "Survivant-né"
+   ],
+   "types": [
+    "Infanterie (Unique, État-major)"
+   ],
+   "traits": [
+    "Loyaliste",
+    "Sons of Horus",
+    "Maître de la Légion"
+   ],
+   "faction": "Sons of Horus",
+   "options": []
+  },
+  {
+   "id": "maloghurst-le-retors",
+   "name": "Maloghurst le Retors",
+   "role": "EM",
+   "points": 140,
+   "page": 259,
+   "models": [
+    {
+     "name": "Maloghurst le Retors",
+     "count": 1
+    }
+   ],
+   "profiles": [
+    {
+     "name": "Maloghurst le Retors",
+     "stats": [
+      "6",
+      "5",
+      "5",
+      "4",
+      "4",
+      "4",
+      "5",
+      "4",
+      "10",
+      "9",
+      "9",
+      "10",
+      "2+",
+      "5+"
+     ]
+    }
+   ],
+   "wargear": [
+    "Épée énergétique",
+    "Bolter Banestrike",
+    "Pistolet bolter",
+    "Grenades Frag",
+    "Grenades Krak",
+    "Icône du Maître de Guerre"
+   ],
+   "rules": [
+    "Infirme",
+    "Lent et Méthodique"
+   ],
+   "types": [
+    "Infanterie (Unique, État-major)"
+   ],
+   "traits": [
+    "Renégat",
+    "Sons of Horus"
+   ],
+   "faction": "Sons of Horus",
+   "options": []
+  },
+  {
+   "id": "emissaire-noir",
+   "name": "Émissaire Noir",
+   "role": "EM",
+   "points": 90,
+   "page": 260,
+   "models": [
+    {
+     "name": "Émissaire Noir",
+     "count": 1
+    }
+   ],
+   "profiles": [
+    {
+     "name": "Émissaire Noir",
+     "stats": [
+      "7",
+      "5",
+      "5",
+      "4",
+      "4",
+      "4",
+      "5",
+      "4",
+      "10",
+      "10",
+      "9",
+      "8",
+      "2+",
+      "5+"
+     ]
+    }
+   ],
+   "wargear": [
+    "Sceptre de Sombre Autorité",
+    "Pistolet bolter",
+    "Grenades Frag",
+    "Grenades Krak"
+   ],
+   "rules": [
+    "Yeux du Maître de Guerre"
+   ],
+   "types": [
+    "Infanterie (État-major)"
+   ],
+   "traits": [
+    "Renégat",
+    "Sons of Horus"
+   ],
+   "faction": "Sons of Horus",
+   "options": [
+    {
+     "text": "Remplacer le pistolet bolter",
+     "max": 1,
+     "list": "Pistolets de Légion"
+    }
+   ]
+  },
+  {
+   "id": "escouade-terminator-justaerin",
+   "name": "Escouade Terminator Justaerin",
+   "role": "EL",
+   "points": 275,
+   "page": 261,
+   "models": [
+    {
+     "name": "Justaerin",
+     "count": 5
+    }
+   ],
+   "extra": {
+    "model": "Justaerin",
+    "max": 5,
+    "points": 50
+   },
+   "profiles": [
+    {
+     "name": "Justaerin",
+     "stats": [
+      "6",
+      "5",
+      "4",
+      "4",
+      "5",
+      "2",
+      "4",
+      "4",
+      "10",
+      "8",
+      "7",
+      "7",
+      "2+",
+      "4+"
+     ]
+    }
+   ],
+   "wargear": [
+    "Combi-bolter Banestrike",
+    "Arme énergétique"
+   ],
+   "rules": [
+    "Massif (2)",
+    "Avance Implacable",
+    "Lent et Méthodique",
+    "Avant-garde (4)"
+   ],
+   "types": [
+    "Infanterie (Lourd)"
+   ],
+   "traits": [
+    "[Allégeance]",
+    "Sons of Horus"
+   ],
+   "faction": "Sons of Horus",
+   "options": [
+    {
+     "text": "Toute figurine : remplacer le combi-bolter Banestrike",
+     "max": "models",
+     "choices": [
+      {
+       "name": "Chargeur volkite",
+       "points": 0
+      }
+     ],
+     "list": "Armes Combinées de Légion"
+    },
+    {
+     "text": "Toute figurine : remplacer l'arme énergétique",
+     "max": "models",
+     "choices": [
+      {
+       "name": "Griffe Lightning",
+       "points": 5
+      },
+      {
+       "name": "Hache énergétique carsoraine",
+       "points": 5
+      },
+      {
+       "name": "Gantelet énergétique",
+       "points": 10
+      },
+      {
+       "name": "Poing tronçonneur",
+       "points": 10
+      },
+      {
+       "name": "Marteau Thunder",
+       "points": 10
+      }
+     ]
+    },
+    {
+     "text": "Toute figurine : remplacer le combi-bolter Banestrike et l'arme énergétique",
+     "max": "models",
+     "choices": [
+      {
+       "name": "Paire de griffes Lightning",
+       "points": 10
+      }
+     ]
+    },
+    {
+     "text": "Une figurine par tranche de cinq : remplacer le combi-bolter Banestrike",
+     "max": {
+      "per": 5
+     },
+     "choices": [
+      {
+       "name": "Lance-flammes lourd",
+       "points": 10
+      },
+      {
+       "name": "Multi-fuseur",
+       "points": 15
+      },
+      {
+       "name": "Autocanon Reaper",
+       "points": 15
+      },
+      {
+       "name": "Éclateur à plasma",
+       "points": 10
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "escouade-d-attaque-ravageuse",
+   "name": "Escouade d'Attaque Ravageuse",
+   "role": "AL",
+   "points": 135,
+   "page": 262,
+   "models": [
+    {
+     "name": "Chef Ravageur",
+     "count": 1
+    },
+    {
+     "name": "Ravageur",
+     "count": 4
+    }
+   ],
+   "extra": {
+    "model": "Ravageur",
+    "max": 15,
+    "points": 22
+   },
+   "profiles": [
+    {
+     "name": "Ravageur",
+     "stats": [
+      "7",
+      "5",
+      "4",
+      "4",
+      "4",
+      "2",
+      "4",
+      "3",
+      "8",
+      "8",
+      "7",
+      "7",
+      "3+",
+      "-"
+     ]
+    },
+    {
+     "name": "Chef Ravageur",
+     "stats": [
+      "7",
+      "5",
+      "4",
+      "4",
+      "4",
+      "2",
+      "4",
+      "3",
+      "9",
+      "8",
+      "7",
+      "7",
+      "3+",
+      "-"
+     ]
+    }
+   ],
+   "wargear": [
+    "Hache tronçonneuse",
+    "Pistolet bolter",
+    "Grenades Frag",
+    "Grenades Krak"
+   ],
+   "rules": [
+    "Précision (6+)",
+    "Avant-garde (3)"
+   ],
+   "types": [
+    "Chef Ravageur : Infanterie (Sergent)",
+    "Ravageur : Infanterie"
+   ],
+   "traits": [
+    "[Allégeance]",
+    "Sons of Horus"
+   ],
+   "faction": "Sons of Horus",
+   "options": [
+    {
+     "text": "Toute figurine : remplacer la hache tronçonneuse",
+     "max": "models",
+     "choices": [
+      {
+       "name": "Épée tronçonneuse",
+       "points": 0
+      }
+     ],
+     "list": "Armes de Mêlée de Sergent de Légion"
+    },
+    {
+     "text": "Toute figurine : remplacer le pistolet bolter",
+     "max": "models",
+     "list": "Pistolets de Légion"
+    },
+    {
+     "text": "Un Ravageur par tranche de cinq figurines : remplacer la hache tronçonneuse",
+     "max": {
+      "per": 5
+     },
+     "list": "Armes Spéciales de Légion"
+    },
+    {
+     "text": "Un Ravageur",
+     "max": 1,
+     "choices": [
+      {
+       "name": "Vexillum",
+       "points": 10
+      }
+     ]
+    },
+    {
+     "text": "Jusqu'à deux Ravageurs",
+     "max": 2,
+     "list": "Équipement de Légion"
+    }
+   ]
+  },
+  {
+   "id": "lorgar",
+   "name": "Lorgar",
+   "role": "SG",
+   "points": 445,
+   "page": 274,
+   "models": [
+    {
+     "name": "Lorgar",
+     "count": 1
+    }
+   ],
+   "profiles": [
+    {
+     "name": "Lorgar",
+     "stats": [
+      "8",
+      "6",
+      "6",
+      "6",
+      "6",
+      "6",
+      "6",
+      "5",
+      "12",
+      "11",
+      "10",
+      "10",
+      "2+",
+      "4+"
+     ]
+    }
+   ],
+   "wargear": [
+    "Illuminarum",
+    "Dévotion",
+    "Grenades Frag"
+   ],
+   "rules": [
+    "Sire des Word Bearers",
+    "Massif (4)",
+    "Discipline Anathemata",
+    "Haine (Loyalistes)",
+    "Le Pouvoir du Verbe",
+    "Guerrier Éternel (2)"
+   ],
+   "types": [
+    "Parangon (Unique)"
+   ],
+   "traits": [
+    "Renégat",
+    "Word Bearers",
+    "Psyker",
+    "Maître de la Légion",
+    "Anathemata"
+   ],
+   "faction": "Word Bearers",
+   "options": []
+  },
+  {
+   "id": "kor-phaeron",
+   "name": "Kor Phaeron",
+   "role": "QG",
+   "points": 125,
+   "page": 276,
+   "models": [
+    {
+     "name": "Kor Phaeron",
+     "count": 1
+    }
+   ],
+   "profiles": [
+    {
+     "name": "Kor Phaeron",
+     "stats": [
+      "6",
+      "5",
+      "4",
+      "3",
+      "3",
+      "3",
+      "3",
+      "4",
+      "10",
+      "10",
+      "9",
+      "7",
+      "2+",
+      "5+"
+     ]
+    }
+   ],
+   "wargear": [
+    "Griffes du Patriarche",
+    "Digi-lance-flammes"
+   ],
+   "rules": [
+    "Massif (2)",
+    "Sombre Éloquence",
+    "Commandement Jaloux",
+    "Lent et Méthodique"
+   ],
+   "types": [
+    "Infanterie (Unique, État-major)"
+   ],
+   "traits": [
+    "Renégat",
+    "Word Bearers",
+    "Maître de la Légion"
+   ],
+   "faction": "Word Bearers",
+   "options": []
+  },
+  {
+   "id": "erebus",
+   "name": "Erebus",
+   "role": "QG",
+   "points": 165,
+   "page": 278,
+   "models": [
+    {
+     "name": "Erebus",
+     "count": 1
+    }
+   ],
+   "profiles": [
+    {
+     "name": "Erebus",
+     "stats": [
+      "7",
+      "5",
+      "5",
+      "4",
+      "4",
+      "3",
+      "5",
+      "3",
+      "10",
+      "10",
+      "9",
+      "7",
+      "2+",
+      "4+"
+     ]
+    }
+   ],
+   "wargear": [
+    "Crux Malefica",
+    "Pistolet à plasma",
+    "Grenades Frag",
+    "Grenades Krak"
+   ],
+   "rules": [
+    "Discipline Anathemata",
+    "Seigneur des Bénis",
+    "Émissaire du Chaos"
+   ],
+   "types": [
+    "Infanterie (Unique, État-major)"
+   ],
+   "traits": [
+    "Renégat",
+    "Word Bearers",
+    "Psyker",
+    "Anathemata"
+   ],
+   "faction": "Word Bearers",
+   "options": []
+  },
+  {
+   "id": "argel-tal",
+   "name": "Argel Tal",
+   "role": "QG",
+   "points": 240,
+   "page": 279,
+   "models": [
+    {
+     "name": "Argel Tal",
+     "count": 1
+    }
+   ],
+   "profiles": [
+    {
+     "name": "Argel Tal",
+     "stats": [
+      "14",
+      "6",
+      "5",
+      "5",
+      "5",
+      "5",
+      "5",
+      "6",
+      "10",
+      "9",
+      "9",
+      "8",
+      "2+",
+      "4+"
+     ]
+    }
+   ],
+   "wargear": [
+    "Serres démoniaques",
+    "Grenades Frag",
+    "Grenades Krak"
+   ],
+   "rules": [
+    "Massif (3)",
+    "Frappe en Profondeur",
+    "Insensible à la Douleur (5+)",
+    "Peur (1)"
+   ],
+   "types": [
+    "Infanterie (Unique, État-major, Antigrav, Maléfique)"
+   ],
+   "traits": [
+    "Renégat",
+    "Word Bearers",
+    "Maître de la Légion"
+   ],
+   "faction": "Word Bearers",
+   "options": []
+  },
+  {
+   "id": "zardu-layak",
+   "name": "Zardu Layak",
+   "role": "EM",
+   "points": 180,
+   "page": 280,
+   "models": [
+    {
+     "name": "Zardu Layak",
+     "count": 1
+    }
+   ],
+   "extra": {
+    "model": "Anakatis Kul",
+    "max": 2,
+    "points": 60
+   },
+   "profiles": [
+    {
+     "name": "Zardu Layak",
+     "stats": [
+      "7",
+      "5",
+      "5",
+      "4",
+      "4",
+      "4",
+      "5",
+      "3",
+      "11",
+      "10",
+      "9",
+      "7",
+      "2+",
+      "4+"
+     ]
+    },
+    {
+     "name": "Anakatis Kul",
+     "stats": [
+      "8",
+      "5",
+      "4",
+      "5",
+      "5",
+      "3",
+      "5",
+      "3",
+      "10",
+      "9",
+      "4",
+      "4",
+      "3+",
+      "-"
+     ]
+    }
+   ],
+   "wargear": [
+    "Zardu Layak : L'Azurda Char'is",
+    "Zardu Layak : Pistolet bolter",
+    "Zardu Layak : La Panoplie de Flammes",
+    "Zardu Layak : Grenades Frag",
+    "Zardu Layak : Grenades Krak",
+    "Anakatis Kul : Épée Anakatis",
+    "Anakatis Kul : Pistolet à plasma"
+   ],
+   "rules": [
+    "Zardu Layak : Haine (Loyalistes)",
+    "Zardu Layak : Entraveur d'Âmes",
+    "Anakatis Kul : Massif (2)",
+    "Anakatis Kul : Insensible à la Douleur (5+)",
+    "Anakatis Kul : Explose (6+)",
+    "Anakatis Kul : Peur (1)"
+   ],
+   "types": [
+    "Zardu Layak : Infanterie (Unique, État-major, Maléfique)",
+    "Anakatis Kul : Infanterie (Champion, Maléfique)"
+   ],
+   "traits": [
+    "Renégat",
+    "Word Bearers"
+   ],
+   "faction": "Word Bearers",
+   "options": []
+  },
+  {
+   "id": "gal-vorbak",
+   "name": "Gal Vorbak",
+   "role": "EL",
+   "points": 250,
+   "page": 282,
+   "models": [
+    {
+     "name": "Frère Obscur",
+     "count": 5
+    }
+   ],
+   "extra": {
+    "model": "Frère Obscur",
+    "max": 5,
+    "points": 50
+   },
+   "profiles": [
+    {
+     "name": "Frère Obscur",
+     "stats": [
+      "8",
+      "5",
+      "4",
+      "5",
+      "5",
+      "3",
+      "5",
+      "3",
+      "9",
+      "8",
+      "7",
+      "7",
+      "3+",
+      "-"
+     ]
+    }
+   ],
+   "wargear": [
+    "Serres souillées",
+    "Bolter",
+    "Grenades Frag",
+    "Grenades Krak"
+   ],
+   "rules": [
+    "Massif (2)",
+    "Insensible à la Douleur (5+)",
+    "Avance Implacable",
+    "Avant-garde (3)",
+    "Peur (1)"
+   ],
+   "types": [
+    "Infanterie (Maléfique)"
+   ],
+   "traits": [
+    "Renégat",
+    "Word Bearers"
+   ],
+   "faction": "Word Bearers",
+   "options": []
+  },
+  {
+   "id": "dreadnought-mhara-gal",
+   "name": "Dreadnought Mhara Gal",
+   "role": "EG",
+   "points": 210,
+   "page": 283,
+   "models": [
+    {
+     "name": "Dreadnought Mhara Gal",
+     "count": 1
+    }
+   ],
+   "profiles": [
+    {
+     "name": "Dreadnought Mhara Gal",
+     "stats": [
+      "8",
+      "5",
+      "4",
+      "7",
+      "7",
+      "7",
+      "4",
+      "4",
+      "12",
+      "10",
+      "8",
+      "5",
+      "2+",
+      "5+"
+     ]
+    }
+   ],
+   "wargear": [
+    "Canon à feu Warp",
+    "Griffe souillée",
+    "Brasier Warp"
+   ],
+   "rules": [
+    "Massif (6)",
+    "Explose (5+)",
+    "Peur (1)"
+   ],
+   "types": [
+    "Marcheur (Maléfique)"
+   ],
+   "traits": [
+    "Renégat",
+    "Word Bearers"
+   ],
+   "faction": "Word Bearers",
+   "options": []
+  },
+  {
+   "id": "alpharius",
+   "name": "Alpharius",
+   "role": "SG",
+   "points": 465,
+   "page": 296,
+   "models": [
+    {
+     "name": "Alpharius",
+     "count": 1
+    }
+   ],
+   "profiles": [
+    {
+     "name": "Alpharius",
+     "stats": [
+      "8",
+      "7",
+      "7",
+      "6",
+      "6",
+      "6",
+      "7",
+      "6",
+      "12",
+      "10",
+      "10",
+      "11",
+      "2+",
+      "4+"
+     ]
+    }
+   ],
+   "wargear": [
+    "La Lance Pâle",
+    "La Hargne de l'Hydre",
+    "Les Ecailles Pythiennes",
+    "Grenades Frag",
+    "Grenades Krak",
+    "Sphères à venin"
+   ],
+   "rules": [
+    "Sire de l'Alpha Legion",
+    "Massif (4)",
+    "Partout et Nulle Part",
+    "Guerrier Éternel (2)",
+    "Parangon (Unique, Léger)"
+   ],
+   "types": [
+    "Parangon (Unique)"
+   ],
+   "traits": [
+    "[Allégeance]",
+    "Alpha Legion",
+    "Écran de Fumée",
+    "Maître de la Légion"
+   ],
+   "faction": "Alpha Legion",
+   "options": []
+  },
+  {
+   "id": "armillus-dynat",
+   "name": "Armillus Dynat",
+   "role": "QG",
+   "points": 185,
+   "page": 298,
+   "models": [
+    {
+     "name": "Armillus Dynat",
+     "count": 1
+    }
+   ],
+   "profiles": [
+    {
+     "name": "Armillus Dynat",
+     "stats": [
+      "7",
+      "6",
+      "5",
+      "4",
+      "4",
+      "4",
+      "5",
+      "5",
+      "10",
+      "9",
+      "8",
+      "8",
+      "2+",
+      "4+"
+     ]
+    }
+   ],
+   "wargear": [
+    "Le Prince et le Prophète",
+    "Pistolet bolter",
+    "Grenades Frag",
+    "Grenades Krak",
+    "Sphères à venin",
+    "Bombes à phosphex"
+   ],
+   "rules": [
+    "Maître Herseur"
+   ],
+   "types": [
+    "Infanterie (Unique, État-major)"
+   ],
+   "traits": [
+    "[Allégeance]",
+    "Alpha Legion",
+    "Maître de la Légion"
+   ],
+   "faction": "Alpha Legion",
+   "options": []
+  },
+  {
+   "id": "saboteur",
+   "name": "Saboteur",
+   "role": "EM",
+   "points": 95,
+   "page": 299,
+   "models": [
+    {
+     "name": "Saboteur",
+     "count": 1
+    }
+   ],
+   "profiles": [
+    {
+     "name": "Saboteur",
+     "stats": [
+      "7",
+      "5",
+      "5",
+      "4",
+      "4",
+      "3",
+      "5",
+      "4",
+      "8",
+      "8",
+      "7",
+      "8",
+      "2+",
+      "5+"
+     ]
+    }
+   ],
+   "wargear": [
+    "Fusil à pompe Banestrike",
+    "Dague énergétique",
+    "Pistolet bolter",
+    "Grenades Frag",
+    "Grenades Krak",
+    "Bombes à fusion",
+    "Sphères à venin"
+   ],
+   "rules": [
+    "Faux Pavillon",
+    "Infiltration (6)"
+   ],
+   "types": [
+    "Infanterie (Spécialiste, Tirailleurs)"
+   ],
+   "traits": [
+    "[Allégeance]",
+    "Alpha Legion",
+    "Écran de Fumée"
+   ],
+   "faction": "Alpha Legion",
+   "options": [
+    {
+     "text": "Remplacer le pistolet bolter",
+     "max": 1,
+     "list": "Pistolets de Légion"
+    }
+   ]
+  },
+  {
+   "id": "section-de-chasseurs-de-tetes",
+   "name": "Section de Chasseurs de Têtes",
+   "role": "EL",
+   "points": 125,
+   "page": 300,
+   "models": [
+    {
+     "name": "Primat Chasseur de Têtes",
+     "count": 1
+    },
+    {
+     "name": "Chasseur de Têtes",
+     "count": 4
+    }
+   ],
+   "extra": {
+    "model": "Chasseur de Têtes",
+    "max": 5,
+    "points": 20
+   },
+   "profiles": [
+    {
+     "name": "Chasseur de Têtes",
+     "stats": [
+      "7",
+      "4",
+      "5",
+      "4",
+      "4",
+      "1",
+      "4",
+      "1",
+      "8",
+      "8",
+      "7",
+      "7",
+      "3+",
+      "-"
+     ]
+    },
+    {
+     "name": "Primat Chasseur de Têtes",
+     "stats": [
+      "7",
+      "4",
+      "5",
+      "4",
+      "4",
+      "1",
+      "4",
+      "2",
+      "9",
+      "8",
+      "7",
+      "7",
+      "3+",
+      "-"
+     ]
+    }
+   ],
+   "wargear": [
+    "Combi-bolter Banestrike",
+    "Dague énergétique",
+    "Pistolet bolter",
+    "Grenades Frag",
+    "Grenades Krak"
+   ],
+   "rules": [
+    "Précision (4+)",
+    "Haine (État-major)",
+    "Infiltration (9)"
+   ],
+   "types": [
+    "Primat Chasseur de Têtes : Infanterie (Sergent, Tirailleurs)",
+    "Chasseur de Têtes : Infanterie (Tirailleurs)"
+   ],
+   "traits": [
+    "[Allégeance]",
+    "Alpha Legion",
+    "Écran de Fumée"
+   ],
+   "faction": "Alpha Legion",
+   "options": [
+    {
+     "text": "Primat Chasseur de Têtes : remplacer la dague énergétique",
+     "max": 1,
+     "list": "Armes de Mêlée de Sergent de Légion"
+    },
+    {
+     "text": "Primat Chasseur de Têtes : remplacer le pistolet bolter",
+     "max": 1,
+     "list": "Pistolets de Légion"
+    },
+    {
+     "text": "Un Chasseur de Têtes par tranche de cinq figurines : remplacer le combi-bolter Banestrike",
+     "max": {
+      "per": 5
+     },
+     "choices": [
+      {
+       "name": "Bolter lourd",
+       "points": 5
+      },
+      {
+       "name": "Multi-fuseur",
+       "points": 20
+      }
+     ]
+    },
+    {
+     "text": "Toute l'unité",
+     "max": 1,
+     "choices": [
+      {
+       "name": "Bombes à fusion pour toutes les figurines (+5 par figurine)",
+       "points": 5
+      }
+     ],
+     "all": true
+    }
+   ]
+  },
+  {
+   "id": "exodus",
+   "name": "Exodus",
+   "role": "EL",
+   "points": 165,
+   "page": 302,
+   "models": [
+    {
+     "name": "Exodus",
+     "count": 1
+    }
+   ],
+   "profiles": [
+    {
+     "name": "Exodus",
+     "stats": [
+      "7",
+      "4",
+      "8",
+      "4",
+      "4",
+      "3",
+      "5",
+      "2",
+      "9",
+      "10",
+      "7",
+      "7",
+      "3+",
+      "5+"
+     ]
+    }
+   ],
+   "wargear": [
+    "L'Instrument",
+    "Pistolet bolter",
+    "Dague énergétique",
+    "Sphères à venin",
+    "Grenades Frag",
+    "Grenades Krak"
+   ],
+   "rules": [
+    "Dissimulation (5+)",
+    "Infiltration (9)",
+    "Tueur Solitaire",
+    "Précision (4+)",
+    "Unité d'Appui (1)"
+   ],
+   "types": [
+    "Infanterie (Léger)"
+   ],
+   "traits": [
+    "[Allégeance]",
+    "Alpha Legion",
+    "Écran de Fumée"
+   ],
+   "faction": "Alpha Legion",
+   "options": []
+  },
+  {
+   "id": "escouade-terminator-lerneenne",
+   "name": "Escouade Terminator Lernéenne",
+   "role": "EL",
+   "points": 250,
+   "page": 303,
+   "models": [
+    {
+     "name": "Herseur",
+     "count": 1
+    },
+    {
+     "name": "Lernéen",
+     "count": 4
+    }
+   ],
+   "extra": {
+    "model": "Lernéen",
+    "max": 5,
+    "points": 45
+   },
+   "profiles": [
+    {
+     "name": "Lernéen",
+     "stats": [
+      "6",
+      "5",
+      "4",
+      "4",
+      "5",
+      "2",
+      "4",
+      "3",
+      "8",
+      "8",
+      "7",
+      "7",
+      "2+",
+      "4+"
+     ]
+    },
+    {
+     "name": "Herseur",
+     "stats": [
+      "6",
+      "5",
+      "4",
+      "4",
+      "5",
+      "2",
+      "4",
+      "4",
+      "9",
+      "8",
+      "7",
+      "7",
+      "2+",
+      "4+"
+     ]
+    }
+   ],
+   "wargear": [
+    "Chargeur volkite",
+    "Hache énergétique"
+   ],
+   "rules": [
+    "Massif (2)",
+    "Ligne (1)",
+    "Avance Implacable",
+    "Lent et Méthodique",
+    "Haine (Legiones Astartes)"
+   ],
+   "types": [
+    "Herseur : Infanterie (Sergent, Lourd)",
+    "Lernéen : Infanterie (Lourd)"
+   ],
+   "traits": [
+    "[Allégeance]",
+    "Alpha Legion"
+   ],
+   "faction": "Alpha Legion",
+   "options": [
+    {
+     "text": "Toute figurine : remplacer le chargeur volkite",
+     "max": "models",
+     "choices": [
+      {
+       "name": "Combi-bolter",
+       "points": 0
+      }
+     ],
+     "list": "Armes Combinées de Légion"
+    },
+    {
+     "text": "Toute figurine : remplacer la hache énergétique",
+     "max": "models",
+     "choices": [
+      {
+       "name": "Masse énergétique",
+       "points": 0
+      },
+      {
+       "name": "Griffe Lightning",
+       "points": 5
+      },
+      {
+       "name": "Gantelet énergétique",
+       "points": 10
+      },
+      {
+       "name": "Poing tronçonneur",
+       "points": 10
+      },
+      {
+       "name": "Marteau Thunder",
+       "points": 10
+      }
+     ]
+    },
+    {
+     "text": "Toute figurine : remplacer le chargeur volkite et la hache énergétique",
+     "max": "models",
+     "choices": [
+      {
+       "name": "Paire de griffes Lightning",
+       "points": 10
+      }
+     ]
+    },
+    {
+     "text": "Un Lernéen par tranche de cinq figurines : remplacer le chargeur volkite",
+     "max": {
+      "per": 5
+     },
+     "choices": [
+      {
+       "name": "Lance-flammes lourd",
+       "points": 10
+      },
+      {
+       "name": "Canon à conversion",
+       "points": 15
+      },
+      {
+       "name": "Autocanon Reaper",
+       "points": 15
+      },
+      {
+       "name": "Éclateur à plasma",
+       "points": 10
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "manipule-du-cercle-de-fer",
+   "name": "Manipule du Cercle de Fer",
+   "role": "SU",
+   "points": 150,
+   "page": 154,
+   "models": [
+    {
+     "name": "Domitar-ferrum",
+     "count": 1
+    }
+   ],
+   "extra": {
+    "model": "Domitar-ferrum",
+    "max": 5,
+    "points": 135
+   },
+   "profiles": [
+    {
+     "name": "Domitar-ferrum",
+     "stats": [
+      "7",
+      "4",
+      "4",
+      "7",
+      "7",
+      "4",
+      "3",
+      "3",
+      "8",
+      "12",
+      "5",
+      "5",
+      "2+",
+      "5+"
+     ]
+    }
+   ],
+   "wargear": [
+    "Broyeur à gravitons"
+   ],
+   "rules": [
+    "Le Bouclier du Tyran de Fer"
+   ],
+   "types": [
+    "Automate"
+   ],
+   "traits": [
+    "[Allégeance]",
+    "Iron Warriors"
+   ],
+   "faction": "Iron Warriors",
+   "options": []
+  },
+  {
+   "id": "escouade-du-cercle-de-cendres",
+   "name": "Escouade du Cercle de Cendres",
+   "role": "AR",
+   "points": 125,
+   "page": 284,
+   "models": [
+    {
+     "name": "Iconoclaste",
+     "count": 1
+    },
+    {
+     "name": "Incendiaire",
+     "count": 4
+    }
+   ],
+   "extra": {
+    "model": "Incendiaire",
+    "max": 5,
+    "points": 20
+   },
+   "profiles": [
+    {
+     "name": "Incendiaire",
+     "stats": [
+      "12",
+      "4",
+      "4",
+      "4",
+      "4",
+      "1",
+      "4",
+      "2",
+      "8",
+      "8",
+      "7",
+      "7",
+      "3+",
+      "-"
+     ]
+    },
+    {
+     "name": "Iconoclaste",
+     "stats": [
+      "12",
+      "4",
+      "4",
+      "4",
+      "4",
+      "1",
+      "4",
+      "3",
+      "9",
+      "9",
+      "7",
+      "7",
+      "3+",
+      "-"
+     ]
+    }
+   ],
+   "wargear": [
+    "Lance-flammes léger akkadique",
+    "Hache-croc",
+    "Grenades Frag",
+    "Grenades Krak"
+   ],
+   "rules": [
+    "Massif (2)",
+    "Avant-garde (3)",
+    "Frappe en Profondeur",
+    "Annonciateurs de la Vérité",
+    "Âpre Devoir"
+   ],
+   "types": [
+    "Iconoclaste : Infanterie (Sergent, Antigrav)",
+    "Incendiaire : Infanterie (Antigrav)"
+   ],
+   "traits": [
+    "[Allégeance]",
+    "Word Bearers"
+   ],
+   "faction": "Word Bearers",
+   "options": [
+    {
+     "text": "Iconoclaste : remplacer le lance-flammes léger akkadique",
+     "max": 1,
+     "choices": [
+      {
+       "name": "Pistolet Inferno",
+       "points": 15
+      }
+     ]
+    },
+    {
+     "text": "Iconoclaste",
+     "max": 1,
+     "choices": [
+      {
+       "name": "Bombes à phosphex",
+       "points": 10
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "perturabo",
+   "name": "Perturabo",
+   "role": "SG",
+   "points": 425,
+   "page": 150,
+   "models": [
+    {
+     "name": "Perturabo",
+     "count": 1
+    }
+   ],
+   "profiles": [
+    {
+     "name": "Perturabo",
+     "stats": [
+      "7",
+      "7",
+      "7",
+      "6",
+      "7",
+      "6",
+      "5",
+      "6",
+      "12",
+      "10",
+      "10",
+      "10",
+      "2+",
+      "4+"
+     ]
+    }
+   ],
+   "wargear": [
+    "L'Arsenal du Logos",
+    "Contrôleur de cortex",
+    "Cognis-signum"
+   ],
+   "rules": [
+    "Sire des Iron Warriors",
+    "Massif (6)",
+    "Guerrier-artisan (3)",
+    "Le Briseur",
+    "Guerrier Éternel (2)"
+   ],
+   "types": [
+    "Parangon (Unique)"
+   ],
+   "traits": [
+    "Renégat",
+    "Iron Warriors",
+    "Maître de la Légion"
+   ],
+   "faction": "Iron Warriors",
+   "options": [
+    {
+     "text": "Brise-forge Profané",
+     "max": 1,
+     "choices": [
+      {
+       "name": "Brise-forge Profané",
+       "points": 35
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

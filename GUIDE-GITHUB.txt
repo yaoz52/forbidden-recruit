@@ -1,0 +1,45 @@
+FORBIDDEN RECRUIT — METTRE EN PLACE LE DÉPÔT DE MISES À JOUR SUR GITHUB
+(une seule fois, environ 15 minutes, sans rien installer)
+
+Ce dépôt sert à trois choses :
+  1. installer l'application sur PC, Mac et Android (avec son icône, utilisable hors ligne) ;
+  2. distribuer les nouvelles données (unités, FAQ, corrections) : Réglages > Vérifier les mises à jour ;
+  3. distribuer les nouvelles versions de l'application.
+Il ne contient aucune donnée personnelle : les listes restent sur chaque appareil.
+
+A. CRÉER LE COMPTE ET LE DÉPÔT
+1. Sur github.com, créez un compte dédié (adresse mail à part si vous voulez le séparer du professionnel).
+   Le nom du compte apparaîtra dans l'adresse : https://NOM-DU-COMPTE.github.io/...
+2. Bouton « New repository ». Nom conseillé : forbidden-recruit. Cochez « Public ». Créez.
+3. Dans le dépôt : « Add file » > « Upload files ». Décompressez forbidden-recruit-site.zip sur votre ordinateur
+   et glissez TOUT son contenu (fichiers et dossier data) dans la page. Bouton « Commit changes ».
+4. Onglet « Settings » > « Pages ». Source : « Deploy from a branch », branche « main », dossier « / (root) ».
+   Enregistrez. Après une ou deux minutes, l'adresse s'affiche, par exemple :
+   https://NOM-DU-COMPTE.github.io/forbidden-recruit/
+
+B. INSTALLER L'APPLICATION SUR CHAQUE APPAREIL
+- PC ou Mac (Chrome ou Edge) : ouvrez l'adresse, puis l'icône « Installer » à droite de la barre d'adresse.
+- Android (Chrome) : ouvrez l'adresse, menu ⋮ > « Ajouter à l'écran d'accueil » / « Installer l'application ».
+- Ensuite l'application s'ouvre comme un logiciel, sans connexion. Les listes sont enregistrées
+  automatiquement dans l'application, sur l'appareil.
+- Dans Réglages, collez l'adresse du dépôt dans « Adresse de votre dépôt de mises à jour »
+  (déjà correcte si l'application a été installée depuis cette adresse).
+- Le fichier forbidden-recruit.html seul fonctionne aussi sans rien installer (double-clic).
+
+C. PUBLIER UNE MISE À JOUR (quand je vous livre une nouvelle version)
+1. Je vous fournis un nouveau forbidden-recruit-site.zip.
+2. Dans le dépôt : « Add file » > « Upload files », glissez tout le contenu du zip (il remplace les anciens fichiers).
+   « Commit changes ».
+3. Sur chaque appareil : Réglages > « Vérifier les mises à jour » > « Installer les nouvelles données ».
+   Si une nouvelle version de l'application est publiée, l'application installée se met à jour seule
+   à l'ouverture suivante (bouton « Mise à jour disponible — installer »).
+
+D. SANS CONNEXION
+Réglages > « Installer une mise à jour depuis un fichier » accepte le fichier forbidden-recruit-donnees-AAAA.MM.json
+que vous pouvez transmettre par mail, messagerie ou clé USB.
+
+E. VOS LISTES
+- Enregistrement automatique dans l'application, rien à choisir.
+- « Télécharger le PDF » : feuille d'armée mise en page, dans le dossier Téléchargements.
+- « Exporter en texte » : fichier .txt lisible, réimportable dans Mes listes > « Importer une liste ».
+- Réglages > « Sauvegarder toutes les listes » / « Restaurer une sauvegarde » pour changer d'appareil.

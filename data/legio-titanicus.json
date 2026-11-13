@@ -1,0 +1,968 @@
+{
+ "id": "legio-titanicus",
+ "name": "Liber Questoris — Legio Titanicus",
+ "lang": "fr",
+ "army": "titan",
+ "source": "Liber Questoris, édition française 2025, Legio Titanicus p. 54-68 (pages du livre)",
+ "equipmentLists": {},
+ "detachments": [
+  {
+   "id": "ordinal-titanique",
+   "name": "Ordinal Titanique",
+   "kind": "principal",
+   "mainFor": "titan",
+   "note": "Missions de Destruction d'Engin uniquement. Pas de plafond de points pour les Seigneurs des Batailles ; les autres factions passent par des Détachements Alliés.",
+   "slots": [
+    {
+     "role": "SB"
+    },
+    {
+     "role": "EM"
+    },
+    {
+     "role": "TR"
+    },
+    {
+     "role": "TR"
+    },
+    {
+     "role": "TR"
+    },
+    {
+     "role": "TR"
+    },
+    {
+     "role": "TL"
+    },
+    {
+     "role": "TL"
+    },
+    {
+     "role": "TL"
+    },
+    {
+     "role": "TL"
+    }
+   ]
+  }
+ ],
+ "rules": {},
+ "units": [
+  {
+   "id": "titan-axiarque",
+   "name": "Axiarque Secutarius",
+   "role": "EM",
+   "points": 95,
+   "page": 58,
+   "models": [
+    {
+     "name": "Axiarque",
+     "count": 1
+    }
+   ],
+   "profiles": [
+    {
+     "name": "Axiarque",
+     "stats": [
+      "6",
+      "5",
+      "5",
+      "4",
+      "3",
+      "3",
+      "4",
+      "4",
+      "9",
+      "10",
+      "8",
+      "9",
+      "2+",
+      "5+"
+     ]
+    }
+   ],
+   "wargear": [
+    "Électrolance",
+    "Bouclier magnéto-inverseur",
+    "Grenades Frag"
+   ],
+   "rules": [
+    "Hommes d'Armes de la Legio"
+   ],
+   "types": [
+    "Infanterie (État-major)"
+   ],
+   "traits": [
+    "[Allégeance]",
+    "Legio Titanicus",
+    "Bouclier"
+   ],
+   "options": [
+    {
+     "text": "Remplacer l'électrolance",
+     "max": 1,
+     "choices": [
+      {
+       "name": "Épée énergétique",
+       "points": 0
+      },
+      {
+       "name": "Électromasse",
+       "points": 0
+      }
+     ]
+    },
+    {
+     "text": "Équipements (un de chaque)",
+     "max": 2,
+     "choices": [
+      {
+       "name": "Grenades Rad",
+       "points": 10
+      },
+      {
+       "name": "Cyber-familier",
+       "points": 5
+      }
+     ],
+     "unique": true
+    }
+   ]
+  },
+  {
+   "id": "titan-secutarii",
+   "name": "Cohorte de Secutarii",
+   "role": "TR",
+   "points": 165,
+   "page": 59,
+   "models": [
+    {
+     "name": "Secutarius Alpha",
+     "count": 1
+    },
+    {
+     "name": "Secutarius",
+     "count": 9
+    }
+   ],
+   "extra": {
+    "model": "Secutarius",
+    "max": 10,
+    "points": 15
+   },
+   "profiles": [
+    {
+     "name": "Secutarius",
+     "stats": [
+      "6",
+      "4",
+      "4",
+      "4",
+      "3",
+      "1",
+      "3",
+      "2",
+      "7",
+      "8",
+      "7",
+      "8",
+      "4+",
+      "6+"
+     ]
+    },
+    {
+     "name": "Secutarius Alpha",
+     "stats": [
+      "6",
+      "4",
+      "4",
+      "4",
+      "3",
+      "1",
+      "3",
+      "2",
+      "8",
+      "9",
+      "7",
+      "8",
+      "4+",
+      "6+"
+     ]
+    }
+   ],
+   "wargear": [
+    "Électrolance",
+    "Bouclier magnéto-inverseur",
+    "Grenades Frag"
+   ],
+   "rules": [
+    "Hommes d'Armes de la Legio"
+   ],
+   "types": [
+    "Secutarius Alpha : Infanterie (Sergent)",
+    "Secutarius : Infanterie"
+   ],
+   "traits": [
+    "[Allégeance]",
+    "Legio Titanicus",
+    "Bouclier"
+   ],
+   "options": [
+    {
+     "text": "Toute l'unité : remplacer électrolance et bouclier (perd Bouclier, gagne Écran de Fumée)",
+     "max": 1,
+     "choices": [
+      {
+       "name": "Lanceurs galvaniques",
+       "points": 0
+      }
+     ]
+    },
+    {
+     "text": "Secutarius Alpha (un de chaque)",
+     "max": 4,
+     "choices": [
+      {
+       "name": "Épée énergétique",
+       "points": 0
+      },
+      {
+       "name": "Électromasse",
+       "points": 0
+      },
+      {
+       "name": "Serpentine volkite",
+       "points": 2
+      },
+      {
+       "name": "Électropistolet",
+       "points": 5
+      }
+     ],
+     "unique": true
+    },
+    {
+     "text": "Toute l'unité",
+     "max": 1,
+     "choices": [
+      {
+       "name": "Grenades Rad (+2 par figurine)",
+       "points": 2
+      }
+     ],
+     "all": true
+    }
+   ]
+  },
+  {
+   "id": "titan-triaros",
+   "name": "Convoyeur Blindé Triaros (Legio)",
+   "role": "TL",
+   "points": 200,
+   "page": 60,
+   "models": [
+    {
+     "name": "Triaros",
+     "count": 1
+    }
+   ],
+   "profiles": [
+    {
+     "name": "Triaros",
+     "stats": [
+      "10",
+      "4",
+      "14",
+      "12",
+      "12",
+      "7",
+      "22"
+     ],
+     "vehicle": true
+    }
+   ],
+   "wargear": [
+    "Deux arquebuses volkites d'Axe Central",
+    "Canon à bolts Mauler jumelé sur Pivot",
+    "Bouclier répulsif",
+    "Projecteurs"
+   ],
+   "rules": [
+    "Autoréparation (4+)",
+    "Bélier-choc"
+   ],
+   "types": [
+    "Véhicule (Transport)"
+   ],
+   "traits": [
+    "[Allégeance]",
+    "Legio Titanicus"
+   ],
+   "options": [
+    {
+     "text": "Missiles traqueurs de Coque (Avant), jusqu'à deux",
+     "max": 2,
+     "choices": [
+      {
+       "name": "Missile traqueur de Coque (Avant)",
+       "points": 5
+      }
+     ]
+    }
+   ],
+   "notes": "Profil identique au Triaros du Liber Mechanicum ; options à confirmer sur la page 60 du Liber Questoris."
+  },
+  {
+   "id": "titan-warhound",
+   "name": "Titan Warhound",
+   "role": "SB",
+   "points": 750,
+   "page": 62,
+   "models": [
+    {
+     "name": "Titan Warhound",
+     "count": 1
+    }
+   ],
+   "profiles": [
+    {
+     "name": "Tête",
+     "stats": [
+      "-",
+      "-",
+      "14",
+      "12",
+      "8",
+      "-"
+     ],
+     "heads": [
+      "M",
+      "CT",
+      "B. princ.",
+      "B. exposé",
+      "PC",
+      "Transp."
+     ]
+    },
+    {
+     "name": "Carapace",
+     "stats": [
+      "-",
+      "-",
+      "14",
+      "12",
+      "10",
+      "-"
+     ],
+     "heads": [
+      "M",
+      "CT",
+      "B. princ.",
+      "B. exposé",
+      "PC",
+      "Transp."
+     ]
+    },
+    {
+     "name": "Bras",
+     "stats": [
+      "-",
+      "3",
+      "12",
+      "10",
+      "8",
+      "-"
+     ],
+     "heads": [
+      "M",
+      "CT",
+      "B. princ.",
+      "B. exposé",
+      "PC",
+      "Transp."
+     ]
+    },
+    {
+     "name": "Jambes",
+     "stats": [
+      "20",
+      "-",
+      "14",
+      "12",
+      "10",
+      "-"
+     ],
+     "heads": [
+      "M",
+      "CT",
+      "B. princ.",
+      "B. exposé",
+      "PC",
+      "Transp."
+     ]
+    }
+   ],
+   "wargear": [
+    "Le Profil de Bras a deux Armes de Bras (voir Options)"
+   ],
+   "rules": [
+    "Cor Titanique (1)",
+    "Réparateurs (D3)",
+    "Boucliers Void Titaniques (2)"
+   ],
+   "types": [
+    "Véhicule (Titan)"
+   ],
+   "traits": [
+    "[Allégeance]",
+    "Legio Titanicus",
+    "[Équipage]",
+    "Titan Éclaireur"
+   ],
+   "options": [
+    {
+     "text": "Équipage — obligatoire (remplace le Trait [Équipage])",
+     "max": 1,
+     "choices": [
+      {
+       "name": "Minoris",
+       "points": 0
+      },
+      {
+       "name": "Senioris (CT 4 aux Bras et à la Carapace)",
+       "points": 50
+      },
+      {
+       "name": "Majoris (CT 5 aux Bras et à la Carapace)",
+       "points": 100
+      }
+     ],
+     "required": true
+    },
+    {
+     "text": "Armes de Bras — obligatoire : deux",
+     "max": 2,
+     "choices": [
+      {
+       "name": "Méga-bolter Vulcan de Bras",
+       "points": 0
+      },
+      {
+       "name": "Canon Inferno titanique de Bras",
+       "points": 0
+      },
+      {
+       "name": "Éclateur à plasma titanique de Bras",
+       "points": 0
+      },
+      {
+       "name": "Destructeur turbo-laser titanique de Bras",
+       "points": 0
+      }
+     ],
+     "required": true
+    }
+   ]
+  },
+  {
+   "id": "titan-reaver",
+   "name": "Titan Reaver",
+   "role": "SB",
+   "points": 1500,
+   "page": 64,
+   "models": [
+    {
+     "name": "Titan Reaver",
+     "count": 1
+    }
+   ],
+   "profiles": [
+    {
+     "name": "Tête",
+     "stats": [
+      "-",
+      "-",
+      "14",
+      "12",
+      "10",
+      "-"
+     ],
+     "heads": [
+      "M",
+      "CT",
+      "B. princ.",
+      "B. exposé",
+      "PC",
+      "Transp."
+     ]
+    },
+    {
+     "name": "Carapace",
+     "stats": [
+      "-",
+      "3",
+      "15",
+      "14",
+      "12",
+      "-"
+     ],
+     "heads": [
+      "M",
+      "CT",
+      "B. princ.",
+      "B. exposé",
+      "PC",
+      "Transp."
+     ]
+    },
+    {
+     "name": "Bras",
+     "stats": [
+      "-",
+      "3",
+      "14",
+      "12",
+      "10",
+      "-"
+     ],
+     "heads": [
+      "M",
+      "CT",
+      "B. princ.",
+      "B. exposé",
+      "PC",
+      "Transp."
+     ]
+    },
+    {
+     "name": "Jambes",
+     "stats": [
+      "15",
+      "-",
+      "15",
+      "14",
+      "12",
+      "-"
+     ],
+     "heads": [
+      "M",
+      "CT",
+      "B. princ.",
+      "B. exposé",
+      "PC",
+      "Transp."
+     ]
+    }
+   ],
+   "wargear": [
+    "Carapace : lance-missiles Apocalypse",
+    "Le Profil de Bras a deux Armes de Bras (voir Options)"
+   ],
+   "rules": [
+    "Cor Titanique (2)",
+    "Réparateurs (D3+1)",
+    "Boucliers Void Titaniques (4)",
+    "Structure Renforcée (1)"
+   ],
+   "types": [
+    "Véhicule (Titan)"
+   ],
+   "traits": [
+    "[Allégeance]",
+    "Legio Titanicus",
+    "[Équipage]",
+    "Titan Léger"
+   ],
+   "options": [
+    {
+     "text": "Équipage — obligatoire (remplace le Trait [Équipage])",
+     "max": 1,
+     "choices": [
+      {
+       "name": "Minoris",
+       "points": 0
+      },
+      {
+       "name": "Senioris (CT 4 aux Bras et à la Carapace)",
+       "points": 100
+      },
+      {
+       "name": "Majoris (CT 5 aux Bras et à la Carapace)",
+       "points": 200
+      }
+     ],
+     "required": true
+    },
+    {
+     "text": "Armes de Bras — obligatoire : deux",
+     "max": 2,
+     "choices": [
+      {
+       "name": "Éclateur gatling titanique de Bras",
+       "points": 0
+      },
+      {
+       "name": "Éclateur laser titanique de Bras",
+       "points": 0
+      },
+      {
+       "name": "Canon à fusion titanique de Bras",
+       "points": 0
+      },
+      {
+       "name": "Poing énergétique titanique de Bras",
+       "points": 0
+      },
+      {
+       "name": "Canon Volcano titanique de Bras",
+       "points": 0
+      }
+     ],
+     "required": true
+    }
+   ]
+  },
+  {
+   "id": "titan-nemesis",
+   "name": "Titan Warbringer Némésis",
+   "role": "SB",
+   "points": 2000,
+   "page": 66,
+   "models": [
+    {
+     "name": "Titan Warbringer Némésis",
+     "count": 1
+    }
+   ],
+   "profiles": [
+    {
+     "name": "Tête",
+     "stats": [
+      "-",
+      "-",
+      "14",
+      "12",
+      "12",
+      "-"
+     ],
+     "heads": [
+      "M",
+      "CT",
+      "B. princ.",
+      "B. exposé",
+      "PC",
+      "Transp."
+     ]
+    },
+    {
+     "name": "Carapace",
+     "stats": [
+      "-",
+      "3",
+      "16",
+      "14",
+      "18",
+      "-"
+     ],
+     "heads": [
+      "M",
+      "CT",
+      "B. princ.",
+      "B. exposé",
+      "PC",
+      "Transp."
+     ]
+    },
+    {
+     "name": "Bras",
+     "stats": [
+      "-",
+      "3",
+      "14",
+      "12",
+      "12",
+      "-"
+     ],
+     "heads": [
+      "M",
+      "CT",
+      "B. princ.",
+      "B. exposé",
+      "PC",
+      "Transp."
+     ]
+    },
+    {
+     "name": "Jambes",
+     "stats": [
+      "10",
+      "-",
+      "15",
+      "14",
+      "14",
+      "-"
+     ],
+     "heads": [
+      "M",
+      "CT",
+      "B. princ.",
+      "B. exposé",
+      "PC",
+      "Transp."
+     ]
+    }
+   ],
+   "wargear": [
+    "Carapace : une Arme d'Axe Médian (voir Options), deux autocanons Defensor, deux canons à bolts Defensor (Avant), un canon à bolts Defensor (Arrière)",
+    "Le Profil de Bras a deux Armes de Bras (voir Options)"
+   ],
+   "rules": [
+    "Cor Titanique (3)",
+    "Réparateurs (D6)",
+    "Boucliers Void Titaniques (6)",
+    "Structure Renforcée (2)"
+   ],
+   "types": [
+    "Véhicule (Titan)"
+   ],
+   "traits": [
+    "[Allégeance]",
+    "Legio Titanicus",
+    "[Équipage]",
+    "Titan Moyen"
+   ],
+   "options": [
+    {
+     "text": "Équipage — obligatoire (remplace le Trait [Équipage])",
+     "max": 1,
+     "choices": [
+      {
+       "name": "Minoris",
+       "points": 0
+      },
+      {
+       "name": "Senioris (CT 4 aux Bras et à la Carapace)",
+       "points": 200
+      },
+      {
+       "name": "Majoris (CT 5 aux Bras et à la Carapace)",
+       "points": 350
+      }
+     ],
+     "required": true
+    },
+    {
+     "text": "Arme d'Axe Médian — obligatoire",
+     "max": 1,
+     "choices": [
+      {
+       "name": "Canon sismique Némésis d'Axe Médian",
+       "points": 0
+      },
+      {
+       "name": "Canon Volcano Némésis d'Axe Médian",
+       "points": 0
+      }
+     ],
+     "required": true
+    },
+    {
+     "text": "Armes de Bras — obligatoire : deux",
+     "max": 2,
+     "choices": [
+      {
+       "name": "Éclateur gatling titanique de Bras",
+       "points": 0
+      },
+      {
+       "name": "Éclateur laser titanique de Bras",
+       "points": 0
+      },
+      {
+       "name": "Canon Volcano titanique de Bras",
+       "points": 0
+      },
+      {
+       "name": "Canon à fusion titanique de Bras",
+       "points": 0
+      }
+     ],
+     "required": true
+    }
+   ]
+  },
+  {
+   "id": "titan-warlord",
+   "name": "Titan Warlord",
+   "role": "SB",
+   "points": 3000,
+   "page": 68,
+   "models": [
+    {
+     "name": "Titan Warlord",
+     "count": 1
+    }
+   ],
+   "profiles": [
+    {
+     "name": "Tête",
+     "stats": [
+      "-",
+      "-",
+      "14",
+      "12",
+      "14",
+      "-"
+     ],
+     "heads": [
+      "M",
+      "CT",
+      "B. princ.",
+      "B. exposé",
+      "PC",
+      "Transp."
+     ]
+    },
+    {
+     "name": "Carapace",
+     "stats": [
+      "-",
+      "3",
+      "15",
+      "14",
+      "18",
+      "-"
+     ],
+     "heads": [
+      "M",
+      "CT",
+      "B. princ.",
+      "B. exposé",
+      "PC",
+      "Transp."
+     ]
+    },
+    {
+     "name": "Bras",
+     "stats": [
+      "-",
+      "3",
+      "14",
+      "12",
+      "14",
+      "-"
+     ],
+     "heads": [
+      "M",
+      "CT",
+      "B. princ.",
+      "B. exposé",
+      "PC",
+      "Transp."
+     ]
+    },
+    {
+     "name": "Jambes",
+     "stats": [
+      "12",
+      "-",
+      "15",
+      "14",
+      "16",
+      "-"
+     ],
+     "heads": [
+      "M",
+      "CT",
+      "B. princ.",
+      "B. exposé",
+      "PC",
+      "Transp."
+     ]
+    }
+   ],
+   "wargear": [
+    "Carapace : deux Armes de Carapace (voir Options), deux canons à bolts Defensor (Avant), deux canons laser Defensor (Arrière)",
+    "Le Profil de Bras a deux Armes de Bras (voir Options)"
+   ],
+   "rules": [
+    "Cor Titanique (4)",
+    "Réparateurs (D6+1)",
+    "Boucliers Void Titaniques (8)",
+    "Structure Renforcée (3)"
+   ],
+   "types": [
+    "Véhicule (Titan)"
+   ],
+   "traits": [
+    "[Allégeance]",
+    "Legio Titanicus",
+    "[Équipage]",
+    "Titan Moyen"
+   ],
+   "options": [
+    {
+     "text": "Équipage — obligatoire (remplace le Trait [Équipage])",
+     "max": 1,
+     "choices": [
+      {
+       "name": "Minoris",
+       "points": 0
+      },
+      {
+       "name": "Senioris (CT 4 aux Bras et à la Carapace)",
+       "points": 300
+      },
+      {
+       "name": "Majoris (CT 5 aux Bras et à la Carapace)",
+       "points": 500
+      }
+     ],
+     "required": true
+    },
+    {
+     "text": "Armes de Carapace — obligatoire",
+     "max": 1,
+     "choices": [
+      {
+       "name": "Deux lance-missiles Apocalypse de Carapace",
+       "points": 0
+      },
+      {
+       "name": "Deux éclateurs laser titaniques de Carapace",
+       "points": 0
+      }
+     ],
+     "required": true
+    },
+    {
+     "text": "Armes de Bras — obligatoire : deux (la griffe Arioch avec méga-bolter compte pour un seul choix)",
+     "max": 2,
+     "choices": [
+      {
+       "name": "Canon sismique Mori de Bras",
+       "points": 0
+      },
+      {
+       "name": "Canon Volcano Belicosa de Bras",
+       "points": 0
+      },
+      {
+       "name": "Macro-éclateur gatling de Bras",
+       "points": 0
+      },
+      {
+       "name": "Annihilateur à plasma Sunfury de Bras",
+       "points": 0
+      },
+      {
+       "name": "Griffe énergétique Arioch et méga-bolter Vulcan de Bras",
+       "points": 0
+      }
+     ],
+     "required": true
+    }
+   ]
+  }
+ ]
+}

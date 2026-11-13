@@ -1,0 +1,397 @@
+{
+ "id": "fortifications",
+ "name": "Legacies – Battlefield Fortifications",
+ "lang": "en",
+ "army": null,
+ "legacy": true,
+ "source": "Legacies of the Age of Darkness v1.1 (EN)",
+ "units": [
+  {
+   "id": "vengeance-weapon-battery",
+   "name": "Vengeance Weapon Battery",
+   "lang": "en",
+   "role": "FO",
+   "points": 100,
+   "page": 195,
+   "models": [
+    {
+     "name": "Vengeance Weapon Battery",
+     "count": 1
+    }
+   ],
+   "profiles": [
+    {
+     "name": "Vengeance Weapon Battery",
+     "stats": [
+      "11",
+      "6",
+      "2"
+     ],
+     "vehicle": true
+    }
+   ],
+   "wargear": [
+    "Turret Mounted Vengeance battlecannon"
+   ],
+   "rules": [],
+   "types": [
+    "Fortification (Emplacement)"
+   ],
+   "traits": [],
+   "options": [
+    {
+     "text": "This Model may have its Turret Mounted Vengeance battlecannon exchanged for the following:",
+     "max": 1,
+     "choices": [
+      {
+       "name": "Turret Mounted Avenger bolt cannon",
+       "points": 15
+      }
+     ]
+    }
+   ],
+   "army": null,
+   "anyArmy": true,
+   "legacy": true,
+   "source": "Legacies of the Age of Darkness v1.1 (EN)"
+  },
+  {
+   "id": "hammerfall-bunker",
+   "name": "Hammerfall Bunker",
+   "lang": "en",
+   "role": "FO",
+   "points": 150,
+   "page": 196,
+   "models": [
+    {
+     "name": "Hammerfall Bunker",
+     "count": 1
+    }
+   ],
+   "profiles": [
+    {
+     "name": "Hammerfall Bunker",
+     "stats": [
+      "11",
+      "6",
+      "2"
+     ],
+     "vehicle": true
+    }
+   ],
+   "wargear": [
+    "Turret Mounted Hyperios missile launcher",
+    "Hull Mounted heavy bolter array"
+   ],
+   "rules": [
+    "Forward Deployment"
+   ],
+   "types": [
+    "Fortification (Emplacement)"
+   ],
+   "traits": [],
+   "options": [
+    {
+     "text": "This Model may have its Hull Mounted heavy bolter array exchanged for the following:",
+     "max": 1,
+     "choices": [
+      {
+       "name": "Hull Mounted heavy flamer array",
+       "points": 0
+      }
+     ]
+    }
+   ],
+   "army": null,
+   "anyArmy": true,
+   "legacy": true,
+   "source": "Legacies of the Age of Darkness v1.1 (EN)"
+  },
+  {
+   "id": "void-shield-generator",
+   "name": "Void Shield Generator",
+   "lang": "en",
+   "role": "FO",
+   "points": 120,
+   "page": 197,
+   "models": [
+    {
+     "name": "Void Shield Generator",
+     "count": 1
+    }
+   ],
+   "profiles": [],
+   "wargear": [
+    "Void shield generator"
+   ],
+   "rules": [],
+   "types": [
+    "Fortification (Structure)"
+   ],
+   "traits": [],
+   "options": [],
+   "army": null,
+   "anyArmy": true,
+   "legacy": true,
+   "source": "Legacies of the Age of Darkness v1.1 (EN)"
+  },
+  {
+   "id": "skyshield-landing-pad",
+   "name": "Skyshield Landing Pad",
+   "lang": "en",
+   "role": "FO",
+   "points": 100,
+   "page": 198,
+   "models": [
+    {
+     "name": "Skyshield Landing Pad",
+     "count": 1
+    }
+   ],
+   "profiles": [],
+   "wargear": [],
+   "rules": [
+    "Platform",
+    "Landing Pad",
+    "Forward Deployment"
+   ],
+   "types": [
+    "Fortification (Structure)"
+   ],
+   "traits": [],
+   "options": [],
+   "army": null,
+   "anyArmy": true,
+   "legacy": true,
+   "source": "Legacies of the Age of Darkness v1.1 (EN)"
+  },
+  {
+   "id": "aegis-defence-line",
+   "name": "Aegis Defence Line",
+   "lang": "en",
+   "role": "FO",
+   "points": 70,
+   "page": 199,
+   "models": [
+    {
+     "name": "Core Platform",
+     "count": 1
+    },
+    {
+     "name": "Barricades",
+     "count": 6
+    }
+   ],
+   "profiles": [],
+   "wargear": [],
+   "rules": [
+    "Core Platforms : Armoured Platform",
+    "Barricades : Aegis Barricades"
+   ],
+   "types": [
+    "Fortification (Structure)"
+   ],
+   "traits": [],
+   "options": [],
+   "army": null,
+   "anyArmy": true,
+   "legacy": true,
+   "source": "Legacies of the Age of Darkness v1.1 (EN)"
+  },
+  {
+   "id": "firestorm-redoubt",
+   "name": "Firestorm Redoubt",
+   "lang": "en",
+   "role": "FO",
+   "points": 200,
+   "page": 200,
+   "models": [
+    {
+     "name": "Firestorm Redoubt",
+     "count": 1
+    }
+   ],
+   "profiles": [
+    {
+     "name": "Firestorm Redoubt",
+     "stats": [
+      "12",
+      "8",
+      "2",
+      "10"
+     ],
+     "vehicle": true
+    }
+   ],
+   "wargear": [
+    "Two Turret Mounted Icarus lascannon arrays"
+   ],
+   "rules": [
+    "Firing Point (3)"
+   ],
+   "types": [
+    "Fortification (Emplacement, Bunker)"
+   ],
+   "traits": [],
+   "options": [],
+   "army": null,
+   "anyArmy": true,
+   "legacy": true,
+   "source": "Legacies of the Age of Darkness v1.1 (EN)"
+  },
+  {
+   "id": "fortress-of-redemption",
+   "name": "Fortress of Redemption",
+   "lang": "en",
+   "role": "FO",
+   "points": 300,
+   "page": 201,
+   "models": [
+    {
+     "name": "Fortress of Redemption",
+     "count": 1
+    }
+   ],
+   "profiles": [
+    {
+     "name": "Fortress of Redemption",
+     "stats": [
+      "12",
+      "10",
+      "2",
+      "22"
+     ],
+     "vehicle": true
+    }
+   ],
+   "wargear": [
+    "Turret Mounted twin Icarus lascannon"
+   ],
+   "rules": [
+    "Orbital Defence"
+   ],
+   "types": [
+    "Fortification (Emplacement, Bunker)"
+   ],
+   "traits": [],
+   "options": [],
+   "army": null,
+   "anyArmy": true,
+   "legacy": true,
+   "source": "Legacies of the Age of Darkness v1.1 (EN)"
+  },
+  {
+   "id": "aquila-strongpoint",
+   "name": "Aquila Strongpoint",
+   "lang": "en",
+   "role": "FO",
+   "points": 100,
+   "page": 202,
+   "models": [
+    {
+     "name": "Aquila Strongpoint",
+     "count": 1
+    }
+   ],
+   "profiles": [
+    {
+     "name": "Aquila Strongpoint",
+     "stats": [
+      "12",
+      "8",
+      "2",
+      "17"
+     ],
+     "vehicle": true
+    }
+   ],
+   "wargear": [],
+   "rules": [
+    "Firing Point (3)"
+   ],
+   "types": [
+    "Fortification (Emplacement, Bunker)"
+   ],
+   "traits": [],
+   "options": [
+    {
+     "text": "The Aquila Strongpoint must have one of the following options selected for it:",
+     "max": 1,
+     "required": true,
+     "choices": [
+      {
+       "name": "Void Missile Silo: The Aquila Strongpoint gains the Orbital Defense Special Rule",
+       "points": 100
+      },
+      {
+       "name": "Macro Cannon: The Aquila Strongpoint gains a Turret Mounted Aquila macro-cannon",
+       "points": 200
+      }
+     ]
+    }
+   ],
+   "army": null,
+   "anyArmy": true,
+   "legacy": true,
+   "source": "Legacies of the Age of Darkness v1.1 (EN)"
+  },
+  {
+   "id": "primus-redoubt",
+   "name": "Primus Redoubt",
+   "lang": "en",
+   "role": "FO",
+   "points": 400,
+   "limit": 1,
+   "page": 204,
+   "models": [
+    {
+     "name": "Primus Redoubt",
+     "count": 1
+    }
+   ],
+   "profiles": [
+    {
+     "name": "Primus Redoubt",
+     "stats": [
+      "14",
+      "8",
+      "3",
+      "12"
+     ],
+     "vehicle": true
+    }
+   ],
+   "wargear": [
+    "One Turret Mounted Primus turbo laser"
+   ],
+   "rules": [],
+   "types": [
+    "Fortification (Emplacement, Bunker)"
+   ],
+   "traits": [],
+   "options": [],
+   "army": null,
+   "anyArmy": true,
+   "legacy": true,
+   "source": "Legacies of the Age of Darkness v1.1 (EN)"
+  }
+ ],
+ "detachments": [
+  {
+   "id": "fortifications",
+   "name": "Battlefield Fortifications Detachment",
+   "kind": "fort",
+   "legacy": true,
+   "lang": "en",
+   "note": "Additional Detachment, any Army and Allegiance (Legacies p. 191).",
+   "slots": [
+    {
+     "role": "FO"
+    },
+    {
+     "role": "FO"
+    }
+   ]
+  }
+ ]
+}

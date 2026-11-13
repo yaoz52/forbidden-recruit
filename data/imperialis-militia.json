@@ -1,0 +1,3393 @@
+{
+ "id": "imperialis-militia",
+ "name": "Imperialis Militia",
+ "lang": "en",
+ "army": "mil",
+ "legacy": true,
+ "source": "The Imperialis Militia – Legacies v1.1 (EN)",
+ "units": [
+  {
+   "id": "mil-force-commander",
+   "name": "Force Commander",
+   "lang": "en",
+   "role": "QG",
+   "points": 70,
+   "page": 13,
+   "models": [
+    {
+     "name": "Force Commander",
+     "count": 1
+    }
+   ],
+   "profiles": [
+    {
+     "name": "Force Commander",
+     "stats": [
+      "6",
+      "4",
+      "4",
+      "3",
+      "3",
+      "3",
+      "3",
+      "3",
+      "9",
+      "8",
+      "7",
+      "7",
+      "3+",
+      "5+"
+     ]
+    },
+    {
+     "name": "Mounted Force Commander",
+     "stats": [
+      "12",
+      "4",
+      "4",
+      "3",
+      "3",
+      "4",
+      "3",
+      "3",
+      "9",
+      "8",
+      "7",
+      "7",
+      "3+",
+      "5+"
+     ]
+    }
+   ],
+   "wargear": [
+    "Militia pistol",
+    "Charnabal sabre",
+    "Frag grenades",
+    "Krak grenades"
+   ],
+   "rules": [
+    "Force Commander : Irregulars",
+    "Mounted Force Commander : Bulky (2)",
+    "Mounted Force Commander : Firestorm",
+    "Mounted Force Commander : Impact (S)",
+    "Mounted Force Commander : Irregulars",
+    "Mounted Force Commander : Outflank"
+   ],
+   "types": [
+    "Force Commander: Infantry (Command)",
+    "Mounted Force Commander: Cavalry (Command)"
+   ],
+   "traits": [
+    "[Allegiance]",
+    "Imperialis Militia",
+    "Planetary Overlord"
+   ],
+   "options": [
+    {
+     "text": "This Model may have its militia pistol and/or charnabal sabre exchanged for one paragon blade for +15 Points, one archaeotech pistol for +15 Points, one item each from…",
+     "max": 1,
+     "choices": [
+      {
+       "name": "Paragon blade",
+       "points": 15
+      },
+      {
+       "name": "Archaeotech pistol",
+       "points": 15
+      }
+     ],
+     "list": [
+      "Militia Officer Weapons",
+      "Militia Melee Weapons"
+     ]
+    },
+    {
+     "text": "This Mounted Force Commander may have its charnabal sabre exchanged for one militia lance for +5 Points.",
+     "max": 1,
+     "choices": [
+      {
+       "name": "Militia lance",
+       "points": 5
+      }
+     ]
+    },
+    {
+     "text": "This Model may have melta bombs selected for it for +10 Points.",
+     "max": 1,
+     "choices": [
+      {
+       "name": "Melta bombs",
+       "points": 10
+      }
+     ]
+    }
+   ],
+   "army": "mil",
+   "legacy": true,
+   "source": "The Imperialis Militia – Legacies v1.1 (EN)"
+  },
+  {
+   "id": "mil-discipline-master-cadre",
+   "name": "Discipline Master Cadre",
+   "lang": "en",
+   "role": "EM",
+   "points": 30,
+   "page": 14,
+   "models": [
+    {
+     "name": "Discipline Master",
+     "count": 1
+    }
+   ],
+   "profiles": [
+    {
+     "name": "Discipline Master",
+     "stats": [
+      "6",
+      "4",
+      "3",
+      "3",
+      "3",
+      "2",
+      "3",
+      "2",
+      "8",
+      "8",
+      "7",
+      "6",
+      "5+",
+      "5+"
+     ]
+    },
+    {
+     "name": "Mounted Discipline Master",
+     "stats": [
+      "12",
+      "4",
+      "3",
+      "3",
+      "3",
+      "2",
+      "3",
+      "2",
+      "8",
+      "8",
+      "7",
+      "6",
+      "5+",
+      "5+"
+     ]
+    }
+   ],
+   "wargear": [
+    "Militia pistol",
+    "Frag grenades"
+   ],
+   "rules": [
+    "Among the Ranks",
+    "Instil Order",
+    "Irregulars",
+    "Outflank (Mounted Discipline Master only)",
+    "Bulky (2) (Mounted Discipline Master only)",
+    "Impact (S) (Mounted Discipline Master only)"
+   ],
+   "types": [
+    "Discipline Master: Infantry (Command)",
+    "Mounted Discipline Master: Cavalry (Command)"
+   ],
+   "traits": [
+    "[Allegiance]",
+    "Imperialis Militia"
+   ],
+   "options": [
+    {
+     "text": "Any Model in this Unit may have its militia pistol exchanged for one item from the Militia Officer Weapons list.",
+     "max": "models",
+     "list": "Militia Officer Weapons"
+    },
+    {
+     "text": "Any Model in this Unit may have one item from the Militia Officer Weapons list or one item from the Militia Melee Weapons list selected for it.",
+     "max": "models",
+     "list": [
+      "Militia Officer Weapons",
+      "Militia Melee Weapons"
+     ]
+    },
+    {
+     "text": "Any Model in this Unit may have one item from the Militia Assault Weapons list selected for it.",
+     "max": "models",
+     "list": "Militia Assault Weapons"
+    },
+    {
+     "text": "One Model in this Unit may have the Officer of the Line (3) Special Rule selected for it for +20 Points.",
+     "max": 1,
+     "choices": [
+      {
+       "name": "Officer of the Line (3)",
+       "points": 20
+      }
+     ]
+    }
+   ],
+   "army": "mil",
+   "legacy": true,
+   "source": "The Imperialis Militia – Legacies v1.1 (EN)"
+  },
+  {
+   "id": "mil-command-troop",
+   "name": "Command Troop",
+   "lang": "en",
+   "role": "EM",
+   "points": 70,
+   "page": 16,
+   "models": [
+    {
+     "name": "Militia Lieutenant",
+     "count": 1
+    },
+    {
+     "name": "Bodyguards",
+     "count": 4
+    }
+   ],
+   "profiles": [
+    {
+     "name": "Bodyguard",
+     "stats": [
+      "6",
+      "3",
+      "3",
+      "3",
+      "3",
+      "1",
+      "3",
+      "2",
+      "6",
+      "6",
+      "5",
+      "5",
+      "5+",
+      "-"
+     ]
+    },
+    {
+     "name": "Grenadier Bodyguard",
+     "stats": [
+      "6",
+      "3",
+      "3",
+      "3",
+      "3",
+      "1",
+      "3",
+      "2",
+      "6",
+      "6",
+      "5",
+      "5",
+      "4+",
+      "-"
+     ]
+    },
+    {
+     "name": "Militia Lieutenant",
+     "stats": [
+      "6",
+      "4",
+      "4",
+      "3",
+      "3",
+      "2",
+      "3",
+      "3",
+      "7",
+      "7",
+      "6",
+      "5",
+      "4+",
+      "-"
+     ]
+    }
+   ],
+   "wargear": [
+    "Militia rifle",
+    "Militia pistol",
+    "Frag grenades",
+    "Krak grenades"
+   ],
+   "rules": [
+    "Implacable Advance",
+    "Irregulars",
+    "Officer of the Line (3) (Militia Lieutenant only)"
+   ],
+   "types": [
+    "Militia Lieutenant: Infantry (Command)",
+    "Bodyguard: Infantry",
+    "Grenadier Bodyguard: Infantry"
+   ],
+   "traits": [
+    "[Allegiance]",
+    "Imperialis Militia"
+   ],
+   "options": [
+    {
+     "text": "Any Model in this Unit may have its militia rifle exchanged for an assault shield for Free, one item from the Militia Melee Weapons list or one item from the Militia A…",
+     "max": "models",
+     "choices": [
+      {
+       "name": "Assault shield",
+       "points": 0
+      }
+     ],
+     "list": [
+      "Militia Melee Weapons",
+      "Militia Assault Weapons"
+     ]
+    },
+    {
+     "text": "Any Model in this Unit whose militia rifle has been exchanged for an assault shield may have its militia pistol exchanged for one militia shotgun for +1 Point per Mode…",
+     "max": "models",
+     "choices": [
+      {
+       "name": "Take this option",
+       "points": 1
+      }
+     ],
+     "list": "Militia Melee Weapons"
+    },
+    {
+     "text": "Any Model in this Unit may have its militia pistol exchanged for one item from the Militia Pistols list.",
+     "max": "models",
+     "list": "Militia Pistols"
+    },
+    {
+     "text": "Any Model in this Unit with a militia rifle, lasrifle or bolter may have one bayonet selected for it for +1 Point per Model.",
+     "max": "models",
+     "choices": [
+      {
+       "name": "Bayonet",
+       "points": 1
+      }
+     ]
+    },
+    {
+     "text": "One Bodyguard or Grenadier Bodyguard in this Unit may have its militia rifle exchanged for one item from the Militia Special Weapons list.",
+     "max": 1,
+     "list": "Militia Special Weapons"
+    },
+    {
+     "text": "The Militia Lieutenant in this Unit may have its militia rifle and/or militia pistol exchanged for one item each from the Militia Officer Weapons list.",
+     "max": 1,
+     "list": "Militia Officer Weapons"
+    },
+    {
+     "text": "The Militia Lieutenant in this Unit may have melta bombs selected for it for +10 Points.",
+     "max": 1,
+     "choices": [
+      {
+       "name": "Melta bombs",
+       "points": 10
+      }
+     ]
+    },
+    {
+     "text": "One Bodyguard or Grenadier Bodyguard in this Unit may have one militia standard selected for it for +15 Points.",
+     "max": 1,
+     "choices": [
+      {
+       "name": "Militia standard",
+       "points": 15
+      }
+     ]
+    },
+    {
+     "text": "One Bodyguard or Grenadier Bodyguard in this Unit may have one militia vox selected for it for +10 Points.",
+     "max": 1,
+     "choices": [
+      {
+       "name": "Militia vox",
+       "points": 10
+      }
+     ]
+    }
+   ],
+   "army": "mil",
+   "legacy": true,
+   "source": "The Imperialis Militia – Legacies v1.1 (EN)"
+  },
+  {
+   "id": "mil-mounted-command-troop",
+   "name": "Mounted Command Troop",
+   "lang": "en",
+   "role": "EM",
+   "points": 85,
+   "page": 17,
+   "models": [
+    {
+     "name": "Militia Lancemaster",
+     "count": 1
+    },
+    {
+     "name": "Lancers",
+     "count": 4
+    }
+   ],
+   "profiles": [
+    {
+     "name": "Lancer",
+     "stats": [
+      "12",
+      "3",
+      "3",
+      "3",
+      "3",
+      "2",
+      "3",
+      "2",
+      "6",
+      "6",
+      "5",
+      "5",
+      "5+",
+      "-"
+     ]
+    },
+    {
+     "name": "Militia Lancemaster",
+     "stats": [
+      "12",
+      "4",
+      "3",
+      "3",
+      "3",
+      "3",
+      "3",
+      "2",
+      "7",
+      "7",
+      "5",
+      "5",
+      "5+",
+      "-"
+     ]
+    }
+   ],
+   "wargear": [
+    "Militia pistol",
+    "Frag grenades"
+   ],
+   "rules": [
+    "Bulky (2)",
+    "Firestorm",
+    "Implacable Advance",
+    "Irregulars",
+    "Outflank",
+    "Impact (S)",
+    "Officer of the Line (3) (Militia Lancemaster only)"
+   ],
+   "types": [
+    "Militia Lancemaster: Cavalry (Command)",
+    "Lancer: Cavalry"
+   ],
+   "traits": [
+    "[Allegiance]",
+    "Imperialis Militia"
+   ],
+   "options": [
+    {
+     "text": "Any Model in this Unit may have one item from the Militia Melee Weapons list, one item from the Militia Assault Weapons list, or one of the following options selected …",
+     "max": "models",
+     "choices": [
+      {
+       "name": "Militia lance",
+       "points": 5
+      },
+      {
+       "name": "Power weapon",
+       "points": 5
+      }
+     ],
+     "list": [
+      "Militia Melee Weapons",
+      "Militia Assault Weapons"
+     ]
+    },
+    {
+     "text": "One Lancer in this Unit which has not had one of the above options selected for it may have one item from the Militia Special Weapons list selected for it.",
+     "max": 1,
+     "list": "Militia Special Weapons"
+    },
+    {
+     "text": "Any Model in this Unit may have its militia pistol exchanged for one item from the Militia Pistols list.",
+     "max": "models",
+     "list": "Militia Pistols"
+    },
+    {
+     "text": "For every five Models in this Unit, one Lancer may have melta bombs selected for it for +10 Points per Model.",
+     "max": {
+      "per": 5
+     },
+     "choices": [
+      {
+       "name": "Melta bombs",
+       "points": 10
+      }
+     ]
+    },
+    {
+     "text": "The Militia Lancemaster in this Unit may have its militia pistol exchanged for one item from the Militia Officer Weapons list.",
+     "max": 1,
+     "list": "Militia Officer Weapons"
+    },
+    {
+     "text": "One Lancer in this Unit may have one militia standard selected for it for +15 Points.",
+     "max": 1,
+     "choices": [
+      {
+       "name": "Militia standard",
+       "points": 15
+      }
+     ]
+    }
+   ],
+   "army": "mil",
+   "legacy": true,
+   "source": "The Imperialis Militia – Legacies v1.1 (EN)"
+  },
+  {
+   "id": "mil-rogue-psyker",
+   "name": "Rogue Psyker",
+   "lang": "en",
+   "role": "EM",
+   "points": 60,
+   "page": 18,
+   "models": [
+    {
+     "name": "Rogue Psyker",
+     "count": 1
+    }
+   ],
+   "profiles": [
+    {
+     "name": "Rogue Psyker",
+     "stats": [
+      "6",
+      "2",
+      "3",
+      "3",
+      "3",
+      "2",
+      "3",
+      "1",
+      "7",
+      "8",
+      "9",
+      "7",
+      "-",
+      "5+"
+     ]
+    },
+    {
+     "name": "Militia Warden",
+     "stats": [
+      "6",
+      "3",
+      "3",
+      "3",
+      "3",
+      "1",
+      "3",
+      "1",
+      "6",
+      "6",
+      "5",
+      "5",
+      "5+",
+      "-"
+     ]
+    }
+   ],
+   "wargear": [
+    "Rogue Psyker : None",
+    "Militia Warden : Militia rifle",
+    "Militia Warden : Frag grenades"
+   ],
+   "rules": [
+    "Rogue Psyker : Fear (1)",
+    "Militia Warden : Irregulars",
+    "Militia Warden : Support Unit (1)"
+   ],
+   "types": [
+    "Rogue Psyker: Infantry (Sergeant)",
+    "Militia Warden: Infantry"
+   ],
+   "traits": [
+    "Traitor",
+    "Imperialis Militia",
+    "Psyker (Rogue Psyker only)"
+   ],
+   "options": [
+    {
+     "text": "Any Militia Warden in this Unit may have its militia rifle exchanged for one militia pistol for Free or one item from the Militia Armaments list.",
+     "max": "others",
+     "choices": [
+      {
+       "name": "Militia pistol",
+       "points": 0
+      }
+     ],
+     "list": "Militia Armaments"
+    },
+    {
+     "text": "Any Militia Warden in this Unit whose militia rifle has been exchanged for a militia pistol may have one item from the Militia Melee Weapons list selected for it.",
+     "max": "others",
+     "list": "Militia Melee Weapons"
+    },
+    {
+     "text": "The Rogue Psyker in this Unit may have one force weapon selected for it for +10 Points.",
+     "max": 1,
+     "choices": [
+      {
+       "name": "Force weapon",
+       "points": 10
+      }
+     ]
+    },
+    {
+     "text": "The Rogue Psyker in this Unit may have one of the following Psychic Disciplines selected for it:",
+     "max": 1,
+     "choices": [
+      {
+       "name": "Biomancy",
+       "points": 20
+      },
+      {
+       "name": "Pyromancy",
+       "points": 10
+      },
+      {
+       "name": "Telekinesis",
+       "points": 10
+      },
+      {
+       "name": "Divination",
+       "points": 10
+      },
+      {
+       "name": "Telepathy",
+       "points": 10
+      },
+      {
+       "name": "Anathemata",
+       "points": 10
+      }
+     ]
+    }
+   ],
+   "army": "mil",
+   "legacy": true,
+   "source": "The Imperialis Militia – Legacies v1.1 (EN)"
+  },
+  {
+   "id": "mil-grenadier-troop",
+   "name": "Grenadier Troop",
+   "lang": "en",
+   "role": "EL",
+   "points": 85,
+   "page": 20,
+   "models": [
+    {
+     "name": "Grenadier Sergeant",
+     "count": 1
+    },
+    {
+     "name": "Grenadiers",
+     "count": 9
+    }
+   ],
+   "profiles": [
+    {
+     "name": "Grenadier",
+     "stats": [
+      "6",
+      "3",
+      "3",
+      "3",
+      "3",
+      "1",
+      "3",
+      "1",
+      "6",
+      "6",
+      "5",
+      "5",
+      "4+",
+      "-"
+     ]
+    },
+    {
+     "name": "Grenadier Sergeant",
+     "stats": [
+      "6",
+      "3",
+      "3",
+      "3",
+      "3",
+      "1",
+      "3",
+      "2",
+      "7",
+      "6",
+      "5",
+      "5",
+      "4+",
+      "-"
+     ]
+    }
+   ],
+   "wargear": [
+    "Militia rifle",
+    "Militia pistol",
+    "Frag grenades",
+    "Krak grenades"
+   ],
+   "rules": [
+    "Implacable Advance",
+    "Irregulars",
+    "Vanguard (3)"
+   ],
+   "types": [
+    "Grenadier Sergeant: Infantry (Sergeant)",
+    "Grenadier: Infantry"
+   ],
+   "traits": [
+    "[Allegiance]",
+    "Imperialis Militia"
+   ],
+   "options": [
+    {
+     "text": "Any Model in this Unit may have its militia rifle exchanged for an assault shield for Free, one item from the Militia Melee Weapons list or one item from the Militia A…",
+     "max": "models",
+     "choices": [
+      {
+       "name": "Assault shield",
+       "points": 0
+      }
+     ],
+     "list": [
+      "Militia Melee Weapons",
+      "Militia Assault Weapons"
+     ]
+    },
+    {
+     "text": "Any Model in this Unit whose militia rifle has been exchanged for an assault shield may have its militia pistol exchanged for one militia shotgun for +1 Point per Mode…",
+     "max": "models",
+     "choices": [
+      {
+       "name": "Take this option",
+       "points": 1
+      }
+     ],
+     "list": "Militia Melee Weapons"
+    },
+    {
+     "text": "Any Model in this Unit may have its militia pistol exchanged for one item from the Militia Pistols list.",
+     "max": "models",
+     "list": "Militia Pistols"
+    },
+    {
+     "text": "Any Model in this Unit with a militia rifle, lasrifle or bolter may have one bayonet selected for it for +1 Point per Model.",
+     "max": "models",
+     "choices": [
+      {
+       "name": "Bayonet",
+       "points": 1
+      }
+     ]
+    },
+    {
+     "text": "Up to two Grenadiers in this Unit may each have their militia rifle exchanged for one item from the Militia Special Weapons list.",
+     "max": 2,
+     "each": true,
+     "list": "Militia Special Weapons"
+    },
+    {
+     "text": "The Grenadier Sergeant in this Unit may have its militia rifle and/or militia pistol exchanged for one item each from the Militia Officer Weapons list.",
+     "max": 1,
+     "list": "Militia Officer Weapons"
+    },
+    {
+     "text": "The Grenadier Sergeant in this Unit may have melta bombs selected for it for +10 Points.",
+     "max": 1,
+     "choices": [
+      {
+       "name": "Melta bombs",
+       "points": 10
+      }
+     ]
+    },
+    {
+     "text": "One Grenadier in this Unit may have one militia vexilla selected for it for +5 Points.",
+     "max": 1,
+     "choices": [
+      {
+       "name": "Militia vexilla",
+       "points": 5
+      }
+     ]
+    },
+    {
+     "text": "One Grenadier in this Unit may have one militia vox selected for it for +10 Points.",
+     "max": 1,
+     "choices": [
+      {
+       "name": "Militia vox",
+       "points": 10
+      }
+     ]
+    }
+   ],
+   "army": "mil",
+   "legacy": true,
+   "source": "The Imperialis Militia – Legacies v1.1 (EN)"
+  },
+  {
+   "id": "mil-ogryn-brute-troop",
+   "name": "Ogryn Brute Troop",
+   "lang": "en",
+   "role": "AL",
+   "points": 95,
+   "page": 21,
+   "models": [
+    {
+     "name": "Ogryn Brutes",
+     "count": 3
+    }
+   ],
+   "profiles": [
+    {
+     "name": "Ogryn Brute",
+     "stats": [
+      "7",
+      "3",
+      "2",
+      "5",
+      "5",
+      "4",
+      "2",
+      "3",
+      "7",
+      "8",
+      "6",
+      "3",
+      "5+",
+      "-"
+     ]
+    },
+    {
+     "name": "Ogryn Boss",
+     "stats": [
+      "7",
+      "4",
+      "2",
+      "5",
+      "5",
+      "4",
+      "2",
+      "4",
+      "8",
+      "9",
+      "6",
+      "3",
+      "5+",
+      "-"
+     ]
+    }
+   ],
+   "wargear": [
+    "Ripper gun"
+   ],
+   "rules": [
+    "Impact (A)",
+    "Heedless",
+    "Bulky (4)"
+   ],
+   "types": [
+    "Ogryn Boss: Infantry (Sergeant)",
+    "Ogryn Brute: Infantry"
+   ],
+   "traits": [
+    "[Allegiance]",
+    "Imperialis Militia"
+   ],
+   "options": [
+    {
+     "text": "Any Model in this Unit may have its ripper gun exchanged for one of the following:",
+     "max": "models",
+     "choices": [
+      {
+       "name": "Stub cannon",
+       "points": 0
+      },
+      {
+       "name": "Power maul",
+       "points": 5
+      }
+     ]
+    },
+    {
+     "text": "The Ogryn Boss in this Unit may have its ripper gun exchanged for one of the following:",
+     "max": 1,
+     "choices": [
+      {
+       "name": "Heavy bolter",
+       "points": 0
+      },
+      {
+       "name": "Heavy flamer",
+       "points": 5
+      },
+      {
+       "name": "Autocannon",
+       "points": 5
+      },
+      {
+       "name": "Thunder hammer",
+       "points": 10
+      }
+     ]
+    },
+    {
+     "text": "Any Model in this Unit which has had its ripper gun exchanged for a stub cannon, power maul or thunder hammer may have one assault shield selected for it for +3 Points…",
+     "max": "models",
+     "choices": [
+      {
+       "name": "Thunder hammer may have one assault shield",
+       "points": 3
+      }
+     ]
+    },
+    {
+     "text": "Any Model in this Unit with a ripper gun may have one bayonet selected for it for +1 Point per Model.",
+     "max": "models",
+     "choices": [
+      {
+       "name": "Bayonet",
+       "points": 1
+      }
+     ]
+    },
+    {
+     "text": "One Ogryn Brute in this Unit may have one militia vexilla selected for it for +5 Points.",
+     "max": 1,
+     "choices": [
+      {
+       "name": "Militia vexilla",
+       "points": 5
+      }
+     ]
+    }
+   ],
+   "army": "mil",
+   "legacy": true,
+   "source": "The Imperialis Militia – Legacies v1.1 (EN)"
+  },
+  {
+   "id": "mil-beastmaster-troop",
+   "name": "Beastmaster Troop",
+   "lang": "en",
+   "role": "AL",
+   "points": 30,
+   "page": 22,
+   "models": [
+    {
+     "name": "Militia Handlers",
+     "count": 3
+    }
+   ],
+   "profiles": [
+    {
+     "name": "Militia Handler",
+     "stats": [
+      "6",
+      "3",
+      "3",
+      "3",
+      "3",
+      "1",
+      "3",
+      "1",
+      "7",
+      "7",
+      "6",
+      "6",
+      "5+",
+      "-"
+     ]
+    },
+    {
+     "name": "Militia Caiman",
+     "stats": [
+      "6",
+      "3",
+      "0",
+      "5",
+      "4",
+      "2",
+      "2",
+      "1",
+      "5",
+      "6",
+      "4",
+      "2",
+      "4+",
+      "-"
+     ]
+    },
+    {
+     "name": "Militia Felidae",
+     "stats": [
+      "7",
+      "4",
+      "0",
+      "3",
+      "3",
+      "1",
+      "4",
+      "2",
+      "5",
+      "6",
+      "4",
+      "2",
+      "6+",
+      "-"
+     ]
+    },
+    {
+     "name": "Militia Mastiff",
+     "stats": [
+      "6",
+      "3",
+      "0",
+      "4",
+      "3",
+      "1",
+      "3",
+      "3",
+      "5",
+      "6",
+      "4",
+      "2",
+      "5+",
+      "-"
+     ]
+    },
+    {
+     "name": "Militia Raptor",
+     "stats": [
+      "8",
+      "3",
+      "0",
+      "3",
+      "3",
+      "1",
+      "4",
+      "2",
+      "5",
+      "6",
+      "4",
+      "2",
+      "6+",
+      "-"
+     ]
+    }
+   ],
+   "wargear": [
+    "Militia pistol (Militia Handler only)"
+   ],
+   "rules": [
+    "Impact (I) (Militia Felidae and Militia Raptor only)",
+    "Impact (S) (Militia Mastiff and Militia Caiman only)",
+    "Irregulars (Militia Handler only)",
+    "Heedless"
+   ],
+   "types": [
+    "Militia Handler: Infantry (Sergeant)",
+    "Militia Caiman: Infantry (Heavy)",
+    "Militia Felidae and Militia Mastiff: Infantry",
+    "Militia Raptor: Infantry (Antigrav)"
+   ],
+   "traits": [
+    "[Allegiance]",
+    "Imperialis Militia"
+   ],
+   "options": [
+    {
+     "text": "Any Militia Handler in this Unit may have its militia pistol exchanged for one item from the Militia Armaments list.",
+     "max": 1,
+     "list": "Militia Armaments"
+    }
+   ],
+   "army": "mil",
+   "legacy": true,
+   "source": "The Imperialis Militia – Legacies v1.1 (EN)"
+  },
+  {
+   "id": "mil-infantry-troop",
+   "name": "Infantry Troop",
+   "lang": "en",
+   "role": "TR",
+   "points": 90,
+   "page": 23,
+   "models": [
+    {
+     "name": "Sergeant",
+     "count": 1
+    },
+    {
+     "name": "Militia",
+     "count": 19
+    }
+   ],
+   "profiles": [
+    {
+     "name": "Militia Infantry",
+     "stats": [
+      "6",
+      "3",
+      "3",
+      "3",
+      "3",
+      "1",
+      "3",
+      "1",
+      "6",
+      "5",
+      "5",
+      "5",
+      "5+",
+      "-"
+     ]
+    },
+    {
+     "name": "Infantry Sergeant",
+     "stats": [
+      "6",
+      "3",
+      "3",
+      "3",
+      "3",
+      "1",
+      "3",
+      "1",
+      "6",
+      "6",
+      "5",
+      "5",
+      "5+",
+      "-"
+     ]
+    }
+   ],
+   "wargear": [
+    "Militia rifle",
+    "Frag grenades"
+   ],
+   "rules": [
+    "Irregulars",
+    "Line (1)"
+   ],
+   "types": [
+    "Sergeant: Infantry (Sergeant)",
+    "Militia: Infantry"
+   ],
+   "traits": [
+    "[Allegiance]",
+    "Imperialis Militia"
+   ],
+   "options": [
+    {
+     "text": "Any Militia Infantry in this Unit may have its militia rifle exchanged for one militia pistol for Free or one item from the Militia Armaments list.",
+     "max": "others",
+     "choices": [
+      {
+       "name": "Militia pistol",
+       "points": 0
+      }
+     ],
+     "list": "Militia Armaments"
+    },
+    {
+     "text": "Any Militia Infantry in this Unit whose militia rifle has been exchanged for a militia pistol may have one item from the Militia Melee Weapons list selected for it.",
+     "max": "others",
+     "list": "Militia Melee Weapons"
+    },
+    {
+     "text": "Any Model in this Unit with a militia rifle, lasrifle or bolter may have one bayonet selected for it for +1 Point per Model.",
+     "max": "models",
+     "choices": [
+      {
+       "name": "Bayonet",
+       "points": 1
+      }
+     ]
+    },
+    {
+     "text": "Every Model in this Unit may have krak grenades selected for it for +10 Points per Unit.",
+     "max": 1,
+     "choices": [
+      {
+       "name": "Krak grenades (unit)",
+       "points": 10
+      }
+     ]
+    },
+    {
+     "text": "One Militia in this Unit may have its militia rifle exchanged for one item from the Militia Special Weapons list.",
+     "max": 1,
+     "list": "Militia Special Weapons"
+    },
+    {
+     "text": "The Infantry Sergeant in this Unit may have its militia rifle exchanged for one item from the Militia Pistols list or one item from the Militia Assault Weapons list.",
+     "max": 1,
+     "list": [
+      "Militia Pistols",
+      "Militia Assault Weapons"
+     ]
+    },
+    {
+     "text": "If the Infantry Sergeant has had its militia rifle exchanged for one item from the Militia Pistols list, it may have one item from the Militia Melee Weapons list or one of the following:",
+     "max": 1,
+     "choices": [
+      {
+       "name": "Power weapon",
+       "points": 5
+      }
+     ],
+     "list": "Militia Melee Weapons"
+    },
+    {
+     "text": "One Militia Infantry in this Unit may have one militia vexilla selected for it for +5 Points.",
+     "max": 1,
+     "choices": [
+      {
+       "name": "Militia vexilla",
+       "points": 5
+      }
+     ]
+    },
+    {
+     "text": "One Militia Infantry in this Unit may have one militia vox selected for it for +10 Points.",
+     "max": 1,
+     "choices": [
+      {
+       "name": "Militia vox",
+       "points": 10
+      }
+     ]
+    }
+   ],
+   "army": "mil",
+   "legacy": true,
+   "source": "The Imperialis Militia – Legacies v1.1 (EN)"
+  },
+  {
+   "id": "mil-levy-troop",
+   "name": "Levy Troop",
+   "lang": "en",
+   "role": "TR",
+   "points": 80,
+   "page": 24,
+   "models": [
+    {
+     "name": "Levy",
+     "count": 20
+    }
+   ],
+   "profiles": [
+    {
+     "name": "Levy",
+     "stats": [
+      "6",
+      "2",
+      "2",
+      "3",
+      "3",
+      "1",
+      "3",
+      "1",
+      "5",
+      "5",
+      "5",
+      "5",
+      "6+",
+      "-"
+     ]
+    },
+    {
+     "name": "Levy Warden",
+     "stats": [
+      "6",
+      "3",
+      "3",
+      "3",
+      "3",
+      "1",
+      "3",
+      "1",
+      "6",
+      "6",
+      "5",
+      "5",
+      "5+",
+      "-"
+     ]
+    }
+   ],
+   "wargear": [
+    "Militia rifle"
+   ],
+   "rules": [
+    "Irregulars",
+    "Expendable (3)"
+   ],
+   "types": [
+    "Levy Warden: Infantry (Sergeant)",
+    "Levy: Infantry"
+   ],
+   "traits": [
+    "[Allegiance]",
+    "Imperialis Militia"
+   ],
+   "options": [
+    {
+     "text": "Any Model in this Unit may have its militia rifle exchanged for one item from the Militia Melee Weapons list or one item from the Militia Armaments list.",
+     "max": "models",
+     "list": [
+      "Militia Melee Weapons",
+      "Militia Armaments"
+     ]
+    },
+    {
+     "text": "Every Model in this Unit with a militia rifle may have one bayonet selected for it for +10 Points per Unit.",
+     "max": 1,
+     "choices": [
+      {
+       "name": "Bayonets (unit)",
+       "points": 10
+      }
+     ]
+    },
+    {
+     "text": "Every Model in this Unit may have frag grenades selected for it for +10 Points per Unit.",
+     "max": 1,
+     "choices": [
+      {
+       "name": "Frag grenades (unit)",
+       "points": 10
+      }
+     ]
+    },
+    {
+     "text": "If the Levy Warden has had its militia rifle exchanged for an item from the Militia Melee Weapons list, one item from the Militia Pistols list may be selected for it.",
+     "max": 1,
+     "list": "Militia Pistols"
+    },
+    {
+     "text": "One Levy in this Unit may have one militia vexilla selected for it for +5 Points.",
+     "max": 1,
+     "choices": [
+      {
+       "name": "Militia vexilla",
+       "points": 5
+      }
+     ]
+    },
+    {
+     "text": "One Levy in this Unit may have one militia vox selected for it for +10 Points.",
+     "max": 1,
+     "choices": [
+      {
+       "name": "Militia vox",
+       "points": 10
+      }
+     ]
+    }
+   ],
+   "army": "mil",
+   "legacy": true,
+   "source": "The Imperialis Militia – Legacies v1.1 (EN)"
+  },
+  {
+   "id": "mil-militia-medicae",
+   "name": "Militia Medicae",
+   "lang": "en",
+   "role": "AP",
+   "points": 20,
+   "page": 25,
+   "models": [
+    {
+     "name": "Militia Medicae",
+     "count": 1
+    }
+   ],
+   "profiles": [
+    {
+     "name": "Militia Medicae",
+     "stats": [
+      "6",
+      "3",
+      "3",
+      "3",
+      "3",
+      "1",
+      "3",
+      "1",
+      "6",
+      "6",
+      "5",
+      "6",
+      "5+",
+      "-"
+     ]
+    }
+   ],
+   "wargear": [
+    "Militia pistol",
+    "Frag grenades"
+   ],
+   "rules": [
+    "Irregulars",
+    "Medic (5+)"
+   ],
+   "types": [
+    "Infantry (Specialist)"
+   ],
+   "traits": [
+    "[Allegiance]",
+    "Imperialis Militia"
+   ],
+   "options": [],
+   "army": "mil",
+   "legacy": true,
+   "source": "The Imperialis Militia – Legacies v1.1 (EN)"
+  },
+  {
+   "id": "mil-fire-support-troop",
+   "name": "Fire Support Troop",
+   "lang": "en",
+   "role": "AP",
+   "points": 50,
+   "page": 26,
+   "models": [
+    {
+     "name": "Fire Teams",
+     "count": 3
+    }
+   ],
+   "profiles": [
+    {
+     "name": "Fire Team",
+     "stats": [
+      "6",
+      "3",
+      "3",
+      "3",
+      "3",
+      "2",
+      "2",
+      "2",
+      "6",
+      "5",
+      "5",
+      "5",
+      "5+",
+      "-"
+     ]
+    }
+   ],
+   "wargear": [
+    "Militia pistol",
+    "Frag grenades"
+   ],
+   "rules": [
+    "Bulky (3)",
+    "Irregulars",
+    "Support Unit (1)",
+    "Slow and Purposeful"
+   ],
+   "types": [
+    "Infantry (Heavy)"
+   ],
+   "traits": [
+    "[Allegiance]",
+    "Imperialis Militia"
+   ],
+   "options": [
+    {
+     "text": "Every Model in this Unit must have one item from the Militia Heavy Weapons list selected for it. Every Model in this Unit must have the same item selected for it.",
+     "max": 1,
+     "all": true,
+     "required": true,
+     "list": "Militia Heavy Weapons"
+    },
+    {
+     "text": "One Fire Team in this Unit may have one militia vox selected for it for +10 Points.",
+     "max": 1,
+     "choices": [
+      {
+       "name": "Militia vox",
+       "points": 10
+      }
+     ]
+    }
+   ],
+   "army": "mil",
+   "legacy": true,
+   "source": "The Imperialis Militia – Legacies v1.1 (EN)"
+  },
+  {
+   "id": "mil-rapier-troop",
+   "name": "Rapier Troop",
+   "lang": "en",
+   "role": "AP",
+   "points": 40,
+   "page": 27,
+   "models": [
+    {
+     "name": "Rapier Crew*",
+     "count": 1
+    }
+   ],
+   "profiles": [
+    {
+     "name": "Militia Gunner",
+     "stats": [
+      "6",
+      "3",
+      "3",
+      "3",
+      "3",
+      "1",
+      "3",
+      "1",
+      "6",
+      "5",
+      "5",
+      "5",
+      "5+",
+      "-"
+     ]
+    },
+    {
+     "name": "Rapier Carrier",
+     "stats": [
+      "6",
+      "1",
+      "3",
+      "4",
+      "6",
+      "2",
+      "1",
+      "-",
+      "1",
+      "1",
+      "1",
+      "1",
+      "3+",
+      "-"
+     ]
+    }
+   ],
+   "wargear": [
+    "Militia Gunner : Militia rifle",
+    "Militia Gunner : Frag grenades",
+    "Rapier Carrier : Gravis multi-laser array"
+   ],
+   "rules": [
+    "Rapier Crew",
+    "Bulky (3) (Rapier Carrier only)",
+    "Irregulars (Militia Gunners only)",
+    "Slow and Purposeful",
+    "Support Unit (1)"
+   ],
+   "types": [
+    "Militia Gunner: Infantry (Sergeant)",
+    "Rapier Carrier: Infantry"
+   ],
+   "traits": [
+    "[Allegiance]",
+    "Imperialis Militia"
+   ],
+   "options": [
+    {
+     "text": "Each Rapier Gunner in this Unit may have its militia rifle exchanged for one militia pistol for Free or one item from the Militia Armaments list.",
+     "max": 1,
+     "choices": [
+      {
+       "name": "Militia pistol",
+       "points": 0
+      }
+     ],
+     "list": "Militia Armaments"
+    },
+    {
+     "text": "One Militia Gunner in this Unit may have one militia vox selected for it for +10 Points.",
+     "max": 1,
+     "choices": [
+      {
+       "name": "Militia vox",
+       "points": 10
+      }
+     ]
+    },
+    {
+     "text": "Each Rapier Carrier in this Unit may have its gravis multi-laser array exchanged for one of the following:",
+     "max": 1,
+     "choices": [
+      {
+       "name": "Gravis heavy bolter battery",
+       "points": 5
+      },
+      {
+       "name": "Laser destroyer",
+       "points": 25
+      },
+      {
+       "name": "Quad launcher with frag shells",
+       "points": 5
+      }
+     ]
+    }
+   ],
+   "army": "mil",
+   "legacy": true,
+   "source": "The Imperialis Militia – Legacies v1.1 (EN)"
+  },
+  {
+   "id": "mil-field-gun-battery",
+   "name": "Field Gun Battery",
+   "lang": "en",
+   "role": "AP",
+   "points": 55,
+   "page": 28,
+   "models": [
+    {
+     "name": "Field Gun",
+     "count": 1
+    }
+   ],
+   "profiles": [
+    {
+     "name": "Field Gun",
+     "stats": [
+      "4",
+      "3",
+      "3",
+      "3",
+      "4",
+      "3",
+      "2",
+      "3",
+      "6",
+      "5",
+      "5",
+      "5",
+      "4+",
+      "-"
+     ]
+    }
+   ],
+   "wargear": [
+    "Kalliope rocket mortar",
+    "Militia pistol"
+   ],
+   "rules": [
+    "Emplaced",
+    "Bulky (5)",
+    "Irregulars",
+    "Slow and Purposeful",
+    "Support Unit (1)"
+   ],
+   "types": [
+    "Infantry (Heavy)"
+   ],
+   "traits": [
+    "[Allegiance]",
+    "Imperialis Militia"
+   ],
+   "options": [
+    {
+     "text": "Any Field Gun Model in this Unit may have its kalliope rocket mortar exchanged for one of the following:",
+     "max": 1,
+     "choices": [
+      {
+       "name": "Thunderblast battlecannon",
+       "points": 10
+      },
+      {
+       "name": "Heavy lascannon",
+       "points": 15
+      }
+     ]
+    },
+    {
+     "text": "One Field Gun in this Unit may have one militia vox selected for it for +10 Points.",
+     "max": 1,
+     "choices": [
+      {
+       "name": "Militia vox",
+       "points": 10
+      }
+     ]
+    }
+   ],
+   "army": "mil",
+   "legacy": true,
+   "source": "The Imperialis Militia – Legacies v1.1 (EN)"
+  },
+  {
+   "id": "mil-heavy-ordnance-battery",
+   "name": "Heavy Ordnance Battery",
+   "lang": "en",
+   "role": "AP",
+   "points": 85,
+   "page": 29,
+   "models": [
+    {
+     "name": "Gun Carriage",
+     "count": 1
+    },
+    {
+     "name": "Militia Gunners",
+     "count": 3
+    }
+   ],
+   "profiles": [
+    {
+     "name": "Militia Gunner",
+     "stats": [
+      "6",
+      "3",
+      "3",
+      "3",
+      "3",
+      "1",
+      "3",
+      "1",
+      "6",
+      "5",
+      "5",
+      "5",
+      "5+",
+      "-"
+     ]
+    },
+    {
+     "name": "Gun Carriage",
+     "stats": [
+      "-",
+      "1",
+      "3",
+      "4",
+      "7",
+      "4",
+      "1",
+      "-",
+      "1",
+      "1",
+      "1",
+      "1",
+      "3+",
+      "-"
+     ]
+    }
+   ],
+   "wargear": [
+    "Militia Gunner : Militia rifle",
+    "Militia Gunner : Frag grenades",
+    "Gun Carriage : Earthshaker cannon"
+   ],
+   "rules": [
+    "Heavy Ordnance Crew",
+    "Bulky (8) (Gun Carriage only)",
+    "Irregulars (Militia Gunners only)",
+    "Support Unit (1)"
+   ],
+   "types": [
+    "Militia Gunner: Infantry (Sergeant)",
+    "Gun Carriage: Infantry"
+   ],
+   "traits": [
+    "[Allegiance]",
+    "Imperialis Militia"
+   ],
+   "options": [
+    {
+     "text": "Each Militia Gunner in this Unit may have its militia rifle exchanged for one militia pistol for Free or one item from the Militia Armaments list.",
+     "max": 1,
+     "choices": [
+      {
+       "name": "Militia pistol",
+       "points": 0
+      }
+     ],
+     "list": "Militia Armaments"
+    },
+    {
+     "text": "One Militia Gunner in this Unit may have one militia vox selected for it for +10 Points.",
+     "max": 1,
+     "choices": [
+      {
+       "name": "Militia vox",
+       "points": 10
+      }
+     ]
+    },
+    {
+     "text": "The Gun Carriage in this Unit may have its earthshaker cannon exchanged for one of the following:",
+     "max": 1,
+     "choices": [
+      {
+       "name": "Siege mortar",
+       "points": 0
+      },
+      {
+       "name": "Heavy rocket bombard",
+       "points": 0
+      },
+      {
+       "name": "Siege cannon",
+       "points": 5
+      },
+      {
+       "name": "Heavy quad launcher",
+       "points": 15
+      },
+      {
+       "name": "Medusa mortar",
+       "points": 15
+      }
+     ]
+    }
+   ],
+   "army": "mil",
+   "legacy": true,
+   "source": "The Imperialis Militia – Legacies v1.1 (EN)"
+  },
+  {
+   "id": "mil-sentinel-patrol",
+   "name": "Sentinel Patrol",
+   "lang": "en",
+   "role": "EG",
+   "points": 40,
+   "page": 31,
+   "models": [
+    {
+     "name": "Scout Sentinel",
+     "count": 1
+    }
+   ],
+   "profiles": [
+    {
+     "name": "Scout Sentinel",
+     "stats": [
+      "10",
+      "3",
+      "3",
+      "5",
+      "5",
+      "3",
+      "3",
+      "2",
+      "8",
+      "8",
+      "7",
+      "5",
+      "3+",
+      "-"
+     ]
+    },
+    {
+     "name": "Armoured Sentinel",
+     "stats": [
+      "8",
+      "3",
+      "3",
+      "5",
+      "6",
+      "4",
+      "2",
+      "2",
+      "9",
+      "9",
+      "7",
+      "5",
+      "3+",
+      "-"
+     ]
+    }
+   ],
+   "wargear": [],
+   "rules": [
+    "Bulky (5)",
+    "Implacable Advance",
+    "Outflank (Scout Sentinel only)"
+   ],
+   "types": [
+    "Scout Sentinel: Walker (Light, Skirmish)",
+    "Armoured Sentinel: Walker (Skirmish)"
+   ],
+   "traits": [
+    "[Allegiance]",
+    "Imperialis Militia"
+   ],
+   "options": [
+    {
+     "text": "Every Model in this Unit must have one of the following selected for it:",
+     "max": 1,
+     "all": true,
+     "required": true,
+     "choices": [
+      {
+       "name": "Multi-laser",
+       "points": 10
+      },
+      {
+       "name": "Heavy flamer",
+       "points": 10
+      },
+      {
+       "name": "Autocannon",
+       "points": 20
+      },
+      {
+       "name": "Missile launcher",
+       "points": 15
+      },
+      {
+       "name": "Lascannon",
+       "points": 25
+      },
+      {
+       "name": "Multi-melta",
+       "points": 25
+      },
+      {
+       "name": "Plasma cannon",
+       "points": 20
+      }
+     ]
+    },
+    {
+     "text": "Each Model in this Unit may have any of the following selected for it:",
+     "max": 3,
+     "choices": [
+      {
+       "name": "One hunter-killer missile",
+       "points": 5
+      },
+      {
+       "name": "Smoke launchers",
+       "points": 5
+      },
+      {
+       "name": "Sentinel chainblade",
+       "points": 10
+      }
+     ],
+     "unique": true
+    }
+   ],
+   "army": "mil",
+   "legacy": true,
+   "source": "The Imperialis Militia – Legacies v1.1 (EN)"
+  },
+  {
+   "id": "mil-militia-arvus-lighter",
+   "name": "Militia Arvus Lighter",
+   "lang": "en",
+   "role": "TP",
+   "points": 65,
+   "page": 32,
+   "models": [
+    {
+     "name": "Militia Arvus",
+     "count": 1
+    }
+   ],
+   "profiles": [
+    {
+     "name": "Militia Arvus",
+     "stats": [
+      "18",
+      "3",
+      "11",
+      "11",
+      "11",
+      "4",
+      "12"
+     ],
+     "vehicle": true
+    }
+   ],
+   "wargear": [
+    "Searchlights"
+   ],
+   "rules": [
+    "Light Transport",
+    "Third-Line"
+   ],
+   "types": [
+    "Vehicle (Flyer, Transport)"
+   ],
+   "traits": [
+    "[Allegiance]",
+    "Imperialis Militia"
+   ],
+   "options": [
+    {
+     "text": "This Model may have one Hull (Rear) Mounted multi- laser selected for it for +10 Points.",
+     "max": 1,
+     "choices": [
+      {
+       "name": "Hull (Rear) Mounted multi- laser",
+       "points": 10
+      }
+     ]
+    },
+    {
+     "text": "This Model may have flare launchers selected for it for +5 Points.",
+     "max": 1,
+     "choices": [
+      {
+       "name": "Flare launchers",
+       "points": 5
+      }
+     ]
+    }
+   ],
+   "army": "mil",
+   "legacy": true,
+   "source": "The Imperialis Militia – Legacies v1.1 (EN)"
+  },
+  {
+   "id": "mil-militia-utility-hauler",
+   "name": "Militia Utility Hauler",
+   "lang": "en",
+   "role": "TP",
+   "points": 55,
+   "page": 33,
+   "models": [
+    {
+     "name": "Cargo Hauler",
+     "count": 1
+    }
+   ],
+   "profiles": [
+    {
+     "name": "Cargo Hauler",
+     "stats": [
+      "12",
+      "3",
+      "10",
+      "10",
+      "9",
+      "4",
+      "22"
+     ],
+     "vehicle": true
+    },
+    {
+     "name": "Armoured Hauler",
+     "stats": [
+      "10",
+      "3",
+      "11",
+      "10",
+      "9",
+      "5",
+      "20"
+     ],
+     "vehicle": true
+    }
+   ],
+   "wargear": [
+    "Searchlights"
+   ],
+   "rules": [],
+   "types": [
+    "Cargo Hauler: Vehicle (Transport)",
+    "Armoured Hauler: Vehicle (Transport)"
+   ],
+   "traits": [
+    "[Allegiance]",
+    "Imperialis Militia"
+   ],
+   "options": [
+    {
+     "text": "This Cargo Hauler may have one item from the Militia Pintle Weapons list selected for it.",
+     "max": 1,
+     "list": "Militia Pintle Weapons"
+    },
+    {
+     "text": "This Armoured Hauler may have up to three items from the Militia Pintle Weapons list selected for it.",
+     "max": 3,
+     "list": "Militia Pintle Weapons"
+    },
+    {
+     "text": "This Model may have any of the following selected for it:",
+     "max": 2,
+     "choices": [
+      {
+       "name": "One Hull (Front) Mounted hunter-killer missile",
+       "points": 10
+      },
+      {
+       "name": "Dozer blade",
+       "points": 5
+      }
+     ],
+     "unique": true
+    }
+   ],
+   "army": "mil",
+   "legacy": true,
+   "source": "The Imperialis Militia – Legacies v1.1 (EN)"
+  },
+  {
+   "id": "mil-militia-industrial-rig",
+   "name": "Militia Industrial Rig",
+   "lang": "en",
+   "role": "TP",
+   "points": 65,
+   "page": 34,
+   "models": [
+    {
+     "name": "Mining Rig",
+     "count": 1
+    }
+   ],
+   "profiles": [
+    {
+     "name": "Mining Rig",
+     "stats": [
+      "10",
+      "3",
+      "11",
+      "11",
+      "10",
+      "5",
+      "12"
+     ],
+     "vehicle": true
+    },
+    {
+     "name": "Explorator Rig",
+     "stats": [
+      "8",
+      "3",
+      "12",
+      "12",
+      "10",
+      "6",
+      "12"
+     ],
+     "vehicle": true
+    }
+   ],
+   "wargear": [
+    "Mining Rig : Turret Mounted twin heavy flamer",
+    "Explorator Rig : Turret Mounted twin heavy stubber",
+    "Explorator Rig : Hull (Front) Mounted heavy flamer",
+    "Explorator Rig : Dozer blade",
+    "Explorator Rig : Searchlights"
+   ],
+   "rules": [
+    "Mining Rig : Light Transport",
+    "Explorator Rig : Auto-repair (5+)",
+    "Explorator Rig : Light Transport"
+   ],
+   "types": [
+    "Vehicle (Transport)"
+   ],
+   "traits": [
+    "[Allegiance]",
+    "Imperialis Militia"
+   ],
+   "options": [
+    {
+     "text": "This Mining Rig may have its Turret Mounted twin heavy flamer exchanged for one of the following:",
+     "max": 1,
+     "choices": [
+      {
+       "name": "Turret Mounted gravis autocannon",
+       "points": 10
+      },
+      {
+       "name": "Turret Mounted heavy seismic cannon",
+       "points": 15
+      },
+      {
+       "name": "Turret Mounted heavy mining laser",
+       "points": 15
+      }
+     ]
+    },
+    {
+     "text": "This Mining Rig may have one item from the Militia Pintle Weapons list selected for it.",
+     "max": 1,
+     "list": "Militia Pintle Weapons"
+    },
+    {
+     "text": "This Mining Rig may have any of the following selected for it:",
+     "max": 2,
+     "choices": [
+      {
+       "name": "Dozer blade",
+       "points": 5
+      },
+      {
+       "name": "Searchlights",
+       "points": 5
+      }
+     ],
+     "unique": true
+    }
+   ],
+   "army": "mil",
+   "legacy": true,
+   "source": "The Imperialis Militia – Legacies v1.1 (EN)"
+  },
+  {
+   "id": "mil-militia-gorgon-transporter",
+   "name": "Militia Gorgon Transporter",
+   "lang": "en",
+   "role": "TL",
+   "points": 275,
+   "page": 35,
+   "models": [
+    {
+     "name": "Militia Gorgon",
+     "count": 1
+    }
+   ],
+   "profiles": [
+    {
+     "name": "Militia Gorgon",
+     "stats": [
+      "10",
+      "3",
+      "14",
+      "13",
+      "11",
+      "10",
+      "45"
+     ],
+     "vehicle": true
+    }
+   ],
+   "wargear": [
+    "Two Pintle Mounted twin heavy stubbers",
+    "Hull (Front) Mounted Gorgon mortar battery",
+    "Smoke launchers"
+   ],
+   "rules": [
+    "Assault Vehicle",
+    "Third-Line"
+   ],
+   "types": [
+    "Vehicle (Super-heavy, Transport)"
+   ],
+   "traits": [
+    "[Allegiance]",
+    "Imperialis Militia",
+    "Smokescreen"
+   ],
+   "options": [
+    {
+     "text": "This Model may have its Hull (Front) Mounted Gorgon mortar battery exchanged for one of the following:",
+     "max": 1,
+     "choices": [
+      {
+       "name": "Four Sponson Mounted heavy stubbers",
+       "points": 0
+      },
+      {
+       "name": "Four Sponson Mounted heavy flamers",
+       "points": 20
+      },
+      {
+       "name": "Four Sponson Mounted heavy bolters",
+       "points": 20
+      }
+     ]
+    },
+    {
+     "text": "This Model may have up to two Hull (Front) Mounted hunter-killer missiles selected for it for +5 Points each.",
+     "max": 2,
+     "choices": [
+      {
+       "name": "Hull (Front) Mounted hunter-killer missile",
+       "points": 5
+      }
+     ]
+    }
+   ],
+   "army": "mil",
+   "legacy": true,
+   "source": "The Imperialis Militia – Legacies v1.1 (EN)"
+  },
+  {
+   "id": "mil-reconnaissance-troop",
+   "name": "Reconnaissance Troop",
+   "lang": "en",
+   "role": "RE",
+   "points": 50,
+   "page": 36,
+   "models": [
+    {
+     "name": "Scout Sergeant",
+     "count": 1
+    },
+    {
+     "name": "Scouts",
+     "count": 4
+    }
+   ],
+   "profiles": [
+    {
+     "name": "Scout",
+     "stats": [
+      "6",
+      "3",
+      "3",
+      "3",
+      "3",
+      "1",
+      "3",
+      "1",
+      "6",
+      "5",
+      "5",
+      "5",
+      "5+",
+      "-"
+     ]
+    },
+    {
+     "name": "Scout Sergeant",
+     "stats": [
+      "6",
+      "3",
+      "3",
+      "3",
+      "3",
+      "1",
+      "3",
+      "1",
+      "6",
+      "6",
+      "5",
+      "5",
+      "5+",
+      "-"
+     ]
+    }
+   ],
+   "wargear": [
+    "Militia shotgun",
+    "Frag grenades"
+   ],
+   "rules": [
+    "Infiltrate (9)",
+    "Irregulars",
+    "Move Through Cover",
+    "Support Unit (2)"
+   ],
+   "types": [
+    "Scout Sergeant: Infantry (Sergeant, Light)",
+    "Scout: Infantry (Light)"
+   ],
+   "traits": [
+    "[Allegiance]",
+    "Imperialis Militia",
+    "Smokescreen"
+   ],
+   "options": [
+    {
+     "text": "Any Model in this Unit may have its militia shotgun exchanged for one item from the Militia Armaments list.",
+     "max": "models",
+     "list": "Militia Armaments"
+    },
+    {
+     "text": "Up to five Models in this Unit may have their militia shotgun exchanged for one militia longrifle for +5 Points per Model.",
+     "max": 5,
+     "each": true,
+     "choices": [
+      {
+       "name": "Militia longrifle",
+       "points": 5
+      }
+     ]
+    },
+    {
+     "text": "One Scout in this Unit may have one militia vox selected for it for +10 Points.",
+     "max": 1,
+     "choices": [
+      {
+       "name": "Militia vox",
+       "points": 10
+      }
+     ]
+    },
+    {
+     "text": "The Scout Sergeant in this Unit may have melta bombs selected for it for +10 Points.",
+     "max": 1,
+     "choices": [
+      {
+       "name": "Melta bombs",
+       "points": 10
+      }
+     ]
+    }
+   ],
+   "army": "mil",
+   "legacy": true,
+   "source": "The Imperialis Militia – Legacies v1.1 (EN)"
+  },
+  {
+   "id": "mil-cavalry-troop",
+   "name": "Cavalry Troop",
+   "lang": "en",
+   "role": "RE",
+   "points": 60,
+   "page": 37,
+   "models": [
+    {
+     "name": "Militia Outrider Sergeant",
+     "count": 1
+    },
+    {
+     "name": "Militia Outriders",
+     "count": 4
+    }
+   ],
+   "profiles": [
+    {
+     "name": "Militia Outrider",
+     "stats": [
+      "12",
+      "3",
+      "3",
+      "3",
+      "3",
+      "2",
+      "3",
+      "2",
+      "6",
+      "5",
+      "5",
+      "5",
+      "5+",
+      "-"
+     ]
+    },
+    {
+     "name": "Militia Outrider Sergeant",
+     "stats": [
+      "12",
+      "3",
+      "3",
+      "3",
+      "3",
+      "2",
+      "3",
+      "2",
+      "6",
+      "6",
+      "5",
+      "5",
+      "5+",
+      "-"
+     ]
+    }
+   ],
+   "wargear": [
+    "Militia pistol",
+    "Frag grenades"
+   ],
+   "rules": [
+    "Bulky (2)",
+    "Firestorm",
+    "Irregulars",
+    "Outflank",
+    "Implacable Advance",
+    "Impact (S)",
+    "Vanguard (3)"
+   ],
+   "types": [
+    "Militia Outrider Sergeant: Cavalry (Sergeant)",
+    "Militia Outrider: Cavalry"
+   ],
+   "traits": [
+    "[Allegiance]",
+    "Imperialis Militia"
+   ],
+   "options": [
+    {
+     "text": "Any Model in this Unit may have one item from the Militia Melee Weapons list, one item from the Militia Armaments list, or one militia lance selected for it +5 Points …",
+     "max": "models",
+     "choices": [
+      {
+       "name": "Take this option",
+       "points": 5
+      }
+     ],
+     "list": [
+      "Militia Melee Weapons",
+      "Militia Armaments"
+     ]
+    },
+    {
+     "text": "One Militia Outrider in this Unit which has not had one of the above options selected for it may have one item from the Militia Special Weapons list selected for it.",
+     "max": 1,
+     "list": "Militia Special Weapons"
+    },
+    {
+     "text": "For every five Models in this Unit, one Militia Outrider may have melta bombs selected for it for +10 Points per Model.",
+     "max": {
+      "per": 5
+     },
+     "choices": [
+      {
+       "name": "Melta bombs",
+       "points": 10
+      }
+     ]
+    },
+    {
+     "text": "The Militia Outrider Sergeant in this Unit may have its militia pistol exchanged for one item from the Militia Officer Weapons list.",
+     "max": 1,
+     "list": "Militia Officer Weapons"
+    },
+    {
+     "text": "One Militia Outrider in this Unit may have one militia vexilla selected for it for +5 Points.",
+     "max": 1,
+     "choices": [
+      {
+       "name": "Militia vexilla",
+       "points": 5
+      }
+     ]
+    }
+   ],
+   "army": "mil",
+   "legacy": true,
+   "source": "The Imperialis Militia – Legacies v1.1 (EN)"
+  },
+  {
+   "id": "mil-all-terrain-patrol",
+   "name": "All-terrain Patrol",
+   "lang": "en",
+   "role": "AR",
+   "points": 20,
+   "page": 38,
+   "models": [
+    {
+     "name": "Militia Quad",
+     "count": 1
+    }
+   ],
+   "profiles": [
+    {
+     "name": "Militia Quad",
+     "stats": [
+      "10",
+      "3",
+      "3",
+      "3",
+      "4",
+      "3",
+      "3",
+      "2",
+      "6",
+      "7",
+      "5",
+      "5",
+      "5+",
+      "-"
+     ]
+    },
+    {
+     "name": "Militia Trike",
+     "stats": [
+      "12",
+      "3",
+      "3",
+      "3",
+      "3",
+      "2",
+      "3",
+      "1",
+      "6",
+      "6",
+      "5",
+      "5",
+      "4+",
+      "-"
+     ]
+    }
+   ],
+   "wargear": [
+    "Militia Quad : None",
+    "Militia Trike : Two combi-bolters"
+   ],
+   "rules": [
+    "Bulky (4)",
+    "Firing Protocols (2)",
+    "Implacable Advance",
+    "Irregulars"
+   ],
+   "types": [
+    "Cavalry (Light, Skirmish)"
+   ],
+   "traits": [
+    "[Allegiance]",
+    "Imperialis Militia"
+   ],
+   "options": [
+    {
+     "text": "Every Militia Quad in this Unit must have one item from the Militia Special Weapons list or one item from the Militia Heavy Weapons list selected for it.",
+     "max": 1,
+     "required": true,
+     "list": [
+      "Militia Special Weapons",
+      "Militia Heavy Weapons"
+     ]
+    },
+    {
+     "text": "Any Militia Trike in this Unit may have both of its combi-bolters exchanged for one of the following:",
+     "max": 1,
+     "choices": [
+      {
+       "name": "Two heavy stubbers",
+       "points": 0
+      }
+     ]
+    },
+    {
+     "text": "One Militia Trike in this Unit may have both of its combi-bolters exchanged for one of the following:",
+     "max": 1,
+     "choices": [
+      {
+       "name": "Two meltaguns",
+       "points": 20
+      }
+     ]
+    },
+    {
+     "text": "Any Model in this Unit may have one item from the Militia Melee Weapons list or one item from the Militia Pistols list selected for it.",
+     "max": "models",
+     "list": [
+      "Militia Melee Weapons",
+      "Militia Pistols"
+     ]
+    }
+   ],
+   "army": "mil",
+   "legacy": true,
+   "source": "The Imperialis Militia – Legacies v1.1 (EN)"
+  },
+  {
+   "id": "mil-militia-scout-rover",
+   "name": "Militia Scout Rover",
+   "lang": "en",
+   "role": "AR",
+   "points": 35,
+   "page": 39,
+   "models": [
+    {
+     "name": "Militia Venator",
+     "count": 1
+    }
+   ],
+   "profiles": [
+    {
+     "name": "Militia Venator",
+     "stats": [
+      "16",
+      "3",
+      "10",
+      "10",
+      "10",
+      "3",
+      "-"
+     ],
+     "vehicle": true
+    },
+    {
+     "name": "Militia Ridgerunner",
+     "stats": [
+      "14",
+      "3",
+      "11",
+      "10",
+      "10",
+      "3",
+      "-"
+     ],
+     "vehicle": true
+    }
+   ],
+   "wargear": [
+    "Militia Venator : Pintle Mounted twin heavy stubber",
+    "Militia Venator : Smoke launchers",
+    "Militia Ridgerunner : Hull (Front) Mounted twin heavy stubber",
+    "Militia Ridgerunner : Smoke launchers"
+   ],
+   "rules": [
+    "Move Through Cover",
+    "Outflank"
+   ],
+   "types": [
+    "Vehicle (Rapid)"
+   ],
+   "traits": [
+    "[Allegiance]",
+    "Imperialis Militia",
+    "Smokescreen"
+   ],
+   "options": [
+    {
+     "text": "This Militia Venator may have its Pintle Mounted twin heavy stubber exchanged for one of the following:",
+     "max": "models",
+     "choices": [
+      {
+       "name": "Pintle Mounted twin multi-laser",
+       "points": 10
+      },
+      {
+       "name": "Pintle Mounted twin seismic cannon",
+       "points": 15
+      },
+      {
+       "name": "Pintle Mounted twin lascannon",
+       "points": 20
+      }
+     ]
+    },
+    {
+     "text": "This Militia Ridgerunner may have one item from the Militia Heavy Weapons list selected for it (it becomes Pintle Mounted).",
+     "max": "models",
+     "list": "Militia Heavy Weapons"
+    },
+    {
+     "text": "This Model may have any of the following selected for it:",
+     "max": "models",
+     "choices": [
+      {
+       "name": "Hull (Front) Mounted hunter-killer missile",
+       "points": 10
+      },
+      {
+       "name": "Searchlights",
+       "points": 5
+      }
+     ]
+    }
+   ],
+   "army": "mil",
+   "legacy": true,
+   "source": "The Imperialis Militia – Legacies v1.1 (EN)"
+  },
+  {
+   "id": "mil-militia-thunderbolt-heavy-fighter",
+   "name": "Militia Thunderbolt Heavy Fighter",
+   "lang": "en",
+   "role": "AR",
+   "points": 110,
+   "page": 40,
+   "models": [
+    {
+     "name": "Militia Thunderbolt",
+     "count": 1
+    }
+   ],
+   "profiles": [
+    {
+     "name": "Militia Thunderbolt",
+     "stats": [
+      "22",
+      "3",
+      "12",
+      "12",
+      "12",
+      "5",
+      "-"
+     ],
+     "vehicle": true
+    }
+   ],
+   "wargear": [
+    "Centreline Mounted twin lascannon",
+    "Two Centreline Mounted gravis autocannon"
+   ],
+   "rules": [
+    "Third-Line"
+   ],
+   "types": [
+    "Vehicle (Flyer)"
+   ],
+   "traits": [
+    "[Allegiance]",
+    "Imperialis Militia"
+   ],
+   "options": [],
+   "army": "mil",
+   "legacy": true,
+   "source": "The Imperialis Militia – Legacies v1.1 (EN)"
+  },
+  {
+   "id": "mil-militia-leman-russ-tank",
+   "name": "Militia Leman Russ Tank",
+   "lang": "en",
+   "role": "BL",
+   "points": 130,
+   "page": 41,
+   "models": [
+    {
+     "name": "Militia Leman Russ",
+     "count": 1
+    }
+   ],
+   "profiles": [
+    {
+     "name": "Militia Leman Russ",
+     "stats": [
+      "10",
+      "3",
+      "14",
+      "13",
+      "10",
+      "6",
+      "-"
+     ],
+     "vehicle": true
+    }
+   ],
+   "wargear": [
+    "Turret Mounted battlecannon",
+    "Hull (Front) Mounted heavy bolter",
+    "Smoke launchers"
+   ],
+   "rules": [
+    "Third-Line"
+   ],
+   "types": [
+    "Vehicle"
+   ],
+   "traits": [
+    "[Allegiance]",
+    "Imperialis Militia",
+    "Smokescreen"
+   ],
+   "options": [
+    {
+     "text": "This Model may have its Turret Mounted battlecannon exchanged for one of the following:",
+     "max": 1,
+     "choices": [
+      {
+       "name": "Turret Mounted gravis autocannon",
+       "points": 0
+      },
+      {
+       "name": "Turret Mounted twin lascannon",
+       "points": 0
+      },
+      {
+       "name": "Turret Mounted vanquisher cannon and one Co-Axial (vanquisher cannon) Mounted heavy stubber",
+       "points": 10
+      },
+      {
+       "name": "Turret Mounted executioner plasma destroyer",
+       "points": 25
+      },
+      {
+       "name": "Turret Mounted demolisher cannon",
+       "points": 30
+      }
+     ]
+    },
+    {
+     "text": "This Model may have its Hull (Front) Mounted heavy bolter exchanged for one of the following:",
+     "max": 1,
+     "choices": [
+      {
+       "name": "Hull (Front) Mounted heavy flamer",
+       "points": 0
+      },
+      {
+       "name": "Hull (Front) Mounted multi-laser",
+       "points": 0
+      },
+      {
+       "name": "Hull (Front) Mounted autocannon",
+       "points": 5
+      },
+      {
+       "name": "Hull (Front) Mounted lascannon",
+       "points": 10
+      }
+     ]
+    },
+    {
+     "text": "This Model may have one item from the Militia Pintle Weapons list selected for it.",
+     "max": 1,
+     "list": "Militia Pintle Weapons"
+    },
+    {
+     "text": "This Model may have any of the following selected for it:",
+     "max": 3,
+     "choices": [
+      {
+       "name": "One Turret Mounted hunter-killer missile",
+       "points": 5
+      },
+      {
+       "name": "Dozer blade",
+       "points": 5
+      },
+      {
+       "name": "Searchlights",
+       "points": 5
+      }
+     ],
+     "unique": true
+    }
+   ],
+   "army": "mil",
+   "legacy": true,
+   "source": "The Imperialis Militia – Legacies v1.1 (EN)"
+  },
+  {
+   "id": "mil-militia-malcador-heavy-tank",
+   "name": "Militia Malcador Heavy Tank",
+   "lang": "en",
+   "role": "BL",
+   "points": 170,
+   "page": 42,
+   "models": [
+    {
+     "name": "Militia Malcador",
+     "count": 1
+    }
+   ],
+   "profiles": [
+    {
+     "name": "Militia Malcador",
+     "stats": [
+      "12",
+      "3",
+      "13",
+      "13",
+      "11",
+      "7",
+      "-"
+     ],
+     "vehicle": true
+    }
+   ],
+   "wargear": [
+    "Hull (Front) Mounted battlecannon",
+    "Hull (Front) Mounted heavy bolter",
+    "Two Sponson Mounted multi-lasers",
+    "Smoke launchers"
+   ],
+   "rules": [
+    "Independent Fire",
+    "Third-Line"
+   ],
+   "types": [
+    "Vehicle"
+   ],
+   "traits": [
+    "[Allegiance]",
+    "Imperialis Militia",
+    "Smokescreen"
+   ],
+   "options": [
+    {
+     "text": "This Model may have its Hull (Front) Mounted battlecannon exchanged for one of the following:",
+     "max": 1,
+     "choices": [
+      {
+       "name": "Hull (Front) Mounted twin lascannon",
+       "points": 0
+      },
+      {
+       "name": "Hull (Front) Mounted vanquisher cannon",
+       "points": 10
+      }
+     ]
+    },
+    {
+     "text": "This Model may have its Hull (Front) Mounted heavy bolter exchanged for one of the following:",
+     "max": 1,
+     "choices": [
+      {
+       "name": "Hull (Front) Mounted heavy flamer",
+       "points": 0
+      },
+      {
+       "name": "Hull (Front) Mounted multi-laser",
+       "points": 0
+      },
+      {
+       "name": "Hull (Front) Mounted autocannon",
+       "points": 5
+      },
+      {
+       "name": "Hull (Front) Mounted lascannon",
+       "points": 10
+      },
+      {
+       "name": "Hull (Front) Mounted demolisher cannon",
+       "points": 40
+      }
+     ]
+    },
+    {
+     "text": "This Model may have both Sponson Mounted multi- lasers exchanged for one of the following:",
+     "max": 1,
+     "choices": [
+      {
+       "name": "Two Sponson Mounted heavy flamers",
+       "points": 0
+      },
+      {
+       "name": "Two Sponson Mounted heavy bolters",
+       "points": 0
+      },
+      {
+       "name": "Two Sponson Mounted autocannon",
+       "points": 10
+      },
+      {
+       "name": "Two Sponson Mounted lascannon",
+       "points": 20
+      }
+     ]
+    },
+    {
+     "text": "This Model may have one item from the Militia Pintle Weapons list selected for it.",
+     "max": 1,
+     "list": "Militia Pintle Weapons"
+    },
+    {
+     "text": "This Model may have any of the following selected for it:",
+     "max": 3,
+     "choices": [
+      {
+       "name": "One Hull (Front) Mounted hunter-killer missile",
+       "points": 5
+      },
+      {
+       "name": "Dozer blade",
+       "points": 5
+      },
+      {
+       "name": "Searchlights",
+       "points": 5
+      }
+     ],
+     "unique": true
+    }
+   ],
+   "army": "mil",
+   "legacy": true,
+   "source": "The Imperialis Militia – Legacies v1.1 (EN)"
+  },
+  {
+   "id": "mil-militia-baneblade-super-heavy-battle-tank",
+   "name": "Militia Baneblade Super-Heavy Battle Tank",
+   "lang": "en",
+   "role": "SB",
+   "points": 500,
+   "page": 43,
+   "models": [
+    {
+     "name": "Militia Baneblade",
+     "count": 1
+    }
+   ],
+   "profiles": [
+    {
+     "name": "Militia Baneblade",
+     "stats": [
+      "10",
+      "3",
+      "14",
+      "13",
+      "12",
+      "16",
+      "-"
+     ],
+     "vehicle": true
+    }
+   ],
+   "wargear": [
+    "Turret Mounted Baneblade cannon",
+    "Co-axial (Baneblade cannon) Mounted autocannon",
+    "Centreline Mounted demolisher cannon",
+    "Hull (Front) Mounted twin heavy bolter",
+    "Smoke launchers"
+   ],
+   "rules": [
+    "Third-Line"
+   ],
+   "types": [
+    "Vehicle (Super-heavy)"
+   ],
+   "traits": [
+    "[Allegiance]",
+    "Imperialis Militia",
+    "Smokescreen"
+   ],
+   "options": [
+    {
+     "text": "This Model may have one of the following selected for it:",
+     "max": 1,
+     "choices": [
+      {
+       "name": "Two Sponson Mounted lascannon and two Sponson Mounted twin heavy bolters",
+       "points": 40
+      },
+      {
+       "name": "Two Sponson Mounted lascannon and two Sponson Mounted twin heavy flamers",
+       "points": 40
+      }
+     ]
+    },
+    {
+     "text": "This Model may have one item from the Militia Pintle Weapons list selected for it.",
+     "max": 1,
+     "list": "Militia Pintle Weapons"
+    },
+    {
+     "text": "This Model may have any of the following selected for it:",
+     "max": 2,
+     "choices": [
+      {
+       "name": "One Hull (Front) Mounted hunter-killer missile",
+       "points": 5
+      },
+      {
+       "name": "Searchlights",
+       "points": 5
+      }
+     ],
+     "unique": true
+    }
+   ],
+   "army": "mil",
+   "legacy": true,
+   "source": "The Imperialis Militia – Legacies v1.1 (EN)"
+  }
+ ],
+ "equipmentLists": {
+  "Militia Officer Weapons": [
+   {
+    "name": "Militia pistol",
+    "points": 0
+   },
+   {
+    "name": "Laspistol",
+    "points": 1
+   },
+   {
+    "name": "Bolt pistol",
+    "points": 2
+   },
+   {
+    "name": "Blast pistol",
+    "points": 3
+   },
+   {
+    "name": "Needle pistol",
+    "points": 5
+   },
+   {
+    "name": "Hand flamer",
+    "points": 5
+   },
+   {
+    "name": "Plasma pistol",
+    "points": 5
+   },
+   {
+    "name": "Charnabal weapon",
+    "points": 5
+   },
+   {
+    "name": "Power weapon",
+    "points": 10
+   },
+   {
+    "name": "Power fist",
+    "points": 15
+   }
+  ],
+  "Militia Melee Weapons": [
+   {
+    "name": "Close combat weapon",
+    "points": 0
+   },
+   {
+    "name": "Chainsword",
+    "points": 2
+   },
+   {
+    "name": "Chainaxe",
+    "points": 2
+   }
+  ],
+  "Militia Pistols": [
+   {
+    "name": "Militia pistol",
+    "points": 0
+   },
+   {
+    "name": "Laspistol",
+    "points": 1
+   },
+   {
+    "name": "Bolt pistol",
+    "points": 2
+   },
+   {
+    "name": "Blast pistol",
+    "points": 3
+   }
+  ],
+  "Militia Armaments": [
+   {
+    "name": "Militia rifle",
+    "points": 0
+   },
+   {
+    "name": "Militia carbine",
+    "points": 0
+   },
+   {
+    "name": "Militia shotgun",
+    "points": 0
+   }
+  ],
+  "Militia Assault Weapons": [
+   {
+    "name": "Militia rifle",
+    "points": 0
+   },
+   {
+    "name": "Militia carbine",
+    "points": 0
+   },
+   {
+    "name": "Militia shotgun",
+    "points": 0
+   },
+   {
+    "name": "Las-lock",
+    "points": 1
+   },
+   {
+    "name": "Lasrifle",
+    "points": 1
+   },
+   {
+    "name": "Bolter",
+    "points": 3
+   }
+  ],
+  "Militia Special Weapons": [
+   {
+    "name": "Heavy stubber",
+    "points": 5
+   },
+   {
+    "name": "Militia longrifle",
+    "points": 5
+   },
+   {
+    "name": "Flamer",
+    "points": 5
+   },
+   {
+    "name": "Grenade launcher",
+    "points": 10
+   },
+   {
+    "name": "Plasma gun",
+    "points": 10
+   },
+   {
+    "name": "Meltagun",
+    "points": 15
+   }
+  ],
+  "Militia Heavy Weapons": [
+   {
+    "name": "Twin heavy stubber",
+    "points": 10
+   },
+   {
+    "name": "Mortar",
+    "points": 10
+   },
+   {
+    "name": "Multi-laser",
+    "points": 10
+   },
+   {
+    "name": "Heavy bolter",
+    "points": 10
+   },
+   {
+    "name": "Heavy flamer",
+    "points": 10
+   },
+   {
+    "name": "Missile launcher",
+    "points": 15
+   },
+   {
+    "name": "Autocannon",
+    "points": 20
+   },
+   {
+    "name": "Lascannon",
+    "points": 25
+   }
+  ],
+  "Militia Pintle Weapons": [
+   {
+    "name": "Pintle Mounted combi-bolter",
+    "points": 5
+   },
+   {
+    "name": "Pintle Mounted heavy stubber",
+    "points": 5
+   },
+   {
+    "name": "Pintle Mounted grenade launcher",
+    "points": 10
+   },
+   {
+    "name": "Pintle Mounted heavy flamer",
+    "points": 10
+   }
+  ]
+ },
+ "detachments": []
+}

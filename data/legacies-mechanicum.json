@@ -1,0 +1,546 @@
+{
+ "id": "legacies-mechanicum",
+ "name": "Legacies – Mechanicum",
+ "lang": "en",
+ "army": "mech",
+ "legacy": true,
+ "source": "Legacies of the Age of Darkness v1.1 (EN)",
+ "units": [
+  {
+   "id": "tech-thrall-defence-covenant",
+   "name": "Tech-thrall Defence Covenant",
+   "lang": "en",
+   "role": "AP",
+   "points": 100,
+   "page": 176,
+   "models": [
+    {
+     "name": "Tech-thralls",
+     "count": 10
+    }
+   ],
+   "profiles": [
+    {
+     "name": "Tech-thrall",
+     "stats": [
+      "5",
+      "2",
+      "2",
+      "3",
+      "5",
+      "1",
+      "2",
+      "1",
+      "4",
+      "12",
+      "4",
+      "4",
+      "6+",
+      "-"
+     ]
+    }
+   ],
+   "wargear": [
+    "Mitra-lock"
+   ],
+   "rules": [
+    "Expendable (2)",
+    "Rite of Pure Thought",
+    "Feel No Pain (6+)",
+    "Tech-thralls"
+   ],
+   "types": [
+    "Infantry"
+   ],
+   "traits": [
+    "[Allegiance]",
+    "Lacrymaerta"
+   ],
+   "options": [],
+   "army": "mech",
+   "legacy": true,
+   "source": "Legacies of the Age of Darkness v1.1 (EN)"
+  },
+  {
+   "id": "arlatax-battle-maniple",
+   "name": "Arlatax Battle Maniple",
+   "lang": "en",
+   "role": "EL",
+   "points": 120,
+   "page": 177,
+   "models": [
+    {
+     "name": "Arlatax",
+     "count": 1
+    }
+   ],
+   "profiles": [
+    {
+     "name": "Arlatax",
+     "stats": [
+      "10",
+      "4",
+      "4",
+      "7",
+      "7",
+      "4",
+      "3",
+      "3",
+      "8",
+      "12",
+      "4",
+      "4",
+      "2+",
+      "5+"
+     ]
+    }
+   ],
+   "wargear": [
+    "Plasma cannon",
+    "Pair of power blades",
+    "Paired light autocannon"
+   ],
+   "rules": [
+    "Bulky (6)",
+    "Deep Strike",
+    "Explodes (6+)",
+    "Implacable Advance",
+    "Impact (A)",
+    "Vanguard (2)",
+    "Firing Protocols (2)",
+    "Firestorm"
+   ],
+   "types": [
+    "Automata (Antigrav)"
+   ],
+   "traits": [
+    "[Allegiance]",
+    "Cybernetica"
+   ],
+   "options": [
+    {
+     "text": "Any Model in the Unit may have its pair of power blades and paired light autocannon both exchanged for:",
+     "max": "models",
+     "choices": [
+      {
+       "name": "One pair of arc scourges",
+       "points": 0
+      }
+     ]
+    }
+   ],
+   "army": "mech",
+   "legacy": true,
+   "source": "Legacies of the Age of Darkness v1.1 (EN)"
+  },
+  {
+   "id": "mechanicum-termite",
+   "name": "Mechanicum Termite",
+   "lang": "en",
+   "role": "TP",
+   "points": 80,
+   "page": 178,
+   "models": [
+    {
+     "name": "Mechanicum Termite",
+     "count": 1
+    }
+   ],
+   "profiles": [
+    {
+     "name": "Mechanicum Termite",
+     "stats": [
+      "6",
+      "4",
+      "12",
+      "12",
+      "10",
+      "5",
+      "12"
+     ],
+     "vehicle": true
+    }
+   ],
+   "wargear": [
+    "Two Pintle Mounted combi-bolters",
+    "Centreline Mounted melta cutters"
+   ],
+   "rules": [
+    "Light Transport",
+    "Deep Strike"
+   ],
+   "types": [
+    "Vehicle (Transport)"
+   ],
+   "traits": [
+    "[Allegiance]",
+    "[Mechanicum]"
+   ],
+   "options": [
+    {
+     "text": "Both of this Model's combi-bolters may be exchanged for one of the following options:",
+     "max": 1,
+     "choices": [
+      {
+       "name": "Two Pintle Mounted twin volkite chargers",
+       "points": 10
+      },
+      {
+       "name": "Two Pintle Mounted heavy flamers",
+       "points": 5
+      }
+     ]
+    }
+   ],
+   "army": "mech",
+   "legacy": true,
+   "source": "Legacies of the Age of Darkness v1.1 (EN)"
+  },
+  {
+   "id": "mechanicum-tarantula-battery",
+   "name": "Mechanicum Tarantula Battery",
+   "lang": "en",
+   "role": "RE",
+   "points": 45,
+   "page": 179,
+   "models": [
+    {
+     "name": "Mechanicum Tarantula Sentry Guns",
+     "count": 2
+    }
+   ],
+   "profiles": [
+    {
+     "name": "Mechanicum Sentry Gun",
+     "stats": [
+      "-",
+      "4",
+      "10",
+      "10",
+      "10",
+      "2",
+      "-"
+     ],
+     "vehicle": true
+    }
+   ],
+   "wargear": [
+    "Turret Mounted twin heavy bolter"
+   ],
+   "rules": [
+    "Expendable (3)",
+    "Infiltrate (9)",
+    "Automated Fire Protocols",
+    "Independent Sentries"
+   ],
+   "types": [
+    "Vehicle"
+   ],
+   "traits": [
+    "[Allegiance]",
+    "[Mechanicum]"
+   ],
+   "options": [
+    {
+     "text": "Any Model in this Unit may have its Turret Mounted twin heavy bolter exchanged for one of the following:",
+     "max": "models",
+     "choices": [
+      {
+       "name": "Turret Mounted twin lascannon",
+       "points": 20
+      },
+      {
+       "name": "Turret Mounted twin volkite culverin",
+       "points": 15
+      },
+      {
+       "name": "Turret Mounted sentry melta array",
+       "points": 25
+      },
+      {
+       "name": "Turret Mounted Hyperios missile launcher",
+       "points": 15
+      },
+      {
+       "name": "Two Turret Mounted Orias frag missiles",
+       "points": 15
+      }
+     ]
+    }
+   ],
+   "army": "mech",
+   "legacy": true,
+   "source": "Legacies of the Age of Darkness v1.1 (EN)"
+  },
+  {
+   "id": "mechanicum-macrocarid-explorator",
+   "name": "Mechanicum Macrocarid Explorator",
+   "lang": "en",
+   "role": "TL",
+   "points": 200,
+   "page": 181,
+   "models": [
+    {
+     "name": "Macrocarid Explorator",
+     "count": 1
+    }
+   ],
+   "profiles": [
+    {
+     "name": "Macrocarid Explorator",
+     "stats": [
+      "10",
+      "4",
+      "14",
+      "14",
+      "14",
+      "9",
+      "12"
+     ],
+     "vehicle": true
+    }
+   ],
+   "wargear": [
+    "Turret Mounted mauler bolt cannon",
+    "Flare shield"
+   ],
+   "rules": [
+    "Auto-repair (3+)",
+    "Move Through Cover",
+    "Anbaric Claw"
+   ],
+   "types": [
+    "Vehicle (Transport)"
+   ],
+   "traits": [
+    "[Allegiance]",
+    "Macrotek"
+   ],
+   "options": [
+    {
+     "text": "This Model may have one of the following selected for it:",
+     "max": 1,
+     "choices": [
+      {
+       "name": "Two Hull (Front) Mounted twin irad-cleansers",
+       "points": 20
+      },
+      {
+       "name": "Two Hull (Front) Mounted lascannon",
+       "points": 35
+      }
+     ]
+    },
+    {
+     "text": "This Model may have its Turret Mounted mauler bolt cannon exchanged for one Turret Mounted graviton imploder for +35 Points.",
+     "max": 1,
+     "choices": [
+      {
+       "name": "Turret Mounted graviton imploder",
+       "points": 35
+      }
+     ]
+    },
+    {
+     "text": "This Model may have one of each of the following selected for it:",
+     "max": 2,
+     "choices": [
+      {
+       "name": "Hull (Front) Mounted hunter-killer missile",
+       "points": 5
+      },
+      {
+       "name": "Searchlights",
+       "points": 5
+      }
+     ],
+     "unique": true
+    }
+   ],
+   "army": "mech",
+   "legacy": true,
+   "source": "Legacies of the Age of Darkness v1.1 (EN)"
+  },
+  {
+   "id": "mechanicum-ordinatus-ulator",
+   "name": "Mechanicum Ordinatus Ulator",
+   "lang": "en",
+   "role": "SB",
+   "points": 750,
+   "page": 182,
+   "models": [
+    {
+     "name": "Ordinatus Ulator",
+     "count": 1
+    }
+   ],
+   "profiles": [
+    {
+     "name": "Carriage",
+     "stats": [
+      "10",
+      "4",
+      "14",
+      "10",
+      "14",
+      "-"
+     ],
+     "vehicle": true
+    },
+    {
+     "name": "Gun",
+     "stats": [
+      "-",
+      "4",
+      "13",
+      "10",
+      "12",
+      "-"
+     ],
+     "vehicle": true
+    }
+   ],
+   "wargear": [
+    "The Carriage Profile has one Rear Mounted Ordinatus volkite culverin and two Front Mounted Ordinatus volkite culverin",
+    "The Gun Profile has one Boresight Mounted sonic destructor"
+   ],
+   "rules": [
+    "Repair Crew (D3)",
+    "Dispersal Field"
+   ],
+   "types": [
+    "Vehicle (Ordinatus)"
+   ],
+   "traits": [
+    "[Allegiance]",
+    "Macrotek"
+   ],
+   "options": [],
+   "army": "mech",
+   "legacy": true,
+   "source": "Legacies of the Age of Darkness v1.1 (EN)"
+  },
+  {
+   "id": "mechanicum-ordinatus-sagittar",
+   "name": "Mechanicum Ordinatus Sagittar",
+   "lang": "en",
+   "role": "SB",
+   "points": 800,
+   "page": 184,
+   "models": [
+    {
+     "name": "Ordinator Sagittar",
+     "count": 1
+    }
+   ],
+   "profiles": [
+    {
+     "name": "Carriage",
+     "stats": [
+      "10",
+      "4",
+      "14",
+      "10",
+      "14",
+      "-"
+     ],
+     "vehicle": true
+    },
+    {
+     "name": "Gun",
+     "stats": [
+      "-",
+      "4",
+      "13",
+      "10",
+      "12",
+      "-"
+     ],
+     "vehicle": true
+    }
+   ],
+   "wargear": [
+    "The Carriage Profile has one Rear Mounted Ordinatus volkite culverin and two Front Mounted Ordinatus volkite culverin",
+    "The Gun Profile has one Boresight Mounted Belicosa volcano cannon"
+   ],
+   "rules": [
+    "Repair Crew (D3)",
+    "Dispersal Field"
+   ],
+   "types": [
+    "Vehicle (Ordinatus)"
+   ],
+   "traits": [
+    "[Allegiance]",
+    "Macrotek"
+   ],
+   "options": [],
+   "army": "mech",
+   "legacy": true,
+   "source": "Legacies of the Age of Darkness v1.1 (EN)"
+  },
+  {
+   "id": "mechanicum-ordinatus-aktaeus",
+   "name": "Mechanicum Ordinatus Aktaeus",
+   "lang": "en",
+   "role": "SB",
+   "points": 900,
+   "page": 185,
+   "models": [
+    {
+     "name": "Ordinatus Aktaeus",
+     "count": 1
+    }
+   ],
+   "profiles": [
+    {
+     "name": "Carriage",
+     "stats": [
+      "10",
+      "4",
+      "14",
+      "10",
+      "14",
+      "-"
+     ],
+     "vehicle": true
+    },
+    {
+     "name": "Gun",
+     "stats": [
+      "-",
+      "4",
+      "13",
+      "10",
+      "12",
+      "42"
+     ],
+     "vehicle": true
+    }
+   ],
+   "wargear": [
+    "The Carriage Profile has two Front Mounted Ordinatus volkite culverin",
+    "The Gun Profile has one Boresight Mounted seismic macro-drill"
+   ],
+   "rules": [
+    "Repair Crew (D3)",
+    "Dispersal Field",
+    "Macro-drill Transport Bay"
+   ],
+   "types": [
+    "Vehicle (Ordinatus)"
+   ],
+   "traits": [
+    "[Allegiance]",
+    "Macrotek"
+   ],
+   "options": [],
+   "army": "mech",
+   "legacy": true,
+   "source": "Legacies of the Age of Darkness v1.1 (EN)",
+   "access": "This Model has Access Points on both Side Facings."
+  }
+ ],
+ "equipmentLists": {},
+ "detachments": []
+}

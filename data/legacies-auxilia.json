@@ -1,0 +1,1854 @@
+{
+ "id": "legacies-auxilia",
+ "name": "Legacies – Solar Auxilia",
+ "lang": "en",
+ "army": "aux",
+ "legacy": true,
+ "source": "Legacies of the Age of Darkness v1.1 (EN)",
+ "units": [
+  {
+   "id": "surgeon-primus-aevos-jovan",
+   "name": "Surgeon-Primus Aevos Jovan",
+   "lang": "en",
+   "role": "EM",
+   "points": 50,
+   "page": 146,
+   "models": [
+    {
+     "name": " Aevos Jovan",
+     "count": 1
+    },
+    {
+     "name": " Auto-gurney",
+     "count": 1
+    }
+   ],
+   "profiles": [
+    {
+     "name": "Medicae Orderly",
+     "stats": [
+      "6",
+      "3",
+      "3",
+      "3",
+      "3",
+      "1",
+      "3",
+      "1",
+      "6",
+      "6",
+      "6",
+      "7",
+      "4+",
+      "-"
+     ]
+    },
+    {
+     "name": "Auto-gurney",
+     "stats": [
+      "6",
+      "1",
+      "-",
+      "3",
+      "4",
+      "1",
+      "1",
+      "-",
+      "1",
+      "1",
+      "1",
+      "1",
+      "4+",
+      "-"
+     ]
+    },
+    {
+     "name": "Aevos Jovan",
+     "stats": [
+      "6",
+      "2",
+      "2",
+      "3",
+      "3",
+      "2",
+      "3",
+      "1",
+      "8",
+      "8",
+      "8",
+      "8",
+      "4+",
+      "5+"
+     ]
+    }
+   ],
+   "wargear": [
+    "Phase lancet (Aevos Jovan only)",
+    "Needle pistol (Medical Orderlies only)",
+    "Frag grenades",
+    "Krak grenades"
+   ],
+   "rules": [
+    "Medic (4+) (Aevos Jovan only)",
+    "Surgical Suite (Auto-gurney only)",
+    "Triage (Medicae Orderlies only)"
+   ],
+   "types": [
+    "Infantry (Unique, Specialist)"
+   ],
+   "traits": [
+    "Loyalist",
+    "Solar Auxilia"
+   ],
+   "options": [],
+   "army": "aux",
+   "legacy": true,
+   "source": "Legacies of the Age of Darkness v1.1 (EN)"
+  },
+  {
+   "id": "expeditionary-navigator",
+   "name": "Expeditionary Navigator",
+   "lang": "en",
+   "role": "EM",
+   "points": 65,
+   "limit": 1,
+   "page": 148,
+   "models": [
+    {
+     "name": " Expeditionary Navigator",
+     "count": 1
+    }
+   ],
+   "profiles": [
+    {
+     "name": "Expeditionary Navigator",
+     "stats": [
+      "6",
+      "2",
+      "2",
+      "3",
+      "3",
+      "1",
+      "3",
+      "1",
+      "7",
+      "6",
+      "9",
+      "6",
+      "6+",
+      "5+"
+     ]
+    }
+   ],
+   "wargear": [
+    "Laspistol",
+    "Ætherlabe staff"
+   ],
+   "rules": [
+    "Navigator's Arts"
+   ],
+   "types": [
+    "Infantry (Specialist)"
+   ],
+   "traits": [
+    "[Allegiance]",
+    "Solar Auxilia",
+    "Psyker",
+    "Navis Astrologian"
+   ],
+   "options": [],
+   "army": "aux",
+   "legacy": true,
+   "source": "Legacies of the Age of Darkness v1.1 (EN)"
+  },
+  {
+   "id": "davinite-lodge-priest",
+   "name": "Davinite Lodge Priest",
+   "lang": "en",
+   "role": "EM",
+   "points": 60,
+   "limit": 1,
+   "page": 149,
+   "models": [
+    {
+     "name": " Davinite Lodge Priest",
+     "count": 1
+    }
+   ],
+   "profiles": [
+    {
+     "name": "Davinite Lodge Priest",
+     "stats": [
+      "6",
+      "4",
+      "3",
+      "3",
+      "3",
+      "2",
+      "3",
+      "2",
+      "7",
+      "6",
+      "9",
+      "6",
+      "5+",
+      "6+"
+     ]
+    }
+   ],
+   "wargear": [
+    "Hand flamer",
+    "Davinite blade"
+   ],
+   "rules": [
+    "Ritual Healing"
+   ],
+   "types": [
+    "Infantry (Specialist)"
+   ],
+   "traits": [
+    "Traitor",
+    "Solar Auxilia",
+    "Psyker",
+    "Thaumaturge"
+   ],
+   "options": [],
+   "army": "aux",
+   "legacy": true,
+   "source": "Legacies of the Age of Darkness v1.1 (EN)"
+  },
+  {
+   "id": "companion-section",
+   "name": "Companion Section",
+   "lang": "en",
+   "role": "SU",
+   "points": 80,
+   "page": 150,
+   "models": [
+    {
+     "name": " Auxilia Adjutant",
+     "count": 1
+    },
+    {
+     "name": "Companions",
+     "count": 4
+    }
+   ],
+   "profiles": [
+    {
+     "name": "Companion",
+     "stats": [
+      "6",
+      "4",
+      "4",
+      "3",
+      "3",
+      "2",
+      "4",
+      "2",
+      "8",
+      "8",
+      "6",
+      "6",
+      "4+",
+      "5+"
+     ]
+    },
+    {
+     "name": "Auxilia Adjutant",
+     "stats": [
+      "6",
+      "4",
+      "4",
+      "3",
+      "3",
+      "2",
+      "4",
+      "2",
+      "8",
+      "8",
+      "7",
+      "7",
+      "4+",
+      "5+"
+     ]
+    }
+   ],
+   "wargear": [
+    "Lasrifle",
+    "Frag grenades",
+    "Krak grenades"
+   ],
+   "rules": [
+    "Support Unit (1)"
+   ],
+   "types": [
+    "Auxilia Adjutant: Infantry (Sergeant)",
+    "Companion: Infantry"
+   ],
+   "traits": [
+    "[Allegiance]",
+    "Solar Auxilia"
+   ],
+   "options": [
+    {
+     "text": "Any Model in this Unit may have its lasrifle exchanged for one laspistol and one charnabal sabre for Free or one of the following:",
+     "max": "models",
+     "choices": [
+      {
+       "name": "Bolter",
+       "points": 3
+      },
+      {
+       "name": "Volkite charger",
+       "points": 5
+      },
+      {
+       "name": "Flamer",
+       "points": 5
+      },
+      {
+       "name": "Grenade launcher",
+       "points": 10
+      },
+      {
+       "name": "Plasma gun",
+       "points": 10
+      },
+      {
+       "name": "Rotor cannon",
+       "points": 10
+      },
+      {
+       "name": "Meltagun",
+       "points": 15
+      }
+     ]
+    },
+    {
+     "text": "Any Model in this Unit whose lasrifle has been exchanged for a laspistol and charnabal sabre may have its laspistol exchanged for one item from the Auxilia Pistols list.",
+     "max": "models",
+     "list": "Auxilia Pistols"
+    },
+    {
+     "text": "Any Model in this Unit whose lasrifle has been exchanged for a laspistol and charnabal sabre may have its charnabal sabre exchanged for one chainsword for Free or for …",
+     "max": "models",
+     "list": "Auxilia Melee Weapons"
+    },
+    {
+     "text": "Any Model in this Unit with a lasrifle may have any of the following selected for it:",
+     "max": 2,
+     "choices": [
+      {
+       "name": "Bayonet",
+       "points": 1
+      },
+      {
+       "name": "Blast-charger",
+       "points": 1
+      }
+     ],
+     "unique": true
+    },
+    {
+     "text": "One Companion in this Unit may have one vox interlock selected for it for +5 Points.",
+     "max": 1,
+     "choices": [
+      {
+       "name": "Vox interlock",
+       "points": 5
+      }
+     ]
+    },
+    {
+     "text": "One Companion in this Unit may have one auxilia vexilla selected for it for +5 Points.",
+     "max": 1,
+     "choices": [
+      {
+       "name": "Auxilia vexilla",
+       "points": 5
+      }
+     ]
+    },
+    {
+     "text": "One Companion in this Unit may have one augury scanner selected for it for +10 Points.",
+     "max": 1,
+     "choices": [
+      {
+       "name": "Augury scanner",
+       "points": 10
+      }
+     ]
+    },
+    {
+     "text": "One Companion in this Unit may have melta bombs selected for it for +10 Points.",
+     "max": 1,
+     "choices": [
+      {
+       "name": "Melta bombs",
+       "points": 10
+      }
+     ]
+    }
+   ],
+   "army": "aux",
+   "legacy": true,
+   "source": "Legacies of the Age of Darkness v1.1 (EN)"
+  },
+  {
+   "id": "medicae-section",
+   "name": "Medicae Section",
+   "lang": "en",
+   "role": "AP",
+   "points": 15,
+   "page": 152,
+   "models": [
+    {
+     "name": " Medicae Auxiliary",
+     "count": 1
+    }
+   ],
+   "profiles": [
+    {
+     "name": "Medicae Auxiliary",
+     "stats": [
+      "6",
+      "3",
+      "3",
+      "3",
+      "3",
+      "1",
+      "3",
+      "1",
+      "6",
+      "6",
+      "6",
+      "7",
+      "4+",
+      "-"
+     ]
+    }
+   ],
+   "wargear": [
+    "Needle pistol",
+    "Frag grenades",
+    "Krak grenades"
+   ],
+   "rules": [
+    "Medic (5+)",
+    "Medicae Support"
+   ],
+   "types": [
+    "Infantry (Specialist)"
+   ],
+   "traits": [
+    "[Allegiance]",
+    "Solar Auxilia"
+   ],
+   "options": [],
+   "army": "aux",
+   "legacy": true,
+   "source": "Legacies of the Age of Darkness v1.1 (EN)"
+  },
+  {
+   "id": "cyclops-demolition-vehicle",
+   "name": "Cyclops Demolition Vehicle",
+   "lang": "en",
+   "role": "AP",
+   "points": 50,
+   "page": 153,
+   "models": [
+    {
+     "name": " Cyclops Demolition Vehicle",
+     "count": 1
+    }
+   ],
+   "profiles": [
+    {
+     "name": "Cyclops",
+     "stats": [
+      "6",
+      "-",
+      "10",
+      "10",
+      "10",
+      "2",
+      "-"
+     ],
+     "vehicle": true
+    }
+   ],
+   "wargear": [],
+   "rules": [
+    "Expendable (3)",
+    "Explodes (2+)",
+    "Compact",
+    "Demolition Vehicle"
+   ],
+   "types": [
+    "Vehicle"
+   ],
+   "traits": [
+    "[Allegiance]",
+    "Solar Auxilia"
+   ],
+   "options": [],
+   "army": "aux",
+   "legacy": true,
+   "source": "Legacies of the Age of Darkness v1.1 (EN)"
+  },
+  {
+   "id": "aurox-transport",
+   "name": "Aurox Transport",
+   "lang": "en",
+   "role": "TP",
+   "points": 50,
+   "page": 154,
+   "models": [
+    {
+     "name": " Aurox Transport",
+     "count": 1
+    }
+   ],
+   "profiles": [
+    {
+     "name": "Aurox",
+     "stats": [
+      "12",
+      "3",
+      "12",
+      "11",
+      "10",
+      "4",
+      "10"
+     ],
+     "vehicle": true
+    }
+   ],
+   "wargear": [
+    "Searchlights"
+   ],
+   "rules": [
+    "Light Transport"
+   ],
+   "types": [
+    "Vehicle (Rapid, Transport)"
+   ],
+   "traits": [
+    "[Allegiance]",
+    "Solar Auxilia"
+   ],
+   "options": [
+    {
+     "text": "This Model may have one item from the Auxilia Pintle Weapons list selected for it.",
+     "max": 1,
+     "list": "Auxilia Pintle Weapons"
+    },
+    {
+     "text": "This Model may have one Hull (Front) Mounted hunter-killer missile selected for it for +5 Points.",
+     "max": 1,
+     "choices": [
+      {
+       "name": "Hull (Front) Mounted hunter-killer missile",
+       "points": 5
+      }
+     ]
+    }
+   ],
+   "army": "aux",
+   "legacy": true,
+   "source": "Legacies of the Age of Darkness v1.1 (EN)"
+  },
+  {
+   "id": "tarantula-section",
+   "name": "Tarantula Section",
+   "lang": "en",
+   "role": "RE",
+   "points": 35,
+   "page": 155,
+   "models": [
+    {
+     "name": " Tarantula Sentry Guns",
+     "count": 1
+    }
+   ],
+   "profiles": [
+    {
+     "name": "Tarantula Sentry Gun",
+     "stats": [
+      "-",
+      "3",
+      "10",
+      "10",
+      "10",
+      "2",
+      "-"
+     ],
+     "vehicle": true
+    }
+   ],
+   "wargear": [
+    "Turret Mounted twin heavy bolter"
+   ],
+   "rules": [
+    "Expendable (3)",
+    "Automated Fire Protocols",
+    "Independent Sentries"
+   ],
+   "types": [
+    "Vehicle"
+   ],
+   "traits": [
+    "[Allegiance]",
+    "Solar Auxilia"
+   ],
+   "options": [
+    {
+     "text": "Any Model in this Unit may have its Turret Mounted twin heavy bolter exchanged for one Turret Mounted twin lascannon for +20 Points per Model.",
+     "max": "models",
+     "choices": [
+      {
+       "name": "Turret Mounted twin lascannon",
+       "points": 20
+      }
+     ]
+    }
+   ],
+   "army": "aux",
+   "legacy": true,
+   "source": "Legacies of the Age of Darkness v1.1 (EN)"
+  },
+  {
+   "id": "carnodon-strike-tank",
+   "name": "Carnodon Strike Tank",
+   "lang": "en",
+   "role": "AR",
+   "points": 80,
+   "page": 157,
+   "models": [
+    {
+     "name": " Carnodon Strike Tank",
+     "count": 1
+    }
+   ],
+   "profiles": [
+    {
+     "name": "Carnodon Strike Tank",
+     "stats": [
+      "12",
+      "3",
+      "12",
+      "11",
+      "10",
+      "4",
+      "-"
+     ],
+     "vehicle": true
+    }
+   ],
+   "wargear": [
+    "Turret Mounted volkite culverin",
+    "Two Sponson Mounted volkite calivers",
+    "Searchlights"
+   ],
+   "rules": [],
+   "types": [
+    "Vehicle (Rapid)"
+   ],
+   "traits": [
+    "[Allegiance]",
+    "Solar Auxilia"
+   ],
+   "options": [
+    {
+     "text": "This Model may have its Turret Mounted volkite culverin exchanged for one of the following:",
+     "max": 1,
+     "choices": [
+      {
+       "name": "Turret Mounted twin multi-laser",
+       "points": 5
+      },
+      {
+       "name": "Turret Mounted gravis autocannon",
+       "points": 10
+      },
+      {
+       "name": "Turret Mounted twin lascannon",
+       "points": 15
+      }
+     ]
+    },
+    {
+     "text": "This Model may have both of its Sponson Mounted volkite calivers exchanged for one item from the Auxilia Sponson Weapons list.",
+     "max": 1,
+     "list": "Auxilia Sponson Weapons"
+    },
+    {
+     "text": "This Model may have one item from the Auxilia Pintle Weapons list selected for it.",
+     "max": 1,
+     "list": "Auxilia Pintle Weapons"
+    },
+    {
+     "text": "This Model may have one Turret Mounted hunter-killer missile selected for it for +5 Points.",
+     "max": 1,
+     "choices": [
+      {
+       "name": "Turret Mounted hunter-killer missile",
+       "points": 5
+      }
+     ]
+    }
+   ],
+   "army": "aux",
+   "legacy": true,
+   "source": "Legacies of the Age of Darkness v1.1 (EN)"
+  },
+  {
+   "id": "avenger-strike-fighter",
+   "name": "Avenger Strike Fighter",
+   "lang": "en",
+   "role": "AR",
+   "points": 100,
+   "page": 158,
+   "models": [
+    {
+     "name": " Avenger Strike Fighter",
+     "count": 1
+    }
+   ],
+   "profiles": [
+    {
+     "name": "Avenger Strike Fighter",
+     "stats": [
+      "22",
+      "3",
+      "12",
+      "12",
+      "12",
+      "4",
+      "-"
+     ],
+     "vehicle": true
+    }
+   ],
+   "wargear": [
+    "Centreline Mounted avenger bolt cannon",
+    "Centreline Mounted twin lascannon",
+    "Hull (Rear) Mounted heavy stubber"
+   ],
+   "rules": [],
+   "types": [
+    "Vehicle (Flyer)"
+   ],
+   "traits": [
+    "[Allegiance]",
+    "Solar Auxilia"
+   ],
+   "options": [],
+   "army": "aux",
+   "legacy": true,
+   "source": "Legacies of the Age of Darkness v1.1 (EN)"
+  },
+  {
+   "id": "destroyer-tank-hunter",
+   "name": "Destroyer Tank Hunter",
+   "lang": "en",
+   "role": "BL",
+   "points": 130,
+   "page": 159,
+   "models": [
+    {
+     "name": "Destroyer Tank Hunter",
+     "count": 1
+    }
+   ],
+   "profiles": [
+    {
+     "name": "Destroyer Tank Hunter",
+     "stats": [
+      "10",
+      "3",
+      "14",
+      "13",
+      "10",
+      "6",
+      "-"
+     ],
+     "vehicle": true
+    }
+   ],
+   "wargear": [
+    "Centreline Mounted Proteus laser destroyer"
+   ],
+   "rules": [],
+   "types": [
+    "Vehicle"
+   ],
+   "traits": [
+    "[Allegiance]",
+    "Solar Auxilia",
+    "Smokescreen"
+   ],
+   "options": [
+    {
+     "text": "This Model may have one item from the Auxilia Pintle Weapons list selected for it.",
+     "max": 1,
+     "list": "Auxilia Pintle Weapons"
+    },
+    {
+     "text": "This Model may have any of the following selected for it:",
+     "max": 3,
+     "choices": [
+      {
+       "name": "One Hull (Front) Mounted hunter-killer missile",
+       "points": 5
+      },
+      {
+       "name": "Searchlights",
+       "points": 5
+      },
+      {
+       "name": "Dozer blade",
+       "points": 5
+      }
+     ],
+     "unique": true
+    }
+   ],
+   "army": "aux",
+   "legacy": true,
+   "source": "Legacies of the Age of Darkness v1.1 (EN)"
+  },
+  {
+   "id": "thunderer-siege-tank",
+   "name": "Thunderer Siege Tank",
+   "lang": "en",
+   "role": "BL",
+   "points": 155,
+   "page": 160,
+   "models": [
+    {
+     "name": "Thunderer Siege Tank",
+     "count": 1
+    }
+   ],
+   "profiles": [
+    {
+     "name": "Thunderer Siege Tank",
+     "stats": [
+      "10",
+      "3",
+      "14",
+      "13",
+      "10",
+      "6",
+      "-"
+     ],
+     "vehicle": true
+    }
+   ],
+   "wargear": [
+    "Centreline Mounted demolisher cannon"
+   ],
+   "rules": [],
+   "types": [
+    "Vehicle"
+   ],
+   "traits": [
+    "[Allegiance]",
+    "Solar Auxilia",
+    "Smokescreen"
+   ],
+   "options": [
+    {
+     "text": "This Model may have one item from the Auxilia Pintle Weapons list selected for it.",
+     "max": 1,
+     "list": "Auxilia Pintle Weapons"
+    },
+    {
+     "text": "This Model may have any of the following selected for it:",
+     "max": 3,
+     "choices": [
+      {
+       "name": "One Hull (Front) Mounted hunter-killer missile",
+       "points": 5
+      },
+      {
+       "name": "Searchlights",
+       "points": 5
+      },
+      {
+       "name": "Dozer blade",
+       "points": 5
+      }
+     ],
+     "unique": true
+    }
+   ],
+   "army": "aux",
+   "legacy": true,
+   "source": "Legacies of the Age of Darkness v1.1 (EN)"
+  },
+  {
+   "id": "minotaur-artillery-tank",
+   "name": "Minotaur Artillery Tank",
+   "lang": "en",
+   "role": "BL",
+   "points": 205,
+   "page": 161,
+   "models": [
+    {
+     "name": "Minotaur Artillery Tank",
+     "count": 1
+    }
+   ],
+   "profiles": [
+    {
+     "name": "Minotaur Artillery Tank",
+     "stats": [
+      "8",
+      "3",
+      "13",
+      "13",
+      "13",
+      "7",
+      "-"
+     ],
+     "vehicle": true
+    }
+   ],
+   "wargear": [
+    "Centreline (Rear) Mounted twin earthshaker cannon"
+   ],
+   "rules": [],
+   "types": [
+    "Vehicle"
+   ],
+   "traits": [
+    "[Allegiance]",
+    "Solar Auxilia",
+    "Smokescreen"
+   ],
+   "options": [
+    {
+     "text": "This Model may have any of the following selected for it:",
+     "max": 2,
+     "choices": [
+      {
+       "name": "One Hull (Rear) Mounted hunter-killer missile",
+       "points": 5
+      },
+      {
+       "name": "Searchlights",
+       "points": 5
+      }
+     ],
+     "unique": true
+    }
+   ],
+   "army": "aux",
+   "legacy": true,
+   "source": "Legacies of the Age of Darkness v1.1 (EN)"
+  },
+  {
+   "id": "macharius-heavy-tank",
+   "name": "Macharius Heavy Tank",
+   "lang": "en",
+   "role": "SB",
+   "points": 300,
+   "page": 162,
+   "models": [
+    {
+     "name": "Macharius Heavy Tank",
+     "count": 1
+    }
+   ],
+   "profiles": [
+    {
+     "name": "Macharius Heavy Tank",
+     "stats": [
+      "10",
+      "3",
+      "14",
+      "13",
+      "12",
+      "12",
+      "-"
+     ],
+     "vehicle": true
+    }
+   ],
+   "wargear": [
+    "Turret Mounted twin battlecannon",
+    "Hull (Front) Mounted twin heavy stubber",
+    "Two Sponson Mounted heavy stubbers"
+   ],
+   "rules": [],
+   "types": [
+    "Vehicle (Super-heavy)"
+   ],
+   "traits": [
+    "[Allegiance]",
+    "Solar Auxilia",
+    "Smokescreen"
+   ],
+   "options": [
+    {
+     "text": "This Model may have its Turret Mounted twin battlecannon exchanged for one of the following:",
+     "max": 1,
+     "choices": [
+      {
+       "name": "Turret Mounted twin avenger bolt cannon",
+       "points": 0
+      },
+      {
+       "name": "Turret Mounted twin vanquisher cannon",
+       "points": 10
+      }
+     ]
+    },
+    {
+     "text": "This Model may have both of its Sponson Mounted heavy stubbers exchanged for one of the following:",
+     "max": 1,
+     "choices": [
+      {
+       "name": "Two Sponson Mounted heavy bolters",
+       "points": 5
+      },
+      {
+       "name": "Two Sponson Mounted heavy flamers",
+       "points": 5
+      }
+     ]
+    },
+    {
+     "text": "This Model may have one item from the Auxilia Pintle Weapons list selected for it.",
+     "max": 1,
+     "list": "Auxilia Pintle Weapons"
+    },
+    {
+     "text": "This Model may have any of the following selected for it:",
+     "max": 2,
+     "choices": [
+      {
+       "name": "One Turret Mounted hunter-killer missile",
+       "points": 5
+      },
+      {
+       "name": "Searchlights",
+       "points": 5
+      }
+     ],
+     "unique": true
+    }
+   ],
+   "army": "aux",
+   "legacy": true,
+   "source": "Legacies of the Age of Darkness v1.1 (EN)"
+  },
+  {
+   "id": "praetor-armoured-assault-launcher",
+   "name": "Praetor Armoured Assault Launcher",
+   "lang": "en",
+   "role": "SB",
+   "points": 300,
+   "page": 163,
+   "models": [
+    {
+     "name": "Praetor Armoured Assault Launcher",
+     "count": 1
+    }
+   ],
+   "profiles": [
+    {
+     "name": "Praetor",
+     "stats": [
+      "10",
+      "3",
+      "14",
+      "13",
+      "12",
+      "12",
+      "-"
+     ],
+     "vehicle": true
+    }
+   ],
+   "wargear": [
+    "Centreline Mounted praetor launcher",
+    "Two Hull (Front) Mounted heavy bolters"
+   ],
+   "rules": [],
+   "types": [
+    "Vehicle (Super-heavy)"
+   ],
+   "traits": [
+    "[Allegiance]",
+    "Solar Auxilia",
+    "Smokescreen"
+   ],
+   "options": [
+    {
+     "text": "This Model may have one item from the Auxilia Pintle Weapons list selected for it.",
+     "max": 1,
+     "list": "Auxilia Pintle Weapons"
+    },
+    {
+     "text": "This Model may have any of the following selected for it:",
+     "max": 2,
+     "choices": [
+      {
+       "name": "One Hull (Front) Mounted hunter-killer missile",
+       "points": 5
+      },
+      {
+       "name": "Searchlights",
+       "points": 5
+      }
+     ],
+     "unique": true
+    }
+   ],
+   "army": "aux",
+   "legacy": true,
+   "source": "Legacies of the Age of Darkness v1.1 (EN)"
+  },
+  {
+   "id": "crassus-armoured-assault-transport",
+   "name": "Crassus Armoured Assault Transport",
+   "lang": "en",
+   "role": "SB",
+   "points": 350,
+   "page": 164,
+   "models": [
+    {
+     "name": "Crassus Armoured Assault Transport",
+     "count": 1
+    }
+   ],
+   "profiles": [
+    {
+     "name": "Crassus",
+     "stats": [
+      "10",
+      "3",
+      "14",
+      "13",
+      "12",
+      "12",
+      "35"
+     ],
+     "vehicle": true
+    }
+   ],
+   "wargear": [
+    "Two Hull (Front) Mounted heavy bolters",
+    "Two Sponson Mounted heavy bolters"
+   ],
+   "rules": [],
+   "types": [
+    "Vehicle (Super-heavy, Transport)"
+   ],
+   "traits": [
+    "[Allegiance]",
+    "Solar Auxilia",
+    "Smokescreen"
+   ],
+   "options": [
+    {
+     "text": "This Model may have one item from the Auxilia Pintle Weapons list selected for it.",
+     "max": 1,
+     "list": "Auxilia Pintle Weapons"
+    },
+    {
+     "text": "This Model may have any of the following selected for it:",
+     "max": 2,
+     "choices": [
+      {
+       "name": "One Hull (Front) Mounted hunter-killer missile",
+       "points": 5
+      },
+      {
+       "name": "Searchlights",
+       "points": 5
+      }
+     ],
+     "unique": true
+    }
+   ],
+   "army": "aux",
+   "legacy": true,
+   "source": "Legacies of the Age of Darkness v1.1 (EN)"
+  },
+  {
+   "id": "baneblade-super-heavy-battle-tank",
+   "name": "Baneblade Super-heavy Battle Tank",
+   "lang": "en",
+   "role": "SB",
+   "points": 520,
+   "page": 165,
+   "models": [
+    {
+     "name": "Baneblade",
+     "count": 1
+    }
+   ],
+   "profiles": [
+    {
+     "name": "Baneblade",
+     "stats": [
+      "10",
+      "3",
+      "14",
+      "13",
+      "12",
+      "16",
+      "-"
+     ],
+     "vehicle": true
+    }
+   ],
+   "wargear": [
+    "Turret Mounted Baneblade cannon",
+    "Co-axial (Baneblade cannon) Mounted autocannon",
+    "Centreline Mounted demolisher cannon",
+    "Hull (Front) Mounted twin heavy bolter"
+   ],
+   "rules": [],
+   "types": [
+    "Vehicle (Super-heavy)"
+   ],
+   "traits": [
+    "[Allegiance]",
+    "Solar Auxilia",
+    "Smokescreen"
+   ],
+   "options": [
+    {
+     "text": "This Model may have one of the following selected for it:",
+     "max": 1,
+     "choices": [
+      {
+       "name": "Two Sponson Mounted lascannon and two Sponson Mounted twin heavy bolters",
+       "points": 40
+      },
+      {
+       "name": "Two Sponson Mounted lascannon and two Sponson Mounted twin heavy flamers",
+       "points": 40
+      }
+     ]
+    },
+    {
+     "text": "This Model may have one item from the Auxilia Pintle Weapons list selected for it.",
+     "max": 1,
+     "list": "Auxilia Pintle Weapons"
+    },
+    {
+     "text": "This Model may have any of the following selected for it:",
+     "max": 2,
+     "choices": [
+      {
+       "name": "One Turret Mounted hunter-killer missile",
+       "points": 5
+      },
+      {
+       "name": "Searchlights",
+       "points": 5
+      }
+     ],
+     "unique": true
+    }
+   ],
+   "army": "aux",
+   "legacy": true,
+   "source": "Legacies of the Age of Darkness v1.1 (EN)"
+  },
+  {
+   "id": "hellhammer-super-heavy-battle-tank",
+   "name": "Hellhammer Super-heavy Battle Tank",
+   "lang": "en",
+   "role": "SB",
+   "points": 520,
+   "page": 166,
+   "models": [
+    {
+     "name": "Hellhammer",
+     "count": 1
+    }
+   ],
+   "profiles": [
+    {
+     "name": "Hellhammer",
+     "stats": [
+      "10",
+      "3",
+      "14",
+      "13",
+      "12",
+      "16",
+      "-"
+     ],
+     "vehicle": true
+    }
+   ],
+   "wargear": [
+    "Turret Mounted Hellhammer cannon",
+    "Co-axial (Hellhammer cannon) Mounted autocannon",
+    "Centreline Mounted demolisher cannon",
+    "Hull (Front) Mounted twin heavy bolter"
+   ],
+   "rules": [],
+   "types": [
+    "Vehicle (Super-heavy)"
+   ],
+   "traits": [
+    "[Allegiance]",
+    "Solar Auxilia",
+    "Smokescreen"
+   ],
+   "options": [
+    {
+     "text": "This Model may have one of the following selected for it:",
+     "max": 1,
+     "choices": [
+      {
+       "name": "Two Sponson Mounted lascannon and two Sponson Mounted twin heavy bolters",
+       "points": 40
+      },
+      {
+       "name": "Two Sponson Mounted lascannon and two Sponson Mounted twin heavy flamers",
+       "points": 40
+      }
+     ]
+    },
+    {
+     "text": "This Model may have one item from the Auxilia Pintle Weapons list selected for it.",
+     "max": 1,
+     "list": "Auxilia Pintle Weapons"
+    },
+    {
+     "text": "This Model may have any of the following selected for it:",
+     "max": 2,
+     "choices": [
+      {
+       "name": "One Turret Mounted hunter-killer missile",
+       "points": 5
+      },
+      {
+       "name": "Searchlights",
+       "points": 5
+      }
+     ],
+     "unique": true
+    }
+   ],
+   "army": "aux",
+   "legacy": true,
+   "source": "Legacies of the Age of Darkness v1.1 (EN)"
+  },
+  {
+   "id": "banehammer-super-heavy-assault-tank",
+   "name": "Banehammer Super-heavy Assault Tank",
+   "lang": "en",
+   "role": "SB",
+   "points": 450,
+   "page": 167,
+   "models": [
+    {
+     "name": "Banehammer",
+     "count": 1
+    }
+   ],
+   "profiles": [
+    {
+     "name": "Banehammer",
+     "stats": [
+      "10",
+      "3",
+      "14",
+      "13",
+      "12",
+      "16",
+      "-"
+     ],
+     "vehicle": true
+    }
+   ],
+   "wargear": [
+    "Centreline Mounted tremor cannon",
+    "Hull (Front) Mounted twin heavy bolter"
+   ],
+   "rules": [],
+   "types": [
+    "Vehicle (Super-heavy)"
+   ],
+   "traits": [
+    "[Allegiance]",
+    "Solar Auxilia",
+    "Smokescreen"
+   ],
+   "options": [
+    {
+     "text": "This Model may have one of the following selected for it:",
+     "max": 1,
+     "choices": [
+      {
+       "name": "Two Sponson Mounted lascannon and two Sponson Mounted twin heavy bolters",
+       "points": 40
+      },
+      {
+       "name": "Two Sponson Mounted lascannon and two Sponson Mounted twin heavy flamers",
+       "points": 40
+      }
+     ]
+    },
+    {
+     "text": "This Model may have one item from the Auxilia Pintle Weapons list selected for it.",
+     "max": 1,
+     "list": "Auxilia Pintle Weapons"
+    },
+    {
+     "text": "This Model may have any of the following selected for it:",
+     "max": 2,
+     "choices": [
+      {
+       "name": "One Hull (Front) Mounted hunter-killer missile",
+       "points": 5
+      },
+      {
+       "name": "Searchlights",
+       "points": 5
+      }
+     ],
+     "unique": true
+    }
+   ],
+   "army": "aux",
+   "legacy": true,
+   "source": "Legacies of the Age of Darkness v1.1 (EN)"
+  },
+  {
+   "id": "stormlord-super-heavy-assault-tank",
+   "name": "Stormlord Super-heavy Assault Tank",
+   "lang": "en",
+   "role": "SB",
+   "points": 500,
+   "page": 168,
+   "models": [
+    {
+     "name": "Stormlord",
+     "count": 1
+    }
+   ],
+   "profiles": [
+    {
+     "name": "Stormlord",
+     "stats": [
+      "10",
+      "3",
+      "14",
+      "13",
+      "12",
+      "16",
+      "20"
+     ],
+     "vehicle": true
+    }
+   ],
+   "wargear": [
+    "Centreline Mounted Vulcan mega-bolter",
+    "Hull (Front) Mounted twin heavy bolter",
+    "Hull (Left) Mounted heavy stubber",
+    "Hull (Right) Mounted heavy stubber"
+   ],
+   "rules": [
+    "Light Transport"
+   ],
+   "types": [
+    "Vehicle (Super-heavy, Transport)"
+   ],
+   "traits": [
+    "[Allegiance]",
+    "Solar Auxilia",
+    "Smokescreen"
+   ],
+   "options": [
+    {
+     "text": "This Model may have one of the following selected for it:",
+     "max": 1,
+     "choices": [
+      {
+       "name": "Two Sponson Mounted lascannon and two Sponson Mounted twin heavy bolters",
+       "points": 40
+      },
+      {
+       "name": "Two Sponson Mounted lascannon and two Sponson Mounted twin heavy flamers",
+       "points": 40
+      }
+     ]
+    },
+    {
+     "text": "This Model may have one item from the Auxilia Pintle Weapons list selected for it.",
+     "max": 1,
+     "list": "Auxilia Pintle Weapons"
+    },
+    {
+     "text": "This Model may have any of the following selected for it:",
+     "max": 2,
+     "choices": [
+      {
+       "name": "One Hull (Front) Mounted hunter-killer missile",
+       "points": 5
+      },
+      {
+       "name": "Searchlights",
+       "points": 5
+      }
+     ],
+     "unique": true
+    }
+   ],
+   "army": "aux",
+   "legacy": true,
+   "source": "Legacies of the Age of Darkness v1.1 (EN)"
+  },
+  {
+   "id": "stormblade-super-heavy-tank",
+   "name": "Stormblade Super-heavy Tank",
+   "lang": "en",
+   "role": "SB",
+   "points": 500,
+   "page": 169,
+   "models": [
+    {
+     "name": "Stormblade",
+     "count": 1
+    }
+   ],
+   "profiles": [
+    {
+     "name": "Stormblade",
+     "stats": [
+      "10",
+      "3",
+      "14",
+      "13",
+      "12",
+      "16",
+      "-"
+     ],
+     "vehicle": true
+    }
+   ],
+   "wargear": [
+    "Centreline Mounted plasma blastgun",
+    "Hull (Front) Mounted twin heavy bolter"
+   ],
+   "rules": [],
+   "types": [
+    "Vehicle (Super-heavy)"
+   ],
+   "traits": [
+    "[Allegiance]",
+    "Solar Auxilia",
+    "Smokescreen"
+   ],
+   "options": [
+    {
+     "text": "This Model may have one of the following selected for it:",
+     "max": 1,
+     "choices": [
+      {
+       "name": "Two Sponson Mounted lascannon and two Sponson Mounted twin heavy bolters",
+       "points": 40
+      },
+      {
+       "name": "Two Sponson Mounted lascannon and two Sponson Mounted twin heavy flamers",
+       "points": 40
+      }
+     ]
+    },
+    {
+     "text": "This Model may have one item from the Auxilia Pintle Weapons list selected for it.",
+     "max": 1,
+     "list": "Auxilia Pintle Weapons"
+    },
+    {
+     "text": "This Model may have any of the following selected for it:",
+     "max": 2,
+     "choices": [
+      {
+       "name": "One Hull (Front) Mounted hunter-killer missile",
+       "points": 5
+      },
+      {
+       "name": "Searchlights",
+       "points": 5
+      }
+     ],
+     "unique": true
+    }
+   ],
+   "army": "aux",
+   "legacy": true,
+   "source": "Legacies of the Age of Darkness v1.1 (EN)"
+  },
+  {
+   "id": "shadowsword-super-heavy-tank-destroyer",
+   "name": "Shadowsword Super-heavy Tank Destroyer",
+   "lang": "en",
+   "role": "SB",
+   "points": 475,
+   "page": 170,
+   "models": [
+    {
+     "name": "Shadowsword",
+     "count": 1
+    }
+   ],
+   "profiles": [
+    {
+     "name": "Shadowsword",
+     "stats": [
+      "10",
+      "3",
+      "14",
+      "13",
+      "12",
+      "16",
+      "-"
+     ],
+     "vehicle": true
+    }
+   ],
+   "wargear": [
+    "Centreline Mounted volcano cannon",
+    "Hull (Front) Mounted twin heavy bolter"
+   ],
+   "rules": [],
+   "types": [
+    "Vehicle (Super-heavy)"
+   ],
+   "traits": [
+    "[Allegiance]",
+    "Solar Auxilia",
+    "Smokescreen"
+   ],
+   "options": [
+    {
+     "text": "This Model may have one of the following selected for it:",
+     "max": 1,
+     "choices": [
+      {
+       "name": "Two Sponson Mounted lascannon and two Sponson Mounted twin heavy bolters",
+       "points": 40
+      },
+      {
+       "name": "Two Sponson Mounted lascannon and two Sponson Mounted twin heavy flamers",
+       "points": 40
+      }
+     ]
+    },
+    {
+     "text": "This Model may have one item from the Auxilia Pintle Weapons list selected for it.",
+     "max": 1,
+     "list": "Auxilia Pintle Weapons"
+    },
+    {
+     "text": "This Model may have any of the following selected for it:",
+     "max": 2,
+     "choices": [
+      {
+       "name": "One Hull (Front) Mounted hunter-killer missile",
+       "points": 5
+      },
+      {
+       "name": "Searchlights",
+       "points": 5
+      }
+     ],
+     "unique": true
+    }
+   ],
+   "army": "aux",
+   "legacy": true,
+   "source": "Legacies of the Age of Darkness v1.1 (EN)"
+  },
+  {
+   "id": "stormsword-super-heavy-siege-tank",
+   "name": "Stormsword Super-heavy Siege Tank",
+   "lang": "en",
+   "role": "SB",
+   "points": 475,
+   "page": 171,
+   "models": [
+    {
+     "name": "Stormsword",
+     "count": 1
+    }
+   ],
+   "profiles": [
+    {
+     "name": "Stormsword",
+     "stats": [
+      "10",
+      "3",
+      "14",
+      "13",
+      "12",
+      "16",
+      "-"
+     ],
+     "vehicle": true
+    }
+   ],
+   "wargear": [
+    "Centreline Mounted Stormsword siege cannon",
+    "Hull (Front) Mounted twin heavy bolter"
+   ],
+   "rules": [],
+   "types": [
+    "Vehicle (Super-heavy)"
+   ],
+   "traits": [
+    "[Allegiance]",
+    "Solar Auxilia",
+    "Smokescreen"
+   ],
+   "options": [
+    {
+     "text": "This Model may have one of the following selected for it:",
+     "max": 1,
+     "choices": [
+      {
+       "name": "Two Sponson Mounted lascannon and two Sponson Mounted twin heavy bolters",
+       "points": 40
+      },
+      {
+       "name": "Two Sponson Mounted lascannon and two Sponson Mounted twin heavy flamers",
+       "points": 40
+      }
+     ]
+    },
+    {
+     "text": "This Model may have one item from the Auxilia Pintle Weapons list selected for it.",
+     "max": 1,
+     "list": "Auxilia Pintle Weapons"
+    },
+    {
+     "text": "This Model may have any of the following selected for it:",
+     "max": 2,
+     "choices": [
+      {
+       "name": "One Hull (Front) Mounted hunter-killer missile",
+       "points": 5
+      },
+      {
+       "name": "Searchlights",
+       "points": 5
+      }
+     ],
+     "unique": true
+    }
+   ],
+   "army": "aux",
+   "legacy": true,
+   "source": "Legacies of the Age of Darkness v1.1 (EN)"
+  },
+  {
+   "id": "marauder-bomber",
+   "name": "Marauder Bomber",
+   "lang": "en",
+   "role": "SB",
+   "points": 225,
+   "page": 172,
+   "models": [
+    {
+     "name": "Marauder Bomber",
+     "count": 1
+    }
+   ],
+   "profiles": [
+    {
+     "name": "Marauder Bomber",
+     "stats": [
+      "18",
+      "3",
+      "12",
+      "12",
+      "12",
+      "10",
+      "-"
+     ],
+     "vehicle": true
+    }
+   ],
+   "wargear": [
+    "Turret Mounted twin heavy bolter",
+    "Hull (Front) Mounted twin lascannon",
+    "Hull (Rear) Mounted twin heavy bolter",
+    "One Centreline (Front, Rear) Mounted macro-bomb cluster"
+   ],
+   "rules": [],
+   "types": [
+    "Vehicle (Super-heavy, Flyer)"
+   ],
+   "traits": [
+    "[Allegiance]",
+    "Solar Auxilia"
+   ],
+   "options": [],
+   "army": "aux",
+   "legacy": true,
+   "source": "Legacies of the Age of Darkness v1.1 (EN)"
+  },
+  {
+   "id": "marauder-destroyer",
+   "name": "Marauder Destroyer",
+   "lang": "en",
+   "role": "SB",
+   "points": 245,
+   "page": 173,
+   "models": [
+    {
+     "name": "Marauder Destroyer",
+     "count": 1
+    }
+   ],
+   "profiles": [
+    {
+     "name": "Marauder Destroyer",
+     "stats": [
+      "18",
+      "3",
+      "12",
+      "12",
+      "12",
+      "10",
+      "-"
+     ],
+     "vehicle": true
+    }
+   ],
+   "wargear": [
+    "Turret Mounted twin heavy bolter",
+    "Hull (Front) Mounted Gravis autocannon array",
+    "Hull (Rear) Mounted twin rotary defence cannon"
+   ],
+   "rules": [],
+   "types": [
+    "Vehicle (Super-heavy, Flyer)"
+   ],
+   "traits": [
+    "[Allegiance]",
+    "Solar Auxilia"
+   ],
+   "options": [],
+   "army": "aux",
+   "legacy": true,
+   "source": "Legacies of the Age of Darkness v1.1 (EN)"
+  }
+ ],
+ "equipmentLists": {},
+ "detachments": []
+}

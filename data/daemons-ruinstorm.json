@@ -1,0 +1,1025 @@
+{
+ "id": "daemons-ruinstorm",
+ "name": "Daemons of the Ruinstorm",
+ "lang": "en",
+ "army": "dmn",
+ "legacy": true,
+ "source": "Legacies – Daemons of the Ruinstorm v1.0 (EN)",
+ "units": [
+  {
+   "id": "dmn-sovereign",
+   "name": "Ruinstorm Daemon Sovereign",
+   "role": "QG",
+   "points": 350,
+   "page": 7,
+   "models": [
+    {
+     "name": "Sovereign",
+     "count": 1
+    }
+   ],
+   "variants": [
+    {
+     "name": "Sovereign with Wings",
+     "points": 40
+    }
+   ],
+   "profiles": [
+    {
+     "name": "Sovereign",
+     "stats": [
+      "7",
+      "6",
+      "5",
+      "7",
+      "6",
+      "7",
+      "5",
+      "5",
+      "9",
+      "9",
+      "9",
+      "7",
+      "3+",
+      "4+"
+     ]
+    },
+    {
+     "name": "Sovereign with Wings",
+     "stats": [
+      "12",
+      "6",
+      "5",
+      "7",
+      "6",
+      "7",
+      "5",
+      "5",
+      "9",
+      "9",
+      "9",
+      "7",
+      "3+",
+      "4+"
+     ]
+    }
+   ],
+   "wargear": [
+    "Sovereign blade"
+   ],
+   "rules": [
+    "Sovereign : Bulky (7)",
+    "Sovereign : Eternal Warrior (1)",
+    "Sovereign : Fear (1)",
+    "Sovereign with Wings : Bulky (8)",
+    "Sovereign with Wings : Eternal Warrior (1)",
+    "Sovereign with Wings : Fear (1)"
+   ],
+   "types": [
+    "Sovereign: Infantry (Champion, Malefic)",
+    "Sovereign with Wings: Infantry (Champion, Malefic, Antigrav)"
+   ],
+   "traits": [
+    "Traitor",
+    "Champion of the Ruinstorm",
+    "[Ætheric Dominion]"
+   ],
+   "options": [
+    {
+     "text": "This Model may have its sovereign blade exchanged for one sovereign greatblade for +15 Points.",
+     "max": 1,
+     "choices": [
+      {
+       "name": "Sovereign greatblade",
+       "points": 15
+      }
+     ]
+    }
+   ],
+   "lang": "en",
+   "legacy": true,
+   "source": "Legacies – Daemons of the Ruinstorm v1.0 (EN)",
+   "army": "dmn"
+  },
+  {
+   "id": "dmn-hierarch",
+   "name": "Ruinstorm Daemon Hierarch",
+   "role": "EM",
+   "points": 250,
+   "page": 8,
+   "models": [
+    {
+     "name": "Hierarch",
+     "count": 1
+    }
+   ],
+   "variants": [
+    {
+     "name": "Hierarch with Wings",
+     "points": 30
+    }
+   ],
+   "profiles": [
+    {
+     "name": "Hierarch",
+     "stats": [
+      "7",
+      "5",
+      "4",
+      "6",
+      "5",
+      "4",
+      "5",
+      "4",
+      "8",
+      "8",
+      "9",
+      "7",
+      "3+",
+      "4+"
+     ]
+    },
+    {
+     "name": "Hierarch with Wings",
+     "stats": [
+      "12",
+      "5",
+      "4",
+      "6",
+      "5",
+      "4",
+      "5",
+      "4",
+      "8",
+      "8",
+      "9",
+      "7",
+      "3+",
+      "4+"
+     ]
+    }
+   ],
+   "wargear": [
+    "Hierarch blade"
+   ],
+   "rules": [
+    "Hierarch : Bulky (5)",
+    "Hierarch : Eternal Warrior (1)",
+    "Hierarch : Fear (1)",
+    "Hierarch : Champion of the Dominion",
+    "Hierarch with Wings : Bulky (6)",
+    "Hierarch with Wings : Eternal Warrior (1)",
+    "Hierarch with Wings : Fear (1)",
+    "Hierarch with Wings : Champion of the Dominion"
+   ],
+   "types": [
+    "Hierarch: Infantry (Champion, Malefic)",
+    "Hierarch with Wings: Infantry (Champion, Malefic, Antigrav)"
+   ],
+   "traits": [
+    "Traitor",
+    "[Ætheric Dominion]"
+   ],
+   "options": [
+    {
+     "text": "This Model may have its hierarch blade exchanged for one hierarch greatblade for +15 Points.",
+     "max": 1,
+     "choices": [
+      {
+       "name": "Hierarch greatblade",
+       "points": 15
+      }
+     ]
+    }
+   ],
+   "lang": "en",
+   "legacy": true,
+   "source": "Legacies – Daemons of the Ruinstorm v1.0 (EN)",
+   "army": "dmn"
+  },
+  {
+   "id": "dmn-harbinger",
+   "name": "Ruinstorm Daemon Harbinger",
+   "role": "EM",
+   "points": 135,
+   "page": 10,
+   "models": [
+    {
+     "name": "Harbinger",
+     "count": 1
+    }
+   ],
+   "profiles": [
+    {
+     "name": "Harbinger",
+     "stats": [
+      "7",
+      "5",
+      "3",
+      "5",
+      "4",
+      "3",
+      "5",
+      "4",
+      "8",
+      "8",
+      "9",
+      "6",
+      "4+",
+      "5+"
+     ]
+    }
+   ],
+   "wargear": [
+    "Harbinger blade",
+    "Totem of Dominion"
+   ],
+   "rules": [
+    "Bulky (3)",
+    "Eternal Warrior (1)",
+    "Fear (1)",
+    "Herald of Unreality"
+   ],
+   "types": [
+    "Infantry (Command, Malefic)"
+   ],
+   "traits": [
+    "Traitor",
+    "[Ætheric Dominion]"
+   ],
+   "options": [],
+   "lang": "en",
+   "legacy": true,
+   "source": "Legacies – Daemons of the Ruinstorm v1.0 (EN)",
+   "army": "dmn"
+  },
+  {
+   "id": "dmn-brutes",
+   "name": "Ruinstorm Daemon Brutes",
+   "role": "AL",
+   "points": 120,
+   "page": 11,
+   "models": [
+    {
+     "name": "Brute",
+     "count": 3
+    }
+   ],
+   "extra": {
+    "model": "Brute",
+    "max": 6,
+    "points": 40
+   },
+   "profiles": [
+    {
+     "name": "Brute",
+     "stats": [
+      "7",
+      "4",
+      "2",
+      "5",
+      "5",
+      "4",
+      "3",
+      "4",
+      "8",
+      "7",
+      "7",
+      "5",
+      "4+",
+      "5+"
+     ]
+    }
+   ],
+   "wargear": [
+    "Immaterial armaments"
+   ],
+   "rules": [
+    "Bulky (4)",
+    "Fear (1)",
+    "Impact (A)"
+   ],
+   "types": [
+    "Infantry (Malefic)"
+   ],
+   "traits": [
+    "Traitor",
+    "[Ætheric Dominion]"
+   ],
+   "options": [],
+   "lang": "en",
+   "legacy": true,
+   "source": "Legacies – Daemons of the Ruinstorm v1.0 (EN)",
+   "army": "dmn"
+  },
+  {
+   "id": "dmn-lesser",
+   "name": "Ruinstorm Lesser Daemons",
+   "role": "TR",
+   "points": 100,
+   "page": 12,
+   "models": [
+    {
+     "name": "Lesser Daemon",
+     "count": 10
+    }
+   ],
+   "extra": {
+    "model": "Lesser Daemon",
+    "max": 10,
+    "points": 10
+   },
+   "profiles": [
+    {
+     "name": "Lesser Daemon",
+     "stats": [
+      "7",
+      "4",
+      "3",
+      "4",
+      "4",
+      "1",
+      "4",
+      "2",
+      "7",
+      "7",
+      "7",
+      "6",
+      "5+",
+      "5+"
+     ]
+    }
+   ],
+   "wargear": [
+    "Daemon claws"
+   ],
+   "rules": [
+    "Fear (1)"
+   ],
+   "types": [
+    "Infantry (Malefic)"
+   ],
+   "traits": [
+    "Traitor",
+    "[Ætheric Dominion]"
+   ],
+   "options": [
+    {
+     "text": "Any Model in this Unit may have its daemon claws exchanged for one infernal blade for +1 Point per Model.",
+     "max": "models",
+     "choices": [
+      {
+       "name": "Infernal blade",
+       "points": 1
+      }
+     ]
+    },
+    {
+     "text": "One Model in this Unit may have its daemon claws exchanged for one infernal greatblade for +5 Points.",
+     "max": 1,
+     "choices": [
+      {
+       "name": "Infernal greatblade",
+       "points": 5
+      }
+     ]
+    },
+    {
+     "text": "Every Model in the Unit can be given immaterial projectiles for +2 Points per Model.",
+     "max": 1,
+     "all": true,
+     "choices": [
+      {
+       "name": "Immaterial projectiles",
+       "points": 2
+      }
+     ]
+    },
+    {
+     "text": "One Model in this Unit may have one Totem of Dominion selected for it for +20 Points.",
+     "max": 1,
+     "choices": [
+      {
+       "name": "Totem of Dominion",
+       "points": 20
+      }
+     ]
+    }
+   ],
+   "lang": "en",
+   "legacy": true,
+   "source": "Legacies – Daemons of the Ruinstorm v1.0 (EN)",
+   "army": "dmn"
+  },
+  {
+   "id": "dmn-swarms",
+   "name": "Ruinstorm Daemon Swarms",
+   "role": "TR",
+   "points": 60,
+   "page": 13,
+   "models": [
+    {
+     "name": "Swarm",
+     "count": 3
+    }
+   ],
+   "extra": {
+    "model": "Swarm",
+    "max": 3,
+    "points": 15
+   },
+   "profiles": [
+    {
+     "name": "Swarm",
+     "stats": [
+      "6",
+      "3",
+      "3",
+      "3",
+      "3",
+      "4",
+      "3",
+      "3",
+      "6",
+      "6",
+      "6",
+      "2",
+      "6+",
+      "6+"
+     ]
+    }
+   ],
+   "wargear": [
+    "Daemon claws"
+   ],
+   "rules": [
+    "Support Unit (1)",
+    "Infiltrate (12)",
+    "Bulky (4)"
+   ],
+   "types": [
+    "Infantry (Malefic)"
+   ],
+   "traits": [
+    "Traitor",
+    "[Ætheric Dominion]"
+   ],
+   "options": [],
+   "lang": "en",
+   "legacy": true,
+   "source": "Legacies – Daemons of the Ruinstorm v1.0 (EN)",
+   "army": "dmn"
+  },
+  {
+   "id": "dmn-greater-beast",
+   "name": "Ruinstorm Greater Daemon Beast",
+   "role": "AP",
+   "points": 150,
+   "page": 14,
+   "models": [
+    {
+     "name": "Greater Daemon Beast",
+     "count": 1
+    }
+   ],
+   "profiles": [
+    {
+     "name": "Greater Daemon Beast",
+     "stats": [
+      "8",
+      "4",
+      "3",
+      "6",
+      "6",
+      "6",
+      "3",
+      "4",
+      "8",
+      "7",
+      "7",
+      "2",
+      "3+",
+      "5+"
+     ]
+    }
+   ],
+   "wargear": [
+    "Great maw & talon"
+   ],
+   "rules": [
+    "Bulky (6)",
+    "Eternal Warrior (1)",
+    "Fear (1)",
+    "Heedless",
+    "Impact (S)"
+   ],
+   "types": [
+    "Infantry (Malefic)"
+   ],
+   "traits": [
+    "Traitor",
+    "[Ætheric Dominion]"
+   ],
+   "options": [],
+   "lang": "en",
+   "legacy": true,
+   "source": "Legacies – Daemons of the Ruinstorm v1.0 (EN)",
+   "army": "dmn"
+  },
+  {
+   "id": "dmn-beasts",
+   "name": "Ruinstorm Daemon Beasts",
+   "role": "AP",
+   "points": 110,
+   "page": 15,
+   "models": [
+    {
+     "name": "Beast",
+     "count": 3
+    }
+   ],
+   "extra": {
+    "model": "Beast",
+    "max": 7,
+    "points": 30
+   },
+   "profiles": [
+    {
+     "name": "Beast",
+     "stats": [
+      "10",
+      "4",
+      "3",
+      "5",
+      "4",
+      "3",
+      "4",
+      "3",
+      "7",
+      "7",
+      "7",
+      "3",
+      "5+",
+      "5+"
+     ]
+    }
+   ],
+   "wargear": [
+    "Maw & talon"
+   ],
+   "rules": [
+    "Bulky (3)",
+    "Eternal Warrior (1)",
+    "Fear (1)",
+    "Impact (I)"
+   ],
+   "types": [
+    "Cavalry (Malefic)"
+   ],
+   "traits": [
+    "Traitor",
+    "[Ætheric Dominion]"
+   ],
+   "options": [],
+   "lang": "en",
+   "legacy": true,
+   "source": "Legacies – Daemons of the Ruinstorm v1.0 (EN)",
+   "army": "dmn"
+  },
+  {
+   "id": "dmn-behemoth",
+   "name": "Ruinstorm Daemon Behemoth",
+   "role": "EG",
+   "points": 250,
+   "page": 16,
+   "models": [
+    {
+     "name": "Behemoth",
+     "count": 1
+    }
+   ],
+   "profiles": [
+    {
+     "name": "Behemoth",
+     "stats": [
+      "6",
+      "3",
+      "3",
+      "7",
+      "7",
+      "12",
+      "3",
+      "5",
+      "7",
+      "10",
+      "7",
+      "2",
+      "5+",
+      "5+"
+     ]
+    }
+   ],
+   "wargear": [
+    "Pulverising limbs",
+    "Vile deluge"
+   ],
+   "rules": [
+    "Bulky (10)",
+    "Fear (1)",
+    "Heedless",
+    "Move Through Cover",
+    "Slow and Purposeful",
+    "Primal Terror"
+   ],
+   "types": [
+    "Infantry (Heavy, Malefic)"
+   ],
+   "traits": [
+    "Traitor",
+    "[Ætheric Dominion]"
+   ],
+   "options": [],
+   "lang": "en",
+   "legacy": true,
+   "source": "Legacies – Daemons of the Ruinstorm v1.0 (EN)",
+   "army": "dmn"
+  },
+  {
+   "id": "dmn-harriers",
+   "name": "Ruinstorm Daemon Harriers",
+   "role": "RE",
+   "points": 150,
+   "page": 17,
+   "models": [
+    {
+     "name": "Harrier",
+     "count": 6
+    }
+   ],
+   "extra": {
+    "model": "Harrier",
+    "max": 6,
+    "points": 15
+   },
+   "profiles": [
+    {
+     "name": "Harrier",
+     "stats": [
+      "12",
+      "4",
+      "3",
+      "4",
+      "4",
+      "1",
+      "4",
+      "3",
+      "7",
+      "7",
+      "7",
+      "6",
+      "4+",
+      "6+"
+     ]
+    }
+   ],
+   "wargear": [
+    "Daemon claws"
+   ],
+   "rules": [
+    "Bulky (2)",
+    "Vanguard (3)",
+    "Fear (1)"
+   ],
+   "types": [
+    "Infantry (Antigrav, Malefic)"
+   ],
+   "traits": [
+    "Traitor",
+    "[Ætheric Dominion]"
+   ],
+   "options": [
+    {
+     "text": "Any Model in this Unit may have its daemon claws exchanged for one infernal blade for +1 Point per Model.",
+     "max": "models",
+     "choices": [
+      {
+       "name": "Infernal blade",
+       "points": 1
+      }
+     ]
+    },
+    {
+     "text": "One Model in this Unit may have its daemon claws exchanged for one infernal greatblade for +5 Points.",
+     "max": 1,
+     "choices": [
+      {
+       "name": "Infernal greatblade",
+       "points": 5
+      }
+     ]
+    },
+    {
+     "text": "Every Model in the Unit can be given immaterial projectiles for +2 Points per Model.",
+     "max": 1,
+     "all": true,
+     "choices": [
+      {
+       "name": "Immaterial projectiles",
+       "points": 2
+      }
+     ]
+    },
+    {
+     "text": "One Model in this Unit may have one Totem of Dominion selected for it for +20 Points.",
+     "max": 1,
+     "choices": [
+      {
+       "name": "Totem of Dominion",
+       "points": 20
+      }
+     ]
+    }
+   ],
+   "lang": "en",
+   "legacy": true,
+   "source": "Legacies – Daemons of the Ruinstorm v1.0 (EN)",
+   "army": "dmn"
+  },
+  {
+   "id": "dmn-riders",
+   "name": "Ruinstorm Daemon Riders",
+   "role": "AR",
+   "points": 150,
+   "page": 18,
+   "models": [
+    {
+     "name": "Daemon Rider",
+     "count": 6
+    }
+   ],
+   "extra": {
+    "model": "Daemon Rider",
+    "max": 6,
+    "points": 15
+   },
+   "profiles": [
+    {
+     "name": "Daemon Rider",
+     "stats": [
+      "12",
+      "4",
+      "3",
+      "4",
+      "4",
+      "2",
+      "4",
+      "3",
+      "7",
+      "8",
+      "7",
+      "5",
+      "4+",
+      "5+"
+     ]
+    }
+   ],
+   "wargear": [
+    "Daemon claws"
+   ],
+   "rules": [
+    "Bulky (2)",
+    "Fear (1)",
+    "Vanguard (3)",
+    "Impact (I)"
+   ],
+   "types": [
+    "Cavalry (Malefic)"
+   ],
+   "traits": [
+    "Traitor",
+    "[Ætheric Dominion]"
+   ],
+   "options": [
+    {
+     "text": "Any Model in this Unit may have its daemon claws exchanged for one infernal blade for +1 Point per Model.",
+     "max": "models",
+     "choices": [
+      {
+       "name": "Infernal blade",
+       "points": 1
+      }
+     ]
+    },
+    {
+     "text": "Any Model in this Unit may have its daemon claws exchanged for one infernal lance for +1 Point per Model.",
+     "max": "models",
+     "choices": [
+      {
+       "name": "Infernal lance",
+       "points": 1
+      }
+     ]
+    },
+    {
+     "text": "Every Model in the Unit can be given immaterial projectiles for +2 Points per Model.",
+     "max": 1,
+     "all": true,
+     "choices": [
+      {
+       "name": "Immaterial projectiles",
+       "points": 2
+      }
+     ]
+    }
+   ],
+   "lang": "en",
+   "legacy": true,
+   "source": "Legacies – Daemons of the Ruinstorm v1.0 (EN)",
+   "army": "dmn"
+  },
+  {
+   "id": "dmn-kabandha",
+   "name": "Ka'bandha",
+   "role": "SB",
+   "points": 600,
+   "page": 19,
+   "models": [
+    {
+     "name": "Ka'bandha",
+     "count": 1
+    }
+   ],
+   "profiles": [
+    {
+     "name": "Ka'bandha",
+     "stats": [
+      "12",
+      "8",
+      "5",
+      "8",
+      "8",
+      "8",
+      "6",
+      "7",
+      "12",
+      "10",
+      "10",
+      "6",
+      "3+",
+      "4+"
+     ]
+    }
+   ],
+   "wargear": [
+    "Armaments of Ka'bandha"
+   ],
+   "rules": [
+    "Bulky (12)",
+    "Eternal Warrior (2)",
+    "Fear (2)",
+    "Primal Terror"
+   ],
+   "types": [
+    "Paragon (Unique, Antigrav, Malefic)"
+   ],
+   "traits": [
+    "Traitor",
+    "Champion of the Ruinstorm",
+    "Heedless Slaughter"
+   ],
+   "options": [],
+   "lang": "en",
+   "legacy": true,
+   "source": "Legacies – Daemons of the Ruinstorm v1.0 (EN)",
+   "army": "dmn"
+  },
+  {
+   "id": "dmn-corbax",
+   "name": "Cor'bax Utterblight",
+   "role": "SB",
+   "points": 350,
+   "page": 20,
+   "models": [
+    {
+     "name": "Cor'bax Utterblight",
+     "count": 1
+    }
+   ],
+   "profiles": [
+    {
+     "name": "Cor'bax Utterblight",
+     "stats": [
+      "7",
+      "6",
+      "5",
+      "7",
+      "7",
+      "10",
+      "5",
+      "5",
+      "12",
+      "10",
+      "10",
+      "6",
+      "3+",
+      "4+"
+     ]
+    }
+   ],
+   "wargear": [
+    "Reaping claws",
+    "Noxious vomit"
+   ],
+   "rules": [
+    "Bulky (8)",
+    "Eternal Warrior (2)",
+    "Fear (1)",
+    "Explodes (4+)",
+    "Feel No Pain (5+)",
+    "Slow and Purposeful",
+    "Primal Terror"
+   ],
+   "types": [
+    "Paragon (Unique, Heavy, Malefic)"
+   ],
+   "traits": [
+    "Traitor",
+    "Champion of the Ruinstorm",
+    "Putrid Corruption"
+   ],
+   "options": [],
+   "lang": "en",
+   "legacy": true,
+   "source": "Legacies – Daemons of the Ruinstorm v1.0 (EN)",
+   "army": "dmn"
+  },
+  {
+   "id": "dmn-samus",
+   "name": "Samus",
+   "role": "SB",
+   "points": 400,
+   "page": 21,
+   "models": [
+    {
+     "name": "Samus",
+     "count": 1
+    }
+   ],
+   "profiles": [
+    {
+     "name": "Samus",
+     "stats": [
+      "8",
+      "7",
+      "5",
+      "7",
+      "7",
+      "7",
+      "6",
+      "6",
+      "12",
+      "10",
+      "10",
+      "7",
+      "3+",
+      "4+"
+     ]
+    }
+   ],
+   "wargear": [
+    "Blade of Samus"
+   ],
+   "rules": [
+    "Bulky (8)",
+    "Eternal Warrior (1)",
+    "Fear (1)",
+    "Deep Strike",
+    "Primal Terror"
+   ],
+   "types": [
+    "Paragon (Unique, Malefic)"
+   ],
+   "traits": [
+    "Traitor",
+    "Champion of the Ruinstorm",
+    "Encroaching Ruin"
+   ],
+   "options": [],
+   "lang": "en",
+   "legacy": true,
+   "source": "Legacies – Daemons of the Ruinstorm v1.0 (EN)",
+   "army": "dmn"
+  }
+ ],
+ "detachments": [],
+ "dominions": {
+  "Encroaching Ruin": "Deep Strike and Desecrators; Command or Champion Models may become Psykers (up to two disciplines).",
+  "Heedless Slaughter": "Desecrators; the Unit can never be the Focus or Target of a Psychic Blessing or Curse.",
+  "Putrid Corruption": "Desecrators (see Legacies – Daemons of the Ruinstorm).",
+  "Rapturous Sensation": "See Legacies – Daemons of the Ruinstorm.",
+  "Formless Distortion": "Desecrators; enemy Charge distance reduced by D3\" (minimum 1\").",
+  "Infernal Tempest": "Desecrators and Aflame (1); Pyromancy available.",
+  "Ravenous Dissolution": "Desecrators and Hatred (Malefic, Psyker).",
+  "Malevolent Artifice": "Desecrators and Armour-breaker (4+); Paragon of Malevolence Prime Advantage."
+ }
+}

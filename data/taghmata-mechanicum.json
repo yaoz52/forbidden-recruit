@@ -1,0 +1,2595 @@
+{
+ "id": "taghmata-mechanicum",
+ "name": "Liber Mechanicum",
+ "lang": "fr",
+ "army": "mech",
+ "source": "Liber Mechanicum, édition française 2025",
+ "equipmentLists": {
+  "Équipement du Mechanicum": [
+   {
+    "name": "Contrôleur de cortex",
+    "points": 10
+   },
+   {
+    "name": "Scanner augure",
+    "points": 10
+   },
+   {
+    "name": "Cognis-signum",
+    "points": 15
+   },
+   {
+    "name": "Cyber-familier",
+    "points": 20
+   },
+   {
+    "name": "Servobras",
+    "points": 15
+   },
+   {
+    "name": "Bombes à fusion",
+    "points": 10
+   },
+   {
+    "name": "Grenades Rad",
+    "points": 20
+   },
+   {
+    "name": "Nuncio-vox",
+    "points": 10
+   }
+  ],
+  "Équipement de Magos du Mechanicum": [
+   {
+    "name": "Fourneau Rad",
+    "points": 20
+   },
+   {
+    "name": "Panoplie machinator",
+    "points": 20
+   }
+  ],
+  "Armes de Magos du Mechanicum": [
+   {
+    "name": "Lame de parangon",
+    "points": 15
+   },
+   {
+    "name": "Bâton foudroyant",
+    "points": 10
+   },
+   {
+    "name": "Pistolet archéotech",
+    "points": 15
+   },
+   {
+    "name": "Pistolet désintégrateur",
+    "points": 15
+   }
+  ],
+  "Pistolets du Mechanicum": [
+   {
+    "name": "Pistolet bolter",
+    "points": 0
+   },
+   {
+    "name": "Serpentine volkite",
+    "points": 5
+   },
+   {
+    "name": "Pistolet à plasma",
+    "points": 10
+   }
+  ],
+  "Armes de Tir du Mechanicum": [
+   {
+    "name": "Chargeur volkite",
+    "points": 5
+   },
+   {
+    "name": "Bolter Maxima",
+    "points": 5
+   },
+   {
+    "name": "Fuseur",
+    "points": 15
+   },
+   {
+    "name": "Fusil à gravitons",
+    "points": 10
+   },
+   {
+    "name": "Lance-flammes",
+    "points": 5
+   }
+  ],
+  "Armes de Mêlée du Mechanicum": [
+   {
+    "name": "Arme énergétique",
+    "points": 10
+   },
+   {
+    "name": "Marteau Thunder",
+    "points": 15
+   },
+   {
+    "name": "Gantelet énergétique",
+    "points": 15
+   },
+   {
+    "name": "Poing tronçonneur",
+    "points": 10
+   },
+   {
+    "name": "Épée tronçonneuse",
+    "points": 0
+   },
+   {
+    "name": "Hache tronçonneuse",
+    "points": 0
+   },
+   {
+    "name": "Épée tronçonneuse lourde",
+    "points": 5
+   },
+   {
+    "name": "Hache tronçonneuse lourde",
+    "points": 5
+   }
+  ],
+  "Rites Cyberthéurgiques": [
+   {
+    "name": "Réacteurs Suralimentés",
+    "points": 5
+   },
+   {
+    "name": "Purge de Cogitateur",
+    "points": 10
+   },
+   {
+    "name": "Châtier l'Esprit de la Machine",
+    "points": 25
+   }
+  ]
+ },
+ "detachments": [
+  {
+   "id": "cohorte-taghmata",
+   "name": "Cohorte du Taghmata",
+   "kind": "aux",
+   "slots": [
+    {
+     "role": "AP"
+    },
+    {
+     "role": "AP"
+    },
+    {
+     "role": "AP"
+    },
+    {
+     "role": "AP"
+    }
+   ]
+  },
+  {
+   "id": "cadre-apprentis",
+   "name": "Cadre d'Apprentis",
+   "kind": "aux",
+   "only": {
+    "TR": [
+     "Technoprêtre"
+    ]
+   },
+   "note": "Cases Troupes réservées aux Technoprêtres.",
+   "slots": [
+    {
+     "role": "TR",
+     "prime": true
+    },
+    {
+     "role": "TR"
+    },
+    {
+     "role": "TR"
+    },
+    {
+     "role": "TR"
+    }
+   ]
+  }
+ ],
+ "rules": {},
+ "units": [
+  {
+   "id": "mech-archimagos",
+   "name": "Archimagos",
+   "role": "QG",
+   "points": 120,
+   "page": 19,
+   "models": [
+    {
+     "name": "Archimagos",
+     "count": 1
+    }
+   ],
+   "profiles": [
+    {
+     "name": "Archimagos",
+     "stats": [
+      "6",
+      "5",
+      "6",
+      "6",
+      "6",
+      "6",
+      "4",
+      "4",
+      "9",
+      "10",
+      "9",
+      "10",
+      "2+",
+      "4+"
+     ]
+    }
+   ],
+   "wargear": [
+    "Grenades Frag"
+   ],
+   "rules": [
+    "Insensible à la Douleur (5+)",
+    "Comptrôleur (2)",
+    "Guerrier-artisan (4)",
+    "Maître des Machines",
+    "Protocoles de Tir (2)"
+   ],
+   "types": [
+    "Infanterie (État-major)"
+   ],
+   "traits": [
+    "[Allégeance]",
+    "[Mechanicum]",
+    "Cyberthéurge"
+   ],
+   "options": [
+    {
+     "text": "Équipement (autant d'objets que voulu, un de chaque)",
+     "max": 10,
+     "list": [
+      "Équipement du Mechanicum",
+      "Équipement de Magos du Mechanicum"
+     ],
+     "unique": true
+    },
+    {
+     "text": "Rites Cyberthéurgiques (autant que voulu)",
+     "max": 3,
+     "list": "Rites Cyberthéurgiques",
+     "unique": true
+    },
+    {
+     "text": "Arme de Magos",
+     "max": 1,
+     "list": "Armes de Magos du Mechanicum"
+    },
+    {
+     "text": "Arme de mêlée",
+     "max": 1,
+     "list": "Armes de Mêlée du Mechanicum"
+    },
+    {
+     "text": "Pistolet",
+     "max": 1,
+     "list": "Pistolets du Mechanicum"
+    },
+    {
+     "text": "Arme de tir",
+     "max": 1,
+     "list": "Armes de Tir du Mechanicum"
+    },
+    {
+     "text": "Si la figurine n'a pris aucune arme de tir du Mechanicum",
+     "max": 1,
+     "choices": [
+      {
+       "name": "Faisceau de conversion",
+       "points": 30
+      },
+      {
+       "name": "Fusil à plasma phasé",
+       "points": 15
+      },
+      {
+       "name": "Irradieur",
+       "points": 20
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "mech-archimagos-sur-abeant",
+   "name": "Archimagos sur Abéant",
+   "role": "QG",
+   "points": 150,
+   "page": 20,
+   "models": [
+    {
+     "name": "Archimagos sur Abéant",
+     "count": 1
+    }
+   ],
+   "profiles": [
+    {
+     "name": "Archimagos sur Abéant",
+     "stats": [
+      "6",
+      "5",
+      "6",
+      "6",
+      "7",
+      "6",
+      "3",
+      "4",
+      "10",
+      "10",
+      "9",
+      "10",
+      "2+",
+      "4+"
+     ]
+    }
+   ],
+   "wargear": [
+    "Grenades Frag"
+   ],
+   "rules": [
+    "Insensible à la Douleur (5+)",
+    "Avance Implacable",
+    "Explose (6+)",
+    "Massif (7)",
+    "Comptrôleur (2)",
+    "Guerrier-artisan (4)",
+    "Maître des Machines",
+    "Protocoles de Tir (2)",
+    "Trône de Commandement"
+   ],
+   "types": [
+    "Infanterie (État-major, Antigrav, Lourd)"
+   ],
+   "traits": [
+    "[Allégeance]",
+    "[Mechanicum]",
+    "Cyberthéurge"
+   ],
+   "options": [
+    {
+     "text": "Équipement (autant d'objets que voulu, un de chaque)",
+     "max": 10,
+     "list": [
+      "Équipement du Mechanicum",
+      "Équipement de Magos du Mechanicum"
+     ],
+     "unique": true
+    },
+    {
+     "text": "Rites Cyberthéurgiques (autant que voulu)",
+     "max": 3,
+     "list": "Rites Cyberthéurgiques",
+     "unique": true
+    },
+    {
+     "text": "Arme de Magos",
+     "max": 1,
+     "list": "Armes de Magos du Mechanicum"
+    },
+    {
+     "text": "Arme de mêlée",
+     "max": 1,
+     "list": "Armes de Mêlée du Mechanicum"
+    },
+    {
+     "text": "Pistolet",
+     "max": 1,
+     "list": "Pistolets du Mechanicum"
+    },
+    {
+     "text": "Arme de tir",
+     "max": 1,
+     "list": "Armes de Tir du Mechanicum"
+    },
+    {
+     "text": "Si la figurine n'a pris aucune arme de tir du Mechanicum",
+     "max": 1,
+     "choices": [
+      {
+       "name": "Faisceau de conversion",
+       "points": 30
+      },
+      {
+       "name": "Fusil à plasma phasé",
+       "points": 15
+      },
+      {
+       "name": "Irradieur",
+       "points": 20
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "mech-magos",
+   "name": "Magos",
+   "role": "EM",
+   "points": 100,
+   "page": 22,
+   "models": [
+    {
+     "name": "Magos",
+     "count": 1
+    }
+   ],
+   "profiles": [
+    {
+     "name": "Magos",
+     "stats": [
+      "6",
+      "4",
+      "5",
+      "5",
+      "5",
+      "4",
+      "3",
+      "3",
+      "8",
+      "9",
+      "8",
+      "9",
+      "2+",
+      "5+"
+     ]
+    }
+   ],
+   "wargear": [
+    "Grenades Frag"
+   ],
+   "rules": [
+    "Insensible à la Douleur (5+)",
+    "Comptrôleur (2)",
+    "Guerrier-artisan (3)",
+    "Maître des Machines",
+    "Officier de Ligne (2)",
+    "Protocoles de Tir (2)"
+   ],
+   "types": [
+    "Infanterie (État-major)"
+   ],
+   "traits": [
+    "[Allégeance]",
+    "[Mechanicum]",
+    "Cyberthéurge"
+   ],
+   "options": [
+    {
+     "text": "Équipement (autant d'objets que voulu, un de chaque)",
+     "max": 10,
+     "list": [
+      "Équipement du Mechanicum",
+      "Équipement de Magos du Mechanicum"
+     ],
+     "unique": true
+    },
+    {
+     "text": "Rites Cyberthéurgiques (autant que voulu)",
+     "max": 3,
+     "list": "Rites Cyberthéurgiques",
+     "unique": true
+    },
+    {
+     "text": "Arme de mêlée",
+     "max": 1,
+     "list": "Armes de Mêlée du Mechanicum"
+    },
+    {
+     "text": "Pistolet",
+     "max": 1,
+     "list": "Pistolets du Mechanicum"
+    },
+    {
+     "text": "Arme de tir",
+     "max": 1,
+     "list": "Armes de Tir du Mechanicum"
+    },
+    {
+     "text": "Si la figurine n'a pris aucune arme de tir du Mechanicum",
+     "max": 1,
+     "choices": [
+      {
+       "name": "Faisceau de conversion",
+       "points": 30
+      },
+      {
+       "name": "Fusil à plasma phasé",
+       "points": 15
+      },
+      {
+       "name": "Irradieur",
+       "points": 20
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "mech-magos-sur-abeant",
+   "name": "Magos sur Abéant",
+   "role": "EM",
+   "points": 130,
+   "page": 23,
+   "models": [
+    {
+     "name": "Magos sur Abéant",
+     "count": 1
+    }
+   ],
+   "profiles": [
+    {
+     "name": "Magos sur Abéant",
+     "stats": [
+      "6",
+      "4",
+      "5",
+      "5",
+      "6",
+      "4",
+      "2",
+      "3",
+      "9",
+      "9",
+      "8",
+      "9",
+      "2+",
+      "5+"
+     ]
+    }
+   ],
+   "wargear": [
+    "Grenades Frag"
+   ],
+   "rules": [
+    "Insensible à la Douleur (5+)",
+    "Comptrôleur (2)",
+    "Guerrier-artisan (3)",
+    "Explose (6+)",
+    "Massif (7)",
+    "Avance Implacable",
+    "Maître des Machines",
+    "Officier de Ligne (2)",
+    "Protocoles de Tir (2)",
+    "Trône de Commandement"
+   ],
+   "types": [
+    "Infanterie (État-major, Antigrav, Lourd)"
+   ],
+   "traits": [
+    "[Allégeance]",
+    "[Mechanicum]",
+    "Cyberthéurge"
+   ],
+   "options": [
+    {
+     "text": "Équipement (autant d'objets que voulu, un de chaque)",
+     "max": 10,
+     "list": [
+      "Équipement du Mechanicum",
+      "Équipement de Magos du Mechanicum"
+     ],
+     "unique": true
+    },
+    {
+     "text": "Rites Cyberthéurgiques (autant que voulu)",
+     "max": 3,
+     "list": "Rites Cyberthéurgiques",
+     "unique": true
+    },
+    {
+     "text": "Arme de mêlée",
+     "max": 1,
+     "list": "Armes de Mêlée du Mechanicum"
+    },
+    {
+     "text": "Pistolet",
+     "max": 1,
+     "list": "Pistolets du Mechanicum"
+    },
+    {
+     "text": "Arme de tir",
+     "max": 1,
+     "list": "Armes de Tir du Mechanicum"
+    },
+    {
+     "text": "Si la figurine n'a pris aucune arme de tir du Mechanicum",
+     "max": 1,
+     "choices": [
+      {
+       "name": "Faisceau de conversion",
+       "points": 30
+      },
+      {
+       "name": "Fusil à plasma phasé",
+       "points": 15
+      },
+      {
+       "name": "Irradieur",
+       "points": 20
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "mech-arcuitor-magisterium",
+   "name": "Arcuitor Magisterium",
+   "role": "EM",
+   "points": 115,
+   "page": 24,
+   "models": [
+    {
+     "name": "Arcuitor",
+     "count": 1
+    }
+   ],
+   "profiles": [
+    {
+     "name": "Arcuitor",
+     "stats": [
+      "6",
+      "6",
+      "5",
+      "5",
+      "5",
+      "4",
+      "4",
+      "5",
+      "9",
+      "9",
+      "8",
+      "9",
+      "2+",
+      "5+"
+     ]
+    }
+   ],
+   "wargear": [
+    "Grenades Frag"
+   ],
+   "rules": [
+    "Insensible à la Douleur (5+)",
+    "Maître des Machines",
+    "Infiltration (9)",
+    "Protocoles de Tir (2)",
+    "Bénéfice d'Arcane : Même les Immortels Peuvent",
+    "Avoir Peur"
+   ],
+   "types": [
+    "Infanterie (État-major)"
+   ],
+   "traits": [
+    "[Allégeance]",
+    "Malagra",
+    "Cyberthéurge"
+   ],
+   "options": [
+    {
+     "text": "Équipement (autant d'objets que voulu, un de chaque)",
+     "max": 10,
+     "list": [
+      "Équipement du Mechanicum",
+      "Équipement de Magos du Mechanicum"
+     ],
+     "unique": true
+    },
+    {
+     "text": "Rites Cyberthéurgiques (autant que voulu)",
+     "max": 3,
+     "list": "Rites Cyberthéurgiques",
+     "unique": true
+    },
+    {
+     "text": "Arme de mêlée",
+     "max": 1,
+     "list": [
+      "Armes de Mêlée du Mechanicum",
+      "Armes de Magos du Mechanicum"
+     ],
+     "errata": "FAQ & Errata Age of Darkness (EN, Oct. 2026)",
+     "note": "This Model may have one item from the Mechanicum Melee Weapons list or the Mechanicum Magos Weapons list selected for it."
+    },
+    {
+     "text": "Pistolet",
+     "max": 1,
+     "list": [
+      "Pistolets du Mechanicum",
+      "Armes de Magos du Mechanicum"
+     ],
+     "errata": "FAQ & Errata Age of Darkness (EN, Oct. 2026)",
+     "note": "This Model may have one item from the Mechanicum Pistols list or the Mechanicum Magos Weapons list selected for it."
+    },
+    {
+     "text": "Arme de tir",
+     "max": 1,
+     "list": "Armes de Tir du Mechanicum"
+    }
+   ]
+  },
+  {
+   "id": "mech-manipule-de-gardiens-scyllax",
+   "name": "Manipule de Gardiens Scyllax",
+   "role": "SU",
+   "points": 100,
+   "page": 25,
+   "models": [
+    {
+     "name": "Scyllax",
+     "count": 4
+    }
+   ],
+   "extra": {
+    "model": "Scyllax",
+    "max": 12,
+    "points": 25
+   },
+   "profiles": [
+    {
+     "name": "Scyllax",
+     "stats": [
+      "6",
+      "5",
+      "5",
+      "5",
+      "5",
+      "2",
+      "3",
+      "3",
+      "8",
+      "12",
+      "4",
+      "4",
+      "3+",
+      "6+"
+     ]
+    }
+   ],
+   "wargear": [
+    "Panoplie de combat Scyllax",
+    "Fourneau Rad"
+   ],
+   "rules": [
+    "Impact (A)",
+    "Explose (6+)",
+    "Compact",
+    "Boucliers Réfracteurs Phasés"
+   ],
+   "types": [
+    "Automate"
+   ],
+   "traits": [
+    "[Allégeance]",
+    "[Mechanicum]"
+   ],
+   "options": [
+    {
+     "text": "Toute figurine",
+     "max": "models",
+     "choices": [
+      {
+       "name": "Bolter",
+       "points": 2
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "mech-manipule-servo-echidnax",
+   "name": "Manipule Servo Echidnax",
+   "role": "SU",
+   "points": 40,
+   "page": 26,
+   "models": [
+    {
+     "name": "Echidnax",
+     "count": 4
+    }
+   ],
+   "extra": {
+    "model": "Echidnax",
+    "max": 8,
+    "points": 10
+   },
+   "profiles": [
+    {
+     "name": "Echidnax",
+     "stats": [
+      "6",
+      "3",
+      "3",
+      "5",
+      "5",
+      "2",
+      "3",
+      "2",
+      "7",
+      "12",
+      "4",
+      "4",
+      "3+",
+      "5+"
+     ]
+    }
+   ],
+   "wargear": [
+    "Servo-harnais"
+   ],
+   "rules": [
+    "Compact",
+    "Autonomie Limitée",
+    "Automates Réparateurs"
+   ],
+   "types": [
+    "Automate"
+   ],
+   "traits": [
+    "[Allégeance]",
+    "[Mechanicum]"
+   ],
+   "options": [
+    {
+     "text": "Toute figurine",
+     "max": "models",
+     "choices": [
+      {
+       "name": "Bolter",
+       "points": 2
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "mech-manipule-de-combat-domitar",
+   "name": "Manipule de Combat Domitar",
+   "role": "EL",
+   "points": 100,
+   "page": 27,
+   "models": [
+    {
+     "name": "Domitar",
+     "count": 1
+    }
+   ],
+   "extra": {
+    "model": "Domitar",
+    "max": 3,
+    "points": 100
+   },
+   "profiles": [
+    {
+     "name": "Domitar",
+     "stats": [
+      "7",
+      "4",
+      "4",
+      "7",
+      "7",
+      "4",
+      "3",
+      "3",
+      "8",
+      "12",
+      "4",
+      "4",
+      "2+",
+      "5+"
+     ]
+    }
+   ],
+   "wargear": [
+    "Lance-missiles Cyclone",
+    "Marteaux à gravitons",
+    "Poings de Domitar"
+   ],
+   "rules": [
+    "Massif (4)",
+    "Avance Implacable",
+    "Explose (6+)",
+    "Impact (A)",
+    "Avant-garde (2)",
+    "Protocoles de Tir (2)",
+    "Orage de Feu"
+   ],
+   "types": [
+    "Automate"
+   ],
+   "traits": [
+    "[Allégeance]",
+    "Cybernetica"
+   ],
+   "options": []
+  },
+  {
+   "id": "mech-ost-de-myrmidons-secutors",
+   "name": "Ost de Myrmidons Secutors",
+   "role": "EL",
+   "points": 150,
+   "page": 28,
+   "models": [
+    {
+     "name": "Seigneur Secutor",
+     "count": 1
+    },
+    {
+     "name": "Secutor",
+     "count": 2
+    }
+   ],
+   "extra": {
+    "model": "Secutor",
+    "max": 7,
+    "points": 45
+   },
+   "profiles": [
+    {
+     "name": "Secutor",
+     "stats": [
+      "6",
+      "4",
+      "4",
+      "5",
+      "5",
+      "4",
+      "2",
+      "2",
+      "9",
+      "9",
+      "8",
+      "8",
+      "3+",
+      "5+"
+     ]
+    },
+    {
+     "name": "Seigneur Secutor",
+     "stats": [
+      "6",
+      "5",
+      "5",
+      "5",
+      "5",
+      "4",
+      "2",
+      "3",
+      "9",
+      "9",
+      "8",
+      "8",
+      "3+",
+      "5+"
+     ]
+    }
+   ],
+   "wargear": [
+    "Hache énergétique",
+    "Bolter Maxima jumelé",
+    "Grenades Frag"
+   ],
+   "rules": [
+    "Massif (3)",
+    "Avance Implacable",
+    "Avant-garde (3)",
+    "Méditation Martiale (Seigneur Secutor seulement)"
+   ],
+   "types": [
+    "Secutor : Infanterie (Lourd)",
+    "Seigneur Secutor : Infanterie (Champion, Lourd)"
+   ],
+   "traits": [
+    "[Allégeance]",
+    "Myrmidax"
+   ],
+   "options": [
+    {
+     "text": "Toute figurine : remplacer le bolter Maxima jumelé",
+     "max": "models",
+     "choices": [
+      {
+       "name": "Fusil à plasma phasé jumelé",
+       "points": 20
+      },
+      {
+       "name": "Fusil à gravitons jumelé",
+       "points": 20
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "mech-ost-de-myrmidons-destructors",
+   "name": "Ost de Myrmidons Destructors",
+   "role": "EL",
+   "points": 150,
+   "page": 12,
+   "models": [
+    {
+     "name": "Seigneur Destructor",
+     "count": 1
+    },
+    {
+     "name": "Destructors",
+     "count": 2
+    }
+   ],
+   "profiles": [
+    {
+     "name": "Destructor",
+     "stats": [
+      "6",
+      "4",
+      "4",
+      "5",
+      "5",
+      "4",
+      "2",
+      "2",
+      "9",
+      "9",
+      "8",
+      "8",
+      "3+",
+      "5+"
+     ]
+    },
+    {
+     "name": "Seigneur Destructor",
+     "stats": [
+      "6",
+      "5",
+      "5",
+      "5",
+      "5",
+      "4",
+      "2",
+      "3",
+      "9",
+      "9",
+      "8",
+      "8",
+      "3+",
+      "5+"
+     ]
+    }
+   ],
+   "wargear": [
+    "Chargeurs-choc",
+    "Grenades Frag"
+   ],
+   "rules": [
+    "Massif (3)",
+    "Avant-garde (3)",
+    "Méditation Martiale (Seigneur Destructor seulement)"
+   ],
+   "types": [
+    "Destructor : Infanterie (Lourd)",
+    "Seigneur Destructor : Infanterie (Lourd, Champion)"
+   ],
+   "traits": [
+    "[Allégeance]",
+    "Myrmidax"
+   ],
+   "options": [
+    {
+     "text": "Toutes les Figurines de cette Unité doivent sélectionner une des options suivantes :",
+     "max": 1,
+     "all": true,
+     "required": true,
+     "choices": [
+      {
+       "name": "Engin à irradiation",
+       "points": 15
+      },
+      {
+       "name": "Faisceau de conversion",
+       "points": 15
+      },
+      {
+       "name": "Canon Darkfire",
+       "points": 20
+      }
+     ]
+    }
+   ],
+   "optionsPending": true,
+   "army": "mech",
+   "source": "Conclaves Skitarii v1.0 (FR) – profil mis à jour"
+  },
+  {
+   "id": "mech-manipule-castellax-destructor",
+   "name": "Manipule Castellax Destructor",
+   "role": "AL",
+   "points": 100,
+   "page": 30,
+   "models": [
+    {
+     "name": "Castellax",
+     "count": 2
+    }
+   ],
+   "extra": {
+    "model": "Castellax",
+    "max": 4,
+    "points": 50
+   },
+   "profiles": [
+    {
+     "name": "Castellax",
+     "stats": [
+      "6",
+      "3",
+      "3",
+      "6",
+      "6",
+      "4",
+      "3",
+      "2",
+      "7",
+      "12",
+      "4",
+      "4",
+      "3+",
+      "6+"
+     ]
+    }
+   ],
+   "wargear": [
+    "Deux bolters",
+    "Canon à bolts Mauler",
+    "Chargeurs-choc"
+   ],
+   "rules": [
+    "Massif (4)",
+    "Avance Implacable",
+    "Explose (6+)",
+    "Protocoles de Tir (3)",
+    "Brise-blindage (4+)",
+    "Boucliers Réfracteurs Phasés"
+   ],
+   "types": [
+    "Automate"
+   ],
+   "traits": [
+    "[Allégeance]",
+    "Cybernetica"
+   ],
+   "options": [
+    {
+     "text": "Toute figurine : remplacer les chargeurs-choc",
+     "max": "models",
+     "choices": [
+      {
+       "name": "Paire de lames énergétiques",
+       "points": 10
+      }
+     ]
+    },
+    {
+     "text": "Remplacer un bolter (par arme, deux par figurine)",
+     "max": {
+      "per": 1,
+      "n": 2
+     },
+     "choices": [
+      {
+       "name": "Lance-flammes",
+       "points": 5
+      }
+     ]
+    },
+    {
+     "text": "Toute figurine : remplacer le canon à bolts Mauler",
+     "max": "models",
+     "choices": [
+      {
+       "name": "Canon Darkfire",
+       "points": 15
+      },
+      {
+       "name": "Multi-fuseur",
+       "points": 10
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "mech-technopretre",
+   "name": "Technoprêtre",
+   "role": "TR",
+   "points": 30,
+   "page": 32,
+   "models": [
+    {
+     "name": "Technoprêtre",
+     "count": 1
+    }
+   ],
+   "profiles": [
+    {
+     "name": "Technoprêtre",
+     "stats": [
+      "6",
+      "4",
+      "4",
+      "5",
+      "5",
+      "2",
+      "3",
+      "2",
+      "8",
+      "8",
+      "8",
+      "8",
+      "3+",
+      "6+"
+     ]
+    }
+   ],
+   "wargear": [
+    "Grenades Frag"
+   ],
+   "rules": [
+    "Insensible à la Douleur (6+)",
+    "Comptrôleur (1)",
+    "Guerrier-artisan (2)",
+    "Maître des Machines",
+    "Protocoles de Tir (2)"
+   ],
+   "types": [
+    "Infanterie (Sergent, Spécialiste)"
+   ],
+   "traits": [
+    "[Allégeance]",
+    "[Mechanicum]",
+    "Cyberthéurge"
+   ],
+   "options": [
+    {
+     "text": "Équipement (autant d'objets que voulu, un de chaque)",
+     "max": 8,
+     "list": "Équipement du Mechanicum",
+     "unique": true
+    },
+    {
+     "text": "Rite Cyberthéurgique",
+     "max": 1,
+     "list": "Rites Cyberthéurgiques"
+    },
+    {
+     "text": "Arme de mêlée",
+     "max": 1,
+     "list": "Armes de Mêlée du Mechanicum"
+    },
+    {
+     "text": "Pistolet",
+     "max": 1,
+     "list": "Pistolets du Mechanicum"
+    },
+    {
+     "text": "Arme de tir",
+     "max": 1,
+     "list": "Armes de Tir du Mechanicum"
+    }
+   ]
+  },
+  {
+   "id": "mech-cenacle-de-technoserfs",
+   "name": "Cénacle de Technoserfs",
+   "role": "AP",
+   "points": 100,
+   "page": 33,
+   "models": [
+    {
+     "name": "Technoserf",
+     "count": 10
+    }
+   ],
+   "extra": {
+    "model": "Technoserf",
+    "max": 30,
+    "points": 10
+   },
+   "profiles": [
+    {
+     "name": "Technoserf",
+     "stats": [
+      "5",
+      "2",
+      "2",
+      "3",
+      "5",
+      "1",
+      "2",
+      "1",
+      "4",
+      "12",
+      "4",
+      "4",
+      "6+",
+      "-"
+     ]
+    }
+   ],
+   "wargear": [],
+   "rules": [],
+   "types": [
+    "Infanterie"
+   ],
+   "traits": [
+    "[Allégeance]"
+   ],
+   "options": []
+  },
+  {
+   "id": "mech-cohorte-de-thallax",
+   "name": "Cohorte de Thallax",
+   "role": "AP",
+   "points": 120,
+   "page": 34,
+   "models": [
+    {
+     "name": "Thallax",
+     "count": 6
+    }
+   ],
+   "extra": {
+    "model": "Thallax",
+    "max": 3,
+    "points": 20
+   },
+   "profiles": [
+    {
+     "name": "Thallax",
+     "stats": [
+      "10",
+      "4",
+      "4",
+      "4",
+      "5",
+      "2",
+      "3",
+      "2",
+      "7",
+      "12",
+      "4",
+      "4",
+      "3+",
+      "6+"
+     ]
+    },
+    {
+     "name": "Prétorien Thallax",
+     "stats": [
+      "10",
+      "4",
+      "4",
+      "4",
+      "5",
+      "2",
+      "3",
+      "2",
+      "8",
+      "12",
+      "5",
+      "5",
+      "3+",
+      "6+"
+     ]
+    }
+   ],
+   "wargear": [
+    "Fusil à foudre",
+    "Grenades Frag"
+   ],
+   "rules": [
+    "Massif (3)",
+    "Égide de Souffrance",
+    "Frappe en Profondeur"
+   ],
+   "types": [
+    "Thallax : Infanterie (Antigrav)",
+    "Prétorien Thallax : Infanterie (Sergent, Antigrav)"
+   ],
+   "traits": [
+    "[Allégeance]",
+    "Reductor"
+   ],
+   "options": [
+    {
+     "text": "Toute figurine : remplacer le fusil à foudre",
+     "max": "models",
+     "choices": [
+      {
+       "name": "Pulseur à photons",
+       "points": 15
+      },
+      {
+       "name": "Multi-fuseur",
+       "points": 15
+      },
+      {
+       "name": "Fusil à plasma phasé",
+       "points": 10
+      }
+     ]
+    },
+    {
+     "text": "Toute figurine ayant un fusil à foudre",
+     "max": "models",
+     "choices": [
+      {
+       "name": "Baïonnette tronçonneuse",
+       "points": 2
+      }
+     ]
+    },
+    {
+     "text": "Toute l'unité",
+     "max": 1,
+     "choices": [
+      {
+       "name": "Bombes à fusion pour toutes les figurines (+5 par figurine)",
+       "points": 5
+      }
+     ],
+     "all": true
+    },
+    {
+     "text": "Promouvoir un Thallax",
+     "max": 1,
+     "choices": [
+      {
+       "name": "Prétorien Thallax",
+       "points": 10
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "mech-manipule-de-combat-castellax",
+   "name": "Manipule de Combat Castellax",
+   "role": "AP",
+   "points": 100,
+   "page": 35,
+   "models": [
+    {
+     "name": "Castellax",
+     "count": 2
+    }
+   ],
+   "extra": {
+    "model": "Castellax",
+    "max": 8,
+    "points": 50
+   },
+   "profiles": [
+    {
+     "name": "Castellax",
+     "stats": [
+      "6",
+      "3",
+      "3",
+      "6",
+      "6",
+      "4",
+      "3",
+      "2",
+      "7",
+      "12",
+      "4",
+      "4",
+      "3+",
+      "6+"
+     ]
+    }
+   ],
+   "wargear": [],
+   "rules": [
+    "Massif (4)",
+    "Avance Implacable",
+    "Explose (6+)",
+    "Protocoles de Tir (3)",
+    "Orage de Feu",
+    "Boucliers Réfracteurs Phasés"
+   ],
+   "types": [
+    "Automate"
+   ],
+   "traits": [
+    "[Allégeance]",
+    "Cybernetica"
+   ],
+   "options": [
+    {
+     "text": "Toute figurine : remplacer les chargeurs-choc",
+     "max": "models",
+     "choices": [
+      {
+       "name": "Paire de lames énergétiques",
+       "points": 10
+      }
+     ]
+    },
+    {
+     "text": "Remplacer un bolter (par arme, deux par figurine)",
+     "max": {
+      "per": 1,
+      "n": 2
+     },
+     "choices": [
+      {
+       "name": "Lance-flammes",
+       "points": 5
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "mech-manipule-de-siege-thanatar",
+   "name": "Manipule de Siège Thanatar",
+   "role": "EG",
+   "points": 225,
+   "page": 36,
+   "models": [
+    {
+     "name": "Thanatar",
+     "count": 1
+    }
+   ],
+   "profiles": [
+    {
+     "name": "Thanatar",
+     "stats": [
+      "6",
+      "3",
+      "4",
+      "8",
+      "8",
+      "10",
+      "3",
+      "3",
+      "7",
+      "12",
+      "4",
+      "4",
+      "2+",
+      "5+"
+     ]
+    }
+   ],
+   "wargear": [
+    "Chargeurs-choc",
+    "Canon à bolts Mauler jumelé"
+   ],
+   "rules": [
+    "Massif (9)",
+    "Avance Implacable",
+    "Explose (6+)",
+    "Unité d'Appui (1)",
+    "Protocoles de Tir (2)",
+    "Orage de Feu"
+   ],
+   "types": [
+    "Automate (Lourd)"
+   ],
+   "traits": [
+    "[Allégeance]",
+    "Cybernetica"
+   ],
+   "options": [
+    {
+     "text": "Configuration — obligatoire",
+     "max": 1,
+     "choices": [
+      {
+       "name": "Configuration Cavas : mortier à plasma",
+       "points": 0
+      },
+      {
+       "name": "Configuration Calix : laser lourd Sollex et bélier à gravitons",
+       "points": 20
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "mech-armigere-moirax",
+   "name": "Armigère Moirax",
+   "role": "EG",
+   "points": 165,
+   "page": 37,
+   "models": [
+    {
+     "name": "Armigère Moirax",
+     "count": 1
+    }
+   ],
+   "profiles": [
+    {
+     "name": "Armigère Moirax",
+     "stats": [
+      "8",
+      "4",
+      "4",
+      "7",
+      "7",
+      "7",
+      "3",
+      "3",
+      "12",
+      "10",
+      "5",
+      "5",
+      "3+",
+      "5+"
+     ]
+    }
+   ],
+   "wargear": [
+    "Fourneau Rad"
+   ],
+   "rules": [
+    "Massif (8)",
+    "Explose (5+)",
+    "Mouvement à Couvert",
+    "Avance Implacable"
+   ],
+   "types": [
+    "Marcheur"
+   ],
+   "traits": [
+    "[Allégeance]",
+    "[Mechanicum]"
+   ],
+   "options": [
+    {
+     "text": "Armement obligatoire : deux options (ou la paire ci-dessous)",
+     "max": 2,
+     "choices": [
+      {
+       "name": "Pince de siège Gyges et irradieur",
+       "points": 0
+      },
+      {
+       "name": "Veuglaire volkite",
+       "points": 0
+      },
+      {
+       "name": "Mousquet à foudre",
+       "points": 5
+      },
+      {
+       "name": "Pulsar à gravitons",
+       "points": 15
+      },
+      {
+       "name": "Faisceau de conversion Moirax",
+       "points": 20
+      }
+     ]
+    },
+    {
+     "text": "Ou à la place des deux options",
+     "max": 1,
+     "choices": [
+      {
+       "name": "Paire de pinces de siège Gyges et deux irradieurs",
+       "points": 10
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "mech-convoyeur-blinde-triaros",
+   "name": "Convoyeur Blindé Triaros",
+   "role": "TL",
+   "points": 200,
+   "page": 38,
+   "models": [
+    {
+     "name": "Triaros",
+     "count": 1
+    }
+   ],
+   "profiles": [
+    {
+     "name": "Triaros",
+     "stats": [
+      "10",
+      "4",
+      "14",
+      "12",
+      "12",
+      "7",
+      "22"
+     ],
+     "vehicle": true
+    }
+   ],
+   "wargear": [
+    "Deux arquebuses volkites d'Axe Central",
+    "Canon à bolts Mauler jumelé sur Pivot",
+    "Bouclier répulsif",
+    "Projecteurs"
+   ],
+   "rules": [
+    "Autoréparation (4+)",
+    "Bélier-choc"
+   ],
+   "types": [
+    "Véhicule (Transport)"
+   ],
+   "traits": [
+    "[Allégeance]",
+    "[Mechanicum]"
+   ],
+   "options": [
+    {
+     "text": "Missiles traqueurs de Coque (Avant), jusqu'à deux",
+     "max": 2,
+     "choices": [
+      {
+       "name": "Missile traqueur de Coque (Avant)",
+       "points": 5
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "mech-manipule-d-attaque-vorax",
+   "name": "Manipule d'Attaque Vorax",
+   "role": "RE",
+   "points": 90,
+   "page": 39,
+   "models": [
+    {
+     "name": "Vorax",
+     "count": 2
+    }
+   ],
+   "extra": {
+    "model": "Vorax",
+    "max": 6,
+    "points": 45
+   },
+   "profiles": [
+    {
+     "name": "Vorax",
+     "stats": [
+      "10",
+      "3",
+      "3",
+      "5",
+      "5",
+      "4",
+      "4",
+      "4",
+      "8",
+      "12",
+      "4",
+      "4",
+      "3+",
+      "6+"
+     ]
+    }
+   ],
+   "wargear": [],
+   "rules": [
+    "Massif (3)",
+    "Avance Implacable",
+    "Impact (A)",
+    "Explose (6+)",
+    "Protocoles de Tir (2)",
+    "Orage de Feu",
+    "Boucliers Réfracteurs Phasés"
+   ],
+   "types": [
+    "Automate"
+   ],
+   "traits": [
+    "[Allégeance]",
+    "Cybernetica"
+   ],
+   "options": [
+    {
+     "text": "Une figurine sur deux : remplacer le fusil à foudre",
+     "max": {
+      "per": 2
+     },
+     "choices": [
+      {
+       "name": "Irradieur",
+       "points": 20
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "mech-escadron-de-stratos-vultarax",
+   "name": "Escadron de Stratos Vultarax",
+   "role": "AR",
+   "points": 100,
+   "page": 40,
+   "models": [
+    {
+     "name": "Vultarax",
+     "count": 1
+    }
+   ],
+   "profiles": [
+    {
+     "name": "Vultarax",
+     "stats": [
+      "12",
+      "3",
+      "3",
+      "5",
+      "6",
+      "6",
+      "4",
+      "3",
+      "7",
+      "12",
+      "4",
+      "4",
+      "3+",
+      "5+"
+     ]
+    }
+   ],
+   "wargear": [
+    "Électro-éclateur",
+    "Lance-missiles Vultarax",
+    "Serres dendrites"
+   ],
+   "rules": [
+    "Massif (6)",
+    "Avance Implacable",
+    "Explose (6+)",
+    "Protocoles de Tir (2)",
+    "Orage de Feu"
+   ],
+   "types": [
+    "Automate (Antigrav)"
+   ],
+   "traits": [
+    "[Allégeance]",
+    "Cybernetica"
+   ],
+   "options": []
+  },
+  {
+   "id": "mech-char-d-assaut-karacnos",
+   "name": "Char d'Assaut Karacnos",
+   "role": "BL",
+   "points": 235,
+   "page": 41,
+   "models": [
+    {
+     "name": "Karacnos",
+     "count": 1
+    }
+   ],
+   "profiles": [
+    {
+     "name": "Karacnos",
+     "stats": [
+      "10",
+      "4",
+      "14",
+      "12",
+      "12",
+      "7",
+      "-"
+     ],
+     "vehicle": true
+    }
+   ],
+   "wargear": [],
+   "rules": [
+    "Autoréparation (4+)",
+    "Bélier-choc",
+    "Explose (6+)"
+   ],
+   "types": [
+    "Véhicule"
+   ],
+   "traits": [
+    "[Allégeance]"
+   ],
+   "options": [
+    {
+     "text": "Missiles traqueurs de Coque (Avant), jusqu'à deux",
+     "max": 2,
+     "choices": [
+      {
+       "name": "Missile traqueur de Coque (Avant)",
+       "points": 5
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "mech-char-de-combat-krios",
+   "name": "Char de Combat Krios",
+   "role": "BL",
+   "points": 135,
+   "page": 42,
+   "models": [
+    {
+     "name": "Krios",
+     "count": 1
+    }
+   ],
+   "profiles": [
+    {
+     "name": "Krios",
+     "stats": [
+      "14",
+      "4",
+      "13",
+      "12",
+      "10",
+      "5",
+      "-"
+     ],
+     "vehicle": true
+    }
+   ],
+   "wargear": [
+    "Canon à foudre d'Axe Central"
+   ],
+   "rules": [
+    "Autoréparation (4+)"
+   ],
+   "types": [
+    "Véhicule (Rapide)"
+   ],
+   "traits": [
+    "[Allégeance]",
+    "Macrotek"
+   ],
+   "options": [
+    {
+     "text": "Missiles traqueurs de Coque (Avant), jusqu'à deux",
+     "max": 2,
+     "choices": [
+      {
+       "name": "Missile traqueur de Coque (Avant)",
+       "points": 5
+      }
+     ]
+    },
+    {
+     "text": "Deux arquebuses volkites Latérales",
+     "max": 1,
+     "choices": [
+      {
+       "name": "Deux arquebuses volkites Latérales",
+       "points": 15
+      }
+     ]
+    },
+    {
+     "text": "Remplacer le canon à foudre d'Axe Central",
+     "max": 1,
+     "choices": [
+      {
+       "name": "Éclateur à irradiation d'Axe Central",
+       "points": 0
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "mech-krios-venator",
+   "name": "Krios Venator",
+   "role": "BL",
+   "points": 160,
+   "page": 43,
+   "models": [
+    {
+     "name": "Krios Venator",
+     "count": 1
+    }
+   ],
+   "profiles": [
+    {
+     "name": "Krios Venator",
+     "stats": [
+      "14",
+      "4",
+      "13",
+      "12",
+      "10",
+      "5",
+      "-"
+     ],
+     "vehicle": true
+    }
+   ],
+   "wargear": [],
+   "rules": [
+    "Autoréparation (4+)"
+   ],
+   "types": [
+    "Véhicule (Rapide)"
+   ],
+   "traits": [
+    "[Allégeance]"
+   ],
+   "options": [
+    {
+     "text": "Missiles traqueurs de Coque (Avant), jusqu'à deux",
+     "max": 2,
+     "choices": [
+      {
+       "name": "Missile traqueur de Coque (Avant)",
+       "points": 5
+      }
+     ]
+    },
+    {
+     "text": "Deux arquebuses volkites Latérales",
+     "max": 1,
+     "choices": [
+      {
+       "name": "Deux arquebuses volkites Latérales",
+       "points": 15
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "mech-decimator",
+   "name": "Decimator",
+   "role": "EL",
+   "points": 125,
+   "page": 66,
+   "models": [
+    {
+     "name": "Decimator",
+     "count": 1
+    }
+   ],
+   "profiles": [
+    {
+     "name": "Decimator",
+     "stats": [
+      "7",
+      "4",
+      "4",
+      "7",
+      "7",
+      "5",
+      "3",
+      "4",
+      "8",
+      "12",
+      "7",
+      "4",
+      "2+",
+      "5+"
+     ]
+    }
+   ],
+   "wargear": [
+    "Deux lance-flammes lourds",
+    "Deux pinces Decimator"
+   ],
+   "rules": [
+    "Massif (7)",
+    "Avance Implacable",
+    "Explose (6+)",
+    "Impact (A)",
+    "Avant-garde (2)",
+    "Protocoles de Tir (2)"
+   ],
+   "types": [
+    "Automate (Maléfique)"
+   ],
+   "traits": [
+    "Renégat",
+    "Cybernetica"
+   ],
+   "options": [
+    {
+     "text": "Remplace un lance-flammes lourd et une pince Decimator",
+     "max": 2,
+     "choices": [
+      {
+       "name": "Canon boucher",
+       "points": 20
+      },
+      {
+       "name": "Pétard brûlemânes",
+       "points": 15
+      }
+     ],
+     "errata": "FAQ & Errata Age of Darkness (EN, Oct. 2026)",
+     "note": "(this option may be selected more than once per Model)"
+    }
+   ]
+  },
+  {
+   "id": "mech-massacreur-de-sang",
+   "name": "Massacreur de Sang",
+   "role": "AL",
+   "points": 100,
+   "page": 67,
+   "models": [
+    {
+     "name": "Massacreur de Sang",
+     "count": 2
+    }
+   ],
+   "extra": {
+    "model": "Massacreur de Sang",
+    "max": 2,
+    "points": 50
+   },
+   "profiles": [
+    {
+     "name": "Massacreur de Sang",
+     "stats": [
+      "9",
+      "3",
+      "3",
+      "6",
+      "6",
+      "4",
+      "4",
+      "5",
+      "8",
+      "12",
+      "4",
+      "4",
+      "3+",
+      "6+"
+     ]
+    }
+   ],
+   "wargear": [
+    "Lames de Massacreur"
+   ],
+   "rules": [
+    "Massif (5)",
+    "Mouvement à Couvert",
+    "Impact (A)",
+    "Explose (6+)",
+    "Avant-garde (1)"
+   ],
+   "types": [
+    "Automate (Maléfique)"
+   ],
+   "traits": [
+    "Renégat",
+    "Cybernetica"
+   ],
+   "options": [
+    {
+     "text": "Toute figurine",
+     "max": "models",
+     "choices": [
+      {
+       "name": "Harpon empaleur",
+       "points": 10
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "mech-archimagos-scoria",
+   "name": "Archimagos Scoria",
+   "role": "QG",
+   "points": 410,
+   "page": 71,
+   "models": [
+    {
+     "name": "Scoria",
+     "count": 1
+    }
+   ],
+   "profiles": [
+    {
+     "name": "Scoria",
+     "stats": [
+      "9",
+      "6",
+      "6",
+      "6",
+      "7",
+      "9",
+      "5",
+      "5",
+      "10",
+      "10",
+      "10",
+      "10",
+      "2+",
+      "4+"
+     ]
+    }
+   ],
+   "wargear": [
+    "Serres scoriennes",
+    "Le Sceptre Vodien",
+    "Pistolet archéotech jumelé",
+    "Pulseur à photons"
+   ],
+   "rules": [
+    "Insensible à la Douleur (5+)",
+    "Guerrier Éternel (1)",
+    "Guerrier-artisan (4)",
+    "Peur (2)",
+    "Impact (A)",
+    "Theurgika Maximus (voir page 45)",
+    "Archimagos du Domaine Xanain"
+   ],
+   "types": [
+    "Marcheur (Champion, Unique)"
+   ],
+   "traits": [
+    "Renégat",
+    "Archimandrite",
+    "Cyberthéurge",
+    "Hétérodoxe"
+   ],
+   "options": []
+  },
+  {
+   "id": "mech-archimagos-draykavac",
+   "name": "Archimagos Draykavac",
+   "role": "QG",
+   "points": 200,
+   "page": 72,
+   "models": [
+    {
+     "name": "Draykavac",
+     "count": 1
+    }
+   ],
+   "profiles": [
+    {
+     "name": "Draykavac",
+     "stats": [
+      "6",
+      "5",
+      "6",
+      "6",
+      "6",
+      "6",
+      "4",
+      "4",
+      "10",
+      "9",
+      "9",
+      "12",
+      "2+",
+      "4+"
+     ]
+    },
+    {
+     "name": "Draykavac sur Abéant",
+     "stats": [
+      "6",
+      "5",
+      "6",
+      "6",
+      "7",
+      "6",
+      "3",
+      "4",
+      "10",
+      "10",
+      "9",
+      "12",
+      "2+",
+      "4+"
+     ]
+    }
+   ],
+   "wargear": [
+    "Grenades Frag",
+    "Lame de parangon",
+    "Fusil à gravitons",
+    "Contrôleur de cortex",
+    "Panoplie machinator"
+   ],
+   "rules": [
+    "Insensible à la Douleur (5+)",
+    "Guerrier-artisan (4)",
+    "Maître des Machines",
+    "Protocoles de Tir (2)",
+    "Assaut au Liquifractor",
+    "Héritage de Ruse",
+    "Massif (7)",
+    "Insensible à la Douleur (5+)",
+    "Comptrôleur (2)",
+    "Trône de Commandement",
+    "Guerrier-artisan (4)",
+    "Maître des Machines",
+    "Protocoles de Tir (2)"
+   ],
+   "types": [
+    "Draykavac : Infanterie (État-major, Unique)",
+    "Draykavac sur Abéant : Infanterie (État-major, Unique"
+   ],
+   "traits": [
+    "Renégat",
+    "Archimandrite",
+    "Cyberthéurge",
+    "Hétérodoxe"
+   ],
+   "variants": [
+    {
+     "name": "Draykavac sur Abéant",
+     "points": 20
+    }
+   ],
+   "options": [
+    {
+     "text": "Draykavac sur Abéant — arme obligatoire, sans surcoût",
+     "max": 1,
+     "choices": [
+      {
+       "name": "Fusil à gravitons",
+       "points": 0
+      },
+      {
+       "name": "Canon rotor",
+       "points": 0
+      },
+      {
+       "name": "Faisceau de conversion",
+       "points": 0
+      },
+      {
+       "name": "Fuseur",
+       "points": 0
+      }
+     ],
+     "onlyVariant": 0
+    }
+   ]
+  },
+  {
+   "id": "mech-cohorte-d-ursarax",
+   "name": "Cohorte d'Ursarax",
+   "role": "AL",
+   "points": 150,
+   "page": 31,
+   "models": [
+    {
+     "name": "Ursarax",
+     "count": 6
+    }
+   ],
+   "extra": {
+    "model": "Ursarax",
+    "max": 3,
+    "points": 25
+   },
+   "profiles": [
+    {
+     "name": "Ursarax",
+     "stats": [
+      "10",
+      "4",
+      "4",
+      "4",
+      "5",
+      "2",
+      "3",
+      "2",
+      "7",
+      "12",
+      "4",
+      "4",
+      "3+",
+      "6+"
+     ]
+    },
+    {
+     "name": "Ursarax Alpha",
+     "stats": [
+      "10",
+      "4",
+      "4",
+      "4",
+      "5",
+      "2",
+      "3",
+      "2",
+      "8",
+      "12",
+      "6",
+      "4",
+      "3+",
+      "6+"
+     ]
+    }
+   ],
+   "wargear": [
+    "Paire de griffes d'Ursarax",
+    "Incinérateur volkite",
+    "Grenades Frag"
+   ],
+   "rules": [
+    "Massif (3)",
+    "Avant-garde (3)",
+    "Frappe en Profondeur"
+   ],
+   "types": [
+    "Ursarax : Infanterie (Antigrav)",
+    "Ursarax Alpha : Infanterie (Sergent, Antigrav)"
+   ],
+   "traits": [
+    "[Allégeance]",
+    "Lacrymaerta"
+   ],
+   "options": [
+    {
+     "text": "Toute figurine : remplacer la paire de griffes",
+     "max": "models",
+     "choices": [
+      {
+       "name": "Paire de poings d'Ursarax",
+       "points": 0
+      }
+     ]
+    },
+    {
+     "text": "Promouvoir une figurine",
+     "max": 1,
+     "choices": [
+      {
+       "name": "Ursarax Alpha",
+       "points": 10
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "mech-scorpion-d-airain",
+   "name": "Scorpion d'Airain",
+   "role": "SB",
+   "points": 600,
+   "page": 68,
+   "models": [
+    {
+     "name": "Scorpion d'Airain",
+     "count": 1
+    }
+   ],
+   "profiles": [
+    {
+     "name": "Scorpion d'Airain",
+     "stats": [
+      "9",
+      "4",
+      "4",
+      "10",
+      "8",
+      "15",
+      "4",
+      "4",
+      "10",
+      "12",
+      "7",
+      "4",
+      "2+",
+      "5+"
+     ]
+    }
+   ],
+   "wargear": [
+    "Canon Scorpion",
+    "Canon Despoiler",
+    "Canon Hellmaw jumelé",
+    "Pinces Hellcrusher"
+   ],
+   "rules": [
+    "Guerrier Éternel (1)",
+    "Avance Implacable",
+    "Explose (4+)",
+    "Unité d'Appui (1)",
+    "Protocoles de Tir (3)",
+    "Mouvement à Couvert"
+   ],
+   "types": [
+    "Automate (Lourd, Maléfique, Inarrêtable)"
+   ],
+   "traits": [
+    "Renégat",
+    "Archimandrite"
+   ],
+   "options": []
+  },
+  {
+   "id": "mech-engin-demon-kytan",
+   "name": "Engin Démon Kytan",
+   "role": "SB",
+   "points": 450,
+   "page": 69,
+   "models": [
+    {
+     "name": "Kytan",
+     "count": 1
+    }
+   ],
+   "profiles": [
+    {
+     "name": "Kytan",
+     "stats": [
+      "12",
+      "4",
+      "4",
+      "12",
+      "8",
+      "14",
+      "4",
+      "4",
+      "10",
+      "12",
+      "7",
+      "4",
+      "2+",
+      "5+"
+     ]
+    }
+   ],
+   "wargear": [
+    "Canon gatling Kytan",
+    "Fendoir de massacre"
+   ],
+   "rules": [
+    "Avance Implacable",
+    "Explose (4+)",
+    "Unité d'Appui (1)",
+    "Vif (2)",
+    "Mouvement à Couvert"
+   ],
+   "types": [
+    "Automate (Maléfique, Inarrêtable)"
+   ],
+   "traits": [
+    "Renégat",
+    "Archimandrite"
+   ],
+   "options": []
+  }
+ ]
+}

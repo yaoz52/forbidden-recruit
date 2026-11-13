@@ -1,0 +1,578 @@
+{
+ "id": "zone-mortalis",
+ "name": "Journal Tactica: Zone Mortalis (BSData, non vérifié)",
+ "lang": "en",
+ "army": "aux",
+ "source": "BSData horus-heresy-3rd-edition (données communautaires, non vérifiées) — Journal Tactica: Zone Mortalis, avec errata V1.1",
+ "units": [
+  {
+   "id": "zm-veletaris-raider-section",
+   "army": "aux",
+   "name": "Veletaris Raider Section",
+   "role": "EL",
+   "points": 85,
+   "models": [
+    {
+     "name": "Veletarii Prime",
+     "count": 1
+    },
+    {
+     "name": "Veletarii",
+     "count": 9
+    }
+   ],
+   "extra": {
+    "model": "Veletarii",
+    "max": 10,
+    "points": 7
+   },
+   "profiles": [
+    {
+     "name": "Veletarii",
+     "stats": [
+      "6",
+      "4",
+      "4",
+      "3",
+      "3",
+      "1",
+      "3",
+      "2",
+      "7",
+      "8",
+      "6",
+      "6",
+      "4+",
+      "-"
+     ]
+    },
+    {
+     "name": "Veletarii Prime",
+     "stats": [
+      "6",
+      "4",
+      "4",
+      "3",
+      "3",
+      "1",
+      "3",
+      "2",
+      "8",
+      "8",
+      "6",
+      "6",
+      "4+",
+      "-"
+     ]
+    }
+   ],
+   "wargear": [
+    "Breaching shotgun",
+    "Frag grenades",
+    "Krak grenades"
+   ],
+   "rules": [
+    "Vanguard (3)"
+   ],
+   "types": [
+    "Veletarii Prime : Infantry (Sergeant)",
+    "Veletarii : Infantry"
+   ],
+   "traits": [
+    "[Allegiance]",
+    "Solar Auxilia"
+   ],
+   "options": [
+    {
+     "text": "Any Model: exchange breaching shotgun for storm maul and boarding shield",
+     "max": "models",
+     "choices": [
+      {
+       "name": "Storm maul and boarding shield",
+       "points": 4
+      }
+     ]
+    },
+    {
+     "text": "Veletarii Prime: exchange breaching shotgun for laspistol and charnabal tabar",
+     "max": 1,
+     "choices": [
+      {
+       "name": "Laspistol and charnabal tabar",
+       "points": 0
+      }
+     ]
+    },
+    {
+     "text": "Veletarii Prime (if exchanged): exchange charnabal tabar",
+     "max": 1,
+     "list": "Auxilia Melee Weapons"
+    },
+    {
+     "text": "Veletarii Prime (if exchanged): exchange laspistol",
+     "max": 1,
+     "list": "Auxilia Pistols"
+    }
+   ],
+   "note": "Counts as a Veletaris Storm Section for Veletaris Tercio Detachments (selon le Journal). Vox interlock / Auxilia vexilla : coûts absents des données BSData, non repris.",
+   "lang": "en",
+   "unverified": true,
+   "source": "BSData horus-heresy-3rd-edition (données communautaires, non vérifiées) — Journal Tactica: Zone Mortalis, avec errata V1.1"
+  },
+  {
+   "id": "zm-auxilia-combat-technician-section",
+   "army": "aux",
+   "name": "Auxilia Combat Technician Section",
+   "role": "AP",
+   "points": 35,
+   "models": [
+    {
+     "name": "Auxilia Technician Prime",
+     "count": 1
+    },
+    {
+     "name": "Auxilia Technician",
+     "count": 3
+    }
+   ],
+   "extra": {
+    "model": "Auxilia Technician",
+    "max": 6,
+    "points": 7
+   },
+   "profiles": [
+    {
+     "name": "Auxilia Technician",
+     "stats": [
+      "6",
+      "3",
+      "3",
+      "3",
+      "3",
+      "1",
+      "3",
+      "1",
+      "6",
+      "6",
+      "6",
+      "7",
+      "4+",
+      "-"
+     ]
+    },
+    {
+     "name": "Auxilia Technician Prime",
+     "stats": [
+      "6",
+      "3",
+      "3",
+      "3",
+      "3",
+      "1",
+      "3",
+      "1",
+      "7",
+      "7",
+      "7",
+      "7",
+      "4+",
+      "-"
+     ]
+    }
+   ],
+   "wargear": [
+    "Blast pistol",
+    "Combat decryptor",
+    "Frag grenades",
+    "Krak grenades"
+   ],
+   "rules": [],
+   "types": [
+    "Auxilia Technician Prime : Infantry (Sergeant, Skirmish)",
+    "Auxilia Technician : Infantry (Skirmish)"
+   ],
+   "traits": [
+    "[Allegiance]",
+    "Solar Auxilia"
+   ],
+   "options": [
+    {
+     "text": "Any Model: exchange blast pistol for lasrifle with blast-charger",
+     "max": "models",
+     "choices": [
+      {
+       "name": "Lasrifle w/ Blast-charger",
+       "points": 0
+      }
+     ]
+    },
+    {
+     "text": "Auxilia Technician Prime: exchange blast pistol",
+     "max": 1,
+     "list": "Auxilia Pistols"
+    },
+    {
+     "text": "Auxilia Technician Prime: may take",
+     "max": 1,
+     "list": "Auxilia Melee Weapons"
+    }
+   ],
+   "note": "Combat decryptor: may make the Bypass Cogitator Zone Mortalis Advanced Reaction as if the Models had Battlesmith (3); Base Intelligence 9 for Interface Checks.",
+   "lang": "en",
+   "unverified": true,
+   "source": "BSData horus-heresy-3rd-edition (données communautaires, non vérifiées) — Journal Tactica: Zone Mortalis, avec errata V1.1"
+  },
+  {
+   "id": "zm-veteran-despoiler-squad",
+   "army": "la",
+   "name": "Veteran Despoiler Squad",
+   "role": "EL",
+   "points": 95,
+   "models": [
+    {
+     "name": "Veteran Despoiler Sergeant",
+     "count": 1
+    },
+    {
+     "name": "Veteran Despoiler",
+     "count": 4
+    }
+   ],
+   "extra": {
+    "model": "Veteran Despoiler",
+    "max": 5,
+    "points": 18
+   },
+   "profiles": [
+    {
+     "name": "Veteran Despoiler",
+     "stats": [
+      "7",
+      "5",
+      "4",
+      "4",
+      "4",
+      "2",
+      "4",
+      "3",
+      "8",
+      "8",
+      "7",
+      "7",
+      "3+",
+      "-"
+     ]
+    },
+    {
+     "name": "Veteran Despoiler Sergeant",
+     "stats": [
+      "7",
+      "5",
+      "4",
+      "4",
+      "4",
+      "2",
+      "4",
+      "3",
+      "8",
+      "8",
+      "7",
+      "7",
+      "3+",
+      "-"
+     ]
+    }
+   ],
+   "wargear": [
+    "Bolt pistol",
+    "Chainsword",
+    "Frag grenades",
+    "Krak grenades"
+   ],
+   "rules": [
+    "Vanguard (3)"
+   ],
+   "types": [
+    "Veteran Despoiler Sergeant : Infantry (Sergeant)",
+    "Veteran Despoiler : Infantry"
+   ],
+   "traits": [
+    "[Allegiance]",
+    "[Legiones Astartes]"
+   ],
+   "options": [
+    {
+     "text": "Any Model: exchange bolt pistol",
+     "max": "models",
+     "choices": [
+      {
+       "name": "Combat shield",
+       "points": 2
+      },
+      {
+       "name": "Disintegrator pistol",
+       "points": 5
+      }
+     ],
+     "list": "Pistolets de Légion"
+    },
+    {
+     "text": "Any Model: exchange chainsword",
+     "max": "models",
+     "list": "Armes de Mêlée de Sergent de Légion"
+    },
+    {
+     "text": "Any Model: exchange bolt pistol and chainsword",
+     "max": "models",
+     "choices": [
+      {
+       "name": "Heavy chainaxe",
+       "points": 5
+      },
+      {
+       "name": "Heavy chainsword",
+       "points": 5
+      },
+      {
+       "name": "Pair of lightning claws",
+       "points": 10
+      }
+     ]
+    },
+    {
+     "text": "Veteran Despoiler Sergeant",
+     "max": 1,
+     "choices": [
+      {
+       "name": "Melta bombs",
+       "points": 10
+      }
+     ]
+    },
+    {
+     "text": "One Veteran Despoiler",
+     "max": 1,
+     "choices": [
+      {
+       "name": "Vexilla",
+       "points": 10
+      }
+     ]
+    }
+   ],
+   "lang": "en",
+   "unverified": true,
+   "source": "BSData horus-heresy-3rd-edition (données communautaires, non vérifiées) — Journal Tactica: Zone Mortalis, avec errata V1.1"
+  },
+  {
+   "id": "zm-castellax-infernus-maniple",
+   "army": "mech",
+   "name": "Castellax Infernus Maniple",
+   "role": "AP",
+   "points": 110,
+   "models": [
+    {
+     "name": "Castellax",
+     "count": 2
+    }
+   ],
+   "extra": {
+    "model": "Castellax",
+    "max": 4,
+    "points": 55
+   },
+   "profiles": [
+    {
+     "name": "Castellax",
+     "stats": [
+      "6",
+      "3",
+      "3",
+      "6",
+      "6",
+      "4",
+      "3",
+      "2",
+      "7",
+      "12",
+      "4",
+      "4",
+      "3+",
+      "6+"
+     ]
+    }
+   ],
+   "wargear": [
+    "Purge incinerator",
+    "Two flamers",
+    "Pair of power blades"
+   ],
+   "rules": [
+    "Bulky (4)",
+    "Explodes (6+)",
+    "Firing Protocols (3)",
+    "Implacable Advance",
+    "Phased Refractor Shields",
+    "Vanguard (3)"
+   ],
+   "types": [
+    "Castellax : Automata"
+   ],
+   "traits": [
+    "[Allegiance]",
+    "[Mechanicum]",
+    "Cybernetica"
+   ],
+   "options": [],
+   "lang": "en",
+   "unverified": true,
+   "source": "BSData horus-heresy-3rd-edition (données communautaires, non vérifiées) — Journal Tactica: Zone Mortalis, avec errata V1.1"
+  }
+ ],
+ "weapons": [
+  {
+   "name": "Breaching shotgun",
+   "kind": "tir",
+   "heads": [
+    "R",
+    "FP",
+    "RS",
+    "AP",
+    "D",
+    "Special Rules",
+    "Traits"
+   ],
+   "values": [
+    "10",
+    "1",
+    "5",
+    "5",
+    "1",
+    "Stun (0)",
+    "Auto, Assault"
+   ],
+   "lang": "en",
+   "source": "BSData (non vérifié)"
+  },
+  {
+   "name": "Storm maul",
+   "kind": "melee",
+   "heads": [
+    "IM",
+    "AM",
+    "SM",
+    "AP",
+    "D",
+    "Special Rules",
+    "Traits"
+   ],
+   "values": [
+    "-1",
+    "A",
+    "+2",
+    "4",
+    "1",
+    "Breaching (6+)",
+    "Power"
+   ],
+   "lang": "en",
+   "source": "BSData (non vérifié)"
+  },
+  {
+   "name": "Blast pistol",
+   "kind": "tir",
+   "heads": [
+    "R",
+    "FP",
+    "RS",
+    "AP",
+    "D",
+    "Special Rules",
+    "Traits"
+   ],
+   "values": [
+    "9",
+    "2",
+    "4",
+    "4",
+    "1",
+    "Pistol, Rending (6+), Shred (6+)",
+    "Assault, Las"
+   ],
+   "lang": "en",
+   "source": "BSData (non vérifié)"
+  },
+  {
+   "name": "Lasrifle w/ Blast-charger",
+   "kind": "tir",
+   "heads": [
+    "R",
+    "FP",
+    "RS",
+    "AP",
+    "D",
+    "Special Rules",
+    "Traits"
+   ],
+   "values": [
+    "18",
+    "1",
+    "4",
+    "4",
+    "1",
+    "Rending (6+), Shred (6+)",
+    "Las"
+   ],
+   "lang": "en",
+   "source": "BSData (non vérifié)"
+  },
+  {
+   "name": "Purge incinerator",
+   "kind": "tir",
+   "heads": [
+    "R",
+    "FP",
+    "RS",
+    "AP",
+    "D",
+    "Special Rules",
+    "Traits"
+   ],
+   "values": [
+    "Template",
+    "1",
+    "6",
+    "4",
+    "1",
+    "Template, Breaching (6+), Panic (1)",
+    "Flame"
+   ],
+   "lang": "en",
+   "source": "BSData (non vérifié)"
+  },
+  {
+   "name": "Charnabal tabar",
+   "kind": "melee",
+   "heads": [
+    "IM",
+    "AM",
+    "SM",
+    "AP",
+    "D",
+    "Special Rules",
+    "Traits"
+   ],
+   "values": [
+    "I",
+    "A",
+    "+1",
+    "-",
+    "1",
+    "Breaching (6+), Duellist's Edge (1)",
+    "Charnabal"
+   ],
+   "lang": "en",
+   "source": "BSData (non vérifié)"
+  }
+ ]
+}

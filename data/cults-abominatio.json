@@ -1,0 +1,69 @@
+{
+ "id": "cults-abominatio",
+ "name": "Legacies – Cults Abominatio",
+ "lang": "en",
+ "army": "cult",
+ "legacy": true,
+ "source": "Legacies of the Age of Darkness v1.1 (EN)",
+ "units": [
+  {
+   "id": "infernus-abomination",
+   "name": "Infernus Abomination",
+   "lang": "en",
+   "role": "AP",
+   "points": 120,
+   "page": 206,
+   "models": [
+    {
+     "name": "Infernus Abomination",
+     "count": 1
+    }
+   ],
+   "profiles": [
+    {
+     "name": "Infernus Abomination",
+     "stats": [
+      "8",
+      "5",
+      "5",
+      "5",
+      "5",
+      "3",
+      "4",
+      "3",
+      "10",
+      "10",
+      "8",
+      "6",
+      "4+",
+      "4+"
+     ]
+    }
+   ],
+   "wargear": [
+    "Boneshard spitter",
+    "Transmutative claw"
+   ],
+   "rules": [
+    "Infiltrate (9)",
+    "Heedless",
+    "Move Through Cover",
+    "Shrouded (4+)",
+    "Fear (1)",
+    "Osmeotic Regeneration"
+   ],
+   "types": [
+    "Infantry (Champion, Light)"
+   ],
+   "traits": [
+    "Traitor",
+    "Cults Abominatio"
+   ],
+   "options": [],
+   "army": "cult",
+   "legacy": true,
+   "source": "Legacies of the Age of Darkness v1.1 (EN)"
+  }
+ ],
+ "detachments": []
+}

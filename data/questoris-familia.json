@@ -1,0 +1,970 @@
+{
+ "id": "questoris-familia",
+ "name": "Liber Questoris",
+ "lang": "fr",
+ "army": "quest",
+ "source": "Liber Questoris, édition française 2025 — Maisonnées de Chevaliers",
+ "equipmentLists": {},
+ "detachments": [
+  {
+   "id": "maisonnees-chevaliers",
+   "name": "Maisonnées de Chevaliers",
+   "kind": "principal",
+   "mainFor": "quest",
+   "rankOnly": true,
+   "slots": [
+    {
+     "role": "SB",
+     "prime": true
+    },
+    {
+     "role": "SB",
+     "prime": true
+    },
+    {
+     "role": "SB",
+     "prime": true
+    },
+    {
+     "role": "SB",
+     "prime": true
+    }
+   ]
+  },
+  {
+   "id": "serre-armigeres",
+   "name": "Serre d'Armigères",
+   "kind": "addl",
+   "unlockedBy": "q-aspirant",
+   "slots": [
+    {
+     "role": "EG"
+    },
+    {
+     "role": "EG"
+    },
+    {
+     "role": "EG"
+    },
+    {
+     "role": "EG"
+    }
+   ]
+  },
+  {
+   "id": "banniere-appui",
+   "name": "Bannière d'Appui",
+   "kind": "addl",
+   "unlockedBy": "q-martial",
+   "rankOnly": true,
+   "slots": [
+    {
+     "role": "SB",
+     "prime": true
+    },
+    {
+     "role": "SB",
+     "prime": true
+    }
+   ]
+  },
+  {
+   "id": "serre-automates",
+   "name": "Serre d'Automates",
+   "kind": "addl",
+   "unlockedBy": "q-precepteur",
+   "foreign": "mech",
+   "only": {
+    "EL": [
+     "Manipule de Combat Domitar"
+    ],
+    "AP": [
+     "Manipule de Combat Castellax"
+    ],
+    "RE": [
+     "Manipule d'Attaque Vorax"
+    ],
+    "AR": [
+     "Escadron de Stratos Vultarax"
+    ]
+   },
+   "note": "Unités du Liber Mechanicum : Domitar, Castellax, Vorax, Vultarax.",
+   "slots": [
+    {
+     "role": "EL"
+    },
+    {
+     "role": "AP"
+    },
+    {
+     "role": "RE"
+    },
+    {
+     "role": "AR"
+    }
+   ]
+  },
+  {
+   "id": "maisnie-roturiere",
+   "name": "Maisnie Roturière",
+   "kind": "addl",
+   "unlockedBy": "q-seigneur",
+   "foreign": "aux",
+   "note": "Unités de la liste des Solar Auxilia.",
+   "slots": [
+    {
+     "role": "TR"
+    },
+    {
+     "role": "EL"
+    },
+    {
+     "role": "TP"
+    },
+    {
+     "role": "TR"
+    },
+    {
+     "role": "RE"
+    },
+    {
+     "role": "TP"
+    }
+   ]
+  }
+ ],
+ "rules": {},
+ "units": [
+  {
+   "id": "quest-armigere-helverien",
+   "name": "Armigère Helvérien",
+   "role": "EG",
+   "points": 150,
+   "page": 30,
+   "models": [
+    {
+     "name": "Armigère Helvérien",
+     "count": 1
+    }
+   ],
+   "profiles": [
+    {
+     "name": "Armigère Helvérien",
+     "stats": [
+      "10",
+      "4",
+      "4",
+      "7",
+      "7",
+      "7",
+      "4",
+      "2",
+      "10",
+      "10",
+      "5",
+      "5",
+      "3+",
+      "6+"
+     ]
+    }
+   ],
+   "wargear": [
+    "Deux autocanons Phaëton",
+    "Mitrailleuse"
+   ],
+   "rules": [
+    "Massif (8)",
+    "Explose (6+)",
+    "Avance Implacable",
+    "Mouvement à Couvert",
+    "Attaque de Flanc"
+   ],
+   "types": [
+    "Marcheur"
+   ],
+   "traits": [
+    "[Allégeance]",
+    "[Questoris Familia]"
+   ],
+   "options": [
+    {
+     "text": "Remplacer la mitrailleuse",
+     "max": 1,
+     "choices": [
+      {
+       "name": "Fuseur",
+       "points": 10
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "quest-armigere-hastaire",
+   "name": "Armigère Hastaire",
+   "role": "EG",
+   "points": 150,
+   "page": 31,
+   "models": [
+    {
+     "name": "Armigère Hastaire",
+     "count": 1
+    }
+   ],
+   "profiles": [
+    {
+     "name": "Armigère Hastaire",
+     "stats": [
+      "10",
+      "4",
+      "4",
+      "7",
+      "7",
+      "7",
+      "4",
+      "3",
+      "10",
+      "10",
+      "5",
+      "5",
+      "3+",
+      "6+"
+     ]
+    }
+   ],
+   "wargear": [
+    "Lance thermique",
+    "Mitrailleuse",
+    "Tronçonneur Reaper"
+   ],
+   "rules": [
+    "Massif (8)",
+    "Explose (6+)",
+    "Avance Implacable",
+    "Mouvement à Couvert",
+    "Attaque de Flanc"
+   ],
+   "types": [
+    "Marcheur"
+   ],
+   "traits": [
+    "[Allégeance]",
+    "[Questoris Familia]"
+   ],
+   "options": [
+    {
+     "text": "Remplacer la mitrailleuse",
+     "max": 1,
+     "choices": [
+      {
+       "name": "Fuseur",
+       "points": 10
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "quest-armigere-moirax",
+   "name": "Armigère Moirax",
+   "role": "EG",
+   "points": 165,
+   "page": 32,
+   "models": [
+    {
+     "name": "Armigère Moirax",
+     "count": 1
+    }
+   ],
+   "profiles": [
+    {
+     "name": "Armigère Moirax",
+     "stats": [
+      "8",
+      "4",
+      "4",
+      "7",
+      "7",
+      "7",
+      "3",
+      "3",
+      "12",
+      "10",
+      "5",
+      "5",
+      "3+",
+      "5+"
+     ]
+    }
+   ],
+   "wargear": [
+    "Fourneau Rad"
+   ],
+   "rules": [
+    "Massif (8)",
+    "Explose (5+)",
+    "Avance Implacable",
+    "Mouvement à Couvert"
+   ],
+   "types": [
+    "Marcheur"
+   ],
+   "traits": [
+    "[Allégeance]",
+    "[Questoris Familia]"
+   ],
+   "options": [
+    {
+     "text": "Armement obligatoire : deux options (ou la paire ci-dessous)",
+     "max": 2,
+     "choices": [
+      {
+       "name": "Pince de siège Gyges et irradieur",
+       "points": 0
+      },
+      {
+       "name": "Veuglaire volkite",
+       "points": 0
+      },
+      {
+       "name": "Mousquet à foudre",
+       "points": 5
+      },
+      {
+       "name": "Pulsar à gravitons",
+       "points": 15
+      },
+      {
+       "name": "Faisceau de conversion Moirax",
+       "points": 20
+      }
+     ]
+    },
+    {
+     "text": "Ou à la place des deux options",
+     "max": 1,
+     "choices": [
+      {
+       "name": "Paire de pinces de siège Gyges et deux irradieurs",
+       "points": 10
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "quest-chevalier-questoris",
+   "name": "Chevalier Questoris",
+   "role": "SB",
+   "points": 400,
+   "page": 33,
+   "models": [
+    {
+     "name": "Chevalier Questoris",
+     "count": 1
+    }
+   ],
+   "profiles": [
+    {
+     "name": "Chevalier Questoris",
+     "stats": [
+      "12",
+      "4",
+      "4",
+      "8",
+      "13",
+      "11",
+      "4",
+      "4",
+      "10"
+     ],
+     "heads": [
+      "M",
+      "CC",
+      "CT",
+      "F",
+      "Av",
+      "Ar",
+      "I",
+      "A",
+      "PC"
+     ]
+    }
+   ],
+   "wargear": [
+    "Mitrailleuse de Coque (Avant)",
+    "Bouclier ionique"
+   ],
+   "rules": [
+    "Autoréparation (5+)",
+    "Explose (6+)",
+    "Avant-garde (2)"
+   ],
+   "types": [
+    "Véhicule (Chevalier)"
+   ],
+   "traits": [
+    "[Allégeance]",
+    "[Questoris Familia]"
+   ],
+   "options": [
+    {
+     "text": "Armement obligatoire : deux armes",
+     "max": 2,
+     "choices": [
+      {
+       "name": "Tronçonneuse Reaper",
+       "points": 0
+      },
+      {
+       "name": "Gantelet Thunderstrike",
+       "points": 10
+      },
+      {
+       "name": "Impulseur laser de Coque (Avant)",
+       "points": 15
+      },
+      {
+       "name": "Obusier à tir rapide de Coque (Avant) et mitrailleuse Coaxiale",
+       "points": 5
+      },
+      {
+       "name": "Canon gatling Avenger de Coque (Avant) et lance-flammes lourd Coaxial",
+       "points": 10
+      },
+      {
+       "name": "Canon thermique de Coque (Avant)",
+       "points": 20
+      }
+     ]
+    },
+    {
+     "text": "Remplacer la mitrailleuse de Coque (Avant)",
+     "max": 1,
+     "choices": [
+      {
+       "name": "Multi-laser de Coque (Avant)",
+       "points": 5
+      },
+      {
+       "name": "Fuseur de Coque (Avant)",
+       "points": 10
+      }
+     ]
+    },
+    {
+     "text": "Arme Dorsale (Avant, Arrière)",
+     "max": 1,
+     "choices": [
+      {
+       "name": "Autocanon Icarus jumelé Dorsal",
+       "points": 20
+      },
+      {
+       "name": "Nacelle lance-missiles Ironstorm Dorsale",
+       "points": 15
+      },
+      {
+       "name": "Nacelle lance-roquettes Stormspear Dorsale",
+       "points": 10
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "quest-chevalier-questoris-magaera",
+   "name": "Chevalier Questoris Magaera",
+   "role": "SB",
+   "points": 460,
+   "page": 34,
+   "models": [
+    {
+     "name": "Chevalier Magaera",
+     "count": 1
+    }
+   ],
+   "profiles": [
+    {
+     "name": "Chevalier Magaera",
+     "stats": [
+      "10",
+      "4",
+      "4",
+      "8",
+      "13",
+      "11",
+      "3",
+      "4",
+      "10"
+     ],
+     "heads": [
+      "M",
+      "CC",
+      "CT",
+      "F",
+      "Av",
+      "Ar",
+      "I",
+      "A",
+      "PC"
+     ]
+    }
+   ],
+   "wargear": [
+    "Canon à foudre de Coque (Avant)",
+    "Fusil à plasma phasé de Coque (Avant)",
+    "Radioactiveur de Coque (Avant)",
+    "Pince de siège Hekaton",
+    "Bouclier répulsif ionique"
+   ],
+   "rules": [
+    "Autoréparation (4+)",
+    "Explose (5+)",
+    "Avant-garde (2)"
+   ],
+   "types": [
+    "Véhicule (Chevalier)"
+   ],
+   "traits": [
+    "[Allégeance]",
+    "[Questoris Familia]"
+   ],
+   "options": []
+  },
+  {
+   "id": "quest-chevalier-questoris-styrix",
+   "name": "Chevalier Questoris Styrix",
+   "role": "SB",
+   "points": 455,
+   "page": 35,
+   "models": [
+    {
+     "name": "Chevalier Styrix",
+     "count": 1
+    }
+   ],
+   "profiles": [
+    {
+     "name": "Chevalier Styrix",
+     "stats": [
+      "10",
+      "4",
+      "4",
+      "8",
+      "13",
+      "11",
+      "3",
+      "4",
+      "10"
+     ],
+     "heads": [
+      "M",
+      "CC",
+      "CT",
+      "F",
+      "Av",
+      "Ar",
+      "I",
+      "A",
+      "PC"
+     ]
+    }
+   ],
+   "wargear": [
+    "Couleuvrine volkite de Coque (Avant)",
+    "Fusil à gravitons de Coque (Avant)",
+    "Radioactiveur de Coque (Avant)",
+    "Pince de siège Hekaton",
+    "Bouclier répulsif ionique"
+   ],
+   "rules": [
+    "Autoréparation (4+)",
+    "Explose (5+)",
+    "Avant-garde (2)"
+   ],
+   "types": [
+    "Véhicule (Chevalier)"
+   ],
+   "traits": [
+    "[Allégeance]",
+    "[Questoris Familia]"
+   ],
+   "options": []
+  },
+  {
+   "id": "quest-chevalier-cerastus-castigateur",
+   "name": "Chevalier Cerastus Castigateur",
+   "role": "SB",
+   "points": 480,
+   "page": 36,
+   "models": [
+    {
+     "name": "Chevalier Castigateur",
+     "count": 1
+    }
+   ],
+   "profiles": [
+    {
+     "name": "Chevalier Castigateur",
+     "stats": [
+      "14",
+      "4",
+      "4",
+      "9",
+      "13",
+      "11",
+      "4",
+      "4",
+      "12"
+     ],
+     "heads": [
+      "M",
+      "CC",
+      "CT",
+      "F",
+      "Av",
+      "Ar",
+      "I",
+      "A",
+      "PC"
+     ]
+    }
+   ],
+   "wargear": [
+    "Canon à bolts de Castigateur jumelé de Coque (Avant)",
+    "Lame de guerre Tempest",
+    "Bouclier ionique"
+   ],
+   "rules": [
+    "Autoréparation (5+)",
+    "Explose (6+)",
+    "Avant-garde (2)"
+   ],
+   "types": [
+    "Véhicule (Chevalier)"
+   ],
+   "traits": [
+    "[Allégeance]",
+    "[Questoris Familia]"
+   ],
+   "options": []
+  },
+  {
+   "id": "quest-chevalier-cerastus-acheron",
+   "name": "Chevalier Cerastus Achéron",
+   "role": "SB",
+   "points": 500,
+   "page": 37,
+   "models": [
+    {
+     "name": "Chevalier Achéron",
+     "count": 1
+    }
+   ],
+   "profiles": [
+    {
+     "name": "Chevalier Achéron",
+     "stats": [
+      "14",
+      "4",
+      "4",
+      "9",
+      "13",
+      "11",
+      "4",
+      "4",
+      "12"
+     ],
+     "heads": [
+      "M",
+      "CC",
+      "CT",
+      "F",
+      "Av",
+      "Ar",
+      "I",
+      "A",
+      "PC"
+     ]
+    }
+   ],
+   "wargear": [
+    "Canon Infernus d'Achéron de Coque (Avant)",
+    "Bolter lourd jumelé de Coque (Avant)",
+    "Poing tronçonneur Reaper",
+    "Bouclier ionique"
+   ],
+   "rules": [
+    "Autoréparation (5+)",
+    "Explose (4+)",
+    "Avant-garde (2)"
+   ],
+   "types": [
+    "Véhicule (Chevalier)"
+   ],
+   "traits": [
+    "[Allégeance]",
+    "[Questoris Familia]"
+   ],
+   "options": []
+  },
+  {
+   "id": "quest-chevalier-cerastus-lancier",
+   "name": "Chevalier Cerastus Lancier",
+   "role": "SB",
+   "points": 480,
+   "page": 38,
+   "models": [
+    {
+     "name": "Chevalier Lancier",
+     "count": 1
+    }
+   ],
+   "profiles": [
+    {
+     "name": "Chevalier Lancier",
+     "stats": [
+      "14",
+      "4",
+      "4",
+      "9",
+      "13",
+      "11",
+      "4",
+      "4",
+      "12"
+     ],
+     "heads": [
+      "M",
+      "CC",
+      "CT",
+      "F",
+      "Av",
+      "Ar",
+      "I",
+      "A",
+      "PC"
+     ]
+    }
+   ],
+   "wargear": [
+    "Lance-choc de Coque (Avant)",
+    "Gantelet-bouclier ionique",
+    "Bouclier ionique"
+   ],
+   "rules": [
+    "Autoréparation (5+)",
+    "Explose (6+)",
+    "Avant-garde (2)"
+   ],
+   "types": [
+    "Véhicule (Chevalier)"
+   ],
+   "traits": [
+    "[Allégeance]",
+    "[Questoris Familia]"
+   ],
+   "options": []
+  },
+  {
+   "id": "quest-chevalier-cerastus-atrapos",
+   "name": "Chevalier Cerastus Atrapos",
+   "role": "SB",
+   "points": 600,
+   "page": 39,
+   "models": [
+    {
+     "name": "Chevalier Atrapos",
+     "count": 1
+    }
+   ],
+   "profiles": [
+    {
+     "name": "Chevalier Atrapos",
+     "stats": [
+      "14",
+      "4",
+      "4",
+      "9",
+      "13",
+      "11",
+      "4",
+      "4",
+      "12"
+     ],
+     "heads": [
+      "M",
+      "CC",
+      "CT",
+      "F",
+      "Av",
+      "Ar",
+      "I",
+      "A",
+      "PC"
+     ]
+    }
+   ],
+   "wargear": [
+    "Canon à singularité graviton de Coque (Avant)",
+    "Découpeur de phase Atrapos de Coque (Avant)",
+    "Bouclier répulsif ionique"
+   ],
+   "rules": [
+    "Autoréparation (4+)",
+    "Explose (5+)",
+    "Avant-garde (2)"
+   ],
+   "types": [
+    "Véhicule (Chevalier)"
+   ],
+   "traits": [
+    "[Allégeance]",
+    "[Questoris Familia]"
+   ],
+   "options": []
+  },
+  {
+   "id": "quest-chevalier-acastus-porphyrion",
+   "name": "Chevalier Acastus Porphyrion",
+   "role": "SB",
+   "points": 725,
+   "page": 40,
+   "models": [
+    {
+     "name": "Chevalier Porphyrion",
+     "count": 1
+    }
+   ],
+   "profiles": [
+    {
+     "name": "Chevalier Porphyrion",
+     "stats": [
+      "10",
+      "3",
+      "4",
+      "10",
+      "14",
+      "11",
+      "2",
+      "3",
+      "18"
+     ],
+     "heads": [
+      "M",
+      "CC",
+      "CT",
+      "F",
+      "Av",
+      "Ar",
+      "I",
+      "A",
+      "PC"
+     ]
+    }
+   ],
+   "wargear": [
+    "Batterie à onde neutronique de Coque (Avant)",
+    "Batterie lance-missiles Ironstorm Dorsale (Avant)",
+    "Deux autocanons de Coque (Avant)",
+    "Bouclier ionique"
+   ],
+   "rules": [
+    "Autoréparation (5+)",
+    "Colosse",
+    "Explose (5+)",
+    "Tir Indépendant"
+   ],
+   "types": [
+    "Véhicule (Chevalier, Lourd)"
+   ],
+   "traits": [
+    "[Allégeance]",
+    "[Questoris Familia]"
+   ],
+   "options": [
+    {
+     "text": "Remplacer les deux autocanons de Coque (Avant)",
+     "max": 1,
+     "choices": [
+      {
+       "name": "Deux canons laser de Coque (Avant)",
+       "points": 10
+      }
+     ]
+    },
+    {
+     "text": "Remplacer la batterie Ironstorm Dorsale",
+     "max": 1,
+     "choices": [
+      {
+       "name": "Lance-missiles Hyperios Dorsal (Avant)",
+       "points": 10
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "quest-chevalier-acastus-asterius",
+   "name": "Chevalier Acastus Astérius",
+   "role": "SB",
+   "points": 750,
+   "page": 41,
+   "models": [
+    {
+     "name": "Chevalier Astérius",
+     "count": 1
+    }
+   ],
+   "profiles": [
+    {
+     "name": "Chevalier Astérius",
+     "stats": [
+      "10",
+      "3",
+      "4",
+      "10",
+      "14",
+      "11",
+      "2",
+      "3",
+      "18"
+     ],
+     "heads": [
+      "M",
+      "CC",
+      "CT",
+      "F",
+      "Av",
+      "Ar",
+      "I",
+      "A",
+      "PC"
+     ]
+    }
+   ],
+   "wargear": [
+    "AfFût à conversion Desolator de Coque (Avant)",
+    "Mortier Karacnos Dorsal (Avant)",
+    "Deux couleuvrines volkites de Coque (Avant)",
+    "Bouclier répulsif ionique"
+   ],
+   "rules": [
+    "Autoréparation (4+)",
+    "Colosse",
+    "Explose (4+)",
+    "Tir Indépendant"
+   ],
+   "types": [
+    "Véhicule (Chevalier, Lourd)"
+   ],
+   "traits": [
+    "[Allégeance]",
+    "[Questoris Familia]"
+   ],
+   "options": []
+  }
+ ]
+}
