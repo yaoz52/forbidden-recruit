@@ -18,7 +18,9 @@ A. CRÉER LE COMPTE ET LE DÉPÔT
    https://NOM-DU-COMPTE.github.io/forbidden-recruit/
 
 B. INSTALLER L'APPLICATION SUR CHAQUE APPAREIL
+- Applications à télécharger (Android, Windows) et instructions Mac : https://yaoz52.github.io/forbidden-recruit/telecharger.html
 - PC ou Mac (Chrome ou Edge) : ouvrez l'adresse, puis l'icône « Installer » à droite de la barre d'adresse.
+- Mac avec Safari (macOS 14+) : Fichier > « Ajouter au Dock ».
 - Android (Chrome) : ouvrez l'adresse, menu ⋮ > « Ajouter à l'écran d'accueil » / « Installer l'application ».
 - Ensuite l'application s'ouvre comme un logiciel, sans connexion. Les listes sont enregistrées
   automatiquement dans l'application, sur l'appareil.
@@ -33,6 +35,32 @@ C. PUBLIER UNE MISE À JOUR (quand je vous livre une nouvelle version)
 3. Sur chaque appareil : Réglages > « Vérifier les mises à jour » > « Installer les nouvelles données ».
    Si une nouvelle version de l'application est publiée, l'application installée se met à jour seule
    à l'ouverture suivante (bouton « Mise à jour disponible — installer »).
+
+C bis. PUBLIER LES APPLICATIONS ANDROID ET WINDOWS (à chaque nouvelle version que je vous livre)
+La page https://yaoz52.github.io/forbidden-recruit/telecharger.html propose les téléchargements. Les fichiers
+eux-mêmes se rangent dans une « Release » GitHub (trop gros pour le dépôt) :
+1. Sur la page du dépôt, colonne de droite : « Releases » > « Create a new release ».
+2. « Choose a tag » : tapez le numéro de version, par exemple v2026.11-h, puis « Create new tag ».
+3. Titre : Forbidden Recruit 2026.11-h.
+4. Glissez dans la zone « Attach binaries » les deux fichiers SANS LES RENOMMER :
+     Forbidden-Recruit-Android.apk
+     Forbidden-Recruit-Windows.zip
+5. « Publish release ». Les boutons de la page de téléchargement pointent toujours vers la dernière release.
+
+APPLICATION MAC (à faire une seule fois)
+L'application Mac est fabriquée et signée automatiquement par un Mac de GitHub à chaque release.
+1. Sur la page du dépôt : « Add file » > « Create new file ».
+2. Nom du fichier, tapez exactement : .github/workflows/mac.yml
+3. Ouvrez le fichier mac.yml que je vous ai fourni, copiez tout son contenu et collez-le dans la page.
+4. « Commit changes ».
+Ensuite, à chaque « Publish release », l'onglet « Actions » montre la construction (5 à 10 minutes) ; les fichiers
+Forbidden-Recruit-Mac-Apple-Silicon.zip et Forbidden-Recruit-Mac-Intel.zip s'ajoutent tout seuls à la release.
+Si la release existait déjà avant l'ajout du fichier : onglet « Actions » > « Application Mac » > « Run workflow ».
+
+CLÉ DE SIGNATURE ANDROID (forbidden-recruit-cle-android.zip)
+Conservez-la précieusement, hors de GitHub. Elle est nécessaire pour que les prochaines versions Android
+s'installent par-dessus l'ancienne. Si je travaille sur une nouvelle version dans une autre conversation,
+renvoyez-moi ce fichier.
 
 D. SANS CONNEXION
 Réglages > « Installer une mise à jour depuis un fichier » accepte le fichier forbidden-recruit-donnees-AAAA.MM.json

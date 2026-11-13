@@ -638,7 +638,7 @@ function goStep(n) { army.step = Math.max(1, Math.min(4, n)); sel = null; docume
 function renderWizard(issues) {
   const step = army.step || 1; document.body.dataset.step = step;
   const nav = $('#steps'); nav.replaceChildren();
-  STEPS.forEach(([t, sum], i) => nav.append(el('button', { type: 'button', class: i + 1 === step ? 'cur' : i + 1 < step ? 'done' : '', 'aria-current': i + 1 === step ? 'step' : null, onclick: () => goStep(i + 1) }, el('b', {}, `${i + 1}. ${t}`), el('span', {}, sum()))));
+  STEPS.forEach(([t, sum], i) => nav.append(el('button', { type: 'button', class: i + 1 === step ? 'cur' : i + 1 < step ? 'done' : '', 'aria-current': i + 1 === step ? 'step' : null, onclick: () => goStep(i + 1) }, el('b', {}, el('span', { class: 'rn' }, ['I', 'II', 'III', 'IV'][i]), el('span', { class: 't' }, t)), el('span', {}, sum()))));
   const w = $('#wiz'); w.replaceChildren();
   const choice = (label, sub, on, fn) => el('button', { type: 'button', class: 'choice', 'aria-pressed': on ? 'true' : 'false', onclick: fn }, el('b', {}, label), sub ? el('i', {}, sub) : null);
   if (step === 1) {
@@ -979,7 +979,21 @@ function renderSheet(issues) {
 }
 
 /* ---------- Listes & base de données ---------- */
-function download(name, text) { const a = el('a', { href: URL.createObjectURL(new Blob([text], { type: 'application/json' })), download: name }); document.body.append(a); a.click(); setTimeout(() => { URL.revokeObjectURL(a.href); a.remove(); }, 500); }
+/* Plateformes : navigateur, application de bureau (Electron) ou Android (Capacitor) */
+const NATIVE = window.Capacitor && window.Capacitor.isNativePlatform && window.Capacitor.isNativePlatform() ? 'android' : /Electron/.test(navigator.userAgent) ? 'desktop' : null;
+async function saveFile(name, blob) {
+  if (NATIVE === 'android') {
+    try {
+      const data = await new Promise((ok, ko) => { const r = new FileReader(); r.onload = () => ok(String(r.result).split(',')[1]); r.onerror = ko; r.readAsDataURL(blob); });
+      const C = window.Capacitor, w = await C.nativePromise('Filesystem', 'writeFile', { path: name, data, directory: 'CACHE', recursive: true });
+      await C.nativePromise('Share', 'share', { title: name, files: [w.uri], dialogTitle: 'Enregistrer ou envoyer ' + name });
+      return true;
+    } catch (e) { if (!/cancel/i.test(String(e && e.message))) flash('Enregistrement impossible : ' + (e && e.message || e)); return false; }
+  }
+  const a = el('a', { href: URL.createObjectURL(blob), download: name }); document.body.append(a); a.click(); setTimeout(() => { URL.revokeObjectURL(a.href); a.remove(); }, 1500);
+  return true;
+}
+function download(name, text) { saveFile(name, new Blob([text], { type: 'application/json' })); }
 function pickFile(cb, accept = '.json,application/json', parse = JSON.parse) { const i = el('input', { type: 'file', accept }); i.onchange = () => { const f = i.files[0]; if (!f) return; const r = new FileReader(); r.onload = () => { try { cb(parse(r.result)); } catch (e) { alert('Fichier illisible.\n' + e.message); } }; r.readAsText(f); }; i.click(); }
 const importListFile = cb => pickFile(cb, '.txt,.json,text/plain,application/json', parseListFile);
 function openLists() {
@@ -1026,14 +1040,16 @@ async function checkUpdates(statusEl, install) {
         statusEl.textContent = 'Données installées. Redémarrage…'; setTimeout(() => location.reload(), 600);
       } catch (e) { statusEl.textContent = 'Échec du téléchargement : ' + e.message; }
     } }, 'Installer les nouvelles données'));
-    if (newApp) statusEl.append(' ', el('a', { class: 'btn ghost', href: base + '/' + (man.appFile || 'forbidden-recruit.html'), download: man.appFile || 'forbidden-recruit.html' }, 'Télécharger la nouvelle application'));
+    if (newApp) statusEl.append(' ', NATIVE ? el('a', { class: 'btn ghost', href: base + '/telecharger.html', target: '_blank', rel: 'noopener' }, 'Télécharger la nouvelle version') : el('a', { class: 'btn ghost', href: base + '/' + (man.appFile || 'forbidden-recruit.html'), download: man.appFile || 'forbidden-recruit.html' }, 'Télécharger la nouvelle application'));
   } catch (e) { statusEl.textContent = 'Impossible de joindre le dépôt de mises à jour (connexion ou adresse). ' + e.message; }
 }
 function openSettings() {
   const dlg = $('#dlg'), body = $('#dlg-body'); body.replaceChildren(); $('#dlg-title').textContent = 'Réglages';
   const st = el('p', { class: 'note upd-status', role: 'status' });
-  const url = el('input', { type: 'url', value: updUrl(), placeholder: 'https://votre-compte.github.io/forbidden-recruit-mises-a-jour', 'aria-label': 'Adresse du dépôt de mises à jour', style: 'width:100%;padding:.5rem;border:1px solid var(--rule);background:#fff;border-radius:2px' });
+  const url = el('input', { type: 'url', value: updUrl(), placeholder: 'https://votre-compte.github.io/forbidden-recruit-mises-a-jour', 'aria-label': 'Adresse du dépôt de mises à jour', class: 'field' });
   body.append(
+    el('h4', {}, 'Installer sur un autre appareil'),
+    el('p', { class: 'note' }, 'Android, Windows, Mac ou navigateur : ', el('a', { href: (updUrl() || UPDATE_DEFAULT) + '/telecharger.html', target: '_blank', rel: 'noopener' }, 'page de téléchargement'), '.'),
     el('h4', {}, 'Mise à jour'),
     el('p', {}, `Application ${APP_VERSION} · données ${DB.core.version}${DB.custom === 'update' ? ' (mise à jour installée)' : DB.custom ? ' (base modifiée par vous)' : ''}.`),
     el('label', { class: 'inl' }, 'Adresse de votre dépôt de mises à jour', url),
@@ -1043,7 +1059,7 @@ function openSettings() {
     el('h4', {}, 'Mes listes'),
     el('p', { class: 'note' }, 'Vos listes sont enregistrées automatiquement dans l\'application, sur cet appareil. Pour les copier sur un autre appareil ou en garder une sauvegarde, créez un fichier de sauvegarde.'),
     el('div', { class: 'acts' },
-      el('button', { class: 'btn ghost', type: 'button', onclick: () => { const all = store.all(), n = Object.keys(all).length; const blob = new Blob(['Forbidden Recruit — sauvegarde de ' + n + ' liste(s), ' + new Date().toLocaleString('fr-FR') + '\r\n#30K-SAUVEGARDE ' + btoa(unescape(encodeURIComponent(JSON.stringify(all))))], { type: 'text/plain;charset=utf-8' }); const a = el('a', { href: URL.createObjectURL(blob), download: 'forbidden-recruit-sauvegarde.txt' }); document.body.append(a); a.click(); a.remove(); flash(n + ' liste(s) sauvegardée(s).'); } }, 'Sauvegarder toutes les listes'),
+      el('button', { class: 'btn ghost', type: 'button', onclick: () => { const all = store.all(), n = Object.keys(all).length; const blob = new Blob(['Forbidden Recruit — sauvegarde de ' + n + ' liste(s), ' + new Date().toLocaleString('fr-FR') + '\r\n#30K-SAUVEGARDE ' + btoa(unescape(encodeURIComponent(JSON.stringify(all))))], { type: 'text/plain;charset=utf-8' }); saveFile('forbidden-recruit-sauvegarde.txt', blob); flash(n + ' liste(s) sauvegardée(s).'); } }, 'Sauvegarder toutes les listes'),
       el('button', { class: 'btn ghost', type: 'button', onclick: () => pickFile(all => { const cur = store.all(); let n = 0; for (const a of Object.values(all)) if (a && a.dets) { cur[a.id] = a; n++; } LS.set('30k.lists', cur); flash(n + ' liste(s) restaurée(s).'); openSettings(); }, '.txt,text/plain', t => { const m = t.match(/#30K-SAUVEGARDE ([A-Za-z0-9+/=]+)/); if (!m) throw new Error('Ce fichier n\'est pas une sauvegarde Forbidden Recruit.'); return JSON.parse(decodeURIComponent(escape(atob(m[1])))); }) }, 'Restaurer une sauvegarde'))
   );
   { const E = DB.core.errata || []; if (E.length) { const d = el('details', {}, el('summary', {}, `FAQ et errata intégrés (${E.length})`));
@@ -1095,6 +1111,8 @@ async function start() {
   $('#b-data').addEventListener('click', openSettings);
   $('#b-print').addEventListener('click', exportPDF);
   $('#b-txt').addEventListener('click', exportText);
+  if (NATIVE === 'android') $('#b-printer').hidden = true;
+  if (NATIVE === 'android') document.addEventListener('click', e => { const l = e.target.closest && e.target.closest('a[target=_blank]'); if (l && /^https?:/.test(l.href)) { e.preventDefault(); location.href = l.href; } });
   $('#b-printer').addEventListener('click', () => { renderSheet(validate()); try { window.print(); } catch (e) { exportPDF(); } });
   $('#b-close').addEventListener('click', closeEditor);
   $('#dlg-x').addEventListener('click', () => $('#dlg').close());

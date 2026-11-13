@@ -194,7 +194,7 @@ function exportPDF() {
   footer();
   doc.setProperties({ title: D.title, subject: 'Feuille d\'armée Warhammer: The Horus Heresy', creator: 'Forbidden Recruit' });
   const name = fileBase() + '.pdf';
-  try { doc.save(name); flash(`PDF créé : ${name} (dossier Téléchargements).`); }
+  try { saveFile(name, doc.output('blob')).then(ok => { if (ok && NATIVE !== 'android') flash(`PDF créé : ${name} (dossier Téléchargements).`); }); }
   catch (e) { window.open(doc.output('bloburl'), '_blank'); }
 }
 
@@ -220,8 +220,8 @@ function exportText() {
   L.push('Ne pas modifier la ligne ci-dessous : elle permet de réimporter la liste dans Forbidden Recruit.');
   L.push('#30K-LISTE ' + btoa(unescape(encodeURIComponent(JSON.stringify(army)))));
   const blob = new Blob([L.join('\r\n')], { type: 'text/plain;charset=utf-8' });
-  const a = el('a', { href: URL.createObjectURL(blob), download: fileBase() + '.txt' }); document.body.append(a); a.click(); setTimeout(() => { URL.revokeObjectURL(a.href); a.remove(); }, 800);
-  flash(`Liste exportée : ${fileBase()}.txt (dossier Téléchargements).`);
+  saveFile(fileBase() + '.txt', blob);
+  if (NATIVE !== 'android') flash(`Liste exportée : ${fileBase()}.txt (dossier Téléchargements).`);
 }
 /* Lit une liste depuis un fichier .txt exporté (ou un ancien .json). */
 function parseListFile(text) {
