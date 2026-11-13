@@ -51,13 +51,15 @@ function mergeData(core, books) {
 }
 async function loadData() {
   const custom = LS.get('30k.customData');
-  const shipped = window.EMBEDDED_DATA ? window.EMBEDDED_DATA.core.version : null;
+  let siteCore = null;
+  if (!window.EMBEDDED_DATA) try { siteCore = await (await fetch('data/core.json', { cache: 'no-cache' })).json(); } catch (e) {}
+  const shipped = window.EMBEDDED_DATA ? window.EMBEDDED_DATA.core.version : siteCore ? siteCore.version : null;
   if (custom && custom.core && custom.books && !(shipped && custom.core.version < shipped && custom.source === 'update')) {
     mergeData(custom.core, custom.books); DB.custom = custom.source === 'update' ? 'update' : true; return;
   }
   if (custom && custom.source === 'update') LS.del('30k.customData');
   if (window.EMBEDDED_DATA) { mergeData(window.EMBEDDED_DATA.core, window.EMBEDDED_DATA.books); return; }
-  const core = await (await fetch('data/core.json', { cache: 'no-cache' })).json();
+  const core = siteCore || await (await fetch('data/core.json', { cache: 'no-cache' })).json();
   const books = [];
   for (const f of core.bookFiles) books.push(await (await fetch('data/' + f, { cache: 'no-cache' })).json());
   mergeData(core, books);
@@ -999,7 +1001,7 @@ function openLists() {
   dlg.showModal();
 }
 const APP_VERSION = '2026.11-h';
-const UPDATE_DEFAULT = '';
+const UPDATE_DEFAULT = 'https://yaoz52.github.io/forbidden-recruit';
 const updUrl = () => (LS.get('30k.updateUrl', null) || (location.protocol.startsWith('http') ? location.href.replace(/[^/]*$/, '') : UPDATE_DEFAULT) || '').trim().replace(/\/+$/, '');
 async function checkUpdates(statusEl, install) {
   const base = updUrl();
@@ -1029,7 +1031,7 @@ async function checkUpdates(statusEl, install) {
 }
 function openSettings() {
   const dlg = $('#dlg'), body = $('#dlg-body'); body.replaceChildren(); $('#dlg-title').textContent = 'Réglages';
-  const st = el('p', { class: 'note', role: 'status' });
+  const st = el('p', { class: 'note upd-status', role: 'status' });
   const url = el('input', { type: 'url', value: updUrl(), placeholder: 'https://votre-compte.github.io/forbidden-recruit-mises-a-jour', 'aria-label': 'Adresse du dépôt de mises à jour', style: 'width:100%;padding:.5rem;border:1px solid var(--rule);background:#fff;border-radius:2px' });
   body.append(
     el('h4', {}, 'Mise à jour'),
@@ -1107,5 +1109,21 @@ async function start() {
     }).catch(() => {});
     navigator.serviceWorker.addEventListener('controllerchange', () => location.reload());
   }
+  autoCheckUpdates();
+}
+/* Fichier unique (ou appareil hors du site) : vérification discrète, au plus deux fois par jour, sans rien installer seul */
+async function autoCheckUpdates() {
+  const base = updUrl();
+  if (!base || !navigator.onLine) return;
+  if (location.protocol.startsWith('http') && location.href.startsWith(base)) return; // version installée : le service worker s'en charge
+  const last = +LS.get('30k.lastUpdateCheck', 0); if (Date.now() - last < 12 * 3600e3) return;
+  try {
+    const man = await (await fetch(base + '/manifest.json?t=' + Date.now(), { cache: 'no-store' })).json();
+    LS.set('30k.lastUpdateCheck', Date.now());
+    if ((man.dataVersion && man.dataVersion > DB.core.version) || (man.appVersion && man.appVersion > APP_VERSION)) {
+      const b = $('#update'); b.textContent = 'Mise à jour disponible — voir'; b.hidden = false;
+      b.onclick = () => { openSettings(); const st = document.querySelector('#dlg-body .upd-status'); if (st) checkUpdates(st); };
+    }
+  } catch (e) {}
 }
 start();
