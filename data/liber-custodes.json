@@ -1,0 +1,1938 @@
+{
+ "id": "liber-custodes",
+ "name": "Liber Custodes",
+ "lang": "en",
+ "army": "cust",
+ "source": "Liber Custodes (EN, 2026) — relevé Wahapedia, 14 nov. 2026",
+ "units": [
+  {
+   "id": "lc-constantin-valdor",
+   "name": "Constantin Valdor",
+   "lang": "en",
+   "role": "SG",
+   "points": 400,
+   "models": [
+    {
+     "name": "Constantin Valdor",
+     "count": 1
+    }
+   ],
+   "profiles": [
+    {
+     "name": "Constantin Valdor",
+     "stats": [
+      "8",
+      "7",
+      "6",
+      "5",
+      "5",
+      "6",
+      "6",
+      "6",
+      "12",
+      "10",
+      "10",
+      "10",
+      "2+",
+      "4+"
+     ]
+    }
+   ],
+   "army": "cust",
+   "source": "Liber Custodes (EN, 2026) — relevé Wahapedia, 14 nov. 2026",
+   "wargear": [
+    "The Apollonian Spear",
+    "Misericordia",
+    "Arae-Shrike"
+   ],
+   "rules": [
+    "Bulky (4)",
+    "Eternal Warrior (2)",
+    "Hatred (Paragon)",
+    "Master of the Golden Legion",
+    "Vanguard (3)"
+   ],
+   "types": [
+    "Paragon (Unique)"
+   ],
+   "traits": [
+    "Legio Custodes",
+    "Loyalist",
+    "Golden Exemplar",
+    "The Sodality"
+   ]
+  },
+  {
+   "id": "lc-jenetia-krole",
+   "name": "Jenetia Krole",
+   "lang": "en",
+   "role": "QG",
+   "points": 125,
+   "models": [
+    {
+     "name": "Jenetia Krole",
+     "count": 1
+    }
+   ],
+   "profiles": [
+    {
+     "name": "Jenetia Krole",
+     "stats": [
+      "6",
+      "6",
+      "5",
+      "3",
+      "3",
+      "4",
+      "5",
+      "5",
+      "10",
+      "10",
+      "12",
+      "10",
+      "2+",
+      "4+"
+     ]
+    }
+   ],
+   "army": "anat",
+   "source": "Liber Custodes (EN, 2026) — relevé Wahapedia, 14 nov. 2026",
+   "wargear": [
+    "The Sword of Oblivion",
+    "Archaeotech pistol"
+   ],
+   "rules": [
+    "Eternal Warrior (1)",
+    "Ex Oblivio",
+    "Fear (1)",
+    "Hatred (Psyker, Malefic)",
+    "Precision (5+)",
+    "The Soulless Queen"
+   ],
+   "types": [
+    "Infantry (Unique, Command, Light)"
+   ],
+   "traits": [
+    "Loyalist",
+    "Anathema Psykana",
+    "Talons of the Emperor",
+    "Investigatus-Militant"
+   ]
+  },
+  {
+   "id": "lc-tribune",
+   "name": "Tribune",
+   "lang": "en",
+   "role": "QG",
+   "points": 250,
+   "models": [
+    {
+     "name": "Tribune",
+     "count": 1
+    }
+   ],
+   "profiles": [
+    {
+     "name": "Tribune",
+     "stats": [
+      "8",
+      "7",
+      "5",
+      "5",
+      "5",
+      "5",
+      "6",
+      "6",
+      "12",
+      "10",
+      "10",
+      "10",
+      "2+",
+      "4+"
+     ]
+    }
+   ],
+   "army": "cust",
+   "source": "Liber Custodes (EN, 2026) — relevé Wahapedia, 14 nov. 2026",
+   "wargear": [
+    "Eternity spear",
+    "Misericordia",
+    "Arae-Shrike"
+   ],
+   "rules": [
+    "Bulky (2)",
+    "Eternal Warrior (2)",
+    "Vanguard (3)"
+   ],
+   "types": [
+    "Infantry (Command)"
+   ],
+   "traits": [
+    "Loyalist",
+    "Legio Custodes",
+    "Golden Exemplar",
+    "The Sodality"
+   ],
+   "options": [
+    {
+     "text": "This Model may have its eternity spear exchanged for one eternity blade and one praesidium shield for Free.",
+     "max": 1,
+     "choices": [
+      {
+       "name": "Eternity blade and praesidium shield",
+       "points": 0,
+       "gives": [
+        "Eternity blade",
+        "Praesidium Shield"
+       ]
+      }
+     ],
+     "replaces": [
+      "Eternity spear"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "lc-knight-centura",
+   "name": "Knight-Centura",
+   "lang": "en",
+   "role": "EM",
+   "points": 75,
+   "models": [
+    {
+     "name": "Knight-Centura",
+     "count": 1
+    }
+   ],
+   "profiles": [
+    {
+     "name": "Knight-Centura",
+     "stats": [
+      "6",
+      "5",
+      "4",
+      "3",
+      "3",
+      "3",
+      "5",
+      "3",
+      "9",
+      "8",
+      "12",
+      "8",
+      "2+",
+      "5+"
+     ]
+    }
+   ],
+   "army": "anat",
+   "source": "Liber Custodes (EN, 2026) — relevé Wahapedia, 14 nov. 2026",
+   "wargear": [
+    "Paragon blade"
+   ],
+   "rules": [
+    "Ex Oblivio",
+    "Fear (1)",
+    "Hatred (Psyker, Malefic)",
+    "Precision (6+)"
+   ],
+   "types": [
+    "Infantry (Command, Light)"
+   ],
+   "traits": [
+    "Loyalist",
+    "Anathema Psykana",
+    "Talons of the Emperor",
+    "Investigatus-Militant"
+   ]
+  },
+  {
+   "id": "lc-shield-captain",
+   "name": "Shield Captain",
+   "lang": "en",
+   "role": "EM",
+   "points": 175,
+   "models": [
+    {
+     "name": "Shield Captain",
+     "count": 1
+    }
+   ],
+   "profiles": [
+    {
+     "name": "Shield Captain",
+     "stats": [
+      "8",
+      "6",
+      "5",
+      "5",
+      "5",
+      "3",
+      "5",
+      "4",
+      "10",
+      "10",
+      "9",
+      "9",
+      "2+",
+      "4+"
+     ]
+    }
+   ],
+   "army": "cust",
+   "source": "Liber Custodes (EN, 2026) — relevé Wahapedia, 14 nov. 2026",
+   "wargear": [
+    "Eternity blade",
+    "Misericordia",
+    "Praesidium Shield"
+   ],
+   "rules": [
+    "Bulky (2)",
+    "Eternal Warrior (1)",
+    "Vanguard (3)"
+   ],
+   "types": [
+    "Infantry (Command)"
+   ],
+   "traits": [
+    "Loyalist",
+    "Legio Custodes",
+    "The Sodality"
+   ],
+   "options": [
+    {
+     "text": "This Model may have its eternity blade and praesidium shield exchanged for one eternity spear for Free.",
+     "max": 1,
+     "choices": [
+      {
+       "name": "Eternity spear",
+       "points": 0
+      }
+     ],
+     "replaces": [
+      "Eternity blade",
+      "Praesidium Shield"
+     ]
+    },
+    {
+     "text": "This Model may have an arae-shrike selected for it for +50 Points.",
+     "max": 1,
+     "choices": [
+      {
+       "name": "Arae-Shrike",
+       "points": 50
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "lc-aquilon-terminator-sodality",
+   "name": "Aquilon Terminator Sodality",
+   "lang": "en",
+   "role": "AL",
+   "points": 255,
+   "models": [
+    {
+     "name": "Aquilon Terminator",
+     "count": 3
+    }
+   ],
+   "profiles": [
+    {
+     "name": "Aquilon Terminator",
+     "stats": [
+      "7",
+      "5",
+      "5",
+      "5",
+      "6",
+      "3",
+      "5",
+      "3",
+      "10",
+      "10",
+      "8",
+      "8",
+      "2+",
+      "4+"
+     ]
+    }
+   ],
+   "army": "cust",
+   "source": "Liber Custodes (EN, 2026) — relevé Wahapedia, 14 nov. 2026",
+   "extra": {
+    "model": "Aquilon Terminator",
+    "max": 6,
+    "points": 85
+   },
+   "wargear": [
+    "Infernus firepike",
+    "Solarite power talon",
+    "Misericordia"
+   ],
+   "rules": [
+    "Bulky (3)",
+    "Eternal Warrior (1)",
+    "Implacable Advance",
+    "Vanguard (3)"
+   ],
+   "types": [
+    "Infantry (Heavy)"
+   ],
+   "traits": [
+    "Loyalist",
+    "Legio Custodes"
+   ],
+   "options": [
+    {
+     "text": "Any Model in this Unit may have its infernus firepike exchanged for one of the following:",
+     "max": "models",
+     "choices": [
+      {
+       "name": "Lastrum storm bolter",
+       "points": 0
+      },
+      {
+       "name": "Adrathic combi-destructor",
+       "points": 5
+      }
+     ],
+     "replaces": [
+      "Infernus firepike"
+     ]
+    },
+    {
+     "text": "Any Model in this Unit may have its Solarite power talon exchanged for one Solarite power gauntlet for +5 Points per Model.",
+     "max": "models",
+     "choices": [
+      {
+       "name": "Solarite power gauntlet",
+       "points": 5
+      }
+     ],
+     "replaces": [
+      "Solarite power talon"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "lc-anathema-cadre",
+   "name": "Anathema Cadre",
+   "lang": "en",
+   "role": "TR",
+   "points": 65,
+   "models": [
+    {
+     "name": "Null Sister",
+     "count": 4
+    },
+    {
+     "name": "Null Mistress",
+     "count": 1
+    }
+   ],
+   "profiles": [
+    {
+     "name": "Null Sister",
+     "stats": [
+      "6",
+      "4",
+      "4",
+      "3",
+      "3",
+      "1",
+      "4",
+      "2",
+      "7",
+      "7",
+      "10",
+      "7",
+      "3+",
+      "-"
+     ]
+    },
+    {
+     "name": "Null Mistress",
+     "stats": [
+      "6",
+      "4",
+      "4",
+      "3",
+      "3",
+      "1",
+      "4",
+      "2",
+      "8",
+      "7",
+      "10",
+      "7",
+      "3+",
+      "-"
+     ]
+    }
+   ],
+   "army": "anat",
+   "source": "Liber Custodes (EN, 2026) — relevé Wahapedia, 14 nov. 2026",
+   "extra": {
+    "model": "Null Sister",
+    "max": 5,
+    "points": 10
+   },
+   "wargear": [
+    "Bolter"
+   ],
+   "rules": [
+    "Fear (1)",
+    "Hatred (Psyker, Malefic)"
+   ],
+   "types": [
+    "Null Sister: Infantry (Light)",
+    "Null Mistress: Infantry (Sergeant, Light)"
+   ],
+   "traits": [
+    "Loyalist",
+    "Anathema Psykana",
+    "Talons of the Emperor"
+   ],
+   "options": [
+    {
+     "text": "Every Model in this Unit may have its bolter exchanged for one of the following. If this option is selected, every Model in this Unit must have its bolter exchanged for the same item:",
+     "max": "models",
+     "allOrNothing": true,
+     "choices": [
+      {
+       "name": "Two bolt pistols",
+       "points": 0
+      },
+      {
+       "name": "Flamer",
+       "points": 5
+      },
+      {
+       "name": "Execution blade",
+       "points": 10
+      }
+     ],
+     "replaces": [
+      "Bolter"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "lc-custodian-guard-sodality",
+   "name": "Custodian Guard Sodality",
+   "lang": "en",
+   "role": "TR",
+   "points": 270,
+   "models": [
+    {
+     "name": "Custodian Guard",
+     "count": 6
+    }
+   ],
+   "profiles": [
+    {
+     "name": "Custodian Guard",
+     "stats": [
+      "8",
+      "5",
+      "5",
+      "5",
+      "5",
+      "2",
+      "5",
+      "3",
+      "10",
+      "10",
+      "8",
+      "8",
+      "2+",
+      "6+"
+     ]
+    }
+   ],
+   "army": "cust",
+   "source": "Liber Custodes (EN, 2026) — relevé Wahapedia, 14 nov. 2026",
+   "extra": {
+    "model": "Custodian Guard",
+    "max": 6,
+    "points": 45
+   },
+   "wargear": [
+    "Guardian spear",
+    "Misericordia"
+   ],
+   "rules": [
+    "Bulky (2)",
+    "Eternal Warrior (1)",
+    "Lightning Blows",
+    "Vanguard (2)"
+   ],
+   "types": [
+    "Infantry"
+   ],
+   "traits": [
+    "Loyalist",
+    "Legio Custodes",
+    "The Sodality"
+   ],
+   "options": [
+    {
+     "text": "One Custodian Guard in this Unit may have its guardian spear exchanged for one magisterium vexilla for Free.",
+     "max": 1,
+     "choices": [
+      {
+       "name": "Magisterium vexilla",
+       "points": 0
+      }
+     ],
+     "replaces": [
+      "Guardian spear"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "lc-sentinel-guard-sodality",
+   "name": "Sentinel Guard Sodality",
+   "lang": "en",
+   "role": "TR",
+   "points": 240,
+   "models": [
+    {
+     "name": "Sentinel Guard",
+     "count": 6
+    }
+   ],
+   "profiles": [
+    {
+     "name": "Sentinel Guard",
+     "stats": [
+      "8",
+      "5",
+      "5",
+      "5",
+      "5",
+      "2",
+      "5",
+      "3",
+      "10",
+      "10",
+      "8",
+      "8",
+      "2+",
+      "5+"
+     ]
+    },
+    {
+     "name": "Sentinel Vexillarius",
+     "stats": [
+      "8",
+      "5",
+      "5",
+      "5",
+      "5",
+      "2",
+      "5",
+      "3",
+      "10",
+      "10",
+      "8",
+      "8",
+      "2+",
+      "6+"
+     ]
+    }
+   ],
+   "army": "cust",
+   "source": "Liber Custodes (EN, 2026) — relevé Wahapedia, 14 nov. 2026",
+   "extra": {
+    "model": "Sentinel Guard",
+    "max": 6,
+    "points": 40
+   },
+   "wargear": [
+    "Sentinel warblade",
+    "Misericordia",
+    "Sentinel Guard : Praesidium shield",
+    "Sentinel Vexillarius : Magisterium vexilla"
+   ],
+   "rules": [
+    "Bulky (2)",
+    "Eternal Warrior (1)",
+    "Lightning Blows",
+    "Vanguard (2)"
+   ],
+   "types": [
+    "Infantry"
+   ],
+   "traits": [
+    "Loyalist",
+    "Legio Custodes",
+    "Shield",
+    "The Sodality"
+   ],
+   "options": [
+    {
+     "text": "One Sentinel Guard in this Unit may be replaced with 1 Sentinel Vexillarius for +30 Points.",
+     "max": 1,
+     "choices": [
+      {
+       "name": "Sentinel Vexillarius",
+       "points": 30
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "lc-adamus-assassin",
+   "name": "Adamus Assassin",
+   "lang": "en",
+   "role": "AP",
+   "points": 125,
+   "models": [
+    {
+     "name": "Adamus Assassin",
+     "count": 1
+    }
+   ],
+   "profiles": [
+    {
+     "name": "Adamus Assassin",
+     "stats": [
+      "8",
+      "5",
+      "5",
+      "4",
+      "4",
+      "3",
+      "5",
+      "4",
+      "10",
+      "10",
+      "7",
+      "7",
+      "4+",
+      "4+"
+     ]
+    }
+   ],
+   "army": "assn",
+   "source": "Liber Custodes (EN, 2026) — relevé Wahapedia, 14 nov. 2026",
+   "wargear": [
+    "Needlespine Blaster",
+    "Nemesii Blade",
+    "Nemesii grenades"
+   ],
+   "rules": [
+    "Death’s Artisan",
+    "Heedless",
+    "Infiltrate (9)",
+    "Move Through Cover",
+    "Shrouded (5+)"
+   ],
+   "types": [
+    "Infantry (Champion, Light)"
+   ],
+   "traits": [
+    "Loyalist",
+    "Divisio Assassinorum",
+    "Talons of the Emperor"
+   ]
+  },
+  {
+   "id": "lc-callidus-assassin",
+   "name": "Callidus Assassin",
+   "lang": "en",
+   "role": "AP",
+   "points": 125,
+   "models": [
+    {
+     "name": "Callidus Assassin",
+     "count": 1
+    }
+   ],
+   "profiles": [
+    {
+     "name": "Callidus Assassin",
+     "stats": [
+      "8",
+      "5",
+      "5",
+      "4",
+      "4",
+      "3",
+      "5",
+      "4",
+      "10",
+      "10",
+      "7",
+      "7",
+      "4+",
+      "4+"
+     ]
+    }
+   ],
+   "army": "assn",
+   "source": "Liber Custodes (EN, 2026) — relevé Wahapedia, 14 nov. 2026",
+   "wargear": [
+    "Neural shredder",
+    "Poison blades",
+    "Phase sword"
+   ],
+   "rules": [
+    "Polymorphine",
+    "Reign of Confusion",
+    "Heedless",
+    "Infiltrate (6)",
+    "Move Through Cover",
+    "Shrouded (5+)"
+   ],
+   "types": [
+    "Infantry (Champion, Light)"
+   ],
+   "traits": [
+    "Loyalist",
+    "Divisio Assassinorum",
+    "Talons of the Emperor"
+   ]
+  },
+  {
+   "id": "lc-culexus-assassin",
+   "name": "Culexus Assassin",
+   "lang": "en",
+   "role": "AP",
+   "points": 140,
+   "models": [
+    {
+     "name": "Culexus Assassin",
+     "count": 1
+    }
+   ],
+   "profiles": [
+    {
+     "name": "Culexus Assassin",
+     "stats": [
+      "8",
+      "5",
+      "5",
+      "4",
+      "4",
+      "3",
+      "5",
+      "4",
+      "10",
+      "10",
+      "10",
+      "7",
+      "4+",
+      "4+"
+     ]
+    }
+   ],
+   "army": "assn",
+   "source": "Liber Custodes (EN, 2026) — relevé Wahapedia, 14 nov. 2026",
+   "wargear": [
+    "Animus speculum",
+    "Psyk-out bombs"
+   ],
+   "rules": [
+    "Etherium",
+    "Anathema",
+    "Ex Oblivio",
+    "Fear (1)",
+    "Hatred (Psyker)",
+    "Heedless",
+    "Infiltrate (9)",
+    "Move Through Cover",
+    "Shrouded (5+)"
+   ],
+   "types": [
+    "Infantry (Champion, Light)"
+   ],
+   "traits": [
+    "Loyalist",
+    "Divisio Assassinorum",
+    "Talons of the Emperor"
+   ]
+  },
+  {
+   "id": "lc-eversor-assassin",
+   "name": "Eversor Assassin",
+   "lang": "en",
+   "role": "AP",
+   "points": 125,
+   "models": [
+    {
+     "name": "Eversor Assassin",
+     "count": 1
+    }
+   ],
+   "profiles": [
+    {
+     "name": "Eversor Assassin",
+     "stats": [
+      "8",
+      "6",
+      "5",
+      "4",
+      "4",
+      "3",
+      "5",
+      "4",
+      "10",
+      "10",
+      "7",
+      "7",
+      "4+",
+      "4+"
+     ]
+    }
+   ],
+   "army": "assn",
+   "source": "Liber Custodes (EN, 2026) — relevé Wahapedia, 14 nov. 2026",
+   "wargear": [
+    "Executioner pistol",
+    "Neuro-gauntlet",
+    "Power sword"
+   ],
+   "rules": [
+    "Frenzon Rage",
+    "Reaping Blow (3)",
+    "Eternal Warrior (1)",
+    "Explodes (2+)",
+    "Heedless",
+    "Infiltrate (9)",
+    "Move Through Cover",
+    "Shrouded (5+)"
+   ],
+   "types": [
+    "Infantry (Champion, Light)"
+   ],
+   "traits": [
+    "Loyalist",
+    "Divisio Assassinorum",
+    "Talons of the Emperor"
+   ]
+  },
+  {
+   "id": "lc-vanus-infocyte-assassin",
+   "name": "Vanus Infocyte Assassin",
+   "lang": "en",
+   "role": "AP",
+   "points": 105,
+   "models": [
+    {
+     "name": "Vanus Infocyte Assassin",
+     "count": 1
+    }
+   ],
+   "profiles": [
+    {
+     "name": "Vanus Infocyte Assassin",
+     "stats": [
+      "7",
+      "5",
+      "5",
+      "4",
+      "4",
+      "3",
+      "5",
+      "3",
+      "10",
+      "10",
+      "8",
+      "10",
+      "4+",
+      "4+"
+     ]
+    }
+   ],
+   "army": "assn",
+   "source": "Liber Custodes (EN, 2026) — relevé Wahapedia, 14 nov. 2026",
+   "wargear": [
+    "Two laspistols",
+    "Sympatic dataspikes"
+   ],
+   "rules": [
+    "Autonomic Servo-limbs",
+    "Infocyte",
+    "Heedless",
+    "Infiltrate (9)",
+    "Move Through Cover",
+    "Shrouded (5+)"
+   ],
+   "types": [
+    "Infantry (Light)"
+   ],
+   "traits": [
+    "Loyalist",
+    "Divisio Assassinorum",
+    "Talons of the Emperor",
+    "Disruptor"
+   ]
+  },
+  {
+   "id": "lc-venenum-assassin",
+   "name": "Venenum Assassin",
+   "lang": "en",
+   "role": "AP",
+   "points": 125,
+   "models": [
+    {
+     "name": "Venenum Assassin",
+     "count": 1
+    }
+   ],
+   "profiles": [
+    {
+     "name": "Venenum Assassin",
+     "stats": [
+      "8",
+      "5",
+      "5",
+      "4",
+      "4",
+      "3",
+      "5",
+      "4",
+      "10",
+      "10",
+      "7",
+      "7",
+      "4+",
+      "4+"
+     ]
+    }
+   ],
+   "army": "assn",
+   "source": "Liber Custodes (EN, 2026) — relevé Wahapedia, 14 nov. 2026",
+   "wargear": [
+    "Toxin ejector",
+    "Poison globes",
+    "Hookfang"
+   ],
+   "rules": [
+    "Unnatural Conditioning",
+    "Heedless",
+    "Infiltrate (9)",
+    "Move Through Cover",
+    "Shrouded (5+)"
+   ],
+   "types": [
+    "Infantry (Champion, Light)"
+   ],
+   "traits": [
+    "Loyalist",
+    "Divisio Assassinorum",
+    "Talons of the Emperor"
+   ]
+  },
+  {
+   "id": "lc-vindicare-assassin",
+   "name": "Vindicare Assassin",
+   "lang": "en",
+   "role": "AP",
+   "points": 150,
+   "models": [
+    {
+     "name": "Vindicare Assassin",
+     "count": 1
+    }
+   ],
+   "profiles": [
+    {
+     "name": "Vindicare Assassin",
+     "stats": [
+      "8",
+      "5",
+      "7",
+      "4",
+      "4",
+      "3",
+      "5",
+      "2",
+      "10",
+      "10",
+      "7",
+      "7",
+      "4+",
+      "4+"
+     ]
+    }
+   ],
+   "army": "assn",
+   "source": "Liber Custodes (EN, 2026) — relevé Wahapedia, 14 nov. 2026",
+   "wargear": [
+    "Exitus rifle",
+    "Exitus pistol",
+    "Assassin’s blade"
+   ],
+   "rules": [
+    "Deadshot",
+    "Heedless",
+    "Infiltrate (9)",
+    "Move Through Cover",
+    "Shrouded (5+)"
+   ],
+   "types": [
+    "Infantry (Light)"
+   ],
+   "traits": [
+    "Loyalist",
+    "Divisio Assassinorum",
+    "Talons of the Emperor"
+   ]
+  },
+  {
+   "id": "lc-contemptor-achillus-dreadnought",
+   "name": "Contemptor-Achillus Dreadnought",
+   "lang": "en",
+   "role": "EG",
+   "points": 250,
+   "models": [
+    {
+     "name": "Contemptor-Achillus",
+     "count": 1
+    }
+   ],
+   "profiles": [
+    {
+     "name": "Contemptor-Achillus",
+     "stats": [
+      "8",
+      "5",
+      "5",
+      "8",
+      "7",
+      "6",
+      "4",
+      "5",
+      "12",
+      "10",
+      "9",
+      "5",
+      "2+",
+      "5+"
+     ]
+    }
+   ],
+   "army": "cust",
+   "source": "Liber Custodes (EN, 2026) — relevé Wahapedia, 14 nov. 2026",
+   "wargear": [
+    "Achillus dreadspear",
+    "Two infernus incinerators",
+    "Smoke Launchers"
+   ],
+   "rules": [
+    "Bulky (6)",
+    "Eternal Warrior (1)",
+    "Explodes (6+)",
+    "Implacable Advance",
+    "Lightning Blows",
+    "Vanguard (2)"
+   ],
+   "types": [
+    "Walker"
+   ],
+   "traits": [
+    "Loyalist",
+    "Legio Custodes",
+    "Smokescreen"
+   ],
+   "options": [
+    {
+     "text": "Each of this Model’s infernus incinerators may be exchanged for one of the following:",
+     "max": 2,
+     "choices": [
+      {
+       "name": "Lastrum storm bolter",
+       "points": 0
+      },
+      {
+       "name": "Adrathic combi-destructor",
+       "points": 5
+      }
+     ],
+     "replaces": [
+      "Infernus incinerator"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "lc-contemptor-galatus-dreadnought",
+   "name": "Contemptor-Galatus Dreadnought",
+   "lang": "en",
+   "role": "EG",
+   "points": 225,
+   "models": [
+    {
+     "name": "Contemptor-Galatus",
+     "count": 1
+    }
+   ],
+   "profiles": [
+    {
+     "name": "Contemptor-Galatus",
+     "stats": [
+      "8",
+      "5",
+      "5",
+      "8",
+      "7",
+      "6",
+      "4",
+      "5",
+      "12",
+      "10",
+      "9",
+      "5",
+      "2+",
+      "4+"
+     ]
+    }
+   ],
+   "army": "cust",
+   "source": "Liber Custodes (EN, 2026) — relevé Wahapedia, 14 nov. 2026",
+   "wargear": [
+    "Galatus warblade",
+    "Gravis Praesidium Shield",
+    "Smoke Launchers"
+   ],
+   "rules": [
+    "Bulky (6)",
+    "Eternal Warrior (1)",
+    "Explodes (6+)",
+    "Implacable Advance",
+    "Lightning Blows",
+    "Vanguard (2)"
+   ],
+   "types": [
+    "Walker"
+   ],
+   "traits": [
+    "Loyalist",
+    "Legio Custodes",
+    "Shield",
+    "Smokescreen"
+   ]
+  },
+  {
+   "id": "lc-telemon-heavy-dreadnought",
+   "name": "Telemon Heavy Dreadnought",
+   "lang": "en",
+   "role": "EG",
+   "points": 360,
+   "models": [
+    {
+     "name": "Telemon Heavy Dreadnought",
+     "count": 1
+    }
+   ],
+   "profiles": [
+    {
+     "name": "Telemon Heavy Dreadnought",
+     "stats": [
+      "7",
+      "5",
+      "5",
+      "9",
+      "8",
+      "8",
+      "3",
+      "3",
+      "12",
+      "10",
+      "9",
+      "3",
+      "2+",
+      "4+"
+     ]
+    }
+   ],
+   "army": "cust",
+   "source": "Liber Custodes (EN, 2026) — relevé Wahapedia, 14 nov. 2026",
+   "wargear": [
+    "Spiculus missile launcher",
+    "Smoke launchers"
+   ],
+   "rules": [
+    "Bulky (8)",
+    "Eternal Warrior (1)",
+    "Explodes (5+)",
+    "Implacable Advance",
+    "Vanguard (2)"
+   ],
+   "types": [
+    "Walker (Heavy)"
+   ],
+   "traits": [
+    "Loyalist",
+    "Legio Custodes",
+    "Smokescreen"
+   ],
+   "options": [
+    {
+     "text": "This Model must have one of the following options selected for it: two options from the following list:",
+     "max": 2,
+     "required": true,
+     "exclusive": "telemon",
+     "choices": [
+      {
+       "name": "Telemon caestus and one twin neutronium cascade projector",
+       "points": 5
+      },
+      {
+       "name": "Arachnus storm cannon",
+       "points": 20
+      },
+      {
+       "name": "Adrathic desolator",
+       "points": 15
+      },
+      {
+       "name": "Iliastus accelerator culverin",
+       "points": 15
+      }
+     ]
+    },
+    {
+     "text": "This Model must have one of the following options selected for it: paired Telemon caestus and two twin neutronium cascade projectors.",
+     "max": 1,
+     "exclusive": "telemon",
+     "choices": [
+      {
+       "name": "Paired Telemon caestus and two twin neutronium cascade projectors",
+       "points": 15
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "lc-kharon-pattern-acquisitor",
+   "name": "Kharon Pattern Acquisitor",
+   "lang": "en",
+   "role": "TP",
+   "points": 120,
+   "models": [
+    {
+     "name": "Kharon Acquisitor",
+     "count": 1
+    }
+   ],
+   "profiles": [
+    {
+     "name": "Kharon Acquisitor",
+     "stats": [
+      "12",
+      "4",
+      "13",
+      "12",
+      "11",
+      "5",
+      "12"
+     ],
+     "vehicle": true
+    }
+   ],
+   "army": "anat",
+   "source": "Liber Custodes (EN, 2026) — relevé Wahapedia, 14 nov. 2026",
+   "wargear": [
+    "Hull (Front) Mounted hellion heavy cannon array",
+    "Two Centreline Mounted Vratine heavy missiles"
+   ],
+   "rules": [
+    "Assault Vehicle",
+    "Fear (1)",
+    "Light Transport",
+    "Outflank",
+    "Shrouded (5+)"
+   ],
+   "types": [
+    "Vehicle (Antigrav, Transport)"
+   ],
+   "traits": [
+    "Loyalist",
+    "Anathema Psykana",
+    "Talons of the Emperor"
+   ],
+   "accessPoints": [
+    "This Model has one Access Point on the Front Facing."
+   ]
+  },
+  {
+   "id": "lc-coronus-grav-carrier",
+   "name": "Coronus Grav-carrier",
+   "lang": "en",
+   "role": "TL",
+   "points": 180,
+   "models": [
+    {
+     "name": "Coronus Grav-carrier",
+     "count": 1
+    }
+   ],
+   "profiles": [
+    {
+     "name": "Coronus Grav-carrier",
+     "stats": [
+      "12",
+      "5",
+      "13",
+      "13",
+      "11",
+      "8",
+      "14"
+     ],
+     "vehicle": true
+    }
+   ],
+   "army": "cust",
+   "source": "Liber Custodes (EN, 2026) — relevé Wahapedia, 14 nov. 2026",
+   "wargear": [
+    "Turret Mounted twin Arachnus blaze cannon",
+    "Hull (Front) Mounted twin lastrum bolt cannon"
+   ],
+   "rules": [
+    "Assault Vehicle",
+    "Auto-repair (3+)",
+    "Deep Strike",
+    "Explodes (6+)"
+   ],
+   "types": [
+    "Vehicle (Antigrav, Transport)"
+   ],
+   "traits": [
+    "Loyalist",
+    "Legio Custodes"
+   ],
+   "accessPoints": [
+    "This Model has one Access Point on the Rear Facing."
+   ],
+   "options": [
+    {
+     "text": "This Model may have its Hull (Front) Mounted twin lastrum bolt cannon exchanged for one Hull (Front) Mounted twin neutronium cascade projector for +15 Points.",
+     "max": 1,
+     "choices": [
+      {
+       "name": "Hull (Front) Mounted twin neutronium cascade projector",
+       "points": 15
+      }
+     ],
+     "replaces": [
+      "Hull (Front) Mounted twin lastrum bolt cannon"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "lc-venatari-sodality",
+   "name": "Venatari Sodality",
+   "lang": "en",
+   "role": "RE",
+   "points": 165,
+   "models": [
+    {
+     "name": "Venatari",
+     "count": 3
+    }
+   ],
+   "profiles": [
+    {
+     "name": "Venatari",
+     "stats": [
+      "14",
+      "5",
+      "5",
+      "5",
+      "5",
+      "2",
+      "5",
+      "3",
+      "10",
+      "10",
+      "8",
+      "8",
+      "3+",
+      "6+"
+     ]
+    }
+   ],
+   "army": "cust",
+   "source": "Liber Custodes (EN, 2026) — relevé Wahapedia, 14 nov. 2026",
+   "extra": {
+    "model": "Venatari",
+    "max": 3,
+    "points": 55
+   },
+   "wargear": [
+    "Kinetic destroyer",
+    "Tarsus buckler",
+    "Misericordia"
+   ],
+   "rules": [
+    "Bulky (3)",
+    "Deep Strike",
+    "Eternal Warrior (1)",
+    "Firestorm",
+    "Outflank",
+    "Vanguard (3)"
+   ],
+   "types": [
+    "Infantry (Antigrav, Light)"
+   ],
+   "traits": [
+    "Loyalist",
+    "Legio Custodes",
+    "The Sodality"
+   ],
+   "options": [
+    {
+     "text": "Any Model in this Unit may have its kinetic destroyer and tarsus buckler exchanged for one verutum lance for Free.",
+     "max": "models",
+     "choices": [
+      {
+       "name": "Verutum lance",
+       "points": 0
+      }
+     ],
+     "replaces": [
+      "Kinetic destroyer",
+      "Tarsus buckler"
+     ]
+    },
+    {
+     "text": "Every Model in this Unit may have neutronium cascade mines selected for it for +10 Points per Model.",
+     "max": "models",
+     "allOrNothing": true,
+     "choices": [
+      {
+       "name": "Neutronium cascade mine",
+       "points": 10
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "lc-gyrfalcon-jetbike-sodality",
+   "name": "Gyrfalcon Jetbike Sodality",
+   "lang": "en",
+   "role": "AR",
+   "points": 140,
+   "models": [
+    {
+     "name": "Gyrfalcon Agamatus",
+     "count": 2
+    }
+   ],
+   "profiles": [
+    {
+     "name": "Gyrfalcon Agamatus",
+     "stats": [
+      "16",
+      "5",
+      "5",
+      "5",
+      "5",
+      "3",
+      "5",
+      "2",
+      "10",
+      "10",
+      "8",
+      "8",
+      "3+",
+      "6+"
+     ]
+    }
+   ],
+   "army": "cust",
+   "source": "Liber Custodes (EN, 2026) — relevé Wahapedia, 14 nov. 2026",
+   "extra": {
+    "model": "Gyrfalcon Agamatus",
+    "max": 8,
+    "points": 70
+   },
+   "wargear": [
+    "Lastrum bolt cannon",
+    "Solarite power lance",
+    "Misericordia"
+   ],
+   "rules": [
+    "Bulky (5)",
+    "Deep Strike",
+    "Eternal Warrior (1)",
+    "Implacable Advance",
+    "Outflank",
+    "Vanguard (3)"
+   ],
+   "types": [
+    "Cavalry (Antigrav)"
+   ],
+   "traits": [
+    "Loyalist",
+    "Legio Custodes"
+   ],
+   "options": [
+    {
+     "text": "Any Model in this Unit may have its lastrum bolt cannon exchanged for one of the following:",
+     "max": "models",
+     "choices": [
+      {
+       "name": "Adrathic devastator",
+       "points": 10
+      },
+      {
+       "name": "Twin corvae las-pulser",
+       "points": 10
+      }
+     ],
+     "replaces": [
+      "Lastrum bolt cannon"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "lc-pallas-grav-attack",
+   "name": "Pallas Grav-attack",
+   "lang": "en",
+   "role": "AR",
+   "points": 105,
+   "models": [
+    {
+     "name": "Pallas Grav-attack",
+     "count": 1
+    }
+   ],
+   "profiles": [
+    {
+     "name": "Pallas Grav-attack",
+     "stats": [
+      "16",
+      "5",
+      "12",
+      "11",
+      "11",
+      "4",
+      "-"
+     ],
+     "vehicle": true
+    }
+   ],
+   "army": "cust",
+   "source": "Liber Custodes (EN, 2026) — relevé Wahapedia, 14 nov. 2026",
+   "wargear": [
+    "Centreline Mounted twin Iliastus accelerator fusil"
+   ],
+   "rules": [
+    "Auto-repair (3+)",
+    "Deep Strike",
+    "Explodes (6+)"
+   ],
+   "types": [
+    "Vehicle (Antigrav, Rapid)"
+   ],
+   "traits": [
+    "Loyalist",
+    "Legio Custodes"
+   ],
+   "options": [
+    {
+     "text": "This Model may have its Centreline Mounted twin Iliastus accelerator fusil exchanged for one Centreline Mounted twin Arachnus blaze cannon for +25 Points.",
+     "max": 1,
+     "choices": [
+      {
+       "name": "Centreline Mounted twin Arachnus blaze cannon",
+       "points": 25
+      }
+     ],
+     "replaces": [
+      "Centreline Mounted twin Iliastus accelerator fusil"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "lc-caladius-grav-tank",
+   "name": "Caladius Grav-tank",
+   "lang": "en",
+   "role": "BL",
+   "points": 225,
+   "models": [
+    {
+     "name": "Caladius Grav-tank",
+     "count": 1
+    }
+   ],
+   "profiles": [
+    {
+     "name": "Caladius Grav-tank",
+     "stats": [
+      "14",
+      "5",
+      "13",
+      "13",
+      "11",
+      "7",
+      "-"
+     ],
+     "vehicle": true
+    },
+    {
+     "name": "Caladius Annihilator Grav-tank",
+     "stats": [
+      "14",
+      "5",
+      "13",
+      "13",
+      "11",
+      "7",
+      "-"
+     ],
+     "vehicle": true
+    }
+   ],
+   "army": "cust",
+   "source": "Liber Custodes (EN, 2026) — relevé Wahapedia, 14 nov. 2026",
+   "variants": [
+    {
+     "name": "Caladius Annihilator Grav-tank",
+     "points": 10
+    }
+   ],
+   "wargear": [
+    "Caladius Grav-tank : Turret Mounted twin Iliastus accelerator cannon",
+    "Caladius Grav-tank : Hull (Front) Mounted twin lastrum bolt cannon",
+    "Caladius Annihilator Grav-tank : Turret Mounted twin Arachnus blaze carronade",
+    "Caladius Annihilator Grav-tank : Hull (Front) Mounted twin lastrum bolt cannon"
+   ],
+   "rules": [
+    "Auto-repair (3+)",
+    "Deep Strike",
+    "Explodes (6+)"
+   ],
+   "types": [
+    "Vehicle (Antigrav, Rapid)"
+   ],
+   "traits": [
+    "Loyalist",
+    "Legio Custodes"
+   ],
+   "options": [
+    {
+     "text": "This Model may have its Hull (Front) Mounted twin lastrum bolt cannon exchanged for one Hull (Front) Mounted twin neutronium cascade projector for +15 Points.",
+     "max": 1,
+     "choices": [
+      {
+       "name": "Hull (Front) Mounted twin neutronium cascade projector",
+       "points": 15
+      }
+     ],
+     "replaces": [
+      "Hull (Front) Mounted twin lastrum bolt cannon"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "lc-ares-gunship",
+   "name": "Ares Gunship",
+   "lang": "en",
+   "role": "SB",
+   "points": 650,
+   "models": [
+    {
+     "name": "Ares Gunship",
+     "count": 1
+    }
+   ],
+   "profiles": [
+    {
+     "name": "Ares Gunship",
+     "stats": [
+      "18",
+      "5",
+      "13",
+      "13",
+      "13",
+      "12",
+      "-"
+     ],
+     "vehicle": true
+    }
+   ],
+   "army": "cust",
+   "source": "Liber Custodes (EN, 2026) — relevé Wahapedia, 14 nov. 2026",
+   "wargear": [
+    "Centreline Mounted twin Arachnus storm carronade",
+    "Hull (Front) Mounted neutronium magna-cascade cannon",
+    "Two Centreline (Front, Rear) Mounted infernus firebomb clusters",
+    "Eclipse shield"
+   ],
+   "rules": [],
+   "types": [
+    "Vehicle (Super-heavy, Flyer)"
+   ],
+   "traits": [
+    "Loyalist",
+    "Legio Custodes"
+   ]
+  },
+  {
+   "id": "lc-orion-assault-dropship",
+   "name": "Orion Assault Dropship",
+   "lang": "en",
+   "role": "SB",
+   "points": 600,
+   "models": [
+    {
+     "name": "Orion Assault Dropship",
+     "count": 1
+    }
+   ],
+   "profiles": [
+    {
+     "name": "Orion Assault Dropship",
+     "stats": [
+      "18",
+      "5",
+      "13",
+      "13",
+      "13",
+      "12",
+      "26"
+     ],
+     "vehicle": true
+    }
+   ],
+   "army": "cust",
+   "source": "Liber Custodes (EN, 2026) — relevé Wahapedia, 14 nov. 2026",
+   "wargear": [
+    "Centreline Mounted twin Arachnus blaze carronade",
+    "Two Hull (Front) Mounted twin lastrum bolt cannon",
+    "Two Hull (Front) Mounted spiculus heavy missile pods",
+    "Eclipse shield"
+   ],
+   "rules": [
+    "Assault Vehicle"
+   ],
+   "types": [
+    "Vehicle (Transport, Super-heavy, Flyer)"
+   ],
+   "traits": [
+    "Loyalist",
+    "Legio Custodes"
+   ],
+   "accessPoints": [
+    "This Model has one Access Point on the Rear Facing."
+   ]
+  }
+ ],
+ "detachments": [
+  {
+   "id": "lc-moritoi",
+   "name": "Moritoi Convocation",
+   "kind": "apex",
+   "army": "cust",
+   "slots": [
+    {
+     "role": "EG",
+     "prime": true
+    },
+    {
+     "role": "EG"
+    }
+   ],
+   "lang": "en",
+   "source": "Liber Custodes (EN, 2026) — relevé Wahapedia, 14 nov. 2026",
+   "note": "Only Units entirely composed of Models with the Legio Custodes Trait may be selected to fill Force Organisation Slots in these Detachments."
+  },
+  {
+   "id": "lc-hykanatoi",
+   "name": "Hykanatoi Convocation",
+   "kind": "aux",
+   "army": "cust",
+   "slots": [
+    {
+     "role": "TR",
+     "prime": true
+    },
+    {
+     "role": "TR"
+    },
+    {
+     "role": "TL"
+    }
+   ],
+   "lang": "en",
+   "source": "Liber Custodes (EN, 2026) — relevé Wahapedia, 14 nov. 2026",
+   "note": "Only Units entirely composed of Models with the Legio Custodes Trait may be selected to fill Force Organisation Slots in these Detachments."
+  },
+  {
+   "id": "lc-tharanatoi",
+   "name": "Tharanatoi Convocation",
+   "kind": "aux",
+   "army": "cust",
+   "slots": [
+    {
+     "role": "AL",
+     "prime": true
+    },
+    {
+     "role": "AL"
+    }
+   ],
+   "lang": "en",
+   "source": "Liber Custodes (EN, 2026) — relevé Wahapedia, 14 nov. 2026",
+   "note": "Only Units entirely composed of Models with the Legio Custodes Trait may be selected to fill Force Organisation Slots in these Detachments."
+  },
+  {
+   "id": "lc-ephoroi",
+   "name": "Ephoroi Convocation",
+   "kind": "aux",
+   "army": "cust",
+   "slots": [
+    {
+     "role": "RE",
+     "prime": true
+    },
+    {
+     "role": "RE"
+    }
+   ],
+   "lang": "en",
+   "source": "Liber Custodes (EN, 2026) — relevé Wahapedia, 14 nov. 2026",
+   "note": "Only Units entirely composed of Models with the Legio Custodes Trait may be selected to fill Force Organisation Slots in these Detachments."
+  },
+  {
+   "id": "lc-kataphractoi",
+   "name": "Kataphractoi Convocation",
+   "kind": "aux",
+   "army": "cust",
+   "slots": [
+    {
+     "role": "AR",
+     "prime": true
+    },
+    {
+     "role": "TL"
+    },
+    {
+     "role": "BL"
+    }
+   ],
+   "lang": "en",
+   "source": "Liber Custodes (EN, 2026) — relevé Wahapedia, 14 nov. 2026",
+   "note": "Only Units entirely composed of Models with the Legio Custodes Trait may be selected to fill Force Organisation Slots in these Detachments."
+  }
+ ]
+}

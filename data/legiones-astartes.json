@@ -9638,6 +9638,50 @@
        "points": 25
       }
      ]
+    },
+    {
+     "text": "Any Model in this Unit with a bolter may have one of the following selected for it:",
+     "max": "models",
+     "choices": [
+      {
+       "name": "Baïonnette",
+       "points": 1
+      },
+      {
+       "name": "Baïonnette tronçonneuse",
+       "points": 2
+      }
+     ],
+     "requires": [
+      "Bolter"
+     ],
+     "lang": "en",
+     "src": "Wahapedia (EN, version à jour) — absent du livre FR"
+    },
+    {
+     "text": "Any Model in this Unit may have its bolter exchanged for one item from the Legion Combi-weapons list.",
+     "max": "models",
+     "list": "Armes Combinées de Légion",
+     "replaces": [
+      "Bolter"
+     ],
+     "lang": "en",
+     "src": "Wahapedia (EN, version à jour) — absent du livre FR"
+    },
+    {
+     "text": "One Deathwing Companion in this Unit may have one vexilla selected for it for +10 Points.",
+     "max": 1,
+     "choices": [
+      {
+       "name": "Vexillum",
+       "points": 10
+      }
+     ],
+     "models": [
+      "Compagnon de la Deathwing"
+     ],
+     "lang": "en",
+     "src": "Wahapedia (EN, version à jour) — absent du livre FR"
     }
    ]
   },
@@ -9744,6 +9788,51 @@
      "replaces": [
       "Brûleur à plasma"
      ]
+    },
+    {
+     "text": "One Interemptor in this Unit may have one vexilla selected for it for +10 Points.",
+     "max": 1,
+     "choices": [
+      {
+       "name": "Vexillum",
+       "points": 10
+      }
+     ],
+     "models": [
+      "Interemptor"
+     ],
+     "lang": "en",
+     "src": "Wahapedia (EN, version à jour) — absent du livre FR"
+    },
+    {
+     "text": "Up to two Interemptors in this Unit may each have one item from the Legion Equipment list selected for them.",
+     "max": 2,
+     "list": "Équipement de Légion",
+     "models": [
+      "Interemptor"
+     ],
+     "lang": "en",
+     "src": "Wahapedia (EN, version à jour) — absent du livre FR"
+    },
+    {
+     "text": "The Interemptor Praefectus in this Unit may have any of the following selected for it:",
+     "max": 2,
+     "eachChoice": true,
+     "choices": [
+      {
+       "name": "Bombes à fusion",
+       "points": 10
+      },
+      {
+       "name": "Bombes à phosphex",
+       "points": 10
+      }
+     ],
+     "models": [
+      "Préfet Interemptor"
+     ],
+     "lang": "en",
+     "src": "Wahapedia (EN, version à jour) — absent du livre FR"
     }
    ]
   },
@@ -9828,7 +9917,23 @@
     "Dark Angels"
    ],
    "faction": "Dark Angels",
-   "options": []
+   "options": [
+    {
+     "text": "Any Model in this Unit may have its Terranic greatsword exchanged for one thunder hammer for +10 Points per Model.",
+     "max": "models",
+     "choices": [
+      {
+       "name": "Marteau Thunder",
+       "points": 10
+      }
+     ],
+     "replaces": [
+      "Espadon terranique"
+     ],
+     "lang": "en",
+     "src": "Wahapedia (EN, version à jour) — absent du livre FR"
+    }
+   ]
   },
   {
    "id": "jaghatai-khan",
@@ -10189,6 +10294,44 @@
      "models": [
       "Cavalier de la Keshig"
      ]
+    },
+    {
+     "text": "Any Model in this Unit may have its power sword exchanged for one of the following:",
+     "max": "models",
+     "choices": [
+      {
+       "name": "Lance énergétique",
+       "points": 0
+      },
+      {
+       "name": "Masse énergétique",
+       "points": 0
+      },
+      {
+       "name": "Sabre charnabal",
+       "points": 0
+      }
+     ],
+     "replaces": [
+      "Épée énergétique"
+     ],
+     "lang": "en",
+     "src": "Wahapedia (EN, version à jour) — absent du livre FR"
+    },
+    {
+     "text": "One Keshig Rider in this Unit may have one vexilla selected for it for +10 Points.",
+     "max": 1,
+     "choices": [
+      {
+       "name": "Vexillum",
+       "points": 10
+      }
+     ],
+     "models": [
+      "Cavalier de la Keshig"
+     ],
+     "lang": "en",
+     "src": "Wahapedia (EN, version à jour) — absent du livre FR"
     }
    ]
   },
@@ -10247,7 +10390,78 @@
     "White Scars"
    ],
    "faction": "White Scars",
-   "options": []
+   "options": [
+    {
+     "text": "Any Model in this Unit may have its power glaive exchanged for one of the following:",
+     "max": "models",
+     "choices": [
+      {
+       "name": "Combi-bolter et arme énergétique",
+       "points": 5,
+       "gives": [
+        "Combi-bolter",
+        "Arme énergétique"
+       ]
+      },
+      {
+       "name": "Combi-bolter et gantelet énergétique",
+       "points": 10,
+       "gives": [
+        "Combi-bolter",
+        "Gantelet énergétique"
+       ]
+      }
+     ],
+     "replaces": [
+      "Vouge énergétique"
+     ],
+     "lang": "en",
+     "src": "Wahapedia (EN, version à jour) — absent du livre FR"
+    },
+    {
+     "text": "Any Model in this Unit which has had its power glaive exchanged for one combi-bolter and one power weapon, or combi-bolter and power fist, may have its combi-bolter exchanged for one volkite charger for Free or for one item from the Legion Combi-weapons list.",
+     "max": "models",
+     "choices": [
+      {
+       "name": "Chargeur volkite",
+       "points": 0
+      }
+     ],
+     "list": "Armes Combinées de Légion",
+     "replaces": [
+      "Combi-bolter"
+     ],
+     "requires": [
+      "Combi-bolter"
+     ],
+     "lang": "en",
+     "src": "Wahapedia (EN, version à jour) — absent du livre FR"
+    },
+    {
+     "text": "One Model in this Unit may have one vexilla selected for it for +10 Points.",
+     "max": 1,
+     "choices": [
+      {
+       "name": "Vexillum",
+       "points": 10
+      }
+     ],
+     "lang": "en",
+     "src": "Wahapedia (EN, version à jour) — absent du livre FR"
+    },
+    {
+     "text": "Any Model in this Unit may have one grenade harness selected for it for +5 Points.",
+     "max": "models",
+     "choices": [
+      {
+       "name": "Harnais à grenades",
+       "points": 5
+      }
+     ],
+     "lang": "en",
+     "src": "Wahapedia (EN, version à jour) — absent du livre FR"
+    }
+   ]
   },
   {
    "id": "leman-russ",
@@ -10600,7 +10814,107 @@
     "Space Wolves"
    ],
    "faction": "Space Wolves",
-   "options": []
+   "options": [
+    {
+     "text": "Any Model in this Unit may have its frost axe exchanged for one of the following:",
+     "max": "models",
+     "choices": [
+      {
+       "name": "Gantelet énergétique",
+       "points": 10
+      },
+      {
+       "name": "Poing tronçonneur",
+       "points": 10
+      },
+      {
+       "name": "Marteau Thunder",
+       "points": 10
+      }
+     ],
+     "replaces": [
+      "Hache de givre"
+     ],
+     "lang": "en",
+     "src": "Wahapedia (EN, version à jour) — absent du livre FR"
+    },
+    {
+     "text": "Any Model in this Unit may have its combi-bolter exchanged for one item from the Legion Combi-weapons list or for one of the following:",
+     "max": "models",
+     "choices": [
+      {
+       "name": "Épée de givre",
+       "points": 5
+      },
+      {
+       "name": "Griffe de givre",
+       "points": 5
+      },
+      {
+       "name": "Lance-flammes lourd",
+       "points": 5
+      },
+      {
+       "name": "Autocanon Reaper",
+       "points": 15
+      }
+     ],
+     "list": "Armes Combinées de Légion",
+     "replaces": [
+      "Combi-bolter"
+     ],
+     "lang": "en",
+     "src": "Wahapedia (EN, version à jour) — absent du livre FR"
+    },
+    {
+     "text": "The Thegn in this Unit may have its frost axe exchanged for one great frost blade for +5 Points.",
+     "max": 1,
+     "choices": [
+      {
+       "name": "Grande lame de givre",
+       "points": 5
+      }
+     ],
+     "replaces": [
+      "Hache de givre"
+     ],
+     "models": [
+      "Thegn"
+     ],
+     "lang": "en",
+     "src": "Wahapedia (EN, version à jour) — absent du livre FR"
+    },
+    {
+     "text": "The Thegn in this Unit may have one grenade harness selected for it for +5 Points.",
+     "max": 1,
+     "choices": [
+      {
+       "name": "Harnais à grenades",
+       "points": 5
+      }
+     ],
+     "models": [
+      "Thegn"
+     ],
+     "lang": "en",
+     "src": "Wahapedia (EN, version à jour) — absent du livre FR"
+    },
+    {
+     "text": "One Varagyr in this Unit may have one vexilla selected for it for +10 Points.",
+     "max": 1,
+     "choices": [
+      {
+       "name": "Vexillum",
+       "points": 10
+      }
+     ],
+     "models": [
+      "Varagyr"
+     ],
+     "lang": "en",
+     "src": "Wahapedia (EN, version à jour) — absent du livre FR"
+    }
+   ]
   },
   {
    "id": "meute-de-mort-jures",
@@ -10659,7 +10973,70 @@
     "Space Wolves"
    ],
    "faction": "Space Wolves",
-   "options": []
+   "options": [
+    {
+     "text": "Any Model in this Unit may have its power axe exchanged for one power fist for +5 Points.",
+     "max": "models",
+     "choices": [
+      {
+       "name": "Gantelet énergétique",
+       "points": 5
+      }
+     ],
+     "replaces": [
+      "Hache énergétique"
+     ],
+     "lang": "en",
+     "src": "Wahapedia (EN, version à jour) — absent du livre FR"
+    },
+    {
+     "text": "For every five Models in this Unit, one Deathsworn in this Unit may have its power axe exchanged for one of the following:",
+     "max": {
+      "per": 5
+     },
+     "choices": [
+      {
+       "name": "Marteau Thunder",
+       "points": 5
+      },
+      {
+       "name": "Grande lame de givre",
+       "points": 10
+      }
+     ],
+     "replaces": [
+      "Hache énergétique"
+     ],
+     "lang": "en",
+     "src": "Wahapedia (EN, version à jour) — absent du livre FR"
+    },
+    {
+     "text": "Every Model in this Unit may have melta bombs selected for it for +5 Points per Model.",
+     "max": 1,
+     "all": true,
+     "choices": [
+      {
+       "name": "Bombes à fusion",
+       "points": 5
+      }
+     ],
+     "lang": "en",
+     "src": "Wahapedia (EN, version à jour) — absent du livre FR"
+    },
+    {
+     "text": "Every Model in this Unit may have rad grenades selected for it for +5 Points per Model.",
+     "max": 1,
+     "all": true,
+     "choices": [
+      {
+       "name": "Grenades Rad",
+       "points": 5
+      }
+     ],
+     "lang": "en",
+     "src": "Wahapedia (EN, version à jour) — absent du livre FR"
+    }
+   ]
   },
   {
    "id": "meute-de-tueurs-gris",
@@ -11568,6 +11945,36 @@
        "points": 25
       }
      ]
+    },
+    {
+     "text": "For every five Models in this Unit, one Phalanx Warder in this Unit may have one item from the Legion Combi-weapons list or one of the following selected for it:",
+     "max": {
+      "per": 5
+     },
+     "choices": [
+      {
+       "name": "Lance-flammes",
+       "points": 5
+      },
+      {
+       "name": "Fusil à plasma",
+       "points": 10
+      },
+      {
+       "name": "Fuseur",
+       "points": 15
+      },
+      {
+       "name": "Marteau Thunder",
+       "points": 10
+      }
+     ],
+     "list": "Armes Combinées de Légion",
+     "models": [
+      "Gardien du Phalanx"
+     ],
+     "lang": "en",
+     "src": "Wahapedia (EN, version à jour) — absent du livre FR"
     }
    ]
   },
@@ -11939,6 +12346,43 @@
      "models": [
       "Paladin Écarlate"
      ]
+    },
+    {
+     "text": "Up to two Crimson Paladins in this Unit may have their power sword exchanged for one of the following:",
+     "max": 2,
+     "choices": [
+      {
+       "name": "Gantelet énergétique",
+       "points": 5
+      },
+      {
+       "name": "Poing tronçonneur",
+       "points": 10
+      }
+     ],
+     "replaces": [
+      "Épée énergétique"
+     ],
+     "models": [
+      "Paladin Écarlate"
+     ],
+     "lang": "en",
+     "src": "Wahapedia (EN, version à jour) — absent du livre FR"
+    },
+    {
+     "text": "The Crimson Exemplar in this Unit may have one grenade harness selected for it for +5 Points.",
+     "max": 1,
+     "choices": [
+      {
+       "name": "Harnais à grenades",
+       "points": 5
+      }
+     ],
+     "models": [
+      "Exemple Écarlate"
+     ],
+     "lang": "en",
+     "src": "Wahapedia (EN, version à jour) — absent du livre FR"
     }
    ]
   },
@@ -12059,6 +12503,21 @@
        "points": 25
       }
      ]
+    },
+    {
+     "text": "Any Model in this Unit may have its falling-star power spear exchanged for one pair of equinox blades for Free.",
+     "max": "models",
+     "choices": [
+      {
+       "name": "Pair of equinox blades",
+       "points": 0
+      }
+     ],
+     "replaces": [
+      "Lance énergétique Étoile Filante"
+     ],
+     "lang": "en",
+     "src": "Wahapedia (EN, version à jour) — absent du livre FR"
     }
    ]
   },
@@ -12158,6 +12617,58 @@
      "replaces": [
       "Deux serpentines volkites"
      ]
+    },
+    {
+     "text": "Any Model in this Unit may have its two volkite serpentas exchanged for one of the following:",
+     "max": "models",
+     "choices": [
+      {
+       "name": "Épée tronçonneuse lourde",
+       "points": 5
+      },
+      {
+       "name": "Lance-flammes lourd",
+       "points": 10
+      },
+      {
+       "name": "Canon rotor",
+       "points": 10
+      },
+      {
+       "name": "Canon d'assaut Iliastus",
+       "points": 20
+      }
+     ],
+     "replaces": [
+      "Deux serpentines volkites"
+     ],
+     "lang": "en",
+     "src": "Wahapedia (EN, version à jour) — absent du livre FR"
+    },
+    {
+     "text": "The Arch-Erelim in this Unit may have one of its volkite serpentas exchanged for one item from the Legion Sergeant Melee Weapons list.",
+     "max": 1,
+     "list": "Armes de Mêlée de Sergent de Légion",
+     "models": [
+      "Archi-Erelim"
+     ],
+     "lang": "en",
+     "src": "Wahapedia (EN, version à jour) — absent du livre FR"
+    },
+    {
+     "text": "The Arch-Erelim in this Unit may have one of its volkite serpentas exchanged for one plasma pistol for Free.",
+     "max": 1,
+     "choices": [
+      {
+       "name": "Pistolet à plasma",
+       "points": 0
+      }
+     ],
+     "models": [
+      "Archi-Erelim"
+     ],
+     "lang": "en",
+     "src": "Wahapedia (EN, version à jour) — absent du livre FR"
     }
    ]
   },
@@ -12530,7 +13041,114 @@
     "Iron Hands"
    ],
    "faction": "Iron Hands",
-   "options": []
+   "options": [
+    {
+     "text": "Any Gorgon Terminator in this Unit may have its artificer power axe exchanged for one of the following:",
+     "max": "models",
+     "choices": [
+      {
+       "name": "Griffe Lightning",
+       "points": 5
+      },
+      {
+       "name": "Gantelet énergétique",
+       "points": 10
+      },
+      {
+       "name": "Poing tronçonneur",
+       "points": 10
+      }
+     ],
+     "replaces": [
+      "Hache énergétique d'artificier"
+     ],
+     "models": [
+      "Terminator Gorgone"
+     ],
+     "lang": "en",
+     "src": "Wahapedia (EN, version à jour) — absent du livre FR"
+    },
+    {
+     "text": "Any Gorgon Terminator in this Unit may have its artificer power axe and combi-bolter exchanged for one pair of lightning claws for +10 Points per Model.",
+     "max": "models",
+     "choices": [
+      {
+       "name": "Paire de griffes Lightning",
+       "points": 10
+      }
+     ],
+     "replaces": [
+      "Hache énergétique d'artificier",
+      "Combi-bolter"
+     ],
+     "models": [
+      "Terminator Gorgone"
+     ],
+     "lang": "en",
+     "src": "Wahapedia (EN, version à jour) — absent du livre FR"
+    },
+    {
+     "text": "Any Model in this Unit may have its combi-bolter exchanged for one item from the Legion Combi-weapons list.",
+     "max": "models",
+     "list": "Armes Combinées de Légion",
+     "replaces": [
+      "Combi-bolter"
+     ],
+     "lang": "en",
+     "src": "Wahapedia (EN, version à jour) — absent du livre FR"
+    },
+    {
+     "text": "For every three Models in this Unit, one Gorgon Terminator in this Unit may have its combi-bolter exchanged for one of the following:",
+     "max": {
+      "per": 3
+     },
+     "choices": [
+      {
+       "name": "Lance-flammes lourd",
+       "points": 5
+      },
+      {
+       "name": "Fusil à gravitons",
+       "points": 10
+      },
+      {
+       "name": "Graviton shredder",
+       "points": 15
+      },
+      {
+       "name": "Éclateur à plasma",
+       "points": 10
+      },
+      {
+       "name": "Autocanon Reaper",
+       "points": 15
+      }
+     ],
+     "replaces": [
+      "Combi-bolter"
+     ],
+     "models": [
+      "Terminator Gorgone"
+     ],
+     "lang": "en",
+     "src": "Wahapedia (EN, version à jour) — absent du livre FR"
+    },
+    {
+     "text": "One Gorgon Terminator in this Unit may have one vexilla selected for it for +10 Points.",
+     "max": 1,
+     "choices": [
+      {
+       "name": "Vexillum",
+       "points": 10
+      }
+     ],
+     "models": [
+      "Terminator Gorgone"
+     ],
+     "lang": "en",
+     "src": "Wahapedia (EN, version à jour) — absent du livre FR"
+    }
+   ]
   },
   {
    "id": "escouade-d-immortels-de-medusa",
@@ -12675,6 +13293,25 @@
      "models": [
       "Immortel"
      ]
+    },
+    {
+     "text": "Any Model in this Unit may have its bolter exchanged for one of the following:",
+     "max": "models",
+     "choices": [
+      {
+       "name": "Épée tronçonneuse",
+       "points": 0
+      },
+      {
+       "name": "Chargeur volkite",
+       "points": 2
+      }
+     ],
+     "replaces": [
+      "Bolter"
+     ],
+     "lang": "en",
+     "src": "Wahapedia (EN, version à jour) — absent du livre FR"
     }
    ]
   },
@@ -12806,6 +13443,21 @@
      "replaces": [
       "Pistolet bolter"
      ]
+    },
+    {
+     "text": "Any Model in this Unit may have its Legatine axe exchanged for one thunder hammer for +10 Points per Model.",
+     "max": "models",
+     "choices": [
+      {
+       "name": "Marteau Thunder",
+       "points": 10
+      }
+     ],
+     "replaces": [
+      "Hache légatine"
+     ],
+     "lang": "en",
+     "src": "Wahapedia (EN, version à jour) — absent du livre FR"
     }
    ]
   },
@@ -12945,6 +13597,26 @@
      "models": [
       "Prétorien Primus"
      ]
+    },
+    {
+     "text": "For every five Models in this Unit, one Praetorian in this Unit may have its power sword exchanged for one Legatine axe for +5 Points per Model.",
+     "max": {
+      "per": 5
+     },
+     "choices": [
+      {
+       "name": "Hache légatine",
+       "points": 5
+      }
+     ],
+     "replaces": [
+      "Épée énergétique"
+     ],
+     "models": [
+      "Prétorien"
+     ],
+     "lang": "en",
+     "src": "Wahapedia (EN, version à jour) — absent du livre FR"
     }
    ]
   },
@@ -13086,7 +13758,65 @@
     "Bouclier"
    ],
    "faction": "Salamanders",
-   "options": []
+   "options": [
+    {
+     "text": "Any Model in this Unit may have its forge-crafted thunder hammer exchanged for one of the following:",
+     "max": "models",
+     "choices": [
+      {
+       "name": "Arme énergétique",
+       "points": 0
+      },
+      {
+       "name": "Gantelet énergétique",
+       "points": 0
+      },
+      {
+       "name": "Poing tronçonneur",
+       "points": 5
+      }
+     ],
+     "replaces": [
+      "Marteau Thunder forgé"
+     ],
+     "lang": "en",
+     "src": "Wahapedia (EN, version à jour) — absent du livre FR"
+    },
+    {
+     "text": "Any Model in this Unit may have its Drakenscale exchanged for one combi-bolter for Free or for one item from the Legion Combi-weapons list. Any Model that has its Drakenscale exchanged for any Wargear option loses the Shield Trait.",
+     "max": "models",
+     "choices": [
+      {
+       "name": "Combi-bolter",
+       "points": 0
+      }
+     ],
+     "list": "Armes Combinées de Légion",
+     "replaces": [
+      "Écaille de Drac"
+     ],
+     "lang": "en",
+     "src": "Wahapedia (EN, version à jour) — absent du livre FR"
+    },
+    {
+     "text": "One Firedrake in this Unit may have its Drakenscale exchanged for one forge-crafted heavy flamer for +10 Points. Any Model that has its Drakenscale exchanged for any Wargear option loses the Shield Trait.",
+     "max": 1,
+     "choices": [
+      {
+       "name": "Lance-flammes lourd forgé",
+       "points": 10
+      }
+     ],
+     "replaces": [
+      "Écaille de Drac"
+     ],
+     "models": [
+      "Pyrodrac"
+     ],
+     "lang": "en",
+     "src": "Wahapedia (EN, version à jour) — absent du livre FR"
+    }
+   ]
   },
   {
    "id": "escouade-pyroclaste",
@@ -13403,6 +14133,84 @@
      "replaces": [
       "Bolter Némésis"
      ]
+    },
+    {
+     "text": "Any Model in this Unit may have one of the following selected for it:",
+     "max": "models",
+     "choices": [
+      {
+       "name": "Sabre charnabal",
+       "points": 5
+      },
+      {
+       "name": "Arme énergétique",
+       "points": 10
+      }
+     ],
+     "lang": "en",
+     "src": "Wahapedia (EN, version à jour) — absent du livre FR"
+    },
+    {
+     "text": "Any Model in this Unit may have its Nemesis bolter exchanged for one item from the Legion Combi-weapons list.",
+     "max": "models",
+     "list": "Armes Combinées de Légion",
+     "replaces": [
+      "Bolter Némésis"
+     ],
+     "lang": "en",
+     "src": "Wahapedia (EN, version à jour) — absent du livre FR"
+    },
+    {
+     "text": "For every three Models in this Unit, one Model in this Unit may have its Nemesis bolter exchanged for one of the following:",
+     "max": {
+      "per": 3
+     },
+     "choices": [
+      {
+       "name": "Pistolet à plasma",
+       "points": 0
+      },
+      {
+       "name": "Chargeur volkite",
+       "points": 0
+      },
+      {
+       "name": "Lance-flammes",
+       "points": 0
+      },
+      {
+       "name": "Fusil à plasma",
+       "points": 5
+      },
+      {
+       "name": "Fuseur",
+       "points": 10
+      },
+      {
+       "name": "Lance-missiles",
+       "points": 10
+      }
+     ],
+     "replaces": [
+      "Bolter Némésis"
+     ],
+     "lang": "en",
+     "src": "Wahapedia (EN, version à jour) — absent du livre FR"
+    },
+    {
+     "text": "The Mor Deythan Shade in this Unit may have melta bombs selected for it for +5 Points.",
+     "max": 1,
+     "choices": [
+      {
+       "name": "Bombes à fusion",
+       "points": 5
+      }
+     ],
+     "models": [
+      "Ombre Mor Deythan"
+     ],
+     "lang": "en",
+     "src": "Wahapedia (EN, version à jour) — absent du livre FR"
     }
    ]
   },

@@ -731,6 +731,21 @@
      ],
      "all": true,
      "allegiance": "Renégat"
+    },
+    {
+     "text": "The Phoenix Champion in this Unit may have one grenade harness selected for it for +5 Points.",
+     "max": 1,
+     "choices": [
+      {
+       "name": "Harnais à grenades",
+       "points": 5
+      }
+     ],
+     "models": [
+      "Champion Phénix"
+     ],
+     "lang": "en",
+     "src": "Wahapedia (EN, version à jour) — absent du livre FR"
     }
    ]
   },
@@ -853,6 +868,25 @@
      ],
      "all": true,
      "allegiance": "Renégat"
+    },
+    {
+     "text": "Any Model in this Unit may have its Palatine blade exchanged for one power weapon or one Phoenix rapier for Free.",
+     "max": "models",
+     "choices": [
+      {
+       "name": "Arme énergétique",
+       "points": 0
+      },
+      {
+       "name": "Phoenix rapier",
+       "points": 0
+      }
+     ],
+     "replaces": [
+      "Lame palatine"
+     ],
+     "lang": "en",
+     "src": "Wahapedia (EN, version à jour) — absent du livre FR"
     }
    ]
   },
@@ -934,7 +968,31 @@
     "Emperor's Children"
    ],
    "faction": "Emperor's Children",
-   "options": []
+   "options": [
+    {
+     "text": "The Orchestrator in this Unit may have one of the following selected for it:",
+     "max": 1,
+     "choices": [
+      {
+       "name": "Épée tronçonneuse",
+       "points": 2
+      },
+      {
+       "name": "Arme énergétique",
+       "points": 10
+      },
+      {
+       "name": "Gantelet énergétique",
+       "points": 15
+      }
+     ],
+     "models": [
+      "Orchestrateur"
+     ],
+     "lang": "en",
+     "src": "Wahapedia (EN, version à jour) — absent du livre FR"
+    }
+   ]
   },
   {
    "id": "forgeguerre",
@@ -1107,6 +1165,52 @@
      "models": [
       "Maître de Siège"
      ]
+    },
+    {
+     "text": "The Siege Master in this Unit may have one grenade harness selected for it for +5 Points.",
+     "max": 1,
+     "choices": [
+      {
+       "name": "Harnais à grenades",
+       "points": 5
+      }
+     ],
+     "models": [
+      "Maître de Siège"
+     ],
+     "lang": "en",
+     "src": "Wahapedia (EN, version à jour) — absent du livre FR"
+    },
+    {
+     "text": "Any Model in this Unit may have its combi-bolter and power fist exchanged for one pair of lightning claws for +10 Points per Model.",
+     "max": "models",
+     "choices": [
+      {
+       "name": "Paire de griffes Lightning",
+       "points": 10
+      }
+     ],
+     "replaces": [
+      "Combi-bolter",
+      "Gantelet énergétique"
+     ],
+     "lang": "en",
+     "src": "Wahapedia (EN, version à jour) — absent du livre FR"
+    },
+    {
+     "text": "Any Model in this Unit may have its power fist exchanged for one chainfist for Free.",
+     "max": "models",
+     "choices": [
+      {
+       "name": "Poing tronçonneur",
+       "points": 0
+      }
+     ],
+     "replaces": [
+      "Gantelet énergétique"
+     ],
+     "lang": "en",
+     "src": "Wahapedia (EN, version à jour) — absent du livre FR"
     }
    ]
   },
@@ -1506,6 +1610,21 @@
      "requires": [
       "Bolter"
      ]
+    },
+    {
+     "text": "Any Model in this Unit may have its chainsword exchanged for one chainblade for +5 Points per Model.",
+     "max": "models",
+     "choices": [
+      {
+       "name": "Lame tronçonneuse",
+       "points": 5
+      }
+     ],
+     "replaces": [
+      "Épée tronçonneuse"
+     ],
+     "lang": "en",
+     "src": "Wahapedia (EN, version à jour) — absent du livre FR"
     }
    ]
   },
@@ -1606,6 +1725,73 @@
      "replaces": [
       "Épée tronçonneuse"
      ]
+    },
+    {
+     "text": "Any Model in this Unit may have its chainsword exchanged for one chainblade for +5 Points per Model.",
+     "max": "models",
+     "choices": [
+      {
+       "name": "Lame tronçonneuse",
+       "points": 5
+      }
+     ],
+     "replaces": [
+      "Épée tronçonneuse"
+     ],
+     "lang": "en",
+     "src": "Wahapedia (EN, version à jour) — absent du livre FR"
+    },
+    {
+     "text": "Any Model in this Unit may have its bolt pistol and chainsword exchanged for one pair of lightning claws for +10 Points per Model.",
+     "max": "models",
+     "choices": [
+      {
+       "name": "Paire de griffes Lightning",
+       "points": 10
+      }
+     ],
+     "replaces": [
+      "Pistolet bolter",
+      "Épée tronçonneuse"
+     ],
+     "lang": "en",
+     "src": "Wahapedia (EN, version à jour) — absent du livre FR"
+    },
+    {
+     "text": "For every five Models in this Unit, one Night Raptor in this Unit may have its bolt pistol exchanged for one of the following:",
+     "max": {
+      "per": 5
+     },
+     "choices": [
+      {
+       "name": "Lance-flammes",
+       "points": 5
+      },
+      {
+       "name": "Fuseur",
+       "points": 15
+      },
+      {
+       "name": "Fusil à plasma",
+       "points": 10
+      },
+      {
+       "name": "Pistolet à plasma",
+       "points": 5
+      },
+      {
+       "name": "Serpentine volkite",
+       "points": 5
+      }
+     ],
+     "replaces": [
+      "Pistolet bolter"
+     ],
+     "models": [
+      "Rapace Nocturne"
+     ],
+     "lang": "en",
+     "src": "Wahapedia (EN, version à jour) — absent du livre FR"
     }
    ]
   },
@@ -1939,6 +2125,103 @@
      "replaces": [
       "Haches énergétiques de Boucher"
      ]
+    },
+    {
+     "text": "Any Model in this Unit may have its butcher power axes exchanged for one combi-bolter and one power axe for Free.",
+     "max": "models",
+     "choices": [
+      {
+       "name": "Combi-bolter et hache énergétique",
+       "points": 0,
+       "gives": [
+        "Combi-bolter",
+        "Hache énergétique"
+       ]
+      }
+     ],
+     "replaces": [
+      "Haches énergétiques de Boucher"
+     ],
+     "lang": "en",
+     "src": "Wahapedia (EN, version à jour) — absent du livre FR"
+    },
+    {
+     "text": "Any Model in this Unit may have its butcher power axes exchanged for one pair of lightning claws for +10 Points per Model.",
+     "max": "models",
+     "choices": [
+      {
+       "name": "Paire de griffes Lightning",
+       "points": 10
+      }
+     ],
+     "replaces": [
+      "Haches énergétiques de Boucher"
+     ],
+     "lang": "en",
+     "src": "Wahapedia (EN, version à jour) — absent du livre FR"
+    },
+    {
+     "text": "If the Devoured in this Unit has had its butcher power axes exchanged for a combi-bolter and power axe, it may have its combi-bolter exchanged for one item from the Legion Combi-weapons list.",
+     "max": 1,
+     "list": "Armes Combinées de Légion",
+     "replaces": [
+      "Combi-bolter"
+     ],
+     "requires": [
+      "Combi-bolter"
+     ],
+     "models": [
+      "Dévoré"
+     ],
+     "lang": "en",
+     "src": "Wahapedia (EN, version à jour) — absent du livre FR"
+    },
+    {
+     "text": "If the Devoured in this Unit has had its butcher power axes exchanged for a combi-bolter and power axe, it may have its combi-bolter and/or power axe exchanged for one of the following:",
+     "max": 2,
+     "choices": [
+      {
+       "name": "Gantelet énergétique",
+       "points": 10
+      },
+      {
+       "name": "Poing tronçonneur",
+       "points": 5
+      },
+      {
+       "name": "Marteau Thunder",
+       "points": 5
+      }
+     ],
+     "replaces": [
+      [
+       "Combi-bolter",
+       "Hache énergétique"
+      ]
+     ],
+     "requires": [
+      "Hache énergétique"
+     ],
+     "models": [
+      "Dévoré"
+     ],
+     "lang": "en",
+     "src": "Wahapedia (EN, version à jour) — absent du livre FR"
+    },
+    {
+     "text": "The Devoured in this Unit may have one grenade harness selected for it for +5 Points.",
+     "max": 1,
+     "choices": [
+      {
+       "name": "Harnais à grenades",
+       "points": 5
+      }
+     ],
+     "models": [
+      "Dévoré"
+     ],
+     "lang": "en",
+     "src": "Wahapedia (EN, version à jour) — absent du livre FR"
     }
    ]
   },
@@ -2047,6 +2330,39 @@
      "replaces": [
       "Arme des Caedere"
      ]
+    },
+    {
+     "text": "Any Model in this Unit may have one bolt pistol selected for it for Free.",
+     "max": "models",
+     "choices": [
+      {
+       "name": "Pistolet bolter",
+       "points": 0
+      }
+     ],
+     "lang": "en",
+     "src": "Wahapedia (EN, version à jour) — absent du livre FR"
+    },
+    {
+     "text": "The Rampager Champion in this Unit may have its bolt pistol exchanged for one plasma pistol for +5 Points.",
+     "max": 1,
+     "choices": [
+      {
+       "name": "Pistolet à plasma",
+       "points": 5
+      }
+     ],
+     "replaces": [
+      "Pistolet bolter"
+     ],
+     "requires": [
+      "Pistolet bolter"
+     ],
+     "models": [
+      "Champion Saccageur"
+     ],
+     "lang": "en",
+     "src": "Wahapedia (EN, version à jour) — absent du livre FR"
     }
    ]
   },
@@ -2222,7 +2538,25 @@
     "Death Guard"
    ],
    "faction": "Death Guard",
-   "options": []
+   "options": [
+    {
+     "text": "Any Model in this Unit may have one of each of the following selected for it:",
+     "max": "models",
+     "eachChoice": true,
+     "choices": [
+      {
+       "name": "Bombes à fusion",
+       "points": 5
+      },
+      {
+       "name": "Harnais à grenades",
+       "points": 5
+      }
+     ],
+     "lang": "en",
+     "src": "Wahapedia (EN, version à jour) — absent du livre FR"
+    }
+   ]
   },
   {
    "id": "escouade-terminator-garde-tombe",
@@ -2353,6 +2687,21 @@
      "replaces": [
       "Lance-grenades d'assaut"
      ]
+    },
+    {
+     "text": "The Chem-master in this Unit may have one grenade harness selected for it for +5 Points.",
+     "max": 1,
+     "choices": [
+      {
+       "name": "Harnais à grenades",
+       "points": 5
+      }
+     ],
+     "models": [
+      "Chimiarque"
+     ],
+     "lang": "en",
+     "src": "Wahapedia (EN, version à jour) — absent du livre FR"
     }
    ]
   },
@@ -2772,6 +3121,21 @@
      "replaces": [
       "Combi-bolter"
      ]
+    },
+    {
+     "text": "The Sekhmet Inceptor in this Unit may have one grenade harness selected for it for +5 Points.",
+     "max": 1,
+     "choices": [
+      {
+       "name": "Harnais à grenades",
+       "points": 5
+      }
+     ],
+     "models": [
+      "Initiateur Sekhmet"
+     ],
+     "lang": "en",
+     "src": "Wahapedia (EN, version à jour) — absent du livre FR"
     }
    ]
   },
@@ -2867,6 +3231,27 @@
      "replaces": [
       "Pistolet bolter"
      ]
+    },
+    {
+     "text": "For every five Models in this Unit, one Model in this Unit may have its bolt pistol exchanged for one of the following:",
+     "max": {
+      "per": 5
+     },
+     "choices": [
+      {
+       "name": "Lance-flammes léger",
+       "points": 5
+      },
+      {
+       "name": "Æther-fire pistol",
+       "points": 10
+      }
+     ],
+     "replaces": [
+      "Pistolet bolter"
+     ],
+     "lang": "en",
+     "src": "Wahapedia (EN, version à jour) — absent du livre FR"
     }
    ]
   },
@@ -3095,6 +3480,42 @@
        "points": 10
       }
      ]
+    },
+    {
+     "text": "This Model may have its Gravis bolt cannon exchanged for one æther-fire magna-cannon for +10 Points.",
+     "max": 1,
+     "choices": [
+      {
+       "name": "Æther-fire magna-cannon",
+       "points": 10
+      }
+     ],
+     "replaces": [
+      "Canon à bolts Gravis"
+     ],
+     "requires": [
+      "Canon à bolts Gravis"
+     ],
+     "lang": "en",
+     "src": "Wahapedia (EN, version à jour) — absent du livre FR"
+    },
+    {
+     "text": "This Model may have its combi-bolter exchanged for one æther-fire blaster for +10 Points.",
+     "max": 1,
+     "choices": [
+      {
+       "name": "Æther-fire blaster",
+       "points": 10
+      }
+     ],
+     "replaces": [
+      "Combi-bolter"
+     ],
+     "requires": [
+      "Combi-bolter"
+     ],
+     "lang": "en",
+     "src": "Wahapedia (EN, version à jour) — absent du livre FR"
     }
    ]
   },
@@ -3894,6 +4315,37 @@
      "models": [
       "Ravageur"
      ]
+    },
+    {
+     "text": "Any Model in this Unit may have its bolt pistol and chainaxe exchanged for one pair of lightning claws for +10 Points per Model.",
+     "max": "models",
+     "choices": [
+      {
+       "name": "Paire de griffes Lightning",
+       "points": 10
+      }
+     ],
+     "replaces": [
+      "Pistolet bolter",
+      "Hache tronçonneuse"
+     ],
+     "lang": "en",
+     "src": "Wahapedia (EN, version à jour) — absent du livre FR"
+    },
+    {
+     "text": "The Reaver Chieftain may have melta bombs selected for it for +10 Points.",
+     "max": 1,
+     "choices": [
+      {
+       "name": "Bombes à fusion",
+       "points": 10
+      }
+     ],
+     "models": [
+      "Chef Ravageur"
+     ],
+     "lang": "en",
+     "src": "Wahapedia (EN, version à jour) — absent du livre FR"
     }
    ]
   },
@@ -4266,7 +4718,54 @@
     "Word Bearers"
    ],
    "faction": "Word Bearers",
-   "options": []
+   "options": [
+    {
+     "text": "For every five Models in this Unit, one Model in this Unit may have its bolter exchanged for one of the following:",
+     "max": {
+      "per": 5
+     },
+     "choices": [
+      {
+       "name": "Lance-flammes",
+       "points": 5
+      },
+      {
+       "name": "Fuseur",
+       "points": 15
+      },
+      {
+       "name": "Warpfire blaster",
+       "points": 15
+      }
+     ],
+     "replaces": [
+      "Bolter"
+     ],
+     "lang": "en",
+     "src": "Wahapedia (EN, version à jour) — absent du livre FR"
+    },
+    {
+     "text": "For every five Models in this Unit, one Model in this Unit may have its tainted talons exchanged for one of the following:",
+     "max": {
+      "per": 5
+     },
+     "choices": [
+      {
+       "name": "Arme énergétique",
+       "points": 0
+      },
+      {
+       "name": "Gantelet énergétique",
+       "points": 10
+      }
+     ],
+     "replaces": [
+      "Serres souillées"
+     ],
+     "lang": "en",
+     "src": "Wahapedia (EN, version à jour) — absent du livre FR"
+    }
+   ]
   },
   {
    "id": "dreadnought-mhara-gal",
@@ -4320,7 +4819,35 @@
     "Word Bearers"
    ],
    "faction": "Word Bearers",
-   "options": []
+   "options": [
+    {
+     "text": "This Model may have its warpfire cannon exchanged for one of the following:",
+     "max": 1,
+     "choices": [
+      {
+       "name": "Canon à bolts Gravis",
+       "points": 0
+      },
+      {
+       "name": "Canon à fusion Gravis",
+       "points": 5
+      },
+      {
+       "name": "Autocanon Gravis",
+       "points": 0
+      },
+      {
+       "name": "Canon laser jumelé",
+       "points": 0
+      }
+     ],
+     "replaces": [
+      "Canon à feu Warp"
+     ],
+     "lang": "en",
+     "src": "Wahapedia (EN, version à jour) — absent du livre FR"
+    }
+   ]
   },
   {
    "id": "alpharius",
@@ -4640,6 +5167,34 @@
       }
      ],
      "all": true
+    },
+    {
+     "text": "Any Model in this Unit may have its banestrike combi-bolter exchanged for one item from the Legion Combi-weapons list.",
+     "max": "models",
+     "list": "Armes Combinées de Légion",
+     "replaces": [
+      "Combi-bolter Banestrike"
+     ],
+     "lang": "en",
+     "src": "Wahapedia (EN, version à jour) — absent du livre FR"
+    },
+    {
+     "text": "The Headhunter Prime in this Unit may have its bolt pistol exchanged for one inferno pistol for +10 Points.",
+     "max": 1,
+     "choices": [
+      {
+       "name": "Pistolet Inferno",
+       "points": 10
+      }
+     ],
+     "replaces": [
+      "Pistolet bolter"
+     ],
+     "models": [
+      "Primat Chasseur de Têtes"
+     ],
+     "lang": "en",
+     "src": "Wahapedia (EN, version à jour) — absent du livre FR"
     }
    ]
   },
@@ -5046,6 +5601,24 @@
      "models": [
       "Iconoclaste"
      ]
+    },
+    {
+     "text": "The Iconoclast in this Unit may have its Akkadic hand flamer exchanged for one plasma pistol for +5 Points.",
+     "max": 1,
+     "choices": [
+      {
+       "name": "Pistolet à plasma",
+       "points": 5
+      }
+     ],
+     "replaces": [
+      "Lance-flammes léger akkadique"
+     ],
+     "models": [
+      "Iconoclaste"
+     ],
+     "lang": "en",
+     "src": "Wahapedia (EN, version à jour) — absent du livre FR"
     }
    ]
   },

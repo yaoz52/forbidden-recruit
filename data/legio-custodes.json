@@ -1,10 +1,9 @@
 {
  "id": "legio-custodes",
- "name": "Legio Custodes (Héritages)",
+ "name": "Legio Custodes (FR)",
  "lang": "fr",
  "army": "cust",
- "legacy": true,
- "incomplete": true,
+ "legacy": false,
  "source": "Héritages – Legio Custodes v1.0 (FR) / Legacies – Legio Custodes v1.0 (EN)",
  "units": [
   {
@@ -75,8 +74,8 @@
     }
    ],
    "army": "cust",
-   "legacy": true,
-   "source": "Héritages – Legio Custodes v1.0 (FR)",
+   "legacy": false,
+   "source": "Héritages – Legio Custodes v1.0 (FR) ; reprise dans le Liber Custodes (2026)",
    "i18n": {
     "en": {
      "name": "Adrasite Guard Sodality",
@@ -177,8 +176,8 @@
     }
    ],
    "army": "cust",
-   "legacy": true,
-   "source": "Héritages – Legio Custodes v1.0 (FR)",
+   "legacy": false,
+   "source": "Héritages – Legio Custodes v1.0 (FR) ; reprise dans le Liber Custodes (2026)",
    "i18n": {
     "en": {
      "name": "Pyrithite Guard Sodality",
@@ -278,8 +277,8 @@
     }
    ],
    "army": "cust",
-   "legacy": true,
-   "source": "Héritages – Legio Custodes v1.0 (FR)",
+   "legacy": false,
+   "source": "Héritages – Legio Custodes v1.0 (FR) ; reprise dans le Liber Custodes (2026)",
    "i18n": {
     "en": {
      "name": "Sagittarum Guard Sodality",

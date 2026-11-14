@@ -1,5 +1,5 @@
 {
- "version": "2026.11-k",
+ "version": "2026.11-o",
  "_doc": "Règles communes de sélection d'armée (Livre de Règles V3, p. 278-291). Modifiez ce fichier après une FAQ : l'application relit tout d'ici.",
  "bookFiles": [
   "legiones-astartes.json",
@@ -13,11 +13,13 @@
   "legacies-auxilia.json",
   "legacies-mechanicum.json",
   "imperialis-militia.json",
+  "liber-custodes.json",
   "legio-custodes.json",
   "daemons-ruinstorm.json",
   "cults-abominatio.json",
   "fortifications.json",
-  "zone-mortalis.json"
+  "zone-mortalis.json",
+  "i18n-en.json"
  ],
  "factions": [
   "Dark Angels",
@@ -763,11 +765,15 @@
    "grantsRules": [
     "Guerrier Éternel (2)"
    ],
-   "statMod": {
-    "PV": 1
-   },
    "ref": "Liber Hereticus p. 201",
-   "text": "Centurion ou Centurion Cataphractii Death Guard ; une fois par Armée : +1 à la Valeur de Base des PV et Guerrier Éternel (2)."
+   "text": "Centurion ou Centurion Cataphractii Death Guard ; une fois par Armée : +1 à la Valeur de Base des PV et Guerrier Éternel (2).",
+   "effects": [
+    {
+     "stats": {
+      "W": 1
+     }
+    }
+   ]
   },
   {
    "id": "ts-deplacement-telekinetique",
@@ -863,6 +869,63 @@
    ],
    "ref": "Liber Mechanicum p. 51",
    "text": "Cohorte de Thallax seulement : Sauvegarde Invulnérable de Base 5+ et +1 en Commandement pour toutes ses Figurines."
+  },
+  {
+   "id": "lc-prefect",
+   "name": "Prefect",
+   "faction": "Legio Custodes",
+   "lang": "en",
+   "needsUnitIds": [
+    "lc-shield-captain"
+   ],
+   "effects": [
+    {
+     "stats": {
+      "W": 1
+     },
+     "addRules": [
+      "Officer of the Line (2)"
+     ]
+    }
+   ],
+   "text": "This Prime Advantage may only be selected for a Prime Slot used to select a Shield Captain Unit. All Models in the Unit selected to fill a Prime Slot with this Prime Advantage modify their Base Wounds Characteristic by +1 and gain the Officer of the Line (2) Special Rule.",
+   "ref": "Liber Custodes"
+  },
+  {
+   "id": "lc-hetaeron",
+   "name": "Hetaeron Guard",
+   "faction": "Legio Custodes",
+   "lang": "en",
+   "needsTrait": "Legio Custodes",
+   "maxPerArmy": 1,
+   "perArmyTrait": "Golden Exemplar",
+   "effects": [
+    {
+     "removeRules": "^Eternal Warrior \\(",
+     "addRules": [
+      "Eternal Warrior (2)"
+     ],
+     "onlyTypes": "Infantry|Cavalry"
+    }
+   ],
+   "text": "All Models in the Unit selected to fill a Prime Slot with this Prime Advantage which have the Legio Custodes Trait and the Infantry or Cavalry Type modify the value of X of any version of the Eternal Warrior (X) Special Rule they have to '2'. This Prime Advantage may only be selected once per Army, unless the Army contains any Models with the Golden Exemplar Trait, in which case a single additional selection of this Prime Advantage may be made for each Model in the Army with that Trait.",
+   "ref": "Liber Custodes"
+  },
+  {
+   "id": "clade-operative",
+   "name": "Clade Operative",
+   "lang": "en",
+   "allegiance": "Loyaliste",
+   "primaryOnly": true,
+   "maxPerArmy": 1,
+   "uniqueOk": true,
+   "addSlot": {
+    "role": "AP",
+    "army": "assn",
+    "count": 3
+   },
+   "text": "Add three additional slots of the Support Battlefield Role to the Detachment that includes the Prime Slot with this Prime Advantage. These Force Organisation Slots may only be filled by Units selected from the Divisio Assassinorum Army List. This Prime Advantage may only be selected for a single Force Organisation Slot in an Army’s Primary Detachment.",
+   "ref": "Liber Custodes"
   }
  ],
  "detachments": [
@@ -2206,15 +2269,15 @@
    "ref": "Liber Astartes p. 216"
   },
   "La Corruption se Propage": {
-   "summary": "Peut rejoindre des unités Maléfiques et compte alors comme Maléfique.",
+   "summary": "Horus peut rejoindre des unités qui ont le Sous-type Maléfique.",
    "ref": "Liber Hereticus p. 253"
   },
   "Le Pouvoir du Verbe": {
-   "summary": "Peut rejoindre des unités Maléfiques et compte alors comme Maléfique.",
+   "summary": "Lorgar peut rejoindre des unités qui ont le Sous-type Maléfique.",
    "ref": "Liber Hereticus p. 275"
   },
   "Maître de la Guerre": {
-   "summary": "Peut rejoindre des unités Maléfiques et compte alors comme Maléfique.",
+   "summary": "Horus donne un point supplémentaire d'Allocation de Réactions à l'Armée dont il fait partie.",
    "ref": "Liber Hereticus p. 253"
   },
   "Seigneur des Bénis": {
@@ -2286,7 +2349,7 @@
    "ref": "Liber Hereticus p. 131"
   },
   "Sublime Spadassin": {
-   "summary": "Une unité Emperor's Children entièrement hors de sa zone de déploiement gagne +1 Point de Résolution de Combat.",
+   "summary": "En Défi, la Caractéristique d'Attaques de Fulgrim est modifiée si son Initiative est supérieure à celle de son adversaire.",
    "ref": "Liber Hereticus p. 131"
   },
   "Sire des Night Lords": {
@@ -2374,7 +2437,7 @@
    "ref": "Liber Astartes p. 197"
   },
   "Commandant Spatial": {
-   "summary": "Posture de Défi : la figurine attaque uniquement avec le profil Coup de Marteau.",
+   "summary": "S'il rejoint une Escouade Brécheuse en Réserve, l'unité gagne Frappe en Profondeur ; quand il arrive en Frappe en Profondeur, lui et son unité gagnent Insensible à la Douleur (5+) jusqu'à la prochaine Sous-phase des Effets du Joueur en Contrôle.",
    "ref": "Liber Astartes p. 197"
   },
   "Archein de Sagesse": {
@@ -2418,7 +2481,7 @@
    "ref": "Liber Mechanicum p. 73"
   },
   "Assaut au Liquifractor": {
-   "summary": "Peut être retiré du jeu sans donner de Point de Victoire à l'adversaire.",
+   "summary": "Posture de Défi : Draykavac attaque en premier avec le Liquifractor.",
    "ref": "Liber Mechanicum p. 73"
   },
   "Véhicule d'État-major Mobile": {
@@ -3153,10 +3216,19 @@
    "factions": [
     "Legio Custodes"
    ],
-   "legacy": true,
-   "lang": "fr",
+   "legacy": false,
+   "lang": "en",
    "allegiance": "Loyaliste",
-   "incomplete": "Seules les 3 unités des Héritages sont disponibles : le Liber Custodes n'est pas encore dans la base."
+   "alliesOnlyTrait": "Talons of the Emperor"
+  },
+  {
+   "id": "anat",
+   "name": "Anathema Psykana",
+   "factions": [
+    "Anathema Psykana"
+   ],
+   "lang": "en",
+   "allegiance": "Loyaliste"
   },
   {
    "id": "dmn",
@@ -3182,6 +3254,16 @@
    "hidden": true,
    "legacy": true,
    "lang": "en"
+  },
+  {
+   "id": "assn",
+   "name": "Divisio Assassinorum",
+   "factions": [
+    "Divisio Assassinorum"
+   ],
+   "hidden": true,
+   "lang": "en",
+   "allegiance": "Loyaliste"
   }
  ],
  "doctrines": [
@@ -3478,6 +3560,32 @@
    "tacticaText": "Blackshields gain bonuses to Toughness and Strength when under the effect of certain Battlefield Statuses (+1 if Pinned, Suppressed or Stunned, +2 if more than one).",
    "posture": "Beholden to None",
    "postureText": "If slain by the opposing Model, D3 wounds are inflicted on that Model (only against a Unique or Paragon opponent)."
+  },
+  {
+   "id": "lc",
+   "faction": "Legio Custodes",
+   "name": "Legio Custodes",
+   "lang": "en",
+   "source": "Liber Custodes (EN, 2026) — relevé Wahapedia, 14 nov. 2026",
+   "tactica": "Only In Death",
+   "tacticaText": "Units which only contain Models with this Special Rule become Stunned instead of Routed in Combat and cannot Fall Back or Disengage from a Combat (Antigrav Units may still Disengage).",
+   "notes": [
+    "Additional Reaction Point: if the Primary Detachment is from the Legio Custodes Army List and the Army contains any Models with the Golden Exemplar Trait.",
+    "Allied Detachments may only include Units entirely composed of Models with the Talons of the Emperor Trait.",
+    "Advanced Reaction: The Blade Splits. Gambits: Raptor’s Surge, World Serpent’s Bane, Heavens’ Strike, Stone’s Aegis."
+   ]
+  },
+  {
+   "id": "ap",
+   "faction": "Anathema Psykana",
+   "name": "Anathema Psykana",
+   "lang": "en",
+   "source": "Liber Custodes (EN, 2026) — relevé Wahapedia, 14 nov. 2026",
+   "tactica": "Anathema",
+   "tacticaText": "Models with this Special Rule ignore the effects of Psychic Abilities and Psychic Weapons and can only be wounded by a Weapon with the Psychic or Immaterial Trait on a 5+.",
+   "notes": [
+    "Additional Reaction Point: if the Primary Detachment is from the Anathema Psykana Army List and contains any Units with the Investigatus-Militant Trait."
+   ]
   }
  ],
  "vows": [
@@ -15392,7 +15500,10 @@
     "-"
    ],
    "source": "Legacies of the Age of Darkness v1.1 (EN)",
-   "lang": "en"
+   "lang": "en",
+   "aliases": [
+    "Macro Cannon: The Aquila Strongpoint gains a Turret Mounted Aquila macro-cannon"
+   ]
   },
   {
    "name": "Primus turbo laser",
@@ -25878,6 +25989,1988 @@
    ],
    "source": "Legacies of the Age of Darkness v1.1 (EN) p. 196",
    "lang": "en"
+  },
+  {
+   "name": "Calibanite warblade",
+   "kind": "melee",
+   "heads": [
+    "IM",
+    "AM",
+    "SM",
+    "AP",
+    "D",
+    "Special Rules",
+    "Traits"
+   ],
+   "values": [
+    "I",
+    "A",
+    "+1",
+    "3",
+    "1",
+    "Breaching (5+)",
+    "Sword of the Order"
+   ],
+   "lang": "en",
+   "source": "Wahapedia – Horus Heresy 3e éd. (consulté le 14 nov. 2026)"
+  },
+  {
+   "name": "Plasma caster - Sustained fire",
+   "kind": "tir",
+   "heads": [
+    "R",
+    "FP",
+    "RS",
+    "AP",
+    "D",
+    "Special Rules",
+    "Traits"
+   ],
+   "values": [
+    "Template",
+    "1",
+    "4",
+    "4",
+    "1",
+    "Template, Breaching (6+)",
+    "Plasma"
+   ],
+   "lang": "en",
+   "source": "Wahapedia – Horus Heresy 3e éd. (consulté le 14 nov. 2026)",
+   "aliases": [
+    "Plasma-caster"
+   ]
+  },
+  {
+   "name": "Plasma caster - Maximal fire",
+   "kind": "tir",
+   "heads": [
+    "R",
+    "FP",
+    "RS",
+    "AP",
+    "D",
+    "Special Rules",
+    "Traits"
+   ],
+   "values": [
+    "Template",
+    "1",
+    "4",
+    "4",
+    "1",
+    "Template, Breaching (5+), Overload (1)",
+    "Plasma"
+   ],
+   "lang": "en",
+   "source": "Wahapedia – Horus Heresy 3e éd. (consulté le 14 nov. 2026)",
+   "aliases": [
+    "Plasma-caster"
+   ]
+  },
+  {
+   "name": "Adrathic combi-destructor",
+   "kind": "tir",
+   "heads": [
+    "R",
+    "FP",
+    "RS",
+    "AP",
+    "D",
+    "Special Rules",
+    "Traits"
+   ],
+   "values": [
+    "12",
+    "2",
+    "5",
+    "2",
+    "2",
+    "Rending (6+)",
+    "Disintegrator"
+   ],
+   "lang": "en",
+   "source": "Liber Custodes (EN, 2026) — relevé Wahapedia, 14 nov. 2026"
+  },
+  {
+   "name": "Adrathic devastator",
+   "kind": "tir",
+   "heads": [
+    "R",
+    "FP",
+    "RS",
+    "AP",
+    "D",
+    "Special Rules",
+    "Traits"
+   ],
+   "values": [
+    "18",
+    "1",
+    "6",
+    "2",
+    "4",
+    "Rending (5+)",
+    "Disintegrator"
+   ],
+   "lang": "en",
+   "source": "Liber Custodes (EN, 2026) — relevé Wahapedia, 14 nov. 2026"
+  },
+  {
+   "name": "Adrathic desolator",
+   "kind": "tir",
+   "heads": [
+    "R",
+    "FP",
+    "RS",
+    "AP",
+    "D",
+    "Special Rules",
+    "Traits"
+   ],
+   "values": [
+    "24",
+    "2",
+    "7",
+    "2",
+    "4",
+    "Rending (4+)",
+    "Disintegrator"
+   ],
+   "lang": "en",
+   "source": "Liber Custodes (EN, 2026) — relevé Wahapedia, 14 nov. 2026"
+  },
+  {
+   "name": "Twin Arachnus blaze cannon - Concentrated fire",
+   "kind": "tir",
+   "heads": [
+    "R",
+    "FP",
+    "RS",
+    "AP",
+    "D",
+    "Special Rules",
+    "Traits"
+   ],
+   "values": [
+    "48",
+    "2",
+    "9",
+    "2",
+    "2",
+    "Heavy (D), Armourbane",
+    "Las"
+   ],
+   "lang": "en",
+   "source": "Liber Custodes (EN, 2026) — relevé Wahapedia, 14 nov. 2026"
+  },
+  {
+   "name": "Twin Arachnus blaze cannon - Burst fire",
+   "kind": "tir",
+   "heads": [
+    "R",
+    "FP",
+    "RS",
+    "AP",
+    "D",
+    "Special Rules",
+    "Traits"
+   ],
+   "values": [
+    "36",
+    "5",
+    "6",
+    "3",
+    "1",
+    "Heavy (FP)",
+    "Las"
+   ],
+   "lang": "en",
+   "source": "Liber Custodes (EN, 2026) — relevé Wahapedia, 14 nov. 2026"
+  },
+  {
+   "name": "Twin Arachnus blaze carronade - Concentrated fire",
+   "kind": "tir",
+   "heads": [
+    "R",
+    "FP",
+    "RS",
+    "AP",
+    "D",
+    "Special Rules",
+    "Traits"
+   ],
+   "values": [
+    "72",
+    "2",
+    "10",
+    "2",
+    "2",
+    "Ordnance (D), Armourbane",
+    "Las"
+   ],
+   "lang": "en",
+   "source": "Liber Custodes (EN, 2026) — relevé Wahapedia, 14 nov. 2026"
+  },
+  {
+   "name": "Twin Arachnus blaze carronade - Burst fire",
+   "kind": "tir",
+   "heads": [
+    "R",
+    "FP",
+    "RS",
+    "AP",
+    "D",
+    "Special Rules",
+    "Traits"
+   ],
+   "values": [
+    "48",
+    "6",
+    "7",
+    "3",
+    "2",
+    "Heavy (FP)",
+    "Las"
+   ],
+   "lang": "en",
+   "source": "Liber Custodes (EN, 2026) — relevé Wahapedia, 14 nov. 2026"
+  },
+  {
+   "name": "Arachnus storm cannon - Concentrated fire",
+   "kind": "tir",
+   "heads": [
+    "R",
+    "FP",
+    "RS",
+    "AP",
+    "D",
+    "Special Rules",
+    "Traits"
+   ],
+   "values": [
+    "30",
+    "2",
+    "9",
+    "2",
+    "3",
+    "Heavy (FP), Armourbane",
+    "Las"
+   ],
+   "lang": "en",
+   "source": "Liber Custodes (EN, 2026) — relevé Wahapedia, 14 nov. 2026"
+  },
+  {
+   "name": "Arachnus storm cannon - Burst fire",
+   "kind": "tir",
+   "heads": [
+    "R",
+    "FP",
+    "RS",
+    "AP",
+    "D",
+    "Special Rules",
+    "Traits"
+   ],
+   "values": [
+    "24",
+    "4",
+    "6",
+    "3",
+    "2",
+    "Heavy (FP)",
+    "Las"
+   ],
+   "lang": "en",
+   "source": "Liber Custodes (EN, 2026) — relevé Wahapedia, 14 nov. 2026"
+  },
+  {
+   "name": "Twin Arachnus storm carronade - Concentrated fire",
+   "kind": "tir",
+   "heads": [
+    "R",
+    "FP",
+    "RS",
+    "AP",
+    "D",
+    "Special Rules",
+    "Traits"
+   ],
+   "values": [
+    "30",
+    "2",
+    "10",
+    "2",
+    "2",
+    "Heavy (D), Armourbane",
+    "Las"
+   ],
+   "lang": "en",
+   "source": "Liber Custodes (EN, 2026) — relevé Wahapedia, 14 nov. 2026"
+  },
+  {
+   "name": "Twin Arachnus storm carronade - Burst fire",
+   "kind": "tir",
+   "heads": [
+    "R",
+    "FP",
+    "RS",
+    "AP",
+    "D",
+    "Special Rules",
+    "Traits"
+   ],
+   "values": [
+    "24",
+    "6",
+    "7",
+    "3",
+    "2",
+    "Heavy (FP)",
+    "Las"
+   ],
+   "lang": "en",
+   "source": "Liber Custodes (EN, 2026) — relevé Wahapedia, 14 nov. 2026"
+  },
+  {
+   "name": "Twin Corvae las-pulser",
+   "kind": "tir",
+   "heads": [
+    "R",
+    "FP",
+    "RS",
+    "AP",
+    "D",
+    "Special Rules",
+    "Traits"
+   ],
+   "values": [
+    "18",
+    "1",
+    "10",
+    "3",
+    "3",
+    "Armourbane, Armour-breaker (4+)",
+    "Las"
+   ],
+   "lang": "en",
+   "source": "Liber Custodes (EN, 2026) — relevé Wahapedia, 14 nov. 2026"
+  },
+  {
+   "name": "Infernus incinerator",
+   "kind": "tir",
+   "heads": [
+    "R",
+    "FP",
+    "RS",
+    "AP",
+    "D",
+    "Special Rules",
+    "Traits"
+   ],
+   "values": [
+    "Template",
+    "1",
+    "6",
+    "4",
+    "1",
+    "Template, Panic (1)",
+    "Flame"
+   ],
+   "lang": "en",
+   "source": "Liber Custodes (EN, 2026) — relevé Wahapedia, 14 nov. 2026"
+  },
+  {
+   "name": "Infernus firepike",
+   "kind": "tir",
+   "heads": [
+    "R",
+    "FP",
+    "RS",
+    "AP",
+    "D",
+    "Special Rules",
+    "Traits"
+   ],
+   "values": [
+    "Template",
+    "1",
+    "6",
+    "4",
+    "1",
+    "Template, Panic (2)",
+    "Flame"
+   ],
+   "lang": "en",
+   "source": "Liber Custodes (EN, 2026) — relevé Wahapedia, 14 nov. 2026"
+  },
+  {
+   "name": "Infernus firebomb clusters",
+   "kind": "tir",
+   "heads": [
+    "R",
+    "FP",
+    "RS",
+    "AP",
+    "D",
+    "Special Rules",
+    "Traits"
+   ],
+   "values": [
+    "18",
+    "1",
+    "6",
+    "4",
+    "2",
+    "Blast (7\"), Panic (2), Limited (1)",
+    "Flame"
+   ],
+   "lang": "en",
+   "source": "Liber Custodes (EN, 2026) — relevé Wahapedia, 14 nov. 2026"
+  },
+  {
+   "name": "Twin Iliastus accelerator fusil",
+   "kind": "tir",
+   "heads": [
+    "R",
+    "FP",
+    "RS",
+    "AP",
+    "D",
+    "Special Rules",
+    "Traits"
+   ],
+   "values": [
+    "24",
+    "4",
+    "7",
+    "3",
+    "2",
+    "Breaching (6+), Rapid Tracking",
+    "Auto"
+   ],
+   "lang": "en",
+   "source": "Liber Custodes (EN, 2026) — relevé Wahapedia, 14 nov. 2026"
+  },
+  {
+   "name": "Twin Iliastus accelerator cannon",
+   "kind": "tir",
+   "heads": [
+    "R",
+    "FP",
+    "RS",
+    "AP",
+    "D",
+    "Special Rules",
+    "Traits"
+   ],
+   "values": [
+    "60",
+    "6",
+    "8",
+    "3",
+    "2",
+    "Breaching (6+), Rapid Tracking",
+    "Auto"
+   ],
+   "lang": "en",
+   "source": "Liber Custodes (EN, 2026) — relevé Wahapedia, 14 nov. 2026"
+  },
+  {
+   "name": "Iliastus accelerator culverin",
+   "kind": "tir",
+   "heads": [
+    "R",
+    "FP",
+    "RS",
+    "AP",
+    "D",
+    "Special Rules",
+    "Traits"
+   ],
+   "values": [
+    "36",
+    "4",
+    "9",
+    "3",
+    "2",
+    "Breaching (5+), Rapid Tracking",
+    "Auto"
+   ],
+   "lang": "en",
+   "source": "Liber Custodes (EN, 2026) — relevé Wahapedia, 14 nov. 2026"
+  },
+  {
+   "name": "Kinetic destroyer",
+   "kind": "tir",
+   "heads": [
+    "R",
+    "FP",
+    "RS",
+    "AP",
+    "D",
+    "Special Rules",
+    "Traits"
+   ],
+   "values": [
+    "12",
+    "3",
+    "7",
+    "4",
+    "1",
+    "Breaching (5+)",
+    "Assault"
+   ],
+   "lang": "en",
+   "source": "Liber Custodes (EN, 2026) — relevé Wahapedia, 14 nov. 2026"
+  },
+  {
+   "name": "Lastrum storm bolter",
+   "kind": "tir",
+   "heads": [
+    "R",
+    "FP",
+    "RS",
+    "AP",
+    "D",
+    "Special Rules",
+    "Traits"
+   ],
+   "values": [
+    "24",
+    "4",
+    "5",
+    "4",
+    "1",
+    "Shred (5+)",
+    "Bolt"
+   ],
+   "lang": "en",
+   "source": "Liber Custodes (EN, 2026) — relevé Wahapedia, 14 nov. 2026"
+  },
+  {
+   "name": "Lastrum bolt cannon",
+   "kind": "tir",
+   "heads": [
+    "R",
+    "FP",
+    "RS",
+    "AP",
+    "D",
+    "Special Rules",
+    "Traits"
+   ],
+   "values": [
+    "36",
+    "3",
+    "6",
+    "4",
+    "2",
+    "-",
+    "Bolt"
+   ],
+   "lang": "en",
+   "source": "Liber Custodes (EN, 2026) — relevé Wahapedia, 14 nov. 2026"
+  },
+  {
+   "name": "Twin Lastrum bolt cannon",
+   "kind": "tir",
+   "heads": [
+    "R",
+    "FP",
+    "RS",
+    "AP",
+    "D",
+    "Special Rules",
+    "Traits"
+   ],
+   "values": [
+    "36",
+    "6",
+    "6",
+    "4",
+    "2",
+    "-",
+    "Bolt"
+   ],
+   "lang": "en",
+   "source": "Liber Custodes (EN, 2026) — relevé Wahapedia, 14 nov. 2026"
+  },
+  {
+   "name": "Twin neutronium cascade projector",
+   "kind": "tir",
+   "heads": [
+    "R",
+    "FP",
+    "RS",
+    "AP",
+    "D",
+    "Special Rules",
+    "Traits"
+   ],
+   "values": [
+    "Template",
+    "1",
+    "7",
+    "3",
+    "2",
+    "Template, Breaching (6+), Annihilation Cascade (10), Phage (T)",
+    "Assault"
+   ],
+   "lang": "en",
+   "source": "Liber Custodes (EN, 2026) — relevé Wahapedia, 14 nov. 2026"
+  },
+  {
+   "name": "Neutronium magna-cascade cannon",
+   "kind": "tir",
+   "heads": [
+    "R",
+    "FP",
+    "RS",
+    "AP",
+    "D",
+    "Special Rules",
+    "Traits"
+   ],
+   "values": [
+    "Template",
+    "1",
+    "10",
+    "3",
+    "3",
+    "Template (Hellstorm), Breaching (4+), Annihilation Cascade (10), Phage (T)",
+    "Assault"
+   ],
+   "lang": "en",
+   "source": "Liber Custodes (EN, 2026) — relevé Wahapedia, 14 nov. 2026"
+  },
+  {
+   "name": "Spiculus missile launcher",
+   "kind": "tir",
+   "heads": [
+    "R",
+    "FP",
+    "RS",
+    "AP",
+    "D",
+    "Special Rules",
+    "Traits"
+   ],
+   "values": [
+    "36",
+    "6",
+    "5",
+    "4",
+    "1",
+    "Breaching (6+), Suppressive (2)",
+    "Missile"
+   ],
+   "lang": "en",
+   "source": "Liber Custodes (EN, 2026) — relevé Wahapedia, 14 nov. 2026"
+  },
+  {
+   "name": "Spiculus heavy missile pod",
+   "kind": "tir",
+   "heads": [
+    "R",
+    "FP",
+    "RS",
+    "AP",
+    "D",
+    "Special Rules",
+    "Traits"
+   ],
+   "values": [
+    "48",
+    "4",
+    "6",
+    "4",
+    "2",
+    "Breaching (5+), Suppressive (1)",
+    "Missile"
+   ],
+   "lang": "en",
+   "source": "Liber Custodes (EN, 2026) — relevé Wahapedia, 14 nov. 2026"
+  },
+  {
+   "name": "Hellion heavy cannon array",
+   "kind": "tir",
+   "heads": [
+    "R",
+    "FP",
+    "RS",
+    "AP",
+    "D",
+    "Special Rules",
+    "Traits"
+   ],
+   "values": [
+    "24",
+    "6",
+    "7",
+    "4",
+    "1",
+    "Suppressive (1)",
+    "Auto"
+   ],
+   "lang": "en",
+   "source": "Liber Custodes (EN, 2026) — relevé Wahapedia, 14 nov. 2026"
+  },
+  {
+   "name": "Vratine heavy missiles",
+   "kind": "tir",
+   "heads": [
+    "R",
+    "FP",
+    "RS",
+    "AP",
+    "D",
+    "Special Rules",
+    "Traits"
+   ],
+   "values": [
+    "48",
+    "1",
+    "4",
+    "5",
+    "1",
+    "Blast (3\"), Panic (1), Psy-Shock, Limited (1)",
+    "Missile"
+   ],
+   "lang": "en",
+   "source": "Liber Custodes (EN, 2026) — relevé Wahapedia, 14 nov. 2026"
+  },
+  {
+   "name": "Guardian spear (Ranged)",
+   "kind": "tir",
+   "heads": [
+    "R",
+    "FP",
+    "RS",
+    "AP",
+    "D",
+    "Special Rules",
+    "Traits"
+   ],
+   "values": [
+    "18",
+    "2",
+    "4",
+    "4",
+    "1",
+    "Shred (5+)",
+    "Assault, Bolt"
+   ],
+   "lang": "en",
+   "source": "Liber Custodes (EN, 2026) — relevé Wahapedia, 14 nov. 2026",
+   "aliases": [
+    "Guardian spear"
+   ]
+  },
+  {
+   "name": "Sentinel warblade (Ranged)",
+   "kind": "tir",
+   "heads": [
+    "R",
+    "FP",
+    "RS",
+    "AP",
+    "D",
+    "Special Rules",
+    "Traits"
+   ],
+   "values": [
+    "8",
+    "3",
+    "4",
+    "4",
+    "1",
+    "Shred (6+)",
+    "Assault, Bolt"
+   ],
+   "lang": "en",
+   "source": "Liber Custodes (EN, 2026) — relevé Wahapedia, 14 nov. 2026",
+   "aliases": [
+    "Sentinel warblade"
+   ]
+  },
+  {
+   "name": "Verutum lance (Ranged)",
+   "kind": "tir",
+   "heads": [
+    "R",
+    "FP",
+    "RS",
+    "AP",
+    "D",
+    "Special Rules",
+    "Traits"
+   ],
+   "values": [
+    "8",
+    "1",
+    "5",
+    "4",
+    "1",
+    "Stun (1)",
+    "Assault"
+   ],
+   "lang": "en",
+   "source": "Liber Custodes (EN, 2026) — relevé Wahapedia, 14 nov. 2026",
+   "aliases": [
+    "Verutum lance"
+   ]
+  },
+  {
+   "name": "Achillus dreadspear (Ranged)",
+   "kind": "tir",
+   "heads": [
+    "R",
+    "FP",
+    "RS",
+    "AP",
+    "D",
+    "Special Rules",
+    "Traits"
+   ],
+   "values": [
+    "18",
+    "1",
+    "10",
+    "3",
+    "2",
+    "Armourbane, Armour-breaker (4+)",
+    "Las"
+   ],
+   "lang": "en",
+   "source": "Liber Custodes (EN, 2026) — relevé Wahapedia, 14 nov. 2026",
+   "aliases": [
+    "Achillus dreadspear"
+   ]
+  },
+  {
+   "name": "Galatus warblade (Ranged)",
+   "kind": "tir",
+   "heads": [
+    "R",
+    "FP",
+    "RS",
+    "AP",
+    "D",
+    "Special Rules",
+    "Traits"
+   ],
+   "values": [
+    "Template",
+    "1",
+    "6",
+    "4",
+    "2",
+    "Template, Panic (2)",
+    "Flame"
+   ],
+   "lang": "en",
+   "source": "Liber Custodes (EN, 2026) — relevé Wahapedia, 14 nov. 2026",
+   "aliases": [
+    "Galatus warblade"
+   ]
+  },
+  {
+   "name": "Eternity spear (Ranged)",
+   "kind": "tir",
+   "heads": [
+    "R",
+    "FP",
+    "RS",
+    "AP",
+    "D",
+    "Special Rules",
+    "Traits"
+   ],
+   "values": [
+    "18",
+    "2",
+    "4",
+    "3",
+    "1",
+    "Shred (5+)",
+    "Assault, Bolt"
+   ],
+   "lang": "en",
+   "source": "Liber Custodes (EN, 2026) — relevé Wahapedia, 14 nov. 2026",
+   "aliases": [
+    "Eternity spear"
+   ]
+  },
+  {
+   "name": "Guardian spear (Melee)",
+   "kind": "melee",
+   "heads": [
+    "IM",
+    "AM",
+    "SM",
+    "AP",
+    "D",
+    "Special Rules",
+    "Traits"
+   ],
+   "values": [
+    "I",
+    "A",
+    "+1",
+    "2",
+    "1",
+    "Impact (AM)",
+    "Power"
+   ],
+   "lang": "en",
+   "source": "Liber Custodes (EN, 2026) — relevé Wahapedia, 14 nov. 2026",
+   "aliases": [
+    "Guardian spear"
+   ]
+  },
+  {
+   "name": "Sentinel warblade (Melee)",
+   "kind": "melee",
+   "heads": [
+    "IM",
+    "AM",
+    "SM",
+    "AP",
+    "D",
+    "Special Rules",
+    "Traits"
+   ],
+   "values": [
+    "I",
+    "A",
+    "S",
+    "2",
+    "1",
+    "-",
+    "Power"
+   ],
+   "lang": "en",
+   "source": "Liber Custodes (EN, 2026) — relevé Wahapedia, 14 nov. 2026",
+   "aliases": [
+    "Sentinel warblade"
+   ]
+  },
+  {
+   "name": "Verutum lance (Melee)",
+   "kind": "melee",
+   "heads": [
+    "IM",
+    "AM",
+    "SM",
+    "AP",
+    "D",
+    "Special Rules",
+    "Traits"
+   ],
+   "values": [
+    "I",
+    "A",
+    "+1",
+    "2",
+    "1",
+    "Precision (5+), Impact (AM)",
+    "Power"
+   ],
+   "lang": "en",
+   "source": "Liber Custodes (EN, 2026) — relevé Wahapedia, 14 nov. 2026",
+   "aliases": [
+    "Verutum lance"
+   ]
+  },
+  {
+   "name": "Achillus dreadspear (Melee)",
+   "kind": "melee",
+   "heads": [
+    "IM",
+    "AM",
+    "SM",
+    "AP",
+    "D",
+    "Special Rules",
+    "Traits"
+   ],
+   "values": [
+    "I",
+    "A",
+    "+3",
+    "2",
+    "3",
+    "Armourbane, Impact (AM)",
+    "Power"
+   ],
+   "lang": "en",
+   "source": "Liber Custodes (EN, 2026) — relevé Wahapedia, 14 nov. 2026",
+   "aliases": [
+    "Achillus dreadspear"
+   ]
+  },
+  {
+   "name": "Galatus warblade (Melee)",
+   "kind": "melee",
+   "heads": [
+    "IM",
+    "AM",
+    "SM",
+    "AP",
+    "D",
+    "Special Rules",
+    "Traits"
+   ],
+   "values": [
+    "I",
+    "A",
+    "S",
+    "2",
+    "2",
+    "Aflame (2), Reaping Blow (3)",
+    "Power"
+   ],
+   "lang": "en",
+   "source": "Liber Custodes (EN, 2026) — relevé Wahapedia, 14 nov. 2026",
+   "aliases": [
+    "Galatus warblade"
+   ]
+  },
+  {
+   "name": "Eternity spear (Melee)",
+   "kind": "melee",
+   "heads": [
+    "IM",
+    "AM",
+    "SM",
+    "AP",
+    "D",
+    "Special Rules",
+    "Traits"
+   ],
+   "values": [
+    "I",
+    "A",
+    "+1",
+    "2",
+    "1",
+    "Aflame (2), Critical Hit (6+), Impact (AM), Shred (5+)",
+    "-"
+   ],
+   "lang": "en",
+   "source": "Liber Custodes (EN, 2026) — relevé Wahapedia, 14 nov. 2026",
+   "aliases": [
+    "Eternity spear"
+   ]
+  },
+  {
+   "name": "Eternity blade",
+   "kind": "melee",
+   "heads": [
+    "IM",
+    "AM",
+    "SM",
+    "AP",
+    "D",
+    "Special Rules",
+    "Traits"
+   ],
+   "values": [
+    "+1",
+    "A",
+    "+1",
+    "2",
+    "1",
+    "Aflame (2), Critical Hit (6+), Shred (4+), Duellist’s Edge (1)",
+    "-"
+   ],
+   "lang": "en",
+   "source": "Liber Custodes (EN, 2026) — relevé Wahapedia, 14 nov. 2026"
+  },
+  {
+   "name": "Solarite power gauntlet",
+   "kind": "melee",
+   "heads": [
+    "IM",
+    "AM",
+    "SM",
+    "AP",
+    "D",
+    "Special Rules",
+    "Traits"
+   ],
+   "values": [
+    "-3",
+    "A",
+    "+4",
+    "2",
+    "2",
+    "Critical Hit (6+)",
+    "Power"
+   ],
+   "lang": "en",
+   "source": "Liber Custodes (EN, 2026) — relevé Wahapedia, 14 nov. 2026"
+  },
+  {
+   "name": "Solarite power talon",
+   "kind": "melee",
+   "heads": [
+    "IM",
+    "AM",
+    "SM",
+    "AP",
+    "D",
+    "Special Rules",
+    "Traits"
+   ],
+   "values": [
+    "I",
+    "A",
+    "S",
+    "2",
+    "1",
+    "Critical Hit (6+), Reaping Blow (2)",
+    "Power"
+   ],
+   "lang": "en",
+   "source": "Liber Custodes (EN, 2026) — relevé Wahapedia, 14 nov. 2026"
+  },
+  {
+   "name": "Solarite power lance - Charging strike",
+   "kind": "melee",
+   "heads": [
+    "IM",
+    "AM",
+    "SM",
+    "AP",
+    "D",
+    "Special Rules",
+    "Traits"
+   ],
+   "values": [
+    "+4",
+    "0",
+    "+5",
+    "2",
+    "3",
+    "Impact (AM), Critical Hit (6+), Armourbane",
+    "Power"
+   ],
+   "lang": "en",
+   "source": "Liber Custodes (EN, 2026) — relevé Wahapedia, 14 nov. 2026"
+  },
+  {
+   "name": "Solarite power lance - Defensive strike",
+   "kind": "melee",
+   "heads": [
+    "IM",
+    "AM",
+    "SM",
+    "AP",
+    "D",
+    "Special Rules",
+    "Traits"
+   ],
+   "values": [
+    "-1",
+    "A",
+    "S",
+    "2",
+    "1",
+    "Critical Hit (6+)",
+    "Power"
+   ],
+   "lang": "en",
+   "source": "Liber Custodes (EN, 2026) — relevé Wahapedia, 14 nov. 2026"
+  },
+  {
+   "name": "Telemon caestus",
+   "kind": "melee",
+   "heads": [
+    "IM",
+    "AM",
+    "SM",
+    "AP",
+    "D",
+    "Special Rules",
+    "Traits"
+   ],
+   "values": [
+    "I",
+    "A",
+    "+3",
+    "2",
+    "3",
+    "Critical Hit (6+), Shock (Pinned), Armourbane",
+    "Power"
+   ],
+   "lang": "en",
+   "source": "Liber Custodes (EN, 2026) — relevé Wahapedia, 14 nov. 2026"
+  },
+  {
+   "name": "Paired Telemon caestus",
+   "kind": "melee",
+   "heads": [
+    "IM",
+    "AM",
+    "SM",
+    "AP",
+    "D",
+    "Special Rules",
+    "Traits"
+   ],
+   "values": [
+    "I",
+    "+1",
+    "+3",
+    "2",
+    "4",
+    "Critical Hit (6+), Shock (Pinned), Armourbane",
+    "Power"
+   ],
+   "lang": "en",
+   "source": "Liber Custodes (EN, 2026) — relevé Wahapedia, 14 nov. 2026"
+  },
+  {
+   "name": "Neutronium cascade mine",
+   "kind": "melee",
+   "heads": [
+    "IM",
+    "AM",
+    "SM",
+    "AP",
+    "D",
+    "Special Rules",
+    "Traits"
+   ],
+   "values": [
+    "-3",
+    "1",
+    "9",
+    "3",
+    "3",
+    "Armourbane, Annihilation Cascade (9), Detonation",
+    "Power"
+   ],
+   "lang": "en",
+   "source": "Liber Custodes (EN, 2026) — relevé Wahapedia, 14 nov. 2026"
+  },
+  {
+   "name": "Execution blade",
+   "kind": "melee",
+   "heads": [
+    "IM",
+    "AM",
+    "SM",
+    "AP",
+    "D",
+    "Special Rules",
+    "Traits"
+   ],
+   "values": [
+    "I",
+    "A",
+    "+1",
+    "3",
+    "1",
+    "Rending (6+), Breaching (6+)",
+    "Power"
+   ],
+   "lang": "en",
+   "source": "Liber Custodes (EN, 2026) — relevé Wahapedia, 14 nov. 2026"
+  },
+  {
+   "name": "The Apollonian Spear (Ranged)",
+   "kind": "tir",
+   "heads": [
+    "R",
+    "FP",
+    "RS",
+    "AP",
+    "D",
+    "Special Rules",
+    "Traits"
+   ],
+   "values": [
+    "18",
+    "2",
+    "5",
+    "2",
+    "2",
+    "Suppressive (1)",
+    "Assault, Bolt"
+   ],
+   "lang": "en",
+   "source": "Liber Custodes (EN, 2026) — relevé Wahapedia, 14 nov. 2026",
+   "aliases": [
+    "The Apollonian Spear"
+   ]
+  },
+  {
+   "name": "The Apollonian Spear (Melee)",
+   "kind": "melee",
+   "heads": [
+    "IM",
+    "AM",
+    "SM",
+    "AP",
+    "D",
+    "Special Rules",
+    "Traits"
+   ],
+   "values": [
+    "I",
+    "A",
+    "+2",
+    "2",
+    "2",
+    "Critical Hit (5+), Duellist’s Edge (2), Impact (AM)",
+    "Power"
+   ],
+   "lang": "en",
+   "source": "Liber Custodes (EN, 2026) — relevé Wahapedia, 14 nov. 2026",
+   "aliases": [
+    "The Apollonian Spear"
+   ]
+  },
+  {
+   "name": "The Sword of Oblivion",
+   "kind": "melee",
+   "heads": [
+    "IM",
+    "AM",
+    "SM",
+    "AP",
+    "D",
+    "Special Rules",
+    "Traits"
+   ],
+   "values": [
+    "I",
+    "A",
+    "+2",
+    "2",
+    "2",
+    "Critical Hit (6+), Duellist’s Edge (2)",
+    "-"
+   ],
+   "lang": "en",
+   "source": "Liber Custodes (EN, 2026) — relevé Wahapedia, 14 nov. 2026"
+  },
+  {
+   "name": "Adrasite spear (Ranged)",
+   "kind": "tir",
+   "heads": [
+    "R",
+    "FP",
+    "RS",
+    "AP",
+    "D",
+    "Special Rules",
+    "Traits"
+   ],
+   "values": [
+    "12",
+    "1",
+    "5",
+    "2",
+    "2",
+    "Rending (6+)",
+    "Assault, Disintegrator"
+   ],
+   "lang": "en",
+   "source": "Liber Custodes (EN, 2026) — relevé Wahapedia, 14 nov. 2026",
+   "aliases": [
+    "Adrasite spear"
+   ]
+  },
+  {
+   "name": "Adrasite spear (Melee)",
+   "kind": "melee",
+   "heads": [
+    "IM",
+    "AM",
+    "SM",
+    "AP",
+    "D",
+    "Special Rules",
+    "Traits"
+   ],
+   "values": [
+    "I",
+    "A",
+    "+1",
+    "2",
+    "1",
+    "Impact (AM)",
+    "Power"
+   ],
+   "lang": "en",
+   "source": "Liber Custodes (EN, 2026) — relevé Wahapedia, 14 nov. 2026",
+   "aliases": [
+    "Adrasite spear"
+   ]
+  },
+  {
+   "name": "Pyrithite spear (Ranged)",
+   "kind": "tir",
+   "heads": [
+    "R",
+    "FP",
+    "RS",
+    "AP",
+    "D",
+    "Special Rules",
+    "Traits"
+   ],
+   "values": [
+    "6",
+    "1",
+    "8",
+    "2",
+    "2",
+    "Melta (3)",
+    "Assault, Melta"
+   ],
+   "lang": "en",
+   "source": "Liber Custodes (EN, 2026) — relevé Wahapedia, 14 nov. 2026",
+   "aliases": [
+    "Pyrithite spear"
+   ]
+  },
+  {
+   "name": "Pyrithite spear (Melee)",
+   "kind": "melee",
+   "heads": [
+    "IM",
+    "AM",
+    "SM",
+    "AP",
+    "D",
+    "Special Rules",
+    "Traits"
+   ],
+   "values": [
+    "I",
+    "A",
+    "+1",
+    "2",
+    "1",
+    "Impact (AM)",
+    "Power"
+   ],
+   "lang": "en",
+   "source": "Liber Custodes (EN, 2026) — relevé Wahapedia, 14 nov. 2026",
+   "aliases": [
+    "Pyrithite spear"
+   ]
+  },
+  {
+   "name": "Needlespine Blaster - Bolt pistol (Primary)",
+   "kind": "tir",
+   "heads": [
+    "R",
+    "FP",
+    "RS",
+    "AP",
+    "D",
+    "Special Rules",
+    "Traits"
+   ],
+   "values": [
+    "12",
+    "1",
+    "4",
+    "5",
+    "1",
+    "Pistol, Combi",
+    "Assault, Bolt"
+   ],
+   "lang": "en",
+   "source": "Liber Custodes (EN, 2026) — relevé Wahapedia, 14 nov. 2026"
+  },
+  {
+   "name": "Needlespine Blaster - Needlespine launcher (Secondary)",
+   "kind": "tir",
+   "heads": [
+    "R",
+    "FP",
+    "RS",
+    "AP",
+    "D",
+    "Special Rules",
+    "Traits"
+   ],
+   "values": [
+    "12",
+    "3",
+    "6",
+    "4",
+    "1",
+    "Precision (2+), Breaching (5+), Phage (T), Limited (1), Combi",
+    "Assault, Needle"
+   ],
+   "lang": "en",
+   "source": "Liber Custodes (EN, 2026) — relevé Wahapedia, 14 nov. 2026"
+  },
+  {
+   "name": "Nemesii Blade",
+   "kind": "melee",
+   "heads": [
+    "IM",
+    "AM",
+    "SM",
+    "AP",
+    "D",
+    "Special Rules",
+    "Traits"
+   ],
+   "values": [
+    "I",
+    "A",
+    "S",
+    "2",
+    "1",
+    "Critical Hit (5+), Shred (5+)",
+    "-"
+   ],
+   "lang": "en",
+   "source": "Liber Custodes (EN, 2026) — relevé Wahapedia, 14 nov. 2026"
+  },
+  {
+   "name": "Neural Shredder",
+   "kind": "tir",
+   "heads": [
+    "R",
+    "FP",
+    "RS",
+    "AP",
+    "D",
+    "Special Rules",
+    "Traits"
+   ],
+   "values": [
+    "Template",
+    "1",
+    "3",
+    "3",
+    "1",
+    "Template, Pinning (3)",
+    "Assault"
+   ],
+   "lang": "en",
+   "source": "Liber Custodes (EN, 2026) — relevé Wahapedia, 14 nov. 2026"
+  },
+  {
+   "name": "Poison Blades",
+   "kind": "tir",
+   "heads": [
+    "R",
+    "FP",
+    "RS",
+    "AP",
+    "D",
+    "Special Rules",
+    "Traits"
+   ],
+   "values": [
+    "12",
+    "3",
+    "2",
+    "5",
+    "1",
+    "Precision (3+), Poisoned (3+), Breaching (4+), Limited (1)",
+    "Assault"
+   ],
+   "lang": "en",
+   "source": "Liber Custodes (EN, 2026) — relevé Wahapedia, 14 nov. 2026"
+  },
+  {
+   "name": "Phase sword",
+   "kind": "melee",
+   "heads": [
+    "IM",
+    "AM",
+    "SM",
+    "AP",
+    "D",
+    "Special Rules",
+    "Traits"
+   ],
+   "values": [
+    "+2",
+    "A",
+    "S",
+    "2",
+    "1",
+    "Precision (5+), Rending (6+), Bypass (6+)",
+    "Assault"
+   ],
+   "lang": "en",
+   "source": "Liber Custodes (EN, 2026) — relevé Wahapedia, 14 nov. 2026"
+  },
+  {
+   "name": "Animus speculum",
+   "kind": "tir",
+   "heads": [
+    "R",
+    "FP",
+    "RS",
+    "AP",
+    "D",
+    "Special Rules",
+    "Traits"
+   ],
+   "values": [
+    "Template",
+    "1",
+    "5",
+    "4",
+    "1",
+    "Template, Breaching (5+), Panic (1), Psy-Shock",
+    "Assault"
+   ],
+   "lang": "en",
+   "source": "Liber Custodes (EN, 2026) — relevé Wahapedia, 14 nov. 2026"
+  },
+  {
+   "name": "Psyk-out Bombs",
+   "kind": "melee",
+   "heads": [
+    "IM",
+    "AM",
+    "SM",
+    "AP",
+    "D",
+    "Special Rules",
+    "Traits"
+   ],
+   "values": [
+    "I",
+    "3",
+    "5",
+    "3",
+    "2",
+    "Aflame (2), Rending (6+), Precision (6+), Breaching (6+), Limited (3)",
+    "-"
+   ],
+   "lang": "en",
+   "source": "Liber Custodes (EN, 2026) — relevé Wahapedia, 14 nov. 2026"
+  },
+  {
+   "name": "Executioner pistol - Bolt pistol (Primary)",
+   "kind": "tir",
+   "heads": [
+    "R",
+    "FP",
+    "RS",
+    "AP",
+    "D",
+    "Special Rules",
+    "Traits"
+   ],
+   "values": [
+    "12",
+    "1",
+    "4",
+    "5",
+    "1",
+    "Pistol, Combi",
+    "Assault, Bolt"
+   ],
+   "lang": "en",
+   "source": "Liber Custodes (EN, 2026) — relevé Wahapedia, 14 nov. 2026"
+  },
+  {
+   "name": "Executioner pistol - Needle pistol (Secondary)",
+   "kind": "tir",
+   "heads": [
+    "R",
+    "FP",
+    "RS",
+    "AP",
+    "D",
+    "Special Rules",
+    "Traits"
+   ],
+   "values": [
+    "12",
+    "2",
+    "2",
+    "-",
+    "1",
+    "Poisoned (3+), Pistol, Pinning (1), Combi",
+    "Assault, Needle"
+   ],
+   "lang": "en",
+   "source": "Liber Custodes (EN, 2026) — relevé Wahapedia, 14 nov. 2026"
+  },
+  {
+   "name": "Neuro-gauntlet",
+   "kind": "melee",
+   "heads": [
+    "IM",
+    "AM",
+    "SM",
+    "AP",
+    "D",
+    "Special Rules",
+    "Traits"
+   ],
+   "values": [
+    "+1",
+    "+1",
+    "S",
+    "3",
+    "2",
+    "Rending (4+), Poisoned (4+)",
+    "Assault, Bolt"
+   ],
+   "lang": "en",
+   "source": "Liber Custodes (EN, 2026) — relevé Wahapedia, 14 nov. 2026"
+  },
+  {
+   "name": "Sympatic dataspikes",
+   "kind": "melee",
+   "heads": [
+    "IM",
+    "AM",
+    "SM",
+    "AP",
+    "D",
+    "Special Rules",
+    "Traits"
+   ],
+   "values": [
+    "+1",
+    "+2",
+    "S",
+    "3",
+    "1",
+    "Rending (6+), Precision (6+), Shock (Stunned)",
+    "-"
+   ],
+   "lang": "en",
+   "source": "Liber Custodes (EN, 2026) — relevé Wahapedia, 14 nov. 2026"
+  },
+  {
+   "name": "Toxin ejector",
+   "kind": "tir",
+   "heads": [
+    "R",
+    "FP",
+    "RS",
+    "AP",
+    "D",
+    "Special Rules",
+    "Traits"
+   ],
+   "values": [
+    "Template",
+    "1",
+    "5",
+    "4",
+    "1",
+    "Template, Breaching (5+), Poisoned (3+), Armourbane",
+    "Assault"
+   ],
+   "lang": "en",
+   "source": "Liber Custodes (EN, 2026) — relevé Wahapedia, 14 nov. 2026"
+  },
+  {
+   "name": "Poison globes",
+   "kind": "tir",
+   "heads": [
+    "R",
+    "FP",
+    "RS",
+    "AP",
+    "D",
+    "Special Rules",
+    "Traits"
+   ],
+   "values": [
+    "8",
+    "1",
+    "1",
+    "3",
+    "2",
+    "Blast (3\"), Poisoned (3+), Panic (1), Limited (1)",
+    "Assault"
+   ],
+   "lang": "en",
+   "source": "Liber Custodes (EN, 2026) — relevé Wahapedia, 14 nov. 2026"
+  },
+  {
+   "name": "Hookfang",
+   "kind": "melee",
+   "heads": [
+    "IM",
+    "AM",
+    "SM",
+    "AP",
+    "D",
+    "Special Rules",
+    "Traits"
+   ],
+   "values": [
+    "+1",
+    "A",
+    "S",
+    "3",
+    "1",
+    "Rending (6+), Precision (2+), The Venum",
+    "-"
+   ],
+   "lang": "en",
+   "source": "Liber Custodes (EN, 2026) — relevé Wahapedia, 14 nov. 2026"
+  },
+  {
+   "name": "Assassin’s blade",
+   "kind": "melee",
+   "heads": [
+    "IM",
+    "AM",
+    "SM",
+    "AP",
+    "D",
+    "Special Rules",
+    "Traits"
+   ],
+   "values": [
+    "I",
+    "A",
+    "S",
+    "3",
+    "1",
+    "Breaching (6+)",
+    "Power"
+   ],
+   "lang": "en",
+   "source": "Liber Custodes (EN, 2026) — relevé Wahapedia, 14 nov. 2026"
+  },
+  {
+   "name": "Exitus rifle",
+   "kind": "tir",
+   "heads": [
+    "R",
+    "FP",
+    "RS",
+    "AP",
+    "D",
+    "Special Rules",
+    "Traits"
+   ],
+   "values": [
+    "100",
+    "1",
+    "7",
+    "-",
+    "2",
+    "Ordnance (AP), Precision (2+), Pinning (1)",
+    "-"
+   ],
+   "lang": "en",
+   "source": "Liber Custodes (EN, 2026) — relevé Wahapedia, 14 nov. 2026"
+  },
+  {
+   "name": "Exitus pistol",
+   "kind": "tir",
+   "heads": [
+    "R",
+    "FP",
+    "RS",
+    "AP",
+    "D",
+    "Special Rules",
+    "Traits"
+   ],
+   "values": [
+    "12",
+    "3",
+    "6",
+    "3",
+    "1",
+    "Pistol, Precision (4+)",
+    "Assault"
+   ],
+   "lang": "en",
+   "source": "Liber Custodes (EN, 2026) — relevé Wahapedia, 14 nov. 2026"
+  },
+  {
+   "name": "Adrastus bolt caliver - Bolt volley (Primary)",
+   "kind": "tir",
+   "heads": [
+    "R",
+    "FP",
+    "RS",
+    "AP",
+    "D",
+    "Special Rules",
+    "Traits"
+   ],
+   "values": [
+    "36",
+    "2",
+    "6",
+    "4",
+    "2",
+    "Heavy (FP), Combi",
+    "Bolt"
+   ],
+   "lang": "en",
+   "source": "Liber Custodes (EN, 2026) — relevé Wahapedia, 14 nov. 2026"
+  },
+  {
+   "name": "Adrastus bolt caliver - Adrathic beam (Secondary)",
+   "kind": "tir",
+   "heads": [
+    "R",
+    "FP",
+    "RS",
+    "AP",
+    "D",
+    "Special Rules",
+    "Traits"
+   ],
+   "values": [
+    "24",
+    "1",
+    "6",
+    "2",
+    "2",
+    "Rending (6+), Limited (1), Combi",
+    "Disintegrator"
+   ],
+   "lang": "en",
+   "source": "Liber Custodes (EN, 2026) — relevé Wahapedia, 14 nov. 2026"
+  },
+  {
+   "name": "Grenades Frag",
+   "kind": "tir",
+   "heads": [
+    "P",
+    "PF",
+    "FT",
+    "PA",
+    "D",
+    "Règles Spéciales",
+    "Traits"
+   ],
+   "values": [
+    "6",
+    "1",
+    "3",
+    "6",
+    "1",
+    "Explosion (3\")",
+    "Assaut"
+   ],
+   "source": "Wahapedia (EN) — profil absent des Libers FR",
+   "aliases": [
+    "Frag grenades"
+   ]
   }
  ],
  "paradigms": {
