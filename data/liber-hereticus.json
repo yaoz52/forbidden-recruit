@@ -24,7 +24,8 @@
     {
      "role": "AR"
     }
-   ]
+   ],
+   "rite": "ec"
   },
   {
    "id": "cohorte-feu-de-fer",
@@ -135,7 +136,8 @@
      "Escouade Terminator Tartaros"
     ]
    },
-   "note": "cases SU : Escouade d'État-major Terminator Cataphractii, Escouade d'État-major Terminator Tartaros ; cases AL : Escouade Terminator Cataphractii, Escouade Terminator Tartaros"
+   "note": "cases SU : Escouade d'État-major Terminator Cataphractii, Escouade d'État-major Terminator Tartaros ; cases AL : Escouade Terminator Cataphractii, Escouade Terminator Tartaros",
+   "onlyAdv": "nl-atramentar"
   },
   {
    "id": "cadre-berserkers",
@@ -162,7 +164,8 @@
      "Escouade Saccageuse"
     ]
    },
-   "note": "cases AL : Escouade Saccageuse"
+   "note": "cases AL : Escouade Saccageuse",
+   "rite": "we"
   },
   {
    "id": "ost-moissonneur",
@@ -223,7 +226,8 @@
      "prime": true
     },
     {
-     "role": "TR"
+     "role": "TR",
+     "prime": true
     },
     {
      "role": "AL"
@@ -282,6 +286,69 @@
     ]
    },
    "note": "cases EL : Escouade Traqueuse, Section de Chasseurs de Têtes"
+  },
+  {
+   "id": "confrerie-phenix",
+   "name": "Confrérie du Phénix",
+   "kind": "sdg",
+   "faction": "Emperor's Children",
+   "rite": "ec-h",
+   "slots": [
+    {
+     "role": "SG"
+    },
+    {
+     "role": "QG",
+     "prime": true
+    },
+    {
+     "role": "QG"
+    },
+    {
+     "role": "QG"
+    },
+    {
+     "role": "EM"
+    }
+   ],
+   "minPoints": 3000,
+   "needsUnit": [
+    "Fulgrim Transfiguré"
+   ],
+   "noUnlock": true,
+   "note": "Remplace le Détachement de Seigneur de Guerre (pas les deux). Faction Emperor's Children, Limite de Points d'au moins 3000. Doit inclure Fulgrim Transfiguré. Les QG et État-major de ce Détachement n'ouvrent aucun Détachement Auxiliaire ou d'Apex. Rite de Guerre Legio Hereticus Emperor's Children (Liber Hereticus p. 129)."
+  },
+  {
+   "id": "fils-de-bodt",
+   "name": "Fils de Bodt",
+   "kind": "aux",
+   "faction": "World Eaters",
+   "rite": "we-h",
+   "slots": [
+    {
+     "role": "AP",
+     "prime": true
+    },
+    {
+     "role": "AP",
+     "prime": true
+    },
+    {
+     "role": "TR"
+    },
+    {
+     "role": "TR"
+    },
+    {
+     "role": "TR"
+    }
+   ],
+   "only": {
+    "AP": [
+     "Apothicaire"
+    ]
+   },
+   "note": "Les Cases d'Appui de ce Détachement ne peuvent servir qu'à sélectionner des Unités d'Apothicaire. Rite de Guerre Legio Hereticus World Eaters (Liber Hereticus p. 185)."
   }
  ],
  "rules": {},
@@ -504,7 +571,7 @@
    "faction": "Emperor's Children",
    "options": [
     {
-     "text": "Hurleurs soniques",
+     "text": "Cette Figurine peut être dotée de hurleurs soniques pour +15 Points.",
      "max": 1,
      "choices": [
       {
@@ -650,19 +717,20 @@
    "faction": "Emperor's Children",
    "options": [
     {
-     "text": "Unité entièrement Renégate : même objet pour toutes les figurines",
+     "text": "Si toutes les Figurines de cette Unité ont le Trait Renégat, l'Unité entière peut être dotée d'un des choix suivants. Toutes les Figurines de cette Unité doivent être dotées du même objet:",
      "max": 1,
      "choices": [
       {
-       "name": "Hurleurs soniques (+5 par figurine)",
+       "name": "Hurleurs soniques",
        "points": 5
       },
       {
-       "name": "Lance sonique (+5 par figurine)",
+       "name": "Lance sonique",
        "points": 5
       }
      ],
-     "all": true
+     "all": true,
+     "allegiance": "Renégat"
     }
    ]
   },
@@ -747,34 +815,44 @@
    "faction": "Emperor's Children",
    "options": [
     {
-     "text": "Toute figurine : remplacer la lame palatine",
+     "text": "Toute Figurine de cette Unité peut échanger gratuitement sa lame palatine contre une lance énergétique Phénix.",
      "max": "models",
      "choices": [
       {
        "name": "Lance énergétique Phénix",
        "points": 0
       }
+     ],
+     "replaces": [
+      "Lame palatine"
      ]
     },
     {
-     "text": "Prefector Palatin : remplacer le pistolet bolter",
+     "text": "Le Prefector Palatin de cette Unité peut échanger son pistolet bolter contre un objet de la liste des Pistolets de Légion.",
      "max": 1,
-     "list": "Pistolets de Légion"
+     "list": "Pistolets de Légion",
+     "models": [
+      "Prefector Palatin"
+     ],
+     "replaces": [
+      "Pistolet bolter"
+     ]
     },
     {
-     "text": "Unité entièrement Renégate : même objet pour toutes les figurines",
+     "text": "Si toutes les Figurines de cette Unité ont le Trait Renégat, l'Unité entière peut être dotée d'un des choix suivants. Toutes les Figurines de cette Unité doivent être dotées du même objet:",
      "max": 1,
      "choices": [
       {
-       "name": "Hurleurs soniques (+5 par figurine)",
+       "name": "Hurleurs soniques",
        "points": 5
       },
       {
-       "name": "Lance sonique (+5 par figurine)",
+       "name": "Lance sonique",
        "points": 5
       }
      ],
-     "all": true
+     "all": true,
+     "allegiance": "Renégat"
     }
    ]
   },
@@ -915,7 +993,7 @@
    "faction": "Iron Warriors",
    "options": [
     {
-     "text": "Cyber-familier",
+     "text": "Cette Figurine peut être dotée d'un cyber-familier pour +10 Points.",
      "max": 1,
      "choices": [
       {
@@ -1010,18 +1088,24 @@
    "faction": "Iron Warriors",
    "options": [
     {
-     "text": "Toute figurine : remplacer le combi-bolter",
+     "text": "Toute Figurine de cette Unité peut échanger son combi-bolter contre un objet de la liste des Armes Combinées de Légion.",
      "max": "models",
-     "list": "Armes Combinées de Légion"
+     "list": "Armes Combinées de Légion",
+     "replaces": [
+      "Combi-bolter"
+     ]
     },
     {
-     "text": "Maître de Siège",
+     "text": "Le Maître de Siège de cette Unité peut être doté d'un omniscope pour +10 Points.",
      "max": 1,
      "choices": [
       {
        "name": "Omniscope",
        "points": 10
       }
+     ],
+     "models": [
+      "Maître de Siège"
      ]
     }
    ]
@@ -1220,23 +1304,32 @@
    "faction": "Night Lords",
    "options": [
     {
-     "text": "Dissident : remplacer la lame tronçonneuse",
+     "text": "Le Dissident de cette Unité peut échanger sa lame tronçonneuse contre une griffe énergétique Escaton pour +10 Points.",
      "max": 1,
      "choices": [
       {
        "name": "Griffe énergétique Escaton",
        "points": 10
       }
+     ],
+     "models": [
+      "Dissident"
+     ],
+     "replaces": [
+      "Lame tronçonneuse"
      ]
     },
     {
-     "text": "Toute figurine : remplacer le caviteur volkite",
+     "text": "Toute Figurine de cette Unité peut échanger gratuitement son caviteur volkite contre un lance-flammes lourd.",
      "max": "models",
      "choices": [
       {
        "name": "Lance-flammes lourd",
        "points": 0
       }
+     ],
+     "replaces": [
+      "Caviteur volkite"
      ]
     }
    ]
@@ -1324,7 +1417,7 @@
    "faction": "Night Lords",
    "options": [
     {
-     "text": "Toute figurine : remplacer l'épée tronçonneuse",
+     "text": "Toute Figurine de cette Unité peut échanger son épée tronçonneuse contre un des choix suivants:",
      "max": "models",
      "choices": [
       {
@@ -1351,15 +1444,24 @@
        "name": "Vouge tronçonneur",
        "points": 5
       }
+     ],
+     "replaces": [
+      "Épée tronçonneuse"
      ]
     },
     {
-     "text": "Bourreau : remplacer l'épée tronçonneuse",
+     "text": "Le Bourreau de cette Unité peut échanger son épée tronçonneuse contre un objet de la liste des Armes de Mêlée de Sergent de Légion.",
      "max": 1,
-     "list": "Armes de Mêlée de Sergent de Légion"
+     "list": "Armes de Mêlée de Sergent de Légion",
+     "models": [
+      "Bourreau"
+     ],
+     "replaces": [
+      "Épée tronçonneuse"
+     ]
     },
     {
-     "text": "Bourreau : remplacer le pistolet bolter",
+     "text": "Le Bourreau de cette Unité peut échanger son pistolet bolter contre un pistolet désintégrateur pour +10 Points, ou contre un objet de la liste des Pistolets de Légion.",
      "max": 1,
      "choices": [
       {
@@ -1367,20 +1469,29 @@
        "points": 10
       }
      ],
-     "list": "Pistolets de Légion"
+     "list": "Pistolets de Légion",
+     "models": [
+      "Bourreau"
+     ],
+     "replaces": [
+      "Pistolet bolter"
+     ]
     },
     {
-     "text": "Un Exécuteur",
+     "text": "Un Exécuteur de cette Unité peut être doté d'un vexillum pour +10 Points.",
      "max": 1,
      "choices": [
       {
        "name": "Vexillum",
        "points": 10
       }
+     ],
+     "models": [
+      "Exécuteur"
      ]
     },
     {
-     "text": "Toute figurine ayant un bolter",
+     "text": "Toute Figurine de cette Unité qui a un bolter peut être dotée d'un des choix suivants:",
      "max": "models",
      "choices": [
       {
@@ -1391,6 +1502,9 @@
        "name": "Baïonnette tronçonneuse",
        "points": 2
       }
+     ],
+     "requires": [
+      "Bolter"
      ]
     }
    ]
@@ -1463,7 +1577,7 @@
     "Grenades Krak"
    ],
    "rules": [
-    "Impact (l)",
+    "Impact (I)",
     "Peur (1)",
     "Avant-garde (4)",
     "Massif (2)",
@@ -1480,7 +1594,7 @@
    "faction": "Night Lords",
    "options": [
     {
-     "text": "Toute figurine : remplacer l'épée tronçonneuse",
+     "text": "Toute Figurine de cette Unité peut échanger son épée tronçonneuse contre un vouge tronçonneur pour +5 Points par Figurine, ou contre un objet de la liste des Armes de Mêlée de Sergent de Légion.",
      "max": "models",
      "choices": [
       {
@@ -1488,7 +1602,10 @@
        "points": 5
       }
      ],
-     "list": "Armes de Mêlée de Sergent de Légion"
+     "list": "Armes de Mêlée de Sergent de Légion",
+     "replaces": [
+      "Épée tronçonneuse"
+     ]
     }
    ]
   },
@@ -1658,13 +1775,19 @@
    "faction": "World Eaters",
    "options": [
     {
-     "text": "Si Angron ne fait pas partie de l'armée : remplacer La Trancheuse",
+     "text": "Si Angron ne fait pas partie de la même Armée que cette Figurine, cette dernière peut échanger La Trancheuse contre La Carnassière Reforgée pour +10 Points.",
      "max": 1,
      "choices": [
       {
        "name": "La Carnassière Reforgée",
        "points": 10
       }
+     ],
+     "replaces": [
+      "La Trancheuse"
+     ],
+     "notIfArmyHas": [
+      "angron"
      ]
     }
    ]
@@ -1802,13 +1925,19 @@
    "faction": "World Eaters",
    "options": [
     {
-     "text": "Dévoré : remplacer les haches énergétiques de Boucher",
+     "text": "Le Dévoré de cette Unité peut échanger ses haches énergétiques de Boucher contre des poings tronçonneurs de Boucher pour +10 Points.",
      "max": 1,
      "choices": [
       {
        "name": "Poings tronçonneurs de Boucher",
        "points": 10
       }
+     ],
+     "models": [
+      "Dévoré"
+     ],
+     "replaces": [
+      "Haches énergétiques de Boucher"
      ]
     }
    ]
@@ -1894,7 +2023,7 @@
    "faction": "World Eaters",
    "options": [
     {
-     "text": "Arme des Caedere : chaque Figurine doit être dotée d'un des choix suivants (Arsenal des World Eaters, p. 181).",
+     "text": "Arme des Caedere : si une Figurine a dans son Équipement une arme des Caedere, vous pouvez la doter d'un des choix suivants (Arsenal des World Eaters, p. 181).",
      "max": "models",
      "choices": [
       {
@@ -1914,7 +2043,10 @@
        "points": 0
       }
      ],
-     "required": true
+     "required": true,
+     "replaces": [
+      "Arme des Caedere"
+     ]
     }
    ]
   },
@@ -2175,27 +2307,37 @@
    "faction": "Death Guard",
    "options": [
     {
-     "text": "Chimiarque : remplacer le lance-grenades d'assaut (gratuit au lieu du coût de la liste)",
+     "text": "Le Chimiarque de cette Unité peut échanger son lance-grenades d'assaut contre un objet de la liste des Armes Combinées de Légion gratuitement, au lieu de payer le coût indiqué.",
      "max": 1,
      "choices": [
       {
        "name": "Arme combinée de Légion au choix",
        "points": 0
       }
-     ]
+     ],
+     "models": [
+      "Chimiarque"
+     ],
+     "replaces": [
+      "Lance-grenades d'assaut"
+     ],
+     "freeList": "Armes Combinées de Légion"
     },
     {
-     "text": "Toute figurine : remplacer le gantelet énergétique",
+     "text": "Toute Figurine de cette Unité peut échanger son gantelet énergétique contre un poing tronçonneur pour +5 Points par Figurine.",
      "max": "models",
      "choices": [
       {
        "name": "Poing tronçonneur",
        "points": 5
       }
+     ],
+     "replaces": [
+      "Gantelet énergétique"
      ]
     },
     {
-     "text": "Un Garde-tombe par tranche de cinq figurines : remplacer le lance-grenades d'assaut",
+     "text": "Par tranche de cinq Figurines de cette Unité, un Garde-tombe de cette Unité peut échanger son lance-grenades d'assaut contre un lance-flammes lourd alchim pour +5 Points par Figurine.",
      "max": {
       "per": 5
      },
@@ -2204,6 +2346,12 @@
        "name": "Lance-flammes lourd alchim",
        "points": 5
       }
+     ],
+     "models": [
+      "Garde-tombe"
+     ],
+     "replaces": [
+      "Lance-grenades d'assaut"
      ]
     }
    ]
@@ -2263,7 +2411,39 @@
     "Maître de la Légion"
    ],
    "faction": "Thousand Sons",
-   "options": []
+   "options": [
+    {
+     "text": "Cette Figurine peut être dotée de jusqu'à deux des Disciplines Psychiques suivantes:",
+     "max": 2,
+     "unique": true,
+     "choices": [
+      {
+       "name": "Biomancie",
+       "points": 20
+      },
+      {
+       "name": "Pyromancie",
+       "points": 10
+      },
+      {
+       "name": "Télékinésie",
+       "points": 20
+      },
+      {
+       "name": "Divination",
+       "points": 20
+      },
+      {
+       "name": "Thaumaturgie",
+       "points": 0
+      },
+      {
+       "name": "Télépathie",
+       "points": 10
+      }
+     ]
+    }
+   ]
   },
   {
    "id": "ahzek-ahriman",
@@ -2426,9 +2606,12 @@
    "faction": "Thousand Sons",
    "options": [
     {
-     "text": "Remplacer le pistolet bolter",
+     "text": "Cette Figurine peut échanger son pistolet bolter contre un objet de la liste des Pistolets de Légion.",
      "max": 1,
-     "list": "Pistolets de Légion"
+     "list": "Pistolets de Légion",
+     "replaces": [
+      "Pistolet bolter"
+     ]
     }
    ]
   },
@@ -2515,7 +2698,7 @@
    "faction": "Thousand Sons",
    "options": [
     {
-     "text": "Toute figurine : remplacer le combi-bolter",
+     "text": "Toute Figurine de cette Unité peut échanger son combi-bolter soit contre un chargeur volkite gratuitement, soit contre un objet de la liste des Armes Combinées de Légion.",
      "max": "models",
      "choices": [
       {
@@ -2523,10 +2706,13 @@
        "points": 0
       }
      ],
-     "list": "Armes Combinées de Légion"
+     "list": "Armes Combinées de Légion",
+     "replaces": [
+      "Combi-bolter"
+     ]
     },
     {
-     "text": "Toute figurine : remplacer l'épée de force modèle Achea",
+     "text": "Toute Figurine de cette Unité peut échanger son épée de force modèle Achea contre un des choix suivants:",
      "max": "models",
      "choices": [
       {
@@ -2545,20 +2731,27 @@
        "name": "Marteau Thunder",
        "points": 10
       }
+     ],
+     "replaces": [
+      "Épée de force modèle Achea"
      ]
     },
     {
-     "text": "Toute figurine : remplacer le combi-bolter et l'épée de force",
+     "text": "Toute Figurine de cette Unité peut échanger son combi-bolter et son épée de force modèle Achea contre une paire de griffes Lightning pour +10 Points.",
      "max": "models",
      "choices": [
       {
        "name": "Paire de griffes Lightning",
        "points": 10
       }
+     ],
+     "replaces": [
+      "Combi-bolter",
+      "Épée de force modèle Achea"
      ]
     },
     {
-     "text": "Une figurine par tranche de cinq : remplacer le combi-bolter",
+     "text": "Par tranche de cinq Figurines de cette Unité, une Figurine peut échanger son combi-bolter contre un des choix suivants:",
      "max": {
       "per": 5
      },
@@ -2575,6 +2768,9 @@
        "name": "Éclateur à plasma",
        "points": 10
       }
+     ],
+     "replaces": [
+      "Combi-bolter"
      ]
     }
    ]
@@ -2662,9 +2858,15 @@
    "faction": "Thousand Sons",
    "options": [
     {
-     "text": "Maître des Lames Khenetai : remplacer le pistolet bolter",
+     "text": "Le Maître des Lames Khenetai peut échanger son pistolet bolter contre un objet de la liste des Pistolets de Légion.",
      "max": 1,
-     "list": "Pistolets de Légion"
+     "list": "Pistolets de Légion",
+     "models": [
+      "Maître des Lames Khenetai"
+     ],
+     "replaces": [
+      "Pistolet bolter"
+     ]
     }
    ]
   },
@@ -2724,13 +2926,16 @@
    "faction": "Thousand Sons",
    "options": [
     {
-     "text": "Remplacer le canon à bolts Asphyx",
+     "text": "Cette Figurine peut échanger son canon à bolts Asphyx contre un canon à étherfeu pour +10 Points.",
      "max": 1,
      "choices": [
       {
        "name": "Canon à étherfeu",
        "points": 10
       }
+     ],
+     "replaces": [
+      "Canon à bolts Asphyx"
      ]
     }
    ]
@@ -2790,7 +2995,7 @@
    "faction": "Thousand Sons",
    "options": [
     {
-     "text": "Remplacer le canon à bolts Gravis",
+     "text": "Cette Figurine peut échanger son canon à bolts Gravis contre un des choix suivants:",
      "max": 1,
      "choices": [
       {
@@ -2804,11 +3009,30 @@
       {
        "name": "Canon à plasma Gravis",
        "points": 10
+      },
+      {
+       "name": "Canon à conversion",
+       "points": 20
+      },
+      {
+       "name": "Couleuvrine volkite jumelée",
+       "points": 15
+      },
+      {
+       "name": "Canon d'assaut Kheres",
+       "points": 15
+      },
+      {
+       "name": "Canon laser jumelé",
+       "points": 20
       }
+     ],
+     "replaces": [
+      "Canon à bolts Gravis"
      ]
     },
     {
-     "text": "Remplacer le combi-bolter",
+     "text": "Cette Figurine peut échanger son combi-bolter contre un des choix suivants:",
      "max": 1,
      "choices": [
       {
@@ -2822,6 +3046,53 @@
       {
        "name": "Fusil à gravitons",
        "points": 15
+      },
+      {
+       "name": "Fuseur",
+       "points": 15
+      }
+     ],
+     "replaces": [
+      "Combi-bolter"
+     ]
+    },
+    {
+     "text": "Cette Figurine peut être dotée d'un lanceur Havoc pour +5 Points.",
+     "max": 1,
+     "choices": [
+      {
+       "name": "Lanceur Havoc",
+       "points": 5
+      }
+     ]
+    },
+    {
+     "text": "Cette Figurine peut être dotée d'une des Disciplines Psychiques suivantes:",
+     "max": 1,
+     "choices": [
+      {
+       "name": "Biomancie",
+       "points": 20
+      },
+      {
+       "name": "Pyromancie",
+       "points": 10
+      },
+      {
+       "name": "Télékinésie",
+       "points": 20
+      },
+      {
+       "name": "Divination",
+       "points": 20
+      },
+      {
+       "name": "Thaumaturgie",
+       "points": 0
+      },
+      {
+       "name": "Télépathie",
+       "points": 10
       }
      ]
     }
@@ -2927,8 +3198,7 @@
     "La Corruption se Propage",
     "Le Maître de Guerre Exalté",
     "Guerrier Éternel (3)",
-    "Peur (1)",
-    "Parangon (Unique)"
+    "Peur (1)"
    ],
    "types": [
     "Parangon (Unique)"
@@ -2996,7 +3266,22 @@
     "Maître de la Légion"
    ],
    "faction": "Sons of Horus",
-   "options": []
+   "options": [
+    {
+     "text": "Cette Figurine peut échanger gratuitement son combi-bolter Banestrike et son harnais à grenades contre une lame de parangon.",
+     "max": 1,
+     "replaces": [
+      "Combi-bolter Banestrike",
+      "Harnais à grenades"
+     ],
+     "choices": [
+      {
+       "name": "Lame de parangon",
+       "points": 0
+      }
+     ]
+    }
+   ]
   },
   {
    "id": "horus-aximand",
@@ -3040,7 +3325,7 @@
    ],
    "rules": [
     "Hanté",
-    "Impact (l)"
+    "Impact (I)"
    ],
    "types": [
     "Infanterie (Unique, État-major)"
@@ -3102,7 +3387,8 @@
    ],
    "traits": [
     "Renégat",
-    "Sons of Horus"
+    "Sons of Horus",
+    "Maître de la Légion"
    ],
    "faction": "Sons of Horus",
    "options": []
@@ -3153,7 +3439,8 @@
    ],
    "traits": [
     "Renégat",
-    "Sons of Horus"
+    "Sons of Horus",
+    "Maître de la Légion"
    ],
    "faction": "Sons of Horus",
    "options": []
@@ -3310,7 +3597,7 @@
     "Yeux du Maître de Guerre"
    ],
    "types": [
-    "Infanterie (État-major)"
+    "Infanterie (Unique, État-major)"
    ],
    "traits": [
     "Renégat",
@@ -3319,9 +3606,12 @@
    "faction": "Sons of Horus",
    "options": [
     {
-     "text": "Remplacer le pistolet bolter",
+     "text": "Cette Figurine peut échanger son pistolet bolter contre un objet de la liste des Pistolets de Légion.",
      "max": 1,
-     "list": "Pistolets de Légion"
+     "list": "Pistolets de Légion",
+     "replaces": [
+      "Pistolet bolter"
+     ]
     }
    ]
   },
@@ -3383,7 +3673,7 @@
    "faction": "Sons of Horus",
    "options": [
     {
-     "text": "Toute figurine : remplacer le combi-bolter Banestrike",
+     "text": "Toute Figurine de cette Unité peut échanger son combi-bolter Banestrike soit contre un chargeur volkite gratuitement, soit contre un objet de la liste des Armes Combinées de Légion.",
      "max": "models",
      "choices": [
       {
@@ -3391,10 +3681,13 @@
        "points": 0
       }
      ],
-     "list": "Armes Combinées de Légion"
+     "list": "Armes Combinées de Légion",
+     "replaces": [
+      "Combi-bolter Banestrike"
+     ]
     },
     {
-     "text": "Toute figurine : remplacer l'arme énergétique",
+     "text": "Toute Figurine de cette Unité peut échanger son arme énergétique contre un des choix suivants:",
      "max": "models",
      "choices": [
       {
@@ -3417,20 +3710,27 @@
        "name": "Marteau Thunder",
        "points": 10
       }
+     ],
+     "replaces": [
+      "Arme énergétique"
      ]
     },
     {
-     "text": "Toute figurine : remplacer le combi-bolter Banestrike et l'arme énergétique",
+     "text": "Toute Figurine de cette Unité peut échanger son combi-bolter Banestrike et son arme énergétique contre une paire de griffes Lightning pour +10 Points par Figurine.",
      "max": "models",
      "choices": [
       {
        "name": "Paire de griffes Lightning",
        "points": 10
       }
+     ],
+     "replaces": [
+      "Combi-bolter Banestrike",
+      "Arme énergétique"
      ]
     },
     {
-     "text": "Une figurine par tranche de cinq : remplacer le combi-bolter Banestrike",
+     "text": "Par tranche de cinq Figurines de cette Unité, une Figurine de ladite Unité peut échanger son combi-bolter Banestrike contre un des choix suivants:",
      "max": {
       "per": 5
      },
@@ -3451,6 +3751,9 @@
        "name": "Éclateur à plasma",
        "points": 10
       }
+     ],
+     "replaces": [
+      "Combi-bolter Banestrike"
      ]
     }
    ]
@@ -3537,7 +3840,7 @@
    "faction": "Sons of Horus",
    "options": [
     {
-     "text": "Toute figurine : remplacer la hache tronçonneuse",
+     "text": "Toute Figurine de cette Unité peut échanger sa hache tronçonneuse soit contre une épée tronçonneuse gratuitement, soit contre un objet de la liste des Armes de Mêlée de Sergent de Légion.",
      "max": "models",
      "choices": [
       {
@@ -3545,34 +3848,52 @@
        "points": 0
       }
      ],
-     "list": "Armes de Mêlée de Sergent de Légion"
+     "list": "Armes de Mêlée de Sergent de Légion",
+     "replaces": [
+      "Hache tronçonneuse"
+     ]
     },
     {
-     "text": "Toute figurine : remplacer le pistolet bolter",
+     "text": "Toute Figurine de cette Unité peut échanger son pistolet bolter contre un objet de la liste des Pistolets de Légion.",
      "max": "models",
-     "list": "Pistolets de Légion"
+     "list": "Pistolets de Légion",
+     "replaces": [
+      "Pistolet bolter"
+     ]
     },
     {
-     "text": "Un Ravageur par tranche de cinq figurines : remplacer la hache tronçonneuse",
+     "text": "Par tranche de cinq Figurines de cette Unité, un Ravageur de cette Unité peut échanger sa hache tronçonneuse contre un objet de la liste des Armes Spéciales de Légion.",
      "max": {
       "per": 5
      },
-     "list": "Armes Spéciales de Légion"
+     "list": "Armes Spéciales de Légion",
+     "models": [
+      "Ravageur"
+     ],
+     "replaces": [
+      "Hache tronçonneuse"
+     ]
     },
     {
-     "text": "Un Ravageur",
+     "text": "Un Ravageur de cette Unité peut être doté d'un vexillum pour +10 Points.",
      "max": 1,
      "choices": [
       {
        "name": "Vexillum",
        "points": 10
       }
+     ],
+     "models": [
+      "Ravageur"
      ]
     },
     {
-     "text": "Jusqu'à deux Ravageurs",
+     "text": "Jusqu'à deux Ravageurs de cette Unité peuvent être dotés chacun d'un objet de la liste d'Équipement de Légion.",
      "max": 2,
-     "list": "Équipement de Légion"
+     "list": "Équipement de Légion",
+     "models": [
+      "Ravageur"
+     ]
     }
    ]
   },
@@ -3880,7 +4201,8 @@
    ],
    "traits": [
     "Renégat",
-    "Word Bearers"
+    "Word Bearers",
+    "Zardu Layak : Psyker"
    ],
    "faction": "Word Bearers",
    "options": []
@@ -3987,6 +4309,7 @@
    "rules": [
     "Massif (6)",
     "Explose (5+)",
+    "Avance Implacable",
     "Peur (1)"
    ],
    "types": [
@@ -4035,7 +4358,7 @@
    "wargear": [
     "La Lance Pâle",
     "La Hargne de l'Hydre",
-    "Les Ecailles Pythiennes",
+    "Les Écailles Pythiennes",
     "Grenades Frag",
     "Grenades Krak",
     "Sphères à venin"
@@ -4044,11 +4367,10 @@
     "Sire de l'Alpha Legion",
     "Massif (4)",
     "Partout et Nulle Part",
-    "Guerrier Éternel (2)",
-    "Parangon (Unique, Léger)"
+    "Guerrier Éternel (2)"
    ],
    "types": [
-    "Parangon (Unique)"
+    "Parangon (Unique, Léger)"
    ],
    "traits": [
     "[Allégeance]",
@@ -4171,9 +4493,12 @@
    "faction": "Alpha Legion",
    "options": [
     {
-     "text": "Remplacer le pistolet bolter",
+     "text": "Cette Figurine peut échanger son pistolet bolter contre un objet de la liste des Pistolets de Légion.",
      "max": 1,
-     "list": "Pistolets de Légion"
+     "list": "Pistolets de Légion",
+     "replaces": [
+      "Pistolet bolter"
+     ]
     }
    ]
   },
@@ -4262,17 +4587,29 @@
    "faction": "Alpha Legion",
    "options": [
     {
-     "text": "Primat Chasseur de Têtes : remplacer la dague énergétique",
+     "text": "Le Primat Chasseur de Têtes de cette Unité peut échanger sa dague énergétique contre un objet de la liste des Armes de Mêlée de Sergent de Légion.",
      "max": 1,
-     "list": "Armes de Mêlée de Sergent de Légion"
+     "list": "Armes de Mêlée de Sergent de Légion",
+     "models": [
+      "Primat Chasseur de Têtes"
+     ],
+     "replaces": [
+      "Dague énergétique"
+     ]
     },
     {
-     "text": "Primat Chasseur de Têtes : remplacer le pistolet bolter",
+     "text": "Le Primat Chasseur de Têtes de cette Unité peut échanger son pistolet bolter contre un objet de la liste des Pistolets de Légion.",
      "max": 1,
-     "list": "Pistolets de Légion"
+     "list": "Pistolets de Légion",
+     "models": [
+      "Primat Chasseur de Têtes"
+     ],
+     "replaces": [
+      "Pistolet bolter"
+     ]
     },
     {
-     "text": "Un Chasseur de Têtes par tranche de cinq figurines : remplacer le combi-bolter Banestrike",
+     "text": "Par tranche de cinq Figurines de cette Unité, un Chasseur de Têtes de cette Unité peut échanger son combi-bolter Banestrike contre un des choix suivants:",
      "max": {
       "per": 5
      },
@@ -4285,14 +4622,20 @@
        "name": "Multi-fuseur",
        "points": 20
       }
+     ],
+     "models": [
+      "Chasseur de Têtes"
+     ],
+     "replaces": [
+      "Combi-bolter Banestrike"
      ]
     },
     {
-     "text": "Toute l'unité",
+     "text": "Les Figurines de cette Unité peuvent toutes être dotées de bombes à fusion pour +5 Points par Figurine.",
      "max": 1,
      "choices": [
       {
-       "name": "Bombes à fusion pour toutes les figurines (+5 par figurine)",
+       "name": "Bombes à fusion",
        "points": 5
       }
      ],
@@ -4442,7 +4785,7 @@
    "faction": "Alpha Legion",
    "options": [
     {
-     "text": "Toute figurine : remplacer le chargeur volkite",
+     "text": "Toute Figurine de cette Unité peut échanger son chargeur volkite soit contre un combi-bolter gratuitement, soit contre un objet de la liste des Armes Combinées de Légion.",
      "max": "models",
      "choices": [
       {
@@ -4450,10 +4793,13 @@
        "points": 0
       }
      ],
-     "list": "Armes Combinées de Légion"
+     "list": "Armes Combinées de Légion",
+     "replaces": [
+      "Chargeur volkite"
+     ]
     },
     {
-     "text": "Toute figurine : remplacer la hache énergétique",
+     "text": "Toute Figurine de cette Unité peut échanger sa hache énergétique contre un des choix suivants:",
      "max": "models",
      "choices": [
       {
@@ -4476,20 +4822,27 @@
        "name": "Marteau Thunder",
        "points": 10
       }
+     ],
+     "replaces": [
+      "Hache énergétique"
      ]
     },
     {
-     "text": "Toute figurine : remplacer le chargeur volkite et la hache énergétique",
+     "text": "Toute Figurine de cette Unité peut échanger son chargeur volkite et sa hache énergétique contre une paire de griffes Lightning pour +10 Points.",
      "max": "models",
      "choices": [
       {
        "name": "Paire de griffes Lightning",
        "points": 10
       }
+     ],
+     "replaces": [
+      "Chargeur volkite",
+      "Hache énergétique"
      ]
     },
     {
-     "text": "Un Lernéen par tranche de cinq figurines : remplacer le chargeur volkite",
+     "text": "Par tranche de cinq Figurines de cette Unité, un Lernéen de cette Unité peut échanger son chargeur volkite contre un des choix suivants:",
      "max": {
       "per": 5
      },
@@ -4510,6 +4863,12 @@
        "name": "Éclateur à plasma",
        "points": 10
       }
+     ],
+     "models": [
+      "Lernéen"
+     ],
+     "replaces": [
+      "Chargeur volkite"
      ]
     }
    ]
@@ -4553,17 +4912,24 @@
     }
    ],
    "wargear": [
-    "Broyeur à gravitons"
+    "Broyeur à gravitons",
+    "Canon à shrapnels jumelé",
+    "Bouclier de combat Karceri"
    ],
    "rules": [
-    "Le Bouclier du Tyran de Fer"
+    "Le Bouclier du Tyran de Fer",
+    "Massif (4)",
+    "Avance Implacable",
+    "Impact (A)",
+    "Orage de Feu"
    ],
    "types": [
-    "Automate"
+    "Automate (Lourd)"
    ],
    "traits": [
     "[Allégeance]",
-    "Iron Warriors"
+    "Iron Warriors",
+    "Bouclier"
    ],
    "faction": "Iron Warriors",
    "options": []
@@ -4653,23 +5019,32 @@
    "faction": "Word Bearers",
    "options": [
     {
-     "text": "Iconoclaste : remplacer le lance-flammes léger akkadique",
+     "text": "L'Iconoclaste peut échanger son lance-flammes léger akkadique contre un pistolet Inferno pour +15 Points.",
      "max": 1,
      "choices": [
       {
        "name": "Pistolet Inferno",
        "points": 15
       }
+     ],
+     "models": [
+      "Iconoclaste"
+     ],
+     "replaces": [
+      "Lance-flammes léger akkadique"
      ]
     },
     {
-     "text": "Iconoclaste",
+     "text": "L'Iconoclaste peut être doté de bombes à phosphex pour +10 Points.",
      "max": 1,
      "choices": [
       {
        "name": "Bombes à phosphex",
        "points": 10
       }
+     ],
+     "models": [
+      "Iconoclaste"
      ]
     }
    ]
@@ -4730,7 +5105,7 @@
    "faction": "Iron Warriors",
    "options": [
     {
-     "text": "Brise-forge Profané",
+     "text": "Cette Figurine peut être dotée de Brise-forge Profané pour +35 Points.",
      "max": 1,
      "choices": [
       {

@@ -89,9 +89,17 @@
      "choices": [
       {
        "name": "Storm maul and boarding shield",
-       "points": 4
+       "points": 4,
+       "gives": [
+        "Storm maul",
+        "Boarding shield"
+       ]
       }
-     ]
+     ],
+     "replaces": [
+      "Breaching shotgun"
+     ],
+     "exclusive": "shotgun"
     },
     {
      "text": "Veletarii Prime: exchange breaching shotgun for laspistol and charnabal tabar",
@@ -99,19 +107,44 @@
      "choices": [
       {
        "name": "Laspistol and charnabal tabar",
-       "points": 0
+       "points": 0,
+       "gives": [
+        "Laspistol",
+        "Charnabal tabar"
+       ]
       }
-     ]
+     ],
+     "models": [
+      "Veletarii Prime"
+     ],
+     "replaces": [
+      "Breaching shotgun"
+     ],
+     "exclusive": "shotgun"
     },
     {
      "text": "Veletarii Prime (if exchanged): exchange charnabal tabar",
      "max": 1,
-     "list": "Auxilia Melee Weapons"
+     "list": "Auxilia Melee Weapons",
+     "models": [
+      "Veletarii Prime"
+     ],
+     "needsUpgrade": "Laspistol and charnabal tabar",
+     "replaces": [
+      "Charnabal tabar"
+     ]
     },
     {
      "text": "Veletarii Prime (if exchanged): exchange laspistol",
      "max": 1,
-     "list": "Auxilia Pistols"
+     "list": "Auxilia Pistols",
+     "models": [
+      "Veletarii Prime"
+     ],
+     "needsUpgrade": "Laspistol and charnabal tabar",
+     "replaces": [
+      "Laspistol"
+     ]
     }
    ],
    "note": "Counts as a Veletaris Storm Section for Veletaris Tercio Detachments (selon le Journal). Vox interlock / Auxilia vexilla : coûts absents des données BSData, non repris.",
@@ -204,17 +237,31 @@
        "name": "Lasrifle w/ Blast-charger",
        "points": 0
       }
-     ]
+     ],
+     "replaces": [
+      "Blast pistol"
+     ],
+     "exclusive": "pistol"
     },
     {
      "text": "Auxilia Technician Prime: exchange blast pistol",
      "max": 1,
-     "list": "Auxilia Pistols"
+     "list": "Auxilia Pistols",
+     "models": [
+      "Auxilia Technician Prime"
+     ],
+     "replaces": [
+      "Blast pistol"
+     ],
+     "exclusive": "pistol"
     },
     {
      "text": "Auxilia Technician Prime: may take",
      "max": 1,
-     "list": "Auxilia Melee Weapons"
+     "list": "Auxilia Melee Weapons",
+     "models": [
+      "Auxilia Technician Prime"
+     ]
     }
    ],
    "note": "Combat decryptor: may make the Bypass Cogitator Zone Mortalis Advanced Reaction as if the Models had Battlesmith (3); Base Intelligence 9 for Interface Checks.",
@@ -314,12 +361,20 @@
        "points": 5
       }
      ],
-     "list": "Pistolets de Légion"
+     "list": "Pistolets de Légion",
+     "replaces": [
+      "Bolt pistol"
+     ],
+     "exclusive": "pistol"
     },
     {
      "text": "Any Model: exchange chainsword",
      "max": "models",
-     "list": "Armes de Mêlée de Sergent de Légion"
+     "list": "Armes de Mêlée de Sergent de Légion",
+     "replaces": [
+      "Chainsword"
+     ],
+     "exclusive": "sword"
     },
     {
      "text": "Any Model: exchange bolt pistol and chainsword",
@@ -337,6 +392,10 @@
        "name": "Pair of lightning claws",
        "points": 10
       }
+     ],
+     "replaces": [
+      "Bolt pistol",
+      "Chainsword"
      ]
     },
     {
@@ -347,6 +406,9 @@
        "name": "Melta bombs",
        "points": 10
       }
+     ],
+     "models": [
+      "Veteran Despoiler Sergeant"
      ]
     },
     {
@@ -357,6 +419,9 @@
        "name": "Vexilla",
        "points": 10
       }
+     ],
+     "models": [
+      "Veteran Despoiler"
      ]
     }
    ],

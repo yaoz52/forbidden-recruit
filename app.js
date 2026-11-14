@@ -40,14 +40,16 @@ function mergeData(core, books) {
   for (const o of (core.oaths || {}).list || []) for (const it of o.listItems || []) addItem(it.list, { name: it.name, points: it.points, oath: o.id, legacy: true, lang: 'en' });
   for (const p of (core.provenances || {}).list || []) for (const it of p.listItems || []) addItem(it.list, { name: it.name, points: it.points, prov: p.id, legacy: true, lang: 'en' });
   for (const b of books) {
-    for (const o of b.legacyUnitOptions || []) { const u = UNITS[o.unit]; if (u) u.options = [...(u.options || []), { ...o.option, legacy: true, lang: 'en' }]; }
-    for (const p of b.legacyProseOptions || []) for (const u of Object.values(UNITS))
-      if ((u.traits || []).includes(p.faction) && (u.wargear || []).some(w => w === p.ifWargear || w.split(' : ').pop() === p.ifWargear)) u.options = [...(u.options || []), { ...p.option, legacy: true, lang: 'en' }];
+    (b.legacyUnitOptions || []).forEach((o, n) => { const u = UNITS[o.unit]; if (u) u.options = [...(u.options || []), { ...o.option, legacy: true, lang: 'en', key: 'G' + n }]; });
+    (b.legacyProseOptions || []).forEach((p, n) => { for (const u of Object.values(UNITS))
+      if ((u.traits || []).includes(p.faction) && (u.wargear || []).some(w => w === p.ifWargear || w.split(' : ').pop() === p.ifWargear)) u.options = [...(u.options || []), { ...p.option, legacy: true, lang: 'en', key: 'R' + n }]; });
   }
   for (const u of Object.values(UNITS)) for (const [k, v] of Object.entries(core.countsAs || {})) if (u.name.includes(k)) u.countsAs = v;
-  for (const p of (core.provenances || {}).list || []) for (const o of p.options || []) for (const u of Object.values(UNITS)) if (u.army === 'mil' && matchU(u, o.match)) u.options = [...(u.options || []), { ...o.opt, prov: p.id, lang: 'en' }];
+  for (const p of (core.provenances || {}).list || []) (p.options || []).forEach((o, n) => { for (const u of Object.values(UNITS)) if (u.army === 'mil' && matchU(u, o.match)) u.options = [...(u.options || []), { ...o.opt, prov: p.id, lang: 'en', key: 'P' + p.id + n }]; });
+  for (const lo of core.legionOptions || []) for (const u of Object.values(UNITS)) if (['la', undefined].includes(u.army) && u.army === 'la' && matchU(u, lo.match)) u.options = [...(u.options || []), { ...lo.option, faction: lo.faction, legacy: lo.legacy || lo.option.legacy || undefined, legionOpt: lo.id, ref: lo.ref, key: 'L' + lo.id }];
+  for (const a of core.primeAdvantages || []) (a.grantsOptions || []).forEach((go, n) => { for (const u of Object.values(UNITS)) if ((a.needsUnitIds ? a.needsUnitIds.includes(u.id) : matchU(u, go.match)) && (!go.match || matchU(u, go.match))) u.options = [...(u.options || []), { ...(go.option || go), match: undefined, faction: a.faction, advOpt: a.id, key: 'A' + a.id + n }]; });
   const dsp = (core.oaths || {}).desperation;
-  if (dsp) for (const u of Object.values(UNITS)) if (u.army === 'la' && (u.wargear || []).some(w => /^(Bolter|Pistolet bolter|Bolt pistol)$/i.test(w.split(' : ').pop()))) u.options = [...(u.options || []), { text: dsp.text, max: 'models', choices: dsp.choices, oath: 'desperation', legacy: true, lang: 'en' }];
+  if (dsp) for (const u of Object.values(UNITS)) if (u.army === 'la' && (u.wargear || []).some(w => /^(Bolter|Pistolet bolter|Bolt pistol)$/i.test(w.split(' : ').pop()))) u.options = [...(u.options || []), { text: dsp.text, max: 'models', choices: dsp.choices, oath: 'desperation', key: 'D', legacy: true, lang: 'en' }];
 }
 async function loadData() {
   const custom = LS.get('30k.customData');
@@ -72,7 +74,7 @@ const modeDef = () => (DB.core.modes || []).find(m => m.id === (army.mode || 'cr
 const advDef = a => DB.core.primeAdvantages.find(x => x.id === a);
 const ALLEG = { 'Loyaliste': ['Loyaliste', 'Loyalist'], 'Renégat': ['Renégat', 'Traitor'] };
 const LEGIONS = () => ((DB.core.armies || []).find(a => a.id === 'la') || { factions: [] }).factions.slice(0, 18);
-const legacyOn = () => !!(army && army.legacies);
+const legacyOn = () => !!(army && !army.noLegacies);
 const factionInfo = f => (DB.core.factionInfo || {})[f] || {};
 const unitFaction = u => (u.traits || []).find(t => DB.core.factions.includes(t));
 const hasRule = (u, re) => (u.rules || []).some(r => re.test(r.split(' : ').pop()));
@@ -89,7 +91,7 @@ const ARCANA = ['Archimandrite', 'Cybernetica', 'Lacrymaerta', 'Myrmidax', 'Mala
 const unitArcana = (u, us) => (u.traits || []).find(t => ARCANA.includes(t)) || ((u.traits || []).includes('[Mechanicum]') ? (us && us.arcana) || null : null);
 const mainDef = () => detDef(mainDet().type);
 const bulk = (u, model) => { for (const r of u.rules || []) { const q = r.split(' : '); if (q.length > 1 && q[0] !== model) continue; const m = q[q.length - 1].match(/^(?:Massif|Bulky) \((\d+)\)/); if (m) return +m[1]; } return 1; };
-const capacity = u => { const p = (u.profiles || []).find(x => x.vehicle); const v = p && p.stats[6]; return v && /^\d+$/.test(v) ? +v : 0; };
+const capacity = (u, d, si) => { const p = (u.profiles || []).find(x => x.vehicle); const v = p && p.stats[6]; let n = v && /^\d+$/.test(v) ? +v : 0; if (n && d) { const sl = slotsOf(d).find(x => String(x.i) === String(si)); if (sl && sl.transportBonus) n += sl.transportBonus; } return n; };
 function dynCount(det, def) {
   const d = def.dynSlots;
   if (d.count === 'nonVehicle') return army.dets.reduce((a, x) => a + Object.entries(x.units).filter(([i, us]) => +i < 300 && UNITS[us.u] && !isVeh(UNITS[us.u])).length, 0);
@@ -103,6 +105,10 @@ function matchU(u, m) {
   if (m.type && !(u.types || []).some(t => new RegExp(m.type).test(t))) return false;
   if (m.trait && !(u.traits || []).includes(m.trait)) return false;
   if (m.names && !m.names.includes(u.name)) return false;
+  if (m.notNames && m.notNames.includes(u.name)) return false;
+  if (m.subtype && !(u.types || []).some(t => new RegExp(m.subtype).test(t))) return false;
+  if (m.role && ![].concat(m.role).includes(u.role)) return false;
+  if (m.hasItem) { const re = new RegExp('^(' + [].concat(m.hasItem).join('|') + ')$', 'i'); if (!unitItems(u).some(x => re.test(x))) return false; }
   if (m.ids && !m.ids.includes(u.id)) return false;
   if (m.hasChoice && !(u.options || []).some(o => (o.choices || []).some(c => c.name === m.hasChoice))) return false;
   return true;
@@ -115,7 +121,16 @@ function effUnit(u, us) {
   const det = detOf(us), fx = [];
   if (u.army === 'mil' || (det && armyOf(detFaction(det)) === 'mil')) for (const p of (army.provenances || []).map(provDef).filter(Boolean)) for (const e of p.effects || []) if (matchU(u, e.match)) fx.push({ ...e, src: p.name });
   if (det && detFaction(det) === 'Blackshields') for (const o of detOaths(det)) for (const e of o.effects || []) if (matchU(u, e.match)) fx.push({ ...e, src: o.name, oath: o.id });
-  (u.options || []).forEach((o, oi) => { const ch = optChoices(o); for (const k of Object.keys((us.opts || {})[oi] || {})) if (ch[k] && ch[k].effect) fx.push({ ...ch[k].effect, src: ch[k].name }); });
+  if (det) { const i = Object.keys(det.units).find(k => det.units[k] === us), ad = i != null && det.adv[i] && advDef(det.adv[i]); if (ad) { for (const e of [].concat(ad.effects || [])) fx.push({ ...e, src: ad.name }); if (ad.grantsRules) fx.push({ addRules: ad.grantsRules, src: ad.name }); }
+    const sl = i != null && slotsOf(det).find(x => String(x.i) === String(i));
+    if (sl && sl.grantsSubtype) fx.push({ addTypes: sl.grantsSubtype, src: sl.src });
+    if (sl && sl.becomesFaction) fx.push({ losesTrait: '^(' + LEGIONS().filter(x => x !== sl.becomesFaction).map(x => x.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('|') + ')$', addTraits: [sl.becomesFaction], src: sl.src });
+    const key = det.id + ':' + i; for (const d2 of army.dets) for (const [j, x] of Object.entries(d2.units)) if (d2.adv[j] === 'we-enchaines' && x.chainWith === key) fx.push({ addRules: (advDef('we-enchaines') || {}).grantsRules || [], src: (advDef('we-enchaines') || {}).name });
+    if (detDef(det.type).vanguardToLine && us.vtl && (u.rules || []).some(r => /^(Avant-garde|Vanguard) \(/.test(r.split(' : ').pop()))) fx.push({ removeRules: '^(Avant-garde|Vanguard) \\(', addRules: ['Ligne (1)'], src: detDef(det.type).name }); }
+  for (const [t, e] of Object.entries(DB.core.subfactionEffects || {})) if ((u.traits || []).includes(t) && !isVeh(u)) fx.push({ ...e, src: t });
+  if (det && detDef(det.type).foreign && armyOf(detFaction(det)) === 'quest' && [detDef(det.type).foreign, ...(detDef(det.type).foreignAlt || [])].includes(u.army)) fx.push({ losesTrait: '^(Solar Auxilia|Imperialis Militia|Cybernetica)$', addTraits: ['[Questoris Familia]'], src: detDef(det.type).name });
+  if (det && detDef(det.type).trait && !(u.traits || []).includes(detDef(det.type).trait)) fx.push({ addTraits: [detDef(det.type).trait], src: detDef(det.type).name });
+  (u.options || []).forEach((o, oi) => { const ch = optChoices(o); for (const k of Object.keys(picksOf(us, oi))) if (ch[k] && ch[k].effect) fx.push({ ...ch[k].effect, src: ch[k].name }); });
   if (!fx.length) return u;
   const x = { ...u, profiles: u.profiles.map(p => ({ ...p, stats: [...p.stats] })), rules: [...(u.rules || [])], types: [...(u.types || [])], traits: [...(u.traits || [])], effects: fx.map(f => f.src) };
   const num = (v, d) => { const m = String(v).match(/^(\d+)(\+?)$/); return m ? (Math.max(0, +m[1] + d)) + m[2] : v; };
@@ -128,6 +143,7 @@ function effUnit(u, us) {
       if (f.svStep) { const n = parseInt(p.stats[12]); if (n > 3) p.stats[12] = (n - f.svStep) + '+'; }
       if (f.helix && !/Sergent|Sergeant|Champion|Spécialiste|Specialist|État-major|Command/.test((x.types.find(t => t.startsWith(p.name)) || x.types[0] || ''))) { for (const k of ['LD', 'WP', 'IN', 'CL']) p.stats[SK[k]] = num(p.stats[SK[k]], -1); if (det && det.helix === 'Aberrant') { p.stats[SK.S] = num(p.stats[SK.S], 1); p.stats[SK.A] = num(p.stats[SK.A], 1); } }
     }
+    for (const [pn, st] of Object.entries(f.profStats || {})) { const hd = (x.profiles.find(q => q.heads) || {}).heads || []; for (const p of x.profiles) if (new RegExp(pn).test(p.name)) for (const [k, v] of Object.entries(st)) { const j = hd.indexOf(k); if (j >= 0) p.stats[j] = String(v); } }
     if (f.removeRules || f.lootDead || f.doomed) {
       const re = new RegExp(f.removeRules || '^(Ligne|Line|Avant-garde|Vanguard) \\(');
       const lost = x.rules.filter(r => re.test(lastR(r)) || (f.lootDead || f.doomed) && /^(Ligne|Line|Avant-garde|Vanguard) \(/.test(lastR(r)));
@@ -138,6 +154,9 @@ function effUnit(u, us) {
     if (f.helix) x.rules.push(det && det.helix === 'Aberrant' ? 'Aberrant' : 'Clone');
     for (const r of f.addRules || []) if (!x.rules.includes(r)) x.rules.push(r);
     for (const t of f.addTraits || []) if (!x.traits.includes(t)) x.traits.push(t);
+    for (const t of [].concat(f.removeTraits || [])) x.traits = x.traits.filter(y => y !== t);
+    if (f.losesTrait) x.traits = x.traits.filter(t => !new RegExp(f.losesTrait).test(t));
+    for (const w of [].concat(f.addWargear || f.gainsWargear || [])) if (!(x.wargear || []).includes(w)) x.wargear = [...(x.wargear || []), w];
     if (f.addTypes) x.types = x.types.map(t => /\(/.test(t) ? t.replace(/\)$/, ', ' + f.addTypes + ')') : t + ' (' + f.addTypes + ')');
     if (f.lightOrUnheavy) x.types = x.types.map(t => /Heavy|Lourd/.test(t) ? t.replace(/,?\s*(Heavy|Lourd)/, '').replace('()', '') : (/\(/.test(t) ? t.replace(/\)$/, ', Light)') : t + ' (Light)'));
     if (f.typeReplace) x.types = x.types.map(t => t.replace(new RegExp(f.typeReplace[0]), f.typeReplace[1]));
@@ -151,24 +170,25 @@ const shatteredOk = (u, f) => army.faction === 'Shattered Legions' && (army.shat
 let army = null;
 let sel = null; // {det, slot} sélection courante
 function newArmy() {
-  return { id: uid(), name: 'Nouvelle liste', mode: 'croisade', allegiance: 'Loyaliste', faction: DB.core.factions[0], limit: 3000, legacies: false,
+  return { id: uid(), name: 'Nouvelle liste', mode: 'croisade', allegiance: 'Loyaliste', faction: DB.core.factions[0], limit: 3000, noLegacies: false,
     dets: [{ id: uid(), type: 'principal', parent: null, units: {}, adv: {}, bonusRole: null }], updated: Date.now() };
 }
 function slotsOf(det) {
   const def = detDef(det.type);
   let s = def.slots.map((x, i) => ({ ...x, i }));
+  if (def.slotSwaps) s = s.map(x => { const w = (det.swaps || {})[x.i] && def.slotSwaps.find(q => q.from === x.role && (!q.faction || q.faction === detFaction(det))); return w ? { ...x, role: w.to, onlyIds: w.onlyIds, swapped: w } : x; });
   const oaths = detOaths(det);
   for (const o of oaths) if (o.swap && !kidOfOath(det)) s = s.map(x => o.swap[x.role] ? { ...x, role: o.swap[x.role], oath: o.id } : x);
   if (oaths.some(o => o.allPrime) && !kidOfOath(det)) s = s.map(x => ({ ...x, prime: true }));
   if (def.kind === 'principal' && paradigm() && paradigm().anyRank) s = s.map(x => ({ ...x, prime: true }));
-  if (det.bonusRole) s.push({ role: det.bonusRole, bonus: true, i: def.slots.length });
+  if (det.bonusRole && Object.entries(det.adv || {}).some(([i, v]) => v === 'logistique' && det.units[i] && +i < 100)) s.push({ role: det.bonusRole, bonus: true, i: def.slots.length });
   for (const [src, v] of Object.entries(det.adv || {})) { const a = advDef(v); if (!a || !a.addSlot || !det.units[src]) continue;
     const ch = (det.advSlot || {})[src] || {}, r = a.addSlot.role || ch.role;
-    if (r) s.push({ role: r, bonus: true, added: +src, army: a.addSlot.army, legion: a.addSlot.legionPick ? ch.legion : null, unitName: a.addSlot.unitName, i: 100 + +src }); }
+    if (r) s.push({ role: r, bonus: true, added: +src, army: a.addSlot.army, legion: a.addSlot.legionPick ? ch.legion : null, unitName: a.addSlot.unitName, notFaction: a.addSlot.notFaction, noUnique: a.addSlot.noUnique, becomesFaction: a.addSlot.becomesFaction, grantsSubtype: a.addSlot.grantsSubtype, transportBonus: a.addSlot.transportBonus, src: a.name, i: 100 + +src }); }
   for (const [src, us] of Object.entries(det.units)) { const u = us && UNITS[us.u]; if (u && u.addSlot && +src < 100) s.push({ role: u.addSlot.role, bonus: true, added: +src, army: u.addSlot.army, onlyIds: u.addSlot.only, i: 200 + +src }); }
   if (def.dynSlots) { const n = dynCount(det, def), add = [].concat(def.dynSlots.add); for (let k = 0; k < n; k++) s.push({ role: add[0], roles: add, dyn: true, i: 300 + k }); }
   if (det === mainDet() && det.wsReco && sireActive() && sireRule().name === 'Sire des White Scars') s = s.map(x => x.role === 'TP' && x.i < 100 ? { ...x, role: 'RE', onlyIds: ['land-raider-explorator'], ws: true } : x);
-  if (det === army.dets[0] && sireActive()) s.forEach(x => { if (x.role === 'TR' && !x.prime && x.i < 100) { x.prime = true; x.sire = true; } });
+  if (det === army.dets[0] && sireActive() && !(sireRule() || {}).noPrimeSlots) s.forEach(x => { if (x.role === 'TR' && !x.prime && x.i < 100) { x.prime = true; x.sire = true; } });
   return s;
 }
 /* Règles « Sire de … » : les cases Troupes du Détachement Principal deviennent Principales */
@@ -182,7 +202,7 @@ function sireActive() {
   const r = sireRule(); if (!r) return false;
   const m = army.dets[0], def = detDef(m.type);
   const ids = def.slots.map((x, i) => x.role === 'TR' && m.units[i] ? m.units[i].u : null).filter(Boolean);
-  const pickOk = i => { if (!r.needPick) return true; const us = m.units[i], u = UNITS[us.u]; return (u.options || []).some((o, oi) => { const ch = optChoices(o); return Object.keys((us.opts || {})[oi] || {}).some(k => ch[k] && new RegExp(r.needPick).test(ch[k].name + ' ' + (ch[k].from || '') + ' ' + o.text)); }); };
+  const pickOk = i => { if (!r.needPick) return true; const us = m.units[i], u = UNITS[us.u]; return (u.options || []).some((o, oi) => { const ch = optChoices(o); return Object.keys(picksOf(us, oi)).some(k => ch[k] && new RegExp(r.needPick).test(ch[k].name + ' ' + (ch[k].from || '') + ' ' + o.text)); }); };
   const ok = def.slots.map((x, i) => x.role === 'TR' && m.units[i] && pickOk(i) ? m.units[i].u : null).filter(Boolean).filter(id => !r.only || r.only.includes(id));
   if (ok.length < 4) return false;
   for (const [id, n] of Object.entries(r.min || {})) if (ids.filter(x => x === id).length < n) return false;
@@ -197,37 +217,115 @@ const detFaction = det => {
 const detName = det => detDef(det.type).name;
 
 /* ---------- Points ---------- */
-function unitSize(us) { const u = UNITS[us.u]; return u.models.reduce((a, m) => a + m.count, 0) + (us.extra || 0); }
+function unitSize(us) { const u = UNITS[us.u]; let n = u.models.reduce((a, m) => a + m.count, 0) + (us.extra || 0) * (1 + (u.extra && u.extra.with ? u.extra.with.reduce((a, w) => a + (w.count || 1), 0) : 0));
+  (u.options || []).forEach((o, oi) => { if (o.addsModels) n += optCount(us, oi); }); return n; }
 function optChoices(o) {
   const c = [...(o.choices || [])];
   for (const ln of [].concat(o.list || [])) for (const it of DB.lists[ln] || []) c.push({ ...it, from: ln });
+  for (const ln of [].concat(o.freeList || [])) for (const it of DB.lists[ln] || []) c.push({ ...it, points: 0, from: ln });
   return c;
 }
 /* Un choix de liste est-il proposé à cette unité ? (armureries de Légion, Serments, Provenances, Legacies) */
-function itemState(it, u, det) {
-  if (it.faction) { const f = unitFaction(u) || (det ? detFaction(det) : army.faction); if (f !== it.faction && !(det && (detOaths(det).find(o => o.id === 'panoply') && det.panoplyLegion === it.faction))) return { show: false, why: `réservé aux figurines ${it.faction}` }; }
+function itemState(it, u, det, us) {
+  if (it.faction) { const f = unitFaction(u) || (det ? detFaction(det) : army.faction); if (f !== it.faction && !(det && (detOaths(det).find(o => o.id === 'panoply') && det.panoplyLegion === it.faction)) && !(army.faction === 'Shattered Legions' && (army.shattered || []).includes(it.faction))) return { show: false, why: `réservé aux figurines ${it.faction}` }; }
   if (it.oath && !detOaths(det).some(o => o.id === it.oath)) return { show: false, why: `réservé au Serment ${(oathDef(it.oath) || {}).name}` };
   if (it.prov && !(army.provenances || []).includes(it.prov)) return { show: false, why: `réservé à la Provenance ${(provDef(it.prov) || {}).name}` };
-  if (it.legacy && !legacyOn()) return { show: false, why: 'option Legacies (cochez « Inclure les unités Legacies »)' };
+  if (it.allegiance && army.allegiance !== it.allegiance) return { show: false, why: `réservé aux armées ${it.allegiance}s` };
+  if (it.onlyUnits && !it.onlyUnits.some(n => n === u.name || n === u.id)) return { show: false, why: `réservé à : ${it.onlyUnits.join(', ')}` };
+  if (it.trait && !(u.traits || []).includes(it.trait) && !(u.options || []).some(o => new RegExp(it.trait).test(o.text || ''))) return { show: false, why: `réservé aux figurines ${it.trait}` };
+  if (it.arcana && unitArcana(u, us) !== it.arcana && !(u.rules || []).some(r => /^Theurgika Maximus/.test(r.split(' : ').pop()))) return { show: false, why: `réservé aux Cyberthéurges ${it.arcana}` };
+  if (it.legacy && !legacyOn()) return { show: false, why: 'option Legacies (décochez « Exclure les unités Legacies »)' };
   return { show: true };
+}
+/* ---------- Équipement porté : qui tient quoi, après les échanges ---------- */
+const itemOf = w => String(w).split(' : ').pop().replace(/\s*\(.*\)$/, '').trim();
+const ikey = n => String(n).toLowerCase().replace(/’/g, "'").replace(/^(un |une |deux |paire de |pair of |a |an )/, '').trim();
+function unitItems(u) { const out = new Set((u.wargear || []).map(itemOf)); (u.options || []).forEach(o => { for (const c of optChoices(o)) out.add(c.name); }); return [...out]; }
+function modelCount(u, us, name) { const m = u.models.find(m => m.name === name); return (m ? m.count : 0) + (u.extra && u.extra.model === name ? (us.extra || 0) : 0); }
+/* holders[ikey(item)] = nombre de pièces portées dans l'unité, après les échanges ; skip = option ignorée.
+   « Deux X » compte pour 2 pièces. Un élément de replaces/requires qui est un tableau = « l'un de ces objets ». */
+const isPair = n => /^(deux|two) /i.test(String(n).trim());
+function consume(h, r, n, partOf) {
+  if (Array.isArray(r)) { let left = n; for (const x of r) { const k = ikey(x), have = Math.max(0, h[k] || 0), t = Math.min(have, left); h[k] = have - t; left -= t; if (!left) break; } if (left) { const k = ikey(r[0]); h[k] = (h[k] || 0) - left; } return; }
+  const k = ikey(r); h[k] = (h[k] || 0) - n * (isPair(r) && !partOf ? 2 : 1);
+}
+function holders(u, us, skip) {
+  const h = {}, size = unitSize(us), add = (k, n) => { h[k] = (h[k] || 0) + n; };
+  for (const w of u.wargear || []) { const p = String(w).split(' : '), it = itemOf(w); add(ikey(it), (p.length > 1 ? (modelCount(u, us, p[0].trim()) || 1) : size) * (isPair(it) ? 2 : 1)); }
+  (u.options || []).forEach((o, oi) => {
+    if (oi === skip) return;
+    const ch = optChoices(o), picked = picksOf(us, oi);
+    for (const [k, q] of Object.entries(picked)) { const c = ch[k]; if (!c || !q) continue; const n = o.all ? size : q;
+      for (const r of [].concat(c.replaces || o.replaces || [])) consume(h, r, n, o.partOf);
+      for (const g of c.gives || [c.name]) add(ikey(g), n * (isPair(g) ? 2 : 1)); }
+  });
+  return h;
+}
+const have = (h, it) => Array.isArray(it) ? it.reduce((a, x) => a + Math.max(0, h[ikey(x)] || 0), 0) : Math.max(0, h[ikey(it)] || 0);
+const itName = it => Array.isArray(it) ? it.join(' ou ') : it;
+/* Nombre maximal de choix pour une option, compte tenu de l'équipement réellement porté */
+function optAvail(o, us, oi) {
+  const u = UNITS[us.u]; let cap = optMax(o, us); const why = [];
+  const lim = (n, w) => { n = Math.max(0, Math.floor(n)); if (n < cap) { cap = n; why.push(w); } };
+  if (o.notIfArmyHas && army.dets.some(d => Object.values(d.units).some(x => [].concat(o.notIfArmyHas).includes(x.u)))) lim(0, `impossible avec ${[].concat(o.notIfArmyHas).map(i => (UNITS[i] || {}).name || i).join(', ')} dans l'armée`);
+  const needs = o.requiresAny ? [[].concat(o.requires || [])] : [].concat(o.requires || []), gives = [].concat(o.replaces || []);
+  if (o.minModels && unitSize(us) < o.minModels) lim(0, `à partir de ${o.minModels} figurines`);
+  if (o.needsFromList) { const ln = o.needsFromList; let n = 0; (u.options || []).forEach((o2, j) => { if (j === oi) return; const ch = optChoices(o2); for (const [k, q] of Object.entries(picksOf(us, j))) if (ch[k] && ch[k].from === ln) n += q; }); lim(n, `nécessite un objet de « ${ln} »`); }
+  if (needs.length || gives.length || o.needsUpgrade || o.models || o.modelsSubtype) {
+    const h = holders(u, us, oi);
+    for (const it of needs) lim(have(h, it), `${have(h, it)} figurine(s) avec ${itName(it)}`);
+    for (const it of gives) { const per = !Array.isArray(it) && isPair(it) && !o.partOf ? 2 : 1; lim(have(h, it) / per, `${Math.floor(have(h, it) / per)} ${itName(it)} encore à échanger`); }
+    if (o.modelsSubtype) lim(u.models.filter(m => (u.types || []).some(t => t.startsWith(m.name + ' :') && new RegExp(o.modelsSubtype).test(t)) || ((u.types || []).length === 1 && new RegExp(o.modelsSubtype).test(u.types[0]))).reduce((a, m) => a + modelCount(u, us, m.name), 0), 'réservé aux figurines État-major, Champion, Spécialiste ou Sergent');
+    if (o.models) lim([].concat(o.models).reduce((a, m) => a + modelCount(u, us, m), 0), `réservé à : ${[].concat(o.models).join(', ')}`);
+    if (o.needsUpgrade) {
+      const nu = o.needsUpgrade;
+      if (typeof nu === 'object') { const src = (u.options || [])[nu.opt], ch = src ? optChoices(src) : [], pk = picksOf(us, nu.opt);
+        const n = Object.entries(pk).reduce((a, [k, q]) => a + (ch[k] && (!nu.list || [].concat(ch[k].from || []).includes(nu.list) || (src.list === nu.list && !ch[k].from)) ? q : 0), 0);
+        lim(n, `nécessite d'avoir pris une arme de « ${nu.list || 'l\'option précédente'} »`); }
+      else lim(have(h, nu), `nécessite ${nu}`);
+    }
+  }
+  if (o.needsArmyUnit && !army.dets.some(d => Object.values(d.units).some(x => x.u === o.needsArmyUnit))) lim(0, `nécessite un(e) ${(UNITS[o.needsArmyUnit] || {}).name || o.needsArmyUnit} dans l'armée`);
+  if (o.exclusive) (u.options || []).forEach((o2, j) => { if (j !== oi && o2.exclusive === o.exclusive && optCount(us, j)) lim(0, 'option alternative déjà choisie'); });
+  const noPiv = x => !!x.noPintle;
+  if (noPiv(o) && pivotPicked(u, us)) lim(0, 'aucune Arme sur Pivot ne doit être choisie');
+  if (!noPiv(o) && optChoices(o).some(isPivot) && (u.options || []).some((o2, j) => j !== oi && noPiv(o2) && optCount(us, j))) lim(0, 'Décurion choisi : aucune Arme sur Pivot');
+  if (o.upgrade && us.upgrade != null) lim(0, 'une seule amélioration par unité');
+  return { cap: Math.max(0, cap), why: why.join(' ; ') };
+}
+const isPivot = c => [c.name, c.from || '', ...(c.gives || [])].some(n => /sur Pivot|Pintle/i.test(n));
+function pivotPicked(u, us) { return (u.options || []).some((o, j) => !o.noPintle && Object.keys(picksOf(us, j)).some(k => optChoices(o)[k] && isPivot(optChoices(o)[k]))); }
+const isExpanded = (u, us) => !!(u && us && !u.legacy && (u.options || []).some((o, oi) => o.legacy && optCount(us, oi)));
+/* Amélioration (Décurion…) : conditions d'équipement */
+function upgradeOk(u, us, g) {
+  if ((u.options || []).some((o, j) => o.upgrade && optCount(us, j))) return { ok: false, why: 'une autre amélioration est déjà choisie (une seule par unité)' };
+  if (/D[ée]curion/.test(g.name) && pivotPicked(u, us)) return { ok: false, why: 'aucune Arme sur Pivot ne doit être choisie' };
+  if (!g.requires) return { ok: true };
+  const h = holders(u, us, -1), miss = [].concat(g.requires).filter(it => !have(h, it));
+  return miss.length ? { ok: false, why: 'nécessite ' + miss.map(itName).join(' et ') } : { ok: true };
 }
 function optMax(o, us) {
   const size = unitSize(us), u = UNITS[us.u];
   if (o.max === 'models') return size;
   if (o.max === 'others') return size - 1;
+  if (o.max === 'all') return size;
+  if (o.eachChoice && o.max === 'models') return size * Math.max(1, optChoices(o).length);
   if (typeof o.max === 'object' && o.max) {
     if (o.max.per) return Math.floor(size / o.max.per) * (o.max.n || 1);
     if (o.max.model) { const m = u.models.find(m => m.name === o.max.model); return (m ? m.count : 0) + (u.extra && u.extra.model === o.max.model ? (us.extra || 0) : 0); }
   }
   return o.max || 1;
 }
-function optCount(us, oi) { return Object.values((us.opts || {})[oi] || {}).reduce((a, b) => a + b, 0); }
+function supersededBy(u, oi) { if (!legacyOn()) return false; const base = (u.options || [])[oi]; return (u.options || []).some((o, j) => j !== oi && o.supersedes && o.supersedes.index === oi && (!o.supersedes.textStartsWith || String(base.text).startsWith(o.supersedes.textStartsWith))); }
+const okey = (u, oi) => { const o = (u.options || [])[oi]; return o && o.key ? o.key : oi; };
+const picksOf = (us, oi) => (us.opts || {})[okey(UNITS[us.u] || {}, oi)] || {};
+function optCount(us, oi) { return Object.values(picksOf(us, oi)).reduce((a, b) => a + b, 0); }
 function unitPoints(us) {
   const u = UNITS[us.u]; if (!u) return 0;
   let p = u.points + (us.extra || 0) * (u.extra ? u.extra.points : 0);
   if (us.variant != null && u.variants) p += u.variants[us.variant].points;
   (u.options || []).forEach((o, oi) => {
-    const ch = optChoices(o), picked = (us.opts || {})[oi] || {};
+    const ch = optChoices(o), picked = picksOf(us, oi);
     for (const [k, q] of Object.entries(picked)) { const c = ch[k]; if (c) p += c.points * q * (o.all ? unitSize(us) : 1); }
   });
   if (us.upgrade != null && u.upgrades) p += u.upgrades[us.upgrade].points;
@@ -248,15 +346,19 @@ function unitAllowed(det, slot, u) {
   const decur = md.decurionCommand && det === mainDet() && ['QG', 'EM'].includes(slot.role) && (u.upgrades || []).some(x => /D[ée]curion/.test(x.name));
   if (!roles.includes(u.role) && !(special && slot.role === 'EM' && u.role === 'QG') && !decur)
     return { ok: false, why: `Rôle Tactique ${role(u.role).name} : cette case est une case ${roles.map(r => role(r).name).join(' ou ')}. Une unité ne peut occuper qu'une case de son Rôle Tactique (Livre de Règles p. 282).` };
-  if (u.legacy && !legacyOn()) return { ok: false, why: 'Unité Legacies : cochez « Inclure les unités Legacies » à l\'étape 1.' };
+  if (u.legacy && !legacyOn()) return { ok: false, why: 'Unité Legacies : décochez « Exclure les unités Legacies » à l\'étape 1.' };
   if (def.kind === 'fort' || u.role === 'FO') return def.kind === 'fort' && u.role === 'FO' ? { ok: true } : { ok: false, why: 'Les Fortifications ne vont que dans un Battlefield Fortifications Detachment.' };
   if (slot.onlyIds && !slot.onlyIds.includes(u.id)) return { ok: false, why: `Case réservée à : ${slot.onlyIds.map(i => UNITS[i] ? UNITS[i].name : i).join(', ')}.` };
+  if (slot.notFaction && unitFaction(u) === slot.notFaction) return { ok: false, why: `${slot.src} : unité sans le Trait de Faction ${slot.notFaction}.` };
+  if (slot.noUnique && hasType(u, /Unique/)) return { ok: false, why: `${slot.src} : aucune Figurine Unique.` };
   if (slot.unitName && !new RegExp(slot.unitName).test(u.name)) return { ok: false, why: 'Case réservée aux unités de la section Machina Malefica du Liber Mechanicum.' };
   const only = def.only && def.only[slot.role];
   if (only && !slot.added && !slot.dyn && !only.includes(u.name))
     return { ok: false, why: `Dans un détachement ${def.name}, les cases ${role(slot.role).name} sont réservées à : ${only.join(', ')}${slot.bonus ? ' (y compris la case du Bénéfice Logistique, FAQ)' : ''}.` };
   const exc = def.except && def.except[slot.role];
-  if (exc && !slot.bonus && exc.includes(u.name)) return { ok: false, why: `Dans un détachement ${def.name}, les cases ${role(slot.role).name} ne peuvent pas recevoir : ${exc.join(', ')}.` };
+  if (exc && exc.includes(u.name)) return { ok: false, why: `Dans un détachement ${def.name}, les cases ${role(slot.role).name} ne peuvent pas recevoir : ${exc.join(', ')}.` };
+  if (def.onlyType && !slot.added && !(u.types || []).every(t => new RegExp(def.onlyType).test(t))) return { ok: false, why: `${def.name} : unités composées uniquement de Figurines de Type ${def.onlyType}.` };
+  const ot = def.onlyTrait && def.onlyTrait[slot.role]; if (ot && !(u.traits || []).includes(ot)) return { ok: false, why: `${def.name} : cases ${role(slot.role).name} réservées aux unités ${ot}.` };
   for (const o of detOaths(det)) {
     if (o.noRoles && !kidOfOath(det) && o.noRoles.includes(u.role) && !slot.oath) return { ok: false, why: `Serment « ${o.name} » : no ${o.noRoles.map(r => role(r).name).join(' / ')} Choices in this Detachment.` };
     if (o.emOnly && slot.role === 'EM' && !o.emOnly.includes(u.id)) return { ok: false, why: `Serment « ${o.name} » : Command Slots may only be filled with Centurions or Centurions in Terminator Armour.` };
@@ -269,13 +371,14 @@ function unitAllowed(det, slot, u) {
   const wantArmy = slot.army || def.foreign || armyOf(df);
   const prov = (army.provenances || []).map(provDef).filter(Boolean).flatMap(p => p.foreignUnits || []).find(f => f.ids.includes(u.id) && f.role === slot.role);
   if (u.army === 'cult' && slot.army !== 'cult') return { ok: false, why: 'Cults Abominatio : seulement par l\'Avantage Principal Cult Operative (case Appui ajoutée).' };
-  if (u.army && wantArmy && wantArmy !== u.army && !(prov && armyOf(df) === 'mil')) return { ok: false, why: `Ce détachement puise dans la liste ${armyName(wantArmy)} ; unité de la liste ${armyName(u.army)}.` };
+  if (u.army && wantArmy && wantArmy !== u.army && !(def.foreignAlt || []).includes(u.army) && !(prov && armyOf(df) === 'mil')) return { ok: false, why: `Ce détachement puise dans la liste ${armyName(wantArmy)} ; unité de la liste ${armyName(u.army)}.` };
   const f = unitFaction(u);
   if (slot.legion) {
     if (f !== slot.legion) return { ok: false, why: `Case Exemplars of the Legion : unité ${slot.legion} uniquement.` };
     if (hasType(u, /Unique/)) return { ok: false, why: 'Exemplars of the Legion : no Models with the Unique Sub-Type.' };
   } else if (f && !def.foreign && !slot.army && !prov && f !== df && !shatteredOk(u, f))
     return { ok: false, why: `Unité propre à la Faction ${f} ; ce détachement est ${df || 'sans faction'}${df === 'Shattered Legions' ? ' (Commanders of the Shattered Legions : seulement si leur Légion est choisie à l\'étape 2)' : ''}.` };
+  if (def.army === 'mil' && def.legacy && ['apex', 'aux'].includes(def.kind) && !def.foreign && !(u.traits || []).includes('Imperialis Militia')) return { ok: false, why: `${def.name} : unités entièrement Imperialis Militia uniquement (Imperialis Militia – Legacies p. 10).` };
   if (def.unitRule && hasType(u, new RegExp(def.unitRule.match)) && !hasRule(u, new RegExp(def.unitRule.need))) return { ok: false, why: def.unitRule.why };
   if (md.armyRule && md.armyRule.level !== 'warn' && !hasType(u, new RegExp(md.armyRule.match)) && !(md.armyRule.need && hasRule(u, new RegExp(md.armyRule.need)))) return { ok: false, why: `${md.name} : ${md.armyRule.why}` };
   if (md.noMove0 && (u.profiles || []).some(p => ['0', '-'].includes(String(p.stats[0])))) return { ok: false, why: `${md.name} : Units that include any Models with a Move Characteristic of ‘0’ or ‘-’ may not be selected.` };
@@ -296,7 +399,7 @@ function grants(parentDet) {
     : [parentDet];
   for (const d of group) for (const s of slotsOf(d)) {
     const us = d.units[s.i]; if (!us) continue;
-    if (d.adv[s.i] === 'affectation') continue;
+    if (d.adv[s.i] === 'affectation' || detDef(d.type).noGrants || detDef(d.type).noUnlock || (advDef(d.adv[s.i]) || {}).noGrants) continue;
     const u = UNITS[us.u]; if (!u) continue;
     if (s.role === 'QG' && detDef(parentDet.type).kind === 'principal') g.flex += 1;
     if (s.role === 'EM' || d.adv[s.i] === 'petty') { const x = ruleX(u, 'Officier de Ligne') || ruleX(u, 'Officer of the Line') || 1; g.aux += x; g.by[u.name] = (g.by[u.name] || 0) + x; if (u.countsAs) g.by[u.countsAs] = (g.by[u.countsAs] || 0) + x; }
@@ -321,7 +424,9 @@ const childrenOf = (p, kind) => army.dets.filter(d => detDef(d.type).kind === ki
 /* Peut-on ajouter un détachement de ce type ? -> {ok, why, parents} */
 function canAddDet(def) {
   const main = mainDet(), lim = army.limit, md = mainDef();
-  if (def.legacy && !legacyOn()) return { ok: false, why: 'Détachement Legacies : cochez « Inclure les unités Legacies » à l\'étape 1.' };
+  if (def.legacy && !legacyOn()) return { ok: false, why: 'Détachement Legacies : décochez « Exclure les unités Legacies » à l\'étape 1.' };
+  if (def.rite && !(riteDef() && [].concat(def.rite).includes(riteDef().id))) return { ok: false, why: `Réservé au Rite de Guerre ${def.rite} (FAQ oct. 2026).` };
+  if (def.needsHQTrait && !army.dets.some(d => slotsOf(d).some(x => { const us = d.units[x.i], u = us && UNITS[us.u]; return u && u.role === 'QG' && ((u.traits || []).includes(def.needsHQTrait) || (u.traits || []).includes('[' + def.needsHQTrait + ']') || us.arcana === def.needsHQTrait); }))) return { ok: false, why: `${def.name} : l'armée doit inclure un Quartier Général ${def.needsHQTrait} (${def.ref || ''}).` };
   if (def.kind === 'fort') return army.dets.some(d => d.type === def.id) ? { ok: false, why: 'Un seul Battlefield Fortifications Detachment par armée.' } : { ok: true };
   if (md.onlyDets && !md.onlyDets.includes(def.id)) return { ok: false, why: `${md.name} : only the following additional Detachments may be selected — ${md.onlyDets.map(i => (detDef(i) || {}).name || i).join(', ')}.` };
   if (md.maxDets && md.maxDets[def.id] && army.dets.filter(d => d.type === def.id).length >= md.maxDets[def.id]) return { ok: false, why: `${md.name} : ${def.name} (maximum of ${md.maxDets[def.id]}).` };
@@ -333,7 +438,8 @@ function canAddDet(def) {
   if (def.needsUnit && !hasUnitNamed(def.needsUnit)) return { ok: false, why: `Nécessite dans l'armée une unité : ${def.needsUnit.join(' ou ')}.` };
   if (def.doctrine && army.doctrine !== def.doctrine) { const dd = (DB.core.doctrines || []).find(d => d.id === def.doctrine); return { ok: false, why: `Nécessite la doctrine ${dd ? dd.name : def.doctrine} (étape 2).` }; }
   if (def.kind === 'sdg') {
-    if (army.dets.some(d => d.type === def.id)) return { ok: false, why: 'Un seul Détachement de Seigneur de Guerre par armée (p. 281).' };
+    if (army.dets.some(d => detDef(d.type).kind === 'sdg')) return { ok: false, why: 'Un seul Détachement de Seigneur de Guerre par armée (p. 281)' + (def.noUnlock ? ' : ' + def.name + ' le remplace.' : '.') };
+    if (def.minPoints && lim < def.minPoints) return { ok: false, why: `Limite de Points d'au moins ${def.minPoints}.` };
     if (lim < 3000) return { ok: false, why: `Disponible à partir d'une Limite de Points de 3000 ; la vôtre est de ${lim} (p. 281).` };
     return { ok: true };
   }
@@ -368,9 +474,9 @@ function canAddDet(def) {
 /* Avantages Principaux disponibles pour une case -> [{def, ok, why}] */
 function advOptions(det, slot) {
   const us = det.units[slot.i], u = us && UNITS[us.u];
-  const ddef = detDef(det.type), da = ddef.foreign || armyOf(detFaction(det)), oaths = detOaths(det), onlyAdv = (oaths.find(o => o.onlyAdv) || {}).onlyAdv;
+  const ddef = detDef(det.type), da = ddef.foreign || armyOf(detFaction(det)), oaths = detOaths(det), onlyAdv = (oaths.find(o => o.onlyAdv) || {}).onlyAdv || ddef.onlyAdv;
   return DB.core.primeAdvantages.filter(a => (a.army ? a.army === da : !ddef.rankOnly) && (!a.onlyDetTypes || a.onlyDetTypes.includes(det.type)) && (!a.detFaction || a.detFaction === detFaction(det))
-    && (!a.oath || oaths.some(o => o.id === a.oath)) && (!a.legacy || legacyOn()) && (!onlyAdv || a.id === onlyAdv)).map(a => {
+    && (!a.faction || a.faction === detFaction(det)) && (!a.oath || oaths.some(o => o.id === a.oath)) && (!a.legacy || legacyOn()) && (!onlyAdv || a.id === onlyAdv)).map(a => {
     let ok = true, why = '';
     const usedElsewhere = Object.entries(det.adv).some(([i, v]) => v === a.id && +i !== slot.i);
     const unlimited = paradigm() && paradigm().unlimitedAdv === a.id;
@@ -385,8 +491,15 @@ function advOptions(det, slot) {
     else if (u && a.needsSubtype && !hasType(u, new RegExp(a.needsSubtype))) { ok = false; why = `L'unité doit inclure une figurine de Sous-type ${a.needsSubtype.split('|')[0]}.`; }
     else if (u && a.needsType && !hasType(u, new RegExp(a.needsType))) { ok = false; why = `L'unité doit inclure une figurine de Type ${a.needsType.split('|')[0]}.`; }
     else if (u && a.notType && hasType(u, new RegExp(a.notType))) { ok = false; why = `Impossible pour une unité de Type ou Sous-type ${a.notType.split('|')[0]}.`; }
-    else if (u && a.needsTrait && !(hasTrait(u, new RegExp(a.needsTrait)) || detFaction(det) === a.needsTrait)) { ok = false; why = `Unité ${a.needsTrait} uniquement.`; }
+    else if (u && a.needsTrait && !(hasTrait(u, new RegExp(a.needsTrait)) || detFaction(det) === a.needsTrait || (us && us.arcana === a.needsTrait))) { ok = false; why = `Unité ${a.needsTrait} uniquement.`; }
     else if (u && a.id === 'exemplars' && (u.traits || []).some(t => LEGIONS().includes(t))) { ok = false; why = 'Exemplars of the Legion : the Command Unit must only include Models with the Shattered Legions Trait.'; }
+    else if (u && a.onlyType && !(u.types || []).every(t => new RegExp(a.onlyType).test(t))) { ok = false; why = `Unité composée uniquement de Figurines de Type ${a.onlyType}.`; }
+    else if (u && a.singleModel && unitSize(us) > 1) { ok = false; why = 'Unité d\'une seule figurine.'; }
+    else if (u && a.unitIds && !a.unitIds.includes(u.id)) { ok = false; why = 'Unité non concernée.'; }
+    else if (u && a.needsUnitIds && !a.needsUnitIds.includes(u.id)) { ok = false; why = `Réservé à : ${a.needsUnitIds.map(i => (UNITS[i] || {}).name || i).join(', ')}.`; }
+    else if (u && us && a.needsModel && (u.variants && us.variant != null ? u.variants[us.variant].name : u.models[0].name) !== a.needsModel) { ok = false; why = `Réservé à : ${a.needsModel}.`; }
+    else if (u && a.unitRole && ![].concat(a.unitRole).includes(u.role)) { ok = false; why = `Réservé aux unités ${[].concat(a.unitRole).map(r => role(r).name).join(' ou ')}.`; }
+    else if (a.allowsRole && u && u.role === a.allowsRole && slot.role !== a.allowsRole) { ok = true; }
     else if (u && hasType(u, /Unique/) && !a.uniqueOk) { ok = false; why = 'Unité Unique : seuls Affectation Spéciale et Bénéfice Logistique sont possibles (FAQ, Livre de Règles p. 283).'; }
     return { def: a, ok, why };
   });
@@ -394,7 +507,21 @@ function advOptions(det, slot) {
 
 
 const skitFree = d => { const r = DB.core.skitariiAlliesFree; return !!(r && armyOf(army.faction) === r.primary && armyOf(detFaction(d)) === r.allied); };
+function validateApex(out, err) {
+  for (const d of army.dets) { const def = detDef(d.type); if (!def) continue;
+    const sl = slotsOf(d);
+    if (def.mustFill && sl.some(x => x.i < 100 && !d.units[x.i])) err(`${def.name} : toutes les cases doivent être occupées (${def.ref || ''}).`, d);
+    if (def.forceAdv) for (const x of sl) { const want = def.forceAdv[x.role] || def.forceAdv['*']; if (want && d.units[x.i] && x.prime && d.adv[x.i] !== want) err(`${def.name} : l'unité de la case ${role(x.role).name} doit recevoir l'Avantage Principal ${(advDef(want) || {}).name || want}.`, d, x.i); }
+    if (def.needsOption) for (const x of sl) { const us = d.units[x.i], u = us && UNITS[us.u]; const need = u && def.needsOption[u.name]; if (need && !(u.options || []).some((o, oi) => { const ch = optChoices(o); return Object.keys(picksOf(us, oi)).some(k => ch[k] && new RegExp(need).test(ch[k].name)); })) err(`${def.name} : ${u.name} doit inclure ${need}.`, d, x.i); }
+  }
+  for (const d of army.dets) { const k = detDef(d.type).kind; if (!['principal', 'allie'].includes(k)) continue;
+    const fam = [d, ...army.dets.filter(x => x.parent === d.id)], all = fam.flatMap(x => Object.values(x.units).map(us => [us, UNITS[us.u]])).filter(([, u]) => u);
+    if (all.some(([, u]) => u.machinaMalefica) && !all.some(([us, u]) => (u.traits || []).some(t => /H[ée]t[ée]rodoxe|Heterodox/.test(t)) || (u.options || []).some((o, oi) => /H[ée]t[ée]rodoxe/.test(o.text) && optCount(us, oi))))
+      err(`${detName(d)} : une unité Machina Malefica exige au moins une figurine Hétérodoxe dans le détachement ou ses détachements rattachés (Liber Mechanicum p. 63).`, d);
+  }
+}
 function validateMore(out, err) {
+  validateApex(out, err);
   const warn = (msg, det, slot) => out.push({ level: 'warn', msg, det: det && det.id, slot });
   const info = msg => out.push({ level: 'info', msg });
   const md = mainDef(), main = mainDet();
@@ -402,8 +529,8 @@ function validateMore(out, err) {
   for (const x of all) if (x.u.unverified) warn(`${x.u.name} : profil issu de données communautaires non vérifiées (BSData). Vérifiez-le dans le Journal Tactica: Zone Mortalis.`, x.d, x.s.i);
   // Legacies
   const ad = armyDef();
-  if (!legacyOn() && (ad.legacy || factionInfo(army.faction).legacy)) err(`${army.faction} : liste Legacies, cochez « Inclure les unités Legacies » (étape 1).`);
-  for (const d of army.dets) { const f = detFaction(d), a = (DB.core.armies || []).find(x => x.factions.includes(f)); if (!legacyOn() && d !== main && f && ((a && a.legacy) || factionInfo(f).legacy)) err(`${detName(d)} : Faction ${f} issue des Legacies, cochez « Inclure les unités Legacies » (étape 1).`, d); }
+  if (!legacyOn() && (ad.legacy || factionInfo(army.faction).legacy)) err(`${army.faction} : liste Legacies, décochez « Exclure les unités Legacies » (étape 1).`);
+  for (const d of army.dets) { const f = detFaction(d), a = (DB.core.armies || []).find(x => x.factions.includes(f)); if (!legacyOn() && d !== main && f && ((a && a.legacy) || factionInfo(f).legacy)) err(`${detName(d)} : Faction ${f} issue des Legacies, décochez « Exclure les unités Legacies » (étape 1).`, d); }
   if (ad.incomplete) info(ad.incomplete);
   if (ad.allegiance && army.allegiance !== ad.allegiance) err(`Une armée ${ad.name} est forcément ${ad.allegiance}.`);
   const fi = factionInfo(army.faction); if (fi.allegiance && fi.allegiance !== army.allegiance) err(`${army.faction} : réservé aux armées d'Allégeance ${fi.allegiance}.`);
@@ -435,7 +562,9 @@ function validateMore(out, err) {
     for (const p of ps.map(provDef).filter(Boolean)) if (p.allegiance && p.allegiance !== army.allegiance) err(`Provenance ${p.name} : Traitor Allegiance only.`);
   }
   // Mechanicum : une seule variante de Faction par Auxiliaire / Apex ; pas de variante commune entre Allié et Principal (FAQ)
-  const arc = d => new Set(Object.values(d.units).map(us => UNITS[us.u] && unitArcana(UNITS[us.u], us)).filter(Boolean));
+  const arc = d => new Set(Object.entries(d.units).filter(([i]) => !(d.bonusRole && +i === detDef(d.type).slots.length)).map(([, us]) => UNITS[us.u] && unitArcana(UNITS[us.u], us)).filter(Boolean));
+  for (const d of army.dets) for (const [i, us] of Object.entries(d.units)) if (d.adv[i] === 'we-enchaines') { const [od, oi] = String(us.chainWith || '').split(':'), o = army.dets.find(x => x.id === od), ous = o && o.units[oi]; if (!ous) err(`${UNITS[us.u].name} — Enchaînés : choisissez l'autre Unité État-major World Eaters (Frères de Chaîne).`, d, +i); }
+  if (army.dets.filter(d => detDef(d.type).kind === 'sdg').length > 1) err('Un seul Détachement de Seigneur de Guerre par armée (p. 281).');
   for (const d of army.dets) { const k = detDef(d.type).kind; if (['aux', 'apex'].includes(k) && armyOf(detFaction(d)) === 'mech' && arc(d).size > 1) err(`${detName(d)} : une seule variante de Faction Mechanicum par Détachement Auxiliaire ou d'Apex (${[...arc(d)].join(', ')}).`, d); }
   if (armyOf(army.faction) === 'mech') { const pa = arc(main); for (const d of army.dets.filter(d => detDef(d.type).kind === 'allie' && armyOf(detFaction(d)) === 'mech')) { const both = [...arc(d)].filter(x => pa.has(x)); if (both.length) err(`${detName(d)} : an Allied Detachment may not include Units with the same Mechanicum Faction Trait as the Primary Detachment (${both.join(', ')}) (FAQ).`, d); } }
   for (const x of all) if ((x.u.traits || []).includes('[Mechanicum]') && !x.us.arcana) out.push({ level: 'warn', msg: `${x.u.name} : choisissez sa variante de Faction Mechanicum (Techno-arcane).`, det: x.d.id, slot: x.s.i });
@@ -449,7 +578,7 @@ function validateMore(out, err) {
     const w = x.u.models.reduce((a, m) => a + m.count * bulk(x.u, m.name), 0) + (x.us.extra || 0) * bulk(x.u, (x.u.extra || {}).model);
     const key = x.us.embark; load[key] = load[key] || { tu, tus, td, si, n: 0, who: [] }; load[key].n += w; load[key].who.push(x.u.name);
   }
-  for (const L of Object.values(load)) { const cap = capacity(L.tu); if (cap && L.n > cap) err(`${L.tu.name} : ${L.n} places occupées pour une Capacité de Transport de ${cap} (${L.who.join(', ')} ; Massif (X) compte X places).`, L.td, +L.si); }
+  for (const L of Object.values(load)) { const cap = capacity(L.tu, L.td, L.si); if (cap && L.n > cap) err(`${L.tu.name} : ${L.n} places occupées pour une Capacité de Transport de ${cap} (${L.who.join(', ')} ; Massif (X) compte X places).`, L.td, +L.si); }
   // Options qui remplacent la même pièce d'équipement
   for (const x of all) { const groups = {};
     (x.u.options || []).forEach((o, oi) => { const m = o.text.match(/(?:[Rr]emplacer|échanger) (?:le |la |l'|les |son |sa |ses )?([^:,(]+?)$|exchange (?:its |their )?([^:,(]+?)$|have (?:its|their) ([^,]+?) (?:exchanged|replaced)/); if (!m) return;
@@ -486,7 +615,7 @@ function validate() {
     if (def.kind === 'sdb' && !det.faction) err(`${def.name} : choisissez sa Faction.`, det);
     if (def.kind === 'sdg') {
       if (lim < 3000) err(`${def.name} : interdit sous 3000 points (p. 281).`, det);
-      if (!Object.values(det.units).some(us => UNITS[us.u] && hasType(UNITS[us.u], /Parangon/))) err(`${def.name} : doit inclure au moins une figurine de Type Parangon (p. 281).`, det);
+      if (!Object.values(det.units).some(us => UNITS[us.u] && hasType(UNITS[us.u], /Parangon|Paragon/))) err(`${def.name} : doit inclure au moins une figurine de Type Parangon (p. 281).`, det);
     }
     for (const s of slots) {
       const us = det.units[s.i]; if (!us) { if (det.adv[s.i] && det.adv[s.i] !== 'affectation') err(`${def.name} : un Avantage Principal est choisi sur une case vide.`, det, s.i); continue; }
@@ -501,16 +630,25 @@ function validate() {
       if (u.extra && (us.extra || 0) > u.extra.max) err(`${u.name} : ${u.extra.max} ${u.extra.model} supplémentaire(s) au maximum.`, det, s.i);
       (u.options || []).forEach((o, oi) => {
         const n = optCount(us, oi), m = optMax(o, us);
-        if (n > m) err(`${u.name} — « ${o.text} » : ${n} sélection(s) pour ${m} autorisée(s).`, det, s.i);
+        if (n > m && !o.eachChoice) err(`${u.name} — « ${o.text} » : ${n} sélection(s) pour ${m} autorisée(s).`, det, s.i);
+        else if (n && !o.eachChoice) { const av = optAvail(o, us, oi); if (n > av.cap) err(`${u.name} — « ${o.text} » : ${n} sélection(s) mais ${av.why || 'plus assez de figurines'}.`, det, s.i); }
+        if (us.upgrade != null && u.upgrades && oi === 0) { const g = u.upgrades[us.upgrade], ok = g && upgradeOk(u, us, g); if (ok && !ok.ok) err(`${u.name} — ${g.name} : ${ok.why}.`, det, s.i); }
+        if (n && o.advOpt && det.adv[s.i] !== o.advOpt) err(`${u.name} — « ${o.text} » : réservé à l'Avantage ${(advDef(o.advOpt) || {}).name}.`, det, s.i);
+        if (!n && o.advOpt && o.required && det.adv[s.i] === o.advOpt) err(`${u.name} — ${(advDef(o.advOpt) || {}).name} : « ${o.text} » est obligatoire.`, det, s.i);
+        if (n && !o.advOpt && advDef(det.adv[s.i]) && advDef(det.adv[s.i]).noUnitOptions) err(`${u.name} — ${advDef(det.adv[s.i]).name} : l'unité ne peut prendre aucune autre option.`, det, s.i);
+        if (n && supersededBy(u, oi)) err(`${u.name} — « ${o.text} » : remplacée par la version Legacies de cette option.`, det, s.i);
+        if (n && o.allOrNothing && n !== m) err(`${u.name} — « ${o.text} » : toutes les figurines ou aucune.`, det, s.i);
+        if (n && ((o.allegiance && army.allegiance !== o.allegiance) || (o.arcana && us.arcana !== o.arcana) || (o.notArcana && us.arcana === o.notArcana) || (o.slotRole && s.role !== o.slotRole))) err(`${u.name} — « ${o.text} » : non autorisé ici (${o.allegiance || o.arcana || o.notArcana || role(o.slotRole).name}).`, det, s.i);
+        if (n && o.faction && !itemState(o, u, det).show) err(`${u.name} — « ${o.text} » : réservé aux ${o.faction}.`, det, s.i);
         if (n && o.prov && !(army.provenances || []).includes(o.prov)) err(`${u.name} — « ${o.text} » : Provenance non choisie (étape 2).`, det, s.i);
         if (n && o.oath && !detOaths(det).some(x => x.id === o.oath)) err(`${u.name} — « ${o.text} » : Oath of Moment non choisi.`, det, s.i);
         if (o.oath && !n && detOaths(det).some(x => x.id === o.oath)) out.push({ level: 'warn', msg: `${u.name} — The Weapons of Desperation : choisissez les armes de remplacement des bolters et pistolets bolters.`, det: det.id, slot: s.i });
         if (n && o.onePerDet && Object.entries(det.units).some(([j, x]) => +j !== s.i && x.u === us.u && optCount(x, oi))) err(`${u.name} — « ${o.text} » : une seule unité par détachement.`, det, s.i);
-        if (n && o.legacy && !legacyOn()) err(`${u.name} — « ${o.text} » : option Legacies, cochez « Inclure les unités Legacies » (étape 1).`, det, s.i);
-        const ch2 = optChoices(o); for (const k of Object.keys((us.opts || {})[oi] || {})) { const c = ch2[k]; if (c) { const st = itemState(c, u, det); if (!st.show) err(`${u.name} — ${c.name} : ${st.why}.`, det, s.i); } }
+        if (n && o.legacy && !legacyOn()) err(`${u.name} — « ${o.text} » : option Legacies, décochez « Exclure les unités Legacies » (étape 1).`, det, s.i);
+        const ch2 = optChoices(o); for (const k of Object.keys(picksOf(us, oi))) { const c = ch2[k]; if (c) { const st = itemState(c, u, det, us); if (!st.show) err(`${u.name} — ${c.name} : ${st.why}.`, det, s.i); } }
         const req = (o.required || /obligatoire/i.test(o.text)) && !(o.onlyVariant != null && us.variant !== o.onlyVariant);
-        { const need = typeof o.max === 'number' ? o.max : (o.max === 'models' || o.max === 'others' ? optMax(o, us) : 1); if (req && n < need && !(u.options || []).some((o2, j) => j !== oi && /^Ou /.test(o2.text) && optCount(us, j))) err(`${u.name} — « ${o.text} » : choix obligatoire (${n}/${need}).`, det, s.i); }
-        if (o.allSame && (n !== m || Object.keys((us.opts || {})[oi] || {}).length !== 1)) err(`${u.name} — « ${o.text} » : choisissez une seule et même arme pour les ${m} figurines.`, det, s.i);
+        { const need = typeof o.max === 'number' ? o.max : (o.max === 'models' || o.max === 'others' ? optMax(o, us) : 1); if (req && n < need && !(u.options || []).some((o2, j) => j !== oi && (/^Ou /.test(o2.text) || (o.exclusive && o2.exclusive === o.exclusive)) && optCount(us, j))) err(`${u.name} — « ${o.text} » : choix obligatoire (${n}/${need}).`, det, s.i); }
+        if (o.allSame && (n !== m || Object.keys(picksOf(us, oi)).length !== 1)) err(`${u.name} — « ${o.text} » : choisissez une seule et même arme pour les ${m} figurines.`, det, s.i);
         if (o.notVariant != null && us.variant === o.notVariant && n) err(`${u.name} — « ${o.text} » : option inaccessible à ${u.variants[us.variant].name}.`, det, s.i);
       });
     }
@@ -558,13 +696,26 @@ const store = {
   remove(id) { const l = this.all(); delete l[id]; LS.set('30k.lists', l); }
 };
 let saveT = null;
-function touch() { clearTimeout(saveT); saveT = setTimeout(() => store.save(army), 250); render(); }
+const HIST = { back: [], fwd: [], last: null };
+function snap() { const j = JSON.stringify(army); if (HIST.last && HIST.last !== j && JSON.parse(HIST.last).id === army.id) { HIST.back.push(HIST.last); if (HIST.back.length > 60) HIST.back.shift(); HIST.fwd = []; } HIST.last = j; }
+function undo(dir) {
+  const from = dir > 0 ? HIST.fwd : HIST.back, to = dir > 0 ? HIST.back : HIST.fwd; if (!from.length) return flash(dir > 0 ? 'Rien à rétablir.' : 'Rien à annuler.');
+  to.push(JSON.stringify(army)); army = JSON.parse(from.pop()); HIST.last = JSON.stringify(army); sel = null; document.body.classList.remove('editing'); store.save(army); render(); flash(dir > 0 ? 'Rétabli.' : 'Annulé.');
+}
+function tidy() { for (const d of army.dets) { const prime = new Set(slotsOf(d).filter(x => x.prime).map(x => String(x.i))); for (const i of Object.keys(d.adv || {})) if (!d.units[i] || !prime.has(String(i))) delete d.adv[i]; } }
+function touch() { tidy(); snap(); clearTimeout(saveT); saveT = setTimeout(() => store.save(army), 250); render(); }
 
 /* ---------- Rendu ---------- */
+const ROLECAT = { SG: 'cmd', QG: 'cmd', EM: 'cmd', SU: 'cmd', TR: 'line', EL: 'elite', AR: 'fast', RE: 'fast', AP: 'heavy', AL: 'heavy', BL: 'heavy', EG: 'heavy', SB: 'lord', TP: 'trans', TL: 'trans', FO: 'fort' };
 function slotGlyph(s, filled) {
-  const r = role(s.role);
-  const spikes = s.prime ? [...Array(8)].map((_, k) => `<path d="M0-31 3.2-25h-6.4z" transform="rotate(${k * 45})"/>`).join('') : '';
-  return `<svg viewBox="-34 -34 68 68" class="glyph${filled ? ' on' : ''}${s.bonus ? ' bonus' : ''}" aria-hidden="true"><g class="spk">${spikes}</g><circle r="25"/><text y="6" text-anchor="middle">${r.short}</text></svg>`;
+  const r = role(s.role), t = String(r.short || s.role).toUpperCase();
+  const crown = s.prime ? '<path class="crown" d="M-15-27 -9-35 -3-28 0-37 3-28 9-35 15-27z"/>' : '';
+  return `<svg viewBox="-34 -40 68 74" class="glyph c-${ROLECAT[s.role] || 'other'}${filled ? ' on' : ''}${s.bonus ? ' bonus' : ''}${s.prime ? ' prime' : ''}" aria-hidden="true">${crown}<rect x="-27" y="-24" width="54" height="50" rx="9"/><text y="10" text-anchor="middle">${t}</text></svg>`;
+}
+/* Résumé lisible des cases d'un détachement : « 1 QG · 2 EM · 4 TR » (Principales comprises) */
+function slotSummary(slots) {
+  const n = {}, p = {}; for (const x of slots) { const k = (x.roles || [x.role]).map(r => String(role(r).short || r).toUpperCase()).join('/'); n[k] = (n[k] || 0) + 1; if (x.prime) p[k] = (p[k] || 0) + 1; }
+  return el('span', { class: 'rsum' }, Object.entries(n).map(([k, v]) => el('span', { class: 'rs', title: k }, el('b', {}, v + ' ' + k), p[k] ? el('i', {}, ` dont ${p[k]} principale${p[k] > 1 ? 's' : ''}`) : null)));
 }
 function ruleChip(name) {
   const has = lookupRule(name);
@@ -622,7 +773,7 @@ function render() {
       const pick = id => { if (main.type === id) return; if (Object.keys(main.units).length && !confirm('Changer de Détachement Principal vide ses cases. Continuer ?')) return; main.type = id; main.units = {}; main.adv = {}; main.bonusRole = null; main.advSlot = {}; touch(); };
       host.append(el('div', { class: 'altmain' }, el('h3', {}, 'Type de Détachement Principal'),
         el('div', { class: 'choices wide' }, [std, ...alts].map(d => { const b = el('button', { type: 'button', class: 'choice', 'aria-pressed': main.type === d.id ? 'true' : 'false', onclick: () => pick(d.id) },
-          el('b', {}, d.name), el('i', {}, d.alt ? 'Legiones Astartes Primary Detachments (EN)' : 'Livre de Règles p. 284'), el('span', { class: 'mini', html: d.slots.map(x => slotGlyph(x, false)).join('') })); return b; })))); } }
+          el('b', {}, d.name), el('i', {}, d.alt ? 'Legiones Astartes Primary Detachments (EN)' : 'Livre de Règles p. 284'), slotSummary(d.slots)); return b; })))); } }
   for (const det of order) { if (step === 3 && det !== main) continue; if (step === 4 && det === main) continue; host.append(renderDet(det, issues)); }
   if (step === 4 && order.length === 1) host.append(el('p', { class: 'note' }, 'Aucun détachement supplémentaire pour l\'instant.'));
 
@@ -631,8 +782,10 @@ function render() {
   for (const i of issues) iss.append(el('li', { class: i.level, onclick: () => { if (i.det) { const d = $(`[data-det="${i.det}"]`); d && d.scrollIntoView({ behavior: 'smooth', block: 'center' }); } } }, i.msg));
   renderEditor(issues);
   renderSheet(issues);
+  $('#b-undo').disabled = !HIST.back.length; $('#b-redo').disabled = !HIST.fwd.length;
+  $('#mini').replaceChildren(el('b', { class: total > army.limit ? 'over' : '' }, total), el('span', {}, ` / ${army.limit} pts`), el('span', { class: 'dot ' + (errs.length ? 'bad' : 'good'), title: errs.length ? errs.length + ' point(s) à corriger' : 'Liste conforme' }, errs.length ? '✕ ' + errs.length : '✓'));
 }
-const KIND = { fort: 'Détachement Additionnel (Legacies)', addl: 'Détachement Additionnel', principal: 'Détachement Principal', aux: 'Détachement Auxiliaire', apex: 'Détachement d\'Apex', allie: 'Détachement Allié', sdg: 'Seigneur de Guerre', sdb: 'Seigneur des Batailles' };
+const KIND = { fort: 'Détachement Additionnel (Legacies)', addl: 'Détachement Additionnel', principal: 'Détachement Principal', aux: 'Détachement Auxiliaire', apex: 'Détachement d\'Apex', allie: 'Détachement Allié', sdg: 'Détachement de Seigneur de Guerre', sdb: 'Détachement de Seigneur des Batailles' };
 const STEPS = [['Limite de Points', () => army.limit + ' pts'], ['Allégeance et Faction', () => army.allegiance + ' · ' + army.faction + (doctrineDef() ? ' · ' + doctrineDef().name : '') + (ritesFor().length > 1 && riteDef() ? ' · ' + riteDef().name : '')], ['Détachement Principal', () => Object.keys(mainDet().units).length + ' unité(s)'], ['Autres détachements', () => (army.dets.length - 1) + ' détachement(s)']];
 function goStep(n) { army.step = Math.max(1, Math.min(4, n)); sel = null; document.body.classList.remove('editing'); touch(); scrollTo({ top: 0 }); }
 function renderWizard(issues) {
@@ -646,8 +799,8 @@ function renderWizard(issues) {
     w.append(el('h2', {}, 'Fixer la Limite de Points'), el('p', {}, 'La valeur totale des unités et de leurs options ne pourra pas la dépasser. Elle fixe aussi les plafonds : 50 % pour les alliés, 25 % pour les Seigneurs de Guerre et des Batailles.'),
       el('h3', {}, 'Type de bataille'), el('div', { class: 'choices wide' }, (DB.core.modes || []).map(m => choice(m.name, m.limit ? `Limite imposée : ${m.limit} points` : m.note || 'Limite libre, 3000 points par défaut', m.id === md.id, () => { army.mode = m.id; if (m.limit) army.limit = m.limit; else if (m.defaultLimit) army.limit = Math.max(army.limit, m.defaultLimit); else if (army.limit < 2000) army.limit = 3000; touch(); }))),
       el('h3', {}, 'Limite de Points'));
-    w.append(el('label', { class: 'legacy-box' }, el('input', { type: 'checkbox', checked: !!army.legacies, onchange: e => { army.legacies = e.target.checked; touch(); } }),
-      el('span', {}, el('b', {}, 'Inclure les unités Legacies (Héritages)'), el('i', {}, 'Unités, détachements, options et listes des PDF « Legacies of the Age of Darkness » : Legacies Astartes, Auxilia et Mechanicum, Inductii, Blackshields, Shattered Legions, Imperialis Militia, Legio Custodes, Daemons of the Ruinstorm, Fortifications. À convenir avec votre adversaire.'))));
+    w.append(el('label', { class: 'legacy-box' }, el('input', { type: 'checkbox', checked: !!army.noLegacies, onchange: e => { army.noLegacies = e.target.checked; touch(); } }),
+      el('span', {}, el('b', {}, 'Exclure les unités Legacies (Héritages)'), el('i', {}, 'Unités, détachements, options et listes des PDF « Legacies of the Age of Darkness » : Legacies Astartes, Auxilia et Mechanicum, Inductii, Blackshields, Shattered Legions, Imperialis Militia, Legio Custodes, Daemons of the Ruinstorm, Fortifications. À convenir avec votre adversaire.'))));
     if (md.limit) w.append(el('div', { class: 'choices wide' }, choice(md.limit + ' points', md.ref || '', true, () => {})));
     else {
       const std = [2000, 2500, 3000, 3500, 4000], custom = !std.includes(army.limit);
@@ -661,7 +814,7 @@ function renderWizard(issues) {
       el('h3', {}, 'Allégeance'), el('div', { class: 'choices wide' }, [['Loyaliste', 'Fidèle à l\'Empereur'], ['Renégat', 'Rallié au Maître de Guerre']].map(([a, t]) => choice(a, t, army.allegiance === a, () => { army.allegiance = a; touch(); }))),
       ...(DB.core.armies || []).filter(a => !a.hidden && a.factions.length).flatMap(a => [el('h3', {}, 'Faction — ' + a.name + (a.legacy ? ' (Legacies)' : '')), el('div', { class: 'choices' }, a.factions.map(f => {
         const leg = a.legacy || factionInfo(f).legacy, al = factionInfo(f).allegiance || a.allegiance, off = (leg && !legacyOn());
-        const b = choice(f, [leg ? 'Legacies' : '', al ? al + ' uniquement' : ''].filter(Boolean).join(' · '), army.faction === f, () => { if (off) return flash(`${f} : cochez « Inclure les unités Legacies » à l'étape 1.`); army.faction = f; syncMain(); if (!doctrineDef()) army.doctrine = null; touch(); });
+        const b = choice(f, [leg ? 'Legacies' : '', al ? al + ' uniquement' : ''].filter(Boolean).join(' · '), army.faction === f, () => { if (off) return flash(`${f} : décochez « Exclure les unités Legacies » à l'étape 1.`); army.faction = f; syncMain(); if (!doctrineDef()) army.doctrine = null; touch(); });
         if (off) { b.classList.add('off'); b.title = 'Liste Legacies : cochez la case à l\'étape 1'; } return b; }))]));
     if (army.faction === 'Shattered Legions') { const S = DB.core.shattered, cur = army.shattered || [];
       w.append(el('h3', {}, `Shattered Legions : ${S.min} or ${S.max} Legions (${cur.length} selected)`), el('p', { class: 'note' }, 'Mutable Tactics — one benefit per Legion selected. ' + S.boundInBlood),
@@ -696,8 +849,9 @@ function renderDet(det, issues) {
   const box = el('section', { class: 'det k-' + def.kind + (bad ? ' bad' : ''), 'data-det': det.id });
   const head = el('header', {},
     el('div', {}, el('h2', {}, def.name), el('p', { class: 'kind' }, KIND[def.kind] + (det.parent && det.parent !== mainDet().id ? ' rattaché à l\'Allié' : '') + ' · ' + (detFaction(det) || 'Faction à choisir'))),
-    el('div', { class: 'dp' }, el('b', {}, detPoints(det)), ' pts'));
+    el('div', { class: 'dp' }, el('b', {}, detPoints(det)), ' pts', el('button', { class: 'ib fold', type: 'button', 'aria-expanded': det.folded ? 'false' : 'true', title: det.folded ? 'Déplier' : 'Replier', onclick: () => { det.folded = !det.folded; touch(); } }, det.folded ? '▸' : '▾')));
   box.append(head);
+  if (det.folded) { box.classList.add('folded'); box.append(el('p', { class: 'kind' }, Object.values(det.units).map(x => (UNITS[x.u] || {}).name).filter(Boolean).join(' · ') || 'Aucune unité')); return box; }
   if (def.kind === 'allie' || def.kind === 'sdb') {
     const s = el('select', { 'aria-label': 'Faction du détachement', onchange: e => { det.faction = e.target.value; touch(); } }, el('option', { value: '' }, 'Choisir la Faction…'),
       (DB.core.armies || []).map(a => el('optgroup', { label: a.name }, a.factions.map(f => el('option', { value: f, selected: det.faction === f, disabled: def.kind === 'allie' && f === army.faction }, f + (def.kind === 'allie' && f === army.faction ? ' (faction principale)' : ''))))));
@@ -726,7 +880,7 @@ function renderDet(det, issues) {
       title: role(s.role).name + (s.prime ? ' — Case Principale' : '') + (s.added != null ? ' — case ajoutée' + (s.legion ? ' (' + s.legion + ')' : s.army ? ' (' + armyName(s.army) + ')' : '') : s.bonus ? ' — case du Bénéfice Logistique' : '') + (s.dyn ? ' — case ajoutée par le Détachement Principal' : '') + (s.oath ? ' — Oath of Moment' : ''),
       onclick: () => { if (us) { sel = { det: det.id, slot: s.i }; render(); openEditor(); } else openPicker(det, s); } },
       el('span', { html: slotGlyph(s, !!us) }),
-      el('span', { class: 'sl' }, us ? [el('b', {}, u ? u.name : us.u), el('i', {}, `${u ? unitSize(us) + ' fig. · ' : ''}${unitPoints(us)} pts` + (det.adv[s.i] ? ' · ' + advDef(det.adv[s.i]).name : ''))]
+      el('span', { class: 'sl' }, us ? [el('b', {}, u ? u.name : us.u, isExpanded(u, us) ? el('small', { class: 'tag' }, 'Expanded') : null), el('i', {}, `${u ? unitSize(us) + ' fig. · ' : ''}${unitPoints(us)} pts` + (det.adv[s.i] ? ' · ' + advDef(det.adv[s.i]).name : ''))]
         : [el('em', {}, (s.roles || [s.role]).map(r => role(r).name).join(' / ')), el('i', {}, s.prime ? 'Case Principale — vide' : s.legion ? s.legion + ' — vide' : s.army ? armyName(s.army) + ' — vide' : s.bonus || s.dyn ? 'Case ajoutée — vide' : 'Vide')]));
     row.append(b);
   }
@@ -747,16 +901,26 @@ function openPicker(det, slot) {
   $('#dlg-title').textContent = `${role(slot.role).name} — ${detName(det)}`;
   const okL = [], koL = [];
   const dfa = slot.army || detDef(det.type).foreign || armyOf(detFaction(det)); let hiddenLeg = 0;
-  for (const u of Object.values(UNITS)) { if (u.legacy && !legacyOn()) { if (u.army === dfa && (slot.roles || [slot.role]).includes(u.role)) hiddenLeg++; continue; } if (u.role === 'FO' && detDef(det.type).kind !== 'fort') continue; const a = unitAllowed(det, slot, u); if (!a.ok && ((u.army && dfa && u.army !== dfa) || !u.army)) continue; (a.ok ? okL : koL).push([u, a]); }
+  const canSA = slot.prime && !det.units[slot.i] && !det.adv[slot.i] && advOptions(det, slot).some(o => o.def.id === 'affectation' && o.ok);
+  const saL = [];
+  if (canSA) { det.adv[slot.i] = 'affectation'; for (const u of Object.values(UNITS)) if (u.role === 'QG' && !(u.legacy && !legacyOn())) { const a = unitAllowed(det, slot, u); if (a.ok) saL.push([u, a]); } delete det.adv[slot.i]; }
+  for (const u of Object.values(UNITS)) { if (u.legacy && !legacyOn()) { if (u.army === dfa && (slot.roles || [slot.role]).includes(u.role)) hiddenLeg++; continue; } if (u.role === 'FO' && detDef(det.type).kind !== 'fort') continue; const a = unitAllowed(det, slot, u); if (!a.ok && ((u.army && dfa && u.army !== dfa && !(detDef(det.type).foreignAlt || []).includes(u.army)) || !u.army)) continue; (a.ok ? okL : koL).push([u, a]); }
   const left = army.limit - armyPoints();
+  { const def = detDef(det.type), sw = (def.slotSwaps || []).find(q => (slot.swapped ? q === slot.swapped : q.from === slot.role) && (!q.faction || q.faction === detFaction(det)));
+    if (sw && slot.i < 100) body.append(el('div', { class: 'swap' }, el('p', { class: 'note' }, sw.why), el('button', { class: 'btn ghost', type: 'button', onclick: () => { det.swaps = det.swaps || {}; if (det.swaps[slot.i]) delete det.swaps[slot.i]; else det.swaps[slot.i] = 1; delete det.units[slot.i]; delete det.adv[slot.i]; dlg.close(); touch(); openPicker(det, slotsOf(det).find(x => x.i === slot.i)); } }, slot.swapped ? `Rétablir la case ${role(sw.from).name}` : `Échanger contre une case ${role(sw.to).name} (${sw.onlyIds.map(i => (UNITS[i] || {}).name || i).join(', ')})`))); }
   const search = el('input', { type: 'search', placeholder: 'Chercher une unité…', 'aria-label': 'Chercher une unité', oninput: e => { const q = e.target.value.toLowerCase(); $$('.pick', body).forEach(p => p.hidden = !p.dataset.n.includes(q)); } });
   body.append(search);
   if (!okL.length) body.append(el('p', { class: 'note' }, 'Aucune unité de la base de données ne peut occuper cette case pour l\'instant.'));
-  if (hiddenLeg) body.append(el('p', { class: 'note' }, `${hiddenLeg} unité(s) Legacies masquée(s) : cochez « Inclure les unités Legacies » à l'étape 1 pour les voir.`));
+  if (hiddenLeg) body.append(el('p', { class: 'note' }, `${hiddenLeg} unité(s) Legacies masquée(s) : décochez « Exclure les unités Legacies » à l'étape 1 pour les voir.`));
   const mk = ([u, a]) => el('button', { type: 'button', class: 'pick' + (a.ok ? '' : ' ko'), 'data-n': u.name.toLowerCase(), disabled: !a.ok, onclick: () => {
     det.units[slot.i] = { u: u.id, extra: 0, opts: {} }; sel = { det: det.id, slot: slot.i }; dlg.close(); touch(); openEditor(); } },
     el('span', {}, el('b', {}, u.name, u.legacy ? el('small', { class: 'tag' }, 'Legacies') : null, u.lang === 'en' ? el('small', { class: 'tag' }, 'EN') : null, u.unverified ? el('small', { class: 'tag warn' }, 'Non vérifié') : null), el('i', {}, a.ok ? u.models.map(m => `${m.count} ${m.name}`).join(', ') : a.why)),
     el('span', { class: 'pp' + (a.ok && u.points > left ? ' over' : '') }, u.points + ' pts'));
+  if (saL.length) {
+    body.append(el('h4', {}, `Quartier Général dans cette case (${advDef('affectation').name})`), el('p', { class: 'note' }, advDef('affectation').text));
+    saL.sort((a, b) => a[0].points - b[0].points).forEach(([u, a]) => { const b = mk([u, a]); b.onclick = () => { det.adv[slot.i] = 'affectation'; det.units[slot.i] = { u: u.id, extra: 0, opts: {} }; sel = { det: det.id, slot: slot.i }; $('#dlg').close(); touch(); openEditor(); }; body.append(b); });
+  }
+  if (saL.length) body.append(el('h4', {}, role(slot.role).name));
   okL.sort((a, b) => a[0].points - b[0].points).forEach(x => body.append(mk(x)));
   if (okL.some(([u]) => u.points > left)) body.append(el('p', { class: 'note' }, `Il vous reste ${left} pts : les coûts en rouge feraient dépasser la limite.`));
   if (koL.length) {
@@ -779,7 +943,7 @@ function openDetPicker() {
     const c = canAddDet(def);
     const add = parent => { army.dets.push({ id: uid(), type: def.id, parent: parent ? parent.id : null, units: {}, adv: {}, bonusRole: null, faction: '' }); dlg.close(); touch(); };
     const b = el('div', { class: 'pick det-pick' + (c.ok ? '' : ' ko') },
-      el('span', {}, el('b', {}, def.name), el('span', { class: 'mini', html: def.slots.map(s => slotGlyph(s, false)).join('') }),
+      el('span', {}, el('b', {}, def.name), slotSummary(def.slots),
         el('i', {}, c.ok ? (def.requires ? `Ouvert par votre ${def.requires}. ` : '') + (def.note || '') : c.why)),
       c.ok ? el('span', { class: 'acts' }, (c.parents || [null]).map(p => el('button', { type: 'button', class: 'btn', onclick: () => add(p) }, c.parents && c.parents.length > 1 ? `Rattacher : ${detName(p)}` : 'Ajouter'))) : null);
     body.append(b);
@@ -800,14 +964,20 @@ function statTable(u, us) {
   const hg = {}; kn.forEach(p => (hg[p.heads.join('|')] = hg[p.heads.join('|')] || []).push(p)); Object.values(hg).forEach(ps => out.push(tbl(ps[0].heads, ps)));
   return out;
 }
+let edKey = null;
 function renderEditor(issues) {
-  const host = $('#editor-body'); host.replaceChildren();
+  const host = $('#editor-body'), ed = $('#editor'), key = sel ? sel.det + ':' + sel.slot : null, keep = key && key === edKey ? ed.scrollTop : 0; edKey = key;
+  host.replaceChildren(); requestAnimationFrame(() => { ed.scrollTop = keep; });
+  $('#ed-top').replaceChildren();
   const det = sel && army.dets.find(d => d.id === sel.det), us = det && det.units[sel.slot];
   if (!us) { host.append(el('div', { class: 'empty' }, el('h3', {}, 'Aucune unité sélectionnée'), el('p', {}, 'Touchez une case vide de l\'organigramme pour y placer une unité, ou une case occupée pour régler ses options.'))); return; }
   const u = UNITS[us.u], slot = slotsOf(det).find(s => s.i === sel.slot);
-  if (!u) { host.append(el('p', { class: 'note' }, 'Unité absente de la base de données.'), el('button', { class: 'btn danger', onclick: () => { delete det.units[sel.slot]; sel = null; touch(); } }, 'Retirer')); return; }
-  host.append(el('p', { class: 'kind' }, `${role(u.role).name} · ${detName(det)}`), el('h3', {}, u.name),
-    el('p', { class: 'cost' }, el('b', {}, unitPoints(us)), ` pts · ${unitSize(us)} figurine${unitSize(us) > 1 ? 's' : ''}`, u.page ? el('span', { class: 'ref' }, ` · ${u.bookName} p. ${u.page}`) : null));
+  if (!u) { host.append(el('p', { class: 'note' }, 'Unité absente de la base de données.'), el('button', { class: 'btn danger', onclick: () => removeUnit(det, sel.slot) }, 'Retirer')); return; }
+  $('#ed-top').append(el('div', { class: 'ed-id' }, el('b', {}, u.name), el('span', {}, `${unitPoints(us)} pts`)),
+    el('div', { class: 'ed-acts' }, el('button', { class: 'ib', type: 'button', title: 'Dupliquer l\'unité', 'aria-label': 'Dupliquer l\'unité', onclick: () => duplicateUnit(det, sel.slot) }, '⧉'),
+      el('button', { class: 'ib danger', type: 'button', title: 'Retirer l\'unité', 'aria-label': 'Retirer l\'unité', onclick: () => removeUnit(det, sel.slot) }, '🗑')));
+  host.append(el('p', { class: 'kind' }, `${role(u.role).name} · ${detName(det)}`), el('h3', {}, u.name, isExpanded(u, us) ? el('small', { class: 'tag', title: 'Option Legacies choisie : unité Expanded (Legacies of the Age of Darkness)' }, 'Expanded') : null),
+    el('p', { class: 'cost' }, el('b', {}, unitPoints(us)), ` pts · ${unitSize(us)} figurine${unitSize(us) > 1 ? 's' : ''}`, unitPoints(us) !== u.points ? el('span', { class: 'ref' }, ` · base ${u.points} + options ${unitPoints(us) - u.points}`) : null, u.page ? el('span', { class: 'ref' }, ` · ${u.bookName} p. ${u.page}`) : null));
   const mine = issues.filter(i => i.det === det.id && i.slot === sel.slot);
   if (mine.length) host.append(el('ul', { class: 'iss' }, mine.map(i => el('li', { class: i.level }, i.msg))));
   if (u.extra) {
@@ -825,9 +995,10 @@ function renderEditor(issues) {
     const cur = det.adv[slot.i] || '';
     f.append(el('label', { class: 'opt' }, el('input', { type: 'radio', name: 'adv', checked: !cur, onchange: () => setAdv(det, slot, '') }), el('span', {}, 'Aucun')));
     for (const o of advOptions(det, slot)) {
-      if (o.def.id === 'affectation') continue;
+      if (o.def.id === 'affectation' && u.role !== 'QG') continue;
+      if (cur === 'affectation' && u.role === 'QG' && o.def.id !== 'affectation') continue;
       f.append(el('label', { class: 'opt' + (o.ok ? '' : ' ko') }, el('input', { type: 'radio', name: 'adv', disabled: !o.ok && cur !== o.def.id, checked: cur === o.def.id, onchange: () => setAdv(det, slot, o.def.id) }),
-        el('span', {}, o.def.name, el('i', {}, o.ok ? o.def.text : o.why))));
+        el('span', {}, o.def.name, o.def.faction ? el('small', { class: 'tag' }, o.def.faction) : null, el('i', {}, (o.ok ? o.def.text : o.why) + (o.def.ref ? ` (${o.def.ref})` : '')))));
     }
     const ad = advDef(cur);
     if (ad && ad.addSlot && (!ad.addSlot.role || ad.addSlot.legionPick)) { const ch = ((det.advSlot = det.advSlot || {})[slot.i] = det.advSlot[slot.i] || {});
@@ -836,13 +1007,17 @@ function renderEditor(issues) {
         el('option', { value: '' }, 'Choisir le rôle…'), Object.entries(DB.core.roles).filter(([k]) => !(ad.addSlot.exclude || []).includes(k) && k !== 'FO').map(([k, r]) => el('option', { value: k, selected: ch.role === k }, r.name)))));
       if (ad.addSlot.legionPick) f.append(el('label', { class: 'inl' }, 'Legion represented : ', el('select', { onchange: e => { if (ch.legion !== e.target.value) clear(); ch.legion = e.target.value || null; touch(); } },
         el('option', { value: '' }, '…'), ((army.shattered || []).length ? army.shattered : LEGIONS()).map(L => el('option', { value: L, selected: ch.legion === L }, L))))); }
+    if (cur === 'we-enchaines') { const cands = []; army.dets.forEach(d2 => slotsOf(d2).forEach(s2 => { const x = d2.units[s2.i], xu = x && UNITS[x.u]; if (x && x !== us && xu && xu.role === 'EM' && (unitFaction(xu) || detFaction(d2)) === 'World Eaters') cands.push([d2.id + ':' + s2.i, xu.name + ' (' + detName(d2) + ')']); }));
+      f.append(el('label', { class: 'inl' }, 'Frères de Chaîne avec : ', el('select', { onchange: e => { us.chainWith = e.target.value || null; touch(); } }, el('option', { value: '' }, cands.length ? 'Choisir l\'autre unité…' : 'Aucune autre unité État-major World Eaters'), cands.map(([k, n]) => el('option', { value: k, selected: us.chainWith === k }, n))))); }
     if (cur === 'logistique') {
       const s = el('select', { 'aria-label': 'Rôle de la case supplémentaire', onchange: e => { const idx = detDef(det.type).slots.length; if (det.bonusRole !== e.target.value) { delete det.units[idx]; delete det.adv[idx]; } det.bonusRole = e.target.value || null; touch(); } },
-        el('option', { value: '' }, 'Choisir le rôle de la case ajoutée…'), Object.entries(DB.core.roles).filter(([k]) => !['QG', 'EM', 'SG', 'SB'].includes(k)).map(([k, r]) => el('option', { value: k, selected: det.bonusRole === k }, r.name)));
+        el('option', { value: '' }, 'Choisir le rôle de la case ajoutée…'), Object.entries(DB.core.roles).filter(([k]) => !(advDef('logistique').addSlotExclude || ['QG', 'EM', 'SG', 'SB', 'FO']).includes(k) && (!detDef(det.type).addSlotRoles || detDef(det.type).addSlotRoles.includes(k))).map(([k, r]) => el('option', { value: k, selected: det.bonusRole === k }, r.name)));
       f.append(el('label', { class: 'inl' }, 'Case ajoutée au détachement ', s));
     }
     host.append(f);
   }
+  if (detDef(det.type).vanguardToLine && (u.rules || []).some(r => /^(Avant-garde|Vanguard) \(/.test(r.split(' : ').pop()))) host.append(el('label', { class: 'opt blk' }, el('input', { type: 'checkbox', checked: !!us.vtl, onchange: e => { us.vtl = e.target.checked; touch(); } }), el('span', {}, 'Échanger Avant-garde (X) contre Ligne (1)', el('i', {}, ` ${detName(det)} : ${detDef(det.type).notes[0]}`))));
+  if (slot && slot.becomesFaction) host.append(el('p', { class: 'note' }, `${slot.src} : les Figurines de cette unité prennent le Trait de Faction ${slot.becomesFaction}.`));
   if (armyOf(army.faction) === 'quest' && hasType(u, /Chevalier|Knight/) && (DB.core.vows || []).length) {
     const f = el('fieldset', {}, el('legend', {}, 'Vœu Questoris (facultatif, déclaré au déploiement)'));
     const taken = vowsTaken(us);
@@ -852,26 +1027,36 @@ function renderEditor(issues) {
     host.append(f);
   }
   if ((u.traits || []).includes('[Mechanicum]')) host.append(el('label', { class: 'inl blk' }, 'Variante de Faction (Techno-arcane) : ', el('select', { onchange: e => { us.arcana = e.target.value || null; touch(); } }, el('option', { value: '' }, 'À choisir…'), ARCANA.map(a => el('option', { value: a, selected: us.arcana === a }, a)))));
-  if (!isVeh(u)) { const trs = []; army.dets.forEach(d => slotsOf(d).forEach(s2 => { const t = d.units[s2.i], tu = t && UNITS[t.u]; if (tu && capacity(tu)) trs.push([`${d.id}:${s2.i}`, `${tu.name} (${detName(d)}, capacité ${capacity(tu)})`]); }));
+  if (!isVeh(u)) { const trs = []; army.dets.forEach(d => slotsOf(d).forEach(s2 => { const t = d.units[s2.i], tu = t && UNITS[t.u]; if (tu && capacity(tu)) trs.push([`${d.id}:${s2.i}`, `${tu.name} (${detName(d)}, capacité ${capacity(tu, d, s2.i)})`]); }));
     if (trs.length) host.append(el('label', { class: 'inl blk' }, 'Embarquée à bord de : ', el('select', { onchange: e => { us.embark = e.target.value || null; touch(); } }, el('option', { value: '' }, 'Aucun transport'), trs.map(([k, n]) => el('option', { value: k, selected: us.embark === k }, n))))); }
   (u.options || []).forEach((o, oi) => {
     const ch = optChoices(o), max = optMax(o, us), cnt = optCount(us, oi);
     if (o.legacy && !legacyOn() && !cnt) return;
+    if (o.supersedes && !legacyOn() && !cnt) return;
     if (o.prov && !(army.provenances || []).includes(o.prov) && !cnt) return;
     if (o.oath && !detOaths(det).some(x => x.id === o.oath) && !cnt) return;
-    const picked = ((us.opts = us.opts || {})[oi] = us.opts[oi] || {});
+    if (o.faction && !itemState(o, u, det).show && !cnt) return;
+    if ((o.allegiance && army.allegiance !== o.allegiance) || (o.arcana && us.arcana !== o.arcana) || (o.notArcana && us.arcana === o.notArcana) || (o.slotRole && slot && slot.role !== o.slotRole)) { if (!cnt) return; }
+    if (o.advOpt && det.adv[sel.slot] !== o.advOpt && !cnt) return;
+    if (o.supersedes && legacyOn()) {} ;
+    if (!o.advOpt && advDef(det.adv[sel.slot]) && advDef(det.adv[sel.slot]).noUnitOptions && !cnt) return;
+    if (supersededBy(u, oi) && !cnt) return;
+    const av = optAvail(o, us, oi), cap = Math.min(max, av.cap);
+    const ok_ = okey(u, oi), picked = ((us.opts = us.opts || {})[ok_] = us.opts[ok_] || {});
     const blocked = (o.notVariant != null && us.variant === o.notVariant) || (o.onlyVariant != null && us.variant !== o.onlyVariant);
-    const f = el('fieldset', { class: blocked ? 'ko' : '' }, el('legend', {}, o.text, o.legacy ? el('small', { class: 'tag' }, 'Legacies') : null, max > 1 ? el('i', {}, ` ${cnt}/${max}`) : null));
+    const f = el('fieldset', { class: blocked ? 'ko' : '' }, el('legend', {}, o.text, o.legacy ? el('small', { class: 'tag' }, 'Legacies') : null, o.faction ? el('small', { class: 'tag' }, o.faction) : null, max > 1 ? el('i', {}, ` ${cnt}/${cap}`) : null));
+    if (av.why && cap < max) f.append(el('p', { class: 'note lim' }, `Limité à ${cap} : ${av.why}.`));
+    if (o.ref) f.append(el('p', { class: 'note' }, o.ref));
     if (blocked) f.append(el('p', { class: 'note' }, o.onlyVariant != null ? `Réservé à ${u.variants[o.onlyVariant].name}.` : `Inaccessible à ${u.variants[us.variant].name}.`));
     if (max <= 0) f.append(el('p', { class: 'note' }, o.max && o.max.per ? `Disponible à partir de ${o.max.per} figurines dans l'unité.` : 'Indisponible avec la composition actuelle.'));
     ch.forEach((c, k) => {
       const q = picked[k] || 0, cost = c.points ? `+${c.points}` : 'gratuit';
-      if (!q && !itemState(c, u, det).show) return;
-      if (max === 1 || o.unique) f.append(el('label', { class: 'opt' }, el('input', { type: (o.unique && max > 1) || ch.length === 1 ? 'checkbox' : 'radio', name: 'o' + oi, checked: q > 0, disabled: blocked || (max <= 0),
+      if (!q && !itemState(c, u, det, us).show) return;
+      if (max === 1 || o.unique) f.append(el('label', { class: 'opt' }, el('input', { type: (o.unique && max > 1) || ch.length === 1 ? 'checkbox' : 'radio', name: 'o' + oi, checked: q > 0, disabled: blocked || (max <= 0) || (!q && (o.unique && max > 1 ? cnt >= cap : cap <= 0)),
         onclick: e => { const was = q > 0; if (!(o.unique && max > 1) ) for (const kk of Object.keys(picked)) delete picked[kk]; if (was) delete picked[k]; else { if (o.unique && optCount(us, oi) >= max) { e.preventDefault(); flash(`Maximum ${max} choix pour cette option.`); return; } picked[k] = 1; } touch(); } }),
         el('span', {}, c.name), el('b', {}, cost)));
       else f.append(el('div', { class: 'opt' }, el('span', {}, c.name), el('b', {}, cost + (c.points && (o.max === 'models' || typeof o.max === 'object') ? '/fig.' : '')),
-        stepper(q, 0, q + Math.max(0, max - cnt), v => { if (v) picked[k] = v; else delete picked[k]; touch(); })));
+        stepper(q, 0, o.eachChoice ? cap : q + Math.max(0, cap - cnt), v => { if (v) picked[k] = v; else delete picked[k]; touch(); })));
     });
     if (o.note) f.append(el('p', { class: 'note' }, o.note));
     host.append(f);
@@ -879,7 +1064,7 @@ function renderEditor(issues) {
   if (u.upgrades) {
     const f = el('fieldset', {}, el('legend', {}, 'Amélioration (une seule par unité)'));
     f.append(el('label', { class: 'opt' }, el('input', { type: 'radio', name: 'up', checked: us.upgrade == null, onchange: () => { us.upgrade = null; touch(); } }), el('span', {}, 'Aucune')));
-    u.upgrades.forEach((g, i) => f.append(el('label', { class: 'opt' }, el('input', { type: 'radio', name: 'up', checked: us.upgrade === i, onchange: () => { us.upgrade = i; touch(); } }), el('span', {}, g.name, g.note ? el('i', {}, g.note) : null), el('b', {}, '+' + g.points))));
+    u.upgrades.forEach((g, i) => { const ok = upgradeOk(u, us, g); f.append(el('label', { class: 'opt' + (ok.ok ? '' : ' ko') }, el('input', { type: 'radio', name: 'up', disabled: !ok.ok && us.upgrade !== i, checked: us.upgrade === i, onchange: () => { us.upgrade = i; touch(); } }), el('span', {}, g.name, el('i', {}, ok.ok ? (g.note || '') : ok.why)), el('b', {}, '+' + g.points))); });
     host.append(f);
   }
   if (u.sectionsPending) host.append(el('p', { class: 'note pending' }, 'Équipement, règles ou type de cette unité incomplets dans la base (page mal lisible) : à compléter d\'après le livre.'));
@@ -892,7 +1077,25 @@ function renderEditor(issues) {
   const sect = (t, arr, chip) => arr && arr.length ? host.append(el('h4', {}, t), el('div', { class: 'chips' }, arr.map(x => chip ? ruleChip(x) : el('span', { class: 'chip plain' }, x)))) : 0;
   sect('Équipement de base', u.wargear, true); sect('Règles spéciales', unitRules(eu, us), true); sect('Type', eu.types, false); sect('Traits', (eu.traits || []).map(t => /^\[All[ée]g[ei]ance\]$/.test(t) ? army.allegiance : /^\[(Legiones Astartes|Questoris Familia|Mechanicum|Skitarii|Ætheric Dominion)\]$/.test(t) ? (t === '[Mechanicum]' && us.arcana ? us.arcana : detFaction(det) || t) : t), false);
   if (u.notes) host.append(el('p', { class: 'note' }, u.notes));
-  host.append(el('div', { class: 'acts' }, el('button', { class: 'btn danger', type: 'button', onclick: () => { delete det.units[sel.slot]; delete det.adv[sel.slot]; if (slot.bonus) {} sel = null; document.body.classList.remove('editing'); touch(); } }, 'Retirer l\'unité')));
+  host.append(el('div', { class: 'acts' }, el('button', { class: 'btn ghost', type: 'button', onclick: () => duplicateUnit(det, sel.slot) }, 'Dupliquer'), el('button', { class: 'btn danger', type: 'button', onclick: () => removeUnit(det, sel.slot) }, 'Retirer l\'unité')));
+}
+function removeUnit(det, i) {
+  const s = slotsOf(det).find(x => x.i === i) || { i };
+  const adv = det.adv[i], ad = adv && advDef(adv);
+  const extra = [];
+  if (adv === 'logistique') { const idx = detDef(det.type).slots.length; if (det.units[idx]) extra.push(idx); }
+  if (ad && ad.addSlot && det.units[100 + i]) extra.push(100 + i);
+  if (extra.length && !confirm(`La case ajoutée par « ${ad.name} » disparaît avec cette unité, ainsi que ${extra.map(j => (UNITS[det.units[j].u] || {}).name || 'son unité').join(', ')}. Continuer ?`)) return false;
+  if (adv) setAdv(det, s, '');
+  delete det.units[i]; delete det.adv[i];
+  if (sel && sel.det === det.id && sel.slot === i) sel = null;
+  document.body.classList.remove('editing'); touch(); return true;
+}
+function duplicateUnit(det, i) {
+  const us = det.units[i], u = UNITS[us.u];
+  const free = slotsOf(det).filter(s => !det.units[s.i] && unitAllowed(det, s, u).ok);
+  if (!free.length) return flash('Aucune case libre de ce détachement ne peut recevoir une copie de cette unité.');
+  const c = JSON.parse(JSON.stringify(us)); delete c.vow; det.units[free[0].i] = c; sel = { det: det.id, slot: free[0].i }; touch(); flash(`${u.name} dupliquée.`);
 }
 function setAdv(det, slot, id) {
   const prev = det.adv[slot.i];
@@ -927,9 +1130,11 @@ const wkey = n => String(n).toLowerCase().replace(/’/g, "'").replace(/^(two |d
 function unitWeapons(u, us) {
   if (!DB.weapons.length) return [];
   const names = [...(u.wargear || []).map(w => w.split(' : ').pop().replace(/\s*\(.*\)$/, ''))];
-  (u.options || []).forEach((o, oi) => { const ch = optChoices(o); for (const k of Object.keys(((us && us.opts) || {})[oi] || {})) if (ch[k]) names.push(ch[k].name); });
-  const keys = new Set(names.map(wkey)), out = [], seen = new Set();
-  for (const w of DB.weapons) { const k = wkey(w.name.replace(/\s*-\s.*$/, '')); if ((keys.has(k) || keys.has(wkey(w.name)) || (w.aliases || []).some(x => keys.has(wkey(x)))) && !seen.has(w.name + w.kind)) { seen.add(w.name + w.kind); out.push(w); } }
+  (u.options || []).forEach((o, oi) => { const ch = optChoices(o); for (const k of Object.keys(us ? picksOf(us, oi) : {})) if (ch[k]) names.push(ch[k].name); });
+  const parts = n => String(n).split(/ and (?:one |two |three |four |a |an )?| et (?:un |une |deux |trois )?/i).map(x => x.replace(/^(one|two|three|four|paired|a|an) /i, '').replace(/\b(Turret|Hull|Sponson|Pintle|Centreline|Co-axial)( \([^)]*\))* Mounted /gi, '').replace(/ \([^)]*\)$/, '').trim());
+  const keys = new Set(names.flatMap(n => [n, ...parts(n)]).map(wkey)), out = [], seen = new Set();
+  const lg = w => (w.lang || 'fr') === (u.lang || 'fr') ? 0 : 1;
+  for (const w of [...DB.weapons].sort((a, b) => lg(a) - lg(b))) { const k = wkey(w.name.replace(/\s*-\s.*$/, '')); if ((keys.has(k) || keys.has(wkey(w.name)) || (w.aliases || []).some(x => keys.has(wkey(x)))) && !seen.has(w.name + w.kind)) { seen.add(w.name + w.kind); out.push(w); } }
   return out;
 }
 function weaponTables(ws) {
@@ -943,7 +1148,7 @@ function renderSheet(issues) {
   const errs = issues.filter(i => i.level === 'err');
   s.append(el('header', { class: 'sh-head' }, el('div', {}, el('p', { class: 'sh-over' }, 'Feuille d\'Armée — ' + modeDef().name), el('h1', {}, army.name), el('p', {}, `${army.faction}${doctrineDef() ? ' · ' + doctrineDef().name : ''}${riteDef() ? ' · Rite : ' + riteDef().name : ''} · ${army.allegiance}${army.allegiance === 'Loyaliste' ? 's' : 's'}`)),
     el('div', { class: 'sh-pts' }, el('b', {}, armyPoints()), el('span', {}, `sur ${army.limit} points`))));
-  { const ex = []; if (army.legacies) ex.push('Legacies autorisées'); if (mainDef().alt) ex.push('Détachement Principal : ' + mainDef().name); if ((army.shattered || []).length) ex.push('Shattered Legions : ' + army.shattered.join(', ')); if ((army.provenances || []).length && (armyOf(army.faction) === 'mil' || army.dets.some(d => armyOf(detFaction(d)) === 'mil'))) ex.push('Provenances : ' + army.provenances.map(p => provDef(p).name).join(', ')); if (paradigm()) ex.push('Paradigme : ' + paradigm().name);
+  { const ex = []; if (!legacyOn()) ex.push('Sans Legacies'); if (mainDef().alt) ex.push('Détachement Principal : ' + mainDef().name); if ((army.shattered || []).length) ex.push('Shattered Legions : ' + army.shattered.join(', ')); if ((army.provenances || []).length && (armyOf(army.faction) === 'mil' || army.dets.some(d => armyOf(detFaction(d)) === 'mil'))) ex.push('Provenances : ' + army.provenances.map(p => provDef(p).name).join(', ')); if (paradigm()) ex.push('Paradigme : ' + paradigm().name);
     army.dets.forEach(d => { if ((d.oaths || []).length) ex.push(detName(d) + ' — Oaths of Moment : ' + d.oaths.map(i => oathDef(i).name).join(', ')); });
     if (ex.length) s.append(el('p', { class: 'sh-extra' }, ex.join(' · '))); }
   if (errs.length) s.append(el('p', { class: 'sh-warn' }, `Liste non conforme : ${errs.length} point${errs.length > 1 ? 's' : ''} à corriger.`));
@@ -957,7 +1162,7 @@ function renderSheet(issues) {
       const us = det.units[sl.i], u = UNITS[us.u]; if (!u) continue;
       const picks = [];
 
-      (u.options || []).forEach((o, oi) => { const ch = optChoices(o); for (const [k, q] of Object.entries((us.opts || {})[oi] || {})) if (ch[k]) picks.push((q > 1 ? q + ' × ' : '') + ch[k].name); });
+      (u.options || []).forEach((o, oi) => { const ch = optChoices(o); for (const [k, q] of Object.entries(picksOf(us, oi))) if (ch[k]) picks.push((q > 1 ? q + ' × ' : '') + ch[k].name); });
       if (us.upgrade != null && u.upgrades) picks.push(u.upgrades[us.upgrade].name);
       if (us.vow && vowDef(us.vow)) picks.push('Vœu : ' + vowDef(us.vow).name);
       const comp = u.models.map((m, mi) => `${m.count + (u.extra && u.extra.model === m.name ? (us.extra || 0) : 0)} ${mi === 0 && us.variant != null && u.variants ? u.variants[us.variant].name : m.name}`).join(', ') + (u.extra && !u.models.some(m => m.name === u.extra.model) && us.extra ? `, +${us.extra} ${u.extra.model}` : '');
@@ -1014,7 +1219,7 @@ function openLists() {
   body.append(el('p', { class: 'note' }, 'Les listes sont enregistrées automatiquement dans l\'application, sur cet appareil : rien à faire. « PDF » crée la feuille d\'armée, « Texte » un fichier lisible que l\'on peut aussi réimporter sur un autre appareil.'));
   dlg.showModal();
 }
-const APP_VERSION = '2026.11-h';
+const APP_VERSION = '2026.11-k';
 const UPDATE_DEFAULT = 'https://yaoz52.github.io/forbidden-recruit';
 const updUrl = () => (LS.get('30k.updateUrl', null) || (location.protocol.startsWith('http') ? location.href.replace(/[^/]*$/, '') : UPDATE_DEFAULT) || '').trim().replace(/\/+$/, '');
 async function checkUpdates(statusEl, install) {
@@ -1048,6 +1253,8 @@ function openSettings() {
   const st = el('p', { class: 'note upd-status', role: 'status' });
   const url = el('input', { type: 'url', value: updUrl(), placeholder: 'https://votre-compte.github.io/forbidden-recruit-mises-a-jour', 'aria-label': 'Adresse du dépôt de mises à jour', class: 'field' });
   body.append(
+    el('h4', {}, 'Apparence'),
+    el('div', { class: 'acts' }, [['auto', 'Comme l\'appareil'], ['dark', 'Sombre'], ['light', 'Clair']].map(([v, l]) => el('button', { type: 'button', class: 'btn' + (LS.get('fr.theme', 'auto') === v ? '' : ' ghost'), onclick: () => { LS.set('fr.theme', v); applyTheme(); openSettings(); } }, l))),
     el('h4', {}, 'Installer sur un autre appareil'),
     el('p', { class: 'note' }, 'Android, Windows, Mac ou navigateur : ', el('a', { href: (updUrl() || UPDATE_DEFAULT) + '/telecharger.html', target: '_blank', rel: 'noopener' }, 'page de téléchargement'), '.'),
     el('h4', {}, 'Mise à jour'),
@@ -1098,6 +1305,26 @@ function checkData(j) {
   return p;
 }
 
+/* ---------- Thème ---------- */
+function applyTheme(t) { t = t || LS.get('fr.theme', 'auto'); const dark = t === 'dark' || (t === 'auto' && !matchMedia('(prefers-color-scheme: light)').matches);
+  document.documentElement.dataset.theme = dark ? 'dark' : 'light'; const m = document.querySelector('meta[name=theme-color]'); if (m) m.content = dark ? '#121315' : '#ece6d8';
+  const b = $('#b-theme'); if (b) { b.textContent = dark ? '☀' : '☾'; b.title = dark ? 'Passer en mode clair' : 'Passer en mode sombre'; } }
+/* ---------- Partage par lien (hors ligne : la liste est dans l'adresse) ---------- */
+function shareLink() {
+  const raw = JSON.stringify(army), b64 = btoa(unescape(encodeURIComponent(raw))).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
+  const base = location.protocol.startsWith('http') ? location.origin + location.pathname : (updUrl() || UPDATE_DEFAULT) + '/';
+  const url = base + '#liste=' + b64;
+  const done = () => flash('Lien de la liste copié : collez-le dans un message.');
+  if (navigator.share && matchMedia('(pointer: coarse)').matches) navigator.share({ title: army.name, url }).catch(() => {});
+  else if (navigator.clipboard) navigator.clipboard.writeText(url).then(done, () => prompt('Copiez ce lien :', url)); else prompt('Copiez ce lien :', url);
+}
+function importFromHash() {
+  const m = location.hash.match(/#liste=([\w-]+)/); if (!m) return;
+  try { const a = JSON.parse(decodeURIComponent(escape(atob(m[1].replace(/-/g, '+').replace(/_/g, '/'))))); if (!a.dets) throw 0;
+    a.id = uid(); a.name = (a.name || 'Liste') + ' (reçue)'; store.save(a); army = a; history.replaceState(null, '', location.pathname); flash(`Liste « ${a.name} » ajoutée à Mes listes.`);
+  } catch (e) { flash('Lien de liste illisible.'); }
+}
+
 /* ---------- Démarrage ---------- */
 async function start() {
   try { await loadData(); } catch (e) { document.body.innerHTML = '<p style="padding:2rem">Impossible de charger la base de données : ' + e.message + '</p>'; return; }
@@ -1115,6 +1342,12 @@ async function start() {
   if (NATIVE === 'android') document.addEventListener('click', e => { const l = e.target.closest && e.target.closest('a[target=_blank]'); if (l && /^https?:/.test(l.href)) { e.preventDefault(); location.href = l.href; } });
   $('#b-printer').addEventListener('click', () => { renderSheet(validate()); try { window.print(); } catch (e) { exportPDF(); } });
   $('#b-close').addEventListener('click', closeEditor);
+  applyTheme(); matchMedia('(prefers-color-scheme: light)').addEventListener('change', () => applyTheme());
+  $('#b-theme').addEventListener('click', () => { const cur = document.documentElement.dataset.theme; LS.set('fr.theme', cur === 'dark' ? 'light' : 'dark'); applyTheme(); });
+  $('#b-undo').addEventListener('click', () => undo(-1)); $('#b-redo').addEventListener('click', () => undo(1));
+  $('#b-share').addEventListener('click', shareLink);
+  document.addEventListener('keydown', e => { if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'z' && !/INPUT|TEXTAREA/.test(document.activeElement.tagName)) { e.preventDefault(); undo(e.shiftKey ? 1 : -1); } });
+  importFromHash(); HIST.last = JSON.stringify(army);
   $('#dlg-x').addEventListener('click', () => $('#dlg').close());
   $('#dlg').addEventListener('click', e => { if (e.target === $('#dlg')) $('#dlg').close(); });
   $('#dbv').textContent = 'Données ' + DB.core.version;

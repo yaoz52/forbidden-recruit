@@ -11,7 +11,7 @@ function sheetData() {
     for (const sl of filled) {
       const us = det.units[sl.i], u = UNITS[us.u]; if (!u) continue;
       const picks = [];
-      (u.options || []).forEach((o, oi) => { const ch = optChoices(o); for (const [k, q] of Object.entries((us.opts || {})[oi] || {})) if (ch[k]) picks.push((q > 1 ? q + ' × ' : '') + ch[k].name); });
+      (u.options || []).forEach((o, oi) => { const ch = optChoices(o); for (const [k, q] of Object.entries(picksOf(us, oi))) if (ch[k]) picks.push((q > 1 ? q + ' × ' : '') + ch[k].name); });
       if (us.upgrade != null && u.upgrades) picks.push(u.upgrades[us.upgrade].name);
       if (us.vow && vowDef(us.vow)) picks.push('Vœu Questoris : ' + vowDef(us.vow).name);
       const comp = u.models.map((m, mi) => `${m.count + (u.extra && u.extra.model === m.name ? (us.extra || 0) : 0)} ${mi === 0 && us.variant != null && u.variants ? u.variants[us.variant].name : m.name}`).join(', ') + (u.extra && !u.models.some(m => m.name === u.extra.model) && us.extra ? `, +${us.extra} ${u.extra.model}` : '');
@@ -24,7 +24,7 @@ function sheetData() {
       const weapons = (typeof unitWeapons === 'function' ? unitWeapons(u, us) : []).map(w => ({ name: w.name, kind: w.kind, line: w.heads.map((h, i) => w.values[i] && w.values[i] !== '-' ? `${h} ${w.values[i]}` : '').filter(Boolean).join(' · ') }));
       if (us.embark) { const [did, si] = us.embark.split(':'), td = army.dets.find(d => d.id === did), t = td && td.units[si]; if (t && UNITS[t.u]) picks.push('Embarquée : ' + UNITS[t.u].name); }
       if (us.arcana) picks.push('Techno-arcane : ' + us.arcana);
-      units.push({ weapons, legacy: !!u.legacy, name: u.name, role: role(u.role).short, roleName: role(u.role).name, points: unitPoints(us), comp, adv: det.adv[sl.i] ? advDef(det.adv[sl.i]).name : '', tables, wargear: u.wargear || [], picks, rules });
+      units.push({ weapons, legacy: !!u.legacy, name: u.name + (isExpanded(u, us) ? ' (Expanded)' : ''), role: role(u.role).short, roleName: role(u.role).name, points: unitPoints(us), comp, adv: det.adv[sl.i] ? advDef(det.adv[sl.i]).name : '', tables, wargear: u.wargear || [], picks, rules });
     }
     dets.push({ name: detName(det), kind: KIND[detDef(det.type).kind], faction: detFaction(det), points: detPoints(det), units, oaths: (det.oaths || []).map(id => oathDef(id).name).concat(det.panoplyLegion ? ['Panoply: ' + det.panoplyLegion] : []) });
   }

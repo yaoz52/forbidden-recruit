@@ -149,6 +149,57 @@
    {
     "name": "Châtier l'Esprit de la Machine",
     "points": 25
+   },
+   {
+    "name": "Interruption de Programme",
+    "points": 20,
+    "onlyUnits": [
+     "mech-archimagos",
+     "mech-archimagos-sur-abeant"
+    ],
+    "note": "Archimagos ou Archimagos sur Abéant seulement (Liber Mechanicum p. 17)"
+   },
+   {
+    "name": "Protocoles de la Chair",
+    "points": 5,
+    "arcana": "Lacrymaerta",
+    "note": "Cyberthéurge Lacrymaerta seulement (p. 17)"
+   },
+   {
+    "name": "Protocoles Oméga",
+    "points": 15,
+    "arcana": "Lacrymaerta",
+    "note": "Cyberthéurge Lacrymaerta seulement (p. 17)"
+   },
+   {
+    "name": "Coupure d'Antalgique",
+    "points": 5,
+    "arcana": "Reductor",
+    "note": "Cyberthéurge Reductor seulement (p. 17)"
+   },
+   {
+    "name": "Portail Déverrouillé",
+    "points": 20,
+    "arcana": "Reductor",
+    "note": "Cyberthéurge Reductor seulement (p. 17)"
+   },
+   {
+    "name": "Fureur des Âges",
+    "points": 5,
+    "arcana": "Myrmidax",
+    "note": "Cyberthéurge Myrmidax seulement (p. 17)"
+   },
+   {
+    "name": "Amplification Éthérique",
+    "points": 10,
+    "trait": "Hétérodoxe",
+    "note": "Figurine qui a le Trait Hétérodoxe seulement (p. 64)"
+   },
+   {
+    "name": "Infection d'Anticode",
+    "points": 10,
+    "trait": "Hétérodoxe",
+    "note": "Figurine qui a le Trait Hétérodoxe seulement (p. 64)"
    }
   ]
  },
@@ -195,6 +246,213 @@
     },
     {
      "role": "TR"
+    }
+   ]
+  },
+  {
+   "id": "mech-coeur-du-pouvoir",
+   "name": "Le Cœur du Pouvoir",
+   "kind": "apex",
+   "needsHQTrait": "Archimandrite",
+   "forceAdv": {
+    "TR": "veterans"
+   },
+   "ref": "Liber Mechanicum p. 45",
+   "note": "Armée avec un QG Archimandrite. Toutes les unités Troupes doivent recevoir l'Avantage Principal Vétérans de Combat.",
+   "slots": [
+    {
+     "role": "SU"
+    },
+    {
+     "role": "SU",
+     "prime": true
+    },
+    {
+     "role": "SU"
+    },
+    {
+     "role": "TR",
+     "prime": true
+    },
+    {
+     "role": "TR",
+     "prime": true
+    },
+    {
+     "role": "TR",
+     "prime": true
+    }
+   ]
+  },
+  {
+   "id": "mech-manipule-de-commandement",
+   "name": "Manipule de Commandement",
+   "kind": "apex",
+   "needsHQTrait": "Cybernetica",
+   "onlyType": "Automate",
+   "ref": "Liber Mechanicum p. 46",
+   "note": "Armée avec un QG Cybernetica. Unités composées uniquement de Figurines de Type Automate.",
+   "slots": [
+    {
+     "role": "EL",
+     "prime": true
+    },
+    {
+     "role": "AP",
+     "prime": true
+    },
+    {
+     "role": "EG",
+     "prime": true
+    }
+   ]
+  },
+  {
+   "id": "mech-panoplie-de-cruaute",
+   "name": "La Panoplie de Cruauté",
+   "kind": "apex",
+   "needsHQTrait": "Lacrymaerta",
+   "only": {
+    "AL": [
+     "Cohorte d'Ursarax"
+    ]
+   },
+   "ref": "Liber Mechanicum p. 47",
+   "note": "Armée avec un QG Lacrymaerta. Cases d'Assaut Lourd réservées aux Cohortes d'Ursarax.",
+   "slots": [
+    {
+     "role": "AL",
+     "prime": true
+    },
+    {
+     "role": "AL",
+     "prime": true
+    },
+    {
+     "role": "AL",
+     "prime": true
+    }
+   ]
+  },
+  {
+   "id": "mech-ost-de-destruction",
+   "name": "L'Ost de Destruction",
+   "kind": "apex",
+   "needsHQTrait": "Myrmidax",
+   "onlyTrait": {
+    "EL": "Myrmidax"
+   },
+   "ref": "Liber Mechanicum p. 48",
+   "note": "Armée avec un QG Myrmidax. Cases d'Élite réservées aux unités dont toutes les Figurines ont le Trait Myrmidax.",
+   "slots": [
+    {
+     "role": "EL",
+     "prime": true
+    },
+    {
+     "role": "EL"
+    },
+    {
+     "role": "EL"
+    },
+    {
+     "role": "EL"
+    }
+   ]
+  },
+  {
+   "id": "mech-supplice-du-jugement",
+   "name": "Supplice du Jugement",
+   "kind": "apex",
+   "needsHQTrait": "Malagra",
+   "only": {
+    "EM": [
+     "Arcuitor Magisterium"
+    ]
+   },
+   "mustFill": true,
+   "noGrants": true,
+   "mergeUnits": true,
+   "ref": "Liber Mechanicum p. 49",
+   "note": "Armée avec un QG Malagra. Toutes les cases doivent être occupées par des Arcuitor Magisterium ; ils n'ouvrent pas de Détachements Auxiliaires et forment une seule unité.",
+   "slots": [
+    {
+     "role": "EM"
+    },
+    {
+     "role": "EM"
+    },
+    {
+     "role": "EM"
+    }
+   ]
+  },
+  {
+   "id": "mech-phalange-de-fer",
+   "name": "Phalange de Fer",
+   "kind": "apex",
+   "needsHQTrait": "Macrotek",
+   "onlyType": "Véhicule",
+   "forceAdv": {
+    "*": "m-convoyeur"
+   },
+   "ref": "Liber Mechanicum p. 50",
+   "note": "Armée avec un QG Macrotek. Figurines de Type Véhicule uniquement, qui doivent recevoir l'Avantage Principal Convoyeur Principal.",
+   "slots": [
+    {
+     "role": "BL",
+     "prime": true
+    },
+    {
+     "role": "BL",
+     "prime": true
+    },
+    {
+     "role": "BL",
+     "prime": true
+    },
+    {
+     "role": "TL",
+     "prime": true
+    },
+    {
+     "role": "TL",
+     "prime": true
+    },
+    {
+     "role": "TL",
+     "prime": true
+    }
+   ]
+  },
+  {
+   "id": "mech-cohorte-de-commandement-thallax",
+   "name": "Cohorte de Commandement Thallax",
+   "kind": "apex",
+   "needsHQTrait": "Reductor",
+   "only": {
+    "AP": [
+     "Cohorte de Thallax"
+    ]
+   },
+   "mustFill": true,
+   "needsOption": {
+    "Cohorte de Thallax": "Prétorien Thallax"
+   },
+   "ref": "Liber Mechanicum p. 51",
+   "note": "Armée avec un QG Reductor. Toutes les cases doivent être occupées par des Cohortes de Thallax incluant un Prétorien Thallax.",
+   "slots": [
+    {
+     "role": "AP",
+     "prime": true
+    },
+    {
+     "role": "AP",
+     "prime": true
+    },
+    {
+     "role": "AP",
+     "prime": true
     }
    ]
   }
@@ -254,7 +512,7 @@
    ],
    "options": [
     {
-     "text": "Équipement (autant d'objets que voulu, un de chaque)",
+     "text": "Cette Figurine peut être dotée de n'importe quel nombre d'objets de la liste d'Équipement du Mechanicum et d'objets de la liste d'Équipement de Magos du Mechanicum.",
      "max": 10,
      "list": [
       "Équipement du Mechanicum",
@@ -263,33 +521,34 @@
      "unique": true
     },
     {
-     "text": "Rites Cyberthéurgiques (autant que voulu)",
-     "max": 3,
+     "text": "Cette Figurine peut être dotée de n'importe quel nombre de choix de la liste des Rites Cyberthéurgiques.",
+     "max": 11,
      "list": "Rites Cyberthéurgiques",
      "unique": true
     },
     {
-     "text": "Arme de Magos",
+     "text": "Cette Figurine peut être dotée d'un objet de la liste des Armes de Magos du Mechanicum.",
      "max": 1,
      "list": "Armes de Magos du Mechanicum"
     },
     {
-     "text": "Arme de mêlée",
+     "text": "Cette Figurine peut être dotée d'un objet de la liste des Armes de Mêlée du Mechanicum.",
      "max": 1,
      "list": "Armes de Mêlée du Mechanicum"
     },
     {
-     "text": "Pistolet",
+     "text": "Cette Figurine peut être dotée d'un objet de la liste des Pistolets du Mechanicum.",
      "max": 1,
      "list": "Pistolets du Mechanicum"
     },
     {
-     "text": "Arme de tir",
+     "text": "Cette Figurine peut être dotée d'un objet de la liste des Armes de Tir du Mechanicum.",
      "max": 1,
-     "list": "Armes de Tir du Mechanicum"
+     "list": "Armes de Tir du Mechanicum",
+     "exclusive": "tir-mechanicum"
     },
     {
-     "text": "Si la figurine n'a pris aucune arme de tir du Mechanicum",
+     "text": "Si on ne dote cette Figurine d'aucun objet de la liste des Armes de Tir du Mechanicum, on peut la doter d'une des options suivantes :",
      "max": 1,
      "choices": [
       {
@@ -303,6 +562,56 @@
       {
        "name": "Irradieur",
        "points": 20
+      }
+     ],
+     "exclusive": "tir-mechanicum"
+    },
+    {
+     "text": "Archimandrite (Liber Mechanicum p. 45) : un Archimagos qui a le Trait Archimandrite, sélectionné comme Choix de Quartier Général, peut recevoir la Règle Spéciale Theurgika Maximus pour +10 Points.",
+     "max": 1,
+     "arcana": "Archimandrite",
+     "slotRole": "QG",
+     "choices": [
+      {
+       "name": "Theurgika Maximus",
+       "points": 10,
+       "effect": {
+        "addRules": [
+         "Theurgika Maximus"
+        ]
+       }
+      }
+     ]
+    },
+    {
+     "text": "Hétérodoxes (Liber Mechanicum p. 63) : le Joueur peut conférer sans surcoût le Trait Hétérodoxe à cette Figurine (Allégeance Renégate seulement ; impossible si elle a le Trait Malagra).",
+     "max": 1,
+     "allegiance": "Renégat",
+     "notArcana": "Malagra",
+     "choices": [
+      {
+       "name": "Trait Hétérodoxe",
+       "points": 0,
+       "effect": {
+        "addTraits": [
+         "Hétérodoxe"
+        ]
+       }
+      }
+     ]
+    },
+    {
+     "text": "Hétérodoxes (Liber Mechanicum p. 63) : une Figurine qui a le Trait Hétérodoxe peut recevoir sans surcoût le Sous-type Maléfique.",
+     "max": 1,
+     "allegiance": "Renégat",
+     "needsUpgrade": "Trait Hétérodoxe",
+     "choices": [
+      {
+       "name": "Sous-type Maléfique",
+       "points": 0,
+       "effect": {
+        "addTypes": "Maléfique"
+       }
       }
      ]
     }
@@ -365,7 +674,7 @@
    ],
    "options": [
     {
-     "text": "Équipement (autant d'objets que voulu, un de chaque)",
+     "text": "Cette Figurine peut être dotée de n'importe quel nombre d'objets de la liste d'Équipement du Mechanicum et d'objets de la liste d'Équipement de Magos du Mechanicum.",
      "max": 10,
      "list": [
       "Équipement du Mechanicum",
@@ -374,33 +683,34 @@
      "unique": true
     },
     {
-     "text": "Rites Cyberthéurgiques (autant que voulu)",
-     "max": 3,
+     "text": "Cette Figurine peut être dotée de n'importe quel nombre de choix de la liste des Rites Cyberthéurgiques.",
+     "max": 11,
      "list": "Rites Cyberthéurgiques",
      "unique": true
     },
     {
-     "text": "Arme de Magos",
+     "text": "Cette Figurine peut être dotée d'un objet de la liste des Armes de Magos du Mechanicum.",
      "max": 1,
      "list": "Armes de Magos du Mechanicum"
     },
     {
-     "text": "Arme de mêlée",
+     "text": "Cette Figurine peut être dotée d'un objet de la liste des Armes de Mêlée du Mechanicum.",
      "max": 1,
      "list": "Armes de Mêlée du Mechanicum"
     },
     {
-     "text": "Pistolet",
+     "text": "Cette Figurine peut être dotée d'un objet de la liste des Pistolets du Mechanicum.",
      "max": 1,
      "list": "Pistolets du Mechanicum"
     },
     {
-     "text": "Arme de tir",
+     "text": "Cette Figurine peut être dotée d'un objet de la liste des Armes de Tir du Mechanicum.",
      "max": 1,
-     "list": "Armes de Tir du Mechanicum"
+     "list": "Armes de Tir du Mechanicum",
+     "exclusive": "tir-mechanicum"
     },
     {
-     "text": "Si la figurine n'a pris aucune arme de tir du Mechanicum",
+     "text": "Si on ne dote cette Figurine d'aucun objet de la liste des Armes de Tir du Mechanicum, on peut la doter d'une des options suivantes :",
      "max": 1,
      "choices": [
       {
@@ -414,6 +724,56 @@
       {
        "name": "Irradieur",
        "points": 20
+      }
+     ],
+     "exclusive": "tir-mechanicum"
+    },
+    {
+     "text": "Archimandrite (Liber Mechanicum p. 45) : un Archimagos qui a le Trait Archimandrite, sélectionné comme Choix de Quartier Général, peut recevoir la Règle Spéciale Theurgika Maximus pour +10 Points.",
+     "max": 1,
+     "arcana": "Archimandrite",
+     "slotRole": "QG",
+     "choices": [
+      {
+       "name": "Theurgika Maximus",
+       "points": 10,
+       "effect": {
+        "addRules": [
+         "Theurgika Maximus"
+        ]
+       }
+      }
+     ]
+    },
+    {
+     "text": "Hétérodoxes (Liber Mechanicum p. 63) : le Joueur peut conférer sans surcoût le Trait Hétérodoxe à cette Figurine (Allégeance Renégate seulement ; impossible si elle a le Trait Malagra).",
+     "max": 1,
+     "allegiance": "Renégat",
+     "notArcana": "Malagra",
+     "choices": [
+      {
+       "name": "Trait Hétérodoxe",
+       "points": 0,
+       "effect": {
+        "addTraits": [
+         "Hétérodoxe"
+        ]
+       }
+      }
+     ]
+    },
+    {
+     "text": "Hétérodoxes (Liber Mechanicum p. 63) : une Figurine qui a le Trait Hétérodoxe peut recevoir sans surcoût le Sous-type Maléfique.",
+     "max": 1,
+     "allegiance": "Renégat",
+     "needsUpgrade": "Trait Hétérodoxe",
+     "choices": [
+      {
+       "name": "Sous-type Maléfique",
+       "points": 0,
+       "effect": {
+        "addTypes": "Maléfique"
+       }
       }
      ]
     }
@@ -473,7 +833,7 @@
    ],
    "options": [
     {
-     "text": "Équipement (autant d'objets que voulu, un de chaque)",
+     "text": "Cette Figurine peut être dotée de n'importe quel nombre d'objets de la liste d'Équipement du Mechanicum et d'objets de la liste d'Équipement de Magos du Mechanicum.",
      "max": 10,
      "list": [
       "Équipement du Mechanicum",
@@ -482,28 +842,29 @@
      "unique": true
     },
     {
-     "text": "Rites Cyberthéurgiques (autant que voulu)",
-     "max": 3,
+     "text": "Cette Figurine peut être dotée de n'importe quel nombre de choix de la liste des Rites Cyberthéurgiques.",
+     "max": 11,
      "list": "Rites Cyberthéurgiques",
      "unique": true
     },
     {
-     "text": "Arme de mêlée",
+     "text": "Cette Figurine peut être dotée d'un objet de la liste des Armes de Mêlée du Mechanicum.",
      "max": 1,
      "list": "Armes de Mêlée du Mechanicum"
     },
     {
-     "text": "Pistolet",
+     "text": "Cette Figurine peut être dotée d'un objet de la liste des Pistolets du Mechanicum.",
      "max": 1,
      "list": "Pistolets du Mechanicum"
     },
     {
-     "text": "Arme de tir",
+     "text": "Cette Figurine peut être dotée d'un objet de la liste des Armes de Tir du Mechanicum.",
      "max": 1,
-     "list": "Armes de Tir du Mechanicum"
+     "list": "Armes de Tir du Mechanicum",
+     "exclusive": "tir-mechanicum"
     },
     {
-     "text": "Si la figurine n'a pris aucune arme de tir du Mechanicum",
+     "text": "Si on ne dote cette Figurine d'aucun objet de la liste des Armes de Tir du Mechanicum, on peut la doter d'une des options suivantes :",
      "max": 1,
      "choices": [
       {
@@ -517,6 +878,39 @@
       {
        "name": "Irradieur",
        "points": 20
+      }
+     ],
+     "exclusive": "tir-mechanicum"
+    },
+    {
+     "text": "Hétérodoxes (Liber Mechanicum p. 63) : le Joueur peut conférer sans surcoût le Trait Hétérodoxe à cette Figurine (Allégeance Renégate seulement ; impossible si elle a le Trait Malagra).",
+     "max": 1,
+     "allegiance": "Renégat",
+     "notArcana": "Malagra",
+     "choices": [
+      {
+       "name": "Trait Hétérodoxe",
+       "points": 0,
+       "effect": {
+        "addTraits": [
+         "Hétérodoxe"
+        ]
+       }
+      }
+     ]
+    },
+    {
+     "text": "Hétérodoxes (Liber Mechanicum p. 63) : une Figurine qui a le Trait Hétérodoxe peut recevoir sans surcoût le Sous-type Maléfique.",
+     "max": 1,
+     "allegiance": "Renégat",
+     "needsUpgrade": "Trait Hétérodoxe",
+     "choices": [
+      {
+       "name": "Sous-type Maléfique",
+       "points": 0,
+       "effect": {
+        "addTypes": "Maléfique"
+       }
       }
      ]
     }
@@ -580,7 +974,7 @@
    ],
    "options": [
     {
-     "text": "Équipement (autant d'objets que voulu, un de chaque)",
+     "text": "Cette Figurine peut être dotée de n'importe quel nombre d'objets de la liste d'Équipement du Mechanicum et d'objets de la liste d'Équipement de Magos du Mechanicum.",
      "max": 10,
      "list": [
       "Équipement du Mechanicum",
@@ -589,28 +983,29 @@
      "unique": true
     },
     {
-     "text": "Rites Cyberthéurgiques (autant que voulu)",
-     "max": 3,
+     "text": "Cette Figurine peut être dotée de n'importe quel nombre de choix de la liste des Rites Cyberthéurgiques.",
+     "max": 11,
      "list": "Rites Cyberthéurgiques",
      "unique": true
     },
     {
-     "text": "Arme de mêlée",
+     "text": "Cette Figurine peut être dotée d'un objet de la liste des Armes de Mêlée du Mechanicum.",
      "max": 1,
      "list": "Armes de Mêlée du Mechanicum"
     },
     {
-     "text": "Pistolet",
+     "text": "Cette Figurine peut être dotée d'un objet de la liste des Pistolets du Mechanicum.",
      "max": 1,
      "list": "Pistolets du Mechanicum"
     },
     {
-     "text": "Arme de tir",
+     "text": "Cette Figurine peut être dotée d'un objet de la liste des Armes de Tir du Mechanicum.",
      "max": 1,
-     "list": "Armes de Tir du Mechanicum"
+     "list": "Armes de Tir du Mechanicum",
+     "exclusive": "tir-mechanicum"
     },
     {
-     "text": "Si la figurine n'a pris aucune arme de tir du Mechanicum",
+     "text": "Si on ne dote cette Figurine d'aucun objet de la liste des Armes de Tir du Mechanicum, on peut la doter d'une des options suivantes :",
      "max": 1,
      "choices": [
       {
@@ -624,6 +1019,39 @@
       {
        "name": "Irradieur",
        "points": 20
+      }
+     ],
+     "exclusive": "tir-mechanicum"
+    },
+    {
+     "text": "Hétérodoxes (Liber Mechanicum p. 63) : le Joueur peut conférer sans surcoût le Trait Hétérodoxe à cette Figurine (Allégeance Renégate seulement ; impossible si elle a le Trait Malagra).",
+     "max": 1,
+     "allegiance": "Renégat",
+     "notArcana": "Malagra",
+     "choices": [
+      {
+       "name": "Trait Hétérodoxe",
+       "points": 0,
+       "effect": {
+        "addTraits": [
+         "Hétérodoxe"
+        ]
+       }
+      }
+     ]
+    },
+    {
+     "text": "Hétérodoxes (Liber Mechanicum p. 63) : une Figurine qui a le Trait Hétérodoxe peut recevoir sans surcoût le Sous-type Maléfique.",
+     "max": 1,
+     "allegiance": "Renégat",
+     "needsUpgrade": "Trait Hétérodoxe",
+     "choices": [
+      {
+       "name": "Sous-type Maléfique",
+       "points": 0,
+       "effect": {
+        "addTypes": "Maléfique"
+       }
       }
      ]
     }
@@ -667,11 +1095,11 @@
    ],
    "rules": [
     "Insensible à la Douleur (5+)",
+    "Guerrier-artisan (2)",
     "Maître des Machines",
     "Infiltration (9)",
     "Protocoles de Tir (2)",
-    "Bénéfice d'Arcane : Même les Immortels Peuvent",
-    "Avoir Peur"
+    "Même les Immortels Peuvent Avoir Peur"
    ],
    "types": [
     "Infanterie (État-major)"
@@ -683,7 +1111,7 @@
    ],
    "options": [
     {
-     "text": "Équipement (autant d'objets que voulu, un de chaque)",
+     "text": "Cette Figurine peut être dotée de n'importe quel nombre d'objets de la liste d'Équipement du Mechanicum et d'objets de la liste d'Équipement de Magos du Mechanicum.",
      "max": 10,
      "list": [
       "Équipement du Mechanicum",
@@ -692,8 +1120,8 @@
      "unique": true
     },
     {
-     "text": "Rites Cyberthéurgiques (autant que voulu)",
-     "max": 3,
+     "text": "Cette Figurine peut être dotée de n'importe quel nombre de choix de la liste des Rites Cyberthéurgiques.",
+     "max": 11,
      "list": "Rites Cyberthéurgiques",
      "unique": true
     },
@@ -718,7 +1146,7 @@
      "note": "This Model may have one item from the Mechanicum Pistols list or the Mechanicum Magos Weapons list selected for it."
     },
     {
-     "text": "Arme de tir",
+     "text": "Cette Figurine peut être dotée d'un objet de la liste des Armes de Tir du Mechanicum.",
      "max": 1,
      "list": "Armes de Tir du Mechanicum"
     }
@@ -781,7 +1209,7 @@
    ],
    "options": [
     {
-     "text": "Toute figurine",
+     "text": "Toute Figurine de cette Unité peut être dotée d'un bolter pour +2 Points par Figurine.",
      "max": "models",
      "choices": [
       {
@@ -847,7 +1275,7 @@
    ],
    "options": [
     {
-     "text": "Toute figurine",
+     "text": "Toute Figurine de cette Unité peut être dotée d'un bolter pour +2 Points par Figurine.",
      "max": "models",
      "choices": [
       {
@@ -907,6 +1335,7 @@
     "Explose (6+)",
     "Impact (A)",
     "Avant-garde (2)",
+    "Vif (2)",
     "Protocoles de Tir (2)",
     "Orage de Feu"
    ],
@@ -1001,7 +1430,7 @@
    ],
    "options": [
     {
-     "text": "Toute figurine : remplacer le bolter Maxima jumelé",
+     "text": "Toute Figurine de cette Unité peut échanger son bolter Maxima jumelé contre un des choix suivants :",
      "max": "models",
      "choices": [
       {
@@ -1012,6 +1441,9 @@
        "name": "Fusil à gravitons jumelé",
        "points": 20
       }
+     ],
+     "replaces": [
+      "Bolter Maxima jumelé"
      ]
     }
    ]
@@ -1028,7 +1460,7 @@
      "count": 1
     },
     {
-     "name": "Destructors",
+     "name": "Destructor",
      "count": 2
     }
    ],
@@ -1107,13 +1539,21 @@
       {
        "name": "Canon Darkfire",
        "points": 20
+      },
+      {
+       "name": "Couleuvrine volkite",
+       "points": 0
       }
      ]
     }
    ],
-   "optionsPending": true,
    "army": "mech",
-   "source": "Conclaves Skitarii v1.0 (FR) – profil mis à jour"
+   "source": "Conclaves Skitarii v1.0 (FR) – profil mis à jour",
+   "extra": {
+    "model": "Destructor",
+    "max": 7,
+    "points": 45
+   }
   },
   {
    "id": "mech-manipule-castellax-destructor",
@@ -1175,17 +1615,20 @@
    ],
    "options": [
     {
-     "text": "Toute figurine : remplacer les chargeurs-choc",
+     "text": "Toute Figurine de cette Unité peut échanger ses chargeurs-choc contre une paire de lames énergétiques pour +10 Points par Figurine.",
      "max": "models",
      "choices": [
       {
        "name": "Paire de lames énergétiques",
        "points": 10
       }
+     ],
+     "replaces": [
+      "Chargeurs-choc"
      ]
     },
     {
-     "text": "Remplacer un bolter (par arme, deux par figurine)",
+     "text": "Toute Figurine de cette Unité peut échanger l'un et/ou l'autre de ses bolters par un lance-flammes pour +5 Points par Arme.",
      "max": {
       "per": 1,
       "n": 2
@@ -1195,10 +1638,15 @@
        "name": "Lance-flammes",
        "points": 5
       }
-     ]
+     ],
+     "replaces": [
+      "Deux bolters"
+     ],
+     "partOf": true,
+     "note": "Chaque lance-flammes remplace un des deux bolters (« Deux bolters »)."
     },
     {
-     "text": "Toute figurine : remplacer le canon à bolts Mauler",
+     "text": "Toute Figurine de cette Unité peut échanger son canon à bolts Mauler contre un des choix suivants :",
      "max": "models",
      "choices": [
       {
@@ -1209,6 +1657,9 @@
        "name": "Multi-fuseur",
        "points": 10
       }
+     ],
+     "replaces": [
+      "Canon à bolts Mauler"
      ]
     }
    ]
@@ -1266,30 +1717,62 @@
    ],
    "options": [
     {
-     "text": "Équipement (autant d'objets que voulu, un de chaque)",
+     "text": "Cette Figurine peut être dotée de n'importe quel nombre d'objets de la liste d'Équipement du Mechanicum.",
      "max": 8,
      "list": "Équipement du Mechanicum",
      "unique": true
     },
     {
-     "text": "Rite Cyberthéurgique",
+     "text": "Cette Figurine peut être dotée d'un objet de la liste des Rites Cyberthéurgiques.",
      "max": 1,
      "list": "Rites Cyberthéurgiques"
     },
     {
-     "text": "Arme de mêlée",
+     "text": "Cette Figurine peut être dotée d'un objet de la liste des Armes de Mêlée du Mechanicum.",
      "max": 1,
      "list": "Armes de Mêlée du Mechanicum"
     },
     {
-     "text": "Pistolet",
+     "text": "Cette Figurine peut être dotée d'un objet de la liste des Pistolets du Mechanicum.",
      "max": 1,
      "list": "Pistolets du Mechanicum"
     },
     {
-     "text": "Arme de tir",
+     "text": "Cette Figurine peut être dotée d'un objet de la liste des Armes de Tir du Mechanicum.",
      "max": 1,
      "list": "Armes de Tir du Mechanicum"
+    },
+    {
+     "text": "Hétérodoxes (Liber Mechanicum p. 63) : le Joueur peut conférer sans surcoût le Trait Hétérodoxe à cette Figurine (Allégeance Renégate seulement ; impossible si elle a le Trait Malagra).",
+     "max": 1,
+     "allegiance": "Renégat",
+     "notArcana": "Malagra",
+     "choices": [
+      {
+       "name": "Trait Hétérodoxe",
+       "points": 0,
+       "effect": {
+        "addTraits": [
+         "Hétérodoxe"
+        ]
+       }
+      }
+     ]
+    },
+    {
+     "text": "Hétérodoxes (Liber Mechanicum p. 63) : une Figurine qui a le Trait Hétérodoxe peut recevoir sans surcoût le Sous-type Maléfique.",
+     "max": 1,
+     "allegiance": "Renégat",
+     "needsUpgrade": "Trait Hétérodoxe",
+     "choices": [
+      {
+       "name": "Sous-type Maléfique",
+       "points": 0,
+       "effect": {
+        "addTypes": "Maléfique"
+       }
+      }
+     ]
     }
    ]
   },
@@ -1331,13 +1814,20 @@
      ]
     }
    ],
-   "wargear": [],
-   "rules": [],
+   "wargear": [
+    "Mousquet laser"
+   ],
+   "rules": [
+    "Sacrifiable (2)",
+    "Rite de la Pensée Pure",
+    "Insensible à la Douleur (6+)"
+   ],
    "types": [
     "Infanterie"
    ],
    "traits": [
-    "[Allégeance]"
+    "[Allégeance]",
+    "Lacrymaerta"
    ],
    "options": []
   },
@@ -1417,7 +1907,7 @@
    ],
    "options": [
     {
-     "text": "Toute figurine : remplacer le fusil à foudre",
+     "text": "Toute Figurine de cette Unité peut échanger son fusil à foudre contre un des choix suivants :",
      "max": "models",
      "choices": [
       {
@@ -1432,31 +1922,37 @@
        "name": "Fusil à plasma phasé",
        "points": 10
       }
+     ],
+     "replaces": [
+      "Fusil à foudre"
      ]
     },
     {
-     "text": "Toute figurine ayant un fusil à foudre",
+     "text": "Toute Figurine de cette Unité qui a un fusil à foudre peut être dotée d'une baïonnette tronçonneuse pour +2 Points par Figurine.",
      "max": "models",
      "choices": [
       {
        "name": "Baïonnette tronçonneuse",
        "points": 2
       }
+     ],
+     "requires": [
+      "Fusil à foudre"
      ]
     },
     {
-     "text": "Toute l'unité",
+     "text": "Toutes les Figurines de cette Unité peuvent être dotées de bombes à fusion pour +5 Points par Figurine.",
      "max": 1,
      "choices": [
       {
-       "name": "Bombes à fusion pour toutes les figurines (+5 par figurine)",
+       "name": "Bombes à fusion",
        "points": 5
       }
      ],
      "all": true
     },
     {
-     "text": "Promouvoir un Thallax",
+     "text": "Un Thallax de cette Unité peut être promu Prétorien Thallax pour +10 Points.",
      "max": 1,
      "choices": [
       {
@@ -1505,7 +2001,11 @@
      ]
     }
    ],
-   "wargear": [],
+   "wargear": [
+    "Deux bolters",
+    "Canon à bolts Mauler",
+    "Chargeurs-choc"
+   ],
    "rules": [
     "Massif (4)",
     "Avance Implacable",
@@ -1523,17 +2023,20 @@
    ],
    "options": [
     {
-     "text": "Toute figurine : remplacer les chargeurs-choc",
+     "text": "Toute Figurine de cette Unité peut échanger ses chargeurs-choc contre une paire de lames énergétiques pour +10 Points par Figurine.",
      "max": "models",
      "choices": [
       {
        "name": "Paire de lames énergétiques",
        "points": 10
       }
+     ],
+     "replaces": [
+      "Chargeurs-choc"
      ]
     },
     {
-     "text": "Remplacer un bolter (par arme, deux par figurine)",
+     "text": "Toute Figurine de cette Unité peut échanger l'un et/ou l'autre de ses bolters par un lance-flammes pour +5 Points par Arme.",
      "max": {
       "per": 1,
       "n": 2
@@ -1543,7 +2046,12 @@
        "name": "Lance-flammes",
        "points": 5
       }
-     ]
+     ],
+     "replaces": [
+      "Deux bolters"
+     ],
+     "partOf": true,
+     "note": "Chaque lance-flammes remplace un des deux bolters (« Deux bolters »)."
     }
    ]
   },
@@ -1601,18 +2109,26 @@
    ],
    "options": [
     {
-     "text": "Configuration — obligatoire",
+     "text": "Cette Figurine doit être dotée d'une des deux options suivantes :",
      "max": 1,
      "choices": [
       {
        "name": "Configuration Cavas : mortier à plasma",
-       "points": 0
+       "points": 0,
+       "gives": [
+        "Mortier à plasma"
+       ]
       },
       {
        "name": "Configuration Calix : laser lourd Sollex et bélier à gravitons",
-       "points": 20
+       "points": 20,
+       "gives": [
+        "Laser lourd Sollex",
+        "Bélier à gravitons"
+       ]
       }
-     ]
+     ],
+     "required": true
     }
    ]
   },
@@ -1667,12 +2183,16 @@
    ],
    "options": [
     {
-     "text": "Armement obligatoire : deux options (ou la paire ci-dessous)",
+     "text": "Cette Figurine doit être dotée d'une des options suivantes : deux options de la liste suivante",
      "max": 2,
      "choices": [
       {
-       "name": "Pince de siège Gyges et irradieur",
-       "points": 0
+       "name": "Pince de siège Gyges et un irradieur",
+       "points": 0,
+       "gives": [
+        "Pince de siège Gyges",
+        "Irradieur"
+       ]
       },
       {
        "name": "Veuglaire volkite",
@@ -1690,17 +2210,24 @@
        "name": "Faisceau de conversion Moirax",
        "points": 20
       }
-     ]
+     ],
+     "required": true,
+     "exclusive": "moirax"
     },
     {
-     "text": "Ou à la place des deux options",
+     "text": "Ou : paire de pinces de siège Gyges et deux irradieurs",
      "max": 1,
      "choices": [
       {
        "name": "Paire de pinces de siège Gyges et deux irradieurs",
-       "points": 10
+       "points": 10,
+       "gives": [
+        "Paire de pinces de siège Gyges",
+        "Deux irradieurs"
+       ]
       }
-     ]
+     ],
+     "exclusive": "moirax"
     }
    ]
   },
@@ -1750,7 +2277,7 @@
    ],
    "options": [
     {
-     "text": "Missiles traqueurs de Coque (Avant), jusqu'à deux",
+     "text": "Cette Figurine peut être dotée de jusqu'à deux missiles traqueurs de Coque (Avant) pour +5 Points par Arme.",
      "max": 2,
      "choices": [
       {
@@ -1799,10 +2326,15 @@
      ]
     }
    ],
-   "wargear": [],
+   "wargear": [
+    "Paire de lames énergétiques",
+    "Canon rotor jumelé",
+    "Fusil à foudre"
+   ],
    "rules": [
     "Massif (3)",
     "Avance Implacable",
+    "Vif (2)",
     "Impact (A)",
     "Explose (6+)",
     "Protocoles de Tir (2)",
@@ -1818,7 +2350,7 @@
    ],
    "options": [
     {
-     "text": "Une figurine sur deux : remplacer le fusil à foudre",
+     "text": "Une Figurine sur deux de cette Unité peut échanger son fusil à foudre contre un irradieur pour +20 Points par Figurine.",
      "max": {
       "per": 2
      },
@@ -1827,6 +2359,9 @@
        "name": "Irradieur",
        "points": 20
       }
+     ],
+     "replaces": [
+      "Fusil à foudre"
      ]
     }
    ]
@@ -1912,7 +2447,12 @@
      "vehicle": true
     }
    ],
-   "wargear": [],
+   "wargear": [
+    "Batterie de mortiers Karacnos de Coque (Avant)",
+    "Deux mousquets à foudre Latéraux",
+    "Bouclier répulsif",
+    "Projecteurs"
+   ],
    "rules": [
     "Autoréparation (4+)",
     "Bélier-choc",
@@ -1922,11 +2462,12 @@
     "Véhicule"
    ],
    "traits": [
-    "[Allégeance]"
+    "[Allégeance]",
+    "Macrotek"
    ],
    "options": [
     {
-     "text": "Missiles traqueurs de Coque (Avant), jusqu'à deux",
+     "text": "Cette Figurine peut être dotée de jusqu'à deux missiles traqueurs de Coque (Avant) pour +5 Points par Arme.",
      "max": 2,
      "choices": [
       {
@@ -1979,7 +2520,7 @@
    ],
    "options": [
     {
-     "text": "Missiles traqueurs de Coque (Avant), jusqu'à deux",
+     "text": "Cette Figurine peut être dotée de jusqu'à deux missiles traqueurs de Coque (Avant) pour +5 Points par Arme.",
      "max": 2,
      "choices": [
       {
@@ -1989,7 +2530,7 @@
      ]
     },
     {
-     "text": "Deux arquebuses volkites Latérales",
+     "text": "Cette Figurine peut être dotée de deux arquebuses volkites Latérales pour +15 Points.",
      "max": 1,
      "choices": [
       {
@@ -1999,13 +2540,16 @@
      ]
     },
     {
-     "text": "Remplacer le canon à foudre d'Axe Central",
+     "text": "Cette Figurine peut échanger gratuitement son canon à foudre d'Axe Central contre un éclateur à irradiation d'Axe Central.",
      "max": 1,
      "choices": [
       {
        "name": "Éclateur à irradiation d'Axe Central",
        "points": 0
       }
+     ],
+     "replaces": [
+      "Canon à foudre d'Axe Central"
      ]
     }
    ]
@@ -2037,7 +2581,9 @@
      "vehicle": true
     }
    ],
-   "wargear": [],
+   "wargear": [
+    "Pulsar pilonneur d'Axe Central"
+   ],
    "rules": [
     "Autoréparation (4+)"
    ],
@@ -2045,11 +2591,12 @@
     "Véhicule (Rapide)"
    ],
    "traits": [
-    "[Allégeance]"
+    "[Allégeance]",
+    "Macrotek"
    ],
    "options": [
     {
-     "text": "Missiles traqueurs de Coque (Avant), jusqu'à deux",
+     "text": "Cette Figurine peut être dotée de jusqu'à deux missiles traqueurs de Coque (Avant) pour +5 Points par Arme.",
      "max": 2,
      "choices": [
       {
@@ -2059,7 +2606,7 @@
      ]
     },
     {
-     "text": "Deux arquebuses volkites Latérales",
+     "text": "Cette Figurine peut être dotée de deux arquebuses volkites Latérales pour +15 Points.",
      "max": 1,
      "choices": [
       {
@@ -2124,7 +2671,7 @@
    ],
    "options": [
     {
-     "text": "Remplace un lance-flammes lourd et une pince Decimator",
+     "text": "Cette Figurine peut être dotée d'un des choix suivants ; si une option est choisie dans cette liste, la Figurine perd un lance-flammes lourd et une pince Decimator (option sélectionnable plusieurs fois, FAQ) :",
      "max": 2,
      "choices": [
       {
@@ -2139,7 +2686,8 @@
      "errata": "FAQ & Errata Age of Darkness (EN, Oct. 2026)",
      "note": "(this option may be selected more than once per Model)"
     }
-   ]
+   ],
+   "machinaMalefica": true
   },
   {
    "id": "mech-massacreur-de-sang",
@@ -2198,7 +2746,7 @@
    ],
    "options": [
     {
-     "text": "Toute figurine",
+     "text": "Toute Figurine de cette Unité peut être dotée d'un harpon empaleur pour +10 Points par Figurine.",
      "max": "models",
      "choices": [
       {
@@ -2207,7 +2755,8 @@
       }
      ]
     }
-   ]
+   ],
+   "machinaMalefica": true
   },
   {
    "id": "mech-archimagos-scoria",
@@ -2266,7 +2815,12 @@
     "Cyberthéurge",
     "Hétérodoxe"
    ],
-   "options": []
+   "options": [],
+   "knownRites": [
+    "Réacteurs Suralimentés",
+    "Purge de Cogitateur",
+    "Infection d'Anticode"
+   ]
   },
   {
    "id": "mech-archimagos-draykavac",
@@ -2328,23 +2882,28 @@
     "Panoplie machinator"
    ],
    "rules": [
-    "Insensible à la Douleur (5+)",
-    "Guerrier-artisan (4)",
-    "Maître des Machines",
-    "Protocoles de Tir (2)",
-    "Assaut au Liquifractor",
-    "Héritage de Ruse",
-    "Massif (7)",
-    "Insensible à la Douleur (5+)",
-    "Comptrôleur (2)",
-    "Trône de Commandement",
-    "Guerrier-artisan (4)",
-    "Maître des Machines",
-    "Protocoles de Tir (2)"
+    "Draykavac : Insensible à la Douleur (5+)",
+    "Draykavac : Comptrôleur (2)",
+    "Draykavac : Guerrier-artisan (4)",
+    "Draykavac : Maître des Machines",
+    "Draykavac : Protocoles de Tir (2)",
+    "Draykavac : Assaut au Liquifractor",
+    "Draykavac : Héritage de Ruse",
+    "Draykavac sur Abéant : Massif (7)",
+    "Draykavac sur Abéant : Insensible à la Douleur (5+)",
+    "Draykavac sur Abéant : Comptrôleur (2)",
+    "Draykavac sur Abéant : Trône de Commandement",
+    "Draykavac sur Abéant : Guerrier-artisan (4)",
+    "Draykavac sur Abéant : Maître des Machines",
+    "Draykavac sur Abéant : Protocoles de Tir (2)",
+    "Draykavac sur Abéant : Assaut au Liquifractor",
+    "Draykavac sur Abéant : Héritage de Ruse",
+    "Draykavac sur Abéant : Explose (6+)",
+    "Theurgika Maximus"
    ],
    "types": [
     "Draykavac : Infanterie (État-major, Unique)",
-    "Draykavac sur Abéant : Infanterie (État-major, Unique"
+    "Draykavac sur Abéant : Infanterie (État-major, Unique, Antigrav)"
    ],
    "traits": [
     "Renégat",
@@ -2360,7 +2919,7 @@
    ],
    "options": [
     {
-     "text": "Draykavac sur Abéant — arme obligatoire, sans surcoût",
+     "text": "Draykavac sur Abéant doit être doté d'une des options suivantes sans surcoût en points :",
      "max": 1,
      "choices": [
       {
@@ -2382,6 +2941,11 @@
      ],
      "onlyVariant": 0
     }
+   ],
+   "knownRites": [
+    "Réacteurs Suralimentés",
+    "Interruption de Programme",
+    "Infection d'Anticode"
    ]
   },
   {
@@ -2461,17 +3025,20 @@
    ],
    "options": [
     {
-     "text": "Toute figurine : remplacer la paire de griffes",
+     "text": "Toute Figurine de cette Unité peut échanger gratuitement sa paire de griffes d'Ursarax contre une paire de poings d'Ursarax.",
      "max": "models",
      "choices": [
       {
        "name": "Paire de poings d'Ursarax",
        "points": 0
       }
+     ],
+     "replaces": [
+      "Paire de griffes d'Ursarax"
      ]
     },
     {
-     "text": "Promouvoir une figurine",
+     "text": "Une Figurine par Unité peut être promue Ursarax Alpha pour +10 Points.",
      "max": 1,
      "choices": [
       {
@@ -2536,7 +3103,8 @@
     "Renégat",
     "Archimandrite"
    ],
-   "options": []
+   "options": [],
+   "machinaMalefica": true
   },
   {
    "id": "mech-engin-demon-kytan",
@@ -2589,7 +3157,8 @@
     "Renégat",
     "Archimandrite"
    ],
-   "options": []
+   "options": [],
+   "machinaMalefica": true
   }
  ]
 }

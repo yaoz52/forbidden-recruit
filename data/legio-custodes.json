@@ -16,7 +16,7 @@
    "page": 3,
    "models": [
     {
-     "name": "Gardes Adrasites",
+     "name": "Garde Adrasite",
      "count": 6
     }
    ],
@@ -68,6 +68,9 @@
        "name": "Vexillum du Magisterium",
        "points": 0
       }
+     ],
+     "replaces": [
+      "Lance adrasite"
      ]
     }
    ],
@@ -79,7 +82,7 @@
      "name": "Adrasite Guard Sodality",
      "models": [
       {
-       "name": "Adrasite Guards",
+       "name": "Adrasite Guard",
        "count": 6
       }
      ],
@@ -92,8 +95,18 @@
       "Eternal Warrior (1)",
       "Lightning Blows",
       "Vanguard (2)"
-     ]
+     ],
+     "extra": {
+      "model": "Adrasite Guard",
+      "max": 6,
+      "points": 60
+     }
     }
+   },
+   "extra": {
+    "model": "Garde Adrasite",
+    "max": 6,
+    "points": 60
    }
   },
   {
@@ -105,7 +118,7 @@
    "page": 4,
    "models": [
     {
-     "name": "Gardes Pyrithites",
+     "name": "Garde Pyrithite",
      "count": 6
     }
    ],
@@ -157,6 +170,9 @@
        "name": "Vexillum du Magisterium",
        "points": 0
       }
+     ],
+     "replaces": [
+      "Lance pyrithite"
      ]
     }
    ],
@@ -168,7 +184,7 @@
      "name": "Pyrithite Guard Sodality",
      "models": [
       {
-       "name": "Pyrithite Guards",
+       "name": "Pyrithite Guard",
        "count": 6
       }
      ],
@@ -181,8 +197,18 @@
       "Eternal Warrior (1)",
       "Lightning Blows",
       "Vanguard (2)"
-     ]
+     ],
+     "extra": {
+      "model": "Pyrithite Guard",
+      "max": 6,
+      "points": 60
+     }
     }
+   },
+   "extra": {
+    "model": "Garde Pyrithite",
+    "max": 6,
+    "points": 60
    }
   },
   {
@@ -194,7 +220,7 @@
    "page": 5,
    "models": [
     {
-     "name": "Gardes Sagittarii",
+     "name": "Garde Sagittarii",
      "count": 6
     }
    ],
@@ -245,6 +271,9 @@
        "name": "Vexillum du Magisterium",
        "points": 0
       }
+     ],
+     "replaces": [
+      "Arquebuse à bolts Adrastus"
      ]
     }
    ],
@@ -256,7 +285,7 @@
      "name": "Sagittarum Guard Sodality",
      "models": [
       {
-       "name": "Sagittarum Guards",
+       "name": "Sagittarum Guard",
        "count": 6
       }
      ],
@@ -268,8 +297,18 @@
       "Bulky (2)",
       "Eternal Warrior (1)",
       "Vanguard (2)"
-     ]
+     ],
+     "extra": {
+      "model": "Sagittarum Guard",
+      "max": 6,
+      "points": 40
+     }
     }
+   },
+   "extra": {
+    "model": "Garde Sagittarii",
+    "max": 6,
+    "points": 40
    }
   }
  ],

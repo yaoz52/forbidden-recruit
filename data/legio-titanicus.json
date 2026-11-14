@@ -32,16 +32,16 @@
      "role": "TR"
     },
     {
-     "role": "TL"
+     "role": "TP"
     },
     {
-     "role": "TL"
+     "role": "TP"
     },
     {
-     "role": "TL"
+     "role": "TP"
     },
     {
-     "role": "TL"
+     "role": "TP"
     }
    ]
   }
@@ -99,7 +99,7 @@
    ],
    "options": [
     {
-     "text": "Remplacer l'électrolance",
+     "text": "Cette Figurine peut échanger son électrolance contre un des choix suivants :",
      "max": 1,
      "choices": [
       {
@@ -110,10 +110,13 @@
        "name": "Électromasse",
        "points": 0
       }
+     ],
+     "replaces": [
+      "Électrolance"
      ]
     },
     {
-     "text": "Équipements (un de chaque)",
+     "text": "On peut sélectionner n'importe lesquelles des options suivantes pour cette Figurine :",
      "max": 2,
      "choices": [
       {
@@ -209,17 +212,30 @@
    ],
    "options": [
     {
-     "text": "Toute l'unité : remplacer électrolance et bouclier (perd Bouclier, gagne Écran de Fumée)",
+     "text": "Toutes les Figurines de cette Unité peuvent échanger gratuitement leur électrolance et leur bouclier magnéto-inverseur contre un lanceur galvanique (elles perdent alors le Trait Bouclier et gagnent le Trait Écran de Fumée).",
      "max": 1,
      "choices": [
       {
-       "name": "Lanceurs galvaniques",
-       "points": 0
+       "name": "Lanceur galvanique",
+       "points": 0,
+       "effect": {
+        "addTraits": [
+         "Écran de Fumée"
+        ],
+        "removeTraits": [
+         "Bouclier"
+        ]
+       }
       }
+     ],
+     "all": true,
+     "replaces": [
+      "Électrolance",
+      "Bouclier magnéto-inverseur"
      ]
     },
     {
-     "text": "Secutarius Alpha (un de chaque)",
+     "text": "Le Secutarius Alpha peut être doté de n'importe lesquelles des options suivantes :",
      "max": 4,
      "choices": [
       {
@@ -239,14 +255,17 @@
        "points": 5
       }
      ],
-     "unique": true
+     "unique": true,
+     "models": [
+      "Secutarius Alpha"
+     ]
     },
     {
-     "text": "Toute l'unité",
+     "text": "Toutes les Figurines de l'Unité peuvent être dotées de grenades Rad pour +2 Points par Figurine.",
      "max": 1,
      "choices": [
       {
-       "name": "Grenades Rad (+2 par figurine)",
+       "name": "Grenades Rad",
        "points": 2
       }
      ],
@@ -257,7 +276,7 @@
   {
    "id": "titan-triaros",
    "name": "Convoyeur Blindé Triaros (Legio)",
-   "role": "TL",
+   "role": "TP",
    "points": 200,
    "page": 60,
    "models": [
@@ -300,7 +319,7 @@
    ],
    "options": [
     {
-     "text": "Missiles traqueurs de Coque (Avant), jusqu'à deux",
+     "text": "Cette Figurine peut être dotée de jusqu'à deux missiles traqueurs de Coque (Avant) pour +5 Points par Arme.",
      "max": 2,
      "choices": [
       {
@@ -309,8 +328,7 @@
       }
      ]
     }
-   ],
-   "notes": "Profil identique au Triaros du Liber Mechanicum ; options à confirmer sur la page 60 du Liber Questoris."
+   ]
   },
   {
    "id": "titan-warhound",
@@ -421,7 +439,7 @@
    ],
    "options": [
     {
-     "text": "Équipage — obligatoire (remplace le Trait [Équipage])",
+     "text": "Quand cette Figurine est sélectionnée dans une Armée, le Joueur en Contrôle doit échanger le Trait [Équipage] contre une des options suivantes, en payant le coût en Points indiqué pour l'option choisie :",
      "max": 1,
      "choices": [
       {
@@ -429,18 +447,32 @@
        "points": 0
       },
       {
-       "name": "Senioris (CT 4 aux Bras et à la Carapace)",
-       "points": 50
+       "name": "Senioris (CT 4 au Profil de Bras)",
+       "points": 50,
+       "effect": {
+        "profStats": {
+         "^Bras": {
+          "CT": "4"
+         }
+        }
+       }
       },
       {
-       "name": "Majoris (CT 5 aux Bras et à la Carapace)",
-       "points": 100
+       "name": "Majoris (CT 5 au Profil de Bras)",
+       "points": 100,
+       "effect": {
+        "profStats": {
+         "^Bras": {
+          "CT": "5"
+         }
+        }
+       }
       }
      ],
      "required": true
     },
     {
-     "text": "Armes de Bras — obligatoire : deux",
+     "text": "On doit sélectionner pour cette Figurine deux Armes de Bras parmi les options suivantes :",
      "max": 2,
      "choices": [
       {
@@ -575,7 +607,7 @@
    ],
    "options": [
     {
-     "text": "Équipage — obligatoire (remplace le Trait [Équipage])",
+     "text": "Quand cette Figurine est sélectionnée dans une Armée, le Joueur en Contrôle doit échanger le Trait [Équipage] contre une des options suivantes, en payant le coût en Points indiqué pour l'option choisie :",
      "max": 1,
      "choices": [
       {
@@ -584,17 +616,37 @@
       },
       {
        "name": "Senioris (CT 4 aux Bras et à la Carapace)",
-       "points": 100
+       "points": 100,
+       "effect": {
+        "profStats": {
+         "^Bras": {
+          "CT": "4"
+         },
+         "^Carapace": {
+          "CT": "4"
+         }
+        }
+       }
       },
       {
        "name": "Majoris (CT 5 aux Bras et à la Carapace)",
-       "points": 200
+       "points": 200,
+       "effect": {
+        "profStats": {
+         "^Bras": {
+          "CT": "5"
+         },
+         "^Carapace": {
+          "CT": "5"
+         }
+        }
+       }
       }
      ],
      "required": true
     },
     {
-     "text": "Armes de Bras — obligatoire : deux",
+     "text": "On doit sélectionner pour cette Figurine deux Armes de Bras parmi les options suivantes :",
      "max": 2,
      "choices": [
       {
@@ -733,7 +785,7 @@
    ],
    "options": [
     {
-     "text": "Équipage — obligatoire (remplace le Trait [Équipage])",
+     "text": "Quand cette Figurine est sélectionnée dans une Armée, le Joueur en Contrôle doit échanger le Trait [Équipage] contre une des options suivantes, en payant le coût en Points indiqué pour l'option choisie :",
      "max": 1,
      "choices": [
       {
@@ -742,17 +794,37 @@
       },
       {
        "name": "Senioris (CT 4 aux Bras et à la Carapace)",
-       "points": 200
+       "points": 200,
+       "effect": {
+        "profStats": {
+         "^Bras": {
+          "CT": "4"
+         },
+         "^Carapace": {
+          "CT": "4"
+         }
+        }
+       }
       },
       {
        "name": "Majoris (CT 5 aux Bras et à la Carapace)",
-       "points": 350
+       "points": 350,
+       "effect": {
+        "profStats": {
+         "^Bras": {
+          "CT": "5"
+         },
+         "^Carapace": {
+          "CT": "5"
+         }
+        }
+       }
       }
      ],
      "required": true
     },
     {
-     "text": "Arme d'Axe Médian — obligatoire",
+     "text": "On doit sélectionner pour cette Figurine une Arme d'Axe Médian parmi les options suivantes :",
      "max": 1,
      "choices": [
       {
@@ -767,7 +839,7 @@
      "required": true
     },
     {
-     "text": "Armes de Bras — obligatoire : deux",
+     "text": "On doit sélectionner pour cette Figurine deux Armes de Bras parmi les options suivantes :",
      "max": 2,
      "choices": [
       {
@@ -902,7 +974,7 @@
    ],
    "options": [
     {
-     "text": "Équipage — obligatoire (remplace le Trait [Équipage])",
+     "text": "Quand cette Figurine est sélectionnée dans une Armée, le Joueur en Contrôle doit échanger le Trait [Équipage] contre une des options suivantes, en payant le coût en Points indiqué pour l'option choisie :",
      "max": 1,
      "choices": [
       {
@@ -911,17 +983,37 @@
       },
       {
        "name": "Senioris (CT 4 aux Bras et à la Carapace)",
-       "points": 300
+       "points": 300,
+       "effect": {
+        "profStats": {
+         "^Bras": {
+          "CT": "4"
+         },
+         "^Carapace": {
+          "CT": "4"
+         }
+        }
+       }
       },
       {
        "name": "Majoris (CT 5 aux Bras et à la Carapace)",
-       "points": 500
+       "points": 500,
+       "effect": {
+        "profStats": {
+         "^Bras": {
+          "CT": "5"
+         },
+         "^Carapace": {
+          "CT": "5"
+         }
+        }
+       }
       }
      ],
      "required": true
     },
     {
-     "text": "Armes de Carapace — obligatoire",
+     "text": "On doit sélectionner une des options suivantes pour cette Figurine :",
      "max": 1,
      "choices": [
       {
@@ -936,7 +1028,7 @@
      "required": true
     },
     {
-     "text": "Armes de Bras — obligatoire : deux (la griffe Arioch avec méga-bolter compte pour un seul choix)",
+     "text": "On doit sélectionner pour cette Figurine deux Armes de Bras parmi les options suivantes :",
      "max": 2,
      "choices": [
       {
@@ -956,8 +1048,12 @@
        "points": 0
       },
       {
-       "name": "Griffe énergétique Arioch et méga-bolter Vulcan de Bras",
-       "points": 0
+       "name": "Griffe énergétique Arioch de Bras avec un Méga-bolter Vulcan de Bras",
+       "points": 0,
+       "gives": [
+        "Griffe énergétique Arioch de Bras",
+        "Méga-bolter Vulcan de Bras"
+       ]
       }
      ],
      "required": true

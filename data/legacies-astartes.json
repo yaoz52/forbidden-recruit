@@ -60,8 +60,8 @@
     }
    ],
    "wargear": [
-    "Twin bolter (Outrider Praetor only)",
-    "Heavy bolter (Praetor on Scimitar Jetbike only)",
+    "Outrider Praetor : Twin bolter",
+    "Praetor on Scimitar Jetbike : Heavy bolter",
     "Bolt pistol",
     "Chainsword",
     "Frag grenades",
@@ -86,8 +86,8 @@
    ],
    "options": [
     {
-     "text": "This Model may have its chainsword and/or bolt pistol exchanged for one paragon blade for +15 Points, one archaeotech pistol for +15 Points or one item from the Legion…",
-     "max": 1,
+     "text": "This Model may have its chainsword and/or bolt pistol exchanged for one paragon blade for +15 Points, one archaeotech pistol for +15 Points or one item from the Legion Officer Wargear list.",
+     "max": 2,
      "choices": [
       {
        "name": "Paragon blade",
@@ -98,7 +98,13 @@
        "points": 15
       }
      ],
-     "list": "Équipement d'Officier de Légion"
+     "list": "Équipement d'Officier de Légion",
+     "replaces": [
+      [
+       "Chainsword",
+       "Bolt pistol"
+      ]
+     ]
     },
     {
      "text": "This Model may have melta bombs selected for it for +5 Points.",
@@ -118,7 +124,11 @@
        "name": "Twin plasma gun",
        "points": 15
       }
-     ]
+     ],
+     "replaces": [
+      "Twin bolter"
+     ],
+     "notVariant": 0
     },
     {
      "text": "This Praetor on Scimitar Jetbike may have its heavy bolter exchanged for one of the following:",
@@ -136,12 +146,22 @@
        "name": "Multi-melta",
        "points": 20
       }
-     ]
+     ],
+     "replaces": [
+      "Heavy bolter"
+     ],
+     "onlyVariant": 0
     }
    ],
    "army": "la",
    "legacy": true,
-   "source": "Legacies of the Age of Darkness v1.1 (EN)"
+   "source": "Legacies of the Age of Darkness v1.1 (EN)",
+   "variants": [
+    {
+     "name": "Praetor on Scimitar Jetbike",
+     "points": 10
+    }
+   ]
   },
   {
    "id": "mounted-centurion",
@@ -197,8 +217,8 @@
     }
    ],
    "wargear": [
-    "Twin bolter (Outrider Centurion only)",
-    "Heavy bolter (Centurion on Scimitar Jetbike only)",
+    "Outrider Centurion : Twin bolter",
+    "Centurion on Scimitar Jetbike : Heavy bolter",
     "Bolt pistol",
     "Chainsword",
     "Frag grenades",
@@ -225,8 +245,14 @@
    "options": [
     {
      "text": "This Model may have its chainsword and/or bolt pistol exchanged for one item from the Legion Officer Wargear list.",
-     "max": 1,
-     "list": "Équipement d'Officier de Légion"
+     "max": 2,
+     "list": "Équipement d'Officier de Légion",
+     "replaces": [
+      [
+       "Chainsword",
+       "Bolt pistol"
+      ]
+     ]
     },
     {
      "text": "This Model may have melta bombs selected for it for +5 Points.",
@@ -246,7 +272,11 @@
        "name": "Twin plasma gun",
        "points": 15
       }
-     ]
+     ],
+     "replaces": [
+      "Twin bolter"
+     ],
+     "notVariant": 0
     },
     {
      "text": "This Centurion on Scimitar Jetbike may have its heavy bolter exchanged for one of the following:",
@@ -264,12 +294,22 @@
        "name": "Multi-melta",
        "points": 20
       }
-     ]
+     ],
+     "replaces": [
+      "Heavy bolter"
+     ],
+     "onlyVariant": 0
     }
    ],
    "army": "la",
    "legacy": true,
-   "source": "Legacies of the Age of Darkness v1.1 (EN)"
+   "source": "Legacies of the Age of Darkness v1.1 (EN)",
+   "variants": [
+    {
+     "name": "Centurion on Scimitar Jetbike",
+     "points": 10
+    }
+   ]
   },
   {
    "id": "librarian-with-jump-pack",
@@ -327,7 +367,10 @@
     {
      "text": "This Model may have its bolt pistol exchanged for one item from the Legion Pistols list.",
      "max": 1,
-     "list": "Pistolets de Légion"
+     "list": "Pistolets de Légion",
+     "replaces": [
+      "Bolt pistol"
+     ]
     },
     {
      "text": "This Model may have up to two of the following Psychic Disciplines selected for it:",
@@ -418,8 +461,8 @@
     }
    ],
    "wargear": [
-    "Twin bolter (Outrider Librarian only)",
-    "Heavy bolter (Librarian on Scimitar Jetbike only)",
+    "Outrider Librarian : Twin bolter",
+    "Librarian on Scimitar Jetbike : Heavy bolter",
     "Bolt pistol",
     "Force weapon",
     "Frag grenades",
@@ -446,7 +489,10 @@
     {
      "text": "This Model may have its bolt pistol exchanged for one item from the Legion Pistols list.",
      "max": 1,
-     "list": "Pistolets de Légion"
+     "list": "Pistolets de Légion",
+     "replaces": [
+      "Bolt pistol"
+     ]
     },
     {
      "text": "This Model may have up to two of the following Psychic Disciplines selected for it:",
@@ -486,7 +532,11 @@
        "name": "Twin plasma gun",
        "points": 15
       }
-     ]
+     ],
+     "replaces": [
+      "Twin bolter"
+     ],
+     "notVariant": 0
     },
     {
      "text": "This Librarian on Scimitar Jetbike may have its heavy bolter exchanged for one of the following:",
@@ -504,12 +554,22 @@
        "name": "Multi-melta",
        "points": 20
       }
-     ]
+     ],
+     "replaces": [
+      "Heavy bolter"
+     ],
+     "onlyVariant": 0
     }
    ],
    "army": "la",
    "legacy": true,
-   "source": "Legacies of the Age of Darkness v1.1 (EN)"
+   "source": "Legacies of the Age of Darkness v1.1 (EN)",
+   "variants": [
+    {
+     "name": "Librarian on Scimitar Jetbike",
+     "points": 10
+    }
+   ]
   },
   {
    "id": "librarian-in-terminator-armour",
@@ -586,7 +646,7 @@
    ],
    "options": [
     {
-     "text": "This Model may have its combi-bolter exchanged for one volkite charger for Free or for one item from the Legion Combi-weapons list or one item from the Legion Terminat…",
+     "text": "This Model may have its combi-bolter exchanged for one volkite charger for Free or for one item from the Legion Combi-weapons list or one item from the Legion Terminator Melee Weapons list.",
      "max": 1,
      "choices": [
       {
@@ -597,6 +657,9 @@
      "list": [
       "Armes Combinées de Légion",
       "Armes de Mêlée de Terminator de Légion"
+     ],
+     "replaces": [
+      "Combi-bolter"
      ]
     },
     {
@@ -632,7 +695,13 @@
    ],
    "army": "la",
    "legacy": true,
-   "source": "Legacies of the Age of Darkness v1.1 (EN)"
+   "source": "Legacies of the Age of Darkness v1.1 (EN)",
+   "variants": [
+    {
+     "name": "Tartaros Librarian",
+     "points": 0
+    }
+   ]
   },
   {
    "id": "esoterist-with-jump-pack",
@@ -747,8 +816,8 @@
     }
    ],
    "wargear": [
-    "Twin bolter (Outrider Esoterist only)",
-    "Heavy bolter (Esoterist on Scimitar Jetbike only)",
+    "Outrider Esoterist : Twin bolter",
+    "Esoterist on Scimitar Jetbike : Heavy bolter",
     "Archaeotech pistol",
     "Force weapon",
     "Frag grenades",
@@ -783,7 +852,11 @@
        "name": "Twin plasma gun",
        "points": 15
       }
-     ]
+     ],
+     "replaces": [
+      "Twin bolter"
+     ],
+     "notVariant": 0
     },
     {
      "text": "This Esoterist on Scimitar Jetbike may have its heavy bolter exchanged for one of the following:",
@@ -801,12 +874,22 @@
        "name": "Multi-melta",
        "points": 20
       }
-     ]
+     ],
+     "replaces": [
+      "Heavy bolter"
+     ],
+     "onlyVariant": 0
     }
    ],
    "army": "la",
    "legacy": true,
-   "source": "Legacies of the Age of Darkness v1.1 (EN)"
+   "source": "Legacies of the Age of Darkness v1.1 (EN)",
+   "variants": [
+    {
+     "name": "Esoterist on Scimitar Jetbike",
+     "points": 10
+    }
+   ]
   },
   {
    "id": "esoterist-in-terminator-armour",
@@ -894,12 +977,21 @@
        "points": 0
       }
      ],
-     "list": "Armes Combinées de Légion"
+     "list": "Armes Combinées de Légion",
+     "replaces": [
+      "Combi-bolter"
+     ]
     }
    ],
    "army": "la",
    "legacy": true,
-   "source": "Legacies of the Age of Darkness v1.1 (EN)"
+   "source": "Legacies of the Age of Darkness v1.1 (EN)",
+   "variants": [
+    {
+     "name": "Tartaros Esoterist",
+     "points": 0
+    }
+   ]
   },
   {
    "id": "legion-champion-with-jump-pack",
@@ -962,6 +1054,9 @@
        "name": "Combi-melta",
        "points": 10
       }
+     ],
+     "replaces": [
+      "Volkite serpenta"
      ]
     },
     {
@@ -1033,8 +1128,8 @@
     }
    ],
    "wargear": [
-    "Twin bolter (Outrider Legion Champion only)",
-    "Heavy bolter (Legion Champion on Scimitar Jetbike only)",
+    "Outrider Legion Champion : Twin bolter",
+    "Legion Champion on Scimitar Jetbike : Heavy bolter",
     "Volkite serpenta",
     "Paragon blade",
     "Frag grenades",
@@ -1077,7 +1172,11 @@
        "name": "Twin plasma gun",
        "points": 15
       }
-     ]
+     ],
+     "replaces": [
+      "Twin bolter"
+     ],
+     "notVariant": 0
     },
     {
      "text": "This Legion Champion on Scimitar Jetbike may have its heavy bolter exchanged for one of the following:",
@@ -1095,12 +1194,22 @@
        "name": "Multi-melta",
        "points": 20
       }
-     ]
+     ],
+     "replaces": [
+      "Heavy bolter"
+     ],
+     "onlyVariant": 0
     }
    ],
    "army": "la",
    "legacy": true,
-   "source": "Legacies of the Age of Darkness v1.1 (EN)"
+   "source": "Legacies of the Age of Darkness v1.1 (EN)",
+   "variants": [
+    {
+     "name": "Legion Champion on Scimitar Jetbike",
+     "points": 10
+    }
+   ]
   },
   {
    "id": "legion-champion-in-terminator-armour",
@@ -1186,12 +1295,21 @@
        "points": 0
       }
      ],
-     "list": "Armes Combinées de Légion"
+     "list": "Armes Combinées de Légion",
+     "replaces": [
+      "Combi-bolter"
+     ]
     }
    ],
    "army": "la",
    "legacy": true,
-   "source": "Legacies of the Age of Darkness v1.1 (EN)"
+   "source": "Legacies of the Age of Darkness v1.1 (EN)",
+   "variants": [
+    {
+     "name": "Tartaros Legion Champion",
+     "points": 0
+    }
+   ]
   },
   {
    "id": "chaplain-with-jump-pack",
@@ -1248,7 +1366,10 @@
     {
      "text": "This Model may have its bolt pistol exchanged for one item from the Legion Pistols list.",
      "max": 1,
-     "list": "Pistolets de Légion"
+     "list": "Pistolets de Légion",
+     "replaces": [
+      "Bolt pistol"
+     ]
     },
     {
      "text": "This Model may have melta bombs selected for it for +5 Points.",
@@ -1319,8 +1440,8 @@
     }
    ],
    "wargear": [
-    "Twin bolter (Outrider Chaplain only)",
-    "Heavy bolter (Chaplain on Scimitar Jetbike only)",
+    "Outrider Chaplain : Twin bolter",
+    "Chaplain on Scimitar Jetbike : Heavy bolter",
     "Bolt pistol",
     "Crozius Arcanum",
     "Frag grenades",
@@ -1346,7 +1467,10 @@
     {
      "text": "This Model may have its bolt pistol exchanged for one item from the Legion Pistols list.",
      "max": 1,
-     "list": "Pistolets de Légion"
+     "list": "Pistolets de Légion",
+     "replaces": [
+      "Bolt pistol"
+     ]
     },
     {
      "text": "This Outrider Chaplain may have its twin bolter exchanged for one twin plasma gun for +15 Points.",
@@ -1356,7 +1480,11 @@
        "name": "Twin plasma gun",
        "points": 15
       }
-     ]
+     ],
+     "replaces": [
+      "Twin bolter"
+     ],
+     "notVariant": 0
     },
     {
      "text": "This Chaplain on Scimitar Jetbike may have its heavy bolter exchanged for one of the following:",
@@ -1374,7 +1502,11 @@
        "name": "Multi-melta",
        "points": 20
       }
-     ]
+     ],
+     "replaces": [
+      "Heavy bolter"
+     ],
+     "onlyVariant": 0
     },
     {
      "text": "This Model may have melta bombs selected for it for +5 Points.",
@@ -1389,7 +1521,13 @@
    ],
    "army": "la",
    "legacy": true,
-   "source": "Legacies of the Age of Darkness v1.1 (EN)"
+   "source": "Legacies of the Age of Darkness v1.1 (EN)",
+   "variants": [
+    {
+     "name": "Chaplain on Scimitar Jetbike",
+     "points": 10
+    }
+   ]
   },
   {
    "id": "chaplain-in-terminator-armour",
@@ -1473,12 +1611,21 @@
        "points": 0
       }
      ],
-     "list": "Armes Combinées de Légion"
+     "list": "Armes Combinées de Légion",
+     "replaces": [
+      "Combi-bolter"
+     ]
     }
    ],
    "army": "la",
    "legacy": true,
-   "source": "Legacies of the Age of Darkness v1.1 (EN)"
+   "source": "Legacies of the Age of Darkness v1.1 (EN)",
+   "variants": [
+    {
+     "name": "Tartaros Chaplain",
+     "points": 0
+    }
+   ]
   },
   {
    "id": "herald-with-jump-pack",
@@ -1542,6 +1689,9 @@
        "name": "Power fist",
        "points": 10
       }
+     ],
+     "replaces": [
+      "Power weapon"
      ]
     },
     {
@@ -1613,8 +1763,8 @@
     }
    ],
    "wargear": [
-    "Twin bolter (Outrider Herald only)",
-    "Heavy bolter (Herald on Scimitar Jetbike only)",
+    "Outrider Herald : Twin bolter",
+    "Herald on Scimitar Jetbike : Heavy bolter",
     "Power weapon",
     "Bolt pistol",
     "Frag grenades",
@@ -1648,6 +1798,9 @@
        "name": "Power fist",
        "points": 10
       }
+     ],
+     "replaces": [
+      "Power weapon"
      ]
     },
     {
@@ -1658,7 +1811,11 @@
        "name": "Twin plasma gun",
        "points": 15
       }
-     ]
+     ],
+     "replaces": [
+      "Twin bolter"
+     ],
+     "notVariant": 0
     },
     {
      "text": "This Herald on Scimitar Jetbike may have its heavy bolter exchanged for one of the following:",
@@ -1676,7 +1833,11 @@
        "name": "Multi-melta",
        "points": 20
       }
-     ]
+     ],
+     "replaces": [
+      "Heavy bolter"
+     ],
+     "onlyVariant": 0
     },
     {
      "text": "This Model may have melta bombs selected for it for +5 Points.",
@@ -1691,7 +1852,13 @@
    ],
    "army": "la",
    "legacy": true,
-   "source": "Legacies of the Age of Darkness v1.1 (EN)"
+   "source": "Legacies of the Age of Darkness v1.1 (EN)",
+   "variants": [
+    {
+     "name": "Herald on Scimitar Jetbike",
+     "points": 10
+    }
+   ]
   },
   {
    "id": "herald-in-terminator-armour",
@@ -1771,12 +1938,21 @@
     {
      "text": "This Model may have its power weapon exchanged for one item from the Legion Terminator Melee Weapons list.",
      "max": 1,
-     "list": "Armes de Mêlée de Terminator de Légion"
+     "list": "Armes de Mêlée de Terminator de Légion",
+     "replaces": [
+      "Power weapon"
+     ]
     }
    ],
    "army": "la",
    "legacy": true,
-   "source": "Legacies of the Age of Darkness v1.1 (EN)"
+   "source": "Legacies of the Age of Darkness v1.1 (EN)",
+   "variants": [
+    {
+     "name": "Tartaros Herald",
+     "points": 0
+    }
+   ]
   },
   {
    "id": "siege-breaker-with-jump-pack",
@@ -1842,7 +2018,10 @@
        "points": 5
       }
      ],
-     "list": "Pistolets de Légion"
+     "list": "Pistolets de Légion",
+     "replaces": [
+      "Bolt pistol"
+     ]
     },
     {
      "text": "This Model may have melta bombs selected for it for +5 Points.",
@@ -1913,8 +2092,8 @@
     }
    ],
    "wargear": [
-    "Twin bolter (Outrider Siege Breaker only)",
-    "Heavy bolter (Siege Breaker on Scimitar Jetbike only)",
+    "Outrider Siege Breaker : Twin bolter",
+    "Siege Breaker on Scimitar Jetbike : Heavy bolter",
     "Bolt pistol",
     "Thunder hammer",
     "Frag grenades",
@@ -1949,7 +2128,10 @@
        "points": 5
       }
      ],
-     "list": "Pistolets de Légion"
+     "list": "Pistolets de Légion",
+     "replaces": [
+      "Bolt pistol"
+     ]
     },
     {
      "text": "This Outrider Siege Breaker may have its twin bolter exchanged for one twin plasma gun for +15 Points.",
@@ -1959,7 +2141,11 @@
        "name": "Twin plasma gun",
        "points": 15
       }
-     ]
+     ],
+     "replaces": [
+      "Twin bolter"
+     ],
+     "notVariant": 0
     },
     {
      "text": "This Siege Breaker on Scimitar Jetbike may have its heavy bolter exchanged for one of the following:",
@@ -1977,7 +2163,11 @@
        "name": "Multi-melta",
        "points": 20
       }
-     ]
+     ],
+     "replaces": [
+      "Heavy bolter"
+     ],
+     "onlyVariant": 0
     },
     {
      "text": "This Model may have melta bombs selected for it for +5 Points.",
@@ -1992,7 +2182,13 @@
    ],
    "army": "la",
    "legacy": true,
-   "source": "Legacies of the Age of Darkness v1.1 (EN)"
+   "source": "Legacies of the Age of Darkness v1.1 (EN)",
+   "variants": [
+    {
+     "name": "Siege Breaker on Scimitar Jetbike",
+     "points": 10
+    }
+   ]
   },
   {
    "id": "siege-breaker-in-terminator-armour",
@@ -2078,12 +2274,21 @@
        "points": 0
       }
      ],
-     "list": "Armes Combinées de Légion"
+     "list": "Armes Combinées de Légion",
+     "replaces": [
+      "Combi-bolter"
+     ]
     }
    ],
    "army": "la",
    "legacy": true,
-   "source": "Legacies of the Age of Darkness v1.1 (EN)"
+   "source": "Legacies of the Age of Darkness v1.1 (EN)",
+   "variants": [
+    {
+     "name": "Tartaros Siege Breaker",
+     "points": 0
+    }
+   ]
   },
   {
    "id": "master-of-signals-with-jump-pack",
@@ -2140,7 +2345,10 @@
     {
      "text": "This Model may have its bolt pistol exchanged for one item from the Legion Pistols list.",
      "max": 1,
-     "list": "Pistolets de Légion"
+     "list": "Pistolets de Légion",
+     "replaces": [
+      "Bolt pistol"
+     ]
     }
    ],
    "army": "la",
@@ -2201,8 +2409,8 @@
     }
    ],
    "wargear": [
-    "Twin bolter (Outrider Master of Signals only)",
-    "Heavy bolter (Master of Signals on Scimitar Jetbike only)",
+    "Outrider Master of Signals : Twin bolter",
+    "Master of Signals on Scimitar Jetbike : Heavy bolter",
     "Bolt pistol",
     "Frag grenades",
     "Krak grenades",
@@ -2228,7 +2436,10 @@
     {
      "text": "This Model may have its bolt pistol exchanged for one item from the Legion Pistols list.",
      "max": 1,
-     "list": "Pistolets de Légion"
+     "list": "Pistolets de Légion",
+     "replaces": [
+      "Bolt pistol"
+     ]
     },
     {
      "text": "This Outrider Master of Signals may have its twin bolter exchanged for one twin plasma gun for +15 Points.",
@@ -2238,7 +2449,11 @@
        "name": "Twin plasma gun",
        "points": 15
       }
-     ]
+     ],
+     "replaces": [
+      "Twin bolter"
+     ],
+     "notVariant": 0
     },
     {
      "text": "This Master of Signals on Scimitar Jetbike may have its heavy bolter exchanged for one of the following:",
@@ -2256,12 +2471,22 @@
        "name": "Multi-melta",
        "points": 20
       }
-     ]
+     ],
+     "replaces": [
+      "Heavy bolter"
+     ],
+     "onlyVariant": 0
     }
    ],
    "army": "la",
    "legacy": true,
-   "source": "Legacies of the Age of Darkness v1.1 (EN)"
+   "source": "Legacies of the Age of Darkness v1.1 (EN)",
+   "variants": [
+    {
+     "name": "Master of Signals on Scimitar Jetbike",
+     "points": 10
+    }
+   ]
   },
   {
    "id": "moritat-mortalis",
@@ -2323,6 +2548,9 @@
        "name": "Overcharged plasma pistols",
        "points": 10
       }
+     ],
+     "replaces": [
+      "Two overcharged volkite serpentas"
      ]
     },
     {
@@ -2420,7 +2648,10 @@
     {
      "text": "This Model may have its bolt pistol exchanged for one item from the Legion Officer Wargear list.",
      "max": 1,
-     "list": "Équipement d'Officier de Légion"
+     "list": "Équipement d'Officier de Légion",
+     "replaces": [
+      "Bolt pistol"
+     ]
     },
     {
      "text": "This Model may have its power axe exchanged for one thunder hammer for +5 Points.",
@@ -2430,6 +2661,9 @@
        "name": "Thunder hammer",
        "points": 5
       }
+     ],
+     "replaces": [
+      "Power axe"
      ]
     },
     {
@@ -2445,7 +2679,13 @@
    ],
    "army": "la",
    "legacy": true,
-   "source": "Legacies of the Age of Darkness v1.1 (EN)"
+   "source": "Legacies of the Age of Darkness v1.1 (EN)",
+   "variants": [
+    {
+     "name": "Forge Lord with Jump Pack",
+     "points": 20
+    }
+   ]
   },
   {
    "id": "mounted-forge-lord",
@@ -2501,8 +2741,8 @@
     }
    ],
    "wargear": [
-    "Twin bolter (Outrider Forge Lord only)",
-    "Heavy bolter (Forge Lord on Scimitar Jetbike only)",
+    "Outrider Forge Lord : Twin bolter",
+    "Forge Lord on Scimitar Jetbike : Heavy bolter",
     "Bolt pistol",
     "Power axe",
     "Frag grenades",
@@ -2539,7 +2779,10 @@
        "points": 0
       }
      ],
-     "list": "Armes Combinées de Légion"
+     "list": "Armes Combinées de Légion",
+     "requires": [
+      "Combi-bolter"
+     ]
     },
     {
      "text": "This Model may have its power axe exchanged for one thunder hammer for +5 Points.",
@@ -2549,6 +2792,9 @@
        "name": "Thunder hammer",
        "points": 5
       }
+     ],
+     "replaces": [
+      "Power axe"
      ]
     },
     {
@@ -2569,7 +2815,11 @@
        "name": "Twin plasma gun",
        "points": 15
       }
-     ]
+     ],
+     "replaces": [
+      "Twin bolter"
+     ],
+     "notVariant": 0
     },
     {
      "text": "This Forge Lord on Scimitar Jetbike may have its heavy bolter exchanged for one of the following:",
@@ -2587,12 +2837,22 @@
        "name": "Multi-melta",
        "points": 20
       }
-     ]
+     ],
+     "replaces": [
+      "Heavy bolter"
+     ],
+     "onlyVariant": 0
     }
    ],
    "army": "la",
    "legacy": true,
-   "source": "Legacies of the Age of Darkness v1.1 (EN)"
+   "source": "Legacies of the Age of Darkness v1.1 (EN)",
+   "variants": [
+    {
+     "name": "Forge Lord on Scimitar Jetbike",
+     "points": 10
+    }
+   ]
   },
   {
    "id": "forge-lord-in-terminator-armour",
@@ -2681,7 +2941,10 @@
        "points": 0
       }
      ],
-     "list": "Armes Combinées de Légion"
+     "list": "Armes Combinées de Légion",
+     "replaces": [
+      "Combi-bolter"
+     ]
     },
     {
      "text": "This Model may have its power axe exchanged for one thunder hammer for +5 Points.",
@@ -2691,6 +2954,9 @@
        "name": "Thunder hammer",
        "points": 5
       }
+     ],
+     "replaces": [
+      "Power axe"
      ]
     },
     {
@@ -2706,7 +2972,13 @@
    ],
    "army": "la",
    "legacy": true,
-   "source": "Legacies of the Age of Darkness v1.1 (EN)"
+   "source": "Legacies of the Age of Darkness v1.1 (EN)",
+   "variants": [
+    {
+     "name": "Tartaros Forge Lord",
+     "points": 0
+    }
+   ]
   },
   {
    "id": "primus-medicae",
@@ -2785,8 +3057,14 @@
    "options": [
     {
      "text": "This Model may have its bolt pistol and/or chainsword exchanged for one item from the Legion Officer Wargear list.",
-     "max": 1,
-     "list": "Équipement d'Officier de Légion"
+     "max": 2,
+     "list": "Équipement d'Officier de Légion",
+     "replaces": [
+      [
+       "Bolt pistol",
+       "Chainsword"
+      ]
+     ]
     },
     {
      "text": "This Model may have its bolt pistol exchanged for one item from the Legion Combi-weapons list or one of the following:",
@@ -2801,7 +3079,10 @@
        "points": 2
       }
      ],
-     "list": "Armes Combinées de Légion"
+     "list": "Armes Combinées de Légion",
+     "replaces": [
+      "Bolt pistol"
+     ]
     },
     {
      "text": "This Model may have melta bombs selected for it for +5 Points.",
@@ -2816,7 +3097,13 @@
    ],
    "army": "la",
    "legacy": true,
-   "source": "Legacies of the Age of Darkness v1.1 (EN)"
+   "source": "Legacies of the Age of Darkness v1.1 (EN)",
+   "variants": [
+    {
+     "name": "Primus Medicae with Jump Pack",
+     "points": 20
+    }
+   ]
   },
   {
    "id": "mounted-primus-medicae",
@@ -2872,8 +3159,8 @@
     }
    ],
    "wargear": [
-    "Twin bolter (Outrider Primus Medicae only)",
-    "Heavy bolter (Primus Medicae on Scimitar Jetbike only)",
+    "Outrider Primus Medicae : Twin bolter",
+    "Primus Medicae on Scimitar Jetbike : Heavy bolter",
     "Bolt pistol",
     "Chainsword",
     "Narthecium",
@@ -2901,8 +3188,14 @@
    "options": [
     {
      "text": "This Model may have its bolt pistol and/or chainsword exchanged for one item from the Legion Officer Wargear list.",
-     "max": 1,
-     "list": "Équipement d'Officier de Légion"
+     "max": 2,
+     "list": "Équipement d'Officier de Légion",
+     "replaces": [
+      [
+       "Bolt pistol",
+       "Chainsword"
+      ]
+     ]
     },
     {
      "text": "This Model may have melta bombs selected for it for +5 Points.",
@@ -2922,7 +3215,11 @@
        "name": "Twin plasma gun",
        "points": 15
       }
-     ]
+     ],
+     "replaces": [
+      "Twin bolter"
+     ],
+     "notVariant": 0
     },
     {
      "text": "This Primus Medicae on Scimitar Jetbike may have its heavy bolter exchanged for one of the following:",
@@ -2940,12 +3237,22 @@
        "name": "Multi-melta",
        "points": 20
       }
-     ]
+     ],
+     "replaces": [
+      "Heavy bolter"
+     ],
+     "onlyVariant": 0
     }
    ],
    "army": "la",
    "legacy": true,
-   "source": "Legacies of the Age of Darkness v1.1 (EN)"
+   "source": "Legacies of the Age of Darkness v1.1 (EN)",
+   "variants": [
+    {
+     "name": "Primus Medicae on Scimitar Jetbike",
+     "points": 10
+    }
+   ]
   },
   {
    "id": "primus-medicae-in-terminator-armour",
@@ -3036,17 +3343,29 @@
        "points": 0
       }
      ],
-     "list": "Armes Combinées de Légion"
+     "list": "Armes Combinées de Légion",
+     "replaces": [
+      "Combi-bolter"
+     ]
     },
     {
      "text": "This Model may have its power weapon exchanged for one item from the Legion Terminator Melee Weapons list.",
      "max": 1,
-     "list": "Armes de Mêlée de Terminator de Légion"
+     "list": "Armes de Mêlée de Terminator de Légion",
+     "replaces": [
+      "Power weapon"
+     ]
     }
    ],
    "army": "la",
    "legacy": true,
-   "source": "Legacies of the Age of Darkness v1.1 (EN)"
+   "source": "Legacies of the Age of Darkness v1.1 (EN)",
+   "variants": [
+    {
+     "name": "Tartaros Primus Medicae",
+     "points": 0
+    }
+   ]
   },
   {
    "id": "delegatus",
@@ -3124,8 +3443,14 @@
    "options": [
     {
      "text": "This Model may have its bolter and/or bolt pistol exchanged for one item from the Legion Officer Wargear list.",
-     "max": 1,
-     "list": "Équipement d'Officier de Légion"
+     "max": 2,
+     "list": "Équipement d'Officier de Légion",
+     "replaces": [
+      [
+       "Bolter",
+       "Bolt pistol"
+      ]
+     ]
     },
     {
      "text": "This Model may have its bolter exchanged for one item from the Legion Combi-weapons list or one of the following:",
@@ -3140,7 +3465,10 @@
        "points": 2
       }
      ],
-     "list": "Armes Combinées de Légion"
+     "list": "Armes Combinées de Légion",
+     "replaces": [
+      "Bolter"
+     ]
     },
     {
      "text": "This Model may have its bolter and bolt pistol exchanged for one pair of lightning claws for +20 Points.",
@@ -3150,6 +3478,10 @@
        "name": "Pair of lightning claws",
        "points": 20
       }
+     ],
+     "replaces": [
+      "Bolter",
+      "Bolt pistol"
      ]
     },
     {
@@ -3174,12 +3506,21 @@
        "name": "Chain bayonet",
        "points": 2
       }
+     ],
+     "requires": [
+      "Bolter"
      ]
     }
    ],
    "army": "la",
    "legacy": true,
-   "source": "Legacies of the Age of Darkness v1.1 (EN)"
+   "source": "Legacies of the Age of Darkness v1.1 (EN)",
+   "variants": [
+    {
+     "name": "Delegatus with Jump Pack",
+     "points": 20
+    }
+   ]
   },
   {
    "id": "mounted-delegatus",
@@ -3235,8 +3576,8 @@
     }
    ],
    "wargear": [
-    "Twin bolter (Outrider Delegatus only)",
-    "Heavy bolter (Delegatus on Scimitar Jetbike only)",
+    "Outrider Delegatus : Twin bolter",
+    "Delegatus on Scimitar Jetbike : Heavy bolter",
     "Bolt pistol",
     "Chainsword",
     "Frag grenades",
@@ -3263,8 +3604,14 @@
    "options": [
     {
      "text": "This Model may have its chainsword and/or bolt pistol exchanged for one item from the Legion Officer Wargear list each.",
-     "max": 1,
-     "list": "Équipement d'Officier de Légion"
+     "max": 2,
+     "list": "Équipement d'Officier de Légion",
+     "replaces": [
+      [
+       "Chainsword",
+       "Bolt pistol"
+      ]
+     ]
     },
     {
      "text": "This Model may have melta bombs selected for it for +5 Points.",
@@ -3284,7 +3631,11 @@
        "name": "Twin plasma gun",
        "points": 15
       }
-     ]
+     ],
+     "replaces": [
+      "Twin bolter"
+     ],
+     "notVariant": 0
     },
     {
      "text": "This Delegatus on Scimitar Jetbike may have its heavy bolter exchanged for one of the following:",
@@ -3302,12 +3653,22 @@
        "name": "Multi-melta",
        "points": 20
       }
-     ]
+     ],
+     "replaces": [
+      "Heavy bolter"
+     ],
+     "onlyVariant": 0
     }
    ],
    "army": "la",
    "legacy": true,
-   "source": "Legacies of the Age of Darkness v1.1 (EN)"
+   "source": "Legacies of the Age of Darkness v1.1 (EN)",
+   "variants": [
+    {
+     "name": "Delegatus on Scimitar Jetbike",
+     "points": 10
+    }
+   ]
   },
   {
    "id": "delegatus-in-terminator-armour",
@@ -3393,12 +3754,18 @@
        "points": 0
       }
      ],
-     "list": "Armes Combinées de Légion"
+     "list": "Armes Combinées de Légion",
+     "replaces": [
+      "Combi-bolter"
+     ]
     },
     {
      "text": "This Model may have its power weapon exchanged for one item from the Legion Terminator Melee Weapons list.",
      "max": 1,
-     "list": "Armes de Mêlée de Terminator de Légion"
+     "list": "Armes de Mêlée de Terminator de Légion",
+     "replaces": [
+      "Power weapon"
+     ]
     },
     {
      "text": "This Model may have its combi-bolter and power weapon exchanged for one pair of lightning claws for +5 Points.",
@@ -3408,12 +3775,22 @@
        "name": "Pair of lightning claws",
        "points": 5
       }
+     ],
+     "replaces": [
+      "Combi-bolter",
+      "Power weapon"
      ]
     }
    ],
    "army": "la",
    "legacy": true,
-   "source": "Legacies of the Age of Darkness v1.1 (EN)"
+   "source": "Legacies of the Age of Darkness v1.1 (EN)",
+   "variants": [
+    {
+     "name": "Tartaros Delegatus",
+     "points": 0
+    }
+   ]
   },
   {
    "id": "mortificator",
@@ -3470,7 +3847,10 @@
     {
      "text": "This Model may have its bolt pistol exchanged for one item from the Legion Pistols list.",
      "max": 1,
-     "list": "Pistolets de Légion"
+     "list": "Pistolets de Légion",
+     "replaces": [
+      "Bolt pistol"
+     ]
     }
    ],
    "army": "la",
@@ -3562,12 +3942,21 @@
        "points": 0
       }
      ],
-     "list": "Armes Combinées de Légion"
+     "list": "Armes Combinées de Légion",
+     "replaces": [
+      "Combi-bolter"
+     ]
     }
    ],
    "army": "la",
    "legacy": true,
-   "source": "Legacies of the Age of Darkness v1.1 (EN)"
+   "source": "Legacies of the Age of Darkness v1.1 (EN)",
+   "variants": [
+    {
+     "name": "Tartaros Mortificator",
+     "points": 0
+    }
+   ]
   },
   {
    "id": "warmonger",
@@ -3621,8 +4010,14 @@
    "options": [
     {
      "text": "This Model may have its bolter and/or bolt pistol exchanged for one item from the Legion Officer Wargear list.",
-     "max": 1,
-     "list": "Équipement d'Officier de Légion"
+     "max": 2,
+     "list": "Équipement d'Officier de Légion",
+     "replaces": [
+      [
+       "Bolter",
+       "Bolt pistol"
+      ]
+     ]
     },
     {
      "text": "This Model may have its bolter exchanged for one item from the Legion Combi-weapons list or one of the following:",
@@ -3637,7 +4032,10 @@
        "points": 2
       }
      ],
-     "list": "Armes Combinées de Légion"
+     "list": "Armes Combinées de Légion",
+     "replaces": [
+      "Bolter"
+     ]
     },
     {
      "text": "This Model may have its bolter and bolt pistol exchanged for one pair of lightning claws for +20 Points.",
@@ -3647,6 +4045,10 @@
        "name": "Pair of lightning claws",
        "points": 20
       }
+     ],
+     "replaces": [
+      "Bolter",
+      "Bolt pistol"
      ]
     },
     {
@@ -3671,6 +4073,9 @@
        "name": "Chain bayonet",
        "points": 2
       }
+     ],
+     "requires": [
+      "Bolter"
      ]
     }
    ],
@@ -3761,12 +4166,18 @@
        "points": 0
       }
      ],
-     "list": "Armes Combinées de Légion"
+     "list": "Armes Combinées de Légion",
+     "replaces": [
+      "Combi-bolter"
+     ]
     },
     {
      "text": "This Model may have its power weapon exchanged for one item from the Legion Terminator Melee Weapons list.",
      "max": 1,
-     "list": "Armes de Mêlée de Terminator de Légion"
+     "list": "Armes de Mêlée de Terminator de Légion",
+     "replaces": [
+      "Power weapon"
+     ]
     },
     {
      "text": "This Model may have its combi-bolter and power weapon exchanged for one pair of lightning claws for +5 Points.",
@@ -3776,12 +4187,22 @@
        "name": "Pair of lightning claws",
        "points": 5
       }
+     ],
+     "replaces": [
+      "Combi-bolter",
+      "Power weapon"
      ]
     }
    ],
    "army": "la",
    "legacy": true,
-   "source": "Legacies of the Age of Darkness v1.1 (EN)"
+   "source": "Legacies of the Age of Darkness v1.1 (EN)",
+   "variants": [
+    {
+     "name": "Tartaros Warmonger",
+     "points": 0
+    }
+   ]
   },
   {
    "id": "pathfinder",
@@ -3838,8 +4259,14 @@
    "options": [
     {
      "text": "This Model may have its bolter and/or bolt pistol exchanged for one item from the Legion Officer Wargear list.",
-     "max": 1,
-     "list": "Équipement d'Officier de Légion"
+     "max": 2,
+     "list": "Équipement d'Officier de Légion",
+     "replaces": [
+      [
+       "Bolter",
+       "Bolt pistol"
+      ]
+     ]
     },
     {
      "text": "This Model may have its bolter exchanged for one item from the Legion Combi-weapons list or one of the following:",
@@ -3858,7 +4285,10 @@
        "points": 5
       }
      ],
-     "list": "Armes Combinées de Légion"
+     "list": "Armes Combinées de Légion",
+     "replaces": [
+      "Bolter"
+     ]
     },
     {
      "text": "This Model may have its bolter and bolt pistol exchanged for one pair of lightning claws for +20 Points.",
@@ -3868,6 +4298,10 @@
        "name": "Pair of lightning claws",
        "points": 20
       }
+     ],
+     "replaces": [
+      "Bolter",
+      "Bolt pistol"
      ]
     },
     {
@@ -3892,6 +4326,9 @@
        "name": "Chain bayonet",
        "points": 2
       }
+     ],
+     "requires": [
+      "Bolter"
      ]
     }
    ],
@@ -4046,7 +4483,10 @@
     {
      "text": "Any Model in this Unit may have its chainsword exchanged for one item from the Legion Sergeant Melee Weapons list.",
      "max": "models",
-     "list": "Armes de Mêlée de Sergent de Légion"
+     "list": "Armes de Mêlée de Sergent de Légion",
+     "replaces": [
+      "Chainsword"
+     ]
     },
     {
      "text": "Any Model in this Unit may have its bolt pistol exchanged for one item from the Legion Pistols list or one combat shield for +4 Points per Model.",
@@ -4057,7 +4497,10 @@
        "points": 4
       }
      ],
-     "list": "Pistolets de Légion"
+     "list": "Pistolets de Légion",
+     "replaces": [
+      "Bolt pistol"
+     ]
     },
     {
      "text": "The Scimitar Chosen Champion may have its bolt pistol exchanged for one disintegrator pistol for +5 Points.",
@@ -4067,6 +4510,12 @@
        "name": "Disintegrator pistol",
        "points": 5
       }
+     ],
+     "replaces": [
+      "Bolt pistol"
+     ],
+     "models": [
+      "Scimitar Chosen Champion"
      ]
     },
     {
@@ -4085,6 +4534,9 @@
        "name": "Multi-melta",
        "points": 15
       }
+     ],
+     "replaces": [
+      "Heavy bolter"
      ]
     },
     {
@@ -4095,12 +4547,20 @@
        "name": "Legion standard",
        "points": 20
       }
+     ],
+     "models": [
+      "Scimitar Chosen"
      ]
     }
    ],
    "army": "la",
    "legacy": true,
-   "source": "Legacies of the Age of Darkness v1.1 (EN)"
+   "source": "Legacies of the Age of Darkness v1.1 (EN)",
+   "extra": {
+    "model": "Scimitar Chosen",
+    "max": 7,
+    "points": 45
+   }
   },
   {
    "id": "outrider-praetorian-command-squad",
@@ -4184,7 +4644,10 @@
     {
      "text": "Any Model in this Unit may have its chainsword exchanged for one item from the Legion Sergeant Melee Weapons list.",
      "max": "models",
-     "list": "Armes de Mêlée de Sergent de Légion"
+     "list": "Armes de Mêlée de Sergent de Légion",
+     "replaces": [
+      "Chainsword"
+     ]
     },
     {
      "text": "Any Model in this Unit may have its bolt pistol exchanged for one item from the Legion Pistols list or one combat shield for +4 Points per Model.",
@@ -4195,7 +4658,10 @@
        "points": 4
       }
      ],
-     "list": "Pistolets de Légion"
+     "list": "Pistolets de Légion",
+     "replaces": [
+      "Bolt pistol"
+     ]
     },
     {
      "text": "The Outrider Chosen Champion in this Unit may have its bolt pistol exchanged for one disintegrator pistol for +5 Points.",
@@ -4205,6 +4671,12 @@
        "name": "Disintegrator pistol",
        "points": 5
       }
+     ],
+     "replaces": [
+      "Bolt pistol"
+     ],
+     "models": [
+      "Outrider Chosen Champion"
      ]
     },
     {
@@ -4215,6 +4687,9 @@
        "name": "Twin plasma gun",
        "points": 15
       }
+     ],
+     "replaces": [
+      "Twin bolter"
      ]
     },
     {
@@ -4225,12 +4700,20 @@
        "name": "Legion standard",
        "points": 20
       }
+     ],
+     "models": [
+      "Outrider Chosen"
      ]
     }
    ],
    "army": "la",
    "legacy": true,
-   "source": "Legacies of the Age of Darkness v1.1 (EN)"
+   "source": "Legacies of the Age of Darkness v1.1 (EN)",
+   "extra": {
+    "model": "Outrider Chosen",
+    "max": 7,
+    "points": 40
+   }
   },
   {
    "id": "veteran-breacher-squad",
@@ -4241,11 +4724,11 @@
    "page": 65,
    "models": [
     {
-     "name": " Veteran Breacher Sergeant",
+     "name": "Veteran Breacher Sergeant",
      "count": 1
     },
     {
-     "name": "Breacher Veterans",
+     "name": "Breacher Veteran",
      "count": 4
     }
    ],
@@ -4341,6 +4824,9 @@
        "name": "Lightning claw",
        "points": 10
       }
+     ],
+     "replaces": [
+      "Bolter"
      ]
     },
     {
@@ -4351,11 +4837,20 @@
        "name": "Disintegrator pistol",
        "points": 5
       }
+     ],
+     "replaces": [
+      "Bolt pistol"
+     ],
+     "models": [
+      "Veteran Breacher Sergeant"
      ]
     },
     {
      "text": "For every five Models in this Unit, up to two Breacher Veterans in this Unit may each have their bolter exchanged for one of the following:",
-     "max": 2,
+     "max": {
+      "per": 5,
+      "n": 2
+     },
      "choices": [
       {
        "name": "Flamer",
@@ -4373,6 +4868,9 @@
        "name": "Meltagun",
        "points": 15
       }
+     ],
+     "models": [
+      "Breacher Veteran"
      ]
     },
     {
@@ -4383,6 +4881,9 @@
        "name": "Melta bombs",
        "points": 10
       }
+     ],
+     "models": [
+      "Veteran Breacher Sergeant"
      ]
     },
     {
@@ -4393,18 +4894,29 @@
        "name": "Vexilla",
        "points": 10
       }
+     ],
+     "models": [
+      "Breacher Veteran"
      ]
     },
     {
      "text": "Up to two Breacher Veterans in this Unit may each have one item from the Legion Equipment list selected for them.",
      "max": 2,
      "each": true,
-     "list": "Équipement de Légion"
+     "list": "Équipement de Légion",
+     "models": [
+      "Breacher Veteran"
+     ]
     }
    ],
    "army": "la",
    "legacy": true,
-   "source": "Legacies of the Age of Darkness v1.1 (EN)"
+   "source": "Legacies of the Age of Darkness v1.1 (EN)",
+   "extra": {
+    "model": "Breacher Veteran",
+    "max": 5,
+    "points": 20
+   }
   },
   {
    "id": "veteran-heavy-support-squad",
@@ -4419,7 +4931,7 @@
      "count": 1
     },
     {
-     "name": "Support Veterans",
+     "name": "Support Veteran",
      "count": 4
     }
    ],
@@ -4504,7 +5016,10 @@
     {
      "text": "The Veteran Support Sergeant in this Unit may have one item from the Legion Sergeant Melee Weapons list selected for it.",
      "max": 1,
-     "list": "Armes de Mêlée de Sergent de Légion"
+     "list": "Armes de Mêlée de Sergent de Légion",
+     "models": [
+      "Veteran Support Sergeant"
+     ]
     },
     {
      "text": "One Support Veteran in this Unit may have one vexilla selected for it for +10 Points.",
@@ -4514,29 +5029,44 @@
        "name": "Vexilla",
        "points": 10
       }
+     ],
+     "models": [
+      "Support Veteran"
      ]
     },
     {
      "text": "Up to two Support Veterans in this Unit may each have one item from the Legion Equipment list selected for them.",
      "max": 2,
-     "list": "Équipement de Légion"
+     "list": "Équipement de Légion",
+     "models": [
+      "Support Veteran"
+     ]
     }
    ],
    "army": "la",
    "legacy": true,
-   "source": "Legacies of the Age of Darkness v1.1 (EN)"
+   "source": "Legacies of the Age of Darkness v1.1 (EN)",
+   "extra": {
+    "model": "Support Veteran",
+    "max": 5,
+    "points": 20
+   }
   },
   {
    "id": "tartaros-terminator-siege-squad",
    "name": "Tartaros Terminator Siege Squad",
    "lang": "en",
    "role": "AL",
-   "points": 0,
+   "points": 150,
    "page": 67,
    "models": [
     {
      "name": "Tartaros Terminator Sergeant",
      "count": 1
+    },
+    {
+     "name": "Tartaros Terminator",
+     "count": 4
     }
    ],
    "profiles": [
@@ -4606,12 +5136,21 @@
        "points": 0
       }
      ],
-     "list": "Armes Combinées de Légion"
+     "list": "Armes Combinées de Légion",
+     "replaces": [
+      "Combi-bolter"
+     ]
     },
     {
      "text": "The Terminator Sergeant in this Unit may have its power weapon exchanged for one item from the Legion Terminator Melee Weapons list.",
      "max": 1,
-     "list": "Armes de Mêlée de Terminator de Légion"
+     "list": "Armes de Mêlée de Terminator de Légion",
+     "replaces": [
+      "Power weapon"
+     ],
+     "models": [
+      "Tartaros Terminator Sergeant"
+     ]
     },
     {
      "text": "Any Model in this Unit may have its power weapon exchanged for one chainfist for +10 Points per Model.",
@@ -4621,6 +5160,9 @@
        "name": "Chainfist",
        "points": 10
       }
+     ],
+     "replaces": [
+      "Power weapon"
      ]
     },
     {
@@ -4639,6 +5181,9 @@
        "name": "Plasma blaster",
        "points": 10
       }
+     ],
+     "replaces": [
+      "Combi-bolter"
      ]
     },
     {
@@ -4649,24 +5194,36 @@
        "name": "Grenade harness",
        "points": 5
       }
+     ],
+     "models": [
+      "Tartaros Terminator Sergeant"
      ]
     }
    ],
    "army": "la",
    "legacy": true,
-   "source": "Legacies of the Age of Darkness v1.1 (EN)"
+   "source": "Legacies of the Age of Darkness v1.1 (EN)",
+   "extra": {
+    "model": "Tartaros Terminator",
+    "max": 5,
+    "points": 30
+   }
   },
   {
    "id": "indomitus-terminator-squad",
    "name": "Indomitus Terminator Squad",
    "lang": "en",
    "role": "AL",
-   "points": 0,
+   "points": 180,
    "page": 68,
    "models": [
     {
      "name": "Indomitus Terminator Sergeant",
      "count": 1
+    },
+    {
+     "name": "Indomitus Terminator",
+     "count": 4
     }
    ],
    "profiles": [
@@ -4728,7 +5285,7 @@
    ],
    "options": [
     {
-     "text": "Any Model in this Unit may have its combi-bolter exchanged for one Proteus pattern storm shield for +10 Points per Model, or for one item from the Legion Combi-weapons…",
+     "text": "Any Model in this Unit may have its combi-bolter exchanged for one Proteus pattern storm shield for +10 Points per Model, or for one item from the Legion Combi-weapons list.",
      "max": "models",
      "choices": [
       {
@@ -4736,7 +5293,10 @@
        "points": 10
       }
      ],
-     "list": "Armes Combinées de Légion"
+     "list": "Armes Combinées de Légion",
+     "replaces": [
+      "Combi-bolter"
+     ]
     },
     {
      "text": "Any Model in this Unit may have its combi-bolter and power fist exchanged for one pair of lightning claws for +10 Points per Model.",
@@ -4746,6 +5306,10 @@
        "name": "Pair of lightning claws",
        "points": 10
       }
+     ],
+     "replaces": [
+      "Combi-bolter",
+      "Power fist"
      ]
     },
     {
@@ -4756,6 +5320,12 @@
        "name": "Power weapon",
        "points": 0
       }
+     ],
+     "replaces": [
+      "Power fist"
+     ],
+     "models": [
+      "Indomitus Terminator Sergeant"
      ]
     },
     {
@@ -4770,6 +5340,9 @@
        "name": "Thunder hammer",
        "points": 0
       }
+     ],
+     "replaces": [
+      "Power fist"
      ]
     },
     {
@@ -4786,12 +5359,23 @@
        "name": "Proteus assault cannon",
        "points": 15
       }
+     ],
+     "replaces": [
+      "Combi-bolter"
+     ],
+     "models": [
+      "Indomitus Terminator"
      ]
     }
    ],
    "army": "la",
    "legacy": true,
-   "source": "Legacies of the Age of Darkness v1.1 (EN)"
+   "source": "Legacies of the Age of Darkness v1.1 (EN)",
+   "extra": {
+    "model": "Indomitus Terminator",
+    "max": 5,
+    "points": 35
+   }
   },
   {
    "id": "mortalis-destroyer-squad",
@@ -4806,7 +5390,7 @@
      "count": 1
     },
     {
-     "name": "Mortalis Destroyers",
+     "name": "Mortalis Destroyer",
      "count": 4
     }
    ],
@@ -4872,7 +5456,7 @@
    ],
    "options": [
     {
-     "text": "The Mortalis Destroyer Sergeant in this Unit may have its chainsword exchanged for one heavy chainsword for +5 Points or for one item from the Legion Sergeant Melee We…",
+     "text": "The Mortalis Destroyer Sergeant in this Unit may have its chainsword exchanged for one heavy chainsword for +5 Points or for one item from the Legion Sergeant Melee Weapons list.",
      "max": 1,
      "choices": [
       {
@@ -4880,7 +5464,13 @@
        "points": 5
       }
      ],
-     "list": "Armes de Mêlée de Sergent de Légion"
+     "list": "Armes de Mêlée de Sergent de Légion",
+     "replaces": [
+      "Chainsword"
+     ],
+     "models": [
+      "Mortalis Destroyer Sergeant"
+     ]
     },
     {
      "text": "Any Model in this Unit may have its two bolt pistols exchanged for one of the following:",
@@ -4894,6 +5484,9 @@
        "name": "Two hand flamers",
        "points": 5
       }
+     ],
+     "replaces": [
+      "Two bolt pistols"
      ]
     },
     {
@@ -4904,13 +5497,19 @@
        "name": "Vexilla",
        "points": 10
       }
+     ],
+     "models": [
+      "Mortalis Destroyer"
      ]
     },
     {
      "text": "Up to two Mortalis Destroyers in this Unit may each have one item from the Legion Equipment list selected for them.",
      "max": 2,
      "each": true,
-     "list": "Équipement de Légion"
+     "list": "Équipement de Légion",
+     "models": [
+      "Mortalis Destroyer"
+     ]
     },
     {
      "text": "The Mortalis Destroyer Sergeant in this Unit may have melta bombs selected for it for +10 Points.",
@@ -4920,6 +5519,9 @@
        "name": "Melta bombs",
        "points": 10
       }
+     ],
+     "models": [
+      "Mortalis Destroyer Sergeant"
      ]
     },
     {
@@ -4930,6 +5532,9 @@
        "name": "Phosphex bombs",
        "points": 10
       }
+     ],
+     "models": [
+      "Mortalis Destroyer Sergeant"
      ]
     },
     {
@@ -4954,12 +5559,23 @@
        "name": "Plasma pistol",
        "points": 5
       }
+     ],
+     "replaces": [
+      "Two bolt pistols"
+     ],
+     "models": [
+      "Mortalis Destroyer"
      ]
     }
    ],
    "army": "la",
    "legacy": true,
-   "source": "Legacies of the Age of Darkness v1.1 (EN)"
+   "source": "Legacies of the Age of Darkness v1.1 (EN)",
+   "extra": {
+    "model": "Mortalis Destroyer",
+    "max": 5,
+    "points": 15
+   }
   },
   {
    "id": "destroyer-assault-squad",
@@ -4974,7 +5590,7 @@
      "count": 1
     },
     {
-     "name": "Assault Destroyers",
+     "name": "Assault Destroyer",
      "count": 4
     }
    ],
@@ -5042,7 +5658,7 @@
    ],
    "options": [
     {
-     "text": "The Assault Destroyer Sergeant in this Unit may have its chainsword exchanged for one heavy chainsword for +5 Points or for one item from the Legion Sergeant Melee Wea…",
+     "text": "The Assault Destroyer Sergeant in this Unit may have its chainsword exchanged for one heavy chainsword for +5 Points or for one item from the Legion Sergeant Melee Weapons list.",
      "max": 1,
      "choices": [
       {
@@ -5050,7 +5666,13 @@
        "points": 5
       }
      ],
-     "list": "Armes de Mêlée de Sergent de Légion"
+     "list": "Armes de Mêlée de Sergent de Légion",
+     "replaces": [
+      "Chainsword"
+     ],
+     "models": [
+      "Assault Destroyer Sergeant"
+     ]
     },
     {
      "text": "Any Model in this Unit may have its two bolt pistols exchanged for one of the following:",
@@ -5064,6 +5686,9 @@
        "name": "Two hand flamers",
        "points": 5
       }
+     ],
+     "replaces": [
+      "Two bolt pistols"
      ]
     },
     {
@@ -5080,6 +5705,12 @@
        "name": "Power weapon",
        "points": 10
       }
+     ],
+     "replaces": [
+      "Chainsword"
+     ],
+     "models": [
+      "Assault Destroyer"
      ]
     },
     {
@@ -5090,6 +5721,9 @@
        "name": "Melta bombs",
        "points": 10
       }
+     ],
+     "models": [
+      "Assault Destroyer Sergeant"
      ]
     },
     {
@@ -5100,6 +5734,9 @@
        "name": "Phosphex bombs",
        "points": 10
       }
+     ],
+     "models": [
+      "Assault Destroyer Sergeant"
      ]
     },
     {
@@ -5116,12 +5753,23 @@
        "name": "Plasma pistol",
        "points": 5
       }
+     ],
+     "replaces": [
+      "Two bolt pistols"
+     ],
+     "models": [
+      "Assault Destroyer"
      ]
     }
    ],
    "army": "la",
    "legacy": true,
-   "source": "Legacies of the Age of Darkness v1.1 (EN)"
+   "source": "Legacies of the Age of Darkness v1.1 (EN)",
+   "extra": {
+    "model": "Assault Destroyer",
+    "max": 5,
+    "points": 18
+   }
   },
   {
    "id": "castra-ferrum-dreadnought",
@@ -5172,16 +5820,24 @@
    ],
    "options": [
     {
-     "text": "Two options from the following list (or one of the paired options below):",
+     "text": "This Model must have one of the following options selected for it: Two options from the following list:",
      "max": 2,
      "choices": [
       {
        "name": "Gravis power fist and one combi-bolter",
-       "points": 5
+       "points": 5,
+       "gives": [
+        "Gravis power fist",
+        "Combi-bolter"
+       ]
       },
       {
        "name": "Gravis chainfist and one combi-bolter",
-       "points": 5
+       "points": 5,
+       "gives": [
+        "Gravis chainfist",
+        "Combi-bolter"
+       ]
       },
       {
        "name": "Gravis bolt cannon",
@@ -5212,24 +5868,36 @@
        "points": 15
       }
      ],
-     "required": true
+     "required": true,
+     "exclusive": "castra-arms"
     },
     {
-     "text": "Ou : paired Gravis weapons (instead of the two options above)",
+     "text": "This Model must have one of the following options selected for it: paired options (instead of two options from the list above).",
      "max": 1,
      "choices": [
       {
        "name": "Paired Gravis power fists and two combi-bolters",
-       "points": 5
+       "points": 5,
+       "gives": [
+        "Paired Gravis power fists",
+        "Combi-bolter",
+        "Combi-bolter"
+       ]
       },
       {
        "name": "Paired Gravis chainfists and two combi-bolters",
-       "points": 5
+       "points": 5,
+       "gives": [
+        "Paired Gravis chainfists",
+        "Combi-bolter",
+        "Combi-bolter"
+       ]
       }
-     ]
+     ],
+     "exclusive": "castra-arms"
     },
     {
-     "text": "Each of this Model's combi-bolters may be exchanged for one of the following:",
+     "text": "This Model may also have any of the following options selected for it: Each of this Model's combi-bolters may be exchanged for one of the following:",
      "max": 2,
      "choices": [
       {
@@ -5240,6 +5908,12 @@
        "name": "Meltagun",
        "points": 15
       }
+     ],
+     "replaces": [
+      "Combi-bolter"
+     ],
+     "requires": [
+      "Combi-bolter"
      ]
     },
     {
@@ -5313,6 +5987,9 @@
        "name": "Sponson Mounted twin volkite culverin",
        "points": 0
       }
+     ],
+     "replaces": [
+      "Two Sponson Mounted twin multi-melta"
      ]
     },
     {
@@ -5452,12 +6129,20 @@
        "name": "Multi-melta",
        "points": 20
       }
+     ],
+     "replaces": [
+      "Heavy bolter"
      ]
     }
    ],
    "army": "la",
    "legacy": true,
-   "source": "Legacies of the Age of Darkness v1.1 (EN)"
+   "source": "Legacies of the Age of Darkness v1.1 (EN)",
+   "extra": {
+    "model": "Attack Bike",
+    "max": 4,
+    "points": 45
+   }
   },
   {
    "id": "scout-squad",
@@ -5472,7 +6157,7 @@
      "count": 1
     },
     {
-     "name": "Scouts",
+     "name": "Scout",
      "count": 4
     }
    ],
@@ -5550,7 +6235,13 @@
        "points": 15
       }
      ],
-     "list": "Armes Combinées de Légion"
+     "list": "Armes Combinées de Légion",
+     "replaces": [
+      "Bolter"
+     ],
+     "models": [
+      "Scout Sergeant"
+     ]
     },
     {
      "text": "The Scout Sergeant in this Unit may have melta bombs selected for it for +10 Points.",
@@ -5560,12 +6251,21 @@
        "name": "Melta bombs",
        "points": 10
       }
+     ],
+     "models": [
+      "Scout Sergeant"
      ]
     },
     {
      "text": "The Scout Sergeant in this Unit may have its bolt pistol exchanged for one item from the Legion Pistols list.",
      "max": 1,
-     "list": "Pistolets de Légion"
+     "list": "Pistolets de Légion",
+     "replaces": [
+      "Bolt pistol"
+     ],
+     "models": [
+      "Scout Sergeant"
+     ]
     },
     {
      "text": "Any Model in this Unit may have its bolter exchanged for one of the following:",
@@ -5583,6 +6283,9 @@
        "name": "Astartes shotgun",
        "points": 0
       }
+     ],
+     "replaces": [
+      "Bolter"
      ]
     },
     {
@@ -5597,12 +6300,20 @@
        "name": "Chain bayonet",
        "points": 2
       }
+     ],
+     "requires": [
+      "Bolter"
      ]
     }
    ],
    "army": "la",
    "legacy": true,
-   "source": "Legacies of the Age of Darkness v1.1 (EN)"
+   "source": "Legacies of the Age of Darkness v1.1 (EN)",
+   "extra": {
+    "model": "Scout",
+    "max": 5,
+    "points": 12
+   }
   },
   {
    "id": "legion-basilisk",
@@ -5743,15 +6454,19 @@
   },
   {
    "id": "terminator-deathwing-companions",
-   "name": "Terminator Deathwing Companions",
+   "name": "Dark Angels Cataphractii Terminator Deathwing Companions",
    "lang": "en",
    "role": "SU",
-   "points": 0,
+   "points": 240,
    "page": 79,
    "models": [
     {
      "name": "Cataphractii Oathbearer",
      "count": 1
+    },
+    {
+     "name": "Cataphractii Companion",
+     "count": 4
     }
    ],
    "profiles": [
@@ -5817,7 +6532,10 @@
     {
      "text": "Any Model in this Unit may have its combi- bolter exchanged for one item from the Legion Combi-weapons list.",
      "max": "models",
-     "list": "Armes Combinées de Légion"
+     "list": "Armes Combinées de Légion",
+     "replaces": [
+      "Combi-bolter"
+     ]
     },
     {
      "text": "Any Model in this Unit may have its combi-bolter and Calibanite warblade exchanged for one pair of lightning claws for +5 Points per Model.",
@@ -5827,6 +6545,10 @@
        "name": "Pair of lightning claws",
        "points": 5
       }
+     ],
+     "replaces": [
+      "Combi-bolter",
+      "Calibanite warblade"
      ]
     },
     {
@@ -5845,6 +6567,9 @@
        "name": "Thunder hammer",
        "points": 10
       }
+     ],
+     "replaces": [
+      "Calibanite warblade"
      ]
     },
     {
@@ -5855,6 +6580,9 @@
        "name": "Grenade harness",
        "points": 5
       }
+     ],
+     "models": [
+      "Cataphractii Oathbearer"
      ]
     }
    ],
@@ -5875,7 +6603,7 @@
      "count": 1
     },
     {
-     "name": "Tartaros Companions",
+     "name": "Tartaros Companion",
      "count": 4
     }
    ],
@@ -5941,7 +6669,10 @@
     {
      "text": "Any Model in this Unit may have its combi- bolter exchanged for one item from the Legion Combi-weapons list.",
      "max": "models",
-     "list": "Armes Combinées de Légion"
+     "list": "Armes Combinées de Légion",
+     "replaces": [
+      "Combi-bolter"
+     ]
     },
     {
      "text": "Any Model in this Unit may have its combi-bolter and Calibanite warblade exchanged for one pair of lightning claws for +5 Points per Model.",
@@ -5951,6 +6682,10 @@
        "name": "Pair of lightning claws",
        "points": 5
       }
+     ],
+     "replaces": [
+      "Combi-bolter",
+      "Calibanite warblade"
      ]
     },
     {
@@ -5969,6 +6704,9 @@
        "name": "Thunder hammer",
        "points": 10
       }
+     ],
+     "replaces": [
+      "Calibanite warblade"
      ]
     },
     {
@@ -5979,6 +6717,9 @@
        "name": "Grenade harness",
        "points": 5
       }
+     ],
+     "models": [
+      "Tartaros Oathbearer"
      ]
     }
    ],
@@ -5988,7 +6729,7 @@
   },
   {
    "id": "order-of-the-broken-claws",
-   "name": "Order of the Broken Claws",
+   "name": "Dark Angels Inner Circle Knights Cenobium – Order of the Broken Claws",
    "lang": "en",
    "role": "EL",
    "points": 285,
@@ -5999,7 +6740,7 @@
      "count": 1
     },
     {
-     "name": "Order Cenobites",
+     "name": "Order Cenobite",
      "count": 4
     }
    ],
@@ -6046,7 +6787,7 @@
    "wargear": [
     "Terranic greatsword",
     "Plasma caster (see Liber Astartes, page 137)",
-    "Grenade harness (Order Preceptor only)"
+    "Order Preceptor : Grenade harness"
    ],
    "rules": [
     "Bulky (2)",
@@ -6071,12 +6812,20 @@
        "name": "Thunder hammer",
        "points": 10
       }
+     ],
+     "replaces": [
+      "Terranic greatsword"
      ]
     }
    ],
    "army": "la",
    "legacy": true,
-   "source": "Legacies of the Age of Darkness v1.1 (EN)"
+   "source": "Legacies of the Age of Darkness v1.1 (EN)",
+   "extra": {
+    "model": "Order Cenobite",
+    "max": 5,
+    "points": 55
+   }
   },
   {
    "id": "dark-angels-excindio-battle-automata",
@@ -6149,6 +6898,9 @@
        "name": "Two irad cleansers",
        "points": 30
       }
+     ],
+     "replaces": [
+      "Two combi-bolters"
      ]
     },
     {
@@ -6264,12 +7016,16 @@
    "name": "Emperor's Children Palatine Blade Aquilae Squad",
    "lang": "en",
    "role": "EL",
-   "points": 0,
+   "points": 195,
    "page": 86,
    "models": [
     {
      "name": "Palatine Prefector with Jump Pack",
      "count": 1
+    },
+    {
+     "name": "Palatine Warrior with Jump Pack",
+     "count": 4
     }
    ],
    "profiles": [
@@ -6348,15 +7104,24 @@
        "name": "Phoenix power spear",
        "points": 0
       }
+     ],
+     "replaces": [
+      "Palatine blade"
      ]
     },
     {
      "text": "The Palatine Prefector in this Unit may have its bolt pistol exchanged for one item from the Legion Pistols list.",
      "max": 1,
-     "list": "Pistolets de Légion"
+     "list": "Pistolets de Légion",
+     "replaces": [
+      "Bolt pistol"
+     ],
+     "models": [
+      "Palatine Prefector with Jump Pack"
+     ]
     },
     {
-     "text": "If all Models in this Unit have the Traitor Trait, all Models in the Unit may have one of the following selected for them. Every Model in this Unit must have the same …",
+     "text": "If all Models in this Unit have the Traitor Trait, all Models in the Unit may have one of the following selected for them. Every Model in this Unit must have the same item selected for it:",
      "max": 1,
      "required": true,
      "choices": [
@@ -6368,12 +7133,18 @@
        "name": "Sonic lance",
        "points": 5
       }
-     ]
+     ],
+     "all": true
     }
    ],
    "army": "la",
    "legacy": true,
-   "source": "Legacies of the Age of Darkness v1.1 (EN)"
+   "source": "Legacies of the Age of Darkness v1.1 (EN)",
+   "extra": {
+    "model": "Palatine Warrior with Jump Pack",
+    "max": 5,
+    "points": 33
+   }
   },
   {
    "id": "rylanor-the-unyielding",
@@ -6446,7 +7217,7 @@
      "count": 1
     },
     {
-     "name": "Sun Killers",
+     "name": "Sun Killer",
      "count": 4
     }
    ],
@@ -6535,7 +7306,10 @@
     {
      "text": "The Novaetor in this Unit may have one item from the Legion Sergeant Melee Weapons list selected for it.",
      "max": 1,
-     "list": "Armes de Mêlée de Sergent de Légion"
+     "list": "Armes de Mêlée de Sergent de Légion",
+     "models": [
+      "Novaetor"
+     ]
     },
     {
      "text": "One Sun Killer in this Unit may have one vexilla selected for it for +10 Points.",
@@ -6545,18 +7319,29 @@
        "name": "Vexilla",
        "points": 10
       }
+     ],
+     "models": [
+      "Sun Killer"
      ]
     },
     {
      "text": "Up to two Sun Killers in this Unit may each have one item from the Legion Equipment list selected for them.",
      "max": 2,
      "each": true,
-     "list": "Équipement de Légion"
+     "list": "Équipement de Légion",
+     "models": [
+      "Sun Killer"
+     ]
     }
    ],
    "army": "la",
    "legacy": true,
-   "source": "Legacies of the Age of Darkness v1.1 (EN)"
+   "source": "Legacies of the Age of Darkness v1.1 (EN)",
+   "extra": {
+    "model": "Sun Killer",
+    "max": 15,
+    "points": 10
+   }
   },
   {
    "id": "iron-warriors-warsmith-in-artificer-armour",
@@ -6614,8 +7399,8 @@
    ],
    "options": [
     {
-     "text": "This Model may have its bolter and/or bolt pistol exchanged for one paragon blade for +15 Points, one archaeotech pistol for +15 Points or one item from the Legion Off…",
-     "max": 1,
+     "text": "This Model may have its bolter and/or bolt pistol exchanged for one paragon blade for +15 Points, one archaeotech pistol for +15 Points or one item from the Legion Officer Wargear list.",
+     "max": 2,
      "choices": [
       {
        "name": "Paragon blade",
@@ -6626,7 +7411,13 @@
        "points": 15
       }
      ],
-     "list": "Équipement d'Officier de Légion"
+     "list": "Équipement d'Officier de Légion",
+     "replaces": [
+      [
+       "Bolter",
+       "Bolt pistol"
+      ]
+     ]
     },
     {
      "text": "This Model may have its bolter exchanged for one item from the Legion Combi-weapons list or one of the following:",
@@ -6641,7 +7432,10 @@
        "points": 2
       }
      ],
-     "list": "Armes Combinées de Légion"
+     "list": "Armes Combinées de Légion",
+     "replaces": [
+      "Bolter"
+     ]
     },
     {
      "text": "This Model may have its bolter and bolt pistol exchanged for one pair of lightning claws for +20 Points.",
@@ -6651,6 +7445,10 @@
        "name": "Pair of lightning claws",
        "points": 20
       }
+     ],
+     "replaces": [
+      "Bolter",
+      "Bolt pistol"
      ]
     },
     {
@@ -6675,6 +7473,9 @@
        "name": "Chain bayonet",
        "points": 2
       }
+     ],
+     "requires": [
+      "Bolter"
      ]
     },
     {
@@ -6761,7 +7562,7 @@
    "page": 91,
    "models": [
     {
-     "name": "Dominators",
+     "name": "Dominator",
      "count": 5
     }
    ],
@@ -6824,6 +7625,9 @@
        "name": "Reaper autocannon",
        "points": 15
       }
+     ],
+     "replaces": [
+      "Combi-bolter"
      ]
     },
     {
@@ -6834,6 +7638,9 @@
        "name": "Chainfist",
        "points": 5
       }
+     ],
+     "replaces": [
+      "Thunder hammer"
      ]
     },
     {
@@ -6845,12 +7652,20 @@
        "points": 0
       }
      ],
-     "list": "Armes Combinées de Légion"
+     "list": "Armes Combinées de Légion",
+     "replaces": [
+      "Combi-bolter"
+     ]
     }
    ],
    "army": "la",
    "legacy": true,
-   "source": "Legacies of the Age of Darkness v1.1 (EN)"
+   "source": "Legacies of the Age of Darkness v1.1 (EN)",
+   "extra": {
+    "model": "Dominator",
+    "max": 5,
+    "points": 45
+   }
   },
   {
    "id": "iron-warriors-iron-havocs",
@@ -6865,7 +7680,7 @@
      "count": 1
     },
     {
-     "name": "Iron Havocs",
+     "name": "Iron Havoc",
      "count": 4
     }
    ],
@@ -6931,7 +7746,10 @@
     {
      "text": "The Iron Havoc Sergeant in this Unit may have one item from the Legion Sergeant Melee Weapons list selected for it.",
      "max": 1,
-     "list": "Armes de Mêlée de Sergent de Légion"
+     "list": "Armes de Mêlée de Sergent de Légion",
+     "models": [
+      "Iron Havoc Sergeant"
+     ]
     },
     {
      "text": "One Iron Havoc in this Unit may have one vexilla selected for it for +10 Points.",
@@ -6941,13 +7759,19 @@
        "name": "Vexilla",
        "points": 10
       }
+     ],
+     "models": [
+      "Iron Havoc"
      ]
     },
     {
      "text": "Up to two Iron Havocs in this Unit may each have one item from the Legion Equipment list selected for them.",
      "max": 2,
      "each": true,
-     "list": "Équipement de Légion"
+     "list": "Équipement de Légion",
+     "models": [
+      "Iron Havoc"
+     ]
     },
     {
      "text": "Every Model in this Unit may have its shrapnel cannon replaced with one of the following options. Every Model in this Unit must have the same option selected for it.",
@@ -6967,12 +7791,20 @@
        "name": "Lascannon",
        "points": 15
       }
+     ],
+     "replaces": [
+      "Shrapnel cannon"
      ]
     }
    ],
    "army": "la",
    "legacy": true,
-   "source": "Legacies of the Age of Darkness v1.1 (EN)"
+   "source": "Legacies of the Age of Darkness v1.1 (EN)",
+   "extra": {
+    "model": "Iron Havoc",
+    "max": 5,
+    "points": 25
+   }
   },
   {
    "id": "the-tormentor",
@@ -7026,11 +7858,19 @@
      "choices": [
       {
        "name": "Two Sponson Mounted lascannon and two Sponson Mounted twin heavy bolters",
-       "points": 40
+       "points": 40,
+       "gives": [
+        "Two Sponson Mounted lascannon",
+        "Two Sponson Mounted twin heavy bolters"
+       ]
       },
       {
        "name": "Two Sponson Mounted lascannon and two Sponson Mounted twin heavy flamers",
-       "points": 40
+       "points": 40,
+       "gives": [
+        "Two Sponson Mounted lascannon",
+        "Two Sponson Mounted twin heavy flamers"
+       ]
       }
      ]
     },
@@ -7115,7 +7955,10 @@
     {
      "text": "This Model may have its bolt pistol exchanged for one item from the Legion Pistols list.",
      "max": 1,
-     "list": "Pistolets de Légion"
+     "list": "Pistolets de Légion",
+     "replaces": [
+      "Bolt pistol"
+     ]
     },
     {
      "text": "This Model may have up to two of the following Psychic Disciplines selected for it:",
@@ -7198,8 +8041,8 @@
     }
    ],
    "wargear": [
-    "Twin bolter (Outrider Stormseer only)",
-    "Heavy bolter (Stormseer on Scimitar Jetbike only)",
+    "Outrider Stormseer : Twin bolter",
+    "Stormseer on Scimitar Jetbike : Heavy bolter",
     "Force staff",
     "Bolt pistol",
     "Frag grenades",
@@ -7226,7 +8069,10 @@
     {
      "text": "This Model may have its bolt pistol exchanged for one item from the Legion Pistols list.",
      "max": 1,
-     "list": "Pistolets de Légion"
+     "list": "Pistolets de Légion",
+     "replaces": [
+      "Bolt pistol"
+     ]
     },
     {
      "text": "This Outrider Stormseer may have its twin bolter exchanged for one twin plasma gun for +15 Points.",
@@ -7236,7 +8082,11 @@
        "name": "Twin plasma gun",
        "points": 15
       }
-     ]
+     ],
+     "replaces": [
+      "Twin bolter"
+     ],
+     "notVariant": 0
     },
     {
      "text": "This Stormseer on Scimitar Jetbike may have its heavy bolter exchanged for one of the following:",
@@ -7254,7 +8104,11 @@
        "name": "Multi-melta",
        "points": 20
       }
-     ]
+     ],
+     "replaces": [
+      "Heavy bolter"
+     ],
+     "onlyVariant": 0
     },
     {
      "text": "This Model may have up to two of the following Psychic Disciplines selected for it:",
@@ -7281,7 +8135,13 @@
    ],
    "army": "la",
    "legacy": true,
-   "source": "Legacies of the Age of Darkness v1.1 (EN)"
+   "source": "Legacies of the Age of Darkness v1.1 (EN)",
+   "variants": [
+    {
+     "name": "Stormseer on Scimitar Jetbike",
+     "points": 0
+    }
+   ]
   },
   {
    "id": "white-scars-stormseer-in-terminator-armour",
@@ -7366,7 +8226,10 @@
        "points": 0
       }
      ],
-     "list": "Armes Combinées de Légion"
+     "list": "Armes Combinées de Légion",
+     "replaces": [
+      "Combi-bolter"
+     ]
     },
     {
      "text": "This Model may have up to two of the following Psychic Disciplines selected for it:",
@@ -7393,7 +8256,13 @@
    ],
    "army": "la",
    "legacy": true,
-   "source": "Legacies of the Age of Darkness v1.1 (EN)"
+   "source": "Legacies of the Age of Darkness v1.1 (EN)",
+   "variants": [
+    {
+     "name": "Tartaros Stormseer",
+     "points": 0
+    }
+   ]
   },
   {
    "id": "white-scars-falcon-s-claws",
@@ -7408,7 +8277,7 @@
      "count": 1
     },
     {
-     "name": "Falcon's Claws",
+     "name": "Falcon's Claw",
      "count": 4
     }
    ],
@@ -7477,8 +8346,15 @@
      "choices": [
       {
        "name": "Power weapon and one bolt pistol",
-       "points": 0
+       "points": 0,
+       "gives": [
+        "Power weapon",
+        "Bolt pistol"
+       ]
       }
+     ],
+     "replaces": [
+      "Pair of lightning claws"
      ]
     },
     {
@@ -7487,24 +8363,50 @@
      "choices": [
       {
        "name": "One lightning claw and one thunder hammer",
-       "points": 15
+       "points": 15,
+       "gives": [
+        "Lightning claw",
+        "Thunder hammer"
+       ]
       },
       {
        "name": "One lightning claw and one power fist",
-       "points": 15
+       "points": 15,
+       "gives": [
+        "Lightning claw",
+        "Power fist"
+       ]
       },
       {
        "name": "One lightning claw and one hand flamer",
-       "points": 5
+       "points": 5,
+       "gives": [
+        "Lightning claw",
+        "Hand flamer"
+       ]
       },
       {
        "name": "One lightning claw and one plasma pistol",
-       "points": 10
+       "points": 10,
+       "gives": [
+        "Lightning claw",
+        "Plasma pistol"
+       ]
       },
       {
        "name": "One lightning claw and one volkite serpenta",
-       "points": 0
+       "points": 0,
+       "gives": [
+        "Lightning claw",
+        "Volkite serpenta"
+       ]
       }
+     ],
+     "replaces": [
+      "Pair of lightning claws"
+     ],
+     "models": [
+      "Falcon's Claw Champion"
      ]
     },
     {
@@ -7515,6 +8417,9 @@
        "name": "Melta bombs",
        "points": 10
       }
+     ],
+     "models": [
+      "Falcon's Claw Champion"
      ]
     },
     {
@@ -7522,15 +8427,23 @@
      "max": 1,
      "choices": [
       {
-       "name": "Page 145)",
+       "name": "Cyber-hawk",
        "points": 10
       }
+     ],
+     "models": [
+      "Falcon's Claw Champion"
      ]
     }
    ],
    "army": "la",
    "legacy": true,
-   "source": "Legacies of the Age of Darkness v1.1 (EN)"
+   "source": "Legacies of the Age of Darkness v1.1 (EN)",
+   "extra": {
+    "model": "Falcon's Claw",
+    "max": 5,
+    "points": 18
+   }
   },
   {
    "id": "white-scars-dark-sons-of-death",
@@ -7545,7 +8458,7 @@
      "count": 1
     },
     {
-     "name": "Dark Sons",
+     "name": "Dark Son",
      "count": 4
     }
    ],
@@ -7623,6 +8536,9 @@
        "name": "Power glaive",
        "points": 15
       }
+     ],
+     "replaces": [
+      "Chainsword"
      ]
     },
     {
@@ -7639,6 +8555,9 @@
        "name": "Hand flamer",
        "points": 5
       }
+     ],
+     "replaces": [
+      "Bolt pistol"
      ]
     },
     {
@@ -7677,12 +8596,24 @@
        "name": "Lightning claw",
        "points": 10
       }
+     ],
+     "replaces": [
+      "Chainsword"
+     ],
+     "models": [
+      "Death's Champion"
      ]
     },
     {
      "text": "The Death's Champion in this Unit may have its bolt pistol exchanged for one item from the Legion Pistols list.",
      "max": 1,
-     "list": "Pistolets de Légion"
+     "list": "Pistolets de Légion",
+     "replaces": [
+      "Bolt pistol"
+     ],
+     "models": [
+      "Death's Champion"
+     ]
     },
     {
      "text": "The Death's Champion in this Unit may have its bolt pistol and chainsword exchanged for one pair of lightning claws for +10 Points.",
@@ -7692,6 +8623,13 @@
        "name": "Pair of lightning claws",
        "points": 10
       }
+     ],
+     "replaces": [
+      "Bolt pistol",
+      "Chainsword"
+     ],
+     "models": [
+      "Death's Champion"
      ]
     },
     {
@@ -7702,12 +8640,20 @@
        "name": "Melta bombs",
        "points": 10
       }
+     ],
+     "models": [
+      "Death's Champion"
      ]
     }
    ],
    "army": "la",
    "legacy": true,
-   "source": "Legacies of the Age of Darkness v1.1 (EN)"
+   "source": "Legacies of the Age of Darkness v1.1 (EN)",
+   "extra": {
+    "model": "Dark Son",
+    "max": 10,
+    "points": 20
+   }
   },
   {
    "id": "space-wolves-caster-of-runes-with-jump-pack",
@@ -7766,7 +8712,10 @@
     {
      "text": "This Model may have its bolt pistol exchanged for one item from the Legion Pistol list.",
      "max": 1,
-     "list": "Pistolets de Légion"
+     "list": "Pistolets de Légion",
+     "replaces": [
+      "Bolt pistol"
+     ]
     },
     {
      "text": "This Model may have up to two of the following Psychic Disciplines selected for it:",
@@ -7849,8 +8798,8 @@
     }
    ],
    "wargear": [
-    "Twin bolter (Outrider Caster of Runes only)",
-    "Heavy bolter (Caster of Runes on Scimitar Jetbike only)",
+    "Outrider Caster of Runes : Twin bolter",
+    "Caster of Runes on Scimitar Jetbike : Heavy bolter",
     "Force staff",
     "Frost axe",
     "Bolt pistol",
@@ -7878,7 +8827,10 @@
     {
      "text": "This Model may have its bolt pistol exchanged for one item from the Legion Pistol list.",
      "max": 1,
-     "list": "Pistolets de Légion"
+     "list": "Pistolets de Légion",
+     "replaces": [
+      "Bolt pistol"
+     ]
     },
     {
      "text": "This Model may have up to two of the following Psychic Disciplines selected for it:",
@@ -7910,7 +8862,11 @@
        "name": "Twin plasma gun",
        "points": 15
       }
-     ]
+     ],
+     "replaces": [
+      "Twin bolter"
+     ],
+     "notVariant": 0
     },
     {
      "text": "This Caster of Runes on Scimitar Jetbike may have its heavy bolter exchanged for one of the following:",
@@ -7928,12 +8884,22 @@
        "name": "Multi-melta",
        "points": 20
       }
-     ]
+     ],
+     "replaces": [
+      "Heavy bolter"
+     ],
+     "onlyVariant": 0
     }
    ],
    "army": "la",
    "legacy": true,
-   "source": "Legacies of the Age of Darkness v1.1 (EN)"
+   "source": "Legacies of the Age of Darkness v1.1 (EN)",
+   "variants": [
+    {
+     "name": "Caster of Runes on Scimitar Jetbike",
+     "points": 0
+    }
+   ]
   },
   {
    "id": "space-wolves-caster-of-runes-in-terminator-armour",
@@ -8034,7 +9000,13 @@
    ],
    "army": "la",
    "legacy": true,
-   "source": "Legacies of the Age of Darkness v1.1 (EN)"
+   "source": "Legacies of the Age of Darkness v1.1 (EN)",
+   "variants": [
+    {
+     "name": "Tartaros Caster of Runes",
+     "points": 0
+    }
+   ]
   },
   {
    "id": "space-wolves-speaker-of-the-dead",
@@ -8114,7 +9086,10 @@
     {
      "text": "This Model may have its bolt pistol exchanged for one item from the Legion Pistol list.",
      "max": 1,
-     "list": "Pistolets de Légion"
+     "list": "Pistolets de Légion",
+     "replaces": [
+      "Bolt pistol"
+     ]
     },
     {
      "text": "This Model may have melta bombs selected for it for +5 Points.",
@@ -8129,7 +9104,13 @@
    ],
    "army": "la",
    "legacy": true,
-   "source": "Legacies of the Age of Darkness v1.1 (EN)"
+   "source": "Legacies of the Age of Darkness v1.1 (EN)",
+   "variants": [
+    {
+     "name": "Speaker of the Dead with Jump Pack",
+     "points": 20
+    }
+   ]
   },
   {
    "id": "space-wolves-mounted-speaker-of-the-dead",
@@ -8185,8 +9166,8 @@
     }
    ],
    "wargear": [
-    "Twin bolter (Outrider Speaker of the Dead only)",
-    "Heavy bolter (Speaker of the Dead on Scimitar Jetbike only)",
+    "Outrider Speaker of the Dead : Twin bolter",
+    "Speaker of the Dead on Scimitar Jetbike : Heavy bolter",
     "Bolt pistol",
     "Crozius Arcanum",
     "Narthecium",
@@ -8220,7 +9201,11 @@
        "name": "Twin plasma gun",
        "points": 15
       }
-     ]
+     ],
+     "replaces": [
+      "Twin bolter"
+     ],
+     "notVariant": 0
     },
     {
      "text": "This Model may have melta bombs selected for it for +5 Points.",
@@ -8248,12 +9233,22 @@
        "name": "Multi-melta",
        "points": 20
       }
-     ]
+     ],
+     "replaces": [
+      "Heavy bolter"
+     ],
+     "onlyVariant": 0
     }
    ],
    "army": "la",
    "legacy": true,
-   "source": "Legacies of the Age of Darkness v1.1 (EN)"
+   "source": "Legacies of the Age of Darkness v1.1 (EN)",
+   "variants": [
+    {
+     "name": "Speaker of the Dead on Scimitar Jetbike",
+     "points": 0
+    }
+   ]
   },
   {
    "id": "space-wolves-speaker-of-the-dead-in-terminator-armour",
@@ -8340,12 +9335,21 @@
        "points": 0
       }
      ],
-     "list": "Armes Combinées de Légion"
+     "list": "Armes Combinées de Légion",
+     "replaces": [
+      "Combi-bolter"
+     ]
     }
    ],
    "army": "la",
    "legacy": true,
-   "source": "Legacies of the Age of Darkness v1.1 (EN)"
+   "source": "Legacies of the Age of Darkness v1.1 (EN)",
+   "variants": [
+    {
+     "name": "Tartaros Speaker of the Dead",
+     "points": 0
+    }
+   ]
   },
   {
    "id": "space-wolves-jorlund-hunter-pack",
@@ -8360,7 +9364,7 @@
      "count": 1
     },
     {
-     "name": "Hunters",
+     "name": "Hunter",
      "count": 4
     }
    ],
@@ -8433,6 +9437,12 @@
        "name": "Plasma pistol",
        "points": 5
       }
+     ],
+     "replaces": [
+      "Hand flamer"
+     ],
+     "models": [
+      "Hunt-master"
      ]
     },
     {
@@ -8451,6 +9461,12 @@
        "name": "Frost claw",
        "points": 20
       }
+     ],
+     "replaces": [
+      "Chainsword"
+     ],
+     "models": [
+      "Hunt-master"
      ]
     },
     {
@@ -8467,6 +9483,12 @@
        "name": "Volkite serpenta",
        "points": 5
       }
+     ],
+     "replaces": [
+      "Hand flamer"
+     ],
+     "models": [
+      "Hunter"
      ]
     },
     {
@@ -8477,6 +9499,9 @@
        "name": "Vexilla",
        "points": 10
       }
+     ],
+     "models": [
+      "Hunter"
      ]
     },
     {
@@ -8487,12 +9512,20 @@
        "name": "Melta bombs",
        "points": 10
       }
+     ],
+     "models": [
+      "Hunt-master"
      ]
     }
    ],
    "army": "la",
    "legacy": true,
-   "source": "Legacies of the Age of Darkness v1.1 (EN)"
+   "source": "Legacies of the Age of Darkness v1.1 (EN)",
+   "extra": {
+    "model": "Hunter",
+    "max": 5,
+    "points": 17
+   }
   },
   {
    "id": "space-wolves-fenrisian-wolf-pack",
@@ -8544,20 +9577,29 @@
    "options": [],
    "army": "la",
    "legacy": true,
-   "source": "Legacies of the Age of Darkness v1.1 (EN)"
+   "source": "Legacies of the Age of Darkness v1.1 (EN)",
+   "extra": {
+    "model": "Fenrisian Wolf",
+    "max": 4,
+    "points": 9
+   }
   },
   {
    "id": "imperial-fists-huscarl-terminator-retinue",
    "name": "Imperial Fists Huscarl Terminator Retinue",
    "lang": "en",
    "role": "SU",
-   "points": 0,
+   "points": 275,
    "limit": 1,
    "page": 108,
    "models": [
     {
      "name": "Huscarl Terminator Sergeant",
      "count": 1
+    },
+    {
+     "name": "Huscarl Terminator",
+     "count": 4
     }
    ],
    "profiles": [
@@ -8629,6 +9671,9 @@
        "name": "Solarite power gauntlet",
        "points": 10
       }
+     ],
+     "replaces": [
+      "Power weapon"
      ]
     },
     {
@@ -8639,12 +9684,20 @@
        "name": "Grenade harness",
        "points": 5
       }
+     ],
+     "models": [
+      "Huscarl Terminator Sergeant"
      ]
     }
    ],
    "army": "la",
    "legacy": true,
-   "source": "Legacies of the Age of Darkness v1.1 (EN)"
+   "source": "Legacies of the Age of Darkness v1.1 (EN)",
+   "extra": {
+    "model": "Huscarl Terminator",
+    "max": 5,
+    "points": 50
+   }
   },
   {
    "id": "tos-dios",
@@ -8797,6 +9850,12 @@
        "name": "Plasma blaster",
        "points": 15
       }
+     ],
+     "replaces": [
+      "Combi-bolter"
+     ],
+     "models": [
+      "Atramentar"
      ]
     },
     {
@@ -8808,7 +9867,10 @@
        "points": 0
       }
      ],
-     "list": "Armes Combinées de Légion"
+     "list": "Armes Combinées de Légion",
+     "replaces": [
+      "Combi-bolter"
+     ]
     },
     {
      "text": "Any Model in this Unit may have its power weapon exchanged for one of the following:",
@@ -8834,6 +9896,9 @@
        "name": "Thunder hammer",
        "points": 10
       }
+     ],
+     "replaces": [
+      "Power weapon"
      ]
     },
     {
@@ -8844,6 +9909,10 @@
        "name": "Pair of lightning claws",
        "points": 15
       }
+     ],
+     "replaces": [
+      "Power weapon",
+      "Combi-bolter"
      ]
     },
     {
@@ -8854,12 +9923,23 @@
        "name": "Headsman's axe",
        "points": 10
       }
+     ],
+     "replaces": [
+      "Power weapon"
+     ],
+     "models": [
+      "Atramentar Trucidor"
      ]
     }
    ],
    "army": "la",
    "legacy": true,
-   "source": "Legacies of the Age of Darkness v1.1 (EN)"
+   "source": "Legacies of the Age of Darkness v1.1 (EN)",
+   "extra": {
+    "model": "Atramentar",
+    "max": 15,
+    "points": 35
+   }
   },
   {
    "id": "blood-angels-sanguinary-guard",
@@ -8921,6 +10001,9 @@
        "name": "Combat shield",
        "points": 2
       }
+     ],
+     "replaces": [
+      "Bolt pistol"
      ]
     },
     {
@@ -8932,7 +10015,10 @@
        "points": 10
       }
      ],
-     "list": "Pistolets de Légion"
+     "list": "Pistolets de Légion",
+     "replaces": [
+      "Bolt pistol"
+     ]
     },
     {
      "text": "Every Model in this Unit may have melta bombs selected for them for +25 Points.",
@@ -8955,6 +10041,9 @@
        "name": "Paragon blade",
        "points": 15
       }
+     ],
+     "replaces": [
+      "Perdition weapon"
      ]
     },
     {
@@ -8963,14 +10052,27 @@
      "choices": [
       {
        "name": "Legion standard and one power weapon",
-       "points": 15
+       "points": 15,
+       "gives": [
+        "Legion standard",
+        "Power weapon"
+       ]
       }
+     ],
+     "replaces": [
+      "Perdition weapon",
+      "Bolt pistol"
      ]
     }
    ],
    "army": "la",
    "legacy": true,
-   "source": "Legacies of the Age of Darkness v1.1 (EN)"
+   "source": "Legacies of the Age of Darkness v1.1 (EN)",
+   "extra": {
+    "model": "Sanguinary Guard",
+    "max": 5,
+    "points": 40
+   }
   },
   {
    "id": "blood-angels-ofanim-court",
@@ -9027,7 +10129,12 @@
    "options": [],
    "army": "la",
    "legacy": true,
-   "source": "Legacies of the Age of Darkness v1.1 (EN)"
+   "source": "Legacies of the Age of Darkness v1.1 (EN)",
+   "extra": {
+    "model": "Ofanim",
+    "max": 2,
+    "points": 40
+   }
   },
   {
    "id": "blood-angels-ofanim-court-with-jump-packs",
@@ -9039,7 +10146,7 @@
    "page": 114,
    "models": [
     {
-     "name": "Ofanim with Jump Packs",
+     "name": "Ofanim with Jump Pack",
      "count": 3
     }
    ],
@@ -9086,7 +10193,12 @@
    "options": [],
    "army": "la",
    "legacy": true,
-   "source": "Legacies of the Age of Darkness v1.1 (EN)"
+   "source": "Legacies of the Age of Darkness v1.1 (EN)",
+   "extra": {
+    "model": "Ofanim with Jump Pack",
+    "max": 2,
+    "points": 50
+   }
   },
   {
    "id": "iron-hands-iron-father-in-artificer-armour",
@@ -9146,7 +10258,7 @@
    "options": [
     {
      "text": "This Model may have its bolter and/or bolt pistol exchanged for one item from the Legion Officer Wargear list or one of the following:",
-     "max": 1,
+     "max": 2,
      "choices": [
       {
        "name": "Paragon blade",
@@ -9161,7 +10273,13 @@
        "points": 15
       }
      ],
-     "list": "Équipement d'Officier de Légion"
+     "list": "Équipement d'Officier de Légion",
+     "replaces": [
+      [
+       "Bolter",
+       "Bolt pistol"
+      ]
+     ]
     },
     {
      "text": "This Model may have its bolter exchanged for one item from the Legion Combi-weapons list or one of the following:",
@@ -9176,7 +10294,10 @@
        "points": 2
       }
      ],
-     "list": "Armes Combinées de Légion"
+     "list": "Armes Combinées de Légion",
+     "replaces": [
+      "Bolter"
+     ]
     },
     {
      "text": "This Model may have its bolter and bolt pistol exchanged for one pair of lightning claws for +20 Points.",
@@ -9186,6 +10307,10 @@
        "name": "Pair of lightning claws",
        "points": 20
       }
+     ],
+     "replaces": [
+      "Bolter",
+      "Bolt pistol"
      ]
     },
     {
@@ -9210,6 +10335,9 @@
        "name": "Chain bayonet",
        "points": 2
       }
+     ],
+     "requires": [
+      "Bolter"
      ]
     },
     {
@@ -9240,7 +10368,7 @@
      "count": 1
     },
     {
-     "name": "Morlocks",
+     "name": "Morlock",
      "count": 2
     }
    ],
@@ -9324,6 +10452,9 @@
        "name": "Chainfist",
        "points": 10
       }
+     ],
+     "replaces": [
+      "Power weapon"
      ]
     },
     {
@@ -9338,6 +10469,9 @@
        "name": "Graviton gun",
        "points": 10
       }
+     ],
+     "replaces": [
+      "Combi-bolter"
      ]
     },
     {
@@ -9352,13 +10486,22 @@
        "name": "Graviton shredder",
        "points": 15
       }
+     ],
+     "replaces": [
+      "Combi-bolter"
+     ],
+     "models": [
+      "Augmentor"
      ]
     },
     {
      "text": "Up to two Morlocks in this Unit may have one item each from the Legion Equipment list selected for them.",
      "max": 2,
      "each": true,
-     "list": "Équipement de Légion"
+     "list": "Équipement de Légion",
+     "models": [
+      "Morlock"
+     ]
     },
     {
      "text": "One Morlock in this Unit may have its combi-bolter exchanged for one Legion standard for +20 Points.",
@@ -9368,12 +10511,23 @@
        "name": "Legion standard",
        "points": 20
       }
+     ],
+     "replaces": [
+      "Combi-bolter"
+     ],
+     "models": [
+      "Morlock"
      ]
     }
    ],
    "army": "la",
    "legacy": true,
-   "source": "Legacies of the Age of Darkness v1.1 (EN)"
+   "source": "Legacies of the Age of Darkness v1.1 (EN)",
+   "extra": {
+    "model": "Morlock",
+    "max": 2,
+    "points": 50
+   }
   },
   {
    "id": "world-eaters-red-hand-destroyer-mortalis-squad",
@@ -9388,7 +10542,7 @@
      "count": 1
     },
     {
-     "name": "Ravagers",
+     "name": "Ravager",
      "count": 4
     }
    ],
@@ -9458,9 +10612,24 @@
      "max": "models",
      "choices": [
       {
-       "name": "Caedere weapon",
+       "name": "Marteau météore",
+       "points": 10
+      },
+      {
+       "name": "Hache tronçonneuse Excoriator",
+       "points": 10
+      },
+      {
+       "name": "Paire de falax",
+       "points": 10
+      },
+      {
+       "name": "Fouet barbelé",
        "points": 10
       }
+     ],
+     "replaces": [
+      "Chainsword"
      ]
     },
     {
@@ -9477,12 +10646,25 @@
        "name": "Thunder hammer",
        "points": 15
       }
-     ]
+     ],
+     "replaces": [
+      "Two bolt pistols"
+     ],
+     "models": [
+      "Ravager"
+     ],
+     "partOf": true
     },
     {
      "text": "The Blood Bonded in this Unit may have its chainsword exchanged for one item from the Legion Sergeant Melee Weapons list.",
      "max": 1,
-     "list": "Armes de Mêlée de Sergent de Légion"
+     "list": "Armes de Mêlée de Sergent de Légion",
+     "replaces": [
+      "Chainsword"
+     ],
+     "models": [
+      "Blood Bonded"
+     ]
     },
     {
      "text": "The Blood Bonded in this Unit may have any of the following items selected for them:",
@@ -9497,12 +10679,20 @@
        "points": 10
       }
      ],
-     "unique": true
+     "unique": true,
+     "models": [
+      "Blood Bonded"
+     ]
     }
    ],
    "army": "la",
    "legacy": true,
-   "source": "Legacies of the Age of Darkness v1.1 (EN)"
+   "source": "Legacies of the Age of Darkness v1.1 (EN)",
+   "extra": {
+    "model": "Ravager",
+    "max": 10,
+    "points": 15
+   }
   },
   {
    "id": "world-eaters-red-hand-destroyer-assault-squad",
@@ -9517,7 +10707,7 @@
      "count": 1
     },
     {
-     "name": "Ravagers with Jump Packs",
+     "name": "Ravager with Jump Pack",
      "count": 4
     }
    ],
@@ -9589,9 +10779,24 @@
      "max": "models",
      "choices": [
       {
-       "name": "Caedere weapon",
+       "name": "Marteau météore",
+       "points": 10
+      },
+      {
+       "name": "Hache tronçonneuse Excoriator",
+       "points": 10
+      },
+      {
+       "name": "Paire de falax",
+       "points": 10
+      },
+      {
+       "name": "Fouet barbelé",
        "points": 10
       }
+     ],
+     "replaces": [
+      "Chainsword"
      ]
     },
     {
@@ -9608,12 +10813,25 @@
        "name": "Thunder hammer",
        "points": 15
       }
-     ]
+     ],
+     "replaces": [
+      "Two bolt pistols"
+     ],
+     "models": [
+      "Ravager with Jump Pack"
+     ],
+     "partOf": true
     },
     {
      "text": "The Blood Bonded with Jump Pack in this Unit may have its chainsword exchanged for one item from the Legion Sergeant Melee Weapons list.",
      "max": 1,
-     "list": "Armes de Mêlée de Sergent de Légion"
+     "list": "Armes de Mêlée de Sergent de Légion",
+     "replaces": [
+      "Chainsword"
+     ],
+     "models": [
+      "Blood Bonded with Jump Pack"
+     ]
     },
     {
      "text": "The Blood Bonded with Jump Pack in this Unit may have any of the following items selected for them:",
@@ -9628,12 +10846,20 @@
        "points": 10
       }
      ],
-     "unique": true
+     "unique": true,
+     "models": [
+      "Blood Bonded with Jump Pack"
+     ]
     }
    ],
    "army": "la",
    "legacy": true,
-   "source": "Legacies of the Age of Darkness v1.1 (EN)"
+   "source": "Legacies of the Age of Darkness v1.1 (EN)",
+   "extra": {
+    "model": "Ravager with Jump Pack",
+    "max": 10,
+    "points": 20
+   }
   },
   {
    "id": "ultramarines-locutarus-storm-squad",
@@ -9716,19 +10942,37 @@
     {
      "text": "The Locutarus Strike Leader may have its Argean power sword exchanged for one item from the Legion Sergeant Melee Weapons list.",
      "max": 1,
-     "list": "Armes de Mêlée de Sergent de Légion"
+     "list": "Armes de Mêlée de Sergent de Légion",
+     "replaces": [
+      "Argean power sword"
+     ],
+     "models": [
+      "Locutarus Strike Leader"
+     ]
     },
     {
      "text": "For every five Models in this Unit, one Locutarus in this Unit may have its bolt pistol exchanged for one item from the Legion Pistols list.",
      "max": {
       "per": 5
      },
-     "list": "Pistolets de Légion"
+     "list": "Pistolets de Légion",
+     "replaces": [
+      "Bolt pistol"
+     ],
+     "models": [
+      "Locutarus"
+     ]
     },
     {
      "text": "The Locutarus Strike Leader may have its bolt pistol exchanged for one item from the Legion Pistols list.",
      "max": 1,
-     "list": "Pistolets de Légion"
+     "list": "Pistolets de Légion",
+     "replaces": [
+      "Bolt pistol"
+     ],
+     "models": [
+      "Locutarus Strike Leader"
+     ]
     },
     {
      "text": "The Locutarus Strike Leader may have one combat shield selected for it for +5 Points.",
@@ -9738,6 +10982,9 @@
        "name": "Combat shield",
        "points": 5
       }
+     ],
+     "models": [
+      "Locutarus Strike Leader"
      ]
     },
     {
@@ -9748,12 +10995,20 @@
        "name": "Melta bombs",
        "points": 10
       }
+     ],
+     "models": [
+      "Locutarus Strike Leader"
      ]
     }
    ],
    "army": "la",
    "legacy": true,
-   "source": "Legacies of the Age of Darkness v1.1 (EN)"
+   "source": "Legacies of the Age of Darkness v1.1 (EN)",
+   "extra": {
+    "model": "Locutarus",
+    "max": 5,
+    "points": 38
+   }
   },
   {
    "id": "ultramarines-fulmentarus-terminator-squad",
@@ -9768,7 +11023,7 @@
      "count": 1
     },
     {
-     "name": "Fulmentarus Terminators",
+     "name": "Fulmentarus Terminator",
      "count": 4
     }
    ],
@@ -9849,6 +11104,9 @@
        "name": "Chainfist",
        "points": 10
       }
+     ],
+     "replaces": [
+      "Peritarch targeter"
      ]
     },
     {
@@ -9859,12 +11117,23 @@
        "name": "Thunder hammer",
        "points": 10
       }
+     ],
+     "replaces": [
+      "Peritarch targeter"
+     ],
+     "models": [
+      "Fulmentarus Sergeant"
      ]
     }
    ],
    "army": "la",
    "legacy": true,
-   "source": "Legacies of the Age of Darkness v1.1 (EN)"
+   "source": "Legacies of the Age of Darkness v1.1 (EN)",
+   "extra": {
+    "model": "Fulmentarus Terminator",
+    "max": 5,
+    "points": 55
+   }
   },
   {
    "id": "ultramarines-nemesis-destroyer-squad",
@@ -9879,7 +11148,7 @@
      "count": 1
     },
     {
-     "name": "Nemesis Destroyers",
+     "name": "Nemesis Destroyer",
      "count": 9
     }
    ],
@@ -9944,13 +11213,22 @@
     {
      "text": "The Nemesis Destroyer Sergeant may have its chainsword exchanged for one item from the Legion Sergeant Melee Weapons list.",
      "max": 1,
-     "list": "Armes de Mêlée de Sergent de Légion"
+     "list": "Armes de Mêlée de Sergent de Légion",
+     "replaces": [
+      "Chainsword"
+     ],
+     "models": [
+      "Nemesis Destroyer Sergeant"
+     ]
     },
     {
      "text": "Up to two Nemesis Destroyers in this Unit may have one item each from the Legion Equipment list selected for them.",
      "max": 2,
      "each": true,
-     "list": "Équipement de Légion"
+     "list": "Équipement de Légion",
+     "models": [
+      "Nemesis Destroyer"
+     ]
     },
     {
      "text": "The Nemesis Destroyer Sergeant in this Unit may have melta bombs selected for it for +10 Points.",
@@ -9960,6 +11238,9 @@
        "name": "Melta bombs",
        "points": 10
       }
+     ],
+     "models": [
+      "Nemesis Destroyer Sergeant"
      ]
     },
     {
@@ -9970,6 +11251,9 @@
        "name": "Phosphex bombs",
        "points": 10
       }
+     ],
+     "models": [
+      "Nemesis Destroyer Sergeant"
      ]
     },
     {
@@ -10010,12 +11294,23 @@
        "name": "Destroyer missile launcher with rad missiles",
        "points": 15
       }
+     ],
+     "replaces": [
+      "Mortifier bolter"
+     ],
+     "models": [
+      "Nemesis Destroyer"
      ]
     }
    ],
    "army": "la",
    "legacy": true,
-   "source": "Legacies of the Age of Darkness v1.1 (EN)"
+   "source": "Legacies of the Age of Darkness v1.1 (EN)",
+   "extra": {
+    "model": "Nemesis Destroyer",
+    "max": 10,
+    "points": 15
+   }
   },
   {
    "id": "honoured-telemechrus",
@@ -10088,7 +11383,7 @@
      "count": 1
     },
     {
-     "name": "Mortus Poisoners",
+     "name": "Mortus Poisoner",
      "count": 4
     }
    ],
@@ -10173,6 +11468,9 @@
        "name": "Chain bayonet",
        "points": 2
       }
+     ],
+     "requires": [
+      "Bolter"
      ]
     },
     {
@@ -10187,18 +11485,27 @@
        "name": "Alchem flamer",
        "points": 2
       }
+     ],
+     "replaces": [
+      "Bolter"
      ]
     },
     {
-     "text": "For every five Models in this Unit, one Mortus Poisoner may have its bolter exchanged for one heavy alchem flamer (see Liber Hereticus, page 209) for +10 Points per Mo…",
+     "text": "For every five Models in this Unit, one Mortus Poisoner may have its bolter exchanged for one heavy alchem flamer (see Liber Hereticus, page 209) for +10 Points per Model.",
      "max": {
       "per": 5
      },
      "choices": [
       {
-       "name": "Page 209)",
+       "name": "Heavy alchem flamer",
        "points": 10
       }
+     ],
+     "replaces": [
+      "Bolter"
+     ],
+     "models": [
+      "Mortus Poisoner"
      ]
     },
     {
@@ -10209,13 +11516,19 @@
        "name": "Vexilla",
        "points": 10
       }
+     ],
+     "models": [
+      "Mortus Poisoner"
      ]
     },
     {
      "text": "Up to two Mortus Poisoners in this Unit may each have one item from the Legion Equipment list selected for them.",
      "max": 2,
      "each": true,
-     "list": "Équipement de Légion"
+     "list": "Équipement de Légion",
+     "models": [
+      "Mortus Poisoner"
+     ]
     },
     {
      "text": "The Poison-master in this Unit may have one of the following selected for it:",
@@ -10229,6 +11542,9 @@
        "name": "Power scythe",
        "points": 15
       }
+     ],
+     "models": [
+      "Poison-master"
      ]
     },
     {
@@ -10239,6 +11555,9 @@
        "name": "Phosphex bombs",
        "points": 10
       }
+     ],
+     "models": [
+      "Poison-master"
      ]
     },
     {
@@ -10249,12 +11568,20 @@
        "name": "Melta bombs",
        "points": 10
       }
+     ],
+     "models": [
+      "Poison-master"
      ]
     }
    ],
    "army": "la",
    "legacy": true,
-   "source": "Legacies of the Age of Darkness v1.1 (EN)"
+   "source": "Legacies of the Age of Darkness v1.1 (EN)",
+   "extra": {
+    "model": "Mortus Poisoner",
+    "max": 10,
+    "points": 12
+   }
   },
   {
    "id": "thousand-sons-numerologist-cabal",
@@ -10270,7 +11597,7 @@
      "count": 1
     },
     {
-     "name": "Life Wards",
+     "name": "Life Ward",
      "count": 4
     }
    ],
@@ -10319,7 +11646,7 @@
     "Chainsword",
     "Frag grenades",
     "Krak grenades",
-    "Servo-arm (Numerologist only)"
+    "Numerologist : Servo-arm"
    ],
    "rules": [
     "Numerologist : Numerologist Order",
@@ -10354,6 +11681,12 @@
        "name": "Thunder hammer",
        "points": 15
       }
+     ],
+     "replaces": [
+      "Chainsword"
+     ],
+     "models": [
+      "Numerologist"
      ]
     },
     {
@@ -10389,16 +11722,25 @@
        "points": 15
       }
      ],
-     "list": "Armes Combinées de Légion"
+     "list": "Armes Combinées de Légion",
+     "replaces": [
+      "Bolt pistol"
+     ],
+     "models": [
+      "Numerologist"
+     ]
     },
     {
      "text": "The Numerologist in this Unit may have one cyber- familiar selected for it for +10 Points.",
      "max": 1,
      "choices": [
       {
-       "name": "Cyber- familiar",
+       "name": "Cyber-familiar",
        "points": 10
       }
+     ],
+     "models": [
+      "Numerologist"
      ]
     },
     {
@@ -10413,6 +11755,12 @@
        "name": "Power fist",
        "points": 15
       }
+     ],
+     "replaces": [
+      "Chainsword"
+     ],
+     "models": [
+      "Life Ward"
      ]
     },
     {
@@ -10429,6 +11777,12 @@
        "name": "Rotor cannon",
        "points": 5
       }
+     ],
+     "replaces": [
+      "Bolt pistol"
+     ],
+     "models": [
+      "Life Ward"
      ]
     },
     {
@@ -10439,18 +11793,29 @@
        "name": "Vexilla",
        "points": 10
       }
+     ],
+     "models": [
+      "Life Ward"
      ]
     },
     {
      "text": "Up to two Life Wards in this Unit may each have one item from the Legion Equipment list selected for them.",
      "max": 2,
      "each": true,
-     "list": "Équipement de Légion"
+     "list": "Équipement de Légion",
+     "models": [
+      "Life Ward"
+     ]
     }
    ],
    "army": "la",
    "legacy": true,
-   "source": "Legacies of the Age of Darkness v1.1 (EN)"
+   "source": "Legacies of the Age of Darkness v1.1 (EN)",
+   "extra": {
+    "model": "Life Ward",
+    "max": 5,
+    "points": 15
+   }
   },
   {
    "id": "thousand-sons-ammitara-occult-intercession-cabal",
@@ -10465,7 +11830,7 @@
      "count": 1
     },
     {
-     "name": "Intercessors",
+     "name": "Intercessor",
      "count": 4
     }
    ],
@@ -10540,12 +11905,21 @@
        "name": "Melta bombs",
        "points": 10
       }
+     ],
+     "models": [
+      "Ammitara Fate"
      ]
     },
     {
      "text": "The Ammitara Fate in this Unit may have its bolt pistol exchanged for one item from the Legion Pistols list.",
      "max": 1,
-     "list": "Pistolets de Légion"
+     "list": "Pistolets de Légion",
+     "replaces": [
+      "Bolt pistol"
+     ],
+     "models": [
+      "Ammitara Fate"
+     ]
     },
     {
      "text": "One Intercessor in this Unit may have one nuncio-vox selected for it for +10 Points.",
@@ -10555,11 +11929,17 @@
        "name": "Nuncio-vox",
        "points": 10
       }
+     ],
+     "models": [
+      "Intercessor"
      ]
     },
     {
      "text": "For every five Models in this Unit, up to two Intercessors in this Unit may each have their Nemesis bolter exchanged for one of the following:",
-     "max": 2,
+     "max": {
+      "per": 5,
+      "n": 2
+     },
      "choices": [
       {
        "name": "Meltagun",
@@ -10573,12 +11953,20 @@
        "name": "Æther-fire blaster",
        "points": 15
       }
+     ],
+     "models": [
+      "Intercessor"
      ]
     }
    ],
    "army": "la",
    "legacy": true,
-   "source": "Legacies of the Age of Darkness v1.1 (EN)"
+   "source": "Legacies of the Age of Darkness v1.1 (EN)",
+   "extra": {
+    "model": "Intercessor",
+    "max": 5,
+    "points": 27
+   }
   },
   {
    "id": "sons-of-horus-dark-emissary-in-terminator-armour",
@@ -10664,12 +12052,21 @@
        "points": 0
       }
      ],
-     "list": "Armes Combinées de Légion"
+     "list": "Armes Combinées de Légion",
+     "replaces": [
+      "Combi-bolter"
+     ]
     }
    ],
    "army": "la",
    "legacy": true,
-   "source": "Legacies of the Age of Darkness v1.1 (EN)"
+   "source": "Legacies of the Age of Darkness v1.1 (EN)",
+   "variants": [
+    {
+     "name": "Tartaros Dark Emissary",
+     "points": 0
+    }
+   ]
   },
   {
    "id": "sons-of-horus-chieftain-squad",
@@ -10680,7 +12077,7 @@
    "page": 128,
    "models": [
     {
-     "name": "Chieftains",
+     "name": "Chieftain",
      "count": 5
     }
    ],
@@ -10741,6 +12138,9 @@
        "name": "Power fist",
        "points": 15
       }
+     ],
+     "replaces": [
+      "Chainsword"
      ]
     },
     {
@@ -10751,24 +12151,36 @@
        "name": "Legion standard",
        "points": 20
       }
+     ],
+     "replaces": [
+      "Banestrike bolter"
      ]
     }
    ],
    "army": "la",
    "legacy": true,
-   "source": "Legacies of the Age of Darkness v1.1 (EN)"
+   "source": "Legacies of the Age of Darkness v1.1 (EN)",
+   "extra": {
+    "model": "Chieftain",
+    "max": 5,
+    "points": 25
+   }
   },
   {
    "id": "sons-of-horus-reaver-aggressor-squad",
    "name": "Sons of Horus Reaver Aggressor Squad",
    "lang": "en",
    "role": "AL",
-   "points": 0,
+   "points": 165,
    "page": 129,
    "models": [
     {
      "name": "Reaver Chieftain with Jump Pack",
      "count": 1
+    },
+    {
+     "name": "Reaver with Jump Pack",
+     "count": 4
     }
    ],
    "profiles": [
@@ -10841,19 +12253,31 @@
        "points": 0
       }
      ],
-     "list": "Armes de Mêlée de Sergent de Légion"
+     "list": "Armes de Mêlée de Sergent de Légion",
+     "replaces": [
+      "Chainaxe"
+     ]
     },
     {
      "text": "Any Model in this Unit may have its bolt pistol exchanged for one item from the Legion Pistols list.",
      "max": "models",
-     "list": "Pistolets de Légion"
+     "list": "Pistolets de Légion",
+     "replaces": [
+      "Bolt pistol"
+     ]
     },
     {
      "text": "For every five Models in this Unit, one Reaver with Jump Pack in this Unit may have its chainaxe exchanged for one item from the Legion Special Weapons list.",
      "max": {
       "per": 5
      },
-     "list": "Armes Spéciales de Légion"
+     "list": "Armes Spéciales de Légion",
+     "replaces": [
+      "Chainaxe"
+     ],
+     "models": [
+      "Reaver with Jump Pack"
+     ]
     },
     {
      "text": "One Reaver with Jump Pack in this Unit may have one vexilla selected for it for +10 Points.",
@@ -10863,13 +12287,19 @@
        "name": "Vexilla",
        "points": 10
       }
+     ],
+     "models": [
+      "Reaver with Jump Pack"
      ]
     },
     {
      "text": "Up to two Reavers with Jump Packs in this Unit may each have one item from the Legion Equipment list selected for them.",
      "max": 2,
      "each": true,
-     "list": "Équipement de Légion"
+     "list": "Équipement de Légion",
+     "models": [
+      "Reaver with Jump Pack"
+     ]
     },
     {
      "text": "Any Model in this Unit may have its bolt pistol and chainaxe exchanged for one pair of lightning claws for +10 Points per Model.",
@@ -10879,6 +12309,10 @@
        "name": "Pair of lightning claws",
        "points": 10
       }
+     ],
+     "replaces": [
+      "Bolt pistol",
+      "Chainaxe"
      ]
     },
     {
@@ -10889,12 +12323,20 @@
        "name": "Melta bombs",
        "points": 10
       }
+     ],
+     "models": [
+      "Reaver Chieftain with Jump Pack"
      ]
     }
    ],
    "army": "la",
    "legacy": true,
-   "source": "Legacies of the Age of Darkness v1.1 (EN)"
+   "source": "Legacies of the Age of Darkness v1.1 (EN)",
+   "extra": {
+    "model": "Reaver with Jump Pack",
+    "max": 15,
+    "points": 27
+   }
   },
   {
    "id": "word-bearers-diabolist",
@@ -10977,12 +12419,21 @@
     {
      "text": "This Model may have its bolt pistol exchanged for one item from the Legion Pistols list.",
      "max": 1,
-     "list": "Pistolets de Légion"
+     "list": "Pistolets de Légion",
+     "replaces": [
+      "Bolt pistol"
+     ]
     }
    ],
    "army": "la",
    "legacy": true,
-   "source": "Legacies of the Age of Darkness v1.1 (EN)"
+   "source": "Legacies of the Age of Darkness v1.1 (EN)",
+   "variants": [
+    {
+     "name": "Diabolist with Jump Pack",
+     "points": 30
+    }
+   ]
   },
   {
    "id": "word-bearers-diabolist-in-terminator-armour",
@@ -11072,12 +12523,21 @@
        "points": 0
       }
      ],
-     "list": "Armes Combinées de Légion"
+     "list": "Armes Combinées de Légion",
+     "replaces": [
+      "Combi-bolter"
+     ]
     }
    ],
    "army": "la",
    "legacy": true,
-   "source": "Legacies of the Age of Darkness v1.1 (EN)"
+   "source": "Legacies of the Age of Darkness v1.1 (EN)",
+   "variants": [
+    {
+     "name": "Tartaros Diabolist",
+     "points": 0
+    }
+   ]
   },
   {
    "id": "word-bearers-mounted-diabolist",
@@ -11133,8 +12593,8 @@
     }
    ],
    "wargear": [
-    "Twin bolter (Outrider Diabolist only)",
-    "Heavy bolter (Diabolist on Scimitar Jetbike only)",
+    "Outrider Diabolist : Twin bolter",
+    "Diabolist on Scimitar Jetbike : Heavy bolter",
     "Bolt pistol",
     "Force weapon",
     "Frag grenades",
@@ -11166,7 +12626,10 @@
     {
      "text": "This Model may have its bolt pistol exchanged for one item from the Legion Pistols list.",
      "max": 1,
-     "list": "Pistolets de Légion"
+     "list": "Pistolets de Légion",
+     "replaces": [
+      "Bolt pistol"
+     ]
     },
     {
      "text": "This Outrider Diabolist may have its twin bolter exchanged for one twin plasma gun for +15 Points.",
@@ -11176,7 +12639,11 @@
        "name": "Twin plasma gun",
        "points": 15
       }
-     ]
+     ],
+     "replaces": [
+      "Twin bolter"
+     ],
+     "notVariant": 0
     },
     {
      "text": "This Diabolist on Scimitar Jetbike may have its heavy bolter exchanged for one of the following:",
@@ -11194,12 +12661,22 @@
        "name": "Multi-melta",
        "points": 20
       }
-     ]
+     ],
+     "replaces": [
+      "Heavy bolter"
+     ],
+     "onlyVariant": 0
     }
    ],
    "army": "la",
    "legacy": true,
-   "source": "Legacies of the Age of Darkness v1.1 (EN)"
+   "source": "Legacies of the Age of Darkness v1.1 (EN)",
+   "variants": [
+    {
+     "name": "Diabolist on Scimitar Jetbike",
+     "points": 10
+    }
+   ]
   },
   {
    "id": "word-bearers-procurators",
@@ -11210,7 +12687,7 @@
    "page": 134,
    "models": [
     {
-     "name": "Procurants",
+     "name": "Procurant",
      "count": 5
     }
    ],
@@ -11259,13 +12736,13 @@
     "Chainsword",
     "Frag grenades",
     "Krak grenades",
-    "Narthecium (Procurator only)"
+    "Procurator : Narthecium"
    ],
    "rules": [
     "Support Unit (1)",
     "Bitter Duty",
-    "Flesh Harvester (Procurator only)",
-    "Medic (4+) (Procurator only)"
+    "Procurator : Flesh Harvester",
+    "Procurator : Medic (4+)"
    ],
    "types": [
     "Procurator: Infantry (Sergeant)",
@@ -11278,7 +12755,9 @@
    "options": [
     {
      "text": "Any Procurator in this Unit may have its chainsword exchanged for one of the following options:",
-     "max": 1,
+     "max": {
+      "per": 5
+     },
      "choices": [
       {
        "name": "Heavy chainsword",
@@ -11288,36 +12767,76 @@
        "name": "Power weapon",
        "points": 10
       }
-     ]
+     ],
+     "replaces": [
+      "Chainsword"
+     ],
+     "needsUpgrade": "Procurator"
     },
     {
-     "text": "For every five Models in this Unit, one Procurant in this Unit may:",
+     "text": "For every five Models in this Unit, one Procurant in this Unit may: have its chainsword exchanged for one power fist for +15 Points per Model; have its bolt pistol exchanged for one hand flamer for +10 Points per Model, one plasma pistol for +15 Points per Model or one warpfire pistol for +15 Points per Model.",
      "max": {
       "per": 5
      },
      "choices": [
       {
-       "name": "Have its chainsword exchanged for one power fist for",
-       "points": 15
+       "name": "Power fist",
+       "points": 15,
+       "replaces": [
+        "Chainsword"
+       ]
       },
       {
-       "name": "Have its bolt pistol exchanged for one hand flamer for",
-       "points": 10
+       "name": "Hand flamer",
+       "points": 10,
+       "replaces": [
+        "Bolt pistol"
+       ]
       },
       {
-       "name": "Have its bolt pistol exchanged for one plasma pistol for",
-       "points": 15
+       "name": "Plasma pistol",
+       "points": 15,
+       "replaces": [
+        "Bolt pistol"
+       ]
       },
       {
-       "name": "Have its bolt pistol exchanged for a warpfire pistol for",
-       "points": 15
+       "name": "Warpfire pistol",
+       "points": 15,
+       "replaces": [
+        "Bolt pistol"
+       ]
+      }
+     ],
+     "models": [
+      "Procurant"
+     ]
+    },
+    {
+     "text": "For every 5 Models in this Unit, 1 Procurant may be replaced with 1 Procurator for +20 Points per Model.",
+     "max": {
+      "per": 5
+     },
+     "models": [
+      "Procurant"
+     ],
+     "choices": [
+      {
+       "name": "Procurator",
+       "points": 20,
+       "upgradeModel": "Procurator"
       }
      ]
     }
    ],
    "army": "la",
    "legacy": true,
-   "source": "Legacies of the Age of Darkness v1.1 (EN)"
+   "source": "Legacies of the Age of Darkness v1.1 (EN)",
+   "extra": {
+    "model": "Procurant",
+    "max": 10,
+    "points": 15
+   }
   },
   {
    "id": "word-bearers-procurators-with-jump-packs",
@@ -11328,7 +12847,7 @@
    "page": 135,
    "models": [
     {
-     "name": "Procurants with Jump Pack",
+     "name": "Procurant with Jump Pack",
      "count": 5
     }
    ],
@@ -11377,15 +12896,15 @@
     "Chainsword",
     "Frag grenades",
     "Krak grenades",
-    "Narthecium (Procurator with Jump Pack only)"
+    "Procurator with Jump Pack : Narthecium"
    ],
    "rules": [
     "Bulky (2)",
     "Support Unit (1)",
     "Bitter Duty",
     "Deep Strike",
-    "Flesh Harvester (Procurator with Jump Pack only)",
-    "Medic (4+) (Procurator with Jump Pack only)"
+    "Procurator with Jump Pack : Flesh Harvester",
+    "Procurator with Jump Pack : Medic (4+)"
    ],
    "types": [
     "Procurator with Jump Pack: Infantry (Sergeant, Antigrav)",
@@ -11398,7 +12917,9 @@
    "options": [
     {
      "text": "Any Procurator with Jump Pack in this Unit may have its chainsword exchanged for one of the following options:",
-     "max": 1,
+     "max": {
+      "per": 5
+     },
      "choices": [
       {
        "name": "Heavy chainsword",
@@ -11408,36 +12929,76 @@
        "name": "Power weapon",
        "points": 10
       }
-     ]
+     ],
+     "replaces": [
+      "Chainsword"
+     ],
+     "needsUpgrade": "Procurator with Jump Pack"
     },
     {
-     "text": "For every five Models in this Unit, one Procurant with Jump Pack in this Unit may:",
+     "text": "For every five Models in this Unit, one Procurant with Jump Pack in this Unit may: have its chainsword exchanged for one power fist for +15 Points per Model; have its bolt pistol exchanged for one hand flamer for +10 Points per Model, one plasma pistol for +15 Points per Model or one warpfire pistol for +15 Points per Model.",
      "max": {
       "per": 5
      },
      "choices": [
       {
-       "name": "Have its chainsword exchanged for one power fist for",
-       "points": 15
+       "name": "Power fist",
+       "points": 15,
+       "replaces": [
+        "Chainsword"
+       ]
       },
       {
-       "name": "Have its bolt pistol exchanged for one hand flamer for",
-       "points": 10
+       "name": "Hand flamer",
+       "points": 10,
+       "replaces": [
+        "Bolt pistol"
+       ]
       },
       {
-       "name": "Have its bolt pistol exchanged for one plasma pistol for",
-       "points": 15
+       "name": "Plasma pistol",
+       "points": 15,
+       "replaces": [
+        "Bolt pistol"
+       ]
       },
       {
-       "name": "Have its bolt pistol exchanged for one warpfire pistol for",
-       "points": 15
+       "name": "Warpfire pistol",
+       "points": 15,
+       "replaces": [
+        "Bolt pistol"
+       ]
+      }
+     ],
+     "models": [
+      "Procurant with Jump Pack"
+     ]
+    },
+    {
+     "text": "For every 5 Models in this Unit, 1 Procurant with Jump Pack may be replaced with 1 Procurator with Jump Pack for +20 Points per Model.",
+     "max": {
+      "per": 5
+     },
+     "models": [
+      "Procurant with Jump Pack"
+     ],
+     "choices": [
+      {
+       "name": "Procurator with Jump Pack",
+       "points": 20,
+       "upgradeModel": "Procurator with Jump Pack"
       }
      ]
     }
    ],
    "army": "la",
    "legacy": true,
-   "source": "Legacies of the Age of Darkness v1.1 (EN)"
+   "source": "Legacies of the Age of Darkness v1.1 (EN)",
+   "extra": {
+    "model": "Procurant with Jump Pack",
+    "max": 10,
+    "points": 20
+   }
   },
   {
    "id": "cassian-dracos-reborn",
@@ -11512,7 +13073,7 @@
      "count": 1
     },
     {
-     "name": "Adherents",
+     "name": "Adherent",
      "count": 4
     }
    ],
@@ -11579,7 +13140,13 @@
     {
      "text": "The Advocate in this Unit may have its chainsword exchanged for one item from the Legion Sergeant Melee Weapons list.",
      "max": 1,
-     "list": "Armes de Mêlée de Sergent de Légion"
+     "list": "Armes de Mêlée de Sergent de Légion",
+     "replaces": [
+      "Chainsword"
+     ],
+     "models": [
+      "Advocate"
+     ]
     },
     {
      "text": "For every five models in this Unit, one Adherent in this Unit may have its combi-flamer exchanged for one forge-crafted heavy flamer for +10 Points per Model.",
@@ -11591,6 +13158,9 @@
        "name": "Forge-crafted heavy flamer",
        "points": 10
       }
+     ],
+     "replaces": [
+      "Combi-flamer"
      ]
     },
     {
@@ -11601,6 +13171,9 @@
        "name": "Melta bombs",
        "points": 10
       }
+     ],
+     "models": [
+      "Advocate"
      ]
     },
     {
@@ -11611,18 +13184,29 @@
        "name": "Vexilla",
        "points": 10
       }
+     ],
+     "models": [
+      "Adherent"
      ]
     },
     {
      "text": "Up to two Adherents in this Unit may have one item each from the Legion Equipment list selected for them.",
      "max": 2,
      "each": true,
-     "list": "Équipement de Légion"
+     "list": "Équipement de Légion",
+     "models": [
+      "Adherent"
+     ]
     }
    ],
    "army": "la",
    "legacy": true,
-   "source": "Legacies of the Age of Darkness v1.1 (EN)"
+   "source": "Legacies of the Age of Darkness v1.1 (EN)",
+   "extra": {
+    "model": "Adherent",
+    "max": 5,
+    "points": 15
+   }
   },
   {
    "id": "salamanders-sanctifier-squad",
@@ -11637,7 +13221,7 @@
      "count": 1
     },
     {
-     "name": "Sanctifiers",
+     "name": "Sanctifier",
      "count": 4
     }
    ],
@@ -11717,6 +13301,10 @@
        "name": "Two hand flamers",
        "points": 10
       }
+     ],
+     "replaces": [
+      "Bolter",
+      "Bolt pistol"
      ]
     },
     {
@@ -11729,6 +13317,12 @@
        "name": "Obsidite rotor cannon",
        "points": 10
       }
+     ],
+     "replaces": [
+      "Bolter"
+     ],
+     "models": [
+      "Sanctifier"
      ]
     },
     {
@@ -11736,7 +13330,10 @@
      "max": {
       "per": 5
      },
-     "list": "Armes de Mêlée de Sergent de Légion"
+     "list": "Armes de Mêlée de Sergent de Légion",
+     "replaces": [
+      "Chainsword"
+     ]
     },
     {
      "text": "The Consecrator in this Unit may have its bolter and bolt pistol exchanged for two forge-crafted hand flamers for +15 Points.",
@@ -11746,12 +13343,25 @@
        "name": "Forge-crafted hand flamers",
        "points": 15
       }
+     ],
+     "replaces": [
+      "Bolter",
+      "Bolt pistol"
+     ],
+     "models": [
+      "Consecrator"
      ]
     },
     {
      "text": "The Consecrator in this Unit may have its chainsword exchanged for one item from the Legion Sergeant Melee Weapons list.",
      "max": 1,
-     "list": "Armes de Mêlée de Sergent de Légion"
+     "list": "Armes de Mêlée de Sergent de Légion",
+     "replaces": [
+      "Chainsword"
+     ],
+     "models": [
+      "Consecrator"
+     ]
     },
     {
      "text": "One Sanctifier in this Unit may have one vexilla selected for it for +10 Points.",
@@ -11761,13 +13371,19 @@
        "name": "Vexilla",
        "points": 10
       }
+     ],
+     "models": [
+      "Sanctifier"
      ]
     },
     {
      "text": "Up to two Sanctifiers in this Unit may have one item each from the Legion Equipment list selected for them.",
      "max": 2,
      "each": true,
-     "list": "Équipement de Légion"
+     "list": "Équipement de Légion",
+     "models": [
+      "Sanctifier"
+     ]
     },
     {
      "text": "Every Model in the Unit may have melta bombs selected for them for +25 Points.",
@@ -11783,7 +13399,12 @@
    ],
    "army": "la",
    "legacy": true,
-   "source": "Legacies of the Age of Darkness v1.1 (EN)"
+   "source": "Legacies of the Age of Darkness v1.1 (EN)",
+   "extra": {
+    "model": "Sanctifier",
+    "max": 5,
+    "points": 16
+   }
   },
   {
    "id": "raven-guard-deliverers-squad",
@@ -11799,7 +13420,7 @@
      "count": 1
     },
     {
-     "name": "Deliverers",
+     "name": "Deliverer",
      "count": 4
     }
    ],
@@ -11882,6 +13503,9 @@
        "name": "Reaper autocannon",
        "points": 15
       }
+     ],
+     "replaces": [
+      "Combi-bolter"
      ]
     },
     {
@@ -11896,12 +13520,18 @@
        "name": "Chainfist",
        "points": 10
       }
+     ],
+     "replaces": [
+      "Power weapon"
      ]
     },
     {
      "text": "Any Model in this Unit may have its combi- bolter exchanged for one item from the Legion Combi-weapons list.",
      "max": "models",
-     "list": "Armes Combinées de Légion"
+     "list": "Armes Combinées de Légion",
+     "replaces": [
+      "Combi-bolter"
+     ]
     },
     {
      "text": "Any Model in this Unit may have its combi-bolter and power weapon exchanged for one pair of Raven's Talons for +10 Points per Model.",
@@ -11911,12 +13541,21 @@
        "name": "Pair of Raven's Talons",
        "points": 10
       }
+     ],
+     "replaces": [
+      "Combi-bolter",
+      "Power weapon"
      ]
     }
    ],
    "army": "la",
    "legacy": true,
-   "source": "Legacies of the Age of Darkness v1.1 (EN)"
+   "source": "Legacies of the Age of Darkness v1.1 (EN)",
+   "extra": {
+    "model": "Deliverer",
+    "max": 10,
+    "points": 40
+   }
   },
   {
    "id": "autilon-skorr",
@@ -11988,7 +13627,7 @@
      "count": 1
     },
     {
-     "name": "Disruptors",
+     "name": "Disruptor",
      "count": 4
     }
    ],
@@ -12055,7 +13694,10 @@
     {
      "text": "The Principal in this Unit may have one item from the Legion Sergeant Melee Weapons list selected for it.",
      "max": 1,
-     "list": "Armes de Mêlée de Sergent de Légion"
+     "list": "Armes de Mêlée de Sergent de Légion",
+     "models": [
+      "Principal"
+     ]
     },
     {
      "text": "Any Model in this Unit may have its banestrike shotgun exchanged for one Nemesis bolter for +10 Points per Model.",
@@ -12065,6 +13707,9 @@
        "name": "Nemesis bolter",
        "points": 10
       }
+     ],
+     "replaces": [
+      "Banestrike shotgun"
      ]
     },
     {
@@ -12091,7 +13736,12 @@
    ],
    "army": "la",
    "legacy": true,
-   "source": "Legacies of the Age of Darkness v1.1 (EN)"
+   "source": "Legacies of the Age of Darkness v1.1 (EN)",
+   "extra": {
+    "model": "Disruptor",
+    "max": 5,
+    "points": 25
+   }
   },
   {
    "id": "nathaniel-garro",
@@ -12283,7 +13933,12 @@
    "army": "la",
    "legacy": true,
    "source": "The Legiones Inductii – Legacies v1.1 (EN)",
-   "noPrime": true
+   "noPrime": true,
+   "extra": {
+    "model": "Inductii",
+    "max": 10,
+    "points": 9
+   }
   },
   {
    "id": "emperor-s-children-inductii-squad",
@@ -12340,17 +13995,22 @@
    "options": [
     {
      "text": "Any Inductii in this Unit may have its chainsword exchanged for one charnabal sabre for +5 Points per Model.",
-     "max": 1,
+     "max": "models",
      "choices": [
       {
        "name": "Charnabal sabre",
        "points": 5
       }
+     ],
+     "replaces": [
+      "Chainsword"
      ]
     },
     {
      "text": "For every four Models in this Unit, one Inductii in this Unit may have its chainsword exchanged for one of the following:",
-     "max": 1,
+     "max": {
+      "per": 4
+     },
      "choices": [
       {
        "name": "Heavy chainsword",
@@ -12360,12 +14020,20 @@
        "name": "Power weapon",
        "points": 10
       }
+     ],
+     "replaces": [
+      "Chainsword"
      ]
     },
     {
      "text": "For every four Models in this Unit, one Inductii in this Unit may have its bolt pistol exchanged for one item from the Legion Pistols list.",
-     "max": 1,
-     "list": "Pistolets de Légion"
+     "max": {
+      "per": 4
+     },
+     "list": "Pistolets de Légion",
+     "replaces": [
+      "Bolt pistol"
+     ]
     },
     {
      "text": "Up to two Inductii in this Unit may each have one item from the Legion Equipment list selected for them.",
@@ -12377,7 +14045,12 @@
    "army": "la",
    "legacy": true,
    "source": "The Legiones Inductii – Legacies v1.1 (EN)",
-   "noPrime": true
+   "noPrime": true,
+   "extra": {
+    "model": "Inductii",
+    "max": 10,
+    "points": 9
+   }
   },
   {
    "id": "iron-warriors-inductii-squad",
@@ -12441,6 +14114,9 @@
        "name": "Astartes shotgun",
        "points": 2
       }
+     ],
+     "replaces": [
+      "Bolter"
      ]
     },
     {
@@ -12471,13 +14147,21 @@
        "name": "Chain Bayonet",
        "points": 2
       }
+     ],
+     "requires": [
+      "Bolter"
      ]
     }
    ],
    "army": "la",
    "legacy": true,
    "source": "The Legiones Inductii – Legacies v1.1 (EN)",
-   "noPrime": true
+   "noPrime": true,
+   "extra": {
+    "model": "Inductii",
+    "max": 10,
+    "points": 9
+   }
   },
   {
    "id": "white-scars-inductii-squad",
@@ -12541,11 +14225,17 @@
        "name": "Heavy chainsword",
        "points": 5
       }
+     ],
+     "replaces": [
+      "Chainsword",
+      "Bolt pistol"
      ]
     },
     {
      "text": "For every four Models in this Unit, one Inductii in this Unit may have its chainsword exchanged for one of the following:",
-     "max": 1,
+     "max": {
+      "per": 4
+     },
      "choices": [
       {
        "name": "Power weapon",
@@ -12555,12 +14245,20 @@
        "name": "Charnabal sabre",
        "points": 5
       }
+     ],
+     "replaces": [
+      "Chainsword"
      ]
     },
     {
      "text": "For every four Models in this Unit, one Inductii in this Unit may have its bolt pistol exchanged for one item from the Legion Pistols list.",
-     "max": 1,
-     "list": "Pistolets de Légion"
+     "max": {
+      "per": 4
+     },
+     "list": "Pistolets de Légion",
+     "replaces": [
+      "Bolt pistol"
+     ]
     },
     {
      "text": "One Inductii in this Unit may have one vexilla selected for it for +10 Points.",
@@ -12582,7 +14280,12 @@
    "army": "la",
    "legacy": true,
    "source": "The Legiones Inductii – Legacies v1.1 (EN)",
-   "noPrime": true
+   "noPrime": true,
+   "extra": {
+    "model": "Inductii",
+    "max": 10,
+    "points": 9
+   }
   },
   {
    "id": "space-wolves-inductii-squad",
@@ -12646,21 +14349,29 @@
        "name": "Combat shield",
        "points": 2
       }
+     ],
+     "replaces": [
+      "Bolt pistol"
      ]
     },
     {
      "text": "Any Inductii in this Unit may have its chainsword exchanged for one chainaxe for Free.",
-     "max": 1,
+     "max": "models",
      "choices": [
       {
        "name": "Chainaxe",
        "points": 0
       }
+     ],
+     "replaces": [
+      "Chainsword"
      ]
     },
     {
      "text": "For every four Models in this Unit, one Inductii in this Unit may have its chainsword exchanged for one of the following:",
-     "max": 1,
+     "max": {
+      "per": 4
+     },
      "choices": [
       {
        "name": "Heavy chainsword",
@@ -12674,12 +14385,20 @@
        "name": "Charnabal sabre",
        "points": 5
       }
+     ],
+     "replaces": [
+      "Chainsword"
      ]
     },
     {
      "text": "For every four Models in this Unit, one Inductii in this Unit may have its bolt pistol exchanged for one item from the Legion Pistols list.",
-     "max": 1,
-     "list": "Pistolets de Légion"
+     "max": {
+      "per": 4
+     },
+     "list": "Pistolets de Légion",
+     "replaces": [
+      "Bolt pistol"
+     ]
     },
     {
      "text": "One Inductii in this Unit may have one vexilla selected for it for +10 Points.",
@@ -12701,7 +14420,12 @@
    "army": "la",
    "legacy": true,
    "source": "The Legiones Inductii – Legacies v1.1 (EN)",
-   "noPrime": true
+   "noPrime": true,
+   "extra": {
+    "model": "Inductii",
+    "max": 10,
+    "points": 9
+   }
   },
   {
    "id": "imperial-fists-inductii-squad",
@@ -12770,6 +14494,9 @@
        "name": "Autocannon",
        "points": 15
       }
+     ],
+     "replaces": [
+      "Bolter"
      ]
     },
     {
@@ -12800,13 +14527,21 @@
        "name": "Chain bayonet",
        "points": 2
       }
+     ],
+     "requires": [
+      "Bolter"
      ]
     }
    ],
    "army": "la",
    "legacy": true,
    "source": "The Legiones Inductii – Legacies v1.1 (EN)",
-   "noPrime": true
+   "noPrime": true,
+   "extra": {
+    "model": "Inductii",
+    "max": 10,
+    "points": 9
+   }
   },
   {
    "id": "night-lords-inductii-squad",
@@ -12863,8 +14598,13 @@
    "options": [
     {
      "text": "For every four Models in this Unit, one Inductii in this Unit may have its bolt pistol exchanged for one item from the Legion Pistols list.",
-     "max": 1,
-     "list": "Pistolets de Légion"
+     "max": {
+      "per": 4
+     },
+     "list": "Pistolets de Légion",
+     "replaces": [
+      "Bolt pistol"
+     ]
     },
     {
      "text": "One Inductii in this Unit may have one vexilla selected for it for +10 Points.",
@@ -12886,7 +14626,12 @@
    "army": "la",
    "legacy": true,
    "source": "The Legiones Inductii – Legacies v1.1 (EN)",
-   "noPrime": true
+   "noPrime": true,
+   "extra": {
+    "model": "Inductii",
+    "max": 10,
+    "points": 9
+   }
   },
   {
    "id": "blood-angels-inductii-squad",
@@ -12949,11 +14694,17 @@
        "name": "Heavy chainaxe",
        "points": 5
       }
+     ],
+     "replaces": [
+      "Chainsword",
+      "Bolt pistol"
      ]
     },
     {
      "text": "For every four Models in this Unit, one Inductii in this Unit may have its chainsword exchanged for one of the following:",
-     "max": 1,
+     "max": {
+      "per": 4
+     },
      "choices": [
       {
        "name": "Heavy chainsword",
@@ -12967,12 +14718,20 @@
        "name": "Charnabal sabre",
        "points": 5
       }
+     ],
+     "replaces": [
+      "Chainsword"
      ]
     },
     {
      "text": "For every four Models in this Unit, one Inductii in this Unit may have its bolt pistol exchanged for one item from the Legion Pistols list.",
-     "max": 1,
-     "list": "Pistolets de Légion"
+     "max": {
+      "per": 4
+     },
+     "list": "Pistolets de Légion",
+     "replaces": [
+      "Bolt pistol"
+     ]
     },
     {
      "text": "One Inductii in this Unit may have one vexilla selected for it for +10 Points.",
@@ -12994,7 +14753,12 @@
    "army": "la",
    "legacy": true,
    "source": "The Legiones Inductii – Legacies v1.1 (EN)",
-   "noPrime": true
+   "noPrime": true,
+   "extra": {
+    "model": "Inductii",
+    "max": 10,
+    "points": 9
+   }
   },
   {
    "id": "iron-hands-inductii-squad",
@@ -13088,13 +14852,21 @@
        "name": "Chain bayonet",
        "points": 2
       }
+     ],
+     "requires": [
+      "Bolter"
      ]
     }
    ],
    "army": "la",
    "legacy": true,
    "source": "The Legiones Inductii – Legacies v1.1 (EN)",
-   "noPrime": true
+   "noPrime": true,
+   "extra": {
+    "model": "Inductii",
+    "max": 10,
+    "points": 9
+   }
   },
   {
    "id": "world-eaters-inductii-squad",
@@ -13159,11 +14931,17 @@
        "name": "Heavy chainaxe",
        "points": 5
       }
+     ],
+     "replaces": [
+      "Chainsword",
+      "Bolt pistol"
      ]
     },
     {
      "text": "For every four Models in this Unit, one Inductii in this Unit may have its chainsword exchanged for one of the following:",
-     "max": 1,
+     "max": {
+      "per": 4
+     },
      "choices": [
       {
        "name": "Heavy chainsword",
@@ -13177,12 +14955,20 @@
        "name": "Charnabal sabre",
        "points": 5
       }
+     ],
+     "replaces": [
+      "Chainsword"
      ]
     },
     {
      "text": "For every four Models in this Unit, one Inductii in this Unit may have its bolt pistol exchanged for one item from the Legion Pistols list.",
-     "max": 1,
-     "list": "Pistolets de Légion"
+     "max": {
+      "per": 4
+     },
+     "list": "Pistolets de Légion",
+     "replaces": [
+      "Bolt pistol"
+     ]
     },
     {
      "text": "One Inductii in this Unit may have one vexilla selected for it for +10 Points.",
@@ -13204,7 +14990,12 @@
    "army": "la",
    "legacy": true,
    "source": "The Legiones Inductii – Legacies v1.1 (EN)",
-   "noPrime": true
+   "noPrime": true,
+   "extra": {
+    "model": "Inductii",
+    "max": 10,
+    "points": 9
+   }
   },
   {
    "id": "ultramarines-inductii-squad",
@@ -13313,22 +15104,40 @@
        "name": "Chain bayonet",
        "points": 2
       }
+     ],
+     "requires": [
+      "Bolter"
      ]
     },
     {
      "text": "The Evocatus Intendant in this Unit may have its bolter and/or bolt pistol exchanged for one item each from the Legion Sergeant Melee Weapons list.",
-     "max": 1,
-     "list": "Armes de Mêlée de Sergent de Légion"
+     "max": 2,
+     "list": "Armes de Mêlée de Sergent de Légion",
+     "needsUpgrade": "Evocatus Intendant",
+     "replaces": [
+      [
+       "Bolter",
+       "Bolt pistol"
+      ]
+     ]
     },
     {
      "text": "The Evocatus Intendant in this Unit may have its bolt pistol exchanged for one item from the Legion Pistols list.",
      "max": 1,
-     "list": "Pistolets de Légion"
+     "list": "Pistolets de Légion",
+     "replaces": [
+      "Bolt pistol"
+     ],
+     "needsUpgrade": "Evocatus Intendant"
     },
     {
      "text": "The Evocatus Intendant in this Unit may have its bolter exchanged for one item from the Legion Combi-weapons list.",
      "max": 1,
-     "list": "Armes Combinées de Légion"
+     "list": "Armes Combinées de Légion",
+     "replaces": [
+      "Bolter"
+     ],
+     "needsUpgrade": "Evocatus Intendant"
     },
     {
      "text": "The Evocatus Intendant in this Unit may have melta bombs selected for it for +10 Points.",
@@ -13337,6 +15146,21 @@
       {
        "name": "Melta bombs",
        "points": 10
+      }
+     ],
+     "needsUpgrade": "Evocatus Intendant"
+    },
+    {
+     "text": "One Inductii in this Unit may be replaced with an Evocatus Intendant for +15 Points.",
+     "max": 1,
+     "models": [
+      "Inductii"
+     ],
+     "choices": [
+      {
+       "name": "Evocatus Intendant",
+       "points": 15,
+       "upgradeModel": "Evocatus Intendant"
       }
      ]
     }
@@ -13418,6 +15242,9 @@
        "name": "Rotor cannon",
        "points": 10
       }
+     ],
+     "replaces": [
+      "Bolter"
      ]
     },
     {
@@ -13448,13 +15275,21 @@
        "name": "Chain bayonet",
        "points": 2
       }
+     ],
+     "requires": [
+      "Bolter"
      ]
     }
    ],
    "army": "la",
    "legacy": true,
    "source": "The Legiones Inductii – Legacies v1.1 (EN)",
-   "noPrime": true
+   "noPrime": true,
+   "extra": {
+    "model": "Inductii",
+    "max": 10,
+    "points": 9
+   }
   },
   {
    "id": "thousand-sons-inductii-squad",
@@ -13513,12 +15348,17 @@
    "options": [
     {
      "text": "For every four Models in this Unit, one Inductii in this Unit may have its bolter exchanged for one volkite caliver for +10 Points per Model.",
-     "max": 1,
+     "max": {
+      "per": 4
+     },
      "choices": [
       {
        "name": "Volkite caliver",
        "points": 10
       }
+     ],
+     "replaces": [
+      "Bolter"
      ]
     },
     {
@@ -13549,13 +15389,21 @@
        "name": "Chain bayonet",
        "points": 2
       }
+     ],
+     "requires": [
+      "Bolter"
      ]
     }
    ],
    "army": "la",
    "legacy": true,
    "source": "The Legiones Inductii – Legacies v1.1 (EN)",
-   "noPrime": true
+   "noPrime": true,
+   "extra": {
+    "model": "Inductii",
+    "max": 10,
+    "points": 9
+   }
   },
   {
    "id": "sons-of-horus-inductii-squad",
@@ -13612,17 +15460,22 @@
    "options": [
     {
      "text": "Any Inductii in this Unit may have its chainsword exchanged for one chainaxe for Free.",
-     "max": 1,
+     "max": "models",
      "choices": [
       {
        "name": "Chainaxe",
        "points": 0
       }
+     ],
+     "replaces": [
+      "Chainsword"
      ]
     },
     {
      "text": "For every four Models in this Unit, one Inductii in this Unit may have its chainsword exchanged for one of the following:",
-     "max": 1,
+     "max": {
+      "per": 4
+     },
      "choices": [
       {
        "name": "Heavy chainsword",
@@ -13636,12 +15489,20 @@
        "name": "Charnabal sabre",
        "points": 5
       }
+     ],
+     "replaces": [
+      "Chainsword"
      ]
     },
     {
      "text": "For every four Models in this Unit, one Inductii in this Unit may have its bolt pistol exchanged for one item from the Legion Pistols list.",
-     "max": 1,
-     "list": "Pistolets de Légion"
+     "max": {
+      "per": 4
+     },
+     "list": "Pistolets de Légion",
+     "replaces": [
+      "Bolt pistol"
+     ]
     },
     {
      "text": "One Inductii in this Unit may have one vexilla selected for it for +10 Points.",
@@ -13663,7 +15524,12 @@
    "army": "la",
    "legacy": true,
    "source": "The Legiones Inductii – Legacies v1.1 (EN)",
-   "noPrime": true
+   "noPrime": true,
+   "extra": {
+    "model": "Inductii",
+    "max": 10,
+    "points": 9
+   }
   },
   {
    "id": "word-bearers-inductii-squad",
@@ -13726,11 +15592,17 @@
        "name": "Heavy chainsword",
        "points": 5
       }
+     ],
+     "replaces": [
+      "Chainsword",
+      "Bolt pistol"
      ]
     },
     {
      "text": "For every four Models in this Unit, one Inductii in this Unit may have its chainsword exchanged for one of the following:",
-     "max": 1,
+     "max": {
+      "per": 4
+     },
      "choices": [
       {
        "name": "Power weapon",
@@ -13740,12 +15612,20 @@
        "name": "Charnabal sabre",
        "points": 5
       }
+     ],
+     "replaces": [
+      "Chainsword"
      ]
     },
     {
      "text": "For every four Models in this Unit, one Inductii in this Unit may have its bolt pistol exchanged for one item from the Legion Pistols list.",
-     "max": 1,
-     "list": "Pistolets de Légion"
+     "max": {
+      "per": 4
+     },
+     "list": "Pistolets de Légion",
+     "replaces": [
+      "Bolt pistol"
+     ]
     },
     {
      "text": "One Inductii in this Unit may have one vexilla selected for it for +10 Points.",
@@ -13767,7 +15647,12 @@
    "army": "la",
    "legacy": true,
    "source": "The Legiones Inductii – Legacies v1.1 (EN)",
-   "noPrime": true
+   "noPrime": true,
+   "extra": {
+    "model": "Inductii",
+    "max": 10,
+    "points": 9
+   }
   },
   {
    "id": "salamanders-inductii-squad",
@@ -13850,6 +15735,10 @@
        "name": "Heavy chainsword",
        "points": 5
       }
+     ],
+     "replaces": [
+      "Chainsword",
+      "Bolt pistol"
      ]
     },
     {
@@ -13857,7 +15746,10 @@
      "max": {
       "per": 5
      },
-     "list": "Armes de Mêlée de Sergent de Légion"
+     "list": "Armes de Mêlée de Sergent de Légion",
+     "replaces": [
+      "Chainsword"
+     ]
     },
     {
      "text": "For every ten Models in this Unit, one Inductii in this Unit may have its chainsword exchanged for one of the following:",
@@ -13877,6 +15769,9 @@
        "name": "Disintegrator blaster",
        "points": 10
       }
+     ],
+     "replaces": [
+      "Chainsword"
      ]
     },
     {
@@ -13897,13 +15792,24 @@
     },
     {
      "text": "The Inductii Master in this Unit may have its chainsword and/or bolt pistol exchanged for one item each from the Legion Sergeant Melee Weapons list.",
-     "max": 1,
-     "list": "Armes de Mêlée de Sergent de Légion"
+     "max": 2,
+     "list": "Armes de Mêlée de Sergent de Légion",
+     "needsUpgrade": "Inductii Master",
+     "replaces": [
+      [
+       "Chainsword",
+       "Bolt pistol"
+      ]
+     ]
     },
     {
      "text": "The Inductii Master in this Unit may have its bolt pistol exchanged for one item from the Legion Pistols list.",
      "max": 1,
-     "list": "Pistolets de Légion"
+     "list": "Pistolets de Légion",
+     "replaces": [
+      "Bolt pistol"
+     ],
+     "needsUpgrade": "Inductii Master"
     },
     {
      "text": "The Inductii Master in this Unit may have its bolt pistol and chainsword exchanged for one pair of lightning claws for +10 Points.",
@@ -13913,7 +15819,12 @@
        "name": "Pair of lightning claws",
        "points": 10
       }
-     ]
+     ],
+     "replaces": [
+      "Bolt pistol",
+      "Chainsword"
+     ],
+     "needsUpgrade": "Inductii Master"
     },
     {
      "text": "The Inductii Master in this Unit may have melta bombs selected for it for +10 Points.",
@@ -13923,13 +15834,33 @@
        "name": "Melta bombs",
        "points": 10
       }
+     ],
+     "needsUpgrade": "Inductii Master"
+    },
+    {
+     "text": "One Inductii in this Unit may be replaced with an Inductii Master for +15 Points.",
+     "max": 1,
+     "models": [
+      "Inductii"
+     ],
+     "choices": [
+      {
+       "name": "Inductii Master",
+       "points": 15,
+       "upgradeModel": "Inductii Master"
+      }
      ]
     }
    ],
    "army": "la",
    "legacy": true,
    "source": "The Legiones Inductii – Legacies v1.1 (EN)",
-   "noPrime": true
+   "noPrime": true,
+   "extra": {
+    "model": "Inductii",
+    "max": 10,
+    "points": 9
+   }
   },
   {
    "id": "raven-guard-inductii-squad",
@@ -13994,6 +15925,9 @@
        "name": "Nemesis bolter",
        "points": 5
       }
+     ],
+     "replaces": [
+      "Bolter"
      ]
     },
     {
@@ -14024,13 +15958,21 @@
        "name": "Chain bayonet",
        "points": 2
       }
+     ],
+     "requires": [
+      "Bolter"
      ]
     }
    ],
    "army": "la",
    "legacy": true,
    "source": "The Legiones Inductii – Legacies v1.1 (EN)",
-   "noPrime": true
+   "noPrime": true,
+   "extra": {
+    "model": "Inductii",
+    "max": 10,
+    "points": 9
+   }
   },
   {
    "id": "alpha-legion-inductii-squad",
@@ -14090,7 +16032,10 @@
      "max": {
       "per": 5
      },
-     "list": "Armes Combinées de Légion"
+     "list": "Armes Combinées de Légion",
+     "replaces": [
+      "Bolter"
+     ]
     },
     {
      "text": "One Inductii in this Unit may have one vexilla selected for it for +10 Points.",
@@ -14120,13 +16065,21 @@
        "name": "Chain bayonet",
        "points": 2
       }
+     ],
+     "requires": [
+      "Bolter"
      ]
     }
    ],
    "army": "la",
    "legacy": true,
    "source": "The Legiones Inductii – Legacies v1.1 (EN)",
-   "noPrime": true
+   "noPrime": true,
+   "extra": {
+    "model": "Inductii",
+    "max": 10,
+    "points": 9
+   }
   },
   {
    "id": "endryd-haar",
@@ -14464,7 +16417,10 @@
       "points": 2
      }
     ],
-    "legacy": true
+    "legacy": true,
+    "requires": [
+     "Bolter"
+    ]
    }
   },
   {
@@ -14475,7 +16431,10 @@
     "text": "Any Model in this Unit may have its bolter exchanged for one item from the Legion Combi-weapons list.",
     "max": "models",
     "list": "Armes Combinées de Légion",
-    "legacy": true
+    "legacy": true,
+    "replaces": [
+     "Bolter"
+    ]
    }
   },
   {
@@ -14491,7 +16450,10 @@
       "points": 10
      }
     ],
-    "legacy": true
+    "legacy": true,
+    "models": [
+     "Compagnon de la Deathwing"
+    ]
    }
   },
   {
@@ -14507,7 +16469,10 @@
       "points": 10
      }
     ],
-    "legacy": true
+    "legacy": true,
+    "models": [
+     "Interemptor"
+    ]
    }
   },
   {
@@ -14519,7 +16484,10 @@
     "max": 2,
     "each": true,
     "list": "Équipement de Légion",
-    "legacy": true
+    "legacy": true,
+    "models": [
+     "Interemptor"
+    ]
    }
   },
   {
@@ -14540,7 +16508,10 @@
      }
     ],
     "unique": true,
-    "legacy": true
+    "legacy": true,
+    "models": [
+     "Préfet Interemptor"
+    ]
    }
   },
   {
@@ -14556,7 +16527,10 @@
       "points": 10
      }
     ],
-    "legacy": true
+    "legacy": true,
+    "replaces": [
+     "Espadon terranique"
+    ]
    }
   },
   {
@@ -14572,7 +16546,10 @@
       "points": 5
      }
     ],
-    "legacy": true
+    "legacy": true,
+    "models": [
+     "Champion Phénix"
+    ]
    }
   },
   {
@@ -14586,9 +16563,16 @@
      {
       "name": "Phoenix rapier",
       "points": 0
+     },
+     {
+      "name": "Power weapon",
+      "points": 0
      }
     ],
-    "legacy": true
+    "legacy": true,
+    "replaces": [
+     "Lame palatine"
+    ]
    }
   },
   {
@@ -14612,7 +16596,10 @@
       "points": 15
      }
     ],
-    "legacy": true
+    "legacy": true,
+    "models": [
+     "Orchestrateur"
+    ]
    }
   },
   {
@@ -14628,7 +16615,10 @@
       "points": 5
      }
     ],
-    "legacy": true
+    "legacy": true,
+    "models": [
+     "Maître de Siège"
+    ]
    }
   },
   {
@@ -14644,7 +16634,11 @@
       "points": 10
      }
     ],
-    "legacy": true
+    "legacy": true,
+    "replaces": [
+     "Combi-bolter",
+     "Gantelet énergétique"
+    ]
    }
   },
   {
@@ -14660,7 +16654,10 @@
       "points": 0
      }
     ],
-    "legacy": true
+    "legacy": true,
+    "replaces": [
+     "Gantelet énergétique"
+    ]
    }
   },
   {
@@ -14684,7 +16681,10 @@
       "points": 0
      }
     ],
-    "legacy": true
+    "legacy": true,
+    "replaces": [
+     "Épée énergétique"
+    ]
    }
   },
   {
@@ -14700,7 +16700,10 @@
       "points": 10
      }
     ],
-    "legacy": true
+    "legacy": true,
+    "models": [
+     "Cavalier de la Keshig"
+    ]
    }
   },
   {
@@ -14713,14 +16716,25 @@
     "choices": [
      {
       "name": "Combi-bolter and power weapon",
-      "points": 5
+      "points": 5,
+      "gives": [
+       "Combi-bolter",
+       "Power weapon"
+      ]
      },
      {
       "name": "Combi-bolter and power fist",
-      "points": 10
+      "points": 10,
+      "gives": [
+       "Combi-bolter",
+       "Power fist"
+      ]
      }
     ],
-    "legacy": true
+    "legacy": true,
+    "replaces": [
+     "Vouge énergétique"
+    ]
    }
   },
   {
@@ -14728,10 +16742,22 @@
    "unit": "keshig-d-ebene",
    "faction": "White Scars",
    "option": {
-    "text": "Any Model in this Unit which has had its power glaive exchanged for one combi-bolter and one power weapon, or combi-bolter and power fist, may have its combi-bolter ex…",
+    "text": "Any Model in this Unit which has had its power glaive exchanged for one combi-bolter and one power weapon, or combi-bolter and power fist, may have its combi-bolter exchanged for one volkite charger for Free or for one item from the Legion Combi-weapons list.",
     "max": "models",
     "list": "Armes Combinées de Légion",
-    "legacy": true
+    "legacy": true,
+    "replaces": [
+     "Combi-bolter"
+    ],
+    "requires": [
+     "Combi-bolter"
+    ],
+    "choices": [
+     {
+      "name": "Volkite charger",
+      "points": 0
+     }
+    ]
    }
   },
   {
@@ -14787,7 +16813,10 @@
       "points": 10
      }
     ],
-    "legacy": true
+    "legacy": true,
+    "replaces": [
+     "Hache de givre"
+    ]
    }
   },
   {
@@ -14816,7 +16845,10 @@
      }
     ],
     "list": "Armes Combinées de Légion",
-    "legacy": true
+    "legacy": true,
+    "replaces": [
+     "Combi-bolter"
+    ]
    }
   },
   {
@@ -14832,7 +16864,13 @@
       "points": 5
      }
     ],
-    "legacy": true
+    "legacy": true,
+    "models": [
+     "Thegn"
+    ],
+    "replaces": [
+     "Hache de givre"
+    ]
    }
   },
   {
@@ -14848,7 +16886,10 @@
       "points": 5
      }
     ],
-    "legacy": true
+    "legacy": true,
+    "models": [
+     "Thegn"
+    ]
    }
   },
   {
@@ -14864,7 +16905,10 @@
       "points": 10
      }
     ],
-    "legacy": true
+    "legacy": true,
+    "models": [
+     "Varagyr"
+    ]
    }
   },
   {
@@ -14880,7 +16924,10 @@
       "points": 5
      }
     ],
-    "legacy": true
+    "legacy": true,
+    "replaces": [
+     "Hache énergétique"
+    ]
    }
   },
   {
@@ -14902,7 +16949,10 @@
       "points": 10
      }
     ],
-    "legacy": true
+    "legacy": true,
+    "replaces": [
+     "Hache énergétique"
+    ]
    }
   },
   {
@@ -14944,7 +16994,7 @@
    "unit": "escouade-de-gardiens-du-phalanx",
    "faction": "Imperial Fists",
    "option": {
-    "text": "For every five Models in this Unit, one Phalanx Warder in this Unit may have one item from the Legion Combi- weapons list or one of the following selected for it:",
+    "text": "For every five Models in this Unit, one Phalanx Warder in this Unit may have one item from the Legion Combi-weapons list or one of the following selected for it:",
     "max": {
      "per": 5
     },
@@ -14967,7 +17017,10 @@
      }
     ],
     "list": "Armes Combinées de Légion",
-    "legacy": true
+    "legacy": true,
+    "models": [
+     "Gardien du Phalanx"
+    ]
    }
   },
   {
@@ -14979,11 +17032,14 @@
     "max": "models",
     "choices": [
      {
-      "name": "Page 171)",
+      "name": "Chainblade",
       "points": 5
      }
     ],
-    "legacy": true
+    "legacy": true,
+    "replaces": [
+     "Épée tronçonneuse"
+    ]
    }
   },
   {
@@ -14995,11 +17051,14 @@
     "max": "models",
     "choices": [
      {
-      "name": "Page 171)",
+      "name": "Chainblade",
       "points": 5
      }
     ],
-    "legacy": true
+    "legacy": true,
+    "replaces": [
+     "Épée tronçonneuse"
+    ]
    }
   },
   {
@@ -15015,7 +17074,11 @@
       "points": 10
      }
     ],
-    "legacy": true
+    "legacy": true,
+    "replaces": [
+     "Pistolet bolter",
+     "Épée tronçonneuse"
+    ]
    }
   },
   {
@@ -15049,7 +17112,13 @@
       "points": 5
      }
     ],
-    "legacy": true
+    "legacy": true,
+    "replaces": [
+     "Pistolet bolter"
+    ],
+    "models": [
+     "Rapace Nocturne"
+    ]
    }
   },
   {
@@ -15075,7 +17144,17 @@
       "points": 10
      }
     ],
-    "legacy": true
+    "legacy": true,
+    "replaces": [
+     "Bouclier énergétique modèle Coriolis"
+    ],
+    "models": [
+     "Paladin Écarlate"
+    ],
+    "supersedes": {
+     "index": 1,
+     "textStartsWith": "Un Paladin Écarlate par tranche de cinq"
+    }
    }
   },
   {
@@ -15095,7 +17174,13 @@
       "points": 10
      }
     ],
-    "legacy": true
+    "legacy": true,
+    "replaces": [
+     "Épée énergétique"
+    ],
+    "models": [
+     "Paladin Écarlate"
+    ]
    }
   },
   {
@@ -15111,7 +17196,10 @@
       "points": 5
      }
     ],
-    "legacy": true
+    "legacy": true,
+    "models": [
+     "Exemple Écarlate"
+    ]
    }
   },
   {
@@ -15139,7 +17227,10 @@
       "points": 20
      }
     ],
-    "legacy": true
+    "legacy": true,
+    "replaces": [
+     "Deux serpentines volkites"
+    ]
    }
   },
   {
@@ -15149,8 +17240,15 @@
    "option": {
     "text": "The Arch-Erelim in this Unit may have one of its volkite serpentas exchanged for one item from the Sergeant Melee Weapons list.",
     "max": 1,
-    "list": "Sergeant Melee Weapons",
-    "legacy": true
+    "list": "Armes de Mêlée de Sergent de Légion",
+    "legacy": true,
+    "models": [
+     "Archi-Erelim"
+    ],
+    "replaces": [
+     "Deux serpentines volkites"
+    ],
+    "partOf": true
    }
   },
   {
@@ -15166,7 +17264,14 @@
       "points": 0
      }
     ],
-    "legacy": true
+    "legacy": true,
+    "models": [
+     "Archi-Erelim"
+    ],
+    "replaces": [
+     "Deux serpentines volkites"
+    ],
+    "partOf": true
    }
   },
   {
@@ -15175,7 +17280,7 @@
    "faction": null,
    "option": {
     "text": "Any Gorgon Terminator in this Unit may have its artificer power axe exchanged for one of the following:",
-    "max": 1,
+    "max": "models",
     "choices": [
      {
       "name": "Lightning claw",
@@ -15190,7 +17295,13 @@
       "points": 10
      }
     ],
-    "legacy": true
+    "legacy": true,
+    "models": [
+     "Terminator Gorgone"
+    ],
+    "replaces": [
+     "Hache énergétique d'artificier"
+    ]
    }
   },
   {
@@ -15199,14 +17310,21 @@
    "faction": null,
    "option": {
     "text": "Any Gorgon Terminator in this Unit may have its artificer power axe and combi-bolter exchanged for one pair of lightning claws for +10 Points per Model.",
-    "max": 1,
+    "max": "models",
     "choices": [
      {
       "name": "Pair of lightning claws",
       "points": 10
      }
     ],
-    "legacy": true
+    "legacy": true,
+    "models": [
+     "Terminator Gorgone"
+    ],
+    "replaces": [
+     "Hache énergétique d'artificier",
+     "Combi-bolter"
+    ]
    }
   },
   {
@@ -15217,7 +17335,10 @@
     "text": "Any Model in this Unit may have its combi-bolter exchanged for one item from the Legion Combi-weapons list.",
     "max": "models",
     "list": "Armes Combinées de Légion",
-    "legacy": true
+    "legacy": true,
+    "replaces": [
+     "Combi-bolter"
+    ]
    }
   },
   {
@@ -15226,7 +17347,9 @@
    "faction": null,
    "option": {
     "text": "For every three Models in this Unit, one Gorgon Terminator in this Unit may have its combi-bolter exchanged for one of the following:",
-    "max": 1,
+    "max": {
+     "per": 3
+    },
     "choices": [
      {
       "name": "Heavy flamer",
@@ -15249,7 +17372,13 @@
       "points": 15
      }
     ],
-    "legacy": true
+    "legacy": true,
+    "models": [
+     "Terminator Gorgone"
+    ],
+    "replaces": [
+     "Combi-bolter"
+    ]
    }
   },
   {
@@ -15265,7 +17394,10 @@
       "points": 10
      }
     ],
-    "legacy": true
+    "legacy": true,
+    "models": [
+     "Terminator Gorgone"
+    ]
    }
   },
   {
@@ -15299,7 +17431,17 @@
       "points": 15
      }
     ],
-    "legacy": true
+    "legacy": true,
+    "replaces": [
+     "Bolter"
+    ],
+    "models": [
+     "Immortel"
+    ],
+    "supersedes": {
+     "index": 3,
+     "textStartsWith": "Un Immortel par tranche de cinq"
+    }
    }
   },
   {
@@ -15319,7 +17461,10 @@
       "points": 2
      }
     ],
-    "legacy": true
+    "legacy": true,
+    "replaces": [
+     "Bolter"
+    ]
    }
   },
   {
@@ -15332,10 +17477,17 @@
     "choices": [
      {
       "name": "Combi-bolter and one power axe",
-      "points": 0
+      "points": 0,
+      "gives": [
+       "Combi-bolter",
+       "Power axe"
+      ]
      }
     ],
-    "legacy": true
+    "legacy": true,
+    "replaces": [
+     "Haches énergétiques de Boucher"
+    ]
    }
   },
   {
@@ -15351,7 +17503,10 @@
       "points": 10
      }
     ],
-    "legacy": true
+    "legacy": true,
+    "replaces": [
+     "Haches énergétiques de Boucher"
+    ]
    }
   },
   {
@@ -15359,10 +17514,19 @@
    "unit": "bouchers-rouges",
    "faction": "World Eaters",
    "option": {
-    "text": "If the Devoured in this Unit has had its butcher power axes exchanged for a combi-bolter and power axe, it may have its combi-bolter exchanged for one item from the Le…",
+    "text": "If the Devoured in this Unit has had its butcher power axes exchanged for a combi-bolter and power axe, it may have its combi-bolter exchanged for one item from the Legion Combi-weapons list.",
     "max": 1,
     "list": "Armes Combinées de Légion",
-    "legacy": true
+    "legacy": true,
+    "models": [
+     "Dévoré"
+    ],
+    "replaces": [
+     "Combi-bolter"
+    ],
+    "requires": [
+     "Combi-bolter"
+    ]
    }
   },
   {
@@ -15378,7 +17542,10 @@
       "points": 5
      }
     ],
-    "legacy": true
+    "legacy": true,
+    "models": [
+     "Dévoré"
+    ]
    }
   },
   {
@@ -15410,7 +17577,16 @@
       "points": 5
      }
     ],
-    "legacy": true
+    "legacy": true,
+    "models": [
+     "Champion Saccageur"
+    ],
+    "requires": [
+     "Bolt pistol"
+    ],
+    "replaces": [
+     "Bolt pistol"
+    ]
    }
   },
   {
@@ -15430,7 +17606,13 @@
       "points": 15
      }
     ],
-    "legacy": true
+    "legacy": true,
+    "models": [
+     "Champion Saccageur"
+    ],
+    "replaces": [
+     "Arme des Caedere"
+    ]
    }
   },
   {
@@ -15446,7 +17628,10 @@
       "points": 10
      }
     ],
-    "legacy": true
+    "legacy": true,
+    "replaces": [
+     "Hache légatine"
+    ]
    }
   },
   {
@@ -15464,7 +17649,13 @@
       "points": 5
      }
     ],
-    "legacy": true
+    "legacy": true,
+    "replaces": [
+     "Épée énergétique"
+    ],
+    "models": [
+     "Prétorien"
+    ]
    }
   },
   {
@@ -15501,7 +17692,10 @@
       "points": 5
      }
     ],
-    "legacy": true
+    "legacy": true,
+    "models": [
+     "Chimiarque"
+    ]
    }
   },
   {
@@ -15517,7 +17711,10 @@
       "points": 5
      }
     ],
-    "legacy": true
+    "legacy": true,
+    "models": [
+     "Initiateur Sekhmet"
+    ]
    }
   },
   {
@@ -15539,7 +17736,10 @@
       "points": 10
      }
     ],
-    "legacy": true
+    "legacy": true,
+    "replaces": [
+     "Pistolet bolter"
+    ]
    }
   },
   {
@@ -15555,7 +17755,10 @@
       "points": 10
      }
     ],
-    "legacy": true
+    "legacy": true,
+    "replaces": [
+     "Canon à bolts Gravis"
+    ]
    }
   },
   {
@@ -15571,7 +17774,10 @@
       "points": 10
      }
     ],
-    "legacy": true
+    "legacy": true,
+    "replaces": [
+     "Combi-bolter"
+    ]
    }
   },
   {
@@ -15587,7 +17793,11 @@
       "points": 10
      }
     ],
-    "legacy": true
+    "legacy": true,
+    "replaces": [
+     "Pistolet bolter",
+     "Hache tronçonneuse"
+    ]
    }
   },
   {
@@ -15603,7 +17813,10 @@
       "points": 10
      }
     ],
-    "legacy": true
+    "legacy": true,
+    "models": [
+     "Chef Ravageur"
+    ]
    }
   },
   {
@@ -15629,7 +17842,10 @@
       "points": 15
      }
     ],
-    "legacy": true
+    "legacy": true,
+    "replaces": [
+     "Bolter"
+    ]
    }
   },
   {
@@ -15651,7 +17867,10 @@
       "points": 10
      }
     ],
-    "legacy": true
+    "legacy": true,
+    "replaces": [
+     "Serres souillées"
+    ]
    }
   },
   {
@@ -15667,7 +17886,13 @@
       "points": 5
      }
     ],
-    "legacy": true
+    "legacy": true,
+    "models": [
+     "Iconoclaste"
+    ],
+    "replaces": [
+     "Lance-flammes léger akkadique"
+    ]
    }
   },
   {
@@ -15695,7 +17920,10 @@
       "points": 0
      }
     ],
-    "legacy": true
+    "legacy": true,
+    "replaces": [
+     "Canon à feu Warp"
+    ]
    }
   },
   {
@@ -15719,7 +17947,10 @@
       "points": 5
      }
     ],
-    "legacy": true
+    "legacy": true,
+    "replaces": [
+     "Marteau Thunder forgé"
+    ]
    }
   },
   {
@@ -15727,7 +17958,7 @@
    "unit": "escouade-terminator-pyrodracs",
    "faction": "Salamanders",
    "option": {
-    "text": "Any Model in this Unit may have its Drakenscale exchanged for one combi-bolter for Free or for one item from the Legion Combi-weapons list. Any Model that has its Drak…",
+    "text": "Any Model in this Unit may have its Drakenscale exchanged for one combi-bolter for Free or for one item from the Legion Combi-weapons list. Any Model that has its Drakenscale exchanged for any Wargear option loses the Shield Trait.",
     "max": "models",
     "choices": [
      {
@@ -15736,7 +17967,11 @@
      }
     ],
     "list": "Armes Combinées de Légion",
-    "legacy": true
+    "legacy": true,
+    "replaces": [
+     "Écaille de Drac"
+    ],
+    "losesTrait": "Bouclier"
    }
   },
   {
@@ -15767,7 +18002,10 @@
     "text": "Any Model in this Unit may have its Nemesis bolter exchanged for one item from the Legion Combi-weapons list.",
     "max": "models",
     "list": "Armes Combinées de Légion",
-    "legacy": true
+    "legacy": true,
+    "replaces": [
+     "Bolter Némésis"
+    ]
    }
   },
   {
@@ -15776,7 +18014,9 @@
    "faction": "Raven Guard",
    "option": {
     "text": "For every three Models in this Unit, one Model in this Unit may have its Nemesis bolter exchanged for one of the following:",
-    "max": 1,
+    "max": {
+     "per": 3
+    },
     "choices": [
      {
       "name": "Plasma pistol",
@@ -15803,7 +18043,10 @@
       "points": 10
      }
     ],
-    "legacy": true
+    "legacy": true,
+    "replaces": [
+     "Bolter Némésis"
+    ]
    }
   },
   {
@@ -15819,7 +18062,10 @@
       "points": 5
      }
     ],
-    "legacy": true
+    "legacy": true,
+    "models": [
+     "Ombre Mor Deythan"
+    ]
    }
   },
   {
@@ -15830,7 +18076,10 @@
     "text": "Any Model in this Unit may have its banestrike combi-bolter exchanged for one item from the Legion Combi-weapons list.",
     "max": "models",
     "list": "Armes Combinées de Légion",
-    "legacy": true
+    "legacy": true,
+    "replaces": [
+     "Combi-bolter Banestrike"
+    ]
    }
   },
   {
@@ -15842,9 +18091,96 @@
     "max": 1,
     "choices": [
      {
-      "name": "Page 284)",
+      "name": "Inferno pistol",
       "points": 10
      }
+    ],
+    "legacy": true,
+    "models": [
+     "Primat Chasseur de Têtes"
+    ],
+    "replaces": [
+     "Pistolet bolter"
+    ]
+   }
+  },
+  {
+   "unitEN": "Red Butchers",
+   "unit": "bouchers-rouges",
+   "faction": "World Eaters",
+   "option": {
+    "text": "If the Devoured in this Unit has had its butcher power axes exchanged for a combi-bolter and power axe, it may have its combi-bolter and/or power axe exchanged for one of the following:",
+    "max": 2,
+    "choices": [
+     {
+      "name": "Power fist",
+      "points": 10
+     },
+     {
+      "name": "Chainfist",
+      "points": 5
+     },
+     {
+      "name": "Thunder hammer",
+      "points": 5
+     }
+    ],
+    "models": [
+     "Dévoré"
+    ],
+    "requires": [
+     [
+      "Combi-bolter",
+      "Power axe"
+     ]
+    ],
+    "replaces": [
+     [
+      "Combi-bolter",
+      "Power axe"
+     ]
+    ],
+    "legacy": true
+   }
+  },
+  {
+   "unitEN": "Firedrake Terminator Squad",
+   "unit": "escouade-terminator-pyrodracs",
+   "faction": "Salamanders",
+   "option": {
+    "text": "One Firedrake in this Unit may have its Drakenscale exchanged for one forge-crafted heavy flamer for +10 Points. Any Model that has its Drakenscale exchanged for any Wargear option loses the Shield Trait.",
+    "max": 1,
+    "choices": [
+     {
+      "name": "Forge-crafted heavy flamer",
+      "points": 10
+     }
+    ],
+    "models": [
+     "Pyrodrac"
+    ],
+    "replaces": [
+     "Écaille de Drac"
+    ],
+    "losesTrait": "Bouclier",
+    "legacy": true
+   }
+  },
+  {
+   "unitEN": "Dawnbreaker Cohort",
+   "unit": "cohorte-eoclaste",
+   "faction": "Blood Angels",
+   "option": {
+    "text": "Any Model in this Unit may have its falling-star power spear exchanged for one pair of equinox blades for Free.",
+    "max": "models",
+    "choices": [
+     {
+      "name": "Pair of equinox blades",
+      "points": 0
+     }
+    ],
+    "replaces": [
+     "Lance énergétique Étoile Filante"
     ],
     "legacy": true
    }
@@ -15865,6 +18201,9 @@
       "name": "Shrapnel pistol",
       "points": 2
      }
+    ],
+    "replaces": [
+     "Pistolet bolter"
     ]
    }
   },
@@ -15882,6 +18221,9 @@
       "name": "Shrapnel bolter",
       "points": 3
      }
+    ],
+    "replaces": [
+     "Bolter"
     ]
    }
   },
@@ -15899,6 +18241,9 @@
       "name": "Asphyx pistol",
       "points": 2
      }
+    ],
+    "replaces": [
+     "Pistolet bolter"
     ]
    }
   },
@@ -15916,6 +18261,49 @@
       "name": "Asphyx bolter",
       "points": 3
      }
+    ],
+    "replaces": [
+     "Bolter"
+    ]
+   }
+  },
+  {
+   "faction": "Iron Warriors",
+   "text": "In any Unit entirely composed of Models with the Iron Warriors Trait, every Model in that Unit may have its bolt pistol exchanged for one shrapnel pistol for +2 Points per Model.",
+   "ifWargear": "Bolt pistol",
+   "option": {
+    "text": "In any Unit entirely composed of Models with the Iron Warriors Trait, every Model in that Unit may have its bolt pistol exchanged for one shrapnel pistol for +2 Points per Model.",
+    "max": 1,
+    "all": true,
+    "legacy": true,
+    "choices": [
+     {
+      "name": "Shrapnel pistol",
+      "points": 2
+     }
+    ],
+    "replaces": [
+     "Bolt pistol"
+    ]
+   }
+  },
+  {
+   "faction": "Thousand Sons",
+   "text": "In any Unit entirely composed of Models with the Thousand Sons Trait, every Model in that Unit may have its bolt pistol exchanged for one asphyx pistol for +2 Points per Model.",
+   "ifWargear": "Bolt pistol",
+   "option": {
+    "text": "In any Unit entirely composed of Models with the Thousand Sons Trait, every Model in that Unit may have its bolt pistol exchanged for one asphyx pistol for +2 Points per Model.",
+    "max": 1,
+    "all": true,
+    "legacy": true,
+    "choices": [
+     {
+      "name": "Asphyx pistol",
+      "points": 2
+     }
+    ],
+    "replaces": [
+     "Bolt pistol"
     ]
    }
   }

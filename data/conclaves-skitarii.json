@@ -68,6 +68,9 @@
        "name": "Bâton foudroyant",
        "points": 15
       }
+     ],
+     "replaces": [
+      "Sceptre auctorite"
      ]
     },
     {
@@ -78,6 +81,9 @@
        "name": "Pistolet archéotech",
        "points": 5
       }
+     ],
+     "replaces": [
+      "Arme de poing volt"
      ]
     },
     {
@@ -109,20 +115,20 @@
    "name": "Corpus de Pérégrins de Combat Skitarii",
    "lang": "fr",
    "role": "TR",
-   "points": 0,
+   "points": 100,
    "page": 5,
    "models": [
     {
-     "name": "Ordinator Skitarii",
+     "name": "Ordinator",
      "count": 1
     },
     {
-     "name": "Pérégrins de Combat Skitarii",
+     "name": "Pérégrin de Combat",
      "count": 7
     }
    ],
    "extra": {
-    "model": "Pérégrins de Combat Skitarii",
+    "model": "Pérégrin de Combat",
     "max": 8,
     "points": 10
    },
@@ -202,9 +208,28 @@
        "points": 2
       }
      ]
+    },
+    {
+     "text": "L'Ordinator Skitarii de cette Unité peut échanger gratuitement son arquebuse volt contre une arme de poing volt et une épée énergétique.",
+     "max": 1,
+     "models": [
+      "Ordinator"
+     ],
+     "replaces": [
+      "Arquebuse volt"
+     ],
+     "choices": [
+      {
+       "name": "Arme de poing volt et épée énergétique",
+       "points": 0,
+       "gives": [
+        "Arme de poing volt",
+        "Épée énergétique"
+       ]
+      }
+     ]
     }
    ],
-   "optionsPending": true,
    "army": "skit",
    "source": "Conclaves Skitarii v1.0 (FR)"
   },
@@ -217,7 +242,7 @@
    "page": 6,
    "models": [
     {
-     "name": "Glaneurs",
+     "name": "Glaneur",
      "count": 10
     }
    ],
@@ -259,7 +284,12 @@
    ],
    "options": [],
    "army": "skit",
-   "source": "Conclaves Skitarii v1.0 (FR)"
+   "source": "Conclaves Skitarii v1.0 (FR)",
+   "extra": {
+    "model": "Glaneur",
+    "max": 20,
+    "points": 5
+   }
   },
   {
    "id": "skit-automate-stratos-vultarax-skitarii",
@@ -315,7 +345,6 @@
     "[Skitarii]"
    ],
    "options": [],
-   "optionsPending": true,
    "army": "skit",
    "source": "Conclaves Skitarii v1.0 (FR)"
   },
@@ -364,8 +393,18 @@
     "[Allégeance]",
     "[Skitarii]"
    ],
-   "options": [],
-   "optionsPending": true,
+   "options": [
+    {
+     "text": "Cette Figurine peut être dotée de jusqu'à deux missiles traqueurs de Coque (Avant) pour +5 Points par Arme.",
+     "max": 2,
+     "choices": [
+      {
+       "name": "Missile traqueur de Coque (Avant)",
+       "points": 5
+      }
+     ]
+    }
+   ],
    "army": "skit",
    "source": "Conclaves Skitarii v1.0 (FR)"
   },
@@ -415,8 +454,18 @@
     "[Allégeance]",
     "[Skitarii]"
    ],
-   "options": [],
-   "optionsPending": true,
+   "options": [
+    {
+     "text": "Cette Figurine peut être dotée de jusqu'à deux missiles traqueurs de Coque (Avant) pour +5 Points par Arme.",
+     "max": 2,
+     "choices": [
+      {
+       "name": "Missile traqueur de Coque (Avant)",
+       "points": 5
+      }
+     ]
+    }
+   ],
    "army": "skit",
    "source": "Conclaves Skitarii v1.0 (FR)"
   },
@@ -461,8 +510,41 @@
     "[Allégeance]",
     "[Skitarii]"
    ],
-   "options": [],
-   "optionsPending": true,
+   "options": [
+    {
+     "text": "Cette Figurine peut être dotée de jusqu'à deux missiles traqueurs de Coque (Avant) pour +5 Points par Arme.",
+     "max": 2,
+     "choices": [
+      {
+       "name": "Missile traqueur de Coque (Avant)",
+       "points": 5
+      }
+     ]
+    },
+    {
+     "text": "Cette Figurine peut être dotée de deux arquebuses volkites Latérales pour +15 Points.",
+     "max": 1,
+     "choices": [
+      {
+       "name": "Deux arquebuses volkites Latérales",
+       "points": 15
+      }
+     ]
+    },
+    {
+     "text": "Cette Figurine peut échanger gratuitement son canon à foudre d'Axe Central contre un éclateur à irradiation d'Axe Central.",
+     "max": 1,
+     "replaces": [
+      "Canon à foudre d'Axe Central"
+     ],
+     "choices": [
+      {
+       "name": "Éclateur à irradiation d'Axe Central",
+       "points": 0
+      }
+     ]
+    }
+   ],
    "army": "skit",
    "source": "Conclaves Skitarii v1.0 (FR)"
   },
@@ -517,9 +599,18 @@
        "points": 15
       }
      ]
+    },
+    {
+     "text": "Cette Figurine peut être dotée de jusqu'à deux missiles traqueurs de Coque (Avant) pour +5 Points par Arme.",
+     "max": 2,
+     "choices": [
+      {
+       "name": "Missile traqueur de Coque (Avant)",
+       "points": 5
+      }
+     ]
     }
    ],
-   "optionsPending": true,
    "army": "skit",
    "source": "Conclaves Skitarii v1.0 (FR)"
   }

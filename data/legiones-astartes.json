@@ -947,7 +947,13 @@
        "points": 15
       }
      ],
-     "list": "Équipement d'Officier de Légion"
+     "list": "Équipement d'Officier de Légion",
+     "replaces": [
+      [
+       "Bolter",
+       "Pistolet bolter"
+      ]
+     ]
     },
     {
      "text": "Remplacer le bolter",
@@ -962,7 +968,10 @@
        "points": 2
       }
      ],
-     "list": "Armes Combinées de Légion"
+     "list": "Armes Combinées de Légion",
+     "replaces": [
+      "Bolter"
+     ]
     },
     {
      "text": "Remplacer le bolter et le pistolet bolter",
@@ -972,6 +981,10 @@
        "name": "Paire de griffes Lightning",
        "points": 20
       }
+     ],
+     "replaces": [
+      "Bolter",
+      "Pistolet bolter"
      ]
     },
     {
@@ -996,6 +1009,9 @@
        "name": "Baïonnette tronçonneuse",
        "points": 2
       }
+     ],
+     "requires": [
+      "Bolter"
      ]
     },
     {
@@ -1099,7 +1115,10 @@
        "points": 0
       }
      ],
-     "list": "Armes Combinées de Légion"
+     "list": "Armes Combinées de Légion",
+     "replaces": [
+      "Combi-bolter"
+     ]
     },
     {
      "text": "Remplacer l'arme énergétique",
@@ -1110,7 +1129,10 @@
        "points": 15
       }
      ],
-     "list": "Armes de Mêlée de Terminator de Légion"
+     "list": "Armes de Mêlée de Terminator de Légion",
+     "replaces": [
+      "Arme énergétique"
+     ]
     },
     {
      "text": "Remplacer le combi-bolter et l'arme énergétique",
@@ -1120,6 +1142,10 @@
        "name": "Paire de griffes Lightning",
        "points": 5
       }
+     ],
+     "replaces": [
+      "Combi-bolter",
+      "Arme énergétique"
      ]
     }
    ]
@@ -1184,6 +1210,12 @@
        "name": "Marteau commotionneur Saturnine",
        "points": 10
       }
+     ],
+     "replaces": [
+      [
+       "Hache de guerre Saturnine",
+       "Poing disrupteur Saturnine"
+      ]
      ]
     },
     {
@@ -1290,7 +1322,13 @@
     {
      "text": "Remplacer le bolter et/ou le pistolet bolter (un objet chacun)",
      "max": 2,
-     "list": "Équipement d'Officier de Légion"
+     "list": "Équipement d'Officier de Légion",
+     "replaces": [
+      [
+       "Bolter",
+       "Pistolet bolter"
+      ]
+     ]
     },
     {
      "text": "Remplacer le bolter",
@@ -1305,7 +1343,10 @@
        "points": 2
       }
      ],
-     "list": "Armes Combinées de Légion"
+     "list": "Armes Combinées de Légion",
+     "replaces": [
+      "Bolter"
+     ]
     },
     {
      "text": "Remplacer le bolter et le pistolet bolter",
@@ -1315,6 +1356,10 @@
        "name": "Paire de griffes Lightning",
        "points": 20
       }
+     ],
+     "replaces": [
+      "Bolter",
+      "Pistolet bolter"
      ]
     },
     {
@@ -1339,6 +1384,9 @@
        "name": "Baïonnette tronçonneuse",
        "points": 2
       }
+     ],
+     "requires": [
+      "Bolter"
      ]
     },
     {
@@ -1454,12 +1502,18 @@
        "points": 0
       }
      ],
-     "list": "Armes Combinées de Légion"
+     "list": "Armes Combinées de Légion",
+     "replaces": [
+      "Combi-bolter"
+     ]
     },
     {
      "text": "Remplacer l'arme énergétique",
      "max": 1,
-     "list": "Armes de Mêlée de Terminator de Légion"
+     "list": "Armes de Mêlée de Terminator de Légion",
+     "replaces": [
+      "Arme énergétique"
+     ]
     },
     {
      "text": "Remplacer le combi-bolter et l'arme énergétique",
@@ -1469,6 +1523,10 @@
        "name": "Paire de griffes Lightning",
        "points": 5
       }
+     ],
+     "replaces": [
+      "Combi-bolter",
+      "Arme énergétique"
      ]
     }
    ]
@@ -1553,7 +1611,13 @@
     {
      "text": "Remplacer le bolter et/ou le pistolet bolter (un objet chacun)",
      "max": 2,
-     "list": "Armes de Mêlée de Sergent de Légion"
+     "list": "Armes de Mêlée de Sergent de Légion",
+     "replaces": [
+      [
+       "Bolter",
+       "Pistolet bolter"
+      ]
+     ]
     },
     {
      "text": "Remplacer le bolter",
@@ -1568,7 +1632,10 @@
        "points": 2
       }
      ],
-     "list": "Armes Combinées de Légion"
+     "list": "Armes Combinées de Légion",
+     "replaces": [
+      "Bolter"
+     ]
     },
     {
      "text": "Remplacer le pistolet bolter",
@@ -1579,7 +1646,10 @@
        "points": 5
       }
      ],
-     "list": "Pistolets de Légion"
+     "list": "Pistolets de Légion",
+     "replaces": [
+      "Pistolet bolter"
+     ]
     },
     {
      "text": "Remplacer le bolter et le pistolet bolter",
@@ -1589,6 +1659,10 @@
        "name": "Paire de griffes Lightning",
        "points": 20
       }
+     ],
+     "replaces": [
+      "Bolter",
+      "Pistolet bolter"
      ]
     },
     {
@@ -1613,6 +1687,9 @@
        "name": "Baïonnette tronçonneuse",
        "points": 2
       }
+     ],
+     "requires": [
+      "Bolter"
      ]
     }
    ]
@@ -1670,12 +1747,21 @@
        "name": "Combi-bolter sur Pivot",
        "points": 5
       }
-     ]
+     ],
+     "replaces": [
+      "Deux bolters sur Pivot"
+     ],
+     "partOf": 2
     },
     {
      "text": "Remplacer un des bolters sur Pivot",
      "max": 1,
-     "list": "Armes sur Pivot de Légion"
+     "list": "Armes sur Pivot de Légion",
+     "replaces": [
+      "Deux bolters sur Pivot"
+     ],
+     "partOf": 2,
+     "exclusive": "pivot"
     },
     {
      "text": "Équipements (un exemplaire de chaque)",
@@ -1746,7 +1832,10 @@
     {
      "text": "Remplacer le pistolet bolter",
      "max": 1,
-     "list": "Pistolets de Légion"
+     "list": "Pistolets de Légion",
+     "replaces": [
+      "Pistolet bolter"
+     ]
     },
     {
      "text": "Disciplines Psychiques, jusqu'à deux",
@@ -1839,6 +1928,9 @@
        "name": "Combi-fuseur",
        "points": 10
       }
+     ],
+     "replaces": [
+      "Serpentine volkite"
      ]
     },
     {
@@ -2009,7 +2101,10 @@
     {
      "text": "Remplacer le pistolet bolter",
      "max": 1,
-     "list": "Pistolets de Légion"
+     "list": "Pistolets de Légion",
+     "replaces": [
+      "Pistolet bolter"
+     ]
     }
    ]
   },
@@ -2069,7 +2164,10 @@
     {
      "text": "Remplacer le pistolet bolter",
      "max": 1,
-     "list": "Pistolets de Légion"
+     "list": "Pistolets de Légion",
+     "replaces": [
+      "Pistolet bolter"
+     ]
     },
     {
      "text": "Bombes à fusion",
@@ -2126,7 +2224,7 @@
     "Massif (2)",
     "Frappe en Profondeur",
     "Orage de Feu",
-    "Bitter Duty"
+    "Âpre Devoir"
    ],
    "types": [
     "Infanterie (Spécialiste, Antigrav)"
@@ -2144,6 +2242,9 @@
        "name": "Deux pistolets à plasma suralimentés",
        "points": 10
       }
+     ],
+     "replaces": [
+      "Deux serpentines volkites suralimentées"
      ]
     },
     {
@@ -2218,7 +2319,10 @@
        "points": 5
       }
      ],
-     "list": "Pistolets de Légion"
+     "list": "Pistolets de Légion",
+     "replaces": [
+      "Pistolet bolter"
+     ]
     },
     {
      "text": "Bombes à fusion",
@@ -2291,12 +2395,18 @@
        "name": "Masse énergétique",
        "points": 0
       }
+     ],
+     "replaces": [
+      "Fouet énergétique"
      ]
     },
     {
      "text": "Remplacer le pistolet bolter",
      "max": 1,
-     "list": "Pistolets de Légion"
+     "list": "Pistolets de Légion",
+     "replaces": [
+      "Pistolet bolter"
+     ]
     },
     {
      "text": "Vexillum",
@@ -2379,6 +2489,9 @@
        "name": "Gantelet énergétique",
        "points": 10
       }
+     ],
+     "replaces": [
+      "Arme énergétique"
      ]
     },
     {
@@ -2444,7 +2557,10 @@
     {
      "text": "Remplacer le pistolet bolter",
      "max": 1,
-     "list": "Pistolets de Légion"
+     "list": "Pistolets de Légion",
+     "replaces": [
+      "Pistolet bolter"
+     ]
     },
     {
      "text": "Bombes à fusion",
@@ -2555,6 +2671,9 @@
      "list": [
       "Armes Combinées de Légion",
       "Armes de Mêlée de Sergent de Légion"
+     ],
+     "replaces": [
+      "Bolter"
      ]
     },
     {
@@ -2565,12 +2684,22 @@
        "name": "Bouclier de combat",
        "points": 2
       }
-     ]
+     ],
+     "replaces": [
+      "Pistolet bolter"
+     ],
+     "needsUpgrade": {
+      "opt": 0,
+      "list": "Armes de Mêlée de Sergent de Légion"
+     }
     },
     {
      "text": "Toute figurine : remplacer le pistolet bolter",
      "max": "models",
-     "list": "Pistolets de Légion"
+     "list": "Pistolets de Légion",
+     "replaces": [
+      "Pistolet bolter"
+     ]
     },
     {
      "text": "Champion Élu : remplacer le pistolet bolter",
@@ -2580,6 +2709,12 @@
        "name": "Pistolet désintégrateur",
        "points": 5
       }
+     ],
+     "replaces": [
+      "Pistolet bolter"
+     ],
+     "models": [
+      "Champion Élu"
      ]
     },
     {
@@ -2590,6 +2725,10 @@
        "name": "Paire de griffes Lightning",
        "points": 10
       }
+     ],
+     "replaces": [
+      "Bolter",
+      "Pistolet bolter"
      ]
     },
     {
@@ -2604,6 +2743,9 @@
        "name": "Baïonnette tronçonneuse",
        "points": 2
       }
+     ],
+     "requires": [
+      "Bolter"
      ]
     },
     {
@@ -2614,6 +2756,9 @@
        "name": "Étendard de Légion",
        "points": 20
       }
+     ],
+     "models": [
+      "Élu"
      ]
     }
    ]
@@ -2718,6 +2863,9 @@
      "list": [
       "Armes Combinées de Légion",
       "Armes de Mêlée de Sergent de Légion"
+     ],
+     "replaces": [
+      "Bolter"
      ]
     },
     {
@@ -2728,21 +2876,37 @@
        "name": "Bouclier de combat",
        "points": 2
       }
-     ]
+     ],
+     "replaces": [
+      "Pistolet bolter"
+     ],
+     "needsUpgrade": {
+      "opt": 0,
+      "list": "Armes de Mêlée de Sergent de Légion"
+     }
     },
     {
      "text": "Toute figurine : remplacer le pistolet bolter",
      "max": "models",
-     "list": "Pistolets de Légion"
+     "list": "Pistolets de Légion",
+     "replaces": [
+      "Pistolet bolter"
+     ]
     },
     {
-     "text": "Champion Élu : remplacer le pistolet bolter",
+     "text": "Champion Élu à Réacteurs : remplacer le pistolet bolter",
      "max": 1,
      "choices": [
       {
        "name": "Pistolet désintégrateur",
        "points": 5
       }
+     ],
+     "replaces": [
+      "Pistolet bolter"
+     ],
+     "models": [
+      "Champion Élu à Réacteurs"
      ]
     },
     {
@@ -2753,6 +2917,10 @@
        "name": "Paire de griffes Lightning",
        "points": 10
       }
+     ],
+     "replaces": [
+      "Bolter",
+      "Pistolet bolter"
      ]
     },
     {
@@ -2767,6 +2935,9 @@
        "name": "Baïonnette tronçonneuse",
        "points": 2
       }
+     ],
+     "requires": [
+      "Bolter"
      ]
     },
     {
@@ -2777,6 +2948,9 @@
        "name": "Étendard de Légion",
        "points": 20
       }
+     ],
+     "models": [
+      "Élu à Réacteurs"
      ]
     }
    ]
@@ -2878,6 +3052,9 @@
      "list": [
       "Armes Combinées de Légion",
       "Armes de Mêlée de Sergent de Légion"
+     ],
+     "replaces": [
+      "Bolter"
      ]
     },
     {
@@ -2888,12 +3065,22 @@
        "name": "Bouclier de combat",
        "points": 2
       }
-     ]
+     ],
+     "replaces": [
+      "Pistolet bolter"
+     ],
+     "needsUpgrade": {
+      "opt": 0,
+      "list": "Armes de Mêlée de Sergent de Légion"
+     }
     },
     {
      "text": "Toute figurine : remplacer le pistolet bolter",
      "max": "models",
-     "list": "Pistolets de Légion"
+     "list": "Pistolets de Légion",
+     "replaces": [
+      "Pistolet bolter"
+     ]
     },
     {
      "text": "Un Vétéran par tranche de cinq figurines : remplacer le bolter",
@@ -2903,6 +3090,12 @@
      "list": [
       "Armes Spéciales de Légion",
       "Armes Lourdes de Légion"
+     ],
+     "replaces": [
+      "Bolter"
+     ],
+     "models": [
+      "Vétéran"
      ]
     },
     {
@@ -2913,6 +3106,12 @@
        "name": "Pistolet désintégrateur",
        "points": 5
       }
+     ],
+     "replaces": [
+      "Pistolet bolter"
+     ],
+     "models": [
+      "Champion Vétéran"
      ]
     },
     {
@@ -2923,6 +3122,10 @@
        "name": "Paire de griffes Lightning",
        "points": 10
       }
+     ],
+     "replaces": [
+      "Bolter",
+      "Pistolet bolter"
      ]
     },
     {
@@ -2937,6 +3140,9 @@
        "name": "Baïonnette tronçonneuse",
        "points": 2
       }
+     ],
+     "requires": [
+      "Bolter"
      ]
     },
     {
@@ -2951,12 +3157,18 @@
        "name": "Étendard de Compagnie",
        "points": 20
       }
+     ],
+     "models": [
+      "Vétéran"
      ]
     },
     {
      "text": "Jusqu'à deux Vétérans",
      "max": 2,
-     "list": "Équipement de Légion"
+     "list": "Équipement de Légion",
+     "models": [
+      "Vétéran"
+     ]
     }
    ]
   },
@@ -3047,13 +3259,19 @@
        "points": 0
       }
      ],
-     "list": "Armes Combinées de Légion"
+     "list": "Armes Combinées de Légion",
+     "replaces": [
+      "Combi-bolter"
+     ]
     },
     {
      "text": "Toute Figurine de cette Unité peut échanger son arme énergétique contre un objet de la liste des Armes de Mêlée de Terminator de Légion.",
      "max": "models",
      "list": "Armes de Mêlée de Terminator de Légion",
-     "errata": "FAQ & Errata L'Âge des Ténèbres V1.0a (FR)"
+     "errata": "FAQ & Errata L'Âge des Ténèbres V1.0a (FR)",
+     "replaces": [
+      "Arme énergétique"
+     ]
     },
     {
      "text": "Toute figurine : remplacer le combi-bolter et l'arme énergétique",
@@ -3063,6 +3281,10 @@
        "name": "Paire de griffes Lightning",
        "points": 10
       }
+     ],
+     "replaces": [
+      "Combi-bolter",
+      "Arme énergétique"
      ]
     },
     {
@@ -3073,6 +3295,9 @@
        "name": "Harnais à grenades",
        "points": 5
       }
+     ],
+     "models": [
+      "Champion Élu Tartaros"
      ]
     },
     {
@@ -3083,6 +3308,12 @@
        "name": "Étendard de Légion",
        "points": 20
       }
+     ],
+     "replaces": [
+      "Combi-bolter"
+     ],
+     "models": [
+      "Élu Tartaros"
      ]
     }
    ]
@@ -3175,12 +3406,18 @@
        "points": 0
       }
      ],
-     "list": "Armes Combinées de Légion"
+     "list": "Armes Combinées de Légion",
+     "replaces": [
+      "Chargeur volkite"
+     ]
     },
     {
      "text": "Toute figurine : remplacer l'arme énergétique",
      "max": "models",
-     "list": "Armes de Mêlée de Terminator de Légion"
+     "list": "Armes de Mêlée de Terminator de Légion",
+     "replaces": [
+      "Arme énergétique"
+     ]
     },
     {
      "text": "Toute figurine : remplacer le chargeur volkite et l'arme énergétique",
@@ -3190,6 +3427,10 @@
        "name": "Paire de griffes Lightning",
        "points": 10
       }
+     ],
+     "replaces": [
+      "Chargeur volkite",
+      "Arme énergétique"
      ]
     },
     {
@@ -3200,6 +3441,9 @@
        "name": "Harnais à grenades",
        "points": 5
       }
+     ],
+     "models": [
+      "Champion Élu Cataphractii"
      ]
     },
     {
@@ -3210,6 +3454,12 @@
        "name": "Étendard de Légion",
        "points": 20
       }
+     ],
+     "replaces": [
+      "Chargeur volkite"
+     ],
+     "models": [
+      "Élu Cataphractii"
      ]
     }
    ]
@@ -3310,7 +3560,10 @@
        "points": 2
       }
      ],
-     "list": "Armes Combinées de Légion"
+     "list": "Armes Combinées de Légion",
+     "replaces": [
+      "Bolter"
+     ]
     },
     {
      "text": "Un Vétéran par tranche de cinq figurines : remplacer le bolter",
@@ -3330,12 +3583,27 @@
      "list": [
       "Armes Spéciales de Légion",
       "Armes Lourdes de Légion"
+     ],
+     "replaces": [
+      "Bolter"
+     ],
+     "models": [
+      "Vétéran"
      ]
     },
     {
      "text": "Sergent Vétéran : remplacer le bolter et/ou le pistolet bolter (un objet chacun)",
      "max": 2,
-     "list": "Armes de Mêlée de Sergent de Légion"
+     "list": "Armes de Mêlée de Sergent de Légion",
+     "replaces": [
+      [
+       "Bolter",
+       "Pistolet bolter"
+      ]
+     ],
+     "models": [
+      "Sergent Vétéran"
+     ]
     },
     {
      "text": "Sergent Vétéran : remplacer le pistolet bolter",
@@ -3346,7 +3614,13 @@
        "points": 5
       }
      ],
-     "list": "Pistolets de Légion"
+     "list": "Pistolets de Légion",
+     "replaces": [
+      "Pistolet bolter"
+     ],
+     "models": [
+      "Sergent Vétéran"
+     ]
     },
     {
      "text": "Un Vétéran",
@@ -3356,12 +3630,18 @@
        "name": "Vexillum",
        "points": 10
       }
+     ],
+     "models": [
+      "Vétéran"
      ]
     },
     {
      "text": "Jusqu'à deux Vétérans",
      "max": 2,
-     "list": "Équipement de Légion"
+     "list": "Équipement de Légion",
+     "models": [
+      "Vétéran"
+     ]
     },
     {
      "text": "Toute figurine ayant un bolter",
@@ -3375,6 +3655,9 @@
        "name": "Baïonnette tronçonneuse",
        "points": 2
       }
+     ],
+     "requires": [
+      "Bolter"
      ]
     }
    ]
@@ -3463,7 +3746,10 @@
     {
      "text": "Toute figurine : remplacer l'épée tronçonneuse",
      "max": "models",
-     "list": "Armes de Mêlée de Sergent de Légion"
+     "list": "Armes de Mêlée de Sergent de Légion",
+     "replaces": [
+      "Épée tronçonneuse"
+     ]
     },
     {
      "text": "Toute figurine : remplacer le pistolet bolter",
@@ -3474,7 +3760,10 @@
        "points": 2
       }
      ],
-     "list": "Pistolets de Légion"
+     "list": "Pistolets de Légion",
+     "replaces": [
+      "Pistolet bolter"
+     ]
     },
     {
      "text": "Sergent Vétéran d'Assaut : remplacer le pistolet bolter",
@@ -3484,6 +3773,12 @@
        "name": "Pistolet désintégrateur",
        "points": 5
       }
+     ],
+     "replaces": [
+      "Pistolet bolter"
+     ],
+     "models": [
+      "Sergent Vétéran d'Assaut"
      ]
     },
     {
@@ -3494,6 +3789,9 @@
        "name": "Bombes à fusion",
        "points": 10
       }
+     ],
+     "models": [
+      "Sergent Vétéran d'Assaut"
      ]
     },
     {
@@ -3506,6 +3804,12 @@
        "name": "Pistolet désintégrateur",
        "points": 5
       }
+     ],
+     "replaces": [
+      "Pistolet bolter"
+     ],
+     "models": [
+      "Vétéran d'Assaut"
      ]
     },
     {
@@ -3516,6 +3820,10 @@
        "name": "Paire de griffes Lightning",
        "points": 10
       }
+     ],
+     "replaces": [
+      "Pistolet bolter",
+      "Épée tronçonneuse"
      ]
     },
     {
@@ -3533,6 +3841,12 @@
        "name": "Épée tronçonneuse lourde",
        "points": 5
       }
+     ],
+     "replaces": [
+      "Épée tronçonneuse"
+     ],
+     "models": [
+      "Vétéran d'Assaut"
      ]
     }
    ]
@@ -3619,12 +3933,24 @@
     {
      "text": "Toute figurine : remplacer le bolter Kraken",
      "max": "models",
-     "list": "Armes Combinées de Légion"
+     "list": "Armes Combinées de Légion",
+     "replaces": [
+      "Bolter Kraken"
+     ]
     },
     {
      "text": "Sergent Traqueur : remplacer le bolter Kraken et/ou le pistolet bolter (un objet chacun)",
      "max": 2,
-     "list": "Armes de Mêlée de Sergent de Légion"
+     "list": "Armes de Mêlée de Sergent de Légion",
+     "replaces": [
+      [
+       "Bolter Kraken",
+       "Pistolet bolter"
+      ]
+     ],
+     "models": [
+      "Sergent Traqueur"
+     ]
     },
     {
      "text": "Sergent Traqueur : remplacer le pistolet bolter",
@@ -3635,7 +3961,13 @@
        "points": 5
       }
      ],
-     "list": "Pistolets de Légion"
+     "list": "Pistolets de Légion",
+     "replaces": [
+      "Pistolet bolter"
+     ],
+     "models": [
+      "Sergent Traqueur"
+     ]
     },
     {
      "text": "Toute figurine ayant un bolter Kraken",
@@ -3649,6 +3981,9 @@
        "name": "Baïonnette tronçonneuse",
        "points": 2
       }
+     ],
+     "requires": [
+      "Bolter Kraken"
      ]
     },
     {
@@ -3659,12 +3994,18 @@
        "name": "Bombes à fusion",
        "points": 10
       }
+     ],
+     "models": [
+      "Sergent Traqueur"
      ]
     },
     {
      "text": "Jusqu'à deux Traqueurs",
      "max": 2,
-     "list": "Équipement de Légion"
+     "list": "Équipement de Légion",
+     "models": [
+      "Traqueur"
+     ]
     }
    ]
   },
@@ -3757,12 +4098,18 @@
        "points": 0
       }
      ],
-     "list": "Armes Combinées de Légion"
+     "list": "Armes Combinées de Légion",
+     "replaces": [
+      "Chargeur volkite"
+     ]
     },
     {
      "text": "Toute figurine : remplacer l'arme énergétique",
      "max": "models",
-     "list": "Armes de Mêlée de Terminator de Légion"
+     "list": "Armes de Mêlée de Terminator de Légion",
+     "replaces": [
+      "Arme énergétique"
+     ]
     },
     {
      "text": "Toute figurine : remplacer le chargeur volkite et l'arme énergétique",
@@ -3772,6 +4119,10 @@
        "name": "Paire de griffes Lightning",
        "points": 10
       }
+     ],
+     "replaces": [
+      "Chargeur volkite",
+      "Arme énergétique"
      ]
     },
     {
@@ -3782,6 +4133,9 @@
        "name": "Harnais à grenades",
        "points": 5
       }
+     ],
+     "models": [
+      "Sergent Terminator Cataphractii"
      ]
     },
     {
@@ -3802,6 +4156,12 @@
        "name": "Éclateur à plasma",
        "points": 10
       }
+     ],
+     "replaces": [
+      "Chargeur volkite"
+     ],
+     "models": [
+      "Terminator Cataphractii"
      ]
     }
    ]
@@ -3894,13 +4254,19 @@
        "points": 0
       }
      ],
-     "list": "Armes Combinées de Légion"
+     "list": "Armes Combinées de Légion",
+     "replaces": [
+      "Combi-bolter"
+     ]
     },
     {
      "text": "Toute Figurine de cette Unité peut échanger son arme énergétique contre un objet de la liste des Armes de Mêlée de Terminator de Légion.",
      "max": "models",
      "list": "Armes de Mêlée de Terminator de Légion",
-     "errata": "FAQ & Errata L'Âge des Ténèbres V1.0a (FR)"
+     "errata": "FAQ & Errata L'Âge des Ténèbres V1.0a (FR)",
+     "replaces": [
+      "Arme énergétique"
+     ]
     },
     {
      "text": "Toute figurine : remplacer le combi-bolter et l'arme énergétique",
@@ -3910,6 +4276,10 @@
        "name": "Paire de griffes Lightning",
        "points": 10
       }
+     ],
+     "replaces": [
+      "Combi-bolter",
+      "Arme énergétique"
      ]
     },
     {
@@ -3920,6 +4290,9 @@
        "name": "Harnais à grenades",
        "points": 5
       }
+     ],
+     "models": [
+      "Sergent Terminator Tartaros"
      ]
     },
     {
@@ -3940,6 +4313,12 @@
        "name": "Éclateur à plasma",
        "points": 10
       }
+     ],
+     "replaces": [
+      "Combi-bolter"
+     ],
+     "models": [
+      "Terminator Tartaros"
      ]
     }
    ]
@@ -4038,6 +4417,9 @@
        "name": "Désintégrateur lourd jumelé",
        "points": 10
       }
+     ],
+     "replaces": [
+      "Poing disrupteur Saturnine"
      ]
     },
     {
@@ -4048,6 +4430,9 @@
        "name": "Désintégrateur lourd jumelé",
        "points": 10
       }
+     ],
+     "replaces": [
+      "Bombarde à plasma"
      ]
     },
     {
@@ -4058,6 +4443,9 @@
        "name": "Lacérateur à particules",
        "points": 5
       }
+     ],
+     "requires": [
+      "Poing disrupteur Saturnine"
      ]
     }
    ]
@@ -4145,17 +4533,38 @@
     {
      "text": "Sergent : remplacer le bolter et/ou le pistolet bolter (un objet chacun)",
      "max": 2,
-     "list": "Armes de Mêlée de Sergent de Légion"
+     "list": "Armes de Mêlée de Sergent de Légion",
+     "replaces": [
+      [
+       "Bolter",
+       "Pistolet bolter"
+      ]
+     ],
+     "models": [
+      "Sergent"
+     ]
     },
     {
      "text": "Sergent : remplacer le pistolet bolter",
      "max": 1,
-     "list": "Pistolets de Légion"
+     "list": "Pistolets de Légion",
+     "replaces": [
+      "Pistolet bolter"
+     ],
+     "models": [
+      "Sergent"
+     ]
     },
     {
      "text": "Sergent : remplacer le bolter",
      "max": 1,
-     "list": "Armes Combinées de Légion"
+     "list": "Armes Combinées de Légion",
+     "replaces": [
+      "Bolter"
+     ],
+     "models": [
+      "Sergent"
+     ]
     },
     {
      "text": "Sergent",
@@ -4165,6 +4574,9 @@
        "name": "Bombes à fusion",
        "points": 10
       }
+     ],
+     "models": [
+      "Sergent"
      ]
     },
     {
@@ -4175,12 +4587,18 @@
        "name": "Vexillum",
        "points": 10
       }
+     ],
+     "models": [
+      "Légionnaire"
      ]
     },
     {
      "text": "Jusqu'à deux Légionnaires",
      "max": 2,
-     "list": "Équipement de Légion"
+     "list": "Équipement de Légion",
+     "models": [
+      "Légionnaire"
+     ]
     },
     {
      "text": "Toute figurine ayant un bolter",
@@ -4194,6 +4612,9 @@
        "name": "Baïonnette tronçonneuse",
        "points": 2
       }
+     ],
+     "requires": [
+      "Bolter"
      ]
     }
    ]
@@ -4280,12 +4701,27 @@
     {
      "text": "Sergent Nettoyeur : remplacer l'épée tronçonneuse et/ou le pistolet bolter (un objet chacun)",
      "max": 2,
-     "list": "Armes de Mêlée de Sergent de Légion"
+     "list": "Armes de Mêlée de Sergent de Légion",
+     "replaces": [
+      [
+       "Épée tronçonneuse",
+       "Pistolet bolter"
+      ]
+     ],
+     "models": [
+      "Sergent Nettoyeur"
+     ]
     },
     {
      "text": "Sergent Nettoyeur : remplacer le pistolet bolter",
      "max": 1,
-     "list": "Pistolets de Légion"
+     "list": "Pistolets de Légion",
+     "replaces": [
+      "Pistolet bolter"
+     ],
+     "models": [
+      "Sergent Nettoyeur"
+     ]
     },
     {
      "text": "Sergent Nettoyeur : remplacer le pistolet bolter et l'épée tronçonneuse",
@@ -4295,6 +4731,13 @@
        "name": "Paire de griffes Lightning",
        "points": 10
       }
+     ],
+     "replaces": [
+      "Pistolet bolter",
+      "Épée tronçonneuse"
+     ],
+     "models": [
+      "Sergent Nettoyeur"
      ]
     },
     {
@@ -4305,6 +4748,9 @@
        "name": "Bombes à fusion",
        "points": 10
       }
+     ],
+     "models": [
+      "Sergent Nettoyeur"
      ]
     },
     {
@@ -4325,6 +4771,12 @@
        "name": "Sabre charnabal",
        "points": 5
       }
+     ],
+     "replaces": [
+      "Épée tronçonneuse"
+     ],
+     "models": [
+      "Légionnaire Nettoyeur"
      ]
     },
     {
@@ -4332,7 +4784,13 @@
      "max": {
       "per": 5
      },
-     "list": "Pistolets de Légion"
+     "list": "Pistolets de Légion",
+     "replaces": [
+      "Pistolet bolter"
+     ],
+     "models": [
+      "Légionnaire Nettoyeur"
+     ]
     },
     {
      "text": "Un Légionnaire Nettoyeur",
@@ -4342,12 +4800,18 @@
        "name": "Vexillum",
        "points": 10
       }
+     ],
+     "models": [
+      "Légionnaire Nettoyeur"
      ]
     },
     {
      "text": "Jusqu'à deux Légionnaires Nettoyeurs",
      "max": 2,
-     "list": "Équipement de Légion"
+     "list": "Équipement de Légion",
+     "models": [
+      "Légionnaire Nettoyeur"
+     ]
     }
    ]
   },
@@ -4435,7 +4899,16 @@
     {
      "text": "Sergent d'Assaut : remplacer l'épée tronçonneuse et/ou le pistolet bolter (un objet chacun)",
      "max": 2,
-     "list": "Armes de Mêlée de Sergent de Légion"
+     "list": "Armes de Mêlée de Sergent de Légion",
+     "replaces": [
+      [
+       "Épée tronçonneuse",
+       "Pistolet bolter"
+      ]
+     ],
+     "models": [
+      "Sergent d'Assaut"
+     ]
     },
     {
      "text": "Sergent d'Assaut : remplacer le pistolet bolter",
@@ -4446,7 +4919,13 @@
        "points": 5
       }
      ],
-     "list": "Pistolets de Légion"
+     "list": "Pistolets de Légion",
+     "replaces": [
+      "Pistolet bolter"
+     ],
+     "models": [
+      "Sergent d'Assaut"
+     ]
     },
     {
      "text": "Sergent d'Assaut : remplacer le pistolet bolter (ou le bouclier de combat) et l'épée tronçonneuse",
@@ -4456,6 +4935,16 @@
        "name": "Paire de griffes Lightning",
        "points": 10
       }
+     ],
+     "replaces": [
+      "Épée tronçonneuse",
+      [
+       "Pistolet bolter",
+       "Bouclier de combat"
+      ]
+     ],
+     "models": [
+      "Sergent d'Assaut"
      ]
     },
     {
@@ -4466,18 +4955,24 @@
        "name": "Bombes à fusion",
        "points": 10
       }
+     ],
+     "models": [
+      "Sergent d'Assaut"
      ]
     },
     {
-     "text": "Toutes les figurines : remplacer le pistolet bolter",
+     "text": "Toutes les figurines : remplacer le pistolet bolter par un bouclier de combat (+2 points par figurine)",
      "max": 1,
      "choices": [
       {
-       "name": "Boucliers de combat pour toute l'unité (+2 par figurine)",
+       "name": "Bouclier de combat",
        "points": 2
       }
      ],
-     "all": true
+     "all": true,
+     "replaces": [
+      "Pistolet bolter"
+     ]
     },
     {
      "text": "Toute figurine : remplacer l'épée tronçonneuse",
@@ -4487,26 +4982,45 @@
        "name": "Hache tronçonneuse",
        "points": 0
       }
+     ],
+     "replaces": [
+      "Épée tronçonneuse"
      ]
     },
     {
-     "text": "Un Légionnaire d'Assaut par tranche de cinq figurines",
+     "text": "Un Légionnaire d'Assaut par tranche de cinq figurines : remplacer l'épée tronçonneuse (arme énergétique ou sabre charnabal), ou l'épée tronçonneuse et le pistolet bolter / le bouclier de combat (épée tronçonneuse lourde)",
      "max": {
       "per": 5
      },
      "choices": [
       {
-       "name": "Arme énergétique (remplace l'épée tronçonneuse)",
-       "points": 10
+       "name": "Arme énergétique",
+       "points": 10,
+       "replaces": [
+        "Épée tronçonneuse"
+       ]
       },
       {
-       "name": "Sabre charnabal (remplace l'épée tronçonneuse)",
-       "points": 5
+       "name": "Sabre charnabal",
+       "points": 5,
+       "replaces": [
+        "Épée tronçonneuse"
+       ]
       },
       {
-       "name": "Épée tronçonneuse lourde (remplace l'épée et le pistolet ou le bouclier)",
-       "points": 5
+       "name": "Épée tronçonneuse lourde",
+       "points": 5,
+       "replaces": [
+        "Épée tronçonneuse",
+        [
+         "Pistolet bolter",
+         "Bouclier de combat"
+        ]
+       ]
       }
+     ],
+     "models": [
+      "Légionnaire d'Assaut"
      ]
     },
     {
@@ -4521,14 +5035,30 @@
        "points": 5
       }
      ],
-     "errata": "FAQ & Errata L'Âge des Ténèbres V1.0a (FR)"
+     "errata": "FAQ & Errata L'Âge des Ténèbres V1.0a (FR)",
+     "replaces": [
+      "Épée tronçonneuse",
+      [
+       "Pistolet bolter",
+       "Bouclier de combat"
+      ]
+     ],
+     "models": [
+      "Légionnaire d'Assaut"
+     ]
     },
     {
      "text": "Un Légionnaire d'Assaut par tranche de cinq figurines : remplacer le pistolet bolter",
      "max": {
       "per": 5
      },
-     "list": "Pistolets de Légion"
+     "list": "Pistolets de Légion",
+     "replaces": [
+      "Pistolet bolter"
+     ],
+     "models": [
+      "Légionnaire d'Assaut"
+     ]
     }
    ]
   },
@@ -4619,12 +5149,24 @@
      "list": [
       "Armes de Mêlée de Sergent de Légion",
       "Armes Combinées de Légion"
+     ],
+     "replaces": [
+      "Bolter"
+     ],
+     "models": [
+      "Sergent Brécheur"
      ]
     },
     {
      "text": "Sergent Brécheur : remplacer le pistolet bolter",
      "max": 1,
-     "list": "Pistolets de Légion"
+     "list": "Pistolets de Légion",
+     "replaces": [
+      "Pistolet bolter"
+     ],
+     "models": [
+      "Sergent Brécheur"
+     ]
     },
     {
      "text": "Sergent Brécheur",
@@ -4634,6 +5176,9 @@
        "name": "Bombes à fusion",
        "points": 10
       }
+     ],
+     "models": [
+      "Sergent Brécheur"
      ]
     },
     {
@@ -4644,12 +5189,18 @@
        "name": "Vexillum",
        "points": 10
       }
+     ],
+     "models": [
+      "Légionnaire Brécheur"
      ]
     },
     {
      "text": "Jusqu'à deux Légionnaires Brécheurs",
      "max": 2,
-     "list": "Équipement de Légion"
+     "list": "Équipement de Légion",
+     "models": [
+      "Légionnaire Brécheur"
+     ]
     },
     {
      "text": "Un Légionnaire Brécheur par tranche de cinq figurines : remplacer le bolter",
@@ -4665,6 +5216,12 @@
        "name": "Découpeur laser",
        "points": 10
       }
+     ],
+     "replaces": [
+      "Bolter"
+     ],
+     "models": [
+      "Légionnaire Brécheur"
      ]
     }
    ]
@@ -4749,12 +5306,16 @@
      "text": "Arme spéciale — obligatoire, la même pour toutes les figurines",
      "max": "models",
      "list": "Armes Spéciales de Légion",
-     "allSame": true
+     "allSame": true,
+     "required": true
     },
     {
      "text": "Sergent : arme de mêlée",
      "max": 1,
-     "list": "Armes de Mêlée de Sergent de Légion"
+     "list": "Armes de Mêlée de Sergent de Légion",
+     "models": [
+      "Sergent"
+     ]
     },
     {
      "text": "Sergent",
@@ -4764,6 +5325,9 @@
        "name": "Bombes à fusion",
        "points": 10
       }
+     ],
+     "models": [
+      "Sergent"
      ]
     },
     {
@@ -4774,12 +5338,18 @@
        "name": "Vexillum",
        "points": 10
       }
+     ],
+     "models": [
+      "Légionnaire"
      ]
     },
     {
      "text": "Jusqu'à deux Légionnaires",
      "max": 2,
-     "list": "Équipement de Légion"
+     "list": "Équipement de Légion",
+     "models": [
+      "Légionnaire"
+     ]
     }
    ]
   },
@@ -4865,12 +5435,16 @@
      "text": "Arme lourde — obligatoire, la même pour toutes les figurines",
      "max": "models",
      "list": "Armes Lourdes de Légion",
-     "allSame": true
+     "allSame": true,
+     "required": true
     },
     {
      "text": "Sergent : arme de mêlée",
      "max": 1,
-     "list": "Armes de Mêlée de Sergent de Légion"
+     "list": "Armes de Mêlée de Sergent de Légion",
+     "models": [
+      "Sergent"
+     ]
     },
     {
      "text": "Un Légionnaire",
@@ -4880,12 +5454,18 @@
        "name": "Vexillum",
        "points": 10
       }
+     ],
+     "models": [
+      "Légionnaire"
      ]
     },
     {
      "text": "Jusqu'à deux Légionnaires",
      "max": 2,
-     "list": "Équipement de Légion"
+     "list": "Équipement de Légion",
+     "models": [
+      "Légionnaire"
+     ]
     }
    ]
   },
@@ -4954,6 +5534,7 @@
     "Châssis Rapier : Batterie de bolters lourds Gravis"
    ],
    "rules": [
+    "Équipage de Rapier",
     "Équipage de Rapier : Massif (3) (Châssis Rapier seulement)",
     "Équipage de Rapier : Lent et Méthodique",
     "Équipage de Rapier : Unité d'Appui (1)"
@@ -4983,6 +5564,9 @@
        "name": "Lanceur quadruple",
        "points": 20
       }
+     ],
+     "replaces": [
+      "Batterie de bolters lourds Gravis"
      ]
     },
     {
@@ -4993,7 +5577,11 @@
        "name": "Cartouches à phosphex",
        "points": 15
       }
-     ]
+     ],
+     "requires": [
+      "Lanceur quadruple"
+     ],
+     "needsArmyUnit": "briseur-de-siege"
     }
    ]
   },
@@ -5051,12 +5639,18 @@
     {
      "text": "Remplacer l'épée tronçonneuse",
      "max": 1,
-     "list": "Armes de Mêlée de Sergent de Légion"
+     "list": "Armes de Mêlée de Sergent de Légion",
+     "replaces": [
+      "Épée tronçonneuse"
+     ]
     },
     {
      "text": "Remplacer le pistolet bolter",
      "max": 1,
-     "list": "Pistolets de Légion"
+     "list": "Pistolets de Légion",
+     "replaces": [
+      "Pistolet bolter"
+     ]
     }
    ]
   },
@@ -5114,7 +5708,10 @@
     {
      "text": "Remplacer le pistolet bolter",
      "max": 1,
-     "list": "Pistolets de Légion"
+     "list": "Pistolets de Légion",
+     "replaces": [
+      "Pistolet bolter"
+     ]
     },
     {
      "text": "Bombes à fusion",
@@ -5280,11 +5877,19 @@
      "choices": [
       {
        "name": "Poing énergétique Gravis et combi-bolter",
-       "points": 5
+       "points": 5,
+       "gives": [
+        "Poing énergétique Gravis",
+        "Combi-bolter"
+       ]
       },
       {
        "name": "Poing tronçonneur Gravis et combi-bolter",
-       "points": 5
+       "points": 5,
+       "gives": [
+        "Poing tronçonneur Gravis",
+        "Combi-bolter"
+       ]
       },
       {
        "name": "Canon à bolts Gravis",
@@ -5318,7 +5923,9 @@
        "name": "Canon laser jumelé",
        "points": 15
       }
-     ]
+     ],
+     "required": true,
+     "exclusive": "contemptor-bras"
     },
     {
      "text": "Ou une paire à la place des deux armes",
@@ -5326,13 +5933,24 @@
      "choices": [
       {
        "name": "Paire de poings énergétiques Gravis et deux combi-bolters",
-       "points": 5
+       "points": 5,
+       "gives": [
+        "Paire de poings énergétiques Gravis",
+        "Combi-bolter",
+        "Combi-bolter"
+       ]
       },
       {
        "name": "Paire de poings tronçonneurs Gravis et deux combi-bolters",
-       "points": 5
+       "points": 5,
+       "gives": [
+        "Paire de poings tronçonneurs Gravis",
+        "Combi-bolter",
+        "Combi-bolter"
+       ]
       }
-     ]
+     ],
+     "exclusive": "contemptor-bras"
     },
     {
      "text": "Remplacer chaque combi-bolter",
@@ -5354,6 +5972,9 @@
        "name": "Fuseur",
        "points": 15
       }
+     ],
+     "replaces": [
+      "Combi-bolter"
      ]
     },
     {
@@ -5415,7 +6036,8 @@
    ],
    "traits": [
     "[Allégeance]",
-    "[Legiones Astartes]"
+    "[Legiones Astartes]",
+    "Écran de Fumée"
    ],
    "options": [
     {
@@ -5434,6 +6056,9 @@
        "name": "Fauconneau volkite",
        "points": 0
       }
+     ],
+     "replaces": [
+      "Batterie d'autocanons Anvilus"
      ]
     },
     {
@@ -5444,6 +6069,9 @@
        "name": "Quatre missiles antiaériens Boreas",
        "points": 0
       }
+     ],
+     "replaces": [
+      "Lance-missiles Aiolos"
      ]
     },
     {
@@ -5454,6 +6082,9 @@
        "name": "Lance-flammes lourd jumelé",
        "points": 0
       }
+     ],
+     "replaces": [
+      "Bolter lourd jumelé"
      ]
     }
    ]
@@ -5514,11 +6145,19 @@
      "choices": [
       {
        "name": "Pince de siège Leviathan et fuseur",
-       "points": 0
+       "points": 0,
+       "gives": [
+        "Pince de siège Leviathan",
+        "Fuseur"
+       ]
       },
       {
        "name": "Trépan de siège Leviathan et fuseur",
-       "points": 5
+       "points": 5,
+       "gives": [
+        "Trépan de siège Leviathan",
+        "Fuseur"
+       ]
       },
       {
        "name": "Bombarde à graviflux",
@@ -5532,7 +6171,9 @@
        "name": "Lance à fusion cyclonique",
        "points": 20
       }
-     ]
+     ],
+     "required": true,
+     "exclusive": "leviathan-bras"
     },
     {
      "text": "Ou une paire à la place des deux armes",
@@ -5540,13 +6181,24 @@
      "choices": [
       {
        "name": "Paire de pinces de siège Leviathan et deux fuseurs",
-       "points": 5
+       "points": 5,
+       "gives": [
+        "Paire de pinces de siège Leviathan",
+        "Fuseur",
+        "Fuseur"
+       ]
       },
       {
        "name": "Paire de trépans de siège Leviathan et deux fuseurs",
-       "points": 5
+       "points": 5,
+       "gives": [
+        "Paire de trépans de siège Leviathan",
+        "Fuseur",
+        "Fuseur"
+       ]
       }
-     ]
+     ],
+     "exclusive": "leviathan-bras"
     },
     {
      "text": "Remplacer les deux lance-flammes lourds",
@@ -5556,6 +6208,9 @@
        "name": "Deux arquebuses volkites jumelées",
        "points": 15
       }
+     ],
+     "replaces": [
+      "Deux lance-flammes lourds"
      ]
     },
     {
@@ -5638,6 +6293,9 @@
        "name": "Pulvériseur à gravitons",
        "points": 10
       }
+     ],
+     "replaces": [
+      "Bombarde à plasma lourde"
      ]
     },
     {
@@ -5656,6 +6314,9 @@
        "name": "Pulvériseur à gravitons",
        "points": 0
       }
+     ],
+     "replaces": [
+      "Canon désintégrateur"
      ]
     },
     {
@@ -5670,6 +6331,9 @@
        "name": "Deux lacérateurs à particules lourds",
        "points": 10
       }
+     ],
+     "replaces": [
+      "Deux incinérateurs photoniques"
      ]
     }
    ]
@@ -5725,12 +6389,21 @@
        "name": "Combi-bolter sur Pivot",
        "points": 5
       }
-     ]
+     ],
+     "replaces": [
+      "Deux bolters sur Pivot"
+     ],
+     "partOf": 2
     },
     {
      "text": "Remplacer un des bolters sur Pivot",
      "max": 1,
-     "list": "Armes sur Pivot de Légion"
+     "list": "Armes sur Pivot de Légion",
+     "replaces": [
+      "Deux bolters sur Pivot"
+     ],
+     "partOf": 2,
+     "exclusive": "pivot"
     },
     {
      "text": "Équipements (un exemplaire de chaque)",
@@ -5852,6 +6525,9 @@
        "name": "Deux lance-flammes lourds sur Pivot",
        "points": 5
       }
+     ],
+     "replaces": [
+      "Deux combi-bolters sur Pivot"
      ]
     }
    ]
@@ -5884,9 +6560,13 @@
     }
    ],
    "wargear": [
+    "Deux canons laser jumelés Latéraux",
     "Bolter lourd jumelé de Coque (Avant)"
    ],
-   "rules": [],
+   "rules": [
+    "Véhicule d'Assaut",
+    "Autoréparation (5+)"
+   ],
    "types": [
     "Véhicule (Transport)"
    ],
@@ -5908,12 +6588,16 @@
        "name": "Canon laser jumelé de Coque (Avant)",
        "points": 10
       }
+     ],
+     "replaces": [
+      "Bolter lourd jumelé de Coque (Avant)"
      ]
     },
     {
      "text": "Arme sur Pivot",
      "max": 1,
-     "list": "Armes sur Pivot de Légion"
+     "list": "Armes sur Pivot de Légion",
+     "exclusive": "pivot"
     },
     {
      "text": "Équipements (un exemplaire de chaque)",
@@ -5988,6 +6672,9 @@
        "name": "Deux batteries de bolters lourds Gravis Latérales",
        "points": 0
       }
+     ],
+     "replaces": [
+      "Deux affûts de canons laser Latéraux"
      ]
     },
     {
@@ -6002,12 +6689,16 @@
        "name": "Canon laser jumelé de Coque (Avant)",
        "points": 10
       }
+     ],
+     "replaces": [
+      "Bolter lourd jumelé de Coque (Avant)"
      ]
     },
     {
      "text": "Arme sur Pivot",
      "max": 1,
-     "list": "Armes sur Pivot de Légion"
+     "list": "Armes sur Pivot de Légion",
+     "exclusive": "pivot"
     },
     {
      "text": "Équipements (un exemplaire de chaque)",
@@ -6235,17 +6926,35 @@
     {
      "text": "Sergent Reco : remplacer le fusil à pompe Astartes et/ou le pistolet bolter (un objet chacun)",
      "max": 2,
-     "list": "Armes de Mêlée de Sergent de Légion"
+     "list": "Armes de Mêlée de Sergent de Légion",
+     "replaces": [
+      [
+       "Fusil à pompe Astartes",
+       "Pistolet bolter"
+      ]
+     ],
+     "models": [
+      "Sergent Reco"
+     ]
     },
     {
      "text": "Sergent Reco : remplacer le pistolet bolter",
      "max": 1,
-     "list": "Pistolets de Légion"
+     "list": "Pistolets de Légion",
+     "replaces": [
+      "Pistolet bolter"
+     ],
+     "models": [
+      "Sergent Reco"
+     ]
     },
     {
      "text": "Jusqu'à deux Légionnaires Reco",
      "max": 2,
-     "list": "Équipement de Légion"
+     "list": "Équipement de Légion",
+     "models": [
+      "Légionnaire Reco"
+     ]
     },
     {
      "text": "Toute figurine : remplacer le fusil à pompe Astartes",
@@ -6255,6 +6964,9 @@
        "name": "Bolter Némésis",
        "points": 5
       }
+     ],
+     "replaces": [
+      "Fusil à pompe Astartes"
      ]
     },
     {
@@ -6265,6 +6977,9 @@
        "name": "Bombes à fusion",
        "points": 10
       }
+     ],
+     "models": [
+      "Sergent Reco"
      ]
     }
    ]
@@ -6324,6 +7039,9 @@
        "name": "Sacre volkite d'Axe Central",
        "points": 0
       }
+     ],
+     "replaces": [
+      "Autocanon court Anvilus d'Axe Central"
      ]
     },
     {
@@ -6342,12 +7060,16 @@
        "name": "Lance-flammes lourd de Coque (Avant)",
        "points": 0
       }
+     ],
+     "replaces": [
+      "Bolter lourd de Coque (Avant)"
      ]
     },
     {
      "text": "Arme sur Pivot",
      "max": 1,
-     "list": "Armes sur Pivot de Légion"
+     "list": "Armes sur Pivot de Légion",
+     "exclusive": "pivot"
     },
     {
      "text": "Projecteurs",
@@ -6458,28 +7180,43 @@
     {
      "text": "Jusqu'à deux Motards",
      "max": 2,
-     "list": "Équipement de Légion"
+     "list": "Équipement de Légion",
+     "models": [
+      "Motard"
+     ]
     },
     {
      "text": "Sergent Motard : remplacer l'épée tronçonneuse",
      "max": 1,
-     "list": "Armes de Mêlée de Sergent de Légion"
+     "list": "Armes de Mêlée de Sergent de Légion",
+     "replaces": [
+      "Épée tronçonneuse"
+     ],
+     "models": [
+      "Sergent Motard"
+     ]
     },
     {
      "text": "Toute figurine : remplacer le pistolet bolter",
      "max": "models",
-     "list": "Pistolets de Légion"
+     "list": "Pistolets de Légion",
+     "replaces": [
+      "Pistolet bolter"
+     ]
     },
     {
-     "text": "Unité entière : remplacer le bolter jumelé",
+     "text": "Unité entière : remplacer le bolter jumelé par un fusil à plasma jumelé (+15 points par figurine)",
      "max": 1,
      "choices": [
       {
-       "name": "Fusils à plasma jumelés pour toute l'unité (+15 par figurine)",
+       "name": "Fusil à plasma jumelé",
        "points": 15
       }
      ],
-     "all": true
+     "all": true,
+     "replaces": [
+      "Bolter jumelé"
+     ]
     },
     {
      "text": "Toute figurine : remplacer l'épée tronçonneuse",
@@ -6489,6 +7226,9 @@
        "name": "Fusil à pompe Astartes",
        "points": 0
       }
+     ],
+     "replaces": [
+      "Épée tronçonneuse"
      ]
     }
    ]
@@ -6540,7 +7280,8 @@
     {
      "text": "Arme sur Pivot",
      "max": 1,
-     "list": "Armes sur Pivot de Légion"
+     "list": "Armes sur Pivot de Légion",
+     "exclusive": "pivot"
     },
     {
      "text": "Arme de Coque (Avant)",
@@ -6645,6 +7386,9 @@
        "name": "Deux missiles Frag Orias de Tourelle",
        "points": 15
       }
+     ],
+     "replaces": [
+      "Bolter lourd jumelé de Tourelle"
      ]
     }
    ]
@@ -6746,6 +7490,9 @@
        "name": "Lance-missiles Cyclone d'Axe Central",
        "points": 10
       }
+     ],
+     "replaces": [
+      "Bolter lourd jumelé d'Axe Central"
      ]
     },
     {
@@ -6760,6 +7507,9 @@
        "name": "Deux canons laser jumelés d'Axe Central",
        "points": 30
       }
+     ],
+     "replaces": [
+      "Quatre roquettes Tempest d'Axe Central"
      ]
     }
    ]
@@ -6813,6 +7563,9 @@
        "name": "Deux batteries d'autocanons Gravis Latérales",
        "points": 15
       }
+     ],
+     "replaces": [
+      "Deux batteries de bolters lourds Gravis Latérales"
      ]
     },
     {
@@ -6823,6 +7576,9 @@
        "name": "Quatre missiles Hellstrike d'Axe Central",
        "points": 20
       }
+     ],
+     "replaces": [
+      "Quatre roquettes Tempest d'Axe Central"
      ]
     }
    ]
@@ -6916,17 +7672,29 @@
        "name": "Scanner augure",
        "points": 10
       }
+     ],
+     "models": [
+      "Veneur Scimitar"
      ]
     },
     {
      "text": "Sergent Scimitar : remplacer l'épée tronçonneuse",
      "max": 1,
-     "list": "Armes de Mêlée de Sergent de Légion"
+     "list": "Armes de Mêlée de Sergent de Légion",
+     "replaces": [
+      "Épée tronçonneuse"
+     ],
+     "models": [
+      "Sergent Scimitar"
+     ]
     },
     {
      "text": "Toute figurine : remplacer le pistolet bolter",
      "max": "models",
-     "list": "Pistolets de Légion"
+     "list": "Pistolets de Légion",
+     "replaces": [
+      "Pistolet bolter"
+     ]
     },
     {
      "text": "Toute figurine : remplacer le bolter lourd",
@@ -6944,6 +7712,9 @@
        "name": "Canon à plasma",
        "points": 10
       }
+     ],
+     "replaces": [
+      "Bolter lourd"
      ]
     }
    ]
@@ -7023,6 +7794,9 @@
        "name": "Deux couleuvrines volkites",
        "points": 5
       }
+     ],
+     "replaces": [
+      "Lance-missiles Cyclone"
      ]
     }
    ]
@@ -7110,6 +7884,9 @@
        "name": "Fusil à gravitons",
        "points": 10
       }
+     ],
+     "replaces": [
+      "Bolter lourd"
      ]
     },
     {
@@ -7144,6 +7921,9 @@
        "name": "Fusil à gravitons",
        "points": 10
       }
+     ],
+     "replaces": [
+      "Scanner augure"
      ]
     },
     {
@@ -7205,7 +7985,19 @@
     {
      "name": "Décurion Defensor",
      "points": 20,
-     "note": "Arme sur Pivot requise (hors lanceur Havoc) ; gagne Défense de Point"
+     "note": "Arme sur Pivot requise (hors lanceur Havoc) ; gagne Défense de Point",
+     "requires": [
+      [
+       "Combi-bolter sur Pivot",
+       "Combi-lance-flammes sur Pivot",
+       "Combi-plasma sur Pivot",
+       "Combi-fuseur sur Pivot",
+       "Combi-volkite sur Pivot",
+       "Bolter lourd sur Pivot",
+       "Lance-flammes lourd sur Pivot",
+       "Multi-fuseur sur Pivot"
+      ]
+     ]
     },
     {
      "name": "Décurion Locus",
@@ -7250,17 +8042,24 @@
        "name": "Canon laser jumelé de Tourelle",
        "points": 10
       }
+     ],
+     "replaces": [
+      "Canon Predator de Tourelle"
      ]
     },
     {
      "text": "Remplacer les deux bolters lourds Latéraux",
      "max": 1,
-     "list": "Armes Latérales de Légion"
+     "list": "Armes Latérales de Légion",
+     "replaces": [
+      "Deux bolters lourds Latéraux"
+     ]
     },
     {
      "text": "Arme sur Pivot",
      "max": 1,
-     "list": "Armes sur Pivot de Légion"
+     "list": "Armes sur Pivot de Légion",
+     "exclusive": "pivot"
     },
     {
      "text": "Équipements (un exemplaire de chaque)",
@@ -7328,12 +8127,34 @@
     {
      "name": "Décurion Defensor",
      "points": 20,
-     "note": "Autocanon accélérateur ou canon Punisher seulement ; arme sur Pivot requise (hors lanceur Havoc)"
+     "note": "Autocanon accélérateur ou canon Punisher seulement ; arme sur Pivot requise (hors lanceur Havoc)",
+     "requires": [
+      [
+       "Autocanon accélérateur jumelé de Tourelle",
+       "Canon rotatif Punisher de Tourelle"
+      ],
+      [
+       "Combi-bolter sur Pivot",
+       "Combi-lance-flammes sur Pivot",
+       "Combi-plasma sur Pivot",
+       "Combi-fuseur sur Pivot",
+       "Combi-volkite sur Pivot",
+       "Bolter lourd sur Pivot",
+       "Lance-flammes lourd sur Pivot",
+       "Multi-fuseur sur Pivot"
+      ]
+     ]
     },
     {
      "name": "Décurion Locus",
      "points": 30,
-     "note": "Autocanon accélérateur ou canon Punisher seulement"
+     "note": "Autocanon accélérateur ou canon Punisher seulement",
+     "requires": [
+      [
+       "Autocanon accélérateur jumelé de Tourelle",
+       "Canon rotatif Punisher de Tourelle"
+      ]
+     ]
     }
    ],
    "options": [
@@ -7353,17 +8174,24 @@
        "name": "Affût à plasma Omega de Tourelle",
        "points": 25
       }
+     ],
+     "replaces": [
+      "Autocanon accélérateur jumelé de Tourelle"
      ]
     },
     {
      "text": "Remplacer les deux bolters lourds Latéraux",
      "max": 1,
-     "list": "Armes Latérales de Légion"
+     "list": "Armes Latérales de Légion",
+     "replaces": [
+      "Deux bolters lourds Latéraux"
+     ]
     },
     {
      "text": "Arme sur Pivot",
      "max": 1,
-     "list": "Armes sur Pivot de Légion"
+     "list": "Armes sur Pivot de Légion",
+     "exclusive": "pivot"
     },
     {
      "text": "Équipements (un exemplaire de chaque)",
@@ -7412,8 +8240,7 @@
    "wargear": [
     "Laser à neutrons d'Axe Central",
     "Bolter lourd de Tourelle",
-    "Deux bolters lourds Latéraux",
-    "Écran de Fumée"
+    "Deux bolters lourds Latéraux"
    ],
    "rules": [
     "Explose (5+)"
@@ -7423,18 +8250,23 @@
    ],
    "traits": [
     "[Allégeance]",
-    "[Legiones Astartes]"
+    "[Legiones Astartes]",
+    "Écran de Fumée"
    ],
    "options": [
     {
      "text": "Remplacer les deux bolters lourds Latéraux",
      "max": 1,
-     "list": "Armes Latérales de Légion"
+     "list": "Armes Latérales de Légion",
+     "replaces": [
+      "Deux bolters lourds Latéraux"
+     ]
     },
     {
      "text": "Arme sur Pivot",
      "max": 1,
-     "list": "Armes sur Pivot de Légion"
+     "list": "Armes sur Pivot de Légion",
+     "exclusive": "pivot"
     },
     {
      "text": "Équipements (un exemplaire de chaque)",
@@ -7500,7 +8332,19 @@
     {
      "name": "Décurion Defensor",
      "points": 30,
-     "note": "Arme sur Pivot requise (hors lanceur Havoc) ; gagne Défense de Point"
+     "note": "Arme sur Pivot requise (hors lanceur Havoc) ; gagne Défense de Point",
+     "requires": [
+      [
+       "Combi-bolter sur Pivot",
+       "Combi-lance-flammes sur Pivot",
+       "Combi-plasma sur Pivot",
+       "Combi-fuseur sur Pivot",
+       "Combi-volkite sur Pivot",
+       "Bolter lourd sur Pivot",
+       "Lance-flammes lourd sur Pivot",
+       "Multi-fuseur sur Pivot"
+      ]
+     ]
     },
     {
      "name": "Décurion Locus",
@@ -7517,6 +8361,9 @@
        "name": "Obus brûleurs",
        "points": 10
       }
+     ],
+     "requires": [
+      "Obusier Kratos de Tourelle"
      ]
     },
     {
@@ -7531,6 +8378,9 @@
        "name": "Fuseur-éclateur de Tourelle",
        "points": 30
       }
+     ],
+     "replaces": [
+      "Obusier Kratos de Tourelle"
      ]
     },
     {
@@ -7539,27 +8389,47 @@
      "choices": [
       {
        "name": "Deux arquebuses volkites de Coque",
-       "points": 5
+       "points": 5,
+       "gives": [
+        "Arquebuse volkite de Coque (Avant, Gauche)",
+        "Arquebuse volkite de Coque (Avant, Droite)"
+       ]
       },
       {
        "name": "Deux autocanons de Coque",
-       "points": 10
+       "points": 10,
+       "gives": [
+        "Autocanon de Coque (Avant, Gauche)",
+        "Autocanon de Coque (Avant, Droite)"
+       ]
       },
       {
        "name": "Deux canons laser de Coque",
-       "points": 25
+       "points": 25,
+       "gives": [
+        "Canon laser de Coque (Avant, Gauche)",
+        "Canon laser de Coque (Avant, Droite)"
+       ]
       }
+     ],
+     "replaces": [
+      "Bolter lourd de Coque (Avant, Gauche)",
+      "Bolter lourd de Coque (Avant, Droite)"
      ]
     },
     {
      "text": "Remplacer les deux bolters lourds Latéraux",
      "max": 1,
-     "list": "Armes Latérales de Légion"
+     "list": "Armes Latérales de Légion",
+     "replaces": [
+      "Deux bolters lourds Latéraux"
+     ]
     },
     {
      "text": "Arme sur Pivot",
      "max": 1,
-     "list": "Armes sur Pivot de Légion"
+     "list": "Armes sur Pivot de Légion",
+     "exclusive": "pivot"
     },
     {
      "text": "Équipements (un exemplaire de chaque)",
@@ -7631,12 +8501,16 @@
        "name": "Magnadestructeur laser d'Axe Central",
        "points": 20
       }
+     ],
+     "replaces": [
+      "Canon Demolisher d'Axe Central"
      ]
     },
     {
      "text": "Arme sur Pivot",
      "max": 1,
-     "list": "Armes sur Pivot de Légion"
+     "list": "Armes sur Pivot de Légion",
+     "exclusive": "pivot"
     },
     {
      "text": "Équipements (un exemplaire de chaque)",
@@ -7703,11 +8577,16 @@
     {
      "text": "Remplacer un des bolters sur Pivot",
      "max": 1,
-     "list": "Armes sur Pivot de Légion"
+     "list": "Armes sur Pivot de Légion",
+     "replaces": [
+      "Deux bolters sur Pivot"
+     ],
+     "partOf": 2,
+     "exclusive": "pivot"
     },
     {
      "text": "Équipements (un exemplaire de chaque)",
-     "max": 2,
+     "max": 3,
      "choices": [
       {
        "name": "Missile traqueur de Coque (Avant)",
@@ -7715,6 +8594,10 @@
       },
       {
        "name": "Projecteurs",
+       "points": 5
+      },
+      {
+       "name": "Lame de bulldozer",
        "points": 5
       }
      ],
@@ -7771,7 +8654,11 @@
        "name": "Obus à phosphex",
        "points": 20
       }
-     ]
+     ],
+     "requires": [
+      "Bombarde Morbus d'Axe Central"
+     ],
+     "needsArmyUnit": "briseur-de-siege"
     },
     {
      "text": "Remplacer la bombarde Morbus d'Axe Central",
@@ -7785,6 +8672,9 @@
        "name": "Système de roquettes Spicula d'Axe Central",
        "points": 15
       }
+     ],
+     "replaces": [
+      "Bombarde Morbus d'Axe Central"
      ]
     },
     {
@@ -7796,12 +8686,16 @@
        "points": 10
       }
      ],
-     "list": "Armes Latérales de Légion"
+     "list": "Armes Latérales de Légion",
+     "replaces": [
+      "Deux bolters lourds Latéraux"
+     ]
     },
     {
      "text": "Arme sur Pivot",
      "max": 1,
-     "list": "Armes sur Pivot de Légion"
+     "list": "Armes sur Pivot de Légion",
+     "exclusive": "pivot"
     },
     {
      "text": "Équipements (un exemplaire de chaque)",
@@ -7866,12 +8760,16 @@
     {
      "text": "Remplacer les deux bolters lourds Latéraux",
      "max": 1,
-     "list": "Armes Latérales de Légion"
+     "list": "Armes Latérales de Légion",
+     "replaces": [
+      "Deux bolters lourds Latéraux"
+     ]
     },
     {
      "text": "Arme sur Pivot",
      "max": 1,
-     "list": "Armes sur Pivot de Légion"
+     "list": "Armes sur Pivot de Légion",
+     "exclusive": "pivot"
     },
     {
      "text": "Équipements (un exemplaire de chaque)",
@@ -7936,12 +8834,16 @@
     {
      "text": "Remplacer les deux bolters lourds Latéraux",
      "max": 1,
-     "list": "Armes Latérales de Légion"
+     "list": "Armes Latérales de Légion",
+     "replaces": [
+      "Deux bolters lourds Latéraux"
+     ]
     },
     {
      "text": "Arme sur Pivot",
      "max": 1,
-     "list": "Armes sur Pivot de Légion"
+     "list": "Armes sur Pivot de Légion",
+     "exclusive": "pivot"
     },
     {
      "text": "Équipements (un exemplaire de chaque)",
@@ -8010,6 +8912,9 @@
        "name": "Lance-flammes lourd jumelé de Coque (Avant)",
        "points": 0
       }
+     ],
+     "replaces": [
+      "Bolter lourd jumelé de Coque (Avant)"
      ]
     },
     {
@@ -8024,12 +8929,16 @@
        "name": "Deux batteries de bolters lourds Gravis Latérales",
        "points": 0
       }
+     ],
+     "replaces": [
+      "Deux affûts de canons laser Latéraux"
      ]
     },
     {
      "text": "Arme sur Pivot",
      "max": 1,
-     "list": "Armes sur Pivot de Légion"
+     "list": "Armes sur Pivot de Légion",
+     "exclusive": "pivot"
     },
     {
      "text": "Équipements (un exemplaire de chaque)",
@@ -8099,6 +9008,9 @@
        "name": "Lance-flammes lourd jumelé de Coque (Avant)",
        "points": 0
       }
+     ],
+     "replaces": [
+      "Bolter lourd jumelé de Coque (Avant)"
      ]
     },
     {
@@ -8113,12 +9025,16 @@
        "name": "Deux batteries de bolters lourds Gravis Latérales",
        "points": 0
       }
+     ],
+     "replaces": [
+      "Deux affûts de canons laser Latéraux"
      ]
     },
     {
      "text": "Arme sur Pivot",
      "max": 1,
-     "list": "Armes sur Pivot de Légion"
+     "list": "Armes sur Pivot de Légion",
+     "exclusive": "pivot"
     },
     {
      "text": "Équipements (un exemplaire de chaque)",
@@ -8190,12 +9106,16 @@
        "name": "Deux batteries de bolters lourds Gravis Latérales",
        "points": 0
       }
+     ],
+     "replaces": [
+      "Deux affûts de canons laser Latéraux"
      ]
     },
     {
      "text": "Arme sur Pivot",
      "max": 1,
-     "list": "Armes sur Pivot de Légion"
+     "list": "Armes sur Pivot de Légion",
+     "exclusive": "pivot"
     },
     {
      "text": "Équipements (un exemplaire de chaque)",
@@ -8292,7 +9212,7 @@
     "Deux canons laser jumelés de Coque (Gauche)",
     "Deux canons laser jumelés de Coque (Droite)",
     "Deux bolters lourds jumelés de Tourelle",
-    "Bolter lourd jumelé de Coque (Arrière) :x",
+    "Bolter lourd jumelé de Coque (Arrière)",
     "Six missiles Hellstrike d'Axe Central"
    ],
    "rules": [
@@ -8308,24 +9228,32 @@
    ],
    "options": [
     {
-     "text": "Remplacer les canons laser jumelés de Coque (Gauche)",
-     "max": 1,
+     "text": "Remplacer tout canon laser jumelé de Coque (Gauche), gratuitement",
+     "max": 2,
      "choices": [
       {
-       "name": "Batteries de bolters lourds Gravis de Coque (Gauche)",
+       "name": "Batterie de bolters lourds Gravis de Coque (Gauche)",
        "points": 0
       }
-     ]
+     ],
+     "replaces": [
+      "Deux canons laser jumelés de Coque (Gauche)"
+     ],
+     "partOf": 2
     },
     {
-     "text": "Remplacer les canons laser jumelés de Coque (Droite)",
-     "max": 1,
+     "text": "Remplacer tout canon laser jumelé de Coque (Droite), gratuitement",
+     "max": 2,
      "choices": [
       {
-       "name": "Batteries de bolters lourds Gravis de Coque (Droite)",
+       "name": "Batterie de bolters lourds Gravis de Coque (Droite)",
        "points": 0
       }
-     ]
+     ],
+     "replaces": [
+      "Deux canons laser jumelés de Coque (Droite)"
+     ],
+     "partOf": 2
     }
    ]
   },
@@ -8377,7 +9305,8 @@
     {
      "text": "Armes Latérales — obligatoire : deux objets",
      "max": 2,
-     "list": "Armes Latérales de Légion"
+     "list": "Armes Latérales de Légion",
+     "required": true
     },
     {
      "text": "Équipements (un exemplaire de chaque)",
@@ -8453,13 +9382,16 @@
    "faction": "Dark Angels",
    "options": [
     {
-     "text": "Remplacer l'Épée du Lion",
+     "text": "Échanger gratuitement l'Épée du Lion contre la Lame du Loup",
      "max": 1,
      "choices": [
       {
-       "name": "Lame du Loup",
+       "name": "La Lame du Loup",
        "points": 0
       }
+     ],
+     "replaces": [
+      "L'Épée du Lion"
      ]
     }
    ]
@@ -8666,6 +9598,9 @@
        "name": "Espadon terranique",
        "points": 5
       }
+     ],
+     "replaces": [
+      "Lame de Caliban"
      ]
     },
     {
@@ -8676,6 +9611,9 @@
        "name": "Égide modèle Cytheron",
        "points": 10
       }
+     ],
+     "replaces": [
+      "Bolter"
      ]
     },
     {
@@ -8686,6 +9624,9 @@
        "name": "Pistolet à plasma",
        "points": 10
       }
+     ],
+     "replaces": [
+      "Pistolet bolter"
      ]
     },
     {
@@ -8790,12 +9731,18 @@
      "choices": [
       {
        "name": "Lance-missiles de Destructeur avec missiles Rad et missiles à stase",
-       "points": 15
+       "points": 15,
+       "gives": [
+        "Lance-missiles de Destructeur"
+       ]
       },
       {
        "name": "Incinérateur à plasma",
        "points": 15
       }
+     ],
+     "replaces": [
+      "Brûleur à plasma"
      ]
     }
    ]
@@ -8864,7 +9811,7 @@
    "wargear": [
     "Espadon terranique",
     "Lance-plasma",
-    "Harnais à grenades (Précepteur de l'Ordre seulement)"
+    "Précepteur de l'Ordre : Harnais à grenades"
    ],
    "rules": [
     "Massif (2)",
@@ -9096,7 +10043,10 @@
     {
      "text": "Remplacer le pistolet bolter",
      "max": 1,
-     "list": "Pistolets de Légion"
+     "list": "Pistolets de Légion",
+     "replaces": [
+      "Pistolet bolter"
+     ]
     },
     {
      "text": "Disciplines Psychiques, jusqu'à deux",
@@ -9216,6 +10166,12 @@
        "name": "Marteau Thunder",
        "points": 10
       }
+     ],
+     "replaces": [
+      "Épée énergétique"
+     ],
+     "models": [
+      "Champion de la Keshig"
      ]
     },
     {
@@ -9226,6 +10182,12 @@
        "name": "Hache énergétique",
        "points": 0
       }
+     ],
+     "replaces": [
+      "Épée énergétique"
+     ],
+     "models": [
+      "Cavalier de la Keshig"
      ]
     }
    ]
@@ -9449,7 +10411,10 @@
     {
      "text": "Remplacer le pistolet bolter",
      "max": 1,
-     "list": "Pistolets de Légion"
+     "list": "Pistolets de Légion",
+     "replaces": [
+      "Pistolet bolter"
+     ]
     },
     {
      "text": "Disciplines Psychiques, jusqu'à deux",
@@ -9539,7 +10504,8 @@
     "Peur (1)",
     "Négligence",
     "Massif (4)",
-    "Insensible à la Douleur (5+)"
+    "Insensible à la Douleur (5+)",
+    "Vif (2)"
    ],
    "types": [
     "Freki : Infanterie (Unique)",
@@ -9784,6 +10750,9 @@
        "name": "Bolter",
        "points": 0
       }
+     ],
+     "replaces": [
+      "Bouclier de combat"
      ]
     },
     {
@@ -9798,6 +10767,9 @@
        "name": "Baïonnette tronçonneuse",
        "points": 2
       }
+     ],
+     "requires": [
+      "Bolter"
      ]
     },
     {
@@ -9820,12 +10792,24 @@
        "name": "Lame de givre (épée, hache ou griffe)",
        "points": 15
       }
+     ],
+     "replaces": [
+      "Hache de Fenris"
+     ],
+     "models": [
+      "Huscarl"
      ]
     },
     {
      "text": "Huscarl : remplacer le pistolet bolter",
      "max": 1,
-     "list": "Pistolets de Légion"
+     "list": "Pistolets de Légion",
+     "replaces": [
+      "Pistolet bolter"
+     ],
+     "models": [
+      "Huscarl"
+     ]
     },
     {
      "text": "Huscarl : remplacer le bolter, le pistolet bolter et la hache de Fenris",
@@ -9835,6 +10819,14 @@
        "name": "Paire de griffes Lightning",
        "points": 15
       }
+     ],
+     "replaces": [
+      "Bolter",
+      "Pistolet bolter",
+      "Hache de Fenris"
+     ],
+     "models": [
+      "Huscarl"
      ]
     },
     {
@@ -9845,6 +10837,9 @@
        "name": "Bombes à fusion",
        "points": 10
       }
+     ],
+     "models": [
+      "Huscarl"
      ]
     },
     {
@@ -9855,6 +10850,12 @@
        "name": "Arme énergétique",
        "points": 5
       }
+     ],
+     "replaces": [
+      "Hache de Fenris"
+     ],
+     "models": [
+      "Tueur Gris"
      ]
     },
     {
@@ -9875,6 +10876,12 @@
        "name": "Griffe Lightning",
        "points": 10
       }
+     ],
+     "replaces": [
+      "Hache de Fenris"
+     ],
+     "models": [
+      "Tueur Gris"
      ]
     },
     {
@@ -9882,7 +10889,13 @@
      "max": {
       "per": 5
      },
-     "list": "Pistolets de Légion"
+     "list": "Pistolets de Légion",
+     "replaces": [
+      "Pistolet bolter"
+     ],
+     "models": [
+      "Tueur Gris"
+     ]
     },
     {
      "text": "Un Tueur Gris",
@@ -9892,12 +10905,18 @@
        "name": "Vexillum",
        "points": 10
       }
+     ],
+     "models": [
+      "Tueur Gris"
      ]
     },
     {
      "text": "Jusqu'à deux Tueurs Gris",
      "max": 2,
-     "list": "Équipement de Légion"
+     "list": "Équipement de Légion",
+     "models": [
+      "Tueur Gris"
+     ]
     }
    ]
   },
@@ -10297,14 +11316,17 @@
     }
    ],
    "wargear": [
+    "Épée énergétique",
     "Pistolet bolter",
     "Grenades Frag",
     "Grenades Krak"
    ],
-   "rules": [],
+   "rules": [
+    "Assaut Templier"
+   ],
    "types": [
     "Champion Templier : Infanterie (Champion, Sergent)",
-    "Frères Templiers : Infanterie"
+    "Frère Templier : Infanterie"
    ],
    "traits": [
     "[Allégeance]",
@@ -10324,6 +11346,12 @@
        "name": "Marteau Thunder",
        "points": 15
       }
+     ],
+     "replaces": [
+      "Épée énergétique"
+     ],
+     "models": [
+      "Champion Templier"
      ]
     },
     {
@@ -10334,6 +11362,12 @@
        "name": "Pistolet archéotech",
        "points": 5
       }
+     ],
+     "replaces": [
+      "Pistolet bolter"
+     ],
+     "models": [
+      "Champion Templier"
      ]
     },
     {
@@ -10348,12 +11382,18 @@
        "name": "Pistolet à plasma",
        "points": 10
       }
+     ],
+     "replaces": [
+      "Pistolet bolter"
      ]
     },
     {
      "text": "Jusqu'à deux Frères Templiers",
      "max": 2,
-     "list": "Équipement de Légion"
+     "list": "Équipement de Légion",
+     "models": [
+      "Frère Templier"
+     ]
     },
     {
      "text": "Un Frère Templier",
@@ -10363,6 +11403,9 @@
        "name": "Vexillum",
        "points": 10
       }
+     ],
+     "models": [
+      "Frère Templier"
      ]
     },
     {
@@ -10467,6 +11510,12 @@
        "name": "Pistolet à plasma",
        "points": 10
       }
+     ],
+     "replaces": [
+      "Pistolet bolter"
+     ],
+     "models": [
+      "Sergent Gardien"
      ]
     },
     {
@@ -10481,12 +11530,21 @@
        "name": "Gantelet énergétique Solarite",
        "points": 10
       }
+     ],
+     "replaces": [
+      "Hache énergétique"
+     ],
+     "models": [
+      "Sergent Gardien"
      ]
     },
     {
      "text": "Jusqu'à deux Gardiens du Phalanx",
      "max": 2,
-     "list": "Équipement de Légion"
+     "list": "Équipement de Légion",
+     "models": [
+      "Gardien du Phalanx"
+     ]
     },
     {
      "text": "Un Gardien du Phalanx",
@@ -10496,6 +11554,9 @@
        "name": "Vexillum",
        "points": 10
       }
+     ],
+     "models": [
+      "Gardien du Phalanx"
      ]
     },
     {
@@ -10572,8 +11633,15 @@
      "choices": [
       {
        "name": "Lance de Telesto et Lame d'Argent Lunaire",
-       "points": 0
+       "points": 0,
+       "gives": [
+        "Lance de Telesto",
+        "Lame d'Argent Lunaire"
+       ]
       }
+     ],
+     "replaces": [
+      "La Lame Carmin"
      ]
     }
    ]
@@ -10830,9 +11898,28 @@
      "max": 1,
      "choices": [
       {
-       "name": "Arme de Perdition",
+       "name": "Lame de Perdition",
+       "points": 0
+      },
+      {
+       "name": "Hache de Perdition",
+       "points": 0
+      },
+      {
+       "name": "Masse de Perdition",
+       "points": 0
+      },
+      {
+       "name": "Lance de Perdition",
        "points": 0
       }
+     ],
+     "replaces": [
+      "Épée énergétique",
+      "Bouclier énergétique modèle Coriolis"
+     ],
+     "models": [
+      "Exemple Écarlate"
      ]
     },
     {
@@ -10845,6 +11932,12 @@
        "name": "Canon d'assaut Iliastus",
        "points": 10
       }
+     ],
+     "replaces": [
+      "Bouclier énergétique modèle Coriolis"
+     ],
+     "models": [
+      "Paladin Écarlate"
      ]
     }
    ]
@@ -10934,9 +12027,27 @@
      "max": 1,
      "choices": [
       {
-       "name": "Arme de Perdition",
+       "name": "Lame de Perdition",
+       "points": 5
+      },
+      {
+       "name": "Hache de Perdition",
+       "points": 5
+      },
+      {
+       "name": "Masse de Perdition",
+       "points": 5
+      },
+      {
+       "name": "Lance de Perdition",
        "points": 5
       }
+     ],
+     "replaces": [
+      "Lance énergétique Étoile Filante"
+     ],
+     "models": [
+      "Champion Éoclaste"
      ]
     },
     {
@@ -11043,6 +12154,9 @@
        "name": "Lance-grenades Erelim",
        "points": 10
       }
+     ],
+     "replaces": [
+      "Deux serpentines volkites"
      ]
     }
    ]
@@ -11111,6 +12225,9 @@
        "name": "Deux canons d'assaut Iliastus",
        "points": 30
       }
+     ],
+     "replaces": [
+      "Deux lance-flammes lourds"
      ]
     }
    ]
@@ -11287,7 +12404,10 @@
     {
      "text": "Remplacer le chargeur volkite",
      "max": 1,
-     "list": "Armes Combinées de Légion"
+     "list": "Armes Combinées de Légion",
+     "replaces": [
+      "Chargeur volkite"
+     ]
     },
     {
      "text": "Remplacer la hache énergétique d'artificier",
@@ -11301,6 +12421,9 @@
        "name": "Lame de parangon",
        "points": 15
       }
+     ],
+     "replaces": [
+      "Hache énergétique d'artificier"
      ]
     },
     {
@@ -11387,9 +12510,9 @@
    ],
    "wargear": [
     "Combi-bolter",
-    "Marteau Thunder (Martelier Gorgone seulement)",
-    "Harnais à grenades (Martelier Gorgone seulement)",
-    "Hache énergétique d'artificier (Terminator Gorgone seulement)",
+    "Martelier Gorgone : Marteau Thunder",
+    "Martelier Gorgone : Harnais à grenades",
+    "Terminator Gorgone : Hache énergétique d'artificier",
     "Armure Terminator modèle Gorgone"
    ],
    "rules": [
@@ -11499,12 +12622,24 @@
      "list": [
       "Armes de Mêlée de Sergent de Légion",
       "Armes Combinées de Légion"
+     ],
+     "replaces": [
+      "Bolter"
+     ],
+     "models": [
+      "Sergent Immortel"
      ]
     },
     {
      "text": "Sergent Immortel : remplacer le pistolet bolter",
      "max": 1,
-     "list": "Pistolets de Légion"
+     "list": "Pistolets de Légion",
+     "replaces": [
+      "Pistolet bolter"
+     ],
+     "models": [
+      "Sergent Immortel"
+     ]
     },
     {
      "text": "Sergent Immortel",
@@ -11514,6 +12649,9 @@
        "name": "Bombes à fusion",
        "points": 10
       }
+     ],
+     "models": [
+      "Sergent Immortel"
      ]
     },
     {
@@ -11530,6 +12668,12 @@
        "name": "Découpeur laser",
        "points": 10
       }
+     ],
+     "replaces": [
+      "Bolter"
+     ],
+     "models": [
+      "Immortel"
      ]
     }
    ]
@@ -11658,6 +12802,9 @@
        "name": "Pistolet à plasma",
        "points": 10
       }
+     ],
+     "replaces": [
+      "Pistolet bolter"
      ]
     }
    ]
@@ -11745,7 +12892,10 @@
     {
      "text": "Jusqu'à deux Prétoriens",
      "max": 2,
-     "list": "Équipement de Légion"
+     "list": "Équipement de Légion",
+     "models": [
+      "Prétorien"
+     ]
     },
     {
      "text": "Un Prétorien",
@@ -11755,6 +12905,9 @@
        "name": "Vexillum",
        "points": 10
       }
+     ],
+     "models": [
+      "Prétorien"
      ]
     },
     {
@@ -11765,6 +12918,12 @@
        "name": "Pistolet à plasma",
        "points": 10
       }
+     ],
+     "replaces": [
+      "Pistolet bolter"
+     ],
+     "models": [
+      "Prétorien Primus"
      ]
     },
     {
@@ -11779,6 +12938,12 @@
        "name": "Hache légatine",
        "points": 5
       }
+     ],
+     "replaces": [
+      "Épée énergétique"
+     ],
+     "models": [
+      "Prétorien Primus"
      ]
     }
    ]
@@ -11817,6 +12982,7 @@
     }
    ],
    "wargear": [
+    "Le Cœur du Fourneau",
     "Gantelet Souffle de Dragon",
     "Amène-l'Aube",
     "Grenades Frag",
@@ -12020,6 +13186,9 @@
        "name": "Marteau Thunder",
        "points": 25
       }
+     ],
+     "models": [
+      "Gardien Pyroclaste"
      ]
     }
    ]
@@ -12230,6 +13399,9 @@
        "name": "Fusil à pompe Astartes",
        "points": 0
       }
+     ],
+     "replaces": [
+      "Bolter Némésis"
      ]
     }
    ]
@@ -12563,12 +13735,20 @@
        "name": "Missiles Pyrax",
        "points": 10
       }
+     ],
+     "requires": [
+      "Lance-missiles Whirlwind de Tourelle"
      ]
     },
     {
      "text": "Cette Figurine peut échanger un de ses bolters sur Pivot contre un objet de la liste des Armes sur Pivot de Légion.",
      "max": 1,
-     "list": "Armes sur Pivot de Légion"
+     "list": "Armes sur Pivot de Légion",
+     "replaces": [
+      "Deux bolters sur Pivot"
+     ],
+     "partOf": 2,
+     "exclusive": "pivot"
     },
     {
      "text": "Cette Figurine peut être dotée d'un exemplaire de chacun des choix suivants :",

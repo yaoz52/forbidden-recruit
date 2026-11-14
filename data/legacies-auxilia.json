@@ -15,11 +15,11 @@
    "page": 146,
    "models": [
     {
-     "name": " Aevos Jovan",
+     "name": "Aevos Jovan",
      "count": 1
     },
     {
-     "name": " Auto-gurney",
+     "name": "Auto-gurney",
      "count": 1
     }
    ],
@@ -83,15 +83,15 @@
     }
    ],
    "wargear": [
-    "Phase lancet (Aevos Jovan only)",
-    "Needle pistol (Medical Orderlies only)",
+    "Aevos Jovan : Phase lancet",
+    "Medicae Orderly : Needle pistol",
     "Frag grenades",
     "Krak grenades"
    ],
    "rules": [
-    "Medic (4+) (Aevos Jovan only)",
-    "Surgical Suite (Auto-gurney only)",
-    "Triage (Medicae Orderlies only)"
+    "Aevos Jovan : Medic (4+)",
+    "Auto-gurney : Surgical Suite",
+    "Medicae Orderly : Triage"
    ],
    "types": [
     "Infantry (Unique, Specialist)"
@@ -103,7 +103,12 @@
    "options": [],
    "army": "aux",
    "legacy": true,
-   "source": "Legacies of the Age of Darkness v1.1 (EN)"
+   "source": "Legacies of the Age of Darkness v1.1 (EN)",
+   "extra": {
+    "model": "Medicae Orderly",
+    "max": 2,
+    "points": 10
+   }
   },
   {
    "id": "expeditionary-navigator",
@@ -115,7 +120,7 @@
    "page": 148,
    "models": [
     {
-     "name": " Expeditionary Navigator",
+     "name": "Expeditionary Navigator",
      "count": 1
     }
    ],
@@ -171,7 +176,7 @@
    "page": 149,
    "models": [
     {
-     "name": " Davinite Lodge Priest",
+     "name": "Davinite Lodge Priest",
      "count": 1
     }
    ],
@@ -226,11 +231,11 @@
    "page": 150,
    "models": [
     {
-     "name": " Auxilia Adjutant",
+     "name": "Auxilia Adjutant",
      "count": 1
     },
     {
-     "name": "Companions",
+     "name": "Companion",
      "count": 4
     }
    ],
@@ -297,43 +302,86 @@
      "choices": [
       {
        "name": "Bolter",
-       "points": 3
+       "points": 3,
+       "gives": [
+        "Laspistol",
+        "Charnabal sabre"
+       ]
       },
       {
        "name": "Volkite charger",
-       "points": 5
+       "points": 5,
+       "gives": [
+        "Laspistol",
+        "Charnabal sabre"
+       ]
       },
       {
        "name": "Flamer",
-       "points": 5
+       "points": 5,
+       "gives": [
+        "Laspistol",
+        "Charnabal sabre"
+       ]
       },
       {
        "name": "Grenade launcher",
-       "points": 10
+       "points": 10,
+       "gives": [
+        "Laspistol",
+        "Charnabal sabre"
+       ]
       },
       {
        "name": "Plasma gun",
-       "points": 10
+       "points": 10,
+       "gives": [
+        "Laspistol",
+        "Charnabal sabre"
+       ]
       },
       {
        "name": "Rotor cannon",
-       "points": 10
+       "points": 10,
+       "gives": [
+        "Laspistol",
+        "Charnabal sabre"
+       ]
       },
       {
        "name": "Meltagun",
-       "points": 15
+       "points": 15,
+       "gives": [
+        "Laspistol",
+        "Charnabal sabre"
+       ]
       }
+     ],
+     "replaces": [
+      "Lasrifle"
      ]
     },
     {
      "text": "Any Model in this Unit whose lasrifle has been exchanged for a laspistol and charnabal sabre may have its laspistol exchanged for one item from the Auxilia Pistols list.",
      "max": "models",
-     "list": "Auxilia Pistols"
+     "list": "Auxilia Pistols",
+     "replaces": [
+      "Laspistol"
+     ],
+     "requires": [
+      "Laspistol"
+     ]
     },
     {
-     "text": "Any Model in this Unit whose lasrifle has been exchanged for a laspistol and charnabal sabre may have its charnabal sabre exchanged for one chainsword for Free or for …",
+     "text": "Any Model in this Unit whose lasrifle has been exchanged for a laspistol and charnabal sabre may have its charnabal sabre exchanged for one chainsword for Free or for one item from the Auxilia Melee Weapons list.",
      "max": "models",
-     "list": "Auxilia Melee Weapons"
+     "list": "Auxilia Melee Weapons",
+     "replaces": [
+      "Charnabal sabre"
+     ],
+     "requires": [
+      "Charnabal sabre"
+     ]
     },
     {
      "text": "Any Model in this Unit with a lasrifle may have any of the following selected for it:",
@@ -348,7 +396,10 @@
        "points": 1
       }
      ],
-     "unique": true
+     "unique": true,
+     "requires": [
+      "Lasrifle"
+     ]
     },
     {
      "text": "One Companion in this Unit may have one vox interlock selected for it for +5 Points.",
@@ -358,6 +409,9 @@
        "name": "Vox interlock",
        "points": 5
       }
+     ],
+     "models": [
+      "Companion"
      ]
     },
     {
@@ -368,6 +422,9 @@
        "name": "Auxilia vexilla",
        "points": 5
       }
+     ],
+     "models": [
+      "Companion"
      ]
     },
     {
@@ -378,6 +435,9 @@
        "name": "Augury scanner",
        "points": 10
       }
+     ],
+     "models": [
+      "Companion"
      ]
     },
     {
@@ -388,12 +448,20 @@
        "name": "Melta bombs",
        "points": 10
       }
+     ],
+     "models": [
+      "Companion"
      ]
     }
    ],
    "army": "aux",
    "legacy": true,
-   "source": "Legacies of the Age of Darkness v1.1 (EN)"
+   "source": "Legacies of the Age of Darkness v1.1 (EN)",
+   "extra": {
+    "model": "Companion",
+    "max": 5,
+    "points": 12
+   }
   },
   {
    "id": "medicae-section",
@@ -404,7 +472,7 @@
    "page": 152,
    "models": [
     {
-     "name": " Medicae Auxiliary",
+     "name": "Medicae Auxiliary",
      "count": 1
     }
    ],
@@ -448,7 +516,12 @@
    "options": [],
    "army": "aux",
    "legacy": true,
-   "source": "Legacies of the Age of Darkness v1.1 (EN)"
+   "source": "Legacies of the Age of Darkness v1.1 (EN)",
+   "extra": {
+    "model": "Medicae Auxiliary",
+    "max": 5,
+    "points": 15
+   }
   },
   {
    "id": "cyclops-demolition-vehicle",
@@ -459,7 +532,7 @@
    "page": 153,
    "models": [
     {
-     "name": " Cyclops Demolition Vehicle",
+     "name": "Cyclops Demolition Vehicle",
      "count": 1
     }
    ],
@@ -506,7 +579,7 @@
    "page": 154,
    "models": [
     {
-     "name": " Aurox Transport",
+     "name": "Aurox Transport",
      "count": 1
     }
    ],
@@ -568,7 +641,7 @@
    "page": 155,
    "models": [
     {
-     "name": " Tarantula Sentry Guns",
+     "name": "Tarantula Sentry Gun",
      "count": 1
     }
    ],
@@ -611,6 +684,9 @@
        "name": "Turret Mounted twin lascannon",
        "points": 20
       }
+     ],
+     "replaces": [
+      "Turret Mounted twin heavy bolter"
      ]
     }
    ],
@@ -627,7 +703,7 @@
    "page": 157,
    "models": [
     {
-     "name": " Carnodon Strike Tank",
+     "name": "Carnodon Strike Tank",
      "count": 1
     }
    ],
@@ -676,12 +752,18 @@
        "name": "Turret Mounted twin lascannon",
        "points": 15
       }
+     ],
+     "replaces": [
+      "Turret Mounted volkite culverin"
      ]
     },
     {
      "text": "This Model may have both of its Sponson Mounted volkite calivers exchanged for one item from the Auxilia Sponson Weapons list.",
      "max": 1,
-     "list": "Auxilia Sponson Weapons"
+     "list": "Auxilia Sponson Weapons",
+     "replaces": [
+      "Two Sponson Mounted volkite calivers"
+     ]
     },
     {
      "text": "This Model may have one item from the Auxilia Pintle Weapons list selected for it.",
@@ -712,7 +794,7 @@
    "page": 158,
    "models": [
     {
-     "name": " Avenger Strike Fighter",
+     "name": "Avenger Strike Fighter",
      "count": 1
     }
    ],
@@ -1005,6 +1087,9 @@
        "name": "Turret Mounted twin vanquisher cannon",
        "points": 10
       }
+     ],
+     "replaces": [
+      "Turret Mounted twin battlecannon"
      ]
     },
     {
@@ -1019,6 +1104,9 @@
        "name": "Two Sponson Mounted heavy flamers",
        "points": 5
       }
+     ],
+     "replaces": [
+      "Two Sponson Mounted heavy stubbers"
      ]
     },
     {
@@ -1230,11 +1318,19 @@
      "choices": [
       {
        "name": "Two Sponson Mounted lascannon and two Sponson Mounted twin heavy bolters",
-       "points": 40
+       "points": 40,
+       "gives": [
+        "Two Sponson Mounted lascannon",
+        "Two Sponson Mounted twin heavy bolters"
+       ]
       },
       {
        "name": "Two Sponson Mounted lascannon and two Sponson Mounted twin heavy flamers",
-       "points": 40
+       "points": 40,
+       "gives": [
+        "Two Sponson Mounted lascannon",
+        "Two Sponson Mounted twin heavy flamers"
+       ]
       }
      ]
     },
@@ -1313,11 +1409,19 @@
      "choices": [
       {
        "name": "Two Sponson Mounted lascannon and two Sponson Mounted twin heavy bolters",
-       "points": 40
+       "points": 40,
+       "gives": [
+        "Two Sponson Mounted lascannon",
+        "Two Sponson Mounted twin heavy bolters"
+       ]
       },
       {
        "name": "Two Sponson Mounted lascannon and two Sponson Mounted twin heavy flamers",
-       "points": 40
+       "points": 40,
+       "gives": [
+        "Two Sponson Mounted lascannon",
+        "Two Sponson Mounted twin heavy flamers"
+       ]
       }
      ]
     },
@@ -1394,11 +1498,19 @@
      "choices": [
       {
        "name": "Two Sponson Mounted lascannon and two Sponson Mounted twin heavy bolters",
-       "points": 40
+       "points": 40,
+       "gives": [
+        "Two Sponson Mounted lascannon",
+        "Two Sponson Mounted twin heavy bolters"
+       ]
       },
       {
        "name": "Two Sponson Mounted lascannon and two Sponson Mounted twin heavy flamers",
-       "points": 40
+       "points": 40,
+       "gives": [
+        "Two Sponson Mounted lascannon",
+        "Two Sponson Mounted twin heavy flamers"
+       ]
       }
      ]
     },
@@ -1479,11 +1591,19 @@
      "choices": [
       {
        "name": "Two Sponson Mounted lascannon and two Sponson Mounted twin heavy bolters",
-       "points": 40
+       "points": 40,
+       "gives": [
+        "Two Sponson Mounted lascannon",
+        "Two Sponson Mounted twin heavy bolters"
+       ]
       },
       {
        "name": "Two Sponson Mounted lascannon and two Sponson Mounted twin heavy flamers",
-       "points": 40
+       "points": 40,
+       "gives": [
+        "Two Sponson Mounted lascannon",
+        "Two Sponson Mounted twin heavy flamers"
+       ]
       }
      ]
     },
@@ -1560,11 +1680,19 @@
      "choices": [
       {
        "name": "Two Sponson Mounted lascannon and two Sponson Mounted twin heavy bolters",
-       "points": 40
+       "points": 40,
+       "gives": [
+        "Two Sponson Mounted lascannon",
+        "Two Sponson Mounted twin heavy bolters"
+       ]
       },
       {
        "name": "Two Sponson Mounted lascannon and two Sponson Mounted twin heavy flamers",
-       "points": 40
+       "points": 40,
+       "gives": [
+        "Two Sponson Mounted lascannon",
+        "Two Sponson Mounted twin heavy flamers"
+       ]
       }
      ]
     },
@@ -1641,11 +1769,19 @@
      "choices": [
       {
        "name": "Two Sponson Mounted lascannon and two Sponson Mounted twin heavy bolters",
-       "points": 40
+       "points": 40,
+       "gives": [
+        "Two Sponson Mounted lascannon",
+        "Two Sponson Mounted twin heavy bolters"
+       ]
       },
       {
        "name": "Two Sponson Mounted lascannon and two Sponson Mounted twin heavy flamers",
-       "points": 40
+       "points": 40,
+       "gives": [
+        "Two Sponson Mounted lascannon",
+        "Two Sponson Mounted twin heavy flamers"
+       ]
       }
      ]
     },
@@ -1722,11 +1858,19 @@
      "choices": [
       {
        "name": "Two Sponson Mounted lascannon and two Sponson Mounted twin heavy bolters",
-       "points": 40
+       "points": 40,
+       "gives": [
+        "Two Sponson Mounted lascannon",
+        "Two Sponson Mounted twin heavy bolters"
+       ]
       },
       {
        "name": "Two Sponson Mounted lascannon and two Sponson Mounted twin heavy flamers",
-       "points": 40
+       "points": 40,
+       "gives": [
+        "Two Sponson Mounted lascannon",
+        "Two Sponson Mounted twin heavy flamers"
+       ]
       }
      ]
     },

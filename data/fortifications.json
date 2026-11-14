@@ -47,6 +47,9 @@
        "name": "Turret Mounted Avenger bolt cannon",
        "points": 15
       }
+     ],
+     "replaces": [
+      "Turret Mounted Vengeance battlecannon"
      ]
     }
    ],
@@ -99,6 +102,9 @@
        "name": "Hull Mounted heavy flamer array",
        "points": 0
       }
+     ],
+     "replaces": [
+      "Hull Mounted heavy bolter array"
      ]
     }
    ],
@@ -120,7 +126,15 @@
      "count": 1
     }
    ],
-   "profiles": [],
+   "profiles": [
+    {
+     "name": "Void Shield Generator",
+     "stats": [
+      "11",
+      "8"
+     ]
+    }
+   ],
    "wargear": [
     "Void shield generator"
    ],
@@ -148,7 +162,15 @@
      "count": 1
     }
    ],
-   "profiles": [],
+   "profiles": [
+    {
+     "name": "Skyshield Landing Pad",
+     "stats": [
+      "11",
+      "6"
+     ]
+    }
+   ],
    "wargear": [],
    "rules": [
     "Platform",
@@ -182,10 +204,18 @@
      "count": 6
     }
    ],
-   "profiles": [],
+   "profiles": [
+    {
+     "name": "Core Platform",
+     "stats": [
+      "11",
+      "3"
+     ]
+    }
+   ],
    "wargear": [],
    "rules": [
-    "Core Platforms : Armoured Platform",
+    "Core Platform : Armoured Platform",
     "Barricades : Aegis Barricades"
    ],
    "types": [
@@ -196,7 +226,19 @@
    "army": null,
    "anyArmy": true,
    "legacy": true,
-   "source": "Legacies of the Age of Darkness v1.1 (EN)"
+   "source": "Legacies of the Age of Darkness v1.1 (EN)",
+   "extra": {
+    "model": "Core Platform",
+    "max": 1,
+    "points": 50,
+    "with": [
+     {
+      "name": "Barricades",
+      "count": 6
+     }
+    ],
+    "label": "one additional Core Platform and 6 Barricades"
+   }
   },
   {
    "id": "firestorm-redoubt",
@@ -321,11 +363,19 @@
      "choices": [
       {
        "name": "Void Missile Silo: The Aquila Strongpoint gains the Orbital Defense Special Rule",
-       "points": 100
+       "points": 100,
+       "effect": {
+        "addRules": [
+         "Orbital Defence"
+        ]
+       }
       },
       {
        "name": "Macro Cannon: The Aquila Strongpoint gains a Turret Mounted Aquila macro-cannon",
-       "points": 200
+       "points": 200,
+       "gives": [
+        "Turret Mounted Aquila macro-cannon"
+       ]
       }
      ]
     }
@@ -391,7 +441,8 @@
     {
      "role": "FO"
     }
-   ]
+   ],
+   "noLogistical": true
   }
  ]
 }

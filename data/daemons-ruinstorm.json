@@ -93,6 +93,77 @@
        "name": "Sovereign greatblade",
        "points": 15
       }
+     ],
+     "replaces": [
+      "Sovereign blade"
+     ]
+    },
+    {
+     "text": "Ætheric Dominion: this Model (Command or Champion Sub-Type) may be given the Psyker Trait and Psychic Disciplines from its Dominion (up to two; one for Putrid Corruption and Infernal Tempest).",
+     "max": 2,
+     "unique": true,
+     "gainsTrait": "Psyker",
+     "choices": [
+      {
+       "name": "Pyromancy",
+       "points": 10,
+       "faction": "Encroaching Ruin"
+      },
+      {
+       "name": "Telekinesis",
+       "points": 20,
+       "faction": "Encroaching Ruin"
+      },
+      {
+       "name": "Divination",
+       "points": 20,
+       "faction": "Encroaching Ruin"
+      },
+      {
+       "name": "Biomancy",
+       "points": 20,
+       "faction": "Putrid Corruption"
+      },
+      {
+       "name": "Telekinesis",
+       "points": 20,
+       "faction": "Rapturous Sensation"
+      },
+      {
+       "name": "Telepathy",
+       "points": 10,
+       "faction": "Rapturous Sensation"
+      },
+      {
+       "name": "Divination",
+       "points": 20,
+       "faction": "Formless Distortion"
+      },
+      {
+       "name": "Telepathy",
+       "points": 10,
+       "faction": "Formless Distortion"
+      },
+      {
+       "name": "Pyromancy",
+       "points": 10,
+       "faction": "Infernal Tempest"
+      },
+      {
+       "name": "Telekinesis",
+       "points": 20,
+       "faction": "Ravenous Dissolution"
+      },
+      {
+       "name": "Divination",
+       "points": 20,
+       "faction": "Ravenous Dissolution"
+      },
+      {
+       "name": "Telepathy",
+       "points": 10,
+       "faction": "Ravenous Dissolution"
+      }
      ]
     }
    ],
@@ -189,6 +260,77 @@
        "name": "Hierarch greatblade",
        "points": 15
       }
+     ],
+     "replaces": [
+      "Hierarch blade"
+     ]
+    },
+    {
+     "text": "Ætheric Dominion: this Model (Command or Champion Sub-Type) may be given the Psyker Trait and Psychic Disciplines from its Dominion (up to two; one for Putrid Corruption and Infernal Tempest).",
+     "max": 2,
+     "unique": true,
+     "gainsTrait": "Psyker",
+     "choices": [
+      {
+       "name": "Pyromancy",
+       "points": 10,
+       "faction": "Encroaching Ruin"
+      },
+      {
+       "name": "Telekinesis",
+       "points": 20,
+       "faction": "Encroaching Ruin"
+      },
+      {
+       "name": "Divination",
+       "points": 20,
+       "faction": "Encroaching Ruin"
+      },
+      {
+       "name": "Biomancy",
+       "points": 20,
+       "faction": "Putrid Corruption"
+      },
+      {
+       "name": "Telekinesis",
+       "points": 20,
+       "faction": "Rapturous Sensation"
+      },
+      {
+       "name": "Telepathy",
+       "points": 10,
+       "faction": "Rapturous Sensation"
+      },
+      {
+       "name": "Divination",
+       "points": 20,
+       "faction": "Formless Distortion"
+      },
+      {
+       "name": "Telepathy",
+       "points": 10,
+       "faction": "Formless Distortion"
+      },
+      {
+       "name": "Pyromancy",
+       "points": 10,
+       "faction": "Infernal Tempest"
+      },
+      {
+       "name": "Telekinesis",
+       "points": 20,
+       "faction": "Ravenous Dissolution"
+      },
+      {
+       "name": "Divination",
+       "points": 20,
+       "faction": "Ravenous Dissolution"
+      },
+      {
+       "name": "Telepathy",
+       "points": 10,
+       "faction": "Ravenous Dissolution"
+      }
      ]
     }
    ],
@@ -247,7 +389,76 @@
     "Traitor",
     "[Ætheric Dominion]"
    ],
-   "options": [],
+   "options": [
+    {
+     "text": "Ætheric Dominion: this Model (Command or Champion Sub-Type) may be given the Psyker Trait and Psychic Disciplines from its Dominion (up to two; one for Putrid Corruption and Infernal Tempest).",
+     "max": 2,
+     "unique": true,
+     "gainsTrait": "Psyker",
+     "choices": [
+      {
+       "name": "Pyromancy",
+       "points": 10,
+       "faction": "Encroaching Ruin"
+      },
+      {
+       "name": "Telekinesis",
+       "points": 20,
+       "faction": "Encroaching Ruin"
+      },
+      {
+       "name": "Divination",
+       "points": 20,
+       "faction": "Encroaching Ruin"
+      },
+      {
+       "name": "Biomancy",
+       "points": 20,
+       "faction": "Putrid Corruption"
+      },
+      {
+       "name": "Telekinesis",
+       "points": 20,
+       "faction": "Rapturous Sensation"
+      },
+      {
+       "name": "Telepathy",
+       "points": 10,
+       "faction": "Rapturous Sensation"
+      },
+      {
+       "name": "Divination",
+       "points": 20,
+       "faction": "Formless Distortion"
+      },
+      {
+       "name": "Telepathy",
+       "points": 10,
+       "faction": "Formless Distortion"
+      },
+      {
+       "name": "Pyromancy",
+       "points": 10,
+       "faction": "Infernal Tempest"
+      },
+      {
+       "name": "Telekinesis",
+       "points": 20,
+       "faction": "Ravenous Dissolution"
+      },
+      {
+       "name": "Divination",
+       "points": 20,
+       "faction": "Ravenous Dissolution"
+      },
+      {
+       "name": "Telepathy",
+       "points": 10,
+       "faction": "Ravenous Dissolution"
+      }
+     ]
+    }
+   ],
    "lang": "en",
    "legacy": true,
    "source": "Legacies – Daemons of the Ruinstorm v1.0 (EN)",
@@ -372,7 +583,11 @@
        "name": "Infernal blade",
        "points": 1
       }
-     ]
+     ],
+     "replaces": [
+      "Daemon claws"
+     ],
+     "exclusive": "claws"
     },
     {
      "text": "One Model in this Unit may have its daemon claws exchanged for one infernal greatblade for +5 Points.",
@@ -382,7 +597,11 @@
        "name": "Infernal greatblade",
        "points": 5
       }
-     ]
+     ],
+     "replaces": [
+      "Daemon claws"
+     ],
+     "exclusive": "claws"
     },
     {
      "text": "Every Model in the Unit can be given immaterial projectiles for +2 Points per Model.",
@@ -706,7 +925,11 @@
        "name": "Infernal blade",
        "points": 1
       }
-     ]
+     ],
+     "replaces": [
+      "Daemon claws"
+     ],
+     "exclusive": "claws"
     },
     {
      "text": "One Model in this Unit may have its daemon claws exchanged for one infernal greatblade for +5 Points.",
@@ -716,7 +939,11 @@
        "name": "Infernal greatblade",
        "points": 5
       }
-     ]
+     ],
+     "replaces": [
+      "Daemon claws"
+     ],
+     "exclusive": "claws"
     },
     {
      "text": "Every Model in the Unit can be given immaterial projectiles for +2 Points per Model.",
@@ -808,6 +1035,9 @@
        "name": "Infernal blade",
        "points": 1
       }
+     ],
+     "replaces": [
+      "Daemon claws"
      ]
     },
     {
@@ -818,6 +1048,9 @@
        "name": "Infernal lance",
        "points": 1
       }
+     ],
+     "replaces": [
+      "Daemon claws"
      ]
     },
     {
@@ -1013,13 +1246,13 @@
  ],
  "detachments": [],
  "dominions": {
-  "Encroaching Ruin": "Deep Strike and Desecrators; Command or Champion Models may become Psykers (up to two disciplines).",
-  "Heedless Slaughter": "Desecrators; the Unit can never be the Focus or Target of a Psychic Blessing or Curse.",
-  "Putrid Corruption": "Desecrators (see Legacies – Daemons of the Ruinstorm).",
-  "Rapturous Sensation": "See Legacies – Daemons of the Ruinstorm.",
-  "Formless Distortion": "Desecrators; enemy Charge distance reduced by D3\" (minimum 1\").",
-  "Infernal Tempest": "Desecrators and Aflame (1); Pyromancy available.",
-  "Ravenous Dissolution": "Desecrators and Hatred (Malefic, Psyker).",
+  "Encroaching Ruin": "Deep Strike and Desecrators. Command or Champion Models may become Psykers with up to two of: Pyromancy (+10), Telekinesis (+20), Divination (+20).",
+  "Heedless Slaughter": "Desecrators; a Unit with this Trait can never be the Focus or Target of a Psychic Blessing or Psychic Curse.",
+  "Putrid Corruption": "Desecrators, Feel No Pain (6+) and the Heavy Sub-Type; Models with Bulky (X) also gain Explodes (5+). Command or Champion Models may become Psykers with Biomancy (+20).",
+  "Rapturous Sensation": "Desecrators; Models without the Heavy Sub-Type gain the Light Sub-Type. Command or Champion Models may become Psykers with up to two of: Telekinesis (+20), Telepathy (+10).",
+  "Formless Distortion": "Desecrators; enemy Set-up Moves of Charges targeting the Unit reduced by D3\" (minimum 1\"). Command or Champion Models may become Psykers with up to two of: Divination (+20), Telepathy (+10).",
+  "Infernal Tempest": "Desecrators and Aflame (1). Command or Champion Models may become Psykers with Pyromancy (+10).",
+  "Ravenous Dissolution": "Desecrators and Hatred (Malefic, Psyker). Command or Champion Models may become Psykers with up to two of: Telekinesis (+20), Divination (+20), Telepathy (+10).",
   "Malevolent Artifice": "Desecrators and Armour-breaker (4+); Paragon of Malevolence Prime Advantage."
  }
 }

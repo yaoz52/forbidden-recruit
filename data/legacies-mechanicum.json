@@ -15,7 +15,7 @@
    "page": 176,
    "models": [
     {
-     "name": "Tech-thralls",
+     "name": "Tech-thrall",
      "count": 10
     }
    ],
@@ -59,7 +59,12 @@
    "options": [],
    "army": "mech",
    "legacy": true,
-   "source": "Legacies of the Age of Darkness v1.1 (EN)"
+   "source": "Legacies of the Age of Darkness v1.1 (EN)",
+   "extra": {
+    "model": "Tech-thrall",
+    "max": 30,
+    "points": 10
+   }
   },
   {
    "id": "arlatax-battle-maniple",
@@ -124,14 +129,26 @@
      "choices": [
       {
        "name": "One pair of arc scourges",
-       "points": 0
+       "points": 0,
+       "gives": [
+        "Pair of arc scourges"
+       ]
       }
+     ],
+     "replaces": [
+      "Pair of power blades",
+      "Paired light autocannon"
      ]
     }
    ],
    "army": "mech",
    "legacy": true,
-   "source": "Legacies of the Age of Darkness v1.1 (EN)"
+   "source": "Legacies of the Age of Darkness v1.1 (EN)",
+   "extra": {
+    "model": "Arlatax",
+    "max": 3,
+    "points": 120
+   }
   },
   {
    "id": "mechanicum-termite",
@@ -189,6 +206,9 @@
        "name": "Two Pintle Mounted heavy flamers",
        "points": 5
       }
+     ],
+     "replaces": [
+      "Two Pintle Mounted combi-bolters"
      ]
     }
    ],
@@ -265,6 +285,9 @@
        "name": "Two Turret Mounted Orias frag missiles",
        "points": 15
       }
+     ],
+     "replaces": [
+      "Turret Mounted twin heavy bolter"
      ]
     }
    ],
@@ -339,6 +362,9 @@
        "name": "Turret Mounted graviton imploder",
        "points": 35
       }
+     ],
+     "replaces": [
+      "Turret Mounted mauler bolt cannon"
      ]
     },
     {

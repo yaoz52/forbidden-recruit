@@ -88,7 +88,7 @@
      "Escadron de Stratos Vultarax"
     ]
    },
-   "note": "Unités du Liber Mechanicum : Domitar, Castellax, Vorax, Vultarax.",
+   "note": "Unités du Liber Mechanicum : Domitar (Élite), Castellax de Combat (Appui), Vorax (Reco), Vultarax (Attaque Rapide). Elles remplacent leur Trait Cybernetica par le Trait de Faction [Questoris Familia] (Liber Questoris p. 21).",
    "slots": [
     {
      "role": "EL"
@@ -102,7 +102,11 @@
     {
      "role": "AR"
     }
-   ]
+   ],
+   "traitReplace": {
+    "from": "Cybernetica",
+    "to": "[Questoris Familia]"
+   }
   },
   {
    "id": "maisnie-roturiere",
@@ -110,7 +114,7 @@
    "kind": "addl",
    "unlockedBy": "q-seigneur",
    "foreign": "aux",
-   "note": "Unités de la liste des Solar Auxilia.",
+   "note": "Unités de la Liste d'Armée des Solar Auxilia (Liber Auxilia) ou de l'Imperialis Militia, dans n'importe quelle combinaison ; elles remplacent leur Trait Solar Auxilia / Imperialis Militia par le Trait de Faction [Questoris Familia] (Liber Questoris p. 21).",
    "slots": [
     {
      "role": "TR"
@@ -119,7 +123,7 @@
      "role": "EL"
     },
     {
-     "role": "TP"
+     "role": "TL"
     },
     {
      "role": "TR"
@@ -128,8 +132,11 @@
      "role": "RE"
     },
     {
-     "role": "TP"
+     "role": "TL"
     }
+   ],
+   "foreignAlt": [
+    "mil"
    ]
   }
  ],
@@ -188,13 +195,16 @@
    ],
    "options": [
     {
-     "text": "Remplacer la mitrailleuse",
+     "text": "Cette Figurine peut échanger sa mitrailleuse contre un fuseur pour +10 Points.",
      "max": 1,
      "choices": [
       {
        "name": "Fuseur",
        "points": 10
       }
+     ],
+     "replaces": [
+      "Mitrailleuse"
      ]
     }
    ]
@@ -253,13 +263,16 @@
    ],
    "options": [
     {
-     "text": "Remplacer la mitrailleuse",
+     "text": "Cette Figurine peut échanger sa mitrailleuse contre un fuseur pour +10 Points.",
      "max": 1,
      "choices": [
       {
        "name": "Fuseur",
        "points": 10
       }
+     ],
+     "replaces": [
+      "Mitrailleuse"
      ]
     }
    ]
@@ -315,12 +328,16 @@
    ],
    "options": [
     {
-     "text": "Armement obligatoire : deux options (ou la paire ci-dessous)",
+     "text": "On doit sélectionner une des options suivantes pour cette Figurine : deux options de la liste suivante",
      "max": 2,
      "choices": [
       {
        "name": "Pince de siège Gyges et irradieur",
-       "points": 0
+       "points": 0,
+       "gives": [
+        "Pince de siège Gyges",
+        "Irradieur"
+       ]
       },
       {
        "name": "Veuglaire volkite",
@@ -338,17 +355,24 @@
        "name": "Faisceau de conversion Moirax",
        "points": 20
       }
-     ]
+     ],
+     "required": true,
+     "exclusive": "moirax"
     },
     {
-     "text": "Ou à la place des deux options",
+     "text": "Ou : paire de pinces de siège Gyges et deux irradieurs",
      "max": 1,
      "choices": [
       {
        "name": "Paire de pinces de siège Gyges et deux irradieurs",
-       "points": 10
+       "points": 10,
+       "gives": [
+        "Paire de pinces de siège Gyges",
+        "Deux irradieurs"
+       ]
       }
-     ]
+     ],
+     "exclusive": "moirax"
     }
    ]
   },
@@ -409,7 +433,7 @@
    ],
    "options": [
     {
-     "text": "Armement obligatoire : deux armes",
+     "text": "On doit sélectionner deux des options de la liste suivante pour cette Figurine :",
      "max": 2,
      "choices": [
       {
@@ -425,21 +449,30 @@
        "points": 15
       },
       {
-       "name": "Obusier à tir rapide de Coque (Avant) et mitrailleuse Coaxiale",
-       "points": 5
+       "name": "Obusier à tir rapide de Coque (Avant) et une mitrailleuse Coaxiale",
+       "points": 5,
+       "gives": [
+        "Obusier à tir rapide de Coque (Avant)",
+        "Mitrailleuse Coaxiale"
+       ]
       },
       {
-       "name": "Canon gatling Avenger de Coque (Avant) et lance-flammes lourd Coaxial",
-       "points": 10
+       "name": "Canon gatling Avenger de Coque (Avant) et un lance-flammes lourd Coaxial",
+       "points": 10,
+       "gives": [
+        "Canon gatling Avenger de Coque (Avant)",
+        "Lance-flammes lourd Coaxial"
+       ]
       },
       {
        "name": "Canon thermique de Coque (Avant)",
        "points": 20
       }
-     ]
+     ],
+     "required": true
     },
     {
-     "text": "Remplacer la mitrailleuse de Coque (Avant)",
+     "text": "Cette Figurine peut échanger sa mitrailleuse de Coque (Avant) contre une des options suivantes :",
      "max": 1,
      "choices": [
       {
@@ -450,22 +483,25 @@
        "name": "Fuseur de Coque (Avant)",
        "points": 10
       }
+     ],
+     "replaces": [
+      "Mitrailleuse de Coque"
      ]
     },
     {
-     "text": "Arme Dorsale (Avant, Arrière)",
+     "text": "On peut sélectionner une des options suivantes pour cette Figurine :",
      "max": 1,
      "choices": [
       {
-       "name": "Autocanon Icarus jumelé Dorsal",
+       "name": "Autocanon Icarus jumelé Dorsal (Avant, Arrière)",
        "points": 20
       },
       {
-       "name": "Nacelle lance-missiles Ironstorm Dorsale",
+       "name": "Nacelle lance-missiles Ironstorm Dorsale (Avant, Arrière)",
        "points": 15
       },
       {
-       "name": "Nacelle lance-roquettes Stormspear Dorsale",
+       "name": "Nacelle lance-roquettes Stormspear Dorsale (Avant, Arrière)",
        "points": 10
       }
      ]
@@ -572,7 +608,7 @@
     }
    ],
    "wargear": [
-    "Couleuvrine volkite de Coque (Avant)",
+    "Chieorovile volkite de Coque (Avant)",
     "Fusil à gravitons de Coque (Avant)",
     "Radioactiveur de Coque (Avant)",
     "Pince de siège Hekaton",
@@ -885,23 +921,29 @@
    ],
    "options": [
     {
-     "text": "Remplacer les deux autocanons de Coque (Avant)",
+     "text": "Cette Figurine peut échanger ses deux autocanons de Coque (Avant) contre deux canons laser de Coque (Avant) pour +10 Points.",
      "max": 1,
      "choices": [
       {
        "name": "Deux canons laser de Coque (Avant)",
        "points": 10
       }
+     ],
+     "replaces": [
+      "Deux autocanons de Coque"
      ]
     },
     {
-     "text": "Remplacer la batterie Ironstorm Dorsale",
+     "text": "Cette Figurine peut échanger sa batterie lance-missiles Ironstorm Dorsale (Avant) contre un lance-missiles Hyperios Dorsal (Avant) pour +10 Points.",
      "max": 1,
      "choices": [
       {
        "name": "Lance-missiles Hyperios Dorsal (Avant)",
        "points": 10
       }
+     ],
+     "replaces": [
+      "Batterie lance-missiles Ironstorm Dorsale"
      ]
     }
    ]
@@ -946,7 +988,7 @@
     }
    ],
    "wargear": [
-    "AfFût à conversion Desolator de Coque (Avant)",
+    "Affût à conversion Desolator de Coque (Avant)",
     "Mortier Karacnos Dorsal (Avant)",
     "Deux couleuvrines volkites de Coque (Avant)",
     "Bouclier répulsif ionique"

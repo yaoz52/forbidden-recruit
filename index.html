@@ -45,7 +45,7 @@ i{font-style:normal;color:var(--ash);font-size:.84em}
 .det::after,.panel::after,#wiz::after,#editor::after{bottom:-1px;right:-1px;border-width:0 2px 2px 0}
 
 /* Bandeau */
-.top{background:linear-gradient(180deg,#1b1d21,#121315);color:var(--bone);position:sticky;top:0;z-index:20;box-shadow:0 6px 18px rgba(0,0,0,.55)}
+.top{background:linear-gradient(180deg,#1b1d21,#121315);color:var(--bone);position:relative;z-index:20;box-shadow:0 6px 18px rgba(0,0,0,.55)}
 .top::after{content:"";display:block;height:6px;background:repeating-linear-gradient(135deg,var(--brass-d) 0 9px,#141518 9px 18px);opacity:.75;border-top:1px solid var(--brass)}
 .top-in{max-width:1500px;margin:auto;padding:.65rem 1rem .55rem;display:grid;grid-template-columns:1fr auto;gap:.35rem 1.4rem;align-items:end}
 .brand{font-family:var(--serif);font-size:.95rem;letter-spacing:.1em;color:var(--brass-2);grid-column:1/-1;display:flex;justify-content:space-between;gap:1rem;align-items:center}
@@ -83,7 +83,7 @@ i{font-style:normal;color:var(--ash);font-size:.84em}
 #steps button span{display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 #steps button:hover{border-color:var(--seam-2)}
 @media(max-width:640px){#steps{display:flex;gap:.35rem}#steps button{flex:none;padding:.4rem .55rem}#steps button.cur{flex:1;min-width:0}
-  #steps button>span,#steps button:not(.cur) .t{display:none}#steps button b{font-size:.86rem}#steps .rn{min-width:0}#steps .t{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  #steps button>span,#steps button:not(.cur) .t{display:none}#steps button b{font-size:.86rem}#steps .rn{min-width:0;flex:none}#steps .t{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
   .brand .sub,.brand span:last-child{display:none}.brand .logo{width:32px;height:32px}}
 
 /* Plan */
@@ -235,6 +235,79 @@ body[data-step="1"] #conf,body[data-step="2"] #conf,body[data-step="1"] #editor,
 body[data-step="1"] main,body[data-step="2"] main{grid-template-columns:minmax(0,880px);justify-content:center}
 .lead{border-left:3px solid var(--ember);padding:.65rem .85rem;margin-bottom:1rem;font-size:.94rem;color:var(--bone-2)}
 #sheet{display:none}
+/* ---- v9 : barre d'étapes collante, totaux, éditeur ---- */
+#stepbar{position:sticky;top:0;z-index:25;background:linear-gradient(180deg,var(--void) 70%,transparent);padding-bottom:.35rem}
+#stepbar #steps{padding-top:.6rem}
+#mini{display:flex;align-items:baseline;gap:.25rem;font-family:var(--cond);font-size:.9rem;color:var(--ash);white-space:nowrap;padding:.55rem .2rem 0}
+#mini b{font-family:var(--serif);font-size:1.25rem;color:var(--brass-2)}#mini b.over{color:#ff8a76}
+@media(min-width:900px){#stepbar{display:flex;align-items:center;gap:.8rem;max-width:1500px;margin:auto;padding:0 1rem .35rem}#stepbar #steps{flex:1;padding:.6rem 0 0;margin:0;max-width:none}}
+@media(max-width:899px){
+  #stepbar{display:flex;align-items:center;gap:.4rem;padding:0 .5rem .35rem}
+  #stepbar #steps{flex:1;min-width:0;padding:.5rem 0 0}
+  #mini{display:flex;align-items:baseline;gap:.25rem;padding-top:.5rem;font-family:var(--cond);font-size:.85rem;color:var(--ash);white-space:nowrap}
+  #mini b{font-family:var(--serif);font-size:1.15rem;color:var(--brass-2)}#mini b.over{color:#ff8a76}
+}
+.dot{margin-left:.35rem;padding:0 .35rem;border-radius:2px;font-weight:600}.dot.good{color:var(--patina)}.dot.bad{color:#fff;background:var(--blood)}
+@media(min-width:900px){#editor{top:4.6rem;max-height:calc(100vh - 5.4rem)}}
+#wiznav{position:sticky;bottom:0;z-index:15;margin:1rem -1rem 0;padding:.6rem 1rem calc(.6rem + env(safe-area-inset-bottom));background:linear-gradient(0deg,var(--void) 75%,transparent)}
+#wiznav .btn{min-height:2.9rem}
+.tools .tsp{flex:1}
+.ib{background:none;border:1px solid var(--seam-2);color:var(--bone);min-width:2.5rem;min-height:2.5rem;border-radius:2px;font-size:1.15rem;line-height:1}
+.ib:hover{border-color:var(--brass)}.ib:disabled{opacity:.35;cursor:default}.ib.danger{color:#ff8a76;border-color:var(--blood)}
+.tools .ib{border-color:transparent;font-size:1.25rem}.tools .ib:hover:not(:disabled){border-color:var(--brass-d)}
+.ed-bar{position:sticky;top:0;z-index:3;display:flex;align-items:center;gap:.6rem;padding:.55rem .7rem;background:var(--plate-2);border-bottom:1px solid var(--seam)}
+#ed-top{flex:1;display:flex;align-items:center;gap:.5rem;min-width:0}
+.ed-id{flex:1;min-width:0;display:flex;flex-direction:column;line-height:1.15}
+.ed-id b{font-family:var(--serif);font-size:1rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.ed-id span{font-family:var(--cond);color:var(--brass-2);font-size:.92rem}
+.ed-acts{display:flex;gap:.35rem}
+@media(min-width:900px){#b-close{display:none}}
+.note.lim{color:var(--ember-2);font-family:var(--cond);margin:.1rem 0 .3rem}
+/* glyphes de rôle lisibles */
+.glyph{width:52px;height:56px}
+.glyph rect{fill:var(--plate);stroke:var(--seam-2);stroke-width:2.5}
+.glyph text{font-family:var(--cond);font-size:23px;font-weight:600;fill:var(--bone-2);letter-spacing:.02em}
+.glyph .crown{fill:var(--brass)}
+.glyph.c-cmd rect{stroke:#c9a24f}.glyph.c-line rect{stroke:#6f9e8a}.glyph.c-elite rect{stroke:#b06fc2}.glyph.c-fast rect{stroke:#5f97d0}.glyph.c-heavy rect{stroke:#d0633f}.glyph.c-trans rect{stroke:#9aa1ab}.glyph.c-lord rect{stroke:#e2c27a}.glyph.c-fort rect{stroke:#8a7f6a}
+.glyph.on rect{fill:var(--plate-3);stroke-width:3.5}.glyph.on text{fill:var(--bone)}
+.glyph.bonus rect{stroke-dasharray:6 4}
+.slot.sel .glyph rect{stroke:var(--ember)}
+.choice[aria-pressed=true] .glyph rect{stroke:var(--ember)}
+.slot{min-height:4.2rem}
+.rsum{display:flex;flex-wrap:wrap;gap:.3rem;margin:.35rem 0 .15rem}
+.rs{font-family:var(--cond);font-size:.86rem;border:1px solid var(--seam-2);padding:.05rem .45rem;border-radius:2px;color:var(--bone-2)}.rs b{color:var(--bone);font-weight:600}.rs i{color:var(--brass-2)}
+.det.folded .kind{margin-top:.4rem}
+.fold{margin-left:.5rem;min-width:2.1rem;min-height:2.1rem;font-size:1rem;vertical-align:middle}
+/* cibles tactiles */
+@media(pointer:coarse){.opt{padding:.55rem 0}.opt input{width:1.35rem;height:1.35rem}.step button{width:2.7rem;height:2.7rem}.chip{padding:.35rem .6rem}.tools button{padding:.5rem .75rem}}
+/* ---- thème clair ---- */
+html[data-theme=light]{color-scheme:light;
+  --void:#ece6d8;--ceramite:#f4efe4;--plate:#fbf8f1;--plate-2:#f3eee3;--plate-3:#e9e2d2;--seam:#d3c9b4;--seam-2:#b9ad94;
+  --bone:#211e19;--bone-2:#4a443a;--ash:#6e675a;--brass:#9a7224;--brass-2:#7a5714;--brass-d:#b08a3e;--ember:#c4561a;--ember-2:#a8460f;--blood:#b02f22;--patina:#2f7a5c}
+html[data-theme=light] body{background-image:radial-gradient(ellipse 80% 45% at 50% -8%,rgba(196,86,26,.12),transparent 70%),linear-gradient(#f2ece0,#e6dfd0)}
+html[data-theme=light] .top{background:linear-gradient(180deg,#f8f4ec,#efe8da);box-shadow:0 4px 14px rgba(60,40,10,.12)}
+html[data-theme=light] .top::after{background:repeating-linear-gradient(135deg,#c9a24f 0 9px,#efe8da 9px 18px)}
+html[data-theme=light] .tools{background:#f6f1e7}
+html[data-theme=light] .setup select,html[data-theme=light] .setup input,html[data-theme=light] select,html[data-theme=light] .field,html[data-theme=light] input[type=search],html[data-theme=light] input[type=url],html[data-theme=light] input[type=number],html[data-theme=light] .step{background:#fffdf8}
+html[data-theme=light] .plate,html[data-theme=light] .det,html[data-theme=light] .panel,html[data-theme=light] #wiz,html[data-theme=light] #editor,html[data-theme=light] .lead,html[data-theme=light] dialog{box-shadow:0 6px 18px rgba(60,40,10,.12)}
+html[data-theme=light] #steps button{background:linear-gradient(180deg,#fbf8f1,#f0eadd)}
+html[data-theme=light] #steps button.cur{background:linear-gradient(180deg,#fff4e8,#f6ebdc)}
+html[data-theme=light] .slot{background:rgba(255,255,255,.5)}
+html[data-theme=light] .choice[aria-pressed=true]{background:linear-gradient(180deg,#fde9d6,#f8dcc4)}html[data-theme=light] .choice[aria-pressed=true] b{color:#4a1f05}
+html[data-theme=light] #meter b{text-shadow:none}html[data-theme=light] .track{background:#e6dfd0;box-shadow:none}
+html[data-theme=light] #tip,html[data-theme=light] #flash{background:#fffdf8}
+html[data-theme=light] .btn{color:#fff8ea;background:linear-gradient(180deg,#b08a3e,#9a7224 55%,#7a5714)}
+html[data-theme=light] .btn.ghost{color:var(--bone);background:none}
+html[data-theme=light] #b-close{color:#fff8ea}
+html[data-theme=light] .tools #update{color:#fff}
+html[data-theme=light] .glyph rect{fill:#fffdf8}html[data-theme=light] .glyph.on rect{fill:#efe6d3}
+html[data-theme=light] .stats tbody tr:nth-child(even){background:rgba(0,0,0,.03)}
+html[data-theme=light] #issues li,html[data-theme=light] .iss li{color:var(--bone)}
+html[data-theme=light] .danger,html[data-theme=light] .ib.danger,html[data-theme=light] .pick.ko i,html[data-theme=light] .pp.over,html[data-theme=light] #verdict.bad{color:#b02f22}
+html[data-theme=light] #stepbar{background:linear-gradient(180deg,#ece6d8 70%,transparent)}
+html[data-theme=light] #wiznav{background:linear-gradient(0deg,#ece6d8 75%,transparent)}
+html[data-theme=light] .ed-bar,html[data-theme=light] .dlg-h{background:#f3eee3}
+html[data-theme=light] fieldset{background:rgba(255,255,255,.45)}html[data-theme=light] fieldset.prime{background:rgba(201,162,79,.08)}
+
 @media(prefers-reduced-motion:reduce){.choice,.track div{transition:none}}
 
 /* Feuille imprimée / PDF */
@@ -278,11 +351,16 @@ body[data-step="1"] main,body[data-step="2"] main{grid-template-columns:minmax(0
     <button id="b-print" type="button">Télécharger le PDF</button>
     <button id="b-txt" type="button">Exporter en texte</button>
     <button id="b-printer" type="button">Imprimer</button>
+    <button id="b-share" type="button">Partager</button>
     <button id="b-data" type="button">Réglages</button>
+    <span class="tsp"></span>
+    <button id="b-undo" class="ib" type="button" title="Annuler (Ctrl+Z)" aria-label="Annuler">↶</button>
+    <button id="b-redo" class="ib" type="button" title="Rétablir (Ctrl+Maj+Z)" aria-label="Rétablir">↷</button>
+    <button id="b-theme" class="ib" type="button" aria-label="Changer de thème">☀</button>
     <button id="update" type="button" hidden>Mise à jour disponible — installer</button>
   </div></div>
 </div>
-<nav id="steps" aria-label="Étapes de la sélection d'armée"></nav>
+<div id="stepbar"><nav id="steps" aria-label="Étapes de la sélection d'armée"></nav><div id="mini" aria-live="polite"></div></div>
 <main>
   <div>
     <section id="wiz"></section>
@@ -292,7 +370,7 @@ body[data-step="1"] main,body[data-step="2"] main{grid-template-columns:minmax(0
     <div id="wiznav"></div>
   </div>
   <aside id="editor" tabindex="-1" aria-label="Réglage de l'unité">
-    <div class="ed-bar"><button id="b-close" type="button">Terminer</button></div>
+    <div class="ed-bar"><div id="ed-top"></div><button id="b-close" type="button">Terminer</button></div>
     <div id="editor-body"></div>
   </aside>
 </main>

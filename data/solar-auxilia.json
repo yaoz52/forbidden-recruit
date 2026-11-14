@@ -43,23 +43,23 @@
   ],
   "Auxilia Hull Weapons": [
    {
-    "name": "Hull Mounted heavy bolter",
+    "name": "Hull (Front) Mounted heavy bolter",
     "points": 0
    },
    {
-    "name": "Hull Mounted heavy flamer",
+    "name": "Hull (Front) Mounted heavy flamer",
     "points": 0
    },
    {
-    "name": "Hull Mounted multi-laser",
+    "name": "Hull (Front) Mounted multi-laser",
     "points": 0
    },
    {
-    "name": "Hull Mounted autocannon",
+    "name": "Hull (Front) Mounted autocannon",
     "points": 5
    },
    {
-    "name": "Hull Mounted lascannon",
+    "name": "Hull (Front) Mounted lascannon",
     "points": 10
    }
   ],
@@ -133,7 +133,8 @@
     {
      "role": "TL"
     }
-   ]
+   ],
+   "trait": "Veletaris Tercio"
   },
   {
    "id": "tercio-infantry",
@@ -166,7 +167,8 @@
     {
      "role": "TL"
     }
-   ]
+   ],
+   "trait": "Infantry Tercio"
   },
   {
    "id": "tercio-artillery",
@@ -191,7 +193,8 @@
     {
      "role": "AP"
     }
-   ]
+   ],
+   "trait": "Artillery Tercio"
   },
   {
    "id": "tercio-armour",
@@ -216,7 +219,8 @@
     {
      "role": "BL"
     }
-   ]
+   ],
+   "trait": "Armour Tercio"
   },
   {
    "id": "tercio-scout",
@@ -242,7 +246,8 @@
     {
      "role": "EG"
     }
-   ]
+   ],
+   "trait": "Scout Tercio"
   },
   {
    "id": "tercio-iron",
@@ -273,7 +278,8 @@
     {
      "role": "AP"
     }
-   ]
+   ],
+   "trait": "Iron Tercio"
   }
  ],
  "rules": {},
@@ -340,9 +346,9 @@
     }
    ],
    "wargear": [
-    "Lasrifle (Lifeward only)",
-    "Laspistol (Legate Marshal only)",
-    "Charnabal sabre (Legate Marshal only)",
+    "Lifeward : Lasrifle",
+    "Legate Marshal : Laspistol",
+    "Legate Marshal : Charnabal sabre",
     "Frag grenades",
     "Krak grenades"
    ],
@@ -372,7 +378,13 @@
        "points": 10
       }
      ],
-     "list": "Auxilia Melee Weapons"
+     "list": "Auxilia Melee Weapons",
+     "models": [
+      "Legate Marshal"
+     ],
+     "replaces": [
+      "Charnabal sabre"
+     ]
     },
     {
      "text": "Legate Marshal: exchange laspistol",
@@ -387,7 +399,13 @@
        "points": 10
       }
      ],
-     "list": "Auxilia Pistols"
+     "list": "Auxilia Pistols",
+     "models": [
+      "Legate Marshal"
+     ],
+     "replaces": [
+      "Laspistol"
+     ]
     },
     {
      "text": "Any Lifeward: exchange lasrifle for laspistol and charnabal sabre",
@@ -395,19 +413,43 @@
      "choices": [
       {
        "name": "Laspistol and charnabal sabre",
-       "points": 0
+       "points": 0,
+       "gives": [
+        "Laspistol",
+        "Charnabal sabre"
+       ]
       }
+     ],
+     "models": [
+      "Lifeward"
+     ],
+     "replaces": [
+      "Lasrifle"
      ]
     },
     {
      "text": "Lifewards so exchanged: exchange charnabal sabre",
      "max": "models",
-     "list": "Auxilia Melee Weapons"
+     "list": "Auxilia Melee Weapons",
+     "models": [
+      "Lifeward"
+     ],
+     "needsUpgrade": "Laspistol and charnabal sabre",
+     "replaces": [
+      "Charnabal sabre"
+     ]
     },
     {
      "text": "Lifewards so exchanged: exchange laspistol",
      "max": "models",
-     "list": "Auxilia Pistols"
+     "list": "Auxilia Pistols",
+     "models": [
+      "Lifeward"
+     ],
+     "needsUpgrade": "Laspistol and charnabal sabre",
+     "replaces": [
+      "Laspistol"
+     ]
     },
     {
      "text": "Any Model with a lasrifle",
@@ -421,7 +463,11 @@
        "name": "Blast-charger",
        "points": 1
       }
-     ]
+     ],
+     "requires": [
+      "Lasrifle"
+     ],
+     "eachChoice": true
     },
     {
      "text": "One Lifeward",
@@ -436,7 +482,10 @@
        "points": 10
       }
      ],
-     "unique": true
+     "unique": true,
+     "models": [
+      "Lifeward"
+     ]
     },
     {
      "text": "One Lifeward",
@@ -450,6 +499,9 @@
        "name": "Cohorts vexilla",
        "points": 15
       }
+     ],
+     "models": [
+      "Lifeward"
      ]
     },
     {
@@ -460,6 +512,9 @@
        "name": "Melta bombs",
        "points": 10
       }
+     ],
+     "models": [
+      "Lifeward"
      ]
     }
    ]
@@ -526,15 +581,15 @@
     }
    ],
    "wargear": [
-    "Lasrifle (Companions only)",
-    "Laspistol (Auxilia Captain only)",
-    "Charnabal sabre (Auxilia Captain only)",
+    "Companion : Lasrifle",
+    "Auxilia Captain : Laspistol",
+    "Auxilia Captain : Charnabal sabre",
     "Frag grenades",
     "Krak grenades"
    ],
    "rules": [
     "Line (1)",
-    "Officer of the Line (2) (Auxilia Captain only)"
+    "Auxilia Captain : Officer of the Line (2)"
    ],
    "types": [
     "Auxilia Captain : Infantry (Command)",
@@ -554,12 +609,24 @@
        "points": 10
       }
      ],
-     "list": "Auxilia Melee Weapons"
+     "list": "Auxilia Melee Weapons",
+     "models": [
+      "Auxilia Captain"
+     ],
+     "replaces": [
+      "Charnabal sabre"
+     ]
     },
     {
      "text": "Auxilia Captain: exchange laspistol",
      "max": 1,
-     "list": "Auxilia Pistols"
+     "list": "Auxilia Pistols",
+     "models": [
+      "Auxilia Captain"
+     ],
+     "replaces": [
+      "Laspistol"
+     ]
     },
     {
      "text": "Any Companion: exchange lasrifle for laspistol and charnabal sabre",
@@ -567,19 +634,43 @@
      "choices": [
       {
        "name": "Laspistol and charnabal sabre",
-       "points": 0
+       "points": 0,
+       "gives": [
+        "Laspistol",
+        "Charnabal sabre"
+       ]
       }
+     ],
+     "models": [
+      "Companion"
+     ],
+     "replaces": [
+      "Lasrifle"
      ]
     },
     {
      "text": "Companions so exchanged: exchange laspistol",
      "max": "models",
-     "list": "Auxilia Pistols"
+     "list": "Auxilia Pistols",
+     "models": [
+      "Companion"
+     ],
+     "needsUpgrade": "Laspistol and charnabal sabre",
+     "replaces": [
+      "Laspistol"
+     ]
     },
     {
      "text": "Companions so exchanged: exchange charnabal sabre",
      "max": "models",
-     "list": "Auxilia Melee Weapons"
+     "list": "Auxilia Melee Weapons",
+     "models": [
+      "Companion"
+     ],
+     "needsUpgrade": "Laspistol and charnabal sabre",
+     "replaces": [
+      "Charnabal sabre"
+     ]
     },
     {
      "text": "Any Model with a lasrifle",
@@ -593,7 +684,11 @@
        "name": "Blast-charger",
        "points": 1
       }
-     ]
+     ],
+     "requires": [
+      "Lasrifle"
+     ],
+     "eachChoice": true
     },
     {
      "text": "One Companion",
@@ -608,7 +703,10 @@
        "points": 10
       }
      ],
-     "unique": true
+     "unique": true,
+     "models": [
+      "Companion"
+     ]
     },
     {
      "text": "One Companion",
@@ -622,6 +720,9 @@
        "name": "Cohorts vexilla",
        "points": 15
       }
+     ],
+     "models": [
+      "Companion"
      ]
     },
     {
@@ -632,6 +733,9 @@
        "name": "Melta bombs",
        "points": 10
       }
+     ],
+     "models": [
+      "Companion"
      ]
     }
    ]
@@ -703,7 +807,7 @@
     "Krak grenades"
    ],
    "rules": [
-    "Close Order (Troop Master only)"
+    "Troop Master : Close Order"
    ],
    "types": [
     "Troop Master : Infantry (Sergeant)",
@@ -721,9 +825,20 @@
      "choices": [
       {
        "name": "Laspistol and charnabal sabre",
-       "points": 0
+       "points": 0,
+       "gives": [
+        "Laspistol",
+        "Charnabal sabre"
+       ]
       }
-     ]
+     ],
+     "models": [
+      "Troop Master"
+     ],
+     "replaces": [
+      "Lasrifle"
+     ],
+     "exclusive": "Troop Master-Lasrifle"
     },
     {
      "text": "Troop Master (if exchanged): exchange charnabal sabre",
@@ -734,12 +849,26 @@
        "points": 10
       }
      ],
-     "list": "Auxilia Melee Weapons"
+     "list": "Auxilia Melee Weapons",
+     "models": [
+      "Troop Master"
+     ],
+     "needsUpgrade": "Laspistol and charnabal sabre",
+     "replaces": [
+      "Charnabal sabre"
+     ]
     },
     {
      "text": "Troop Master (if exchanged): exchange laspistol",
      "max": 1,
-     "list": "Auxilia Pistols"
+     "list": "Auxilia Pistols",
+     "models": [
+      "Troop Master"
+     ],
+     "needsUpgrade": "Laspistol and charnabal sabre",
+     "replaces": [
+      "Laspistol"
+     ]
     },
     {
      "text": "Any Model with a lasrifle",
@@ -753,7 +882,11 @@
        "name": "Blast-charger",
        "points": 1
       }
-     ]
+     ],
+     "requires": [
+      "Lasrifle"
+     ],
+     "eachChoice": true
     },
     {
      "text": "One Veteran",
@@ -776,7 +909,10 @@
        "points": 10
       }
      ],
-     "unique": true
+     "unique": true,
+     "models": [
+      "Veteran"
+     ]
     }
    ]
   },
@@ -848,7 +984,7 @@
    ],
    "rules": [
     "Vanguard (3)",
-    "Hold the Line (First Prime only)"
+    "First Prime : Hold the Line"
    ],
    "types": [
     "First Prime : Infantry (Champion, Sergeant)",
@@ -856,7 +992,8 @@
    ],
    "traits": [
     "[Allegiance]",
-    "Solar Auxilia"
+    "Solar Auxilia",
+    "Veletaris Tercio"
    ],
    "options": [
     {
@@ -865,9 +1002,20 @@
      "choices": [
       {
        "name": "Laspistol and charnabal tabar",
-       "points": 0
+       "points": 0,
+       "gives": [
+        "Laspistol",
+        "Charnabal tabar"
+       ]
       }
-     ]
+     ],
+     "models": [
+      "First Prime"
+     ],
+     "replaces": [
+      "Volkite charger"
+     ],
+     "exclusive": "First Prime-Volkite charger"
     },
     {
      "text": "First Prime (if exchanged): exchange charnabal tabar",
@@ -878,12 +1026,26 @@
        "points": 10
       }
      ],
-     "list": "Auxilia Melee Weapons"
+     "list": "Auxilia Melee Weapons",
+     "models": [
+      "First Prime"
+     ],
+     "needsUpgrade": "Laspistol and charnabal tabar",
+     "replaces": [
+      "Charnabal tabar"
+     ]
     },
     {
      "text": "First Prime (if exchanged): exchange laspistol",
      "max": 1,
-     "list": "Auxilia Pistols"
+     "list": "Auxilia Pistols",
+     "models": [
+      "First Prime"
+     ],
+     "needsUpgrade": "Laspistol and charnabal tabar",
+     "replaces": [
+      "Laspistol"
+     ]
     },
     {
      "text": "Any Model: exchange volkite charger",
@@ -893,7 +1055,11 @@
        "name": "Storm axe",
        "points": 3
       }
-     ]
+     ],
+     "replaces": [
+      "Volkite charger"
+     ],
+     "exclusive": "First Prime-Volkite charger"
     },
     {
      "text": "One Veletarii",
@@ -912,7 +1078,10 @@
        "points": 5
       }
      ],
-     "unique": true
+     "unique": true,
+     "models": [
+      "Veletarii"
+     ]
     }
    ]
   },
@@ -987,7 +1156,7 @@
     "Implacable Advance",
     "Move Through Cover",
     "Outflank",
-    "Pre-emptive Strike (Hermes Lead only)"
+    "Hermes Lead : Pre-emptive Strike"
    ],
    "types": [
     "Hermes Lead : Cavalry (Sergeant, Light)",
@@ -1015,6 +1184,9 @@
        "name": "Hermes grenade launcher",
        "points": 5
       }
+     ],
+     "replaces": [
+      "Multi-laser"
      ]
     }
    ]
@@ -1086,7 +1258,7 @@
     "Krak grenades"
    ],
    "rules": [
-    "Precision Bombardment (Ordnance Master only)"
+    "Ordnance Master : Precision Bombardment"
    ],
    "types": [
     "Ordnance Master : Infantry (Sergeant)",
@@ -1094,7 +1266,8 @@
    ],
    "traits": [
     "[Allegiance]",
-    "Solar Auxilia"
+    "Solar Auxilia",
+    "Artillery Tercio"
    ],
    "options": [
     {
@@ -1103,9 +1276,20 @@
      "choices": [
       {
        "name": "Laspistol and charnabal sabre",
-       "points": 0
+       "points": 0,
+       "gives": [
+        "Laspistol",
+        "Charnabal sabre"
+       ]
       }
-     ]
+     ],
+     "models": [
+      "Ordnance Master"
+     ],
+     "replaces": [
+      "Lasrifle"
+     ],
+     "exclusive": "Ordnance Master-Lasrifle"
     },
     {
      "text": "Ordnance Master (if exchanged): exchange charnabal sabre",
@@ -1116,12 +1300,26 @@
        "points": 10
       }
      ],
-     "list": "Auxilia Melee Weapons"
+     "list": "Auxilia Melee Weapons",
+     "models": [
+      "Ordnance Master"
+     ],
+     "needsUpgrade": "Laspistol and charnabal sabre",
+     "replaces": [
+      "Charnabal sabre"
+     ]
     },
     {
      "text": "Ordnance Master (if exchanged): exchange laspistol",
      "max": 1,
-     "list": "Auxilia Pistols"
+     "list": "Auxilia Pistols",
+     "models": [
+      "Ordnance Master"
+     ],
+     "needsUpgrade": "Laspistol and charnabal sabre",
+     "replaces": [
+      "Laspistol"
+     ]
     },
     {
      "text": "Any Model with a lasrifle",
@@ -1135,7 +1333,11 @@
        "name": "Blast-charger",
        "points": 1
       }
-     ]
+     ],
+     "requires": [
+      "Lasrifle"
+     ],
+     "eachChoice": true
     },
     {
      "text": "One Veteran",
@@ -1158,7 +1360,10 @@
        "points": 10
       }
      ],
-     "unique": true
+     "unique": true,
+     "models": [
+      "Veteran"
+     ]
     }
    ]
   },
@@ -1220,8 +1425,12 @@
        "points": 0
       },
       {
-       "name": "Turret Mounted vanquisher cannon and Co-axial heavy stubber",
-       "points": 10
+       "name": "Turret Mounted vanquisher cannon and one Co-axial (vanquisher cannon) Mounted heavy stubber",
+       "points": 10,
+       "gives": [
+        "Turret Mounted vanquisher cannon",
+        "Co-axial (vanquisher cannon) Mounted heavy stubber"
+       ]
       },
       {
        "name": "Turret Mounted demolisher cannon",
@@ -1235,12 +1444,18 @@
        "name": "Turret Mounted volkite macro-saker",
        "points": 0
       }
+     ],
+     "replaces": [
+      "Turret Mounted battlecannon"
      ]
     },
     {
      "text": "Exchange heavy bolter",
      "max": 1,
-     "list": "Auxilia Hull Weapons"
+     "list": "Auxilia Hull Weapons",
+     "replaces": [
+      "Hull (Front) Mounted heavy bolter"
+     ]
     },
     {
      "text": "Pintle weapon",
@@ -1252,7 +1467,7 @@
      "max": 4,
      "choices": [
       {
-       "name": "Hunter-killer missile",
+       "name": "One Turret Mounted hunter-killer missile",
        "points": 5
       },
       {
@@ -1356,9 +1571,20 @@
      "choices": [
       {
        "name": "Laspistol and charnabal tabar",
-       "points": 0
+       "points": 0,
+       "gives": [
+        "Laspistol",
+        "Charnabal tabar"
+       ]
       }
-     ]
+     ],
+     "models": [
+      "Veletarii Prime"
+     ],
+     "replaces": [
+      "Volkite charger"
+     ],
+     "exclusive": "Veletarii Prime-Volkite charger"
     },
     {
      "text": "Veletarii Prime (if exchanged): exchange charnabal tabar",
@@ -1369,12 +1595,26 @@
        "points": 10
       }
      ],
-     "list": "Auxilia Melee Weapons"
+     "list": "Auxilia Melee Weapons",
+     "models": [
+      "Veletarii Prime"
+     ],
+     "needsUpgrade": "Laspistol and charnabal tabar",
+     "replaces": [
+      "Charnabal tabar"
+     ]
     },
     {
      "text": "Veletarii Prime (if exchanged): exchange laspistol",
      "max": 1,
-     "list": "Auxilia Pistols"
+     "list": "Auxilia Pistols",
+     "models": [
+      "Veletarii Prime"
+     ],
+     "needsUpgrade": "Laspistol and charnabal tabar",
+     "replaces": [
+      "Laspistol"
+     ]
     },
     {
      "text": "Any Model: exchange volkite charger",
@@ -1384,7 +1624,11 @@
        "name": "Storm axe",
        "points": 3
       }
-     ]
+     ],
+     "replaces": [
+      "Volkite charger"
+     ],
+     "exclusive": "Veletarii Prime-Volkite charger"
     },
     {
      "text": "One Veletarii",
@@ -1399,7 +1643,10 @@
        "points": 5
       }
      ],
-     "unique": true
+     "unique": true,
+     "models": [
+      "Veletarii"
+     ]
     }
    ]
   },
@@ -1488,9 +1735,20 @@
      "choices": [
       {
        "name": "Laspistol and charnabal tabar",
-       "points": 0
+       "points": 0,
+       "gives": [
+        "Laspistol",
+        "Charnabal tabar"
+       ]
       }
-     ]
+     ],
+     "models": [
+      "Veletarii Prime"
+     ],
+     "replaces": [
+      "Heavy flamer"
+     ],
+     "exclusive": "Veletarii Prime-Heavy flamer"
     },
     {
      "text": "Veletarii Prime (if exchanged): exchange charnabal tabar",
@@ -1501,12 +1759,26 @@
        "points": 10
       }
      ],
-     "list": "Auxilia Melee Weapons"
+     "list": "Auxilia Melee Weapons",
+     "models": [
+      "Veletarii Prime"
+     ],
+     "needsUpgrade": "Laspistol and charnabal tabar",
+     "replaces": [
+      "Charnabal tabar"
+     ]
     },
     {
      "text": "Veletarii Prime (if exchanged): exchange laspistol",
      "max": 1,
-     "list": "Auxilia Pistols"
+     "list": "Auxilia Pistols",
+     "models": [
+      "Veletarii Prime"
+     ],
+     "needsUpgrade": "Laspistol and charnabal tabar",
+     "replaces": [
+      "Laspistol"
+     ]
     },
     {
      "text": "One Veletarii",
@@ -1521,7 +1793,10 @@
        "points": 5
       }
      ],
-     "unique": true
+     "unique": true,
+     "models": [
+      "Veletarii"
+     ]
     }
    ]
   },
@@ -1668,9 +1943,20 @@
      "choices": [
       {
        "name": "Laspistol and charnabal sabre",
-       "points": 0
+       "points": 0,
+       "gives": [
+        "Laspistol",
+        "Charnabal sabre"
+       ]
       }
-     ]
+     ],
+     "models": [
+      "Auxilia Sergeant"
+     ],
+     "replaces": [
+      "Lasrifle"
+     ],
+     "exclusive": "Auxilia Sergeant-Lasrifle"
     },
     {
      "text": "Auxilia Sergeant (if exchanged): exchange charnabal sabre",
@@ -1681,12 +1967,26 @@
        "points": 10
       }
      ],
-     "list": "Auxilia Melee Weapons"
+     "list": "Auxilia Melee Weapons",
+     "models": [
+      "Auxilia Sergeant"
+     ],
+     "needsUpgrade": "Laspistol and charnabal sabre",
+     "replaces": [
+      "Charnabal sabre"
+     ]
     },
     {
      "text": "Auxilia Sergeant (if exchanged): exchange laspistol",
      "max": 1,
-     "list": "Auxilia Pistols"
+     "list": "Auxilia Pistols",
+     "models": [
+      "Auxilia Sergeant"
+     ],
+     "needsUpgrade": "Laspistol and charnabal sabre",
+     "replaces": [
+      "Laspistol"
+     ]
     },
     {
      "text": "Any Model with a lasrifle",
@@ -1700,7 +2000,11 @@
        "name": "Blast-charger",
        "points": 1
       }
-     ]
+     ],
+     "requires": [
+      "Lasrifle"
+     ],
+     "eachChoice": true
     },
     {
      "text": "One Auxiliary",
@@ -1715,7 +2019,10 @@
        "points": 5
       }
      ],
-     "unique": true
+     "unique": true,
+     "models": [
+      "Auxiliary"
+     ]
     },
     {
      "text": "Auxilia Sergeant",
@@ -1725,6 +2032,9 @@
        "name": "Melta bombs",
        "points": 10
       }
+     ],
+     "models": [
+      "Auxilia Sergeant"
      ]
     }
    ]
@@ -1765,7 +2075,8 @@
    ],
    "traits": [
     "[Allegiance]",
-    "Solar Auxilia"
+    "Solar Auxilia",
+    "Smokescreen"
    ],
    "options": [
     {
@@ -1778,7 +2089,7 @@
      "max": 4,
      "choices": [
       {
-       "name": "Hunter-killer missile",
+       "name": "One Hull (Front) Mounted hunter-killer missile",
        "points": 5
       },
       {
@@ -1844,7 +2155,7 @@
      "max": 4,
      "choices": [
       {
-       "name": "Hunter-killer missile",
+       "name": "One Hull (Front) Mounted hunter-killer missile",
        "points": 5
       },
       {
@@ -1925,6 +2236,9 @@
        "name": "Heavy flamer",
        "points": 3
       }
+     ],
+     "replaces": [
+      "Volkite caliver"
      ]
     }
    ]
@@ -2007,6 +2321,9 @@
        "name": "Melta lance",
        "points": 20
       }
+     ],
+     "replaces": [
+      "Multi-laser"
      ]
     },
     {
@@ -2017,6 +2334,9 @@
        "name": "Hunter-killer missile battery",
        "points": 15
       }
+     ],
+     "replaces": [
+      "Aethon missile battery"
      ]
     }
    ]
@@ -2134,6 +2454,9 @@
        "name": "Hull (Front) Mounted demolisher cannon",
        "points": 35
       }
+     ],
+     "replaces": [
+      "Hull (Front) Mounted twin lascannon"
      ]
     },
     {
@@ -2146,7 +2469,7 @@
      "max": 2,
      "choices": [
       {
-       "name": "Hunter-killer missile",
+       "name": "Hull (Front) Mounted hunter-killer missile",
        "points": 5
       }
      ]
@@ -2172,7 +2495,8 @@
        "points": 20
       }
      ],
-     "unique": true
+     "unique": true,
+     "note": "Hunter-killer missiles: up to two in total with the option above (book p.39) — the first choice of this option duplicates it."
     }
    ]
   },
@@ -2315,6 +2639,9 @@
        "name": "Hull (Front) Mounted vanquisher cannon",
        "points": 10
       }
+     ],
+     "replaces": [
+      "Hull (Front) Mounted battlecannon"
      ]
     },
     {
@@ -2326,12 +2653,18 @@
        "points": 40
       }
      ],
-     "list": "Auxilia Hull Weapons"
+     "list": "Auxilia Hull Weapons",
+     "replaces": [
+      "Hull (Front) Mounted heavy bolter"
+     ]
     },
     {
      "text": "Exchange both Sponson multi-lasers",
      "max": 1,
-     "list": "Auxilia Sponson Weapons"
+     "list": "Auxilia Sponson Weapons",
+     "replaces": [
+      "Two Sponson Mounted multi-lasers"
+     ]
     },
     {
      "text": "Pintle weapon",
@@ -2343,7 +2676,7 @@
      "max": 4,
      "choices": [
       {
-       "name": "Hunter-killer missile",
+       "name": "One Hull (Front) Mounted hunter-killer missile",
        "points": 5
       },
       {
@@ -2416,12 +2749,18 @@
        "name": "Turret Mounted demolisher cannon",
        "points": 30
       }
+     ],
+     "replaces": [
+      "Turret Mounted volkite macro-saker"
      ]
     },
     {
      "text": "Exchange heavy bolter",
      "max": 1,
-     "list": "Auxilia Hull Weapons"
+     "list": "Auxilia Hull Weapons",
+     "replaces": [
+      "Hull (Front) Mounted heavy bolter"
+     ]
     },
     {
      "text": "Pintle weapon",
@@ -2433,7 +2772,7 @@
      "max": 4,
      "choices": [
       {
-       "name": "Hunter-killer missile",
+       "name": "One Turret Mounted hunter-killer missile",
        "points": 5
       },
       {
@@ -2503,15 +2842,25 @@
        "points": 0
       },
       {
-       "name": "Turret Mounted vanquisher cannon and Co-axial heavy stubber",
-       "points": 10
+       "name": "Turret Mounted vanquisher cannon and one Co-axial (vanquisher cannon) Mounted heavy stubber",
+       "points": 10,
+       "gives": [
+        "Turret Mounted vanquisher cannon",
+        "Co-axial (vanquisher cannon) Mounted heavy stubber"
+       ]
       }
+     ],
+     "replaces": [
+      "Turret Mounted battlecannon"
      ]
     },
     {
      "text": "Exchange heavy bolter",
      "max": 1,
-     "list": "Auxilia Hull Weapons"
+     "list": "Auxilia Hull Weapons",
+     "replaces": [
+      "Hull (Front) Mounted heavy bolter"
+     ]
     },
     {
      "text": "Pintle weapon",
@@ -2523,7 +2872,7 @@
      "max": 4,
      "choices": [
       {
-       "name": "Hunter-killer missile",
+       "name": "One Turret Mounted hunter-killer missile",
        "points": 5
       },
       {
@@ -2587,21 +2936,24 @@
      "max": 1,
      "choices": [
       {
-       "name": "Sponson (Right) heavy bolter",
+       "name": "Sponson (Right) Mounted heavy bolter",
        "points": 0
       },
       {
-       "name": "Sponson (Right) heavy flamer",
+       "name": "Sponson (Right) Mounted heavy flamer",
        "points": 0
       },
       {
-       "name": "Sponson (Right) autocannon",
+       "name": "Sponson (Right) Mounted autocannon",
        "points": 5
       },
       {
-       "name": "Sponson (Right) lascannon",
+       "name": "Sponson (Right) Mounted lascannon",
        "points": 10
       }
+     ],
+     "replaces": [
+      "Sponson (Right) Mounted multi-laser"
      ]
     },
     {
@@ -2614,7 +2966,7 @@
      "max": 4,
      "choices": [
       {
-       "name": "Hunter-killer missile",
+       "name": "One Hull (Front) Mounted hunter-killer missile",
        "points": 5
       },
       {
@@ -2687,6 +3039,9 @@
        "name": "Hull (Front) Mounted lascannon",
        "points": 10
       }
+     ],
+     "replaces": [
+      "Hull (Front) Mounted multi-laser"
      ]
     },
     {
@@ -2694,17 +3049,33 @@
      "max": 1,
      "choices": [
       {
-       "name": "Six heavy bolters",
-       "points": 0
+       "name": "Three Hull (Left) Mounted heavy bolters and three Hull (Right) Mounted heavy bolters",
+       "points": 0,
+       "gives": [
+        "Three Hull (Left) Mounted heavy bolters",
+        "Three Hull (Right) Mounted heavy bolters"
+       ]
       },
       {
-       "name": "Six heavy flamers",
-       "points": 0
+       "name": "Three Hull (Left) Mounted heavy flamers and three Hull (Right) Mounted heavy flamers",
+       "points": 0,
+       "gives": [
+        "Three Hull (Left) Mounted heavy flamers",
+        "Three Hull (Right) Mounted heavy flamers"
+       ]
       },
       {
-       "name": "Six lascannon",
-       "points": 50
+       "name": "Three Hull (Left) Mounted lascannon and three Hull (Right) Mounted lascannon",
+       "points": 50,
+       "gives": [
+        "Three Hull (Left) Mounted lascannon",
+        "Three Hull (Right) Mounted lascannon"
+       ]
       }
+     ],
+     "replaces": [
+      "Three Hull (Left) Mounted multi-lasers",
+      "Three Hull (Right) Mounted multi-lasers"
      ]
     },
     {
@@ -2717,7 +3088,7 @@
      "max": 4,
      "choices": [
       {
-       "name": "Hunter-killer missile",
+       "name": "One Turret Mounted hunter-killer missile",
        "points": 5
       },
       {
@@ -2750,9 +3121,16 @@
     }
    ],
    "extra": {
-    "model": "Rapier Crew (Gunner + Carrier)",
+    "model": "Rapier Carrier",
     "max": 3,
-    "points": 30
+    "points": 30,
+    "with": [
+     {
+      "name": "Rapier Gunner",
+      "count": 1
+     }
+    ],
+    "label": "Rapier Crew (1 Rapier Gunner + 1 Rapier Carrier)"
    },
    "profiles": [
     {
@@ -2795,11 +3173,13 @@
     }
    ],
    "wargear": [
-    "Rapier Gunner : lasrifle, frag grenades, krak grenades",
+    "Rapier Gunner : Lasrifle",
+    "Rapier Gunner : Frag grenades",
+    "Rapier Gunner : Krak grenades",
     "Rapier Carrier : Gravis multi-laser array"
    ],
    "rules": [
-    "Bulky (4) (Rapier Carrier only)",
+    "Rapier Carrier : Bulky (4)",
     "Slow and Purposeful",
     "Support Unit (1)",
     "Rapier Section"
@@ -2815,7 +3195,9 @@
    "options": [
     {
      "text": "Each Rapier Carrier: exchange Gravis multi-laser array",
-     "max": "models",
+     "max": {
+      "model": "Rapier Carrier"
+     },
      "choices": [
       {
        "name": "Gravis heavy bolter battery",
@@ -2829,6 +3211,12 @@
        "name": "Quad launcher",
        "points": 20
       }
+     ],
+     "models": [
+      "Rapier Carrier"
+     ],
+     "replaces": [
+      "Gravis multi-laser array"
      ]
     }
    ]
@@ -2898,6 +3286,9 @@
        "name": "Hermes grenade launcher",
        "points": 5
       }
+     ],
+     "replaces": [
+      "Multi-laser"
      ]
     }
    ]
@@ -2948,7 +3339,10 @@
     {
      "text": "Exchange both Sponson multi-lasers",
      "max": 1,
-     "list": "Auxilia Sponson Weapons"
+     "list": "Auxilia Sponson Weapons",
+     "replaces": [
+      "Two Sponson Mounted multi-lasers"
+     ]
     },
     {
      "text": "Pintle weapon",
@@ -2960,7 +3354,7 @@
      "max": 4,
      "choices": [
       {
-       "name": "Hunter-killer missile",
+       "name": "One Hull (Front) Mounted hunter-killer missile",
        "points": 5
       },
       {
