@@ -24,7 +24,7 @@ function sheetData() {
       const weapons = (typeof unitWeapons === 'function' ? unitWeapons(u, us) : []).map(w => ({ name: w.name, kind: w.kind, line: w.heads.map((h, i) => w.values[i] && w.values[i] !== '-' ? `${trData(h)} ${trData(w.values[i])}` : '').filter(Boolean).join(' · ') }));
       if (us.embark) { const [did, si] = us.embark.split(':'), td = army.dets.find(d => d.id === did), t = td && td.units[si]; if (t && UNITS[t.u]) picks.push(L`Embarquée : ` + UNITS[t.u].name); }
       if (us.arcana) picks.push(L`Techno-arcane : ` + us.arcana);
-      units.push({ weapons, legacy: !!u.legacy, name: (us.label ? us.label + ' — ' + trData(u.name) : u.name) + (isExpanded(u, us) ? L` (Expanded)` : ''), role: role(u.role).short, roleName: role(u.role).name, points: unitPoints(us), comp, adv: det.adv[sl.i] ? advDef(det.adv[sl.i]).name : '', tables, wargear: currentWargear(u, us), picks, rules });
+      units.push({ photo: us.photo && typeof photoURL === 'function' && photoURL(us.photo.id) ? us.photo : null, weapons, legacy: !!u.legacy, name: (us.label ? us.label + ' — ' + trData(u.name) : u.name) + (isExpanded(u, us) ? L` (Expanded)` : ''), role: role(u.role).short, roleName: role(u.role).name, points: unitPoints(us), comp, adv: det.adv[sl.i] ? advDef(det.adv[sl.i]).name : '', tables, wargear: currentWargear(u, us), picks, rules });
     }
     dets.push({ name: detName(det), kind: KIND[detDef(det.type).kind], faction: detFaction(det), points: detPoints(det), units, oaths: (det.oaths || []).map(id => oathDef(id).name).concat(det.panoplyLegion ? [L`Panoply: ` + det.panoplyLegion] : []) });
   }
@@ -38,16 +38,35 @@ function sheetData() {
   if (paradigm()) extras.push([L`Paradigme de Maisonnée`, paradigm().name + ' — ' + paradigm().summary]);
   const out = { extras, title: army.name, mode: modeDef().name, faction: army.faction, doctrine: doctrineDef() ? doctrineDef().name : '', rite: riteDef(), allegiance: army.allegiance, points: armyPoints(), limit: army.limit, errors: errs.map(e => e.msg), dets, gloss, version: DB.core.version + (DB.custom ? L` (modifiée)` : '') };
   if (LANG === 'fr') return out;
-  const tr = (x, k) => k === 'title' ? x : typeof x === 'string' ? trData(x) : Array.isArray(x) ? x.map(y => tr(y)) : x && typeof x === 'object' ? Object.fromEntries(Object.entries(x).map(([a, b]) => [a, tr(b, a)])) : x;
+  const tr = (x, k) => k === 'title' || k === 'photo' ? x : typeof x === 'string' ? trData(x) : Array.isArray(x) ? x.map(y => tr(y)) : x && typeof x === 'object' ? Object.fromEntries(Object.entries(x).map(([a, b]) => [a, tr(b, a)])) : x;
   return tr(out);
 }
 const fileBase = () => (army.name || 'liste').replace(/[\\/:*?"<>|]+/g, '').replace(/\s+/g, ' ').trim() || 'liste';
 
 /* ---------- PDF ---------- */
-function exportPDF() {
+/* Avec ou sans les photos : la question n'est posée que si la liste a des photos */
+function exportPDF(opts) {
+  if (!opts || opts instanceof Event) {
+    if (typeof armyHasPhotos === 'function' && armyHasPhotos()) return askPdfPhotos();
+    opts = {};
+  }
+  buildPDF(opts);
+}
+function askPdfPhotos() {
+  const d = $('#dlg'), b = $('#dlg-body'); $('#dlg-title').textContent = L`Créer le PDF`;
+  const go = ph => { d.close(); buildPDF({ photos: ph }); };
+  b.replaceChildren(el('p', {}, L`Votre liste contient des photos d'unités. Les inclure dans le PDF ?`),
+    el('div', { class: 'choices wide pdfask' },
+      el('button', { type: 'button', class: 'choice', onclick: () => go(true) }, el('b', {}, L`Avec les photos`), el('i', {}, L`Chaque unité avec sa photo, à la taille choisie (petite, grande ou profil).`)),
+      el('button', { type: 'button', class: 'choice', onclick: () => go(false) }, el('b', {}, L`Sans les photos`), el('i', {}, L`Feuille plus légère, idéale à imprimer.`))));
+  d.showModal(); const f = b.querySelector('button'); f && f.focus();
+}
+async function buildPDF(opts = {}) {
   const JS = window.jspdf && window.jspdf.jsPDF;
   if (!JS) { flash(L`Le module PDF n'est pas chargé.`); return; }
   const D = sheetData();
+  const PIC = new Map();
+  if (opts.photos) { flash(L`Préparation des photos…`); for (const d of D.dets) for (const u of d.units) if (u.photo) { const c = await photoCrop(u.photo, u.photo.mode || 's'); if (c) PIC.set(u, c); } }
   const doc = new JS({ unit: 'mm', format: 'a4', compress: true });
   const W = 210, H = 297, M = 14, CW = W - 2 * M;
   const C = { ink: [37, 35, 30], dark: [32, 36, 42], brass: [150, 118, 47], brassL: [201, 168, 90], paper: [250, 248, 241], rule: [189, 183, 166], grey: [93, 90, 81], red: [126, 31, 27] };
@@ -162,14 +181,19 @@ function exportPDF() {
     y += 7;
     for (const u of d.units) {
       need(Math.min(measureUnit(u), 120));
+      const pic = PIC.get(u), pm = u.photo && (u.photo.mode || 's');
+      if (pic && pm === 'l') { const bw = CW - 10, bh = bw * 420 / 1200; need(bh + 34); try { doc.addImage(pic.data, pic.fmt, M + 10, y + 2, bw, bh); } catch (e) {} y += bh + 8; }
       // badge de rôle
       col(C.ink, 'fill'); doc.circle(M + 3.4, y - 1.4, 3.4, 'F'); col(C.brass, 'draw'); doc.setLineWidth(0.5); doc.circle(M + 3.4, y - 1.4, 3.9);
       doc.setFont('helvetica', 'bold'); doc.setFontSize(5.8); col([246, 242, 230]); doc.text(T(u.role), M + 3.4, y - 0.4, { align: 'center' });
-      doc.setFont('times', 'bold'); doc.setFontSize(11.5); col(C.ink); doc.text(T(u.name), M + 10, y);
+      const nx = M + 10 + (pic && pm !== 'l' ? 19 : 0), y0 = y;
+      if (pic && pm !== 'l') { try { doc.addImage(pic.data, pic.fmt, M + 10, y - 4.2, 16, 16); } catch (e) {} if (pm === 's') { col(C.rule, 'draw'); doc.setLineWidth(0.3); doc.rect(M + 10, y - 4.2, 16, 16); } else { col(C.brass, 'draw'); doc.setLineWidth(0.5); doc.circle(M + 18, y + 3.8, 8); } }
+      doc.setFont('times', 'bold'); doc.setFontSize(11.5); col(C.ink); doc.text(T(u.name), nx, y);
       doc.setFont('times', 'bold'); doc.setFontSize(11); doc.text(T(u.points + L` pts`), W - M, y, { align: 'right' });
       y += 4.6;
       doc.setFont('times', 'italic'); doc.setFontSize(8.6); col(C.grey);
-      const cl = doc.splitTextToSize(T(u.comp + (u.adv ? L`  —  Avantage Principal : ` + u.adv : '')), CW - 12); cl.forEach((l, i) => doc.text(l, M + 10, y + i * 3.6)); y += cl.length * 3.6 + 2;
+      const cl = doc.splitTextToSize(T(u.comp + (u.adv ? L`  —  Avantage Principal : ` + u.adv : '')), CW - 12 - (nx - M - 10)); cl.forEach((l, i) => doc.text(l, nx, y + i * 3.6)); y += cl.length * 3.6 + 2;
+      if (pic && pm !== 'l') y = Math.max(y, y0 + 14);
       u.tables.forEach(table);
       para(L`Équipement : `, u.wargear.join(', ') || '—');
       if (u.picks.length) para(L`Options : `, u.picks.join(', '));

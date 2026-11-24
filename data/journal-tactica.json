@@ -1,0 +1,1074 @@
+{
+ "id": "journal-tactica",
+ "name": "Publications récentes (EN)",
+ "lang": "en",
+ "army": "la",
+ "source": "Journal Tactica : The Isstvan V Dropsite Massacre – Part One (EN) — relevé Wahapedia, 24 nov. 2026",
+ "units": [
+  {
+   "id": "master-of-descent",
+   "name": "Master of Descent",
+   "lang": "en",
+   "role": "EM",
+   "points": 115,
+   "models": [
+    {
+     "name": "Master of Descent",
+     "count": 1
+    }
+   ],
+   "profiles": [
+    {
+     "name": "Master of Descent",
+     "stats": [
+      "12",
+      "5",
+      "5",
+      "4",
+      "4",
+      "3",
+      "5",
+      "3",
+      "9",
+      "8",
+      "8",
+      "9",
+      "2+",
+      "5+"
+     ]
+    }
+   ],
+   "wargear": [
+    "Chainsword",
+    "Bolt pistol",
+    "Strato-vox",
+    "Frag grenades",
+    "Krak grenades"
+   ],
+   "rules": [
+    "Bulky (2)",
+    "Deep Strike",
+    "Master of Descent",
+    "Tip of the Spear"
+   ],
+   "types": [
+    "Infantry (Command, Antigrav)"
+   ],
+   "traits": [
+    "[Allegiance]",
+    "[Legiones Astartes]"
+   ],
+   "army": "la",
+   "source": "Journal Tactica : The Isstvan V Dropsite Massacre – Part One (EN) — relevé Wahapedia, 24 nov. 2026",
+   "options": [
+    {
+     "text": "This Model may have its bolt pistol and/or chainsword each exchanged for one item from the Legion Officer Wargear list.",
+     "max": 2,
+     "list": "Équipement d'Officier de Légion",
+     "replaces": [
+      [
+       "Chainsword",
+       "Bolt pistol"
+      ]
+     ]
+    },
+    {
+     "text": "This Model may have melta bombs selected for it for +5 Points.",
+     "max": 1,
+     "choices": [
+      {
+       "name": "Melta bombs",
+       "points": 5
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "lang": "en",
+   "army": "la",
+   "id": "chapter-master-raldoron",
+   "name": "Chapter Master Raldoron",
+   "role": "QG",
+   "points": 180,
+   "source": "Liber Astartes (EN) — relevé Wahapedia, 24 nov. 2026 (absent de nos données FR)",
+   "models": [
+    {
+     "name": "Raldoron",
+     "count": 1
+    }
+   ],
+   "profiles": [
+    {
+     "name": "Raldoron",
+     "stats": [
+      "7",
+      "7",
+      "5",
+      "4",
+      "4",
+      "4",
+      "5",
+      "4",
+      "10",
+      "9",
+      "9",
+      "9",
+      "2+",
+      "4+"
+     ]
+    }
+   ],
+   "wargear": [
+    "The Encarmine Warblade",
+    "Combi-flamer",
+    "Bolt pistol",
+    "Frag grenades",
+    "Krak grenades"
+   ],
+   "rules": [
+    "Archein of Wisdom"
+   ],
+   "types": [
+    "Infantry (Unique, Command)"
+   ],
+   "traits": [
+    "Loyalist",
+    "Blood Angels",
+    "Master of the Legion"
+   ],
+   "options": []
+  },
+  {
+   "lang": "en",
+   "army": "la",
+   "id": "centurion-saturnine",
+   "name": "Centurion in Saturnine Terminator Armour",
+   "role": "EM",
+   "points": 150,
+   "source": "Journal Tactica : The Forges of Saturn (EN) — relevé Wahapedia, 24 nov. 2026",
+   "models": [
+    {
+     "name": "Saturnine Centurion",
+     "count": 1
+    }
+   ],
+   "profiles": [
+    {
+     "name": "Saturnine Centurion",
+     "stats": [
+      "5",
+      "5",
+      "5",
+      "4",
+      "6",
+      "5",
+      "4",
+      "3",
+      "9",
+      "8",
+      "8",
+      "8",
+      "2+",
+      "4+"
+     ]
+    }
+   ],
+   "wargear": [
+    "Plasma bombard",
+    "Saturnine disruption fist",
+    "Occulix Targeting Auspex",
+    "Thermal diffraction field",
+    "Saturnine Teleport Synchroniser"
+   ],
+   "rules": [
+    "Officer of the Line (2)",
+    "Bulky (4)",
+    "Explodes (6+)",
+    "Implacable Advance",
+    "Slow and Purposeful"
+   ],
+   "types": [
+    "Infantry (Command, Heavy)"
+   ],
+   "traits": [
+    "[Allegiance]",
+    "[Legiones Astartes]"
+   ],
+   "options": [
+    {
+     "text": "This Model may have its Saturnine disruption fist exchanged for one of the following:",
+     "max": 1,
+     "choices": [
+      {
+       "name": "Plasma bombard",
+       "points": 0
+      },
+      {
+       "name": "Twin heavy disintegrator",
+       "points": 10
+      }
+     ],
+     "replaces": [
+      "Saturnine disruption fist"
+     ]
+    },
+    {
+     "text": "This Model may have its plasma bombard exchanged for one twin heavy disintegrator for +10 Points.",
+     "max": 1,
+     "choices": [
+      {
+       "name": "Twin heavy disintegrator",
+       "points": 10
+      }
+     ],
+     "replaces": [
+      "Plasma bombard"
+     ]
+    },
+    {
+     "text": "If this Model has a Saturnine disruption fist, it may have one of the following selected for it:",
+     "max": 1,
+     "choices": [
+      {
+       "name": "Particle shredder",
+       "points": 5
+      },
+      {
+       "name": "Plasma blaster",
+       "points": 10
+      }
+     ],
+     "requires": [
+      "Saturnine disruption fist"
+     ]
+    }
+   ]
+  },
+  {
+   "lang": "en",
+   "army": "la",
+   "id": "augur-command-control-squad",
+   "name": "Augur Command and Control Squad",
+   "role": "SU",
+   "points": 80,
+   "source": "Journal Tactica : The Isstvan V Dropsite Massacre – Part One (EN) — relevé Wahapedia, 24 nov. 2026",
+   "models": [
+    {
+     "name": "Command and Control Legionary",
+     "count": 4
+    }
+   ],
+   "profiles": [
+    {
+     "name": "Command and Control Legionary",
+     "stats": [
+      "7",
+      "4",
+      "4",
+      "4",
+      "4",
+      "2",
+      "4",
+      "2",
+      "8",
+      "8",
+      "7",
+      "8",
+      "3+",
+      "-"
+     ]
+    }
+   ],
+   "wargear": [
+    "Bolter",
+    "Bolt pistol",
+    "Frag grenades",
+    "Krak grenades"
+   ],
+   "rules": [
+    "Support Unit (2)",
+    "Battlefield Coordinators"
+   ],
+   "types": [
+    "Infantry"
+   ],
+   "traits": [
+    "[Allegiance]",
+    "[Legiones Astartes]",
+    "Smokescreen"
+   ],
+   "options": [
+    {
+     "text": "One Model in this Unit may have its bolter exchanged for one item from the Legion Special Weapons list.",
+     "max": 1,
+     "list": "Armes Spéciales de Légion",
+     "replaces": [
+      "Bolter"
+     ]
+    }
+   ]
+  },
+  {
+   "lang": "en",
+   "army": "la",
+   "id": "saturnine-terminator-command-squad",
+   "name": "Saturnine Terminator Command Squad",
+   "role": "SU",
+   "points": 160,
+   "source": "Journal Tactica : The Forges of Saturn (EN) — relevé Wahapedia, 24 nov. 2026",
+   "models": [
+    {
+     "name": "Saturnine Chosen Champion",
+     "count": 1
+    },
+    {
+     "name": "Saturnine Chosen",
+     "count": 1
+    }
+   ],
+   "extra": {
+    "model": "Saturnine Chosen",
+    "max": 4,
+    "points": 60
+   },
+   "profiles": [
+    {
+     "name": "Saturnine Chosen Champion",
+     "stats": [
+      "5",
+      "5",
+      "4",
+      "4",
+      "6",
+      "3",
+      "3",
+      "3",
+      "8",
+      "8",
+      "7",
+      "7",
+      "2+",
+      "4+"
+     ]
+    },
+    {
+     "name": "Saturnine Chosen",
+     "stats": [
+      "5",
+      "5",
+      "4",
+      "4",
+      "6",
+      "3",
+      "3",
+      "3",
+      "8",
+      "8",
+      "7",
+      "7",
+      "2+",
+      "4+"
+     ]
+    }
+   ],
+   "wargear": [
+    "Paired Saturnine disruption fists",
+    "Thermal diffraction field",
+    "Saturnine Teleport Synchroniser"
+   ],
+   "rules": [
+    "Bulky (4)",
+    "Explodes (6+)",
+    "Implacable Advance",
+    "Slow and Purposeful"
+   ],
+   "types": [
+    "Saturnine Chosen Champion : Infantry (Champion, Sergeant, Heavy)",
+    "Saturnine Chosen : Infantry (Heavy)"
+   ],
+   "traits": [
+    "[Allegiance]",
+    "[Legiones Astartes]"
+   ],
+   "options": [
+    {
+     "text": "Any Model in this Unit may have its paired Saturnine disruption fists exchanged for one of the following:",
+     "max": "models",
+     "choices": [
+      {
+       "name": "Plasma bombard and one Saturnine disruption fist",
+       "points": 10
+      },
+      {
+       "name": "Twin heavy disintegrator and one Saturnine disruption fist",
+       "points": 20
+      },
+      {
+       "name": "Saturnine war axe and one Saturnine disruption fist",
+       "points": 10
+      },
+      {
+       "name": "Saturnine concussion hammer and one Saturnine disruption fist",
+       "points": 20
+      }
+     ],
+     "replaces": [
+      "Paired Saturnine disruption fists"
+     ]
+    },
+    {
+     "text": "Any Model in this Unit may have one of the following selected for it:",
+     "max": "models",
+     "choices": [
+      {
+       "name": "Particle shredder",
+       "points": 5
+      },
+      {
+       "name": "Plasma blaster",
+       "points": 10
+      }
+     ]
+    },
+    {
+     "text": "One Saturnine Chosen in this Unit may have one Legion standard selected for it for +20 Points.",
+     "max": 1,
+     "choices": [
+      {
+       "name": "Legion standard",
+       "points": 20
+      }
+     ],
+     "models": [
+      "Saturnine Chosen"
+     ]
+    }
+   ]
+  },
+  {
+   "lang": "en",
+   "army": "la",
+   "id": "phaeretus-anointed-conclave",
+   "name": "Phaeretus Anointed Conclave",
+   "role": "EL",
+   "points": 240,
+   "source": "Liber Astartes (EN) — relevé Wahapedia, 24 nov. 2026 (absent de nos données FR)",
+   "models": [
+    {
+     "name": "Phaetus Disciple",
+     "count": 1
+    },
+    {
+     "name": "Phaetus Anointed",
+     "count": 2
+    }
+   ],
+   "extra": {
+    "model": "Phaetus Anointed",
+    "max": 3,
+    "points": 65
+   },
+   "profiles": [
+    {
+     "name": "Phaetus Disciple",
+     "stats": [
+      "5",
+      "5",
+      "4",
+      "4",
+      "6",
+      "3",
+      "3",
+      "3",
+      "8",
+      "8",
+      "8",
+      "7",
+      "2+",
+      "4+"
+     ]
+    },
+    {
+     "name": "Phaetus Anointed",
+     "stats": [
+      "5",
+      "5",
+      "4",
+      "4",
+      "6",
+      "3",
+      "3",
+      "3",
+      "8",
+      "7",
+      "7",
+      "7",
+      "2+",
+      "4+"
+     ]
+    }
+   ],
+   "wargear": [
+    "Paired Saturnine disruption fists",
+    "Warpfire Mantle",
+    "Saturnine Teleport Synchroniser"
+   ],
+   "rules": [
+    "Bulky (4)",
+    "Aflame (2)",
+    "Eternal Warrior (1)",
+    "Explodes (5+)",
+    "Implacable Advance",
+    "Slow and Purposeful"
+   ],
+   "types": [
+    "Phaetus Disciple : Infantry (Champion, Sergeant, Heavy, Malefic)",
+    "Phaetus Anointed : Infantry (Heavy, Malefic)"
+   ],
+   "traits": [
+    "Traitor",
+    "Word Bearers"
+   ],
+   "options": [
+    {
+     "text": "Any Model in this Unit may have its paired Saturnine disruption fists exchanged for one of the following:",
+     "max": "models",
+     "choices": [
+      {
+       "name": "Plasma bombard and one Saturnine disruption fist",
+       "points": 10
+      },
+      {
+       "name": "Twin heavy disintegrator and one Saturnine disruption fist",
+       "points": 20
+      },
+      {
+       "name": "Saturnine war axe and one Saturnine disruption fist",
+       "points": 10
+      }
+     ],
+     "replaces": [
+      "Paired Saturnine disruption fists"
+     ]
+    },
+    {
+     "text": "Any Model in this Unit may have one of the following selected for it:",
+     "max": "models",
+     "choices": [
+      {
+       "name": "Particle shredder",
+       "points": 5
+      }
+     ]
+    },
+    {
+     "text": "The Phaetus Disciple in this Unit may have a Saturnine teleportation transponder selected for it for +60 Points.",
+     "max": 1,
+     "choices": [
+      {
+       "name": "Saturnine teleportation transponder",
+       "points": 60
+      }
+     ],
+     "models": [
+      "Phaetus Disciple"
+     ]
+    }
+   ]
+  },
+  {
+   "lang": "en",
+   "army": "la",
+   "id": "hyperios-missile-tank",
+   "name": "Hyperios Missile Tank",
+   "role": "BL",
+   "points": 120,
+   "source": "Journal Tactica : The Isstvan V Dropsite Massacre – Part One (EN) — relevé Wahapedia, 24 nov. 2026",
+   "models": [
+    {
+     "name": "Hyperios",
+     "count": 1
+    }
+   ],
+   "profiles": [
+    {
+     "name": "Hyperios",
+     "stats": [
+      "10",
+      "4",
+      "12",
+      "11",
+      "10",
+      "5",
+      "-"
+     ],
+     "vehicle": true
+    }
+   ],
+   "wargear": [
+    "Turret Mounted Hyperios missile launcher",
+    "Two Pintle Mounted bolters"
+   ],
+   "rules": [],
+   "types": [
+    "Vehicle"
+   ],
+   "traits": [
+    "[Allegiance]",
+    "[Legiones Astartes]",
+    "Smokescreen"
+   ],
+   "options": [
+    {
+     "text": "This Model may have one of its Pintle Mounted bolters exchanged for one item from the Legion Pintle Weapons list.",
+     "max": 1,
+     "list": "Armes sur Pivot de Légion",
+     "replaces": [
+      "Two Pintle Mounted bolters"
+     ],
+     "partOf": 2
+    },
+    {
+     "text": "This Model may have one of each of the following selected for it:",
+     "max": 3,
+     "choices": [
+      {
+       "name": "One Hull (Front) Mounted hunter-killer missile",
+       "points": 5
+      },
+      {
+       "name": "Searchlights",
+       "points": 5
+      },
+      {
+       "name": "Dozer blade",
+       "points": 5
+      }
+     ],
+     "unique": true
+    }
+   ]
+  }
+ ],
+ "detachments": [
+  {
+   "id": "planetfall-speartip",
+   "name": "Planetfall Speartip",
+   "kind": "aux",
+   "army": "la",
+   "lang": "en",
+   "requires": "Master of Descent",
+   "oncePerArmy": true,
+   "only": {
+    "SU": [
+     "Escouade d'État-major Prétorienne à Réacteurs"
+    ],
+    "EL": [
+     "Escouade de Vétérans d'Assaut"
+    ]
+   },
+   "note": "Tip of the Spear: once per Army, if the Primary Detachment includes a Master of Descent. Retinue Slots: Praetorian Command Squad with Jump Packs only. Elites Slots: Veteran Assault Squad only.",
+   "slots": [
+    {
+     "role": "SU"
+    },
+    {
+     "role": "EL",
+     "prime": true
+    },
+    {
+     "role": "EL",
+     "prime": true
+    }
+   ],
+   "source": "Journal Tactica : The Isstvan V Dropsite Massacre – Part One (EN) — relevé Wahapedia, 24 nov. 2026"
+  },
+  {
+   "id": "linebreaker-echelon",
+   "name": "Linebreaker Echelon",
+   "kind": "apex",
+   "army": "la",
+   "lang": "en",
+   "source": "Journal Tactica : The Forges of Saturn (EN) — relevé Wahapedia, 24 nov. 2026",
+   "nameWord": {
+    "roles": [
+     "SU",
+     "AL"
+    ],
+    "words": [
+     "Saturnine",
+     "Cataphractii",
+     "Tartaros"
+    ]
+   },
+   "note": "Choose one word: Saturnine, Cataphractii or Tartaros. Retinue and Heavy Assault Slots may only select Units whose name includes that word.",
+   "slots": [
+    {
+     "role": "AL",
+     "prime": true
+    },
+    {
+     "role": "AL"
+    },
+    {
+     "role": "SU"
+    },
+    {
+     "role": "EG"
+    }
+   ]
+  },
+  {
+   "id": "maelstrom-sentry-battery",
+   "name": "Maelstrom Sentry Battery",
+   "kind": "aux",
+   "army": "la",
+   "lang": "en",
+   "source": "Journal Tactica : The Forges of Saturn (EN) — relevé Wahapedia, 24 nov. 2026",
+   "requires": "Maître des Signaux",
+   "only": {
+    "AP": [
+     "Plate-forme d'Accélérateur Quadritube Araknae"
+    ],
+    "RE": [
+     "Batterie de Tarantula"
+    ]
+   },
+   "note": "Opened by a Master of Signals in a Command Slot. Support Slots: Araknae Quad Accelerator Platform only. Recon Slots: Tarantula Battery only.",
+   "slots": [
+    {
+     "role": "AP"
+    },
+    {
+     "role": "AP"
+    },
+    {
+     "role": "RE"
+    },
+    {
+     "role": "RE"
+    },
+    {
+     "role": "RE"
+    }
+   ]
+  }
+ ],
+ "rules": {
+  "Master of Descent": {
+   "summary": "Can arrive by Deep Strike in the first Battle Turn if every Model in its Unit has the Infantry Type and Antigrav Sub-Type. Only one Unit per Army can use this in the same Battle Turn.",
+   "ref": "Journal Tactica (EN)"
+  },
+  "Tip of the Spear": {
+   "summary": "An Army whose Primary Detachment includes this Model may select one Planetfall Speartip Auxiliary Detachment (once per Army).",
+   "ref": "Journal Tactica (EN)"
+  },
+  "Strato-vox": {
+   "summary": "The Unit passes Reserves Tests automatically. While on the Battlefield, can make one Deep Strike Reserves Test automatically successful (that Unit must then Deep Strike).",
+   "ref": "Journal Tactica (EN)"
+  },
+  "Archein of Wisdom": {
+   "summary": "Gambit (Raldoron, in a Challenge): adds to his Focus Roll a bonus equal to the successful Hit Tests made against him earlier in the Challenge.",
+   "ref": "Wahapedia (EN)"
+  },
+  "Battlefield Coordinators": {
+   "summary": "Once per Turn, if this Unit is within 18\" of a friendly Unit making a Reaction, it can make an Intelligence Check to reduce that Reaction's cost.",
+   "ref": "Wahapedia (EN)"
+  },
+  "Aflame (X)": {
+   "summary": "If a Melee Attack with this rule wounds a Unit, it is 'aflame' until the end of the Phase: X is applied as an additional negative modifier to its Leadership Checks for that Combat.",
+   "ref": "Wahapedia (EN)"
+  },
+  "Occulix Targeting Auspex": {
+   "summary": "If the Model's Unit remained Stationary in the preceding Movement Phase, it gains Firing Protocols (2) when making a Shooting Attack.",
+   "ref": "Wahapedia (EN)"
+  },
+  "Thermal diffraction field": {
+   "summary": "Hits from Las, Plasma, Melta and Flame Weapons suffer -1 Strength against this Model; Breaching on its own Overload Misfire hits only applies on a 6+.",
+   "ref": "Wahapedia (EN)"
+  },
+  "Saturnine Teleport Synchroniser": {
+   "summary": "In Reserves, the Model gains Deep Strike if its Unit has been joined by a Model with a Saturnine teleportation transponder.",
+   "ref": "Wahapedia (EN)"
+  },
+  "Warpfire Mantle": {
+   "summary": "After the Attacks Sub-Phase of a Shooting Phase, if Models with warpfire mantles passed an Armour or Invulnerable Save against Shooting, nearby Units within 8\" can suffer wounds.",
+   "ref": "Wahapedia (EN)"
+  },
+  "Saturnine teleportation transponder": {
+   "summary": "The Model has Deep Strike; while it has joined a Saturnine Terminator Squad in Reserves, the Saturnine Terminators in that Unit also gain Deep Strike.",
+   "ref": "Wahapedia (EN)"
+  },
+  "Smokescreen": {
+   "summary": "Trait: allows the Smokescreen Advanced Reaction (1 Reaction point) to gain Shrouded Damage Mitigation Rolls against a Shooting Attack.",
+   "ref": "Wahapedia (EN)"
+  }
+ },
+ "weapons": [
+  {
+   "name": "Saturnine war axe",
+   "kind": "melee",
+   "heads": [
+    "IM",
+    "AM",
+    "SM",
+    "AP",
+    "D",
+    "Special Rules",
+    "Traits"
+   ],
+   "values": [
+    "I",
+    "A",
+    "+1",
+    "2",
+    "2",
+    "Reaping Blow (2)",
+    "Power"
+   ],
+   "lang": "en",
+   "source": "Wahapedia (EN), 24 nov. 2026"
+  },
+  {
+   "name": "Saturnine concussion hammer",
+   "kind": "melee",
+   "heads": [
+    "IM",
+    "AM",
+    "SM",
+    "AP",
+    "D",
+    "Special Rules",
+    "Traits"
+   ],
+   "values": [
+    "-3",
+    "A",
+    "x2",
+    "2",
+    "3",
+    "Critical Hit (6+)",
+    "Power"
+   ],
+   "lang": "en",
+   "source": "Wahapedia (EN), 24 nov. 2026"
+  },
+  {
+   "name": "Saturnine disruption fist",
+   "kind": "melee",
+   "heads": [
+    "IM",
+    "AM",
+    "SM",
+    "AP",
+    "D",
+    "Special Rules",
+    "Traits"
+   ],
+   "values": [
+    "-2",
+    "A",
+    "+2",
+    "2",
+    "3",
+    "-",
+    "Power"
+   ],
+   "lang": "en",
+   "source": "Wahapedia (EN), 24 nov. 2026"
+  },
+  {
+   "name": "Plasma blaster - Sustained fire",
+   "kind": "tir",
+   "heads": [
+    "R",
+    "FP",
+    "RS",
+    "AP",
+    "D",
+    "Special Rules",
+    "Traits"
+   ],
+   "values": [
+    "18",
+    "2",
+    "7",
+    "4",
+    "1",
+    "Breaching (6+)",
+    "Plasma"
+   ],
+   "lang": "en",
+   "source": "Wahapedia (EN), 24 nov. 2026"
+  },
+  {
+   "name": "Plasma blaster - Maximal fire",
+   "kind": "tir",
+   "heads": [
+    "R",
+    "FP",
+    "RS",
+    "AP",
+    "D",
+    "Special Rules",
+    "Traits"
+   ],
+   "values": [
+    "18",
+    "2",
+    "8",
+    "4",
+    "1",
+    "Breaching (5+), Overload (1)",
+    "Plasma"
+   ],
+   "lang": "en",
+   "source": "Wahapedia (EN), 24 nov. 2026"
+  },
+  {
+   "name": "Plasma bombard - Sustained fire",
+   "kind": "tir",
+   "heads": [
+    "R",
+    "FP",
+    "RS",
+    "AP",
+    "D",
+    "Special Rules",
+    "Traits"
+   ],
+   "values": [
+    "24",
+    "1",
+    "6",
+    "4",
+    "1",
+    "Blast (3\"), Barrage (1), Breaching (6+)",
+    "Plasma"
+   ],
+   "lang": "en",
+   "source": "Wahapedia (EN), 24 nov. 2026"
+  },
+  {
+   "name": "Plasma bombard - Maximal fire",
+   "kind": "tir",
+   "heads": [
+    "R",
+    "FP",
+    "RS",
+    "AP",
+    "D",
+    "Special Rules",
+    "Traits"
+   ],
+   "values": [
+    "24",
+    "1",
+    "7",
+    "4",
+    "1",
+    "Blast (3\"), Barrage (1), Breaching (5+), Overload (2)",
+    "Plasma"
+   ],
+   "lang": "en",
+   "source": "Wahapedia (EN), 24 nov. 2026"
+  },
+  {
+   "name": "Twin heavy disintegrator",
+   "kind": "tir",
+   "heads": [
+    "R",
+    "FP",
+    "RS",
+    "AP",
+    "D",
+    "Special Rules",
+    "Traits"
+   ],
+   "values": [
+    "24",
+    "2",
+    "7",
+    "2",
+    "2",
+    "Overload (2)",
+    "Disintegrator"
+   ],
+   "lang": "en",
+   "source": "Wahapedia (EN), 24 nov. 2026"
+  },
+  {
+   "name": "Particle shredder",
+   "kind": "tir",
+   "heads": [
+    "R",
+    "FP",
+    "RS",
+    "AP",
+    "D",
+    "Special Rules",
+    "Traits"
+   ],
+   "values": [
+    "Template",
+    "1",
+    "6",
+    "3",
+    "1",
+    "Template, Breaching (6+), Overload (1)",
+    "Assault, Particle"
+   ],
+   "lang": "en",
+   "source": "Wahapedia (EN), 24 nov. 2026"
+  },
+  {
+   "name": "Paired Saturnine disruption fists",
+   "kind": "melee",
+   "heads": [
+    "IM",
+    "AM",
+    "SM",
+    "AP",
+    "D",
+    "Special Rules",
+    "Traits"
+   ],
+   "values": [
+    "-2",
+    "+1",
+    "+2",
+    "2",
+    "3",
+    "-",
+    "Power"
+   ],
+   "lang": "en",
+   "source": "Wahapedia (EN), 24 nov. 2026"
+  },
+  {
+   "name": "The Encarmine Warblade",
+   "kind": "melee",
+   "heads": [
+    "IM",
+    "AM",
+    "SM",
+    "AP",
+    "D",
+    "Special Rules",
+    "Traits"
+   ],
+   "values": [
+    "I",
+    "A",
+    "+1",
+    "2",
+    "2",
+    "Impact (AM), Critical Hit (6+)",
+    "Power"
+   ],
+   "lang": "en",
+   "source": "Wahapedia (EN), 24 nov. 2026"
+  }
+ ]
+}

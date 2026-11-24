@@ -32,13 +32,14 @@ function trData(s) {
   if (r == null) { const t = s.trim(); if (t !== s && T[t] != null) r = s.replace(t, T[t]); }
   if (r == null && I18N.texts && I18N.texts[s] != null) r = I18N.texts[s];
   if (r == null && I18N.ui[s] != null) r = I18N.ui[s];
+  if (r == null && s.endsWith(')')) { let dp = 0, i = s.length - 1; for (; i >= 0; i--) { if (s[i] === ')') dp++; else if (s[i] === '(' && !--dp) break; } i--; const pre = s.slice(0, i), inner = s.slice(i + 2, -1); if (i > 0 && s[i] === ' ') { const h = T[pre] != null ? T[pre] : I18N.texts && I18N.texts[pre]; if (h != null) r = h + ' (' + trData(inner) + ')'; } }
   if (r == null) { const m = s.match(/^([^:]+?) : (.+)$/); if (m) { const a = trData(m[1]), b = trData(m[2]); if (a !== m[1] || b !== m[2]) r = a + ': ' + b; } }
   if (r == null) { const m = s.match(/^([^(),]+?) \(([^()]+)\)$/); if (m) { const base = T[m[1] + ' (X)'] != null ? T[m[1] + ' (X)'].replace(/ \(X\)$/, '') : T[m[1]]; if (base != null) r = base + ' (' + m[2].split(/, ?/).map(p => T[p] != null ? T[p] : p).join(', ') + ')'; } }
   if (r == null && /, /.test(s) && !/[.;:!?]\s/.test(s)) { const ps = s.split(', '), tp = ps.map(trData); if (tp.some((x, i) => x !== ps[i])) r = tp.join(', '); }
   if (r == null) { const m = s.match(/^(.+?) - (.+)$/); if (m) { const a = trData(m[1]), b = trData(m[2]); if (a !== m[1] || b !== m[2]) r = a + ' - ' + b; } }
   if (r == null && / — /.test(s)) { const ps = s.split(' — '), tp = ps.map(trData); if (tp.some((x, i) => x !== ps[i])) r = tp.join(' — '); }
   if (r == null && / · /.test(s)) { const ps = s.split(' · '), tp = ps.map(trData); if (tp.some((x, i) => x !== ps[i])) r = tp.join(' · '); }
-  if (r == null && s.endsWith(')')) { let i = -1; while ((i = s.indexOf(' (', i + 1)) > 0) { const inner = s.slice(i + 2, -1); if (T[inner] != null || /\bp\. ?\d/.test(inner)) { const a = trData(s.slice(0, i)), b = T[inner] != null ? T[inner] : trData(inner); if (a !== s.slice(0, i) || b !== inner) { r = a + ' (' + b + ')'; break; } } } }
+  if (r == null && s.endsWith(')')) { let i = -1; while ((i = s.indexOf(' (', i + 1)) > 0) { const inner = s.slice(i + 2, -1); if (/[()]/.test(inner)) continue; if (T[inner] != null || /\bp\. ?\d/.test(inner)) { const a = trData(s.slice(0, i)), b = T[inner] != null ? T[inner] : trData(inner); if (a !== s.slice(0, i) || b !== inner) { r = a + ' (' + b + ')'; break; } } } }
   if (r == null) { const m = s.match(/^([\s\S]+?) \(([^()]*\bp\. ?\d[^()]*)\)$/); if (m) { const a = trData(m[1]), b = trData(m[2]); if (a !== m[1] || b !== m[2]) r = a + ' (' + b + ')'; } }
   if (r == null) { const m = s.match(/^([\s\S]+?)([.:]?)$/); if (m && m[2] && T[m[1]] != null) r = T[m[1]] + m[2]; }
   if (r == null) r = s;
@@ -401,6 +402,8 @@ function unitAllowed(det, slot, u) {
   const only = def.only && def.only[slot.role];
   if (only && !slot.added && !slot.dyn && !only.includes(u.name))
     return { ok: false, why: L`Dans un détachement ${def.name}, les cases ${role(slot.role).name} sont réservées à : ${only.join(', ')}${slot.bonus ? L` (y compris la case du Bénéfice Logistique, FAQ)` : ''}.` };
+  if (def.nameWord && def.nameWord.roles.includes(slot.role) && !slot.added) { const w = det.word || def.nameWord.words[0], en = (I18N.terms && I18N.terms[u.name]) || '';
+    if (!(u.name + ' ' + en).includes(w)) return { ok: false, why: L`${def.name} (${w}) : cases ${def.nameWord.roles.map(r => role(r).name).join(' et ')} réservées aux unités dont le nom contient « ${w} ».` }; }
   const exc = def.except && def.except[slot.role];
   if (exc && exc.includes(u.name)) return { ok: false, why: L`Dans un détachement ${def.name}, les cases ${role(slot.role).name} ne peuvent pas recevoir : ${exc.join(', ')}.` };
   if (def.onlyType && !slot.added && !(u.types || []).every(t => new RegExp(def.onlyType).test(t))) return { ok: false, why: L`${def.name} : unités composées uniquement de Figurines de Type ${def.onlyType}.` };
@@ -477,6 +480,7 @@ function canAddDet(def) {
   if (def.needsHQTrait && !army.dets.some(d => slotsOf(d).some(x => { const us = d.units[x.i], u = us && UNITS[us.u]; return u && u.role === 'QG' && ((u.traits || []).includes(def.needsHQTrait) || (u.traits || []).includes('[' + def.needsHQTrait + ']') || us.arcana === def.needsHQTrait); }))) return { ok: false, why: L`${def.name} : l'armée doit inclure un Quartier Général ${def.needsHQTrait} (${def.ref || ''}).` };
   if (def.kind === 'fort') return army.dets.some(d => d.type === def.id) ? { ok: false, why: L`Un seul Battlefield Fortifications Detachment par armée.` } : { ok: true };
   if (md.onlyDets && !md.onlyDets.includes(def.id)) return { ok: false, why: L`${md.name} : seuls les Détachements supplémentaires suivants sont autorisés — ${md.onlyDets.map(i => (detDef(i) || {}).name || i).join(', ')}.` };
+  if (def.oncePerArmy && army.dets.some(d => d.type === def.id)) return { ok: false, why: L`${def.name} : une seule fois par armée.` };
   if (md.maxDets && md.maxDets[def.id] && army.dets.filter(d => d.type === def.id).length >= md.maxDets[def.id]) return { ok: false, why: L`${md.name} : ${def.name} (maximum ${md.maxDets[def.id]}).` };
   if ((armyDef().forbid || []).includes(def.kind)) return { ok: false, why: L`Indisponible pour une armée ${armyDef().name} (Détachement Principal ${detName(mainDet())}).` };
   if (def.kind === 'addl') { const have = countAdv(def.unlockedBy) + (paradigm() && paradigm().freeDet === def.id ? 1 : 0), used = army.dets.filter(d => d.type === def.id).length; return used < have ? { ok: true, parents: [mainDet()] } : { ok: false, why: L`Ouvert par l'Avantage Principal « ${advDef(def.unlockedBy).name} » sur une Case Principale (${have} choisi(s), ${used} détachement(s) déjà pris).` }; }
@@ -876,7 +880,7 @@ function renderInner() {
   if (step === 3) host.append(el('p', { class: 'lead' }, L`Remplissez le Détachement Principal : touchez une case pour y placer une unité. Une seule case occupée suffit.` + ((armyDef().forbid || []).includes('aux') ? '' : L` Chaque case État-major ouvrira un Détachement Auxiliaire, la case Quartier Général un Auxiliaire ou un Apex.`)));
   if (step === 4 && (armyDef().forbid || []).includes('aux')) host.append(el('p', { class: 'lead' }, L`Une armée ${armyDef().name} n'a ni Détachement Auxiliaire ni d'Apex : ajoutez des Détachements Alliés ou additionnels si votre liste y a droit.`));
   else if (step === 4) { const g = grants(main), ax = childrenOf(main, 'aux').length, ap = childrenOf(main, 'apex').length;
-    host.append(el('p', { class: 'lead' }, L`Vos choix du Détachement Principal ouvrent ${g.aux} Détachement(s) Auxiliaire(s) par les cases État-major et ${g.flex} Auxiliaire ou Apex par la case Quartier Général. Utilisés : ${ax} Auxiliaire(s), ${ap} Apex. Alliés et Seigneur des Batailles restent possibles sans condition.`)); }
+    host.append(el('p', { class: 'lead' }, L`Vos choix du Détachement Principal ouvrent ${g.aux} Détachement(s) Auxiliaire(s) par les cases État-major et ${g.flex} Auxiliaire ou Apex par la case Quartier Général. Utilisés : ${ax} Auxiliaire(s), ${ap} Apex. Alliés et Seigneur des Batailles restent possibles sans condition.`)); host.append(detTree()); }
   if (step === 3) { const alts = DB.detachments.filter(d => d.kind === 'principal' && d.alt && d.army === armyOf(army.faction));
     if (alts.length) { const std = detDef(armyDef().mainDet || 'principal');
       const pick = id => { if (main.type === id) return; if (Object.keys(main.units).length && !confirm(L`Changer de Détachement Principal vide ses cases. Continuer ?`)) return; main.type = id; main.units = {}; main.adv = {}; main.bonusRole = null; main.advSlot = {}; touch(); };
@@ -892,6 +896,7 @@ function renderInner() {
   renderEditor(issues);
   renderSheet(issues);
   $('#b-undo').disabled = !HIST.back.length; $('#b-redo').disabled = !HIST.fwd.length;
+  renderViews();
   $('#mini').replaceChildren(el('b', { class: total > army.limit ? 'over' : '' }, total), el('span', {}, L` / ${army.limit} pts`), el('span', { class: 'dot ' + (errs.length ? 'bad' : 'good'), title: errs.length ? errs.length + L` point(s) à corriger` : L`Liste conforme` }, errs.length ? '✕ ' + errs.length : '✓'));
 }
 const KIND = { fort: L`Détachement Additionnel (Legacies)`, addl: L`Détachement Additionnel`, principal: L`Détachement Principal`, aux: L`Détachement Auxiliaire`, apex: L`Détachement d'Apex`, allie: L`Détachement Allié`, sdg: L`Détachement de Seigneur de Guerre`, sdb: L`Détachement de Seigneur des Batailles` };
@@ -966,6 +971,7 @@ function renderDet(det, issues) {
       (DB.core.armies || []).map(a => el('optgroup', { label: a.name }, a.factions.map(f => el('option', { value: f, selected: det.faction === f, disabled: def.kind === 'allie' && f === army.faction }, f + (def.kind === 'allie' && f === army.faction ? L` (faction principale)` : ''))))));
     box.append(el('label', { class: 'inl' }, L`Faction `, s));
   }
+  if (def.nameWord) box.append(el('div', { class: 'seg', role: 'group', 'aria-label': L`Mot choisi` }, def.nameWord.words.map(w => el('button', { type: 'button', 'aria-pressed': (det.word || def.nameWord.words[0]) === w ? 'true' : 'false', onclick: () => { det.word = w; Object.keys(det.units).forEach(i => { const s = slotsOf(det).find(x => x.i === +i), u = UNITS[det.units[i].u]; if (s && u && unitAllowed(det, s, u).ok === false) delete det.units[i]; }); touch(); } }, w))));
   if (def.note) box.append(el('p', { class: 'note' }, def.note));
   for (const n of def.notes || []) box.append(el('p', { class: 'note' }, n));
   if (def.dynSlots) box.append(el('p', { class: 'note' }, L`${def.dynSlots.why} — ${dynCount(det, def)} slot(s) added.`));
@@ -985,10 +991,11 @@ function renderDet(det, issues) {
     const us = det.units[s.i], u = us && UNITS[us.u];
     const isSel = sel && sel.det === det.id && sel.slot === s.i;
     const sbad = issues.some(i => i.det === det.id && i.slot === s.i && i.level === 'err');
-    const b = el('button', { type: 'button', class: 'slot' + (us ? ' filled' : '') + (isSel ? ' sel' : '') + (sbad ? ' bad' : ''),
+    const ph = us && us.photo && photoURL(us.photo.id) ? ' hasph ph-' + (us.photo.mode || 's') : '';
+    const b = el('button', { type: 'button', class: 'slot' + (us ? ' filled' : '') + (isSel ? ' sel' : '') + (sbad ? ' bad' : '') + ph, style: ph && us.photo.mode === 'l' ? photoStyle(us.photo) : null,
       title: role(s.role).name + (s.prime ? L` — Case Principale` : '') + (s.added != null ? L` — case ajoutée` + (s.legion ? ' (' + s.legion + ')' : s.army ? ' (' + armyName(s.army) + ')' : '') : s.bonus ? L` — case du Bénéfice Logistique` : '') + (s.dyn ? L` — case ajoutée par le Détachement Principal` : '') + (s.oath ? L` — Oath of Moment` : ''),
       onclick: () => { if (us) { sel = { det: det.id, slot: s.i }; render(); openEditor(); } else openPicker(det, s); } },
-      el('span', { html: slotGlyph(s, !!us) }),
+      el('span', { html: slotGlyph(s, !!us) }), slotPhoto(us),
       el('span', { class: 'sl' }, us ? [el('b', {}, u ? unitLabel(us, u) : us.u, isExpanded(u, us) ? el('small', { class: 'tag' }, L`Expanded`) : null), el('i', {}, (u && us.label ? u.name + ' · ' : '') + L`${u ? unitSize(us) + L` fig. · ` : ''}${unitPoints(us)} pts` + (det.adv[s.i] ? ' · ' + advDef(det.adv[s.i]).name : ''))]
         : [el('em', {}, (s.roles || [s.role]).map(r => role(r).name).join(' / ')), el('i', {}, s.prime ? L`Case Principale — vide` : s.legion ? s.legion + L` — vide` : s.army ? armyName(s.army) + L` — vide` : s.bonus || s.dyn ? L`Case ajoutée — vide` : L`Vide`)]));
     row.append(b);
@@ -1041,13 +1048,15 @@ function openPicker(det, slot) {
   }
   dlg.showModal();
 }
-function openDetPicker() {
+function openDetPicker(kinds) {
+  if (!Array.isArray(kinds)) kinds = null; // appelé depuis un bouton : l'événement n'est pas un filtre
   const dlg = $('#dlg'), body = $('#dlg-body'); body.replaceChildren();
   $('#dlg-title').textContent = L`Ajouter un détachement`;
+  if (kinds) body.append(el('p', { class: 'hint' }, L`Détachements possibles pour cette place.`, ' ', el('button', { type: 'button', class: 'linkish', onclick: () => openDetPicker() }, L`Voir tous les détachements`)));
   const groups = { addl: L`Détachements Additionnels`, fort: L`Détachements additionnels`, aux: L`Détachements Auxiliaires`, apex: L`Détachements d'Apex`, allie: L`Détachements additionnels`, sdg: L`Détachements additionnels`, sdb: L`Détachements additionnels` };
   let last = '';
   const lists = new Set([armyOf(army.faction), ...army.dets.filter(d => detDef(d.type).kind === 'allie').map(d => armyOf(d.faction))]);
-  for (const def of DB.detachments.filter(d => d.kind !== 'principal' && (!d.faction || d.faction === army.faction) && (!d.army || lists.has(d.army)) && !(armyDef().forbid || []).includes(d.kind)).sort((a, b) => Object.keys(groups).indexOf(a.kind) - Object.keys(groups).indexOf(b.kind))) {
+  for (const def of DB.detachments.filter(d => d.kind !== 'principal' && (!kinds || kinds.includes(d.kind)) && (!d.faction || d.faction === army.faction) && (!d.army || lists.has(d.army)) && !(armyDef().forbid || []).includes(d.kind)).sort((a, b) => Object.keys(groups).indexOf(a.kind) - Object.keys(groups).indexOf(b.kind))) {
     if (groups[def.kind] !== last) { last = groups[def.kind]; body.append(el('h4', {}, last)); }
     const c = canAddDet(def);
     const add = parent => { army.dets.push({ id: uid(), type: def.id, parent: parent ? parent.id : null, units: {}, adv: {}, bonusRole: null, faction: '' }); dlg.close(); touch(); };
@@ -1057,7 +1066,7 @@ function openDetPicker() {
       c.ok ? el('span', { class: 'acts' }, (c.parents || [null]).map(p => el('button', { type: 'button', class: 'btn', onclick: () => add(p) }, c.parents && c.parents.length > 1 ? L`Rattacher : ${detName(p)}` : L`Ajouter`))) : null);
     body.append(b);
   }
-  dlg.showModal();
+  if (!dlg.open) dlg.showModal();
 }
 
 /* ---------- Éditeur d'unité ---------- */
@@ -1086,9 +1095,11 @@ function renderEditor(issues) {
   $('#ed-top').append(el('div', { class: 'ed-id' }, el('b', {}, unitLabel(us, u)), el('span', {}, L`${unitPoints(us)} pts`)),
     el('div', { class: 'ed-acts' }, el('button', { class: 'ib', type: 'button', title: L`Dupliquer l'unité`, 'aria-label': L`Dupliquer l'unité`, onclick: () => duplicateUnit(det, sel.slot) }, '⧉'),
       el('button', { class: 'ib danger', type: 'button', title: L`Retirer l'unité`, 'aria-label': L`Retirer l'unité`, onclick: () => removeUnit(det, sel.slot) }, '🗑')));
+  { const hero = editorPhoto(us, u); if (hero) host.append(hero); }
   host.append(el('p', { class: 'kind' }, `${role(u.role).name} · ${detName(det)}`), el('h3', {}, unitLabel(us, u), us.label ? el('small', { class: 'uname' }, u.name) : null, isExpanded(u, us) ? el('small', { class: 'tag', title: L`Option Legacies choisie : unité Expanded (Legacies of the Age of Darkness)` }, L`Expanded`) : null),
     el('p', { class: 'cost' }, el('b', {}, unitPoints(us)), L` pts · ${unitSize(us)} figurine${unitSize(us) > 1 ? 's' : ''}`, unitPoints(us) !== u.points ? el('span', { class: 'ref' }, L` · base ${u.points} + options ${unitPoints(us) - u.points}`) : null, u.page ? el('span', { class: 'ref' }, L` · ${u.bookName} p. ${u.page}`) : null));
   host.append(el('label', { class: 'rename' }, el('span', {}, L`Nom de l'unité`), el('input', { class: 'field', type: 'text', maxlength: 60, value: us.label || '', placeholder: u.name, 'aria-label': L`Nom de l'unité`, onchange: e => { const v = e.target.value.trim(); if (v) us.label = v; else delete us.label; touch(); }, onkeydown: e => { if (e.key === 'Enter') e.target.blur(); } })));
+  host.append(el('details', { class: 'ph-box', open: !!(us.photo && photoURL(us.photo.id)) || !LS.get('fr.phSeen', false), ontoggle: () => LS.set('fr.phSeen', true) }, el('summary', {}, L`Photo de l'unité`), photoControls(us, u)));
   const mine = issues.filter(i => i.det === det.id && i.slot === sel.slot);
   if (mine.length) host.append(el('ul', { class: 'iss' }, mine.map(i => el('li', { class: i.level }, i.msg))));
   if (u.extra) {
@@ -1336,14 +1347,14 @@ function openLists() {
     body.append(el('div', { class: 'pick' + (a.id === army.id ? ' cur' : '') }, el('span', {}, el('b', {}, a.name), el('i', {}, L`${a.faction} · ${pts}/${a.limit} pts · modifiée le ${new Date(a.updated).toLocaleDateString(LANG === 'fr' ? 'fr-FR' : 'en-GB')}`)),
       el('span', { class: 'acts' }, el('button', { class: 'btn', onclick: () => { army = a; sel = null; dlg.close(); LS.set('30k.last', a.id); if (!army.step) army.step = 3; render(); } }, L`Ouvrir`),
         el('button', { class: 'btn ghost', onclick: () => { const c = JSON.parse(JSON.stringify(a)); c.id = uid(); c.name += L` (copie)`; store.save(c); openLists(); } }, L`Dupliquer`),
-        el('button', { class: 'btn ghost', onclick: () => { const k = army; army = a; exportPDF(); army = k; } }, 'PDF'),
+        el('button', { class: 'btn ghost', onclick: () => { const k = army; army = a; exportPDF({}); army = k; } }, 'PDF'),
         el('button', { class: 'btn ghost', onclick: () => { const k = army; army = a; exportText(); army = k; } }, L`Texte`),
         el('button', { class: 'btn ghost danger', onclick: () => { if (!confirm(L`Supprimer définitivement « ${a.name} » ?`)) return; store.remove(a.id); if (a.id === army.id) { army = newArmy(); render(); } openLists(); } }, L`Supprimer`))));
   }
   body.append(el('p', { class: 'note' }, L`Les listes sont enregistrées automatiquement dans l'application, sur cet appareil : rien à faire. « PDF » crée la feuille d'armée, « Texte » un fichier lisible que l'on peut aussi réimporter sur un autre appareil.`));
   dlg.showModal();
 }
-const APP_VERSION = '2026.11-o';
+const APP_VERSION = '2026.11-p';
 const UPDATE_DEFAULT = 'https://yaoz52.github.io/forbidden-recruit';
 const updUrl = () => (LS.get('30k.updateUrl', null) || (location.protocol.startsWith('http') ? location.href.replace(/[^/]*$/, '') : UPDATE_DEFAULT) || '').trim().replace(/\/+$/, '');
 async function checkUpdates(statusEl, install) {
@@ -1459,6 +1470,845 @@ function importFromHash() {
   } catch (e) { flash(L`Lien de liste illisible.`); }
 }
 
+/* ---------- Photos d'unité : stockées sur l'appareil (IndexedDB), compressées, jamais envoyées ---------- */
+/* us.photo = { id, mode: 's' (petite) | 'l' (grande) | 'p' (profil), x, y (cadrage en %) } ; us.sil = id d'une image de silhouette perso */
+const PH = {}, PH_DIM = {}; // id -> objectURL et rapport largeur/hauteur, remplis au démarrage
+const PHDB = {
+  db: null,
+  open() { if (this.db) return Promise.resolve(this.db); return new Promise((ok, ko) => { try { const r = indexedDB.open('forbidden-recruit', 1); r.onupgradeneeded = () => { r.result.createObjectStore('photos', { keyPath: 'id' }); }; r.onsuccess = () => { this.db = r.result; ok(this.db); }; r.onerror = () => ko(r.error); } catch (e) { ko(e); } }); },
+  async tx(mode, fn) { const db = await this.open(); return new Promise((ok, ko) => { const t = db.transaction('photos', mode), s = t.objectStore('photos'); const r = fn(s); t.oncomplete = () => ok(r && r.result); t.onerror = () => ko(t.error); }); },
+  put(rec) { return this.tx('readwrite', s => s.put(rec)); },
+  del(id) { return this.tx('readwrite', s => s.delete(id)); },
+  all() { return this.tx('readonly', s => s.getAll()); }
+};
+async function loadPhotos() { try { for (const r of (await PHDB.all()) || []) if (r && r.blob) { PH[r.id] = URL.createObjectURL(r.blob); if (r.w && r.h) PH_DIM[r.id] = r.w / r.h; } } catch (e) {} }
+const photoURL = id => id && PH[id];
+/* Compression : grand côté 1100 px, JPEG 0,82 (≈ 100-200 ko) */
+function compressImage(file, max = 1100, type = 'image/jpeg', q = 0.82) {
+  return new Promise((ok, ko) => {
+    const img = new Image(), url = URL.createObjectURL(file);
+    img.onload = () => { const k = Math.min(1, max / Math.max(img.naturalWidth, img.naturalHeight)), w = Math.round(img.naturalWidth * k), h = Math.round(img.naturalHeight * k);
+      const c = document.createElement('canvas'); c.width = w; c.height = h; const g = c.getContext('2d'); if (type === 'image/jpeg') { g.fillStyle = '#fff'; g.fillRect(0, 0, w, h); } g.drawImage(img, 0, 0, w, h); URL.revokeObjectURL(url);
+      c.toBlob(b => b ? ok({ blob: b, w, h }) : ko(new Error('toBlob')), type, q); };
+    img.onerror = () => { URL.revokeObjectURL(url); ko(new Error(L`Image illisible`)); }; img.src = url;
+  });
+}
+async function storePhoto(blob, w, h, prefix = 'ph') { const id = prefix + '_' + uid() + uid(); await PHDB.put({ id, blob, w, h, t: Date.now() }); PH[id] = URL.createObjectURL(blob); if (w && h) PH_DIM[id] = w / h; return id; }
+/* Photos encore utilisées par une liste enregistrée : les autres sont supprimées */
+async function gcPhotos() {
+  try { const used = new Set(); const all = { ...store.all(), [army.id]: army };
+    for (const a of Object.values(all)) for (const d of a.dets || []) for (const us of Object.values(d.units || {})) { if (us.photo) used.add(us.photo.id); if (us.sil) used.add(us.sil); if (us.dia && us.dia.img) used.add(us.dia.img); }
+    for (const id of Object.keys(PH)) if (!used.has(id)) { await PHDB.del(id); URL.revokeObjectURL(PH[id]); delete PH[id]; }
+  } catch (e) {}
+}
+function pickImage(cb, camera) {
+  const i = el('input', { type: 'file', accept: 'image/*', capture: camera ? 'environment' : null, style: 'display:none' });
+  i.addEventListener('change', async () => { const f = i.files && i.files[0]; i.remove(); if (f) { try { await cb(f); } catch (e) { flash(L`Photo impossible à lire : ` + e.message); } } });
+  document.body.append(i); i.click();
+}
+async function setUnitPhoto(us, file) {
+  flash(L`Photo en cours de préparation…`);
+  const { blob, w, h } = await compressImage(file); const id = await storePhoto(blob, w, h);
+  const old = us.photo; us.photo = { id, mode: (old && old.mode) || LS.get('fr.photoMode', 's'), x: 50, y: 50 };
+  touch(); const sok = await autoSilhouette(us); touch(); flash(sok ? L`Photo ajoutée et silhouette créée. Tout reste sur cet appareil.` : L`Photo ajoutée. Elle reste sur cet appareil.`); setTimeout(gcPhotos, 1500);
+}
+function photoStyle(p) { return `background-image:url("${photoURL(p.id)}");background-position:${p.x ?? 50}% ${p.y ?? 50}%`; }
+/* Vignette dans une case de l'organigramme */
+function slotPhoto(us) {
+  const p = us && us.photo; if (!p || !photoURL(p.id)) return null;
+  return el('span', { class: 'sph m-' + (p.mode || 's'), style: photoStyle(p), 'aria-hidden': 'true' });
+}
+/* En-tête photo de l'éditeur */
+function editorPhoto(us, u) {
+  const p = us.photo, url = p && photoURL(p.id);
+  if (!url) return null;
+  const pic = el('div', { class: 'ph-hero m-' + (p.mode || 's'), style: photoStyle(p), title: L`Faites glisser pour recadrer (ou flèches du clavier)`, tabindex: 0, role: 'img', 'aria-label': L`Photo de ` + unitLabel(us, u) });
+  // recadrage au doigt / à la souris, sans recharger l'éditeur pendant le geste
+  let drag = null;
+  pic.addEventListener('pointerdown', e => { drag = { x: e.clientX, y: e.clientY, px: p.x ?? 50, py: p.y ?? 50, w: pic.clientWidth, h: pic.clientHeight }; pic.setPointerCapture(e.pointerId); pic.classList.add('drag'); });
+  pic.addEventListener('pointermove', e => { if (!drag) return; p.x = Math.max(0, Math.min(100, drag.px - (e.clientX - drag.x) / drag.w * 100)); p.y = Math.max(0, Math.min(100, drag.py - (e.clientY - drag.y) / drag.h * 100)); pic.style.backgroundPosition = `${p.x}% ${p.y}%`; });
+  const end = () => { if (!drag) return; drag = null; pic.classList.remove('drag'); p.x = Math.round(p.x); p.y = Math.round(p.y); touch(); };
+  pic.addEventListener('pointerup', end); pic.addEventListener('pointercancel', end);
+  // clavier : flèches pour déplacer le cadrage (Maj = grands pas)
+  let kt; pic.addEventListener('keydown', e => { const d = { ArrowLeft: [-1, 0], ArrowRight: [1, 0], ArrowUp: [0, -1], ArrowDown: [0, 1] }[e.key]; if (!d) return; e.preventDefault(); const st = e.shiftKey ? 10 : 3;
+    p.x = Math.max(0, Math.min(100, (p.x ?? 50) + d[0] * st)); p.y = Math.max(0, Math.min(100, (p.y ?? 50) + d[1] * st)); pic.style.backgroundPosition = `${p.x}% ${p.y}%`; clearTimeout(kt); kt = setTimeout(() => { touch(); requestAnimationFrame(() => { const h = $('.ph-hero'); h && h.focus({ preventScroll: true }); }); }, 400); });
+  return pic;
+}
+function photoControls(us, u) {
+  const p = us.photo, has = p && photoURL(p.id), box = el('div', { class: 'ph-ctl' });
+  const camera = matchMedia('(pointer: coarse)').matches;
+  if (!has) {
+    box.append(el('div', { class: 'ph-drop', tabindex: '0', role: 'button', 'aria-label': L`Ajouter une photo de l'unité`, onclick: () => pickImage(f => setUnitPhoto(us, f)), onkeydown: e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); pickImage(f => setUnitPhoto(us, f)); } } },
+      el('span', { class: 'ph-ic', html: '<svg viewBox="0 0 24 24"><path d="M4 8h3l2-3h6l2 3h3v11H4z"/><circle cx="12" cy="13" r="3.5"/></svg>' }),
+      el('span', {}, el('b', {}, L`Importer depuis la galerie`), el('i', {}, L`Photo de votre figurine peinte, de préférence sur fond uni : l'appli en tire aussi une silhouette pour le schéma. Tout reste sur cet appareil.`))),
+      el('button', { type: 'button', class: 'btn ghost sm', onclick: () => pickImage(f => setUnitPhoto(us, f), true) }, L`Prendre une photo`));
+    // glisser-déposer
+    box.firstChild.addEventListener('dragover', e => { e.preventDefault(); e.currentTarget.classList.add('over'); });
+    box.firstChild.addEventListener('dragleave', e => e.currentTarget.classList.remove('over'));
+    box.firstChild.addEventListener('drop', e => { e.preventDefault(); e.currentTarget.classList.remove('over'); const f = e.dataTransfer.files && e.dataTransfer.files[0]; if (f && /^image\//.test(f.type)) setUnitPhoto(us, f).catch(er => flash(er.message)); });
+    return box;
+  }
+  box.append(el('div', { class: 'ph-row' }, el('span', { class: 'ph-lab' }, L`Affichage`),
+    seg([['s', L`Petite`], ['l', L`Grande`], ['p', L`Profil`]], p.mode || 's', v => { p.mode = v; LS.set('fr.photoMode', v); touch(); }, L`Taille de la photo`)),
+    el('div', { class: 'ph-row' }, el('button', { type: 'button', class: 'btn ghost sm', onclick: () => pickImage(f => setUnitPhoto(us, f)) }, L`Remplacer`),
+      camera ? el('button', { type: 'button', class: 'btn ghost sm', onclick: () => pickImage(f => setUnitPhoto(us, f), true) }, L`Reprendre`) : null,
+      el('button', { type: 'button', class: 'btn ghost sm', onclick: () => { p.x = 50; p.y = 50; touch(); } }, L`Recentrer`),
+      el('button', { type: 'button', class: 'btn ghost sm danger', onclick: () => { delete us.photo; dropPhotoSil(us); touch(); flash(L`Photo retirée.`); setTimeout(gcPhotos, 1500); } }, L`Retirer`)),
+    el('p', { class: 'hint' }, L`Faites glisser la photo pour la recadrer.`), silControls(us));
+  return box;
+}
+function silControls(us) {
+  const c = us.dia || {}, has = c.img && photoURL(c.img);
+  let tmr; const box = el('div', { class: 'sil-ctl' },
+    el('div', { class: 'sil-prev' + (has ? '' : ' none') }, has ? el('img', { src: photoURL(c.img), alt: L`Silhouette générée` }) : el('span', {}, L`Pas de silhouette`)),
+    el('div', { class: 'sil-tx' }, el('b', {}, L`Silhouette pour le schéma`),
+      el('label', { class: 'tol' }, L`Précision du détourage`, el('input', { type: 'range', min: 15, max: 140, value: c.tol || 60, 'aria-label': L`Précision du détourage`, oninput: e => { clearTimeout(tmr); const v = +e.target.value; tmr = setTimeout(async () => { await autoSilhouette(us, v); touch(); }, 350); } })),
+      el('div', { class: 'row-btns' }, el('button', { type: 'button', class: 'btn ghost sm', onclick: async () => { const ok = await autoSilhouette(us); touch(); if (ok) flash(L`Silhouette recalculée.`); } }, has ? L`Recalculer` : L`Créer la silhouette`),
+        has ? el('label', { class: 'chk' }, el('input', { type: 'checkbox', checked: c.src === 'sil', onchange: e => { us.dia = us.dia || {}; us.dia.src = e.target.checked ? 'sil' : 'auto'; touch(); } }), el('span', {}, L`Utiliser dans le schéma`)) : null)));
+  return box;
+}
+/* Version recadrée pour le PDF : carré, rond ou bandeau, en data URL */
+function photoCrop(p, shape) {
+  return new Promise(ok => {
+    const url = photoURL(p.id); if (!url) return ok(null);
+    const img = new Image(); img.onload = () => {
+      const [W, H] = shape === 'l' ? [1200, 420] : [360, 360], c = document.createElement('canvas'); c.width = W; c.height = H; const g = c.getContext('2d');
+      const k = Math.max(W / img.naturalWidth, H / img.naturalHeight), dw = img.naturalWidth * k, dh = img.naturalHeight * k;
+      const dx = (W - dw) * (p.x ?? 50) / 100, dy = (H - dh) * (p.y ?? 50) / 100;
+      if (shape === 'p') { g.beginPath(); g.arc(W / 2, H / 2, W / 2, 0, Math.PI * 2); g.clip(); }
+      else if (shape !== 'l') { g.fillStyle = '#fff'; g.fillRect(0, 0, W, H); }
+      g.drawImage(img, dx, dy, dw, dh);
+      ok({ data: c.toDataURL(shape === 'p' ? 'image/png' : 'image/jpeg', 0.85), fmt: shape === 'p' ? 'PNG' : 'JPEG' });
+    }; img.onerror = () => ok(null); img.src = url;
+  });
+}
+const armyHasPhotos = (a = army) => a.dets.some(d => Object.values(d.units).some(us => us.photo && photoURL(us.photo.id)));
+/* ---------- Silhouette tirée d'une photo ---------- */
+/* 1. fond estimé sur les bords (médiane) ; 2. remplissage depuis le cadre : tout ce qui ressemble au fond et touche le bord est retiré ;
+   3. seule la plus grande forme est gardée (la figurine et son socle), ses trous sont bouchés ; 4. léger lissage du contour ; 5. aplat. */
+function silhouetteFrom(url, tol = 60, color = [22, 17, 14], smooth = 2) {
+  return new Promise((ok, ko) => {
+    const img = new Image(); img.onload = () => {
+      const k = Math.min(1, 640 / Math.max(img.naturalWidth, img.naturalHeight)), w = Math.max(8, Math.round(img.naturalWidth * k)), h = Math.max(8, Math.round(img.naturalHeight * k)), N = w * h;
+      const c = document.createElement('canvas'); c.width = w; c.height = h; const g = c.getContext('2d', { willReadFrequently: true }); g.drawImage(img, 0, 0, w, h);
+      const px = g.getImageData(0, 0, w, h).data;
+      const bord = []; for (let x = 0; x < w; x += 2) bord.push(x, (h - 1) * w + x); for (let y = 0; y < h; y += 2) bord.push(y * w, y * w + w - 1);
+      const med = ch => { const v = bord.map(p => px[p * 4 + ch]).sort((a, b) => a - b); return v[v.length >> 1]; }, bg = [med(0), med(1), med(2)];
+      const dist = (p, q) => Math.abs(px[p * 4] - q[0]) + Math.abs(px[p * 4 + 1] - q[1]) + Math.abs(px[p * 4 + 2] - q[2]);
+      const near = (p, from) => dist(p, bg) < tol * 1.6 || (from >= 0 && dist(p, [px[from * 4], px[from * 4 + 1], px[from * 4 + 2]]) < tol * 0.35 && dist(p, bg) < tol * 2.6);
+      // 2. fond relié au cadre
+      const isBg = new Uint8Array(N), st = [];
+      for (const p of bord) if (near(p, -1)) { isBg[p] = 1; st.push(p); }
+      while (st.length) { const p = st.pop(), x = p % w, y = (p / w) | 0;
+        const nb = [x > 0 ? p - 1 : -1, x < w - 1 ? p + 1 : -1, y > 0 ? p - w : -1, y < h - 1 ? p + w : -1];
+        for (const q of nb) if (q >= 0 && !isBg[q] && near(q, p)) { isBg[q] = 1; st.push(q); } }
+      // 3. plus grande forme
+      const lab = new Int32Array(N); let best = 0, bestN = 0, id = 0;
+      for (let p = 0; p < N; p++) { if (isBg[p] || lab[p]) continue; id++; let n = 0; const q = [p]; lab[p] = id;
+        while (q.length) { const a = q.pop(); n++; const x = a % w, y = (a / w) | 0; for (const b of [x > 0 ? a - 1 : -1, x < w - 1 ? a + 1 : -1, y > 0 ? a - w : -1, y < h - 1 ? a + w : -1]) if (b >= 0 && !isBg[b] && !lab[b]) { lab[b] = id; q.push(b); } }
+        if (n > bestN) { bestN = n; best = id; } }
+      if (bestN < N * 0.004) return ko(new Error(L`Aucune figurine détectée : essayez une photo sur fond uni, figurine bien centrée.`));
+      let m = new Float32Array(N); for (let p = 0; p < N; p++) m[p] = lab[p] === best ? 1 : 0;
+      // 4. lissage léger : flou en boîte (2 passes) puis seuil
+      const r = Math.max(1, Math.round(smooth * w / 640 * 1.5));
+      const blur = (src) => { const t = new Float32Array(N), o = new Float32Array(N);
+        for (let y = 0; y < h; y++) { let acc = 0; for (let x = -r; x <= r; x++) acc += src[y * w + Math.min(w - 1, Math.max(0, x))]; for (let x = 0; x < w; x++) { t[y * w + x] = acc / (2 * r + 1); acc += src[y * w + Math.min(w - 1, x + r + 1)] - src[y * w + Math.max(0, x - r)]; } }
+        for (let x = 0; x < w; x++) { let acc = 0; for (let y = -r; y <= r; y++) acc += t[Math.min(h - 1, Math.max(0, y)) * w + x]; for (let y = 0; y < h; y++) { o[y * w + x] = acc / (2 * r + 1); acc += t[Math.min(h - 1, y + r + 1) * w + x] - t[Math.max(0, y - r) * w + x]; } }
+        return o; };
+      m = blur(blur(m));
+      // trous bouchés : tout ce qui n'est pas relié au cadre après lissage fait partie de la figurine
+      const out = new Uint8Array(N); for (let p = 0; p < N; p++) out[p] = m[p] >= 0.5 ? 1 : 0;
+      const ext = new Uint8Array(N), s2 = []; for (const p of [...Array(w).keys()].flatMap(x => [x, (h - 1) * w + x]).concat([...Array(h).keys()].flatMap(y => [y * w, y * w + w - 1]))) if (!out[p] && !ext[p]) { ext[p] = 1; s2.push(p); }
+      while (s2.length) { const p = s2.pop(), x = p % w, y = (p / w) | 0; for (const q of [x > 0 ? p - 1 : -1, x < w - 1 ? p + 1 : -1, y > 0 ? p - w : -1, y < h - 1 ? p + w : -1]) if (q >= 0 && !out[q] && !ext[q]) { ext[q] = 1; s2.push(q); } }
+      // 5. aplat avec bord légèrement adouci (anticrénelage) et recadrage
+      const d = g.createImageData(w, h), o = d.data; let x0 = w, y0 = h, x1 = 0, y1 = 0;
+      for (let p = 0; p < N; p++) { const inside = !ext[p]; const a = inside ? (out[p] ? 1 : 1) : Math.max(0, Math.min(1, (m[p] - 0.35) / 0.15));
+        if (a > 0) { o[p * 4] = color[0]; o[p * 4 + 1] = color[1]; o[p * 4 + 2] = color[2]; o[p * 4 + 3] = Math.round(a * 255); if (a > 0.5) { const x = p % w, y = (p / w) | 0; if (x < x0) x0 = x; if (x > x1) x1 = x; if (y < y0) y0 = y; if (y > y1) y1 = y; } } }
+      if (x1 <= x0 || y1 <= y0) return ko(new Error(L`Aucune figurine détectée : essayez une photo sur fond uni, figurine bien centrée.`));
+      g.putImageData(d, 0, 0);
+      const pad = 2, oc = document.createElement('canvas'); oc.width = x1 - x0 + 1 + pad * 2; oc.height = y1 - y0 + 1 + pad * 2; oc.getContext('2d').drawImage(c, -x0 + pad, -y0 + pad);
+      oc.toBlob(b => ok({ blob: b, w: oc.width, h: oc.height }), 'image/png');
+    }; img.onerror = () => ko(new Error(L`Image illisible`)); img.src = url;
+  });
+}
+/* Silhouette automatique d'une unité à partir de sa photo (au moment de la prise ou de l'import) */
+async function autoSilhouette(us, tol) {
+  if (!us.photo || !photoURL(us.photo.id)) return false;
+  const c = us.dia = us.dia || {}; tol = tol || c.tol || 60;
+  try { const r = await silhouetteFrom(photoURL(us.photo.id), tol); c.img = await storePhoto(r.blob, r.w, r.h, 'sil'); c.src = 'sil'; c.tol = tol; c.auto = true; return true; }
+  catch (e) { c.src = c.src === 'sil' ? 'auto' : c.src; flash(e.message); return false; }
+}
+
+/* photo retirée : la silhouette tirée de cette photo part avec elle (une image importée à la main reste) */
+function dropPhotoSil(us) {
+  const c = us.dia; if (!c) return;
+  if (c.auto) { delete c.img; delete c.auto; delete c.tol; }
+  if (c.src === 'photo' || (c.src === 'sil' && !c.img)) delete c.src;
+  if (!Object.keys(c).length) delete us.dia;
+}
+/* ---------- Silhouettes originales (dessins génériques par type d'unité, aucune copie de figurine) ---------- */
+/* Chaque silhouette : w × h dans son propre repère (pieds posés sur y = h), et une hauteur réelle relative « s » pour les schémas. */
+const SIL = {
+  leg: { w: 100, h: 140, s: 1, d: `
+    <path d="M31 24 Q31 16 38 16 L62 16 Q69 16 69 24 L69 52 L31 52 Z"/><rect x="34" y="8" width="8" height="14" rx="3"/><rect x="58" y="8" width="8" height="14" rx="3"/>
+    <path d="M41 30 Q41 13 50 12 Q59 13 59 30 L56 38 L44 38 Z"/>
+    <path d="M7 48 Q7 29 28 29 Q43 30 42 46 L40 57 L9 59 Z"/><path d="M93 48 Q93 29 72 29 Q57 30 58 46 L60 57 L91 59 Z"/>
+    <path d="M35 38 L65 38 L68 70 L60 80 L40 80 L32 70 Z"/>
+    <rect x="13" y="55" width="13" height="24" rx="5"/><rect x="73" y="55" width="13" height="20" rx="5"/>
+    <path d="M13 77 L80 69 L80 65 L99 63 L99 70 L84 72 L84 76 L62 79 L60 91 L50 91 L51 80 L15 84 Z"/>
+    <rect x="36" y="78" width="28" height="10" rx="3"/>
+    <path d="M37 86 L49 86 L48 108 L35 108 Z"/><path d="M51 86 L63 86 L66 108 L53 108 Z"/>
+    <ellipse cx="41" cy="108" rx="8" ry="6"/><ellipse cx="60" cy="108" rx="8" ry="6"/>
+    <path d="M34 112 L48 112 L47 131 L28 136 L29 127 Z"/><path d="M53 112 L67 112 L71 127 L73 136 L55 131 Z"/>` },
+  officer: { w: 110, h: 146, s: 1.04, top: -8, d: `
+    <path d="M36 30 L74 30 L96 138 L60 132 L50 136 L14 138 Z" class="cape"/>
+    <path d="M36 24 Q36 16 43 16 L67 16 Q74 16 74 24 L74 50 L36 50 Z"/>
+    <path d="M46 30 Q46 12 55 11 Q64 12 64 30 L61 38 L49 38 Z"/><path d="M50 11 L55 0 L60 11 Z"/>
+    <path d="M12 50 Q12 29 33 29 Q48 30 47 46 L45 57 L14 59 Z"/><path d="M98 50 Q98 29 77 29 Q62 30 63 46 L65 57 L96 59 Z"/>
+    <path d="M40 38 L70 38 L73 72 L65 82 L45 82 L37 72 Z"/>
+    <rect x="16" y="56" width="13" height="24" rx="5"/><path d="M80 56 L93 54 L96 34 L86 30 Z"/>
+    <path d="M90 34 L104 -6 L108 -4 L96 36 Z"/><rect x="84" y="28" width="16" height="6" rx="2" transform="rotate(-20 92 31)"/>
+    <rect x="12" y="76" width="18" height="12" rx="4"/>
+    <path d="M42 86 L54 86 L53 110 L40 110 Z"/><path d="M56 86 L68 86 L71 110 L58 110 Z"/>
+    <path d="M39 112 L53 112 L52 133 L33 140 L34 130 Z"/><path d="M58 112 L72 112 L76 130 L78 140 L60 133 Z"/>` },
+  heavy: { w: 112, h: 140, s: 1, d: `
+    <path d="M31 24 Q31 16 38 16 L62 16 Q69 16 69 24 L69 52 L31 52 Z"/>
+    <path d="M41 30 Q41 13 50 12 Q59 13 59 30 L56 38 L44 38 Z"/>
+    <path d="M7 48 Q7 29 28 29 Q43 30 42 46 L40 57 L9 59 Z"/><path d="M93 48 Q93 29 72 29 Q57 30 58 46 L60 57 L91 59 Z"/>
+    <path d="M35 38 L65 38 L68 70 L60 80 L40 80 L32 70 Z"/>
+    <rect x="13" y="55" width="13" height="22" rx="5"/>
+    <rect x="44" y="52" width="66" height="15" rx="4"/><rect x="58" y="62" width="22" height="16" rx="3"/><rect x="100" y="48" width="12" height="23" rx="2"/><rect x="40" y="58" width="16" height="9" rx="2"/>
+    <rect x="36" y="78" width="28" height="10" rx="3"/>
+    <path d="M37 86 L49 86 L48 108 L35 108 Z"/><path d="M51 86 L63 86 L66 108 L53 108 Z"/>
+    <ellipse cx="41" cy="108" rx="8" ry="6"/><ellipse cx="60" cy="108" rx="8" ry="6"/>
+    <path d="M34 112 L48 112 L47 131 L28 136 L29 127 Z"/><path d="M53 112 L67 112 L71 127 L73 136 L55 131 Z"/>` },
+  jump: { w: 112, h: 146, s: 1.02, d: `
+    <path d="M14 22 Q14 12 24 12 L44 12 L44 64 L20 64 Q14 64 14 56 Z"/><path d="M16 64 L22 64 L28 96 L19 84 L13 96 Z" class="flame"/><path d="M30 64 L38 64 L42 92 L34 82 L28 94 Z" class="flame"/>
+    <path d="M46 34 Q46 18 55 17 Q64 18 64 34 L61 42 L49 42 Z"/>
+    <path d="M14 52 Q14 33 34 33 Q48 34 47 50 L45 61 L16 63 Z"/><path d="M96 52 Q96 33 76 33 Q62 34 63 50 L65 61 L94 63 Z"/>
+    <path d="M40 42 L70 42 L73 74 L65 84 L45 84 L37 74 Z"/>
+    <path d="M78 60 L92 56 L98 34 L88 30 Z"/><path d="M90 34 L106 4 L112 8 L96 38 Z"/><rect x="85" y="26" width="16" height="7" rx="2" transform="rotate(-28 93 30)"/>
+    <rect x="18" y="58" width="13" height="22" rx="5"/><rect x="14" y="76" width="18" height="10" rx="3"/>
+    <path d="M42 88 L54 88 L50 110 L38 108 Z"/><path d="M56 88 L68 88 L76 106 L64 112 Z"/>
+    <path d="M37 110 L50 112 L45 132 L30 138 L32 128 Z"/><path d="M64 110 L77 106 L86 126 L90 136 L74 130 Z"/>` },
+  term: { w: 124, h: 142, s: 1.08, d: `
+    <path d="M36 14 Q36 6 44 6 L80 6 Q88 6 88 14 L88 40 L36 40 Z"/><rect x="42" y="0" width="8" height="10" rx="2"/><rect x="74" y="0" width="8" height="10" rx="2"/>
+    <path d="M52 32 Q52 20 62 20 Q72 20 72 32 L70 42 L54 42 Z"/>
+    <path d="M4 54 Q4 22 36 22 Q48 24 48 40 L48 66 L6 68 Q4 62 4 54 Z"/><path d="M120 54 Q120 22 88 22 Q76 24 76 40 L76 66 L118 68 Q120 62 120 54 Z"/>
+    <path d="M40 36 L84 36 Q92 52 90 84 L80 98 L44 98 L34 84 Q32 52 40 36 Z"/>
+    <path d="M2 80 Q2 72 9 72 L33 72 Q40 72 40 80 L40 102 Q40 110 32 110 L10 110 Q2 110 2 102 Z"/>
+    <rect x="9" y="64" width="22" height="14" rx="3"/>
+    <rect x="92" y="62" width="22" height="20" rx="4"/><rect x="90" y="76" width="22" height="16" rx="3"/>
+    <rect x="94" y="52" width="8" height="48" rx="2"/><rect x="104" y="48" width="7" height="52" rx="2"/>
+    <path d="M42 94 L62 94 L60 114 L54 138 L28 138 L32 124 L38 112 Z"/><path d="M62 94 L82 94 L86 112 L92 124 L96 138 L70 138 L66 114 Z"/>
+    <ellipse cx="42" cy="114" rx="10" ry="8"/><ellipse cx="82" cy="114" rx="10" ry="8"/>` },
+  bike: { w: 150, h: 120, s: 0.95, d: `
+    <circle cx="28" cy="96" r="22"/><circle cx="122" cy="96" r="22"/>
+    <path d="M10 82 L40 62 L112 60 L142 76 L146 92 L118 86 L36 90 Z"/><path d="M104 54 L140 58 L144 70 L108 68 Z"/><rect x="118" y="48" width="30" height="7" rx="2"/>
+    <path d="M62 36 Q62 22 71 21 Q80 22 80 36 L78 44 L64 44 Z"/>
+    <path d="M44 52 Q44 35 62 35 Q74 36 74 50 L72 60 L46 62 Z"/>
+    <path d="M60 42 L84 42 L96 64 L78 70 L58 66 Z"/><path d="M84 46 L108 52 L106 60 L86 58 Z"/>
+    <path d="M60 64 L82 66 L88 84 L76 86 L68 74 L56 72 Z"/>` },
+  dread: { w: 160, h: 170, s: 1.35, d: `
+    <rect x="52" y="4" width="9" height="22" rx="2"/><rect x="99" y="4" width="9" height="22" rx="2"/>
+    <path d="M46 22 L114 22 L122 40 L120 98 L106 110 L54 110 L40 98 L38 40 Z"/>
+    <rect x="16" y="32" width="34" height="36" rx="9"/><rect x="110" y="32" width="34" height="36" rx="9"/>
+    <rect x="10" y="62" width="32" height="34" rx="5"/><rect x="12" y="92" width="11" height="46" rx="2"/><rect x="27" y="92" width="11" height="46" rx="2"/><rect x="8" y="134" width="34" height="7" rx="2"/>
+    <rect x="118" y="62" width="32" height="32" rx="6"/><path d="M112 90 L156 90 L158 120 L150 128 L118 128 L110 118 Z"/>
+    <path d="M114 126 L124 126 L122 148 L114 148 Z"/><path d="M128 126 L138 126 L137 150 L129 150 Z"/><path d="M142 124 L152 124 L154 146 L145 146 Z"/>
+    <rect x="56" y="106" width="48" height="16" rx="4"/>
+    <path d="M54 118 L74 118 L72 148 L60 152 L46 152 L50 134 Z"/><path d="M86 118 L106 118 L110 134 L114 152 L100 152 L88 148 Z"/>
+    <path d="M34 150 L78 150 L78 164 L30 164 Z"/><path d="M82 150 L126 150 L130 164 L82 164 Z"/>` },
+  automata: { w: 150, h: 158, s: 1.25, d: `
+    <path d="M52 30 Q52 14 75 14 Q98 14 98 30 L96 44 L54 44 Z"/><rect x="66" y="20" width="18" height="8" rx="2" class="eye"/>
+    <path d="M18 54 Q18 34 48 36 L102 36 Q132 34 132 54 L128 70 L22 70 Z"/>
+    <path d="M40 66 L110 66 L104 108 L46 108 Z"/>
+    <path d="M10 62 L36 62 L38 104 L28 112 L14 112 L8 102 Z"/><path d="M4 102 L42 102 L40 120 L6 120 Z"/>
+    <path d="M114 62 L140 62 L146 96 L114 98 Z"/><rect x="118" y="94" width="10" height="34" rx="2"/><rect x="132" y="94" width="10" height="34" rx="2"/>
+    <path d="M50 104 L72 104 L68 134 L52 140 L42 138 L46 124 Z"/><path d="M78 104 L100 104 L104 124 L108 138 L98 140 L82 134 Z"/>
+    <path d="M30 136 L72 136 L72 152 L26 152 Z"/><path d="M78 136 L120 136 L124 152 L78 152 Z"/>` },
+  custodian: { w: 110, h: 160, s: 1.18, top: -32, d: `
+    <path d="M48 24 Q48 10 56 9 Q64 10 64 24 L62 32 L50 32 Z"/><path d="M50 10 Q56 -8 70 2 Q60 4 58 14 Z"/>
+    <path d="M14 46 Q14 26 36 26 Q50 27 49 42 L47 54 L16 56 Z"/><path d="M98 46 Q98 26 76 26 Q62 27 63 42 L65 54 L96 56 Z"/>
+    <path d="M40 32 L72 32 L76 68 L68 82 L44 82 L36 68 Z"/>
+    <path d="M30 70 L84 70 L92 120 L22 120 Z" class="cape"/>
+    <rect x="16" y="52" width="13" height="26" rx="5"/><rect x="84" y="52" width="13" height="22" rx="5"/>
+    <rect x="94" y="-14" width="6" height="172" rx="2"/><path d="M92 -14 L97 -30 L102 -14 Z"/><rect x="86" y="62" width="20" height="10" rx="3"/>
+    <path d="M40 112 L54 112 L52 140 L36 156 L38 142 Z"/><path d="M58 112 L72 112 L76 142 L80 156 L62 140 Z"/>` },
+  auxilia: { w: 96, h: 128, s: 0.9, d: `
+    <path d="M38 22 Q38 8 48 8 Q58 8 58 22 L64 26 L32 26 Z"/><rect x="42" y="22" width="12" height="10" rx="2"/>
+    <path d="M28 32 Q48 26 68 32 L74 70 L64 112 L32 112 L22 70 Z" class="coat"/>
+    <rect x="18" y="38" width="12" height="28" rx="5"/><rect x="66" y="38" width="12" height="24" rx="5"/>
+    <path d="M14 66 L88 52 L90 58 L76 62 L76 66 L56 70 L54 80 L46 80 L47 72 L16 74 Z"/>
+    <path d="M34 108 L46 108 L44 128 L30 128 Z"/><path d="M50 108 L62 108 L66 128 L52 128 Z"/>` },
+  militia: { w: 96, h: 126, s: 0.88, d: `
+    <path d="M32 18 Q48 4 64 18 L70 22 L26 22 Z"/><path d="M40 20 Q40 32 48 32 Q56 32 56 20 Z"/>
+    <path d="M30 32 L66 32 L70 68 L64 110 L32 110 L26 68 Z"/>
+    <rect x="20" y="36" width="11" height="28" rx="5"/><rect x="65" y="36" width="11" height="24" rx="5"/>
+    <path d="M16 62 L84 50 L86 56 L72 60 L70 66 L52 68 L50 78 L44 78 L44 70 L18 70 Z"/>
+    <path d="M34 106 L46 106 L44 126 L30 126 Z"/><path d="M50 106 L62 106 L66 126 L52 126 Z"/>` },
+  skitarii: { w: 98, h: 128, s: 0.9, d: `
+    <path d="M34 26 Q32 4 48 4 Q64 4 64 26 L60 34 L36 34 Z"/>
+    <path d="M28 30 L68 30 L74 70 L70 116 L26 116 L22 70 Z" class="coat"/>
+    <path d="M30 24 L66 24 L70 34 L26 34 Z"/>
+    <rect x="16" y="36" width="12" height="30" rx="5"/><rect x="68" y="36" width="12" height="26" rx="5"/>
+    <path d="M12 66 L92 54 L94 60 L78 64 L78 70 L58 72 L56 84 L48 84 L49 74 L14 76 Z"/><rect x="58" y="50" width="16" height="6" rx="2"/>
+    <path d="M32 112 L46 112 L44 128 L28 128 Z"/><path d="M52 112 L66 112 L70 128 L54 128 Z"/>` },
+  daemon: { w: 140, h: 160, s: 1.3, d: `
+    <path d="M52 30 Q40 6 22 2 Q38 16 44 34 Z"/><path d="M88 30 Q100 6 118 2 Q102 16 96 34 Z"/>
+    <path d="M54 24 Q70 14 86 24 L88 46 L70 56 L52 46 Z"/>
+    <path d="M30 52 Q70 34 110 52 L118 96 L98 112 L42 112 L22 96 Z"/>
+    <path d="M26 58 L8 92 L4 118 L12 112 L16 124 L22 108 L32 76 Z"/><path d="M114 58 L132 92 L136 118 L128 112 L124 124 L118 108 L108 76 Z"/>
+    <path d="M44 108 L66 108 L60 138 L48 156 L32 156 L40 136 Z"/><path d="M74 108 L96 108 L100 136 L108 156 L92 156 L80 138 Z"/>` },
+  primarch: { w: 130, h: 180, s: 1.45, top: -16, d: `
+    <path d="M40 40 L90 40 L118 176 L72 168 L62 174 L12 176 Z" class="cape"/>
+    <path d="M52 34 Q52 14 65 13 Q78 14 78 34 L74 44 L56 44 Z"/><path d="M58 14 L65 -2 L72 14 Z"/>
+    <path d="M12 62 Q12 34 40 34 Q58 36 57 56 L55 70 L15 72 Z"/><path d="M118 62 Q118 34 90 34 Q72 36 73 56 L75 70 L115 72 Z"/>
+    <path d="M46 44 L84 44 L88 88 L78 102 L52 102 L42 88 Z"/>
+    <rect x="16" y="68" width="16" height="30" rx="6"/><path d="M96 68 L112 66 L118 40 L106 36 Z"/>
+    <path d="M110 40 L126 -14 L131 -12 L116 42 Z"/><rect x="104" y="32" width="20" height="7" rx="2" transform="rotate(-18 114 35)"/>
+    <path d="M48 104 L64 104 L62 136 L46 136 Z"/><path d="M66 104 L82 104 L86 136 L70 136 Z"/>
+    <path d="M44 138 L62 138 L60 166 L38 176 L40 162 Z"/><path d="M70 138 L88 138 L92 162 L96 176 L72 166 Z"/>` },
+  knight: { w: 170, h: 220, s: 2.3, d: `
+    <path d="M60 30 L110 30 L120 56 L50 56 Z"/><path d="M70 30 Q70 12 85 10 Q100 12 100 30 Z"/><rect x="74" y="36" width="22" height="7" class="eye"/>
+    <path d="M24 60 Q24 44 44 44 L126 44 Q146 44 146 60 L140 110 L30 110 Z"/>
+    <path d="M10 56 Q10 40 30 40 L46 46 L44 84 L12 86 Z"/><path d="M160 56 Q160 40 140 40 L124 46 L126 84 L158 86 Z"/>
+    <path d="M2 82 L38 82 L36 140 L28 146 L10 146 L4 136 Z"/><path d="M8 140 L30 140 L26 188 L12 188 Z"/>
+    <path d="M132 82 L168 82 L166 120 L134 120 Z"/><rect x="136" y="116" width="12" height="52" rx="3"/><rect x="152" y="116" width="12" height="52" rx="3"/>
+    <path d="M44 106 L126 106 L116 132 L54 132 Z"/>
+    <path d="M56 128 L80 128 L76 172 L62 184 L46 184 L52 160 Z"/><path d="M90 128 L114 128 L118 160 L124 184 L108 184 L94 172 Z"/>
+    <path d="M36 180 L82 180 L84 196 L30 196 Z"/><path d="M88 180 L134 180 L140 196 L86 196 Z"/>` },
+  titan: { w: 200, h: 300, s: 3.4, d: `
+    <path d="M78 30 L122 30 L130 60 L70 60 Z"/><path d="M84 30 Q84 8 100 6 Q116 8 116 30 Z"/><rect x="88" y="38" width="24" height="8" class="eye"/>
+    <path d="M30 70 Q30 50 54 50 L146 50 Q170 50 170 70 L162 140 L38 140 Z"/><rect x="60" y="20" width="12" height="34" rx="2"/><rect x="128" y="20" width="12" height="34" rx="2"/>
+    <path d="M6 62 L44 62 L46 120 L8 120 Z"/><rect x="12" y="116" width="26" height="84" rx="4"/><rect x="8" y="196" width="34" height="14" rx="3"/>
+    <path d="M156 62 L194 62 L192 112 L158 112 Z"/><rect x="162" y="108" width="12" height="76" rx="2"/><rect x="178" y="108" width="12" height="76" rx="2"/>
+    <path d="M58 136 L142 136 L132 170 L68 170 Z"/>
+    <path d="M66 166 L96 166 L92 230 L76 250 L54 248 L62 220 Z"/><path d="M104 166 L134 166 L138 220 L146 248 L124 250 L108 230 Z"/>
+    <path d="M50 244 L82 244 L84 280 L44 280 Z"/><path d="M118 244 L150 244 L156 280 L116 280 Z"/><path d="M34 276 L92 276 L92 296 L28 296 Z"/><path d="M108 276 L166 276 L172 296 L108 296 Z"/>` },
+  apc: { w: 220, h: 110, s: 1.25, d: `
+    <path d="M14 46 L40 22 L180 22 L206 46 L208 70 L12 70 Z"/><rect x="96" y="12" width="40" height="12" rx="3"/><rect x="104" y="2" width="6" height="12"/><rect x="104" y="2" width="24" height="5" rx="2"/>
+    <path d="M4 64 L216 64 L210 92 Q206 100 196 100 L24 100 Q14 100 10 92 Z"/>
+    <g class="hole"><circle cx="34" cy="86" r="5"/><circle cx="62" cy="88" r="5"/><circle cx="90" cy="88" r="5"/><circle cx="118" cy="88" r="5"/><circle cx="146" cy="88" r="5"/><circle cx="174" cy="88" r="5"/><circle cx="196" cy="84" r="5"/></g>` },
+  hapc: { w: 250, h: 120, s: 1.4, d: `
+    <path d="M10 50 L50 14 L196 14 L244 54 L246 82 L6 82 Z"/><rect x="100" y="4" width="46" height="12" rx="3"/>
+    <rect x="18" y="58" width="44" height="22" rx="4"/><rect x="0" y="64" width="26" height="7" rx="2"/><rect x="186" y="58" width="44" height="22" rx="4"/><rect x="222" y="64" width="26" height="7" rx="2"/>
+    <path d="M2 76 L248 76 L240 106 Q236 114 222 114 L28 114 Q14 114 10 106 Z"/>
+    <g class="hole"><circle cx="34" cy="100" r="6"/><circle cx="66" cy="102" r="6"/><circle cx="98" cy="102" r="6"/><circle cx="130" cy="102" r="6"/><circle cx="162" cy="102" r="6"/><circle cx="194" cy="102" r="6"/><circle cx="222" cy="98" r="6"/></g>` },
+  tank: { w: 260, h: 120, s: 1.3, d: `
+    <rect x="150" y="26" width="104" height="9" rx="2"/><rect x="244" y="23" width="12" height="15" rx="2"/>
+    <path d="M86 20 L148 18 L162 30 L160 46 L84 48 L78 34 Z"/><rect x="98" y="8" width="22" height="12" rx="3"/>
+    <path d="M14 56 L40 42 L214 42 L240 56 L242 76 L12 76 Z"/>
+    <path d="M2 72 L258 72 L250 104 Q246 112 234 112 L26 112 Q14 112 10 104 Z"/>
+    <g class="hole"><circle cx="32" cy="98" r="6"/><circle cx="62" cy="100" r="6"/><circle cx="92" cy="100" r="6"/><circle cx="122" cy="100" r="6"/><circle cx="152" cy="100" r="6"/><circle cx="182" cy="100" r="6"/><circle cx="212" cy="100" r="6"/><circle cx="236" cy="96" r="6"/></g>` },
+  superheavy: { w: 340, h: 150, s: 1.8, d: `
+    <rect x="196" y="20" width="140" height="12" rx="3"/><rect x="324" y="16" width="16" height="20" rx="2"/><rect x="196" y="36" width="110" height="8" rx="2"/>
+    <path d="M110 12 L196 10 L214 24 L212 50 L108 52 L100 30 Z"/><rect x="124" y="0" width="28" height="12" rx="3"/>
+    <path d="M10 66 L50 46 L286 46 L330 66 L332 96 L8 96 Z"/>
+    <rect x="40" y="70" width="48" height="24" rx="5"/><rect x="74" y="76" width="40" height="8" rx="2"/><rect x="236" y="70" width="48" height="24" rx="5"/><rect x="270" y="76" width="44" height="8" rx="2"/>
+    <path d="M0 90 L340 90 L330 134 Q326 144 310 144 L30 144 Q14 144 10 134 Z"/>
+    <g class="hole"><circle cx="36" cy="124" r="8"/><circle cx="76" cy="128" r="8"/><circle cx="116" cy="128" r="8"/><circle cx="156" cy="128" r="8"/><circle cx="196" cy="128" r="8"/><circle cx="236" cy="128" r="8"/><circle cx="276" cy="128" r="8"/><circle cx="310" cy="124" r="8"/></g>` },
+  skimmer: { w: 220, h: 100, s: 1.1, d: `
+    <path d="M6 54 L44 30 L170 26 L214 46 L212 64 L172 72 L30 72 Z"/><path d="M90 18 L150 16 L160 28 L88 30 Z"/><rect x="150" y="20" width="62" height="6" rx="2"/>
+    <rect x="20" y="70" width="70" height="10" rx="4"/><rect x="130" y="70" width="70" height="10" rx="4"/>
+    <path d="M30 82 L80 82 L72 92 L38 92 Z" class="flame"/><path d="M140 82 L190 82 L182 92 L148 92 Z" class="flame"/>` },
+  flyer: { w: 300, h: 120, s: 1.9, d: `
+    <path d="M4 60 L30 40 L60 6 L84 6 L76 40 L230 40 L276 56 L296 64 L276 72 L230 80 L60 80 L20 74 Z"/>
+    <path d="M110 46 L180 46 L150 110 L120 110 Z"/><rect x="200" y="30" width="34" height="12" rx="3"/><rect x="226" y="34" width="46" height="5" rx="2"/>
+    <rect x="96" y="94" width="10" height="20" rx="2"/><rect x="174" y="90" width="10" height="24" rx="2"/><rect x="86" y="112" width="30" height="5" rx="2"/><rect x="164" y="112" width="30" height="5" rx="2"/>` },
+  pod: { w: 120, h: 150, s: 1.15, d: `
+    <rect x="54" y="0" width="12" height="18" rx="2"/><path d="M40 16 L80 16 L86 30 L34 30 Z"/>
+    <path d="M34 28 L86 28 L94 116 L26 116 Z"/><path d="M60 30 L60 114" stroke="#000" stroke-width="0"/>
+    <path d="M26 104 L4 146 L22 146 L40 112 Z"/><path d="M94 104 L116 146 L98 146 L80 112 Z"/><path d="M48 112 L72 112 L70 146 L50 146 Z"/>
+    <rect x="44" y="44" width="10" height="44" rx="2" class="hole"/><rect x="66" y="44" width="10" height="44" rx="2" class="hole"/>` },
+  artillery: { w: 190, h: 100, s: 0.9, d: `
+    <path d="M70 40 L176 6 L182 18 L78 54 Z"/><rect x="170" y="2" width="16" height="18" rx="3" transform="rotate(-18 178 11)"/>
+    <path d="M36 34 L92 30 L104 58 L30 62 Z"/><rect x="44" y="22" width="30" height="10" rx="2"/>
+    <path d="M22 56 L120 56 L124 70 L18 70 Z"/><circle cx="46" cy="80" r="19"/><circle cx="98" cy="80" r="19"/><circle cx="46" cy="80" r="7" class="hole"/><circle cx="98" cy="80" r="7" class="hole"/>
+    <path d="M20 62 L0 96 L10 98 L30 68 Z"/>` },
+  fort: { w: 240, h: 130, s: 1.4, d: `
+    <path d="M10 46 L230 46 L236 128 L4 128 Z"/><path d="M30 16 L80 16 L86 46 L24 46 Z"/><path d="M160 16 L210 16 L216 46 L154 46 Z"/>
+    <rect x="76" y="24" width="86" height="10" rx="3"/><rect x="60" y="70" width="40" height="10" class="hole"/><rect x="140" y="70" width="40" height="10" class="hole"/>` }
+};
+/* Type de silhouette d'après le type, les sous-types, le nom (FR + EN) et l'armée de l'unité. */
+function silType(u, us) {
+  if (!u) return 'leg';
+  const vn = u.variants ? [u.models[0].name, ...u.variants.map(v => v.name)] : [], cur = us && us.variant != null && u.variants ? u.variants[us.variant].name : (u.models[0] || {}).name;
+  const keep = l => { const i = l.indexOf(' : '); if (i < 0) return true; const who = l.slice(0, i); return !vn.includes(who) || who === cur; };
+  const en = (I18N.terms && I18N.terms[u.name]) || '', name = (u.name + ' ' + (vn.length ? cur : '') + ' ' + en).toLowerCase(), types = (u.types || []).filter(keep).join(' ').toLowerCase(), wg = (u.wargear || []).filter(keep).join(' ').toLowerCase();
+  const has = re => re.test(types), nm = re => re.test(name);
+  if (u.role === 'FO' || has(/fortification|emplacement/)) return 'fort';
+  if (has(/titan/)) return 'titan';
+  if (has(/chevalier|knight/)) return 'knight';
+  if (has(/primarque|primarch/)) return 'primarch';
+  if (nm(/drop pod|module d.atterrissage|dreadclaw|kharybdis/)) return 'pod';
+  if (has(/aéronef|flyer|aircraft/) || nm(/thunderhawk|storm eagle|stormbird|fire raptor|xiphon|primaris-lightning|avenger|lightning|caestus|kharybdis|stormbird/)) return 'flyer';
+  if (has(/dreadnought|marcheur|walker/) || nm(/dreadnought|contemptor|leviathan|deredeo|mortis|castraferrum|cybernetica/)) return nm(/castellax|vorax|domitar|thanatar|cybernetica|automate|automata|battle-automata/) ? 'automata' : 'dread';
+  if (has(/automate|automata/)) return 'automata';
+  if (has(/véhicule|vehicle/)) {
+    if (has(/super-lourd|super-heavy/) || nm(/fellblade|falchion|typhon|cerberus|glaive|mastodon|malcador|baneblade|shadowsword|stormblade/)) return 'superheavy';
+    if (has(/antigrav|skimmer|flyer/) || nm(/land speeder|javelin|sky-?slayer|kyzagan|speeder|scimitar|jetbike/)) return 'skimmer';
+    if (nm(/artillery|artillerie|battery|batterie|rapier|tarantula|mortar|mortier|basilisk|medusa|earthshaker|thunderfire|quad|araknae|carapace/)) return 'artillery';
+    if (nm(/land raider|spartan|proteus|achilles|mastodon|termite|gorgon|transport lourd|heavy transport/)) return 'hapc';
+    if (nm(/rhino|transport|arvus|aurox|dracosan|atlas|trojan|carrier|sabre/) || u.role === 'TP' || u.role === 'TL') return u.role === 'TL' ? 'hapc' : 'apc';
+    return 'tank';
+  }
+  if (u.army === 'dmn' || has(/démon|daemon|malefic|maléfique/) && nm(/daemon|démon|brute|sovereign|souverain/)) return 'daemon';
+  if (u.army === 'cust' || u.army === 'lc' || nm(/custodien|custodian|custodes|sentinel|sentinelle/)) return 'custodian';
+  if (has(/cavalerie|cavalry/) || nm(/moto|bike|outrider|jetbike|chevauch|cavalier|scimitar/)) return 'bike';
+  if (has(/antigrav/) || nm(/réacteurs|jump|assaut|assault|seraph|vulturax|ursarax|warhawk|sky-hunter|raptor/) && !nm(/vétéran tactique/)) return has(/antigrav/) || nm(/réacteurs|jump/) ? 'jump' : (nm(/assaut|assault/) ? 'jump' : 'leg');
+  if (nm(/terminator|cataphractii|tartaros|saturnine|gorgon|indomitus|deathwing|justaerin|huscarl|phaetus|phaeretus|grave warden|reaver|mor deythan/)) return 'term';
+  if (u.army === 'skit' || nm(/skitarii|vanguard|ranger|peregrin|pérégrin/)) return 'skitarii';
+  if (u.army === 'mil' || u.army === 'cult') return 'militia';
+  if (u.army === 'aux' || u.army === 'sa' || nm(/auxilia|veletari|lasrifle|lasfusil|tercio|cohort/)) return 'auxilia';
+  if (has(/unique|état-major|command|quartier|warlord|seigneur de guerre/) || ['QG', 'SG', 'EM'].includes(u.role)) return 'officer';
+  if (nm(/appui|support|heavy|lourde|devastator|destroyer|destructeur|missile|las|autocanon|autocannon/) || /canon laser|lascannon|missile launcher|lance-missiles|bolter lourd|heavy bolter|autocanon|autocannon|multi-fuseur|multi-melta|plasma lourd|heavy plasma/.test(wg)) return 'heavy';
+  return 'leg';
+}
+const SIL_NAMES = () => ({ leg: L`Légionnaire`, officer: L`Officier`, heavy: L`Arme lourde`, jump: L`Réacteurs`, term: L`Terminator`, bike: L`Motard`, dread: L`Dreadnought`, automata: L`Automate`, custodian: L`Custodien`, auxilia: L`Auxiliaire`, militia: L`Milicien`, skitarii: L`Skitarii`, daemon: L`Démon`, primarch: L`Primarque`, knight: L`Chevalier`, titan: L`Titan`, apc: L`Transport`, hapc: L`Transport lourd`, tank: L`Char`, superheavy: L`Char super-lourd`, skimmer: L`Antigrav`, flyer: L`Aéronef`, pod: L`Module d'atterrissage`, artillery: L`Artillerie`, fort: L`Fortification` });
+/* SVG autonome d'une silhouette : couleur, fond (pour les jours entre les pièces), hauteur en px */
+function silInner(type, color, bg) {
+  const s = SIL[type] || SIL.leg;
+  return `<g fill="${color}">` + s.d.replace(/class="(hole|eye)"/g, `fill="${bg}"`).replace(/class="flame"/g, 'fill="#e8732c" opacity=".85"').replace(/class="(cape|coat)"/g, 'opacity=".9"') + '</g>';
+}
+function silBox(type) { const s = SIL[type] || SIL.leg, t = s.top || 0; return { x: 0, y: t, w: s.w, h: s.h - t }; }
+function silSVG(type, color, h, bg) {
+  const b = silBox(type), H = h || 60, W = H * b.w / b.h;
+  return `<svg class="sil" viewBox="${b.x} ${b.y} ${b.w} ${b.h}" width="${W.toFixed(1)}" height="${H}" aria-hidden="true">${silInner(type, color || 'currentColor', bg || 'var(--sil-bg, #e9dcc0)')}</svg>`;
+}
+/* ---------- Schéma d'armée (bêta) : présentation visuelle de la liste, mise en page automatique ---------- */
+/* Réglages par liste : army.dia = { layout: 'ranks'|'compact'|'orbat', style: 'parchment'|'dark'|'clean', pts, official, photos, title, sub, note } */
+/* Réglage par unité : us.dia = { t: type de silhouette imposé, src: 'auto'|'photo'|'sil', img: id d'image perso } */
+const DIA_STYLES = {
+  parchment: { bg: '#e9dcc0', bg2: '#d8c49c', ink: '#17110d', sub: '#4d3f31', acc: '#8c3a22', frame: '#a8523a', ally: '#7a2e1c', paper: true },
+  dark: { bg: '#141416', bg2: '#0c0c0e', ink: '#e6e0d2', sub: '#a7a091', acc: '#c9a24f', frame: '#8a6c2c', ally: '#e8732c' },
+  clean: { bg: '#ffffff', bg2: '#f2f2f2', ink: '#111111', sub: '#5e5e5e', acc: '#c2382a', frame: '#c9c9c9', ally: '#c2382a' }
+};
+const DIA_DEF = { layout: 'ranks', style: 'parchment', pts: true, official: true, photos: true, title: '', sub: '', note: '' };
+// toujours le même objet : les réglages modifiés sont bien ceux qu'on dessine
+const diaCfg = () => { const d = army.dia || (army.dia = {}); for (const k in DIA_DEF) if (!(k in d)) d[k] = DIA_DEF[k]; return d; };
+let DIA_EXPORT = false; // pendant l'export, pas de cadre de sélection
+let DIA_ZOOM = false; // téléphone : schéma agrandi avec défilement
+let DIA_SEL = null; // unité dont on règle l'image (det:slot)
+/* mesure de texte (même police que l'export) */
+const _mc = document.createElement('canvas').getContext('2d');
+function tw(t, size, fam = 'Cinzel', wt = 700) { _mc.font = `${wt} ${size}px "${fam}"`; return _mc.measureText(t).width; }
+function wrap(t, size, max, fam, wt) { const words = String(t).split(/\s+/), out = []; let cur = ''; for (const w of words) { const nx = cur ? cur + ' ' + w : w; if (tw(nx, size, fam, wt) > max && cur) { out.push(cur); cur = w; } else cur = nx; } if (cur) out.push(cur); return out; }
+const trd = s => LANG !== 'fr' ? trData(String(s)) : String(s);
+const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+/* toutes les unités de la liste, dans l'ordre d'affichage */
+function diaUnits() {
+  const out = [], main = mainDet();
+  const order = [main, ...army.dets.filter(d => d !== main && detDef(d.type).kind !== 'allie' && !army.dets.some(a => a.id === d.parent && detDef(a.type).kind === 'allie'))];
+  army.dets.filter(d => detDef(d.type).kind === 'allie').forEach(a => { order.push(a); army.dets.filter(d => d.parent === a.id).forEach(d => order.push(d)); });
+  army.dets.forEach(d => { if (!order.includes(d)) order.push(d); });
+  for (const det of order) { const ally = detDef(det.type).kind === 'allie' || army.dets.some(a => a.id === det.parent && detDef(a.type).kind === 'allie');
+    for (const s of slotsOf(det)) { const us = det.units[s.i], u = us && UNITS[us.u]; if (!u) continue;
+      const cfg = us.dia || {}, t = cfg.t || silType(u, us);
+      out.push({ det, s, us, u, key: det.id + ':' + s.i, t, n: Math.max(1, unitSize(us)), ally, name: us.label && String(us.label).trim() ? us.label : trd(u.name), off: us.label ? (LANG !== 'fr' ? trData(u.name) : u.name) : '', pts: unitPoints(us), cat: ROLECAT[u.role] || 'other' }); } }
+  return out;
+}
+/* image à dessiner pour une unité : silhouette, photo ou image perso */
+function diaImg(x) { const c = x.us.dia || {}, D = diaCfg();
+  if (c.src === 'sil' && c.img && photoURL(c.img)) return { kind: 'img', url: photoURL(c.img), id: c.img };
+  if ((c.src === 'photo' || (D.photos && c.src !== 'auto' && c.src !== 'sil')) && x.us.photo && photoURL(x.us.photo.id)) return { kind: 'photo', url: photoURL(x.us.photo.id), p: x.us.photo };
+  return { kind: 'sil' };
+}
+/* dimensions d'une figurine à l'échelle du schéma (H0 = hauteur d'un légionnaire) */
+function figSize(t, H0) { const s = SIL[t] || SIL.leg, b = silBox(t), h = H0 * (s.s || 1); return { w: h * b.w / b.h, h }; }
+/* dessin d'une figurine (ou photo / image perso) posée sur sa ligne de base */
+function drawFig(x, cx, base, H0, C, clipId) {
+  const im = diaImg(x), f = figSize(x.t, H0);
+  if (im.kind === 'photo') { const r = H0 * 0.62; const p = im.p, m = p.mode || 's';
+    if (m === 'p') return `<clipPath id="${clipId}"><circle cx="${cx}" cy="${base - r}" r="${r}"/></clipPath><image href="${im.url}" x="${cx - r * 1.6}" y="${base - r * 2 - r * .6}" width="${r * 3.2}" height="${r * 3.2}" preserveAspectRatio="xMidYMid slice" clip-path="url(#${clipId})"/><circle cx="${cx}" cy="${base - r}" r="${r}" fill="none" stroke="${C.acc}" stroke-width="2"/>`;
+    const w = m === 'l' ? r * 3.4 : r * 2, h = r * 2; return `<clipPath id="${clipId}"><rect x="${cx - w / 2}" y="${base - h}" width="${w}" height="${h}" rx="4"/></clipPath><image href="${im.url}" x="${cx - w / 2}" y="${base - h}" width="${w}" height="${h}" preserveAspectRatio="xMidYMid slice" clip-path="url(#${clipId})"/><rect x="${cx - w / 2}" y="${base - h}" width="${w}" height="${h}" rx="4" fill="none" stroke="${C.frame}" stroke-width="1.5"/>`; }
+  if (im.kind === 'img') { const h = f.h, col = x.ally ? C.ally : C.ink; return `<mask id="${clipId}" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="${cx - h}" y="${base - h}" width="${h * 2}" height="${h}"><image href="${im.url}" x="${cx - h}" y="${base - h}" width="${h * 2}" height="${h}" preserveAspectRatio="xMidYMax meet"/></mask><rect x="${cx - h}" y="${base - h}" width="${h * 2}" height="${h}" fill="${col}" mask="url(#${clipId})"/>`; }
+  const b = silBox(x.t), k = f.h / b.h;
+  return `<g transform="translate(${(cx - f.w / 2).toFixed(1)} ${(base - f.h).toFixed(1)}) scale(${k.toFixed(4)}) translate(${-b.x} ${-b.y})">${silInner(x.t, x.ally ? C.ally : C.ink, C.bg)}</g>`;
+}
+function figW(x, H0) { const im = diaImg(x); if (im.kind === 'photo') { const r = H0 * .62; return (im.p.mode === 'l' ? r * 3.4 : r * 2) + 4; } if (im.kind === 'img') { const r = PH_DIM[im.id]; return r ? Math.min(figSize(x.t, H0).h * 2, figSize(x.t, H0).h * r) + 2 : figSize(x.t, H0).h * 1.2; } return figSize(x.t, H0).w; }
+function figH(x, H0) { const im = diaImg(x); if (im.kind === 'photo') return H0 * 1.24; return figSize(x.t, H0).h; }
+const BIG = new Set(['superheavy', 'flyer', 'titan', 'knight']);
+/* bloc d'une unité : figurines + étiquette */
+function unitBlock(x, mode, H0, C, D, uidp) {
+  const one = mode === 'compact' || mode === 'orbat' || diaImg(x).kind === 'photo';
+  const n = one ? 1 : x.n, isVeh = /apc|hapc|tank|superheavy|skimmer|flyer|artillery|pod|knight|titan|fort|dread|automata/.test(x.t);
+  const per = one ? 1 : Math.min(isVeh ? 3 : 5, n), rows = Math.ceil(n / per);
+  const fw = figW(x, H0), fh = figH(x, H0), gap = isVeh ? 10 : 2, rowGap = isVeh ? 10 : 4;
+  const figsW = per * fw + (per - 1) * gap, figsH = rows * fh + (rows - 1) * rowGap;
+  const nameT = x.name + (one && x.n > 1 ? '  ×' + x.n : ''), maxW = Math.max(figsW, 130);
+  const l1 = wrap(nameT, 15, maxW + 30, 'Cinzel', 700), l2 = D.official && x.off ? wrap(x.off, 11.5, maxW + 30, 'Barlow Condensed', 500) : [], l3 = D.pts ? [x.pts + ' pts'] : [];
+  const tW = Math.max(...l1.map(t => tw(t, 15)), ...l2.map(t => tw(t, 11.5, 'Barlow Condensed', 500)), ...l3.map(t => tw(t, 11, 'Barlow Condensed', 600)), 0);
+  const W = Math.max(figsW, tW) + 16, Hh = figsH + 10 + l1.length * 17 + l2.length * 14 + l3.length * 13 + 6;
+  const draw = (ox, oy) => {
+    let s = `<g class="du" data-k="${x.key}" tabindex="0" role="button" aria-label="${esc(x.name)}" style="cursor:pointer">`, k = 0;
+    if (DIA_SEL === x.key && !DIA_EXPORT) s += `<rect x="${ox - 4}" y="${oy - 4}" width="${W + 8}" height="${Hh + 8}" rx="8" fill="none" stroke="${C.acc}" stroke-width="2" stroke-dasharray="6 4"/>`;
+    s += `<rect x="${ox}" y="${oy}" width="${W}" height="${Hh}" fill="transparent"/>`;
+    const fx0 = ox + (W - figsW) / 2;
+    for (let r = 0; r < rows; r++) { const inRow = Math.min(per, n - r * per), rw = inRow * fw + (inRow - 1) * gap, rx0 = ox + (W - rw) / 2; for (let c = 0; c < inRow; c++) s += drawFig(x, rx0 + c * (fw + gap) + fw / 2, oy + (r + 1) * fh + r * rowGap, H0, C, uidp + '_' + (k++)); }
+    let ty = oy + figsH + 10;
+    for (const t of l1) { ty += 15; s += `<text x="${ox + W / 2}" y="${ty}" text-anchor="middle" font-family="Cinzel" font-weight="700" font-size="15" fill="${x.ally ? C.ally : C.ink}">${esc(t)}</text>`; ty += 2; }
+    for (const t of l2) { ty += 13; s += `<text x="${ox + W / 2}" y="${ty}" text-anchor="middle" font-family="Barlow Condensed" font-weight="500" font-size="11.5" fill="${C.sub}" letter-spacing=".3">${esc(t)}</text>`; ty += 1; }
+    for (const t of l3) { ty += 13; s += `<text x="${ox + W / 2}" y="${ty}" text-anchor="middle" font-family="Barlow Condensed" font-weight="600" font-size="11" fill="${C.acc}" letter-spacing=".8">${esc(t)}</text>`; }
+    return s + '</g>';
+  };
+  return { W, H: Hh, draw, big: BIG.has(x.t) };
+}
+/* rangées : blocs placés de gauche à droite, retour à la ligne, centrés */
+function flow(blocks, maxW, gapX = 26, gapY = 22) {
+  const rows = []; let cur = [], w = 0;
+  for (const b of blocks) { if (b.big) { if (cur.length) rows.push(cur); rows.push([b]); cur = []; w = 0; continue; } if (cur.length && w + gapX + b.W > maxW) { rows.push(cur); cur = []; w = 0; } cur.push(b); w += (cur.length > 1 ? gapX : 0) + b.W; }
+  if (cur.length) rows.push(cur);
+  let y = 0; const placed = [];
+  for (const r of rows) { const rw = r.reduce((a, b) => a + b.W, 0) + gapX * (r.length - 1), h = Math.max(...r.map(b => b.H)); let x = (maxW - rw) / 2; for (const b of r) { placed.push({ b, x, y: y + h - b.H }); x += b.W + gapX; } y += h + gapY; }
+  return { placed, h: Math.max(0, y - gapY) };
+}
+const CAT_NAMES = () => ({ cmd: L`Commandement`, line: L`Troupes`, elite: L`Élites`, fast: L`Attaque rapide et Reconnaissance`, heavy: L`Soutien et Assaut lourd`, trans: L`Transports`, lord: L`Seigneurs de Guerre`, fort: L`Fortifications`, other: L`Autres` });
+function buildDiagram() {
+  const D = diaCfg(), C = DIA_STYLES[D.style] || DIA_STYLES.parchment, W = 1000, PAD = 44, IW = W - PAD * 2;
+  const units = diaUnits(), parts = []; let y = 0, gid = 0;
+  const title = D.title || army.name || L`Mon armée`, rite = ritesFor().length > 1 ? riteDef() : null, sub = D.sub || [army.allegiance, army.faction, rite && rite.name, armyPoints() + ' pts'].filter(Boolean).map(t => LANG !== 'fr' ? trData(String(t)) : t).join('  ·  ');
+  // titre
+  y = 58; const tl = wrap(title.toUpperCase(), 38, IW - 120, 'Cinzel', 700);
+  for (const t of tl) { parts.push(`<text x="${W / 2}" y="${y}" text-anchor="middle" font-family="Cinzel" font-weight="700" font-size="38" letter-spacing="2" fill="${C.ink}">${esc(t)}</text>`); y += 44; }
+  const tW = Math.min(IW - 100, Math.max(...tl.map(t => tw(t, 38) + t.length * 2 + 8))); parts.push(`<path d="M${W / 2 - tW / 2 - 70} ${y - 58} h50 M${W / 2 + tW / 2 + 20} ${y - 58} h50" stroke="${C.acc}" stroke-width="2"/><path d="M${W / 2 - tW / 2 - 20} ${y - 64} l6 6 -6 6 -6 -6z M${W / 2 + tW / 2 + 20} ${y - 64} l6 6 -6 6 -6 -6z" fill="${C.acc}"/>`);
+  // sous-titre coupé en lignes, espacement des lettres compris
+  const sl = []; { let cur = ''; for (const w of String(sub).split(/\s+/)) { const nx = cur ? cur + ' ' + w : w; if (cur && tw(nx, 17, 'Barlow Condensed', 600) + nx.length * 1.5 > IW - 60) { sl.push(cur); cur = w; } else cur = nx; } if (cur) sl.push(cur); } sl.forEach((t, i) => parts.push(`<text x="${W / 2}" y="${y - 10 + i * 21}" text-anchor="middle" font-family="Barlow Condensed" font-weight="600" font-size="17" letter-spacing="1.5" fill="${C.sub}">${esc(t)}</text>`)); y += 22 + (sl.length - 1) * 21;
+  const frame = (x0, y0, w, h, label, ally) => `<rect x="${x0}" y="${y0}" width="${w}" height="${h}" fill="${ally ? (D.style === 'dark' ? 'rgba(232,115,44,.06)' : 'rgba(140,58,34,.07)') : 'none'}" stroke="${ally ? C.ally : C.frame}" stroke-width="1.6" rx="3"/><rect x="${x0 + 4}" y="${y0 + 4}" width="${w - 8}" height="${h - 8}" fill="none" stroke="${ally ? C.ally : C.frame}" stroke-width=".6" rx="2"/>` + (label ? `<text x="${x0 + 16}" y="${y0 + 30}" font-family="Cinzel" font-weight="700" font-size="20" fill="${ally ? C.ally : C.ink}">${esc(label)}</text>` : '');
+  const H0 = D.layout === 'ranks' ? 46 : 58;
+  if (D.layout === 'ranks') {
+    // un cadre par détachement, une silhouette par figurine
+    const byDet = new Map(); for (const x of units) { if (!byDet.has(x.det)) byDet.set(x.det, []); byDet.get(x.det).push(x); }
+    for (const [det, xs] of byDet) {
+      const order = ['cmd', 'line', 'elite', 'fast', 'heavy', 'trans', 'lord', 'fort', 'other'];
+      xs.sort((a, b) => (BIG.has(a.t) - BIG.has(b.t)) || order.indexOf(a.cat) - order.indexOf(b.cat));
+      const blocks = xs.map(x => unitBlock(x, 'ranks', H0, C, D, 'c' + (gid++))), f = flow(blocks, IW - 40), h = f.h + 72, ally = xs[0].ally;
+      parts.push(frame(PAD, y, IW, h, trd(detName(det)) + '  ·  ' + detPoints(det) + ' pts', ally));
+      for (const p of f.placed) parts.push(p.b.draw(PAD + 20 + p.x, y + 50 + p.y));
+      y += h + 22;
+    }
+  } else if (D.layout === 'compact') {
+    // par catégorie de rôle, une silhouette par unité (×N) ; détachements alliés dans leur propre cadre
+    const groups = [], cats = CAT_NAMES();
+    const add = (label, xs, ally) => { if (xs.length) groups.push({ label, xs, ally }); };
+    const mine = units.filter(x => !x.ally), allies = units.filter(x => x.ally);
+    for (const c of ['cmd', 'line', 'elite', 'fast', 'heavy', 'trans', 'lord', 'fort', 'other']) add(cats[c], mine.filter(x => x.cat === c && !BIG.has(x.t)), false);
+    add(L`Engins de guerre et appui aérien`, mine.filter(x => BIG.has(x.t)), false);
+    const allyDets = [...new Set(allies.map(x => x.det))]; for (const d of allyDets) add(trd(detName(d)) + (detFaction(d) ? ' — ' + trd(detFaction(d)) : ''), allies.filter(x => x.det === d), true);
+    for (const g of groups) {
+      const blocks = g.xs.map(x => unitBlock(x, 'compact', H0, C, D, 'c' + (gid++))), framed = g.ally || g.label === L`Engins de guerre et appui aérien`;
+      const f = flow(blocks, IW - (framed ? 40 : 0)), h = f.h + (framed ? 72 : 50);
+      if (framed) parts.push(frame(PAD, y, IW, h, g.label, g.ally));
+      else parts.push(`<text x="${PAD}" y="${y + 24}" font-family="Cinzel" font-weight="700" font-size="22" fill="${C.ink}">${esc(g.label)}</text><path d="M${PAD} ${y + 32} H${W - PAD}" stroke="${C.frame}" stroke-width="1"/>`);
+      for (const p of f.placed) parts.push(p.b.draw(PAD + (framed ? 20 : 0) + p.x, y + (framed ? 50 : 46) + p.y));
+      y += h + 20;
+    }
+  } else {
+    // ordre de bataille : l'armée en haut, un tronc par détachement, ses unités en colonne
+    const byDet = new Map(); for (const x of units) { if (!byDet.has(x.det)) byDet.set(x.det, []); byDet.get(x.det).push(x); }
+    const dets = [...byDet.keys()], colW = Math.max(180, Math.min(300, (IW - 20 * (dets.length - 1)) / Math.max(1, Math.min(dets.length, 4))));
+    const perRow = Math.max(1, Math.floor((IW + 20) / (colW + 20)));
+    parts.push(`<circle cx="${W / 2}" cy="${y + 8}" r="7" fill="${C.acc}"/>`); y += 16;
+    for (let r = 0; r < dets.length; r += perRow) {
+      const row = dets.slice(r, r + perRow), rw = row.length * colW + (row.length - 1) * 20, x0 = (W - rw) / 2; let maxH = 0;
+      const top = y + 26; parts.push(`<path d="M${W / 2} ${y - 8} V${y + 10} M${x0 + colW / 2} ${y + 10} H${x0 + rw - colW / 2}" stroke="${C.frame}" stroke-width="1.6" fill="none"/>`);
+      row.forEach((det, i) => { const cx = x0 + i * (colW + 20), xs = byDet.get(det), ally = xs[0].ally;
+        parts.push(`<path d="M${cx + colW / 2} ${y + 10} V${top}" stroke="${C.frame}" stroke-width="1.6"/>`);
+        const head = wrap(trd(detName(det)), 16, colW - 20, 'Cinzel', 700); let hh = 16 + head.length * 19 + 18;
+        let s = `<rect x="${cx}" y="${top}" width="${colW}" height="${hh}" rx="4" fill="${ally ? C.ally : C.ink}"/>`; head.forEach((t, k) => s += `<text x="${cx + colW / 2}" y="${top + 26 + k * 19}" text-anchor="middle" font-family="Cinzel" font-weight="700" font-size="16" fill="${C.bg}">${esc(t)}</text>`);
+        s += `<text x="${cx + colW / 2}" y="${top + hh - 9}" text-anchor="middle" font-family="Barlow Condensed" font-weight="600" font-size="12" fill="${C.bg}" opacity=".8">${esc(detPoints(det) + ' pts')}</text>`;
+        let yy = top + hh + 14;
+        for (const x of xs) { const b = unitBlock(x, 'orbat', 40, C, D, 'c' + (gid++)), bx = cx + (colW - b.W) / 2, cy = yy + b.H / 2;
+          // tronc à gauche + branche jusqu'à l'unité : chaque trait relie quelque chose
+          s += `<path d="M${cx + 10} ${yy - 14} V${cy}${bx - 6 > cx + 14 ? ` H${bx - 6}` : ''}" stroke="${C.frame}" stroke-width="1" fill="none"/>`; s += b.draw(bx, yy); yy += b.H + 12; }
+        parts.push(s); maxH = Math.max(maxH, yy - y);
+      });
+      y += maxH + 26;
+    }
+  }
+  if (D.note.trim()) { const lines = D.note.split('\n').flatMap(l => wrap(l || ' ', 15, IW - 60, 'Barlow Condensed', 500)), h = 40 + lines.length * 20;
+    parts.push(frame(PAD, y, IW, h, '', false)); lines.forEach((t, i) => parts.push(`<text x="${PAD + 24}" y="${y + 30 + i * 20}" font-family="Barlow Condensed" font-weight="500" font-size="15" fill="${C.ink}">${esc(t)}</text>`)); y += h + 20; }
+  if (!units.length) { parts.push(`<text x="${W / 2}" y="${y + 60}" text-anchor="middle" font-family="Barlow Condensed" font-size="20" fill="${C.sub}">${esc(L`Ajoutez des unités à votre liste : elles apparaîtront ici.`)}</text>`); y += 110; }
+  y += 10; parts.push(`<text x="${W / 2}" y="${y + 14}" text-anchor="middle" font-family="Barlow Condensed" font-size="11" letter-spacing="1" fill="${C.sub}" opacity=".75">${esc(L`Forbidden Recruit · schéma généré · silhouettes originales, outil non officiel`)}</text>`);
+  const H = y + 34;
+  const bg = C.paper ? `<defs><radialGradient id="pg" cx="50%" cy="40%" r="75%"><stop offset="0" stop-color="#f3e8cf"/><stop offset="1" stop-color="${C.bg2}"/></radialGradient></defs><rect width="${W}" height="${H}" fill="url(#pg)"/><rect x="12" y="12" width="${W - 24}" height="${H - 24}" fill="none" stroke="${C.frame}" stroke-width="2"/>`
+    : `<rect width="${W}" height="${H}" fill="${C.bg}"/><rect x="12" y="12" width="${W - 24}" height="${H - 24}" fill="none" stroke="${C.frame}" stroke-width="1"/>`;
+  return { svg: `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" role="img" aria-label="${esc(L`Schéma de l'armée`)}">${bg}${parts.join('')}</svg>`, W, H };
+}
+function renderDiagram(host) {
+  const D = diaCfg(), set = (k, v) => { D[k] = v; touch(); };
+  host.append(viewHead(L`Schéma de l'armée`, L`Bêta · Votre liste en silhouettes, mise en page automatiquement. Touchez une unité pour changer son image.`,
+    el('button', { type: 'button', class: 'btn', onclick: () => exportDiagram('png') }, L`Image PNG`), el('button', { type: 'button', class: 'btn ghost', onclick: () => exportDiagram('pdf') }, L`PDF`)));
+  const opts = el('div', { class: 'dia-opts' },
+    el('div', { class: 'grp' }, el('span', { class: 'lab' }, L`Disposition`), seg([['ranks', L`Rangs`, L`une silhouette par figurine`], ['compact', L`Compact`, L`une par unité, ×N`], ['orbat', L`Ordre de bataille`, L`arbre des détachements`]], D.layout, v => set('layout', v), L`Disposition`)),
+    el('div', { class: 'grp' }, el('span', { class: 'lab' }, L`Style`), seg([['parchment', L`Parchemin`], ['dark', L`Sombre`], ['clean', L`Épuré`]], D.style, v => set('style', v), L`Style`)),
+    el('div', { class: 'grp checks' }, [['pts', L`Points`], ['official', L`Nom officiel sous le nom donné`], ['photos', L`Photos à la place des silhouettes`]].map(([k, t]) => el('label', { class: 'chk' }, el('input', { type: 'checkbox', checked: !!D[k], onchange: e => set(k, e.target.checked) }), el('span', {}, t)))),
+    el('details', { class: 'grp more' }, el('summary', {}, L`Titre, sous-titre et encart libre`),
+      el('label', { class: 'fld' }, el('span', {}, L`Titre`), el('input', { class: 'field', type: 'text', value: D.title, placeholder: army.name, maxlength: 80, onchange: e => set('title', e.target.value) })),
+      el('label', { class: 'fld' }, el('span', {}, L`Sous-titre`), el('input', { class: 'field', type: 'text', value: D.sub, placeholder: L`Allégeance · Faction · Rite · points`, maxlength: 140, onchange: e => set('sub', e.target.value) })),
+      el('label', { class: 'fld' }, el('span', {}, L`Encart libre (réserves, historique, notes…)`), el('textarea', { class: 'field', rows: 4, maxlength: 1200, onchange: e => set('note', e.target.value) }, D.note))));
+  const g = buildDiagram(), stage = el('div', { class: 'dia-stage' + (DIA_ZOOM ? ' zoom' : ''), html: g.svg });
+  const zoomBtn = el('button', { type: 'button', class: 'btn ghost sm dia-zoom', 'aria-pressed': String(DIA_ZOOM), onclick: () => { DIA_ZOOM = !DIA_ZOOM; render(); } }, DIA_ZOOM ? L`Vue d'ensemble` : L`Agrandir le schéma`);
+  const diaPick = e => { const t = e.target.closest && e.target.closest('.du'); if (!t) return; DIA_SEL = DIA_SEL === t.dataset.k ? null : t.dataset.k; render(); requestAnimationFrame(() => { const p = $('.dia-unit'); p && p.scrollIntoView({ behavior: 'smooth', block: 'nearest' }); }); };
+  stage.addEventListener('click', diaPick);
+  stage.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); diaPick(e); } });
+  host.append(el('div', { class: 'dia-wrap' }, opts, el('div', { class: 'dia-main' }, zoomBtn, el('div', { class: 'dia-scroll' }, stage), diaUnitPanel())));
+}
+/* panneau de l'unité touchée : type de silhouette, photo, silhouette tirée de la photo, image perso */
+function diaUnitPanel() {
+  if (!DIA_SEL) return el('p', { class: 'hint dia-hint' }, L`Astuce : touchez une unité du schéma pour choisir sa silhouette, utiliser sa photo ou importer votre propre image.`);
+  const x = diaUnits().find(v => v.key === DIA_SEL); if (!x) { DIA_SEL = null; return null; }
+  const us = x.us, c = us.dia = us.dia || {}, names = SIL_NAMES(), hasPh = us.photo && photoURL(us.photo.id), cur = c.src || 'auto';
+  const sel = el('select', { class: 'field', 'aria-label': L`Type de silhouette`, onchange: e => { if (e.target.value === '') delete c.t; else c.t = e.target.value; touch(); } },
+    el('option', { value: '' }, L`Automatique (${names[silType(x.u, us)]})`), Object.keys(SIL).map(k => el('option', { value: k, selected: c.t === k }, names[k])));
+  // aperçu de l'image réellement utilisée dans le schéma
+  const imgId = c.src === 'photo' && hasPh ? us.photo.id : c.src === 'sil' && c.img && photoURL(c.img) ? c.img : null;
+  const prev = imgId === us.photo?.id && c.src === 'photo' ? el('div', { class: 'dia-prev' }, el('img', { src: photoURL(imgId), alt: '' }))
+    : imgId ? el('div', { class: 'dia-prev' }, el('span', { class: 'dia-mask', style: `-webkit-mask-image:url(${photoURL(imgId)});mask-image:url(${photoURL(imgId)})` }))
+    : el('div', { class: 'dia-prev', html: silSVG(x.t, 'currentColor', 90) });
+  const mkSil = async (tol) => { flash(L`Détourage en cours…`); if (await autoSilhouette(us, tol)) flash(L`Silhouette créée à partir de la photo.`); touch(); };
+  return el('section', { class: 'dia-unit panel' },
+    el('header', {}, el('h3', {}, x.name), el('button', { type: 'button', class: 'ib', 'aria-label': L`Fermer`, onclick: () => { DIA_SEL = null; render(); } }, '×')),
+    el('div', { class: 'dia-u-grid' }, prev,
+      el('div', {},
+        el('span', { class: 'lab' }, L`Image dans le schéma`),
+        seg([['auto', L`Silhouette`], ['photo', L`Photo`], ['sil', L`Silhouette perso`]], cur, v => { if (v === 'photo' && !hasPh) return flash(L`Ajoutez d'abord une photo à cette unité (Liste › unité › Photo).`); if (v === 'sil' && !c.img) return flash(L`Créez la silhouette depuis la photo ou importez une image ci-dessous.`); c.src = v; touch(); }, L`Image dans le schéma`),
+        el('label', { class: 'fld' }, el('span', {}, L`Type de silhouette`), sel),
+        hasPh ? el('div', { class: 'fld' }, el('span', {}, L`Silhouette tirée de la photo (fond uni conseillé)`),
+          el('div', { class: 'row-btns' }, el('button', { type: 'button', class: 'btn ghost sm', onclick: () => mkSil(c.tol || 60) }, L`Créer la silhouette`),
+            el('label', { class: 'tol' }, L`Précision du détourage `, el('input', { type: 'range', min: 15, max: 140, value: c.tol || 60, onchange: e => mkSil(+e.target.value) })))) : null,
+        el('div', { class: 'row-btns' }, el('button', { type: 'button', class: 'btn ghost sm', onclick: () => pickImage(async f => { const { blob, w, h } = await compressImage(f, 700, 'image/png'); c.img = await storePhoto(blob, w, h, 'sil'); c.src = 'sil'; touch(); }) }, L`Importer une image (PNG transparent)`),
+          c.src || c.t ? el('button', { type: 'button', class: 'btn ghost sm', onclick: () => { delete us.dia; touch(); } }, L`Rétablir l'automatique`) : null))));
+}
+/* ---------- Export PNG / PDF : SVG autonome (polices et images incorporées) ---------- */
+async function blobToData(url) { const b = await (await fetch(url)).blob(); return new Promise(ok => { const r = new FileReader(); r.onload = () => ok(r.result); r.readAsDataURL(b); }); }
+async function diagramCanvas(scale = 2) {
+  DIA_EXPORT = true; let b; try { b = buildDiagram(); } finally { DIA_EXPORT = false; }
+  let { svg, W, H } = b;
+  const urls = [...new Set([...svg.matchAll(/href="(blob:[^"]+)"/g)].map(m => m[1]))];
+  for (const u of urls) { try { const d = await blobToData(u); svg = svg.split(u).join(d); } catch (e) {} }
+  const fonts = []; for (const s of document.styleSheets) { try { for (const r of s.cssRules) if (r.type === 5 && /Cinzel|Barlow Condensed/.test(r.cssText)) fonts.push(r.cssText); } catch (e) {} }
+  svg = svg.replace(/(<svg[^>]*>)/, `$1<style>${fonts.join('')}</style>`);
+  const img = new Image(); const url = URL.createObjectURL(new Blob([svg], { type: 'image/svg+xml' }));
+  await new Promise((ok, ko) => { img.onload = ok; img.onerror = () => ko(new Error(L`Rendu du schéma impossible`)); img.src = url; });
+  await new Promise(r => setTimeout(r, 60));
+  const c = document.createElement('canvas'); c.width = W * scale; c.height = H * scale; const g = c.getContext('2d'); g.scale(scale, scale); g.drawImage(img, 0, 0, W, H); URL.revokeObjectURL(url);
+  return { c, W, H };
+}
+async function exportDiagram(kind) {
+  try {
+    flash(L`Création du schéma…`);
+    const { c, W, H } = await diagramCanvas(2), base = fileBase() + L` — schéma`;
+    if (kind === 'png') { const b = await new Promise(ok => c.toBlob(ok, 'image/png')); const ok = await saveFile(base + '.png', b); if (ok && NATIVE !== 'android') flash(L`Image créée : ${base}.png`); return; }
+    const JS = window.jspdf && window.jspdf.jsPDF; if (!JS) return flash(L`Le module PDF n'est pas chargé.`);
+    const pw = 210, ph = 297, k = Math.min((pw - 16) / W, (ph - 16) / H), long = H / W > 1.9;
+    const doc = long ? new JS({ unit: 'mm', format: [pw, Math.max(ph, H * (pw - 16) / W + 16)] }) : new JS({ unit: 'mm', format: 'a4' });
+    const s = long ? (pw - 16) / W : k, w = W * s, h = H * s, pgH = long ? H * s + 16 : ph;
+    doc.addImage(c.toDataURL('image/jpeg', 0.92), 'JPEG', (pw - w) / 2, (pgH - h) / 2, w, h);
+    doc.setProperties({ title: base, creator: 'Forbidden Recruit' });
+    const ok = await saveFile(base + '.pdf', doc.output('blob')); if (ok && NATIVE !== 'android') flash(L`PDF créé : ${base}.pdf`);
+  } catch (e) { flash(e.message); }
+}
+/* ---------- Arbre des détachements : quelles cases ouvrent quels détachements ---------- */
+function detTree() {
+  const roots = [mainDet(), ...army.dets.filter(d => detDef(d.type).kind === 'allie')], box = el('section', { class: 'dtree', 'aria-label': L`Arbre des détachements` });
+  box.append(el('h3', {}, L`Ce que vos choix ouvrent`), el('p', { class: 'hint' }, L`Chaque case État-major occupée ouvre un Détachement Auxiliaire, la case Quartier Général un Auxiliaire ou un Apex. Touchez une place libre pour ajouter un détachement.`));
+  for (const root of roots) {
+    const isMain = root === mainDet(), group = isMain ? army.dets.filter(d => d === root || detDef(d.type).kind === 'apex') : [root], src = [];
+    for (const d of group) for (const s of slotsOf(d)) { const us = d.units[s.i], u = us && UNITS[us.u]; if (!u) continue;
+      if (d.adv[s.i] === 'affectation' || detDef(d.type).noGrants || detDef(d.type).noUnlock || (advDef(d.adv[s.i]) || {}).noGrants) continue;
+      if (s.role === 'QG' && isMain) src.push({ who: unitLabel(us, u), role: 'QG', kind: 'flex', n: 1 });
+      if (s.role === 'EM' || d.adv[s.i] === 'petty') { const eu = effUnit(u, us) || u, x = ruleX(eu, 'Officier de Ligne') || ruleX(eu, 'Officer of the Line') || 1; src.push({ who: unitLabel(us, u), role: 'EM', kind: 'aux', n: x, unlock: u.name }); } }
+    const apex = isMain ? childrenOf(root, 'apex') : [], aux = childrenOf(root, 'aux');
+    // répartition : les Apex prennent les droits QG, les Auxiliaires d'abord les droits EM (avec leur unité requise), puis le reste
+    const tokens = []; for (const s of src) for (let k = 0; k < s.n; k++) tokens.push({ s, det: null });
+    const take = (det, pred) => { const t = tokens.find(t => !t.det && pred(t)); if (t) { t.det = det; return true; } return false; };
+    for (const d of apex) take(d, t => t.s.kind === 'flex');
+    for (const d of aux) { const req = detDef(d.type).requires; take(d, t => t.s.kind === 'aux' && (!req || t.s.unlock === req)) || take(d, t => t.s.kind === 'aux' && !req) || take(d, t => t.s.kind === 'flex' && !req) || take(d, t => !t.det); }
+    const node = (d, cls) => el('button', { type: 'button', class: 'dt-node ' + cls, onclick: () => { const x = $(`[data-det="${d.id}"]`); if (x) x.scrollIntoView({ behavior: 'smooth', block: 'start' }); else if (d === mainDet()) { goStep(3); scrollTo({ top: 0, behavior: 'smooth' }); } } }, el('b', {}, detName(d)), el('i', {}, KIND[detDef(d.type).kind] + ' · ' + detPoints(d) + ' pts'));
+    const free = t => el('button', { type: 'button', class: 'dt-node free', onclick: () => openDetPicker(t.s.kind === 'flex' ? ['aux', 'apex'] : ['aux']) }, el('b', {}, '＋ ' + (t.s.kind === 'flex' ? L`Auxiliaire ou Apex` : L`Détachement Auxiliaire`)), el('i', {}, L`Place libre — toucher pour choisir`));
+    const rows = src.length ? src.map(s => el('li', {}, el('div', { class: 'dt-src' }, el('span', { class: 'dt-r r-' + s.role }, role(s.role).short), el('span', {}, s.who), s.n > 1 ? el('small', {}, L`Officier de Ligne (${s.n})`) : null),
+      el('div', { class: 'dt-kids' }, tokens.filter(t => t.s === s).map(t => t.det ? node(t.det, t.s.kind === 'flex' && detDef(t.det.type).kind === 'apex' ? 'apex' : 'aux') : free(t)))))
+      : [el('li', { class: 'dt-none' }, isMain ? L`Placez un Quartier Général ou un État-major dans le Détachement Principal pour ouvrir des détachements.` : L`Aucune case État-major occupée dans ce détachement allié.`)];
+    const orphans = [...apex, ...aux].filter(d => !tokens.some(t => t.det === d));
+    box.append(el('div', { class: 'dt-root' + (isMain ? '' : ' ally') }, node(root, 'root'), el('ul', {}, rows, orphans.length ? el('li', {}, el('div', { class: 'dt-src warn' }, L`Sans droit disponible`), el('div', { class: 'dt-kids' }, orphans.map(d => node(d, 'bad')))) : null)));
+  }
+  box.append(el('div', { class: 'dt-free' }, el('span', { class: 'lab' }, L`Sans condition :`), el('button', { type: 'button', class: 'btn ghost sm', onclick: () => openDetPicker() }, L`Allié, Seigneur de Guerre, Seigneur des Batailles…`)));
+  return box;
+}
+/* ---------- Collection : figurines possédées, ce qu'il manque pour jouer la liste ---------- */
+/* LS 'fr.collection' = { idUnité: nombre de figurines possédées } */
+const COL = () => LS.get('fr.collection', {}) || {};
+function setOwned(id, n) { const c = COL(); n = Math.max(0, Math.min(999, Math.floor(+n || 0))); if (n) c[id] = n; else delete c[id]; LS.set('fr.collection', c); }
+let COL_Q = '';
+function listNeeds(a = army) {
+  const need = new Map();
+  for (const d of a.dets) for (const us of Object.values(d.units)) { const u = UNITS[us.u]; if (!u) continue; const x = need.get(u.id) || { u, n: 0, names: [] }; x.n += Math.max(1, unitSize(us)); if (us.label && String(us.label).trim() && us.label.trim() !== u.name) x.names.push(us.label.trim()); need.set(u.id, x); }
+  return [...need.values()];
+}
+function renderCollection(host) {
+  const c = COL(), needs = listNeeds(), miss = needs.map(x => ({ ...x, own: c[x.u.id] || 0, miss: Math.max(0, x.n - (c[x.u.id] || 0)) })), totMiss = miss.reduce((a, x) => a + x.miss, 0);
+  host.append(viewHead(L`Ma collection`, L`Notez les figurines que vous possédez : l'appli vous dit si la liste est jouable et ce qu'il vous manque. Votre collection reste sur cet appareil.`));
+  const icon = u => el('span', { class: 'col-ic', html: silSVG(silType(u), 'currentColor', 34) });
+  const row = (x, showNeed) => { const own = c[x.u.id] || 0;
+    return el('li', { class: 'col-row' + (showNeed && own < x.n ? ' short' : '') }, icon(x.u),
+      el('div', { class: 'col-t' }, el('b', {}, x.u.name), el('i', {}, showNeed ? (x.names.length ? [...new Set(x.names)].join(' · ') + ' — ' : '') + L`${x.n} figurine(s) dans la liste` : role(x.u.role).name)),
+      showNeed ? el('span', { class: 'col-st ' + (own >= x.n ? 'ok' : 'ko') }, own >= x.n ? '✓' : L`−${x.n - own}`) : null,
+      stepper(own, 0, 999, v => { setOwned(x.u.id, v); render(); })); };
+  // pour cette liste
+  const card = el('section', { class: 'panel col-list' }, el('header', { class: 'col-h' }, el('h3', {}, L`Pour la liste « ${army.name} »`),
+    needs.length ? el('span', { class: 'pill ' + (totMiss ? 'bad' : 'good') }, totMiss ? L`Il manque ${totMiss} figurine(s)` : L`Liste jouable avec votre collection`) : null));
+  if (!needs.length) card.append(el('p', { class: 'hint' }, L`La liste est vide : ajoutez des unités dans l'onglet Liste.`));
+  else {
+    card.append(el('ul', { class: 'col-ul' }, miss.map(x => row(x, true))));
+    card.append(el('div', { class: 'row-btns' },
+      el('button', { type: 'button', class: 'btn ghost sm', onclick: () => { for (const x of needs) if ((COL()[x.u.id] || 0) < x.n) setOwned(x.u.id, x.n); render(); flash(L`Collection mise à jour avec cette liste.`); } }, L`J'ai tout ce qu'il faut`),
+      totMiss ? el('button', { type: 'button', class: 'btn ghost sm', onclick: () => { const t = L`À acquérir pour « ${army.name} » :\n` + miss.filter(x => x.miss).map(x => `- ${x.miss} × ${x.u.name}`).join('\n'); (navigator.clipboard ? navigator.clipboard.writeText(t) : Promise.reject()).then(() => flash(L`Liste des manques copiée.`), () => { download(fileBase() + L` — manques.txt`, t); }); } }, L`Copier ce qu'il manque`) : null));
+  }
+  host.append(card);
+  // toute la collection
+  const mine = Object.keys(c).filter(id => UNITS[id]).map(id => ({ u: UNITS[id], n: c[id] })).sort((a, b) => a.u.name.localeCompare(b.u.name));
+  const total = mine.reduce((a, x) => a + x.n, 0);
+  const all = el('section', { class: 'panel col-all' }, el('header', { class: 'col-h' }, el('h3', {}, L`Toute ma collection`), el('span', { class: 'pill' }, L`${total} figurine(s) · ${mine.length} entrée(s)`)));
+  const q = el('input', { class: 'field', type: 'search', value: COL_Q, placeholder: L`Ajouter : chercher une unité…`, 'aria-label': L`Chercher une unité à ajouter` });
+  const res = el('ul', { class: 'col-ul res' });
+  const show = () => { COL_Q = q.value; const s = norm(q.value.trim()); res.replaceChildren(); if (s.length < 2) return;
+    const hits = Object.values(UNITS).filter(u => (!u.legacy || legacyOn()) && norm(u.name + ' ' + trData(u.name)).includes(s)).slice(0, 12);
+    if (!hits.length) res.append(el('li', { class: 'hint' }, L`Aucune unité trouvée.`));
+    for (const u of hits) res.append(el('li', { class: 'col-row' }, icon(u), el('div', { class: 'col-t' }, el('b', {}, u.name), el('i', {}, (u.bookName || '') + ' · ' + role(u.role).name)), stepper(COL()[u.id] || 0, 0, 999, v => { setOwned(u.id, v); render(); }))); };
+  q.addEventListener('input', show); show();
+  all.append(q, res);
+  if (mine.length) all.append(el('ul', { class: 'col-ul' }, mine.map(x => row(x, false))));
+  else all.append(el('p', { class: 'hint' }, L`Votre collection est vide. Cherchez une unité ci-dessus, ou utilisez « J'ai tout ce qu'il faut » sur une liste.`));
+  host.append(all);
+}
+/* ---------- Mode partie : tour, points de victoire, Réactions, état des unités ---------- */
+/* LS 'fr.games' = { idListe: { turn, active: 'me'|'opp', vp: { me, opp }, rx: { max, used }, u: { clé: { dead, st: [] } }, log: [] } } */
+const STATUSES = () => [['Pinned', L`Fixée`], ['Suppressed', L`Neutralisée`], ['Stunned', L`Sonnée`], ['Routed', L`En Déroute`]];
+function gameState() { const all = LS.get('fr.games', {}) || {}; return all[army.id] || (all[army.id] = { turn: 1, active: 'me', vp: { me: 0, opp: 0 }, rx: { max: (DB.core.reactions || {}).allotment || 1, used: 0 }, u: {}, log: [] }); }
+function saveGame(g, msg) { const all = LS.get('fr.games', {}) || {}; if (msg) { g.log.unshift({ t: g.turn, a: g.active, m: msg }); g.log = g.log.slice(0, 40); } all[army.id] = g; LS.set('fr.games', all); render(); }
+function legionsOfArmy() { const out = new Set(); for (const d of army.dets) for (const us of Object.values(d.units)) { const u = UNITS[us.u]; if (!u) continue; for (const t of u.traits || []) if (LEGIONS().includes(t)) out.add(t); } const f = army.faction; if (LEGIONS().includes(f)) out.add(f); return [...out]; }
+function renderGame(host) {
+  const g = gameState(), R = DB.core.reactions || {};
+  host.append(viewHead(L`Partie`, L`Suivi de partie pour « ${army.name} » : tours, Points de Victoire, Réactions et état des unités. Tout reste enregistré si vous fermez l'appli.`,
+    el('button', { type: 'button', class: 'btn ghost', onclick: () => { if (!confirm(L`Recommencer une nouvelle partie ? Le suivi actuel sera effacé.`)) return; const all = LS.get('fr.games', {}) || {}; delete all[army.id]; LS.set('fr.games', all); render(); flash(L`Nouvelle partie.`); } }, L`Nouvelle partie`)));
+  const num = (v, cb, label) => el('div', { class: 'gnum', role: 'group', 'aria-label': label }, el('button', { type: 'button', class: 'ib', 'aria-label': L`Moins`, onclick: () => cb(v - 1) }, '−'), el('b', { 'aria-live': 'polite' }, String(v)), el('button', { type: 'button', class: 'ib', 'aria-label': L`Plus`, onclick: () => cb(v + 1) }, '+'));
+  const board = el('section', { class: 'panel gboard' },
+    el('div', { class: 'gcell' }, el('span', { class: 'lab' }, L`Tour`), num(g.turn, v => { g.turn = Math.max(1, Math.min(9, v)); g.rx.used = 0; saveGame(g, L`Tour ${g.turn}`); }, L`Tour`)),
+    el('div', { class: 'gcell' }, el('span', { class: 'lab' }, L`Joueur actif`), seg([['me', L`Moi`], ['opp', L`Adversaire`]], g.active, v => { g.active = v; g.rx.used = 0; saveGame(g, v === 'me' ? L`À moi de jouer` : L`À l'adversaire`); }, L`Joueur actif`)),
+    el('div', { class: 'gcell vp' }, el('span', { class: 'lab' }, L`Points de Victoire — moi`), num(g.vp.me, v => { g.vp.me = Math.max(0, v); saveGame(g, L`PV moi : ${g.vp.me}`); }, L`Mes Points de Victoire`)),
+    el('div', { class: 'gcell vp' }, el('span', { class: 'lab' }, L`Points de Victoire — adversaire`), num(g.vp.opp, v => { g.vp.opp = Math.max(0, v); saveGame(g, L`PV adversaire : ${g.vp.opp}`); }, L`Points de Victoire de l'adversaire`)));
+  host.append(board);
+  // Réactions : uniquement pendant le tour de l'adversaire
+  const left = Math.max(0, g.rx.max - g.rx.used);
+  const rx = el('section', { class: 'panel grx' }, el('header', { class: 'col-h' }, el('h3', {}, L`Réactions`), el('div', { class: 'gnum sm' }, el('span', { class: 'lab' }, L`Allocation`), num(g.rx.max, v => { g.rx.max = Math.max(0, Math.min(6, v)); saveGame(g); }, L`Allocation de Réactions`))));
+  if (g.active === 'me') rx.append(el('p', { class: 'hint' }, L`C'est votre tour : c'est votre adversaire qui peut réagir. Vos Réactions reviennent à son tour.`));
+  else rx.append(el('div', { class: 'tokens' }, Array.from({ length: g.rx.max }, (_, i) => el('button', { type: 'button', class: 'tok' + (i < g.rx.used ? ' spent' : ''), 'aria-pressed': i < g.rx.used ? 'true' : 'false', 'aria-label': i < g.rx.used ? L`Réaction dépensée — toucher pour annuler` : L`Dépenser une Réaction`, onclick: () => { g.rx.used = i < g.rx.used ? i : i + 1; saveGame(g, L`Réactions utilisées : ${g.rx.used}/${g.rx.max}`); } }, i < g.rx.used ? '✕' : '⚡'))), el('p', { class: 'hint' }, L`${left} Réaction(s) disponible(s) ce tour.`));
+  rx.append(el('p', { class: 'note' }, R.note || ''));
+  const legs = legionsOfArmy(), chips = [...(R.core || []).map(r => [r.name, (r.phase ? r.phase + ' — ' : '') + r.summary]), ...legs.map(Lg => R.legion && R.legion[Lg]).filter(Boolean).map(r => [r.name, r.summary]), ...memoData().adv.map(r => [r.name, r.summary])];
+  rx.append(el('div', { class: 'rx-chips' }, chips.map(([n, t]) => el('details', { class: 'rx' }, el('summary', {}, n), el('p', {}, t)))));
+  host.append(rx);
+  // unités
+  const list = el('section', { class: 'panel gunits' }, el('header', { class: 'col-h' }, el('h3', {}, L`Unités`), el('span', { class: 'pill' }, L`${Object.values(g.u).filter(x => x.dead).length} détruite(s)`)));
+  const ul = el('ul', { class: 'gu' });
+  for (const det of army.dets) for (const s of slotsOf(det)) { const us = det.units[s.i], u = us && UNITS[us.u]; if (!u) continue;
+    const k = det.id + ':' + s.i, st = g.u[k] = g.u[k] || { dead: false, st: [] }, ph = us.photo && photoURL(us.photo.id);
+    ul.append(el('li', { class: 'gu-row' + (st.dead ? ' dead' : '') },
+      ph ? el('span', { class: 'gu-ph', style: photoStyle(us.photo) }) : el('span', { class: 'gu-ic', html: silSVG(silType(u, us), 'currentColor', 32) }),
+      el('div', { class: 'gu-t' }, el('b', {}, unitLabel(us, u)), el('i', {}, `${String(role(u.role).short || u.role).toUpperCase()} · ${unitSize(us)} fig. · ${unitPoints(us)} pts`),
+        el('div', { class: 'gst' }, STATUSES().map(([id, t]) => el('button', { type: 'button', class: 'st', 'aria-pressed': st.st.includes(id) ? 'true' : 'false', disabled: st.dead, onclick: () => { st.st = st.st.includes(id) ? st.st.filter(x => x !== id) : [...st.st, id]; saveGame(g, `${unitLabel(us, u)} : ${t}${st.st.includes(id) ? '' : L` retiré`}`); } }, t)))),
+      el('button', { type: 'button', class: 'btn ghost sm' + (st.dead ? '' : ' danger'), onclick: () => { st.dead = !st.dead; if (st.dead) st.st = []; saveGame(g, unitLabel(us, u) + (st.dead ? L` détruite` : L` remise en jeu`)); } }, st.dead ? L`Remettre` : L`Détruite`))); }
+  if (!ul.childElementCount) ul.append(el('li', { class: 'hint' }, L`La liste est vide.`));
+  list.append(ul); host.append(list);
+  if (g.log.length) host.append(el('details', { class: 'panel glog' }, el('summary', {}, L`Journal de la partie`), el('ol', {}, g.log.map(e => el('li', {}, el('small', {}, L`T${e.t} · ${e.a === 'me' ? L`moi` : L`adv.`}`), ' ', e.m)))));
+}
+/* ---------- Aide-mémoire : tout ce dont la liste a besoin en partie, généré depuis la liste ---------- */
+let MEMO_Q = '';
+function memoData() {
+  const D = sheetData(), R = DB.core.reactions || {}, rite = riteDef();
+  const types = new Set(), traits = new Set();
+  for (const d of army.dets) for (const us of Object.values(d.units)) { const u = UNITS[us.u]; if (!u) continue; (u.types || []).forEach(t => types.add(t)); (u.traits || []).forEach(t => traits.add(t)); }
+  const T = [...types].join(' '), Tr = [...traits].join(' ');
+  const adv = (R.advanced || []).filter(r => r.when === 'always' || (r.when.startsWith('types:') && new RegExp(r.when.slice(6), 'i').test(T)) || (r.when.startsWith('traits:') && new RegExp(r.when.slice(7), 'i').test(Tr)));
+  const legion = legionsOfArmy().map(Lg => R.legion && R.legion[Lg] && { ...R.legion[Lg], legion: Lg }).filter(Boolean);
+  const weapons = new Map(); for (const d of D.dets) for (const u of d.units) for (const w of u.weapons || []) if (!weapons.has(w.name)) weapons.set(w.name, w);
+  return { D, R, rite, adv, legion, weapons: [...weapons.values()].sort((a, b) => a.name.localeCompare(b.name)) };
+}
+function renderMemo(host) {
+  const M = memoData(), q = norm(MEMO_Q.trim()), hit = (...s) => !q || norm(s.join(' ')).includes(q);
+  host.append(viewHead(L`Aide-mémoire`, L`Généré depuis votre liste : Rite de Guerre, Réactions disponibles, règles spéciales et armes de vos unités.`,
+    el('button', { type: 'button', class: 'btn', onclick: memoPDF }, L`PDF de l'aide-mémoire`)));
+  const search = el('input', { class: 'field memo-q', type: 'search', value: MEMO_Q, placeholder: L`Filtrer : règle, arme, réaction…`, 'aria-label': L`Filtrer l'aide-mémoire` });
+  let tmr; search.addEventListener('input', e => { MEMO_Q = e.target.value; clearTimeout(tmr); tmr = setTimeout(() => { const p = search.selectionStart; render(); const s = $('.memo-q'); if (s) { s.focus(); try { s.setSelectionRange(p, p); } catch (er) {} } }, 220); });
+  host.append(search);
+  const card = (title, kids, tag) => kids.length ? el('section', { class: 'panel memo' }, el('h3', {}, title, tag ? el('small', { class: 'tag' }, tag) : null), kids) : null;
+  const item = (n, t, meta) => el('div', { class: 'mi' }, el('b', {}, n), meta ? el('small', {}, meta) : null, el('p', {}, t));
+  if (M.rite && hit(M.rite.name, M.rite.tactica, M.rite.tacticaText, M.rite.posture, M.rite.postureText)) host.append(card(L`Rite de Guerre — ` + M.rite.name, [item(M.rite.tactica, M.rite.tacticaText, L`Tactica`), item(M.rite.posture, M.rite.postureText, L`Gambit`)]));
+  const rx = [...(M.R.core || []).filter(r => hit(r.name, r.summary)).map(r => item(r.name, r.summary, L`Réaction de base · ${r.phase} · ${r.cost} point`)),
+    ...M.legion.filter(r => hit(r.name, r.summary, r.trigger)).map(r => item(r.name, r.summary + (r.trigger ? ' — ' + r.trigger : ''), L`Réaction avancée · ${r.legion} · ${r.cost} point`)),
+    ...M.adv.filter(r => hit(r.name, r.summary)).map(r => item(r.name, r.summary, L`Réaction avancée · ${r.cost} point`))];
+  if (rx.length) host.append(card(L`Réactions`, [...rx, el('p', { class: 'note' }, M.R.note || '')], 'EN'));
+  const st = STATUSES();
+  const stq = st.filter(([id, t]) => hit(id, t, L`Statuts tactiques`));
+  if (stq.length) host.append(card(L`Statuts tactiques`, [el('div', { class: 'gst' }, stq.map(([id, t]) => el('span', { class: 'st', 'aria-pressed': 'false' }, t, LANG === 'fr' ? el('small', {}, ' ' + id) : null)))]));
+  const rules = M.D.gloss.filter(g => hit(g.name, g.text));
+  { const c = card(L`Règles spéciales de vos unités (${rules.length})`, rules.map(g => item(g.name, g.text, g.ref))); if (c) host.append(c); }
+  const ws = M.weapons.filter(w => hit(w.name, w.line));
+  { const c = card(L`Armes de vos unités (${ws.length})`, ws.map(w => item(w.name, w.line, w.kind === 'melee' ? L`Mêlée` : L`Tir`))); if (c) host.append(c); }
+  if (q && !host.querySelector('.memo')) host.append(el('p', { class: 'hint' }, L`Rien ne correspond à « ${MEMO_Q} ».`));
+}
+function memoPDF() {
+  const JS = window.jspdf && window.jspdf.jsPDF; if (!JS) return flash(L`Le module PDF n'est pas chargé.`);
+  const M = memoData(), doc = new JS({ unit: 'mm', format: 'a4' }), W = 210, H = 297, Mg = 12, CW = W - 2 * Mg;
+  const tx = v => LANG !== 'fr' && v != null ? trData(String(v)) : v;
+  const T = s => String(s == null ? '' : s).replace(/[   ]/g, ' ').replace(/[‐‑–—]/g, '-').replace(/…/g, '...').replace(/≥/g, '>=').replace(/≤/g, '<=').replace(/[•·]/g, '·').replace(/[“”«»]/g, '"').replace(/’/g, "'").replace(/[^\x00-\xff]/g, '');
+  let y = 18, col = 0; const colW = (CW - 6) / 2, X = () => Mg + col * (colW + 6);
+  const next = h => { if (y + h > H - 12) { if (col === 0) { col = 1; y = 30; } else { doc.addPage(); col = 0; y = 18; } } };
+  doc.setFont('times', 'bold'); doc.setFontSize(16); doc.text(T(L`Aide-mémoire — ` + army.name), Mg, y); y += 5;
+  doc.setFont('helvetica', 'normal'); doc.setFontSize(8); doc.setTextColor(90); doc.text(T([army.allegiance, army.faction, M.rite && M.rite.name, armyPoints() + ' pts'].filter(Boolean).map(tx).join(' · ')), Mg, y); doc.setTextColor(0); y += 7;
+  const head = t => { next(10); doc.setFont('times', 'bold'); doc.setFontSize(11); doc.text(T(t.toUpperCase()), X(), y); doc.setDrawColor(150, 118, 47); doc.setLineWidth(0.4); doc.line(X(), y + 1.2, X() + colW, y + 1.2); y += 5.5; };
+  const ent = (n, t, meta) => { doc.setFontSize(7.6); doc.setFont('times', 'normal'); const ls = doc.splitTextToSize(T(t), colW); next(ls.length * 3.1 + 5); doc.setFont('helvetica', 'bold'); doc.text(T(n) + (meta ? '' : ''), X(), y); if (meta) { doc.setFont('helvetica', 'normal'); doc.setTextColor(110); doc.text(T(meta), X() + colW, y, { align: 'right' }); doc.setTextColor(0); } y += 3.2; doc.setFont('times', 'normal'); ls.forEach((l, i) => doc.text(l, X(), y + i * 3.1)); y += ls.length * 3.1 + 1.8; };
+  if (M.rite) { head(L`Rite de Guerre`); ent(tx(M.rite.tactica), tx(M.rite.tacticaText), 'Tactica'); ent(tx(M.rite.posture), tx(M.rite.postureText), 'Gambit'); }
+  head(L`Réactions`); for (const r of M.R.core || []) ent(r.name, r.summary, r.phase); for (const r of M.legion) ent(r.name, r.summary + (r.trigger ? ' - ' + r.trigger : ''), r.legion); for (const r of M.adv) ent(r.name, r.summary, L`Réaction avancée`);
+  head(L`Règles spéciales`); for (const g of M.D.gloss) ent(g.name, g.text, g.ref);
+  head(L`Armes`); for (const w of M.weapons) ent(w.name, w.line, w.kind === 'melee' ? L`Mêlée` : L`Tir`);
+  const name = fileBase() + L` — aide-mémoire.pdf`;
+  saveFile(name, doc.output('blob')).then(ok => { if (ok && NATIVE !== 'android') flash(L`PDF créé : ${name}`); });
+}
+/* ---------- Vues : Liste · Schéma · Collection · Partie · Aide-mémoire ---------- */
+let VIEW = LS.get('fr.view', 'build');
+const VIEW_ICONS = {
+  build: '<path d="M4 5h16M4 12h16M4 19h10" />',
+  diagram: '<rect x="3" y="4" width="7" height="7" rx="1.5"/><rect x="14" y="4" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="18" height="6" rx="1.5"/>',
+  collection: '<path d="M4 7l8-4 8 4-8 4z"/><path d="M4 12l8 4 8-4"/><path d="M4 17l8 4 8-4"/>',
+  game: '<circle cx="12" cy="12" r="8"/><path d="M12 7v5l3 3"/>',
+  ref: '<path d="M6 3h9l4 4v14H6z"/><path d="M9 11h7M9 15h7M9 7h4"/>'
+};
+const VIEWS = () => [['build', L`Liste`], ['diagram', L`Schéma`], ['collection', L`Collection`], ['game', L`Partie`], ['ref', L`Aide-mémoire`]];
+function setView(v) {
+  if (v === VIEW) { if (v !== 'build') scrollTo({ top: 0, behavior: 'smooth' }); return; }
+  VIEW = v; LS.set('fr.view', v); sel = null; document.body.classList.remove('editing'); render(); scrollTo({ top: 0 });
+}
+function renderViews() {
+  document.body.dataset.view = VIEW;
+  const nav = $('#views'); if (nav && !nav.childElementCount) nav.append(...VIEWS().map(([id, t]) => el('button', { type: 'button', 'data-v': id, onclick: () => setView(id) },
+    el('span', { class: 'vi', html: `<svg viewBox="0 0 24 24" aria-hidden="true">${VIEW_ICONS[id]}</svg>` }), el('span', { class: 'vt' }, t))));
+  if (nav) for (const b of nav.children) { const on = b.dataset.v === VIEW; b.classList.toggle('on', on); b.setAttribute('aria-current', on ? 'page' : 'false'); }
+  const host = $('#view'); if (!host) return;
+  if (VIEW === 'build') { host.hidden = true; host.replaceChildren(); return; }
+  host.hidden = false;
+  const keep = host.dataset.v === VIEW ? scrollY : null; host.dataset.v = VIEW;
+  const f = { diagram: renderDiagram, collection: renderCollection, game: renderGame, ref: renderMemo }[VIEW];
+  host.replaceChildren(); try { f(host); } catch (e) { console.error(e); host.append(el('p', { class: 'note' }, L`Cette vue n'a pas pu s'afficher : ` + e.message)); }
+  if (keep != null) requestAnimationFrame(() => scrollTo({ top: keep }));
+}
+/* petit contrôle segmenté réutilisable */
+function seg(items, cur, cb, label) {
+  return el('div', { class: 'seg', role: 'group', 'aria-label': label || null }, items.map(([v, t, sub]) => el('button', { type: 'button', 'aria-pressed': String(v) === String(cur) ? 'true' : 'false', onclick: () => cb(v) }, t, sub ? el('small', {}, sub) : null)));
+}
+function viewHead(title, sub, ...acts) {
+  return el('header', { class: 'vhead' }, el('div', {}, el('h2', {}, title), sub ? el('p', {}, sub) : null), acts.length ? el('div', { class: 'vacts' }, acts) : null);
+}
 /* ---------- Démarrage ---------- */
 async function start() {
   try { await loadData(); } catch (e) { document.body.innerHTML = '<p style="padding:2rem">Impossible de charger la base de données : ' + e.message + '</p>'; return; }
@@ -1490,7 +2340,8 @@ async function start() {
   $('#dlg-x').addEventListener('click', () => $('#dlg').close());
   $('#dlg').addEventListener('click', e => { if (e.target === $('#dlg')) $('#dlg').close(); });
   $('#dbv').textContent = L`Données ` + DB.core.version;
-  render();
+  await loadPhotos();
+  render(); setTimeout(gcPhotos, 8000);
   if ('serviceWorker' in navigator && location.protocol.startsWith('http')) {
     navigator.serviceWorker.register('sw.js').then(reg => {
       const ready = w => { const b = $('#update'); b.hidden = false; b.onclick = () => w.postMessage('skip'); };

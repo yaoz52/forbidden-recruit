@@ -1,5 +1,5 @@
 {
- "version": "2026.11-o",
+ "version": "2026.11-p",
  "_doc": "Règles communes de sélection d'armée (Livre de Règles V3, p. 278-291). Modifiez ce fichier après une FAQ : l'application relit tout d'ici.",
  "bookFiles": [
   "legiones-astartes.json",
@@ -19,6 +19,7 @@
   "cults-abominatio.json",
   "fortifications.json",
   "zone-mortalis.json",
+  "journal-tactica.json",
   "i18n-en.json"
  ],
  "factions": [
@@ -231,6 +232,22 @@
    "text": "Toutes les figurines de l'unité gagnent le Sous-type Maléfique (Liber Astartes p. 18).",
    "army": "la",
    "notType": "Véhicule|Vehicle"
+  },
+  {
+   "id": "interdiction",
+   "name": "Interdiction Cadres",
+   "army": "la",
+   "lang": "en",
+   "unitIds": [
+    "escouade-tactique",
+    "escouade-nettoyeuse"
+   ],
+   "grantsRules": [
+    "Concealed Positions",
+    "Sacrifiable (1)"
+   ],
+   "text": "Tactical Squad or Despoiler Squad only: all Models in the Unit gain the Concealed Positions and Expendable (1) Special Rules.",
+   "ref": "Liber Astartes, Wahapedia (EN)"
   },
   {
    "id": "q-senechal",
@@ -3070,6 +3087,10 @@
   "Minimum Range (X)": {
    "summary": "May only attack Units at X\" or more.",
    "ref": "Legacies of the Age of Darkness p. 203"
+  },
+  "Concealed Positions": {
+   "summary": "A Unit made only of Models with this rule can use the Concealed Ambush Advanced Reaction (1 Reaction point): arrive from Reserves within 6\" of an enemy Unit that just ended a Move, outside the enemy Deployment Zone and at least 5\" from enemy Models.",
+   "ref": "Wahapedia (EN)"
   }
  },
  "modes": [
@@ -41506,5 +41527,184 @@
     "Avant-garde (3)"
    ]
   }
+ },
+ "reactions": {
+  "core": [
+   {
+    "name": "Reposition",
+    "phase": "Movement",
+    "summary": "Move a Unit up to its Initiative in inches when an enemy Unit ends a move within 12\" and in Line of Sight.",
+    "cost": 1
+   },
+   {
+    "name": "Return Fire",
+    "phase": "Shooting",
+    "summary": "Make a Shooting Attack with a Unit that is the target of an enemy Shooting Attack.",
+    "cost": 1
+   },
+   {
+    "name": "Overwatch",
+    "phase": "Assault",
+    "summary": "Make more powerful Volley Attacks against a Unit that declares a Charge.",
+    "cost": 1
+   }
+  ],
+  "advanced": [
+   {
+    "name": "Death or Glory",
+    "summary": "A Unit that an enemy Vehicle moves through can attack that Vehicle.",
+    "cost": 1,
+    "when": "always"
+   },
+   {
+    "name": "Intercept",
+    "summary": "Snap Shots against an enemy Unit entering play from Reserves or Aerial Reserves.",
+    "cost": 1,
+    "when": "always"
+   },
+   {
+    "name": "Evade",
+    "summary": "A Unit entirely of Light Sub-Type or Cavalry Type models can move away from a Charge.",
+    "cost": 1,
+    "when": "types:Léger|Light|Cavalerie|Cavalry"
+   },
+   {
+    "name": "Nullify",
+    "summary": "After failing a Resistance Check against a Psychic Curse, make a Willpower Check to negate it.",
+    "cost": 1,
+    "when": "types:Psyker|Psyk"
+   },
+   {
+    "name": "Heroic Intervention",
+    "summary": "Declare a Challenge when the Active Player passes in Step 1 of the Challenge Sub-Phase.",
+    "cost": 1,
+    "when": "types:Champion"
+   },
+   {
+    "name": "Combat Air Patrol",
+    "summary": "A Unit of Interceptors in Aerial Reserves attacks enemy Flyers entering play from Aerial Reserves.",
+    "cost": 1,
+    "when": "traits:Interceptor"
+   }
+  ],
+  "legion": {
+   "Dark Angels": {
+    "name": "Vengeance of the First Legion",
+    "summary": "This Reaction allows the Controlling Player to choose to repeat the Fight Sub-Phase.",
+    "trigger": "Once per Battle, the Reactive Player may declare the Vengeance of the First Legion Advanced Reaction after the last Initiative Step of a Combat that includes a Unit under that Player’s control which only includes Models with the Dark Angels Trait has been resolved, but before the Make Final Pile-in Moves Step.",
+    "cost": 1
+   },
+   "White Scars": {
+    "name": "Chasing the Wind",
+    "summary": "This Advanced Reaction allows the Controlling Player to make an additional Move with the Reacting Unit.",
+    "trigger": "The Reactive Player may declare a Chasing the Wind Advanced Reaction in Step 2 of the Move Sub-Phase process, if an enemy Unit ends a move within 12\" and in Lineof Sight of a Unit that only includes Models with the White Scars Trait under the Reactive Player’s Control.",
+    "cost": 1
+   },
+   "Space Wolves": {
+    "name": "Bestial Savagery",
+    "summary": "This Reaction allows the Reacting Unit to make a Damage Mitigation Roll against Wounds caused during the current Shooting Phase and also move towards an Enemy Unit.",
+    "trigger": "Once per Battle, the Reactive Player may declare the Bestial Savagery Advanced Reaction in the Shooting Phase, during Step 3 of any Shooting Attack made by the Active Player that targets a Unit that only includes Models with the Space Wolves Trait.",
+    "cost": 1
+   },
+   "Imperial Fists": {
+    "name": "Bastion of Fire",
+    "summary": "This Reaction allows the Reacting Unit to make a Shooting Attack targeting an Enemy Unit that Moves within range.",
+    "trigger": "Once per Battle, the Reactive Player may declare the Bastion of Fire Advanced Reaction in Step 2 of the Move Sub-Phase process, if an enemy Unit ends a move within 10\" and in Lineof Sight of a Unit under the Reactive Player’s control capable of making a Shooting Attack with at least one Weapon it has targeting that Unit. The Reacting Unit must be a Unit under the Reactive Player’s Control that only includes Models with the Imperial Fists Trait that does not have the Vehicle Type.",
+    "cost": 1
+   },
+   "Blood Angels": {
+    "name": "Wrath of Angels",
+    "summary": "This Reaction allows the Reacting Unit to Move towards an Enemy Unit that Targets it with a Shooting Attack.",
+    "trigger": "Once per Battle, the Reactive Player may declare the Wrath of Angels Advanced Reaction in the Shooting Phase, during Step 4 of the Shooting Attack sequence of any Shooting Attack made by the Active Player that targets a Unit under the Reactive Player’s control that only includes Models with the Blood Angels Trait.",
+    "cost": 1
+   },
+   "Iron Hands": {
+    "name": "Spite of the Gorgon",
+    "summary": "This Reaction allows the Reacting Unit to make a Shooting Attack targeting a Unit that makes a Charge.",
+    "trigger": "Once per Battle, the Reactive Player may declare the Spite of the Gorgon Advanced Reaction at the start of Step 3 of the Charge process of any Charge declared by the Active Player that targets a Unit under the Reactive Player’s Control that only includes Models with the Iron Hands Trait.",
+    "cost": 1
+   },
+   "Ultramarines": {
+    "name": "Retribution Strike",
+    "summary": "This Reaction allows a Unit to return fire in response to an enemy Shooting Attack directed at a friendly Unit.",
+    "trigger": "Once per Battle, the Reactive Player may declare the Retribution Strike Advanced Reaction in the Shooting Phase, during Step 3 of the Shooting Attack sequence of any Shooting Attack made by the Active Player that targets a Unit that only includes Models with the Ultramarines Trait.",
+    "cost": 1
+   },
+   "Salamanders": {
+    "name": "Selfless Burden",
+    "summary": "This Reaction allows the Reacting Unit to increase certain Characteristics during the Assault Phase.",
+    "trigger": "Once per Battle, the Reactive Player may declare the Selfless Burden Advanced Reaction at the start of Step 3 of a Charge declared by the Active Player, targeting a Unit under their control which only includes Models with the Salamanders Trait that do not have the Vehicle Type.",
+    "cost": 1
+   },
+   "Raven Guard": {
+    "name": "Shadow Veil",
+    "summary": "This Reaction allows the Reacting Unit to make a Move when it is Targeted by a Shooting Attack and gain a Damage Mitigation Roll for the duration of the Shooting Phase.",
+    "trigger": "Once per Battle, the Reactive Player may declare the Shadow Veil Advanced Reaction when the Active Player targets a Unit under their control which only includes Models with the Raven Guard Trait, that do not have the Vehicle Type, with a Shooting Attack.",
+    "cost": 1
+   },
+   "Emperor’s Children": {
+    "name": "Perfect Counter",
+    "summary": "This Reaction allows the Reacting Unit to Charge an enemy Unit that has made a Charge.",
+    "trigger": "Once per Battle, the Reactive Player may declare the Perfect Counter Advanced Reaction at the end of Step 3 of the Charge process of any Charge declared by the Active Player that targets a Unit under that Player’s control which only includes Models with the Emperor’s Children Trait.",
+    "cost": 1
+   },
+   "Iron Warriors": {
+    "name": "Bitter Fury",
+    "summary": "This Reaction allows the Reacting Unit to make an improved Shooting Attack in the manner of Return Fire.",
+    "trigger": "Once per Battle, the Reactive Player may declare the Bitter Fury Advanced Reaction in the Shooting Phase, during Step 3 of the Shooting Attack sequence of any Shooting Attack made by the Active Player, that Targets a Unit which only includes Models with the Iron Warriors Trait.",
+    "cost": 1
+   },
+   "Night Lords": {
+    "name": "Better Part of Valour",
+    "summary": "This Reaction allows a Unit to Fall Back when it is the Target of a Charge.",
+    "trigger": "The Reactive Player may declare a Better Part of Valour Advanced Reaction during Step 4 of the Charge process of any Charge declared by the Active Player that targets a Unit which only includes Models with the Night Lords Trait.",
+    "cost": 1
+   },
+   "World Eaters": {
+    "name": "Brutal Tide",
+    "summary": "This Reaction allows the Reacting Unit to make a Charge towards a Unit that Targets them with a Shooting Attack.",
+    "trigger": "Once per Battle, the Reactive Player may declare the Brutal Tide Advanced Reaction during Step 4 of a Shooting Attack declared by the Active Player that targets a Unit which only includes Models with the World Eaters Trait and does not have the Vehicle Type.",
+    "cost": 1
+   },
+   "Death Guard": {
+    "name": "Barbaran Endurance",
+    "summary": "This Reaction grants the Reacting Unit a Damage Mitigation Roll and allows them to recover from Tactical Statuses.",
+    "trigger": "Once per Battle, the Reactive Player may declare the Barbaran Endurance Advanced Reaction during Step 4 of any Shooting Attack declared by the Active Player during the Shooting Phase that Targets a Unit which only includes Models with the Death Guard Trait that do not have the Vehicle Type.",
+    "cost": 1
+   },
+   "Thousand Sons": {
+    "name": "Fortress of the Mind",
+    "summary": "This Reaction gives the Reacting Unit an additional Save Test against attacks that Target the Reacting Unit.",
+    "trigger": "Once per Battle, the Reactive Player may declare the Fortress of the Mind Advanced Reaction during Step 4 of the Shooting Attack process of any Shooting Attack declared by the Active Player that Targets a Unit which only includes Models with the Thousand Sons Trait and does not contain any Models with the Vehicle Type.",
+    "cost": 1
+   },
+   "Sons of Horus": {
+    "name": "Warrior Pride",
+    "summary": "This Reaction allows the Reacting Unit to ignore Challenges from an opponent with a lower Weapon Skill Characteristic.",
+    "trigger": "The Reactive Player may declare a Warrior Pride Advanced Reaction when a Unit made up of Models with the Sons of Horus Trait is in Combat with an enemy Unit and the Active Player selects a Model to be the Challenger.",
+    "cost": 1
+   },
+   "Word Bearers": {
+    "name": "Glorious Martyrdom",
+    "summary": "This Reaction allows the Controlling Player to allocate all wounds caused by a Fire Group to a single Model of their choosing.",
+    "trigger": "Once per Battle, the Reactive Player may declare the Glorious Martyrdom Advanced Reaction in the Shooting Phase, during Step 5 of the Shooting Attack sequence of any Shooting Attack made by the Active Player that targets a Unit that includes only Models with the Word Bearers Trait.",
+    "cost": 1
+   },
+   "Alpha Legion": {
+    "name": "Smoke and Mirrors",
+    "summary": "This Reaction changes the Target Number of Precision Hit Tests made against the Reacting Unit.",
+    "trigger": "The Reactive Player may declare a Smoke and Mirrors Advanced Reaction in the Shooting Phase, during Step 3 of the Shooting Attack sequence of any Shooting Attack made by the Active Player that targets a Unit that includes only Models with the Alpha Legion Trait.",
+    "cost": 1
+   }
+  },
+  "allotment": 1,
+  "statuses": [
+   "Pinned",
+   "Suppressed",
+   "Stunned",
+   "Routed"
+  ],
+  "note": "The Reactive Player has a Reaction Allotment of 1 in each Turn (other Special Rules can increase it). No Unit may make more than one Reaction in any Turn. A Unit that is Stunned, Routed or Locked in Combat may never make a Reaction.",
+  "source": "Wahapedia (EN), Principles of Combat & Liber Astartes / Hereticus — relevé 24 nov. 2026"
  }
 }
