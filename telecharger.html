@@ -49,5 +49,20 @@ a{color:var(--brass-2)}
   </div>
   <footer>Outil non officiel, créé par des joueurs, sans lien avec Games Workshop. Les applications Android, Windows et Mac ne sont pas signées par un éditeur, d'où les avertissements au premier lancement. Les nouvelles données arrivent dans l'application (Réglages &gt; Mise à jour) ; pour une nouvelle version de l'application, revenez sur cette page.</footer>
 </div>
+<script>
+/* Les boutons visent le nom exact du fichier. Si la Release porte un nom un peu différent
+   (ex. « Forbidden-Recruit-Android_1.apk » après un double téléchargement), on retrouve le bon fichier
+   par l'API publique de GitHub ; sans réseau ou en cas d'échec, les liens restent tels quels. */
+(function () {
+  var want = [[/Android.*\.apk$/i, 'Android.apk'], [/Windows.*\.zip$/i, 'Windows.zip'], [/Mac-Apple-Silicon.*\.zip$/i, 'Mac-Apple-Silicon.zip'], [/Mac-Intel.*\.zip$/i, 'Mac-Intel.zip']];
+  fetch('https://api.github.com/repos/yaoz52/forbidden-recruit/releases/latest').then(function (r) { return r.ok ? r.json() : null; }).then(function (rel) {
+    if (!rel || !rel.assets) return;
+    want.forEach(function (w) {
+      var a = rel.assets.filter(function (x) { return w[0].test(x.name); })[0]; if (!a) return;
+      document.querySelectorAll('a[href$="' + w[1] + '"]').forEach(function (el) { el.href = a.browser_download_url; });
+    });
+  }).catch(function () {});
+})();
+</script>
 </body>
 </html>

@@ -92,6 +92,30 @@ function mergeData(core, books) {
   for (const a of core.primeAdvantages || []) (a.grantsOptions || []).forEach((go, n) => { for (const u of Object.values(UNITS)) if ((a.needsUnitIds ? a.needsUnitIds.includes(u.id) : matchU(u, go.match)) && (!go.match || matchU(u, go.match))) u.options = [...(u.options || []), { ...(go.option || go), match: undefined, faction: a.faction, advOpt: a.id, key: 'A' + a.id + n }]; });
   const dsp = (core.oaths || {}).desperation;
   if (dsp) for (const u of Object.values(UNITS)) if (u.army === 'la' && (u.wargear || []).some(w => /^(Bolter|Pistolet bolter|Bolt pistol)$/i.test(w.split(' : ').pop()))) u.options = [...(u.options || []), { text: dsp.text, max: 'models', choices: dsp.choices, oath: 'desperation', key: 'D', legacy: true, lang: 'en' }];
+  /* Option anglaise de base qui est en fait une option Legacies (même texte qu'une option injectée « G… ») : on GARDE
+     l'option de base (noms d'objets en français, position fixe dans les listes enregistrées) en la marquant Legacies,
+     et on masque l'option injectée (dupOf = clé de l'option de base). migrateArmy y reporte les choix déjà faits. */
+  const EN_TERMS = Object.assign({}, ...books.map(b => (b.i18n && b.i18n.en && b.i18n.en.terms) || {}));
+  const words = t => new Set(String(t || '').toLowerCase().replace(/\([^)]*\)/g, ' ').normalize('NFD').replace(/[\u0300-\u036f]/g, '').split(/[^a-z0-9]+/).filter(w => w.length > 2));
+  const sim = (x, y) => { const A = words(x), B = words(y); let i = 0; A.forEach(w => B.has(w) && i++); return i / Math.max(1, A.size + B.size - i); };
+  for (const u of Object.values(UNITS)) { const opts = u.options || [];
+    opts.forEach((o, oi) => { if (o.key || o.lang !== 'en' || o.legacy) return;
+      const pts = c => (c || []).map(x => x.points || 0).sort().join(',');
+      const g = opts.find(x => x.key && /^G/.test(x.key) && !x.dupOf && sim(x.text, o.text) >= 0.85 && pts(x.choices) === pts(o.choices));
+      if (!g) return;
+      o.legacy = true; g.dupOf = String(oi);
+      // l'option de base reprend la logique d'équipement que seule l'option Legacies décrivait (ex. Larmes de l'Ange)
+      const items = new Set([...unitItems(u), ...(u.wargear || []).map(itemOf)].map(ikey)), known = v => [].concat(v).flat().every(x => items.has(ikey(x)));
+      for (const k of ['replaces', 'requires']) if (o[k] == null && g[k] != null && known(g[k])) o[k] = g[k];
+      if (o.partOf == null && g.partOf != null && o.replaces) o.partOf = g.partOf;
+      // correspondance des choix : même nom (traduit ou non), sinon même coût s'il est unique
+      const bc = optChoices(o), nm = n => ikey(n), en = n => EN_TERMS[n] || n;
+      const taken = new Set(), eqN = (b, c) => nm(b.name) === nm(c.name) || nm(en(b.name)) === nm(c.name), eqP = (b, c) => (b.points || 0) === (c.points || 0);
+      g.choiceMap = optChoices(g).map(c => { // même nom et même coût d'abord, jamais deux fois le même choix
+        let k = bc.findIndex((b, i) => !taken.has(i) && eqN(b, c) && eqP(b, c)); if (k < 0) k = bc.findIndex((b, i) => !taken.has(i) && eqN(b, c));
+        if (k < 0) { const same = bc.map((b, i) => [b, i]).filter(([b, i]) => !taken.has(i) && eqP(b, c)); if (same.length === 1) k = same[0][1]; }
+        if (k >= 0) taken.add(k); return k; });
+    }); }
 }
 async function loadData() {
   const custom = LS.get('30k.customData');
@@ -294,16 +318,65 @@ function consume(h, r, n, partOf) {
   const k = ikey(r); h[k] = (h[k] || 0) - n * (isPair(r) && !partOf ? 2 : 1);
 }
 function holders(u, us, skip) {
-  const h = {}, size = unitSize(us), add = (k, n) => { h[k] = (h[k] || 0) + n; };
+  const h = {}, size = unitSize(us), add = (k, n) => { h[k] = (h[k] || 0) + n; }, later = [];
   for (const w of u.wargear || []) { const p = String(w).split(' : '), it = itemOf(w); add(ikey(it), (p.length > 1 ? (modelCount(u, us, p[0].trim()) || 1) : size) * (isPair(it) ? 2 : 1)); }
   (u.options || []).forEach((o, oi) => {
     if (oi === skip) return;
     const ch = optChoices(o), picked = picksOf(us, oi);
     for (const [k, q] of Object.entries(picked)) { const c = ch[k]; if (!c || !q) continue; const n = o.all ? size : q;
-      for (const r of [].concat(c.replaces || o.replaces || [])) consume(h, r, n, o.partOf);
+      for (const r of [].concat(c.replaces || o.replaces || [])) if (Array.isArray(r)) later.push({ r, n, o }); else consume(h, r, n, o.partOf);
       for (const g of c.gives || [c.name]) add(ikey(g), n * (isPair(g) ? 2 : 1)); if (c.gives) add(ikey(c.name), n); }
   });
+  /* Échanges « X et/ou Y » (un objet chacun) : traités après les échanges simples. On retire d'abord l'objet que
+     l'option examinée n'utilise pas, puis le plus disponible, et au plus une pièce de chaque par figurine concernée
+     (Sergent : bolter ET pistolet, pas deux pistolets). Ex. Vétérans Tactiques : 5 chargeurs volkite + arme de mêlée
+     du Sergent à la place de son pistolet. */
+  if (later.length) {
+    const so = skip >= 0 ? (u.options || [])[skip] : null, keep = new Set(so ? [...[].concat(so.replaces || []), ...[].concat(so.requires || [])].flat().map(ikey) : []);
+    for (const { r, n, o } of later) {
+      const per = o.models ? [].concat(o.models).reduce((a, m) => a + modelCount(u, us, m), 0) || Infinity : Infinity;
+      const ks = r.map(ikey).sort((a, b) => (keep.has(a) - keep.has(b)) || ((h[b] || 0) - (h[a] || 0)));
+      let left = n;
+      for (const k of ks) { const t = Math.min(Math.max(0, h[k] || 0), left, per); h[k] = (h[k] || 0) - t; left -= t; if (!left) break; }
+      if (left) { const k = ks[0]; h[k] = (h[k] || 0) - left; } // impossible : on passe en négatif pour le signaler
+    }
+  }
   return h;
+}
+/* Équipement des seules figurines visées par une option (ex. le Sergent) : ce qu'elles portent au départ, moins ce que
+   leurs propres options ont pris, moins ce que les options « toute figurine » n'ont pas pu prendre ailleurs. */
+function groupHolders(u, us, oi) {
+  const o = u.options[oi], grp = [].concat(o.models), size = unitSize(us), cnt = m => modelCount(u, us, m), gn = grp.reduce((a, m) => a + cnt(m), 0);
+  const G = {}, O = {}, add = (T, k, n) => { T[k] = (T[k] || 0) + n; };
+  for (const w of u.wargear || []) { const p = String(w).split(' : '), it = itemOf(w), k = ikey(it), m2 = isPair(it) ? 2 : 1;
+    if (p.length > 1) { const who = p[0].trim(); add(grp.includes(who) ? G : O, k, (cnt(who) || 1) * m2); } else { add(G, k, gn * m2); add(O, k, (size - gn) * m2); } }
+  const free = [], grpArr = [];
+  (u.options || []).forEach((o2, j) => { if (j === oi) return; const ch = optChoices(o2), ms = o2.models ? [].concat(o2.models) : null;
+    const side = !ms ? 'any' : ms.every(m => grp.includes(m)) ? 'G' : ms.every(m => !grp.includes(m)) ? 'O' : 'any';
+    for (const [k, q] of Object.entries(picksOf(us, j))) { const c = ch[k]; if (!c || !q) continue; const n = o2.all ? size : q;
+      const gv = (c.gives || [c.name]).map(g => [ikey(g), n * (isPair(g) ? 2 : 1)]).concat(c.gives ? [[ikey(c.name), n]] : []), reps = [].concat(c.replaces || o2.replaces || []);
+      // l'objet obtenu va aux figurines qui ont fait l'échange (pour « toute figurine » : réparti comme l'échange)
+      const pm = r => !Array.isArray(r) && isPair(r) && !o2.partOf ? 2 : 1; // « Deux X » = 2 pièces
+      if (side === 'O') { gv.forEach(([g, m]) => add(O, g, m)); for (const r of reps) add(O, ikey(Array.isArray(r) ? r[0] : r), -n * pm(r)); }
+      else if (side === 'G') { gv.forEach(([g, m]) => add(G, g, m)); for (const r of reps) { if (Array.isArray(r)) grpArr.push({ r, n, per: (ms || []).reduce((a, m) => a + cnt(m), 0) || Infinity }); else add(G, ikey(r), -n * pm(r)); } }
+      else if (!reps.length) gv.forEach(([g, m]) => add(G, g, m)); // ajout sans échange : peut être sur le groupe
+      else if (reps.some(r => pm(r) > 1)) { gv.forEach(([g, m]) => add(O, g, m)); for (const r of reps) { const kk = ikey(Array.isArray(r) ? r[0] : r), need = n * pm(r), t = Math.min(Math.max(0, O[kk] || 0), need); O[kk] = (O[kk] || 0) - t; if (need > t) add(G, kk, -(need - t)); } } // paires : prises d'abord ailleurs
+      else free.push({ k: ikey(Array.isArray(reps[0]) ? reps[0][0] : reps[0]), more: reps.slice(1).map(r => ikey(Array.isArray(r) ? r[0] : r)), n, gv });
+    } });
+  // « toute figurine » : d'abord sur les autres figurines, le reste retombe sur le groupe (avec ce qu'il a obtenu)
+  const keep0 = new Set([].concat(o.replaces || [], o.requires || []).flat().map(ikey));
+  free.sort((a, b) => [b.k, ...b.more].some(x => keep0.has(x)) - [a.k, ...a.more].some(x => keep0.has(x))); // celles qui touchent l'objet visé se servent d'abord ailleurs
+  for (const { k, more, n, gv } of free) { const all = [k, ...more], t = Math.min(n, ...all.map(x => Math.max(0, O[x] || 0))), g = n - t;
+    // l'objet obtenu peut revenir au groupe autant que le groupe a d'objets à échanger (choix du joueur)
+    const toG = Math.min(n, Math.max(g, Math.min(...all.map(x => Math.max(0, G[x] || 0)))));
+    O[k] = (O[k] || 0) - t; if (g) add(G, k, -g);
+    for (const k2 of more) { O[k2] = (O[k2] || 0) - t; if (g) add(G, k2, -g); }
+    gv.forEach(([gk, m]) => { const per = m / n; add(O, gk, per * t); if (toG) add(G, gk, per * toG); }); }
+
+  const keep = new Set([].concat(o.replaces || [], o.requires || []).flat().map(ikey));
+  for (const { r, n, per } of grpArr) { const ks = r.map(ikey).sort((a, b) => (keep.has(a) - keep.has(b)) || ((G[b] || 0) - (G[a] || 0))); let left = n;
+    for (const k of ks) { const t = Math.min(Math.max(0, G[k] || 0), left, per); G[k] = (G[k] || 0) - t; left -= t; if (!left) break; } if (left) add(G, ks[0], -left); }
+  return { G, gn };
 }
 const have = (h, it) => Array.isArray(it) ? it.reduce((a, x) => a + Math.max(0, h[ikey(x)] || 0), 0) : Math.max(0, h[ikey(it)] || 0);
 const norm = x => String(x).toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
@@ -321,6 +394,11 @@ function optAvail(o, us, oi) {
     for (const it of needs) lim(have(h, it), L`${have(h, it)} figurine(s) avec ${itName(it)}`);
     if (o.all) for (const it of gives) if (have(h, it) < unitSize(us) * (!Array.isArray(it) && isPair(it) && !o.partOf ? 2 : 1)) lim(0, L`${itName(it)} déjà échangé(e) sur une partie de l'unité`);
     for (const it of gives) { const per = !Array.isArray(it) && isPair(it) && !o.partOf ? 2 : 1; lim(have(h, it) / per, L`${Math.floor(have(h, it) / per)} ${itName(it)} encore à échanger`); }
+    if (o.models && gives.length && (u.options || []).some((o2, j) => j !== oi && optCount(us, j))) { // figurines visées seulement
+      const { G, gn } = groupHolders(u, us, oi), who = [].concat(o.models).map(trData).join(', ');
+      for (const it of gives) { const n = Array.isArray(it) ? it.reduce((a, x) => a + Math.min(Math.max(0, G[ikey(x)] || 0), gn), 0) : Math.max(0, G[ikey(it)] || 0) / (isPair(it) && !o.partOf ? 2 : 1);
+        lim(n, L`${who} : ${Math.floor(n)} ${itName(it)} encore à échanger`); }
+    }
     if (o.modelsSubtype) lim(u.models.filter(m => (u.types || []).some(t => new RegExp('^\\s*' + m.name.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '\\s*:').test(t) && new RegExp(o.modelsSubtype).test(t)) || ((u.types || []).length === 1 && new RegExp(o.modelsSubtype).test(u.types[0]))).reduce((a, m) => a + modelCount(u, us, m.name), 0), L`réservé aux figurines État-major, Champion, Spécialiste ou Sergent`);
     if (o.models) { const mc = [].concat(o.models).reduce((a, m) => a + modelCount(u, us, m), 0); lim(mc && typeof o.max === 'number' && o.max > mc ? o.max : mc, L`réservé à : ${[].concat(o.models).map(trData).join(', ')}`); }
     if (o.needsUpgrade) {
@@ -457,6 +535,70 @@ function grants(parentDet) {
   }
   return g;
 }
+/* Droits ouverts par les cases d'un détachement : un jeton par droit (case QG = Auxiliaire ou Apex, case EM = Auxiliaire,
+   davantage avec Officier de Ligne). Le jeton garde sa case d'origine (nom de l'unité pour les détachements « requires »). */
+function detTokens(d, isRoot) {
+  const out = [], dd = detDef(d.type);
+  if (!d.units || dd.noGrants || dd.noUnlock) return out;
+  const kind = dd.kind, adv = d.adv || {};
+  for (const s of slotsOf(d)) {
+    const us = d.units[s.i]; if (!us) continue;
+    if (adv[s.i] === 'affectation' || (advDef(adv[s.i]) || {}).noGrants) continue;
+    const u = UNITS[us.u]; if (!u) continue;
+    const src = { det: d, who: unitLabel(us, u), where: kind === 'aux' ? detName(d) : '', role: s.role, slot: s.i, n: 0 };
+    // QG : dans le Principal, un Apex ou un Auxiliaire ; pas pour un Allié (règle des Détachements Alliés)
+    if (s.role === 'QG' && kind !== 'allie') { src.kind = 'flex'; src.n = 1; out.push(src); continue; }
+    if (s.role === 'EM' || adv[s.i] === 'petty') {
+      const eu = (typeof effUnit === 'function' ? effUnit(u, us, d, s) : u) || u, x = ruleX(eu, 'Officier de Ligne') || ruleX(eu, 'Officer of the Line') || 1;
+      src.kind = 'aux'; src.n = x; src.names = [u.name, u.countsAs].filter(Boolean); src.role = 'EM'; out.push(src);
+    }
+  }
+  return out;
+}
+/* Ancien résumé (cases du Principal + Apex, ou de l'Allié) : sert encore aux textes et aux règles « requires » simples */
+function grantsOne(d) { const g = { aux: 0, flex: 0, by: {} }; for (const t of detTokens(d)) { if (t.kind === 'flex') g.flex += t.n; else { g.aux += t.n; for (const n of t.names) g.by[n] = (g.by[n] || 0) + t.n; } } return g; }
+/* Répartition des droits (Livre de Règles, Organigramme de Croisade : les cases État-major et Quartier Général occupées
+   dans les Détachements de l'Armée ouvrent des détachements). Chaque Auxiliaire / Apex rattaché à p prend UN jeton venant
+   d'un détachement déjà débloqué (jamais de lui-même) ; un détachement « requires » prend un jeton de l'unité nommée ;
+   les détachements de doctrine « bonus » vont par paires. Recherche exhaustive (listes courtes) du plus grand nombre de
+   détachements débloqués ; renvoie aussi quel jeton ouvre quoi, pour l'arbre. */
+function allocDets(p, kids, apexKids = []) {
+  const main = mainDet(), isMain = p === main, src = detTokens(p, true);
+  // demandes : un détachement, ou une paire de détachements bonus du même type
+  const dem = [], bonusOpen = {};
+  for (const d of apexKids) dem.push({ dets: [d], apex: true });
+  for (const d of kids) { if (isBonus(d.type)) { const o = bonusOpen[d.type]; if (o && o.dets.length < 2) { o.dets.push(d); continue; } const nd = { dets: [d], req: detDef(d.type).requires }; bonusOpen[d.type] = nd; dem.push(nd); } else dem.push({ dets: [d], req: detDef(d.type).requires }); }
+  dem.forEach(x => { x.tok = x.dets.flatMap(d => detTokens(d)); x.sig = (x.apex ? 'A' : 'X') + (x.req || '') + '|' + x.tok.map(t => t.kind + (t.names || []).join('/') + t.n).sort().join(','); });
+  dem.sort((a, b) => (b.req ? 1 : 0) - (a.req ? 1 : 0)); // les détachements à unité imposée d'abord
+  const toks = []; const addTok = (s, dmIdx) => { for (let k = 0; k < s.n; k++) toks.push({ s, src: dmIdx, k }); };
+  src.forEach(s => addTok(s, -1)); dem.forEach((x, i) => x.tok.forEach(s => addTok(s, i)));
+  const fits = (t, x) => x.apex ? t.s.kind === 'flex' && (t.src === -1 || dem[t.src].apex) : x.req ? t.s.kind === 'aux' && t.s.names.includes(x.req) : true;
+  const N = dem.length; let best = { n: -1 }, nodes = 0; const memo = new Set();
+  const tcls = t => t.s.kind + (t.s.names || []).join('/') + '@' + (t.src === -1 ? 'root' : dem[t.src].sig);
+  toks.forEach(t => t.cls = tcls(t));
+  const go = (reached, used, assign) => {
+    const n = assign.size; if (n > best.n) best = { n, assign: new Map(assign) };
+    if (best.n === N || ++nodes > 200000) return;
+    // clé canonique : quelles SORTES de détachements sont débloquées et quelles SORTES de jetons sont prises
+    const key = dem.map((x, i) => reached[i] ? x.sig : '').filter(Boolean).sort().join(';') + '#' + toks.map((t, j) => used[j] ? t.cls : '').filter(Boolean).sort().join(';');
+    if (memo.has(key)) return; memo.add(key);
+    const doneSig = new Set();
+    for (let i = 0; i < N; i++) { if (reached[i] || doneSig.has(dem[i].sig)) continue; doneSig.add(dem[i].sig); // demandes identiques : une seule essayée
+      const tried = new Set();
+      for (let j = 0; j < toks.length; j++) { const t = toks[j]; if (used[j] || (t.src !== -1 && !reached[t.src]) || !fits(t, dem[i])) continue;
+        const cls = t.cls; if (tried.has(cls)) continue; tried.add(cls); // jetons équivalents : un seul essai
+        reached[i] = 1; used[j] = 1; assign.set(i, j); go(reached, used, assign); assign.delete(i); used[j] = 0; reached[i] = 0;
+        if (best.n === N) return; } } };
+  go(dem.map(() => 0), toks.map(() => 0), new Map());
+  const okIdx = new Set(best.assign.keys()), byDet = new Map();
+  for (const [i, j] of best.assign) for (const d of dem[i].dets) byDet.set(d, toks[j]);
+  const reachedDets = dem.filter((x, i) => okIdx.has(i)).flatMap(x => x.dets), unreached = dem.filter((x, i) => !okIdx.has(i)).flatMap(x => x.dets);
+  const live = t => t.src === -1 || okIdx.has(t.src), usedTok = new Set(best.assign.values());
+  const free = toks.filter((t, j) => !usedTok.has(j) && live(t));
+  const sources = [...src, ...dem.filter((x, i) => okIdx.has(i)).flatMap(x => x.tok)];
+  return { reached: reachedDets, unreached, byDet, free, sources, toks, cap: toks.filter(live).length, used: best.assign.size, extra: dem.filter((x, i) => okIdx.has(i) && !x.apex).reduce((a, x) => a + x.tok.reduce((b, s) => b + s.n, 0), 0) };
+}
+const allocOf = p => p === mainDet() ? allocDets(p, childrenOf(p, 'aux'), childrenOf(p, 'apex')) : allocDets(p, childrenOf(p, 'aux'));
 const vowDef = id => (DB.core.vows || []).find(v => v.id === id);
 const vowsTaken = self => { const t = new Set(); army.dets.forEach(d => Object.values(d.units).forEach(x => { if (x && x !== self && x.vow) t.add(x.vow); })); return t; };
 const countAdv = id => army.dets.reduce((a, d) => a + Object.entries(d.adv).filter(([i, v]) => v === id && d.units[i]).length, 0);
@@ -500,8 +642,9 @@ function canAddDet(def) {
   const g = grants(main), apex = childrenOf(main, 'apex').length, aux = auxUse(childrenOf(main, 'aux'));
   if (def.kind === 'apex' && def.army && armyOf(army.faction) !== def.army) return { ok: false, why: L`Réservé à la liste ${armyName(def.army)}.` };
   if (def.kind === 'apex') {
-    const free = g.flex - apex - Math.max(0, aux - g.aux);
-    return free > 0 ? { ok: true, parents: [main] } : { ok: false, why: g.flex === 0
+    const probe = { type: def.id, units: {}, adv: {} }, R0 = allocOf(main), R = allocDets(main, childrenOf(main, 'aux'), [...childrenOf(main, 'apex'), probe]);
+    if (!R.unreached.includes(probe) && R.unreached.length <= R0.unreached.length) return { ok: true, parents: [main] };
+    return { ok: false, why: g.flex === 0 && !R0.sources.some(s => s.kind === 'flex')
       ? L`Un Détachement d'Apex nécessite une case Quartier Général occupée dans le Détachement Principal (p. 280).`
       : L`Vos ${g.flex} case(s) Quartier Général occupée(s) sont déjà utilisées pour d'autres détachements (p. 280).` };
   }
@@ -510,17 +653,18 @@ function canAddDet(def) {
   const why = [];
   for (const p of [main, ...army.dets.filter(d => detDef(d.type).kind === 'allie')]) {
     if (def.army && armyOf(detFaction(p)) !== def.army) { why.push(L`${detName(p)} : détachement de la liste ${armyName(def.army)}`); continue; }
-    const gp = grants(p), used = auxUse(childrenOf(p, 'aux')), after = auxUse([...childrenOf(p, 'aux'), { type: def.id }]);
-    const cap = gp.aux + (p === main ? Math.max(0, gp.flex - apex) : 0);
-    if (after > cap) { why.push(L`${detName(p)} : ${used}/${cap} détachement(s) auxiliaire(s) déjà utilisé(s)`); continue; }
-    if (def.requires) {
-      const have = gp.by[def.requires] || 0, n2 = childrenOf(p, 'aux').filter(d => d.type === def.id).length + 1, need2 = isBonus(def.id) ? Math.ceil(n2 / 2) : n2;
-      if (need2 > have) { why.push(L`${detName(p)} : nécessite une unité « ${def.requires} » dans une case État-major${have ? L` (déjà utilisée)` : ''}`); continue; }
+    const probe = { type: def.id, units: {}, adv: {} }, R0 = allocOf(p), R = p === main ? allocDets(p, [...childrenOf(p, 'aux'), probe], childrenOf(p, 'apex')) : allocDets(p, [...childrenOf(p, 'aux'), probe]);
+    if (R.unreached.includes(probe) || R.unreached.length > R0.unreached.length) {
+      const had = def.requires && R0.sources.some(s => s.kind === 'aux' && s.names.includes(def.requires));
+      if (def.requires && (!had || R0.free.length)) why.push(L`${detName(p)} : nécessite une unité « ${def.requires} » dans une case État-major${had ? L` (déjà utilisée)` : ''}`);
+      else if (!R0.cap) why.push(L`${detName(p)} : aucune case État-major ou Quartier Général occupée`);
+      else why.push(L`${detName(p)} : ${R0.used}/${R0.cap} détachement(s) auxiliaire(s) déjà utilisé(s)`);
+      continue;
     }
     parents.push(p);
   }
   if (parents.length) return { ok: true, parents };
-  return { ok: false, why: (why.join(' ; ') || L`Aucun droit disponible`) + L`. Chaque case État-major occupée ouvre 1 Détachement Auxiliaire (davantage avec Officier de Ligne), chaque case Quartier Général 1 Auxiliaire ou 1 Apex (p. 280).` };
+  return { ok: false, why: (why.join(' ; ') || L`Aucun droit disponible`) + L`. Chaque case État-major occupée, dans n'importe quel détachement, ouvre 1 Détachement Auxiliaire (davantage avec Officier de Ligne), chaque case Quartier Général 1 Auxiliaire ou 1 Apex (p. 280).` };
 }
 
 /* Avantages Principaux disponibles pour une case -> [{def, ok, why}] */
@@ -726,12 +870,13 @@ function validate() {
   const apex = childrenOf(main, 'apex').length, gm = grants(main);
   if (apex > gm.flex) err(L`${apex} Détachement(s) d'Apex pour ${gm.flex} case(s) Quartier Général occupée(s) : chaque Apex requiert une case QG occupée (p. 280).`);
   for (const p of [main, ...army.dets.filter(d => detDef(d.type).kind === 'allie')]) {
-    const g = grants(p), kids = childrenOf(p, 'aux'), cap = g.aux + (p === main ? Math.max(0, g.flex - apex) : 0);
-    if (auxUse(kids) > cap) err(L`${detName(p)} : ${auxUse(kids)} Détachement(s) Auxiliaire(s) rattaché(s) pour ${cap} autorisé(s) par ses cases État-major${p === main ? L` et Quartier Général` : ''} (p. 280).`, kids[kids.length - 1]);
-    const need = {};
-    for (const k of kids) { const r = detDef(k.type).requires; if (r) need[r] = (need[r] || []).concat(k); }
-    for (const [r, ks] of Object.entries(need)) if (auxUse(ks) > (g.by[r] || 0))
-      err(L`${detName(ks[0])} : nécessite une unité « ${r} » dans une case État-major de ${detName(p)} (${g.by[r] || 0} droit(s) pour ${ks.length} détachement(s)).`, ks[ks.length - 1]);
+    const g = grants(p), kids = childrenOf(p, 'aux'), R = allocOf(p), bad = R.unreached.filter(d => detDef(d.type).kind === 'aux');
+    if (bad.length) {
+      const k = bad[bad.length - 1], r = detDef(k.type).requires;
+      if (r && R.free.length) err(L`${detName(k)} : nécessite une unité « ${r} » dans une case État-major de ${detName(p)} ou de ses détachements rattachés (${g.by[r] || 0} droit(s)).`, k);
+      else err(L`${detName(p)} : ${auxUse(kids)} Détachement(s) Auxiliaire(s) rattaché(s) pour ${auxUse(kids) - bad.length} autorisé(s) par les cases État-major${p === main ? L` et Quartier Général` : ''} occupées (un détachement ne peut pas se débloquer lui-même) (p. 280).`, k);
+    }
+    if (p === main && apex <= gm.flex) { const ba = R.unreached.filter(d => detDef(d.type).kind === 'apex'); if (ba.length) err(L`${apex} Détachement(s) d'Apex pour ${gm.flex} case(s) Quartier Général occupée(s) : chaque Apex requiert une case QG occupée (p. 280).`, ba[ba.length - 1]); }
   }
   const md = modeDef();
   if (md.limit && lim !== md.limit) err(L`${md.name} : la Limite de Points est fixée à ${md.limit} points (${md.ref || ''}).`);
@@ -763,6 +908,23 @@ const optText = o => (LANG !== 'fr' && o && o.textEn) || (o && o.text);
 const optSig = o => { let h = 5381; for (const ch of String(o && o.text || '')) h = (h * 33 ^ ch.charCodeAt(0)) >>> 0; return h.toString(36); };
 const optIndex = (u, key) => (u.options || []).findIndex((o, oi) => String(okey(u, oi)) === String(key));
 function stampArmy(a) { for (const d of a.dets || []) for (const us of Object.values(d.units || {})) { const u = UNITS[us.u]; if (!u) continue; us.sig = {}; for (const k of Object.keys(us.opts || {})) { const oi = optIndex(u, k); if (oi >= 0 && Object.keys(us.opts[k] || {}).length) us.sig[k] = optSig(u.options[oi]); } } return a; }
+/* Choix faits sur une option Legacies injectée en double d'une option de base : reportés sur l'option de base
+   (après le recalage des options déplacées). Sans perte : rien n'est retiré qui ne soit reporté. */
+function moveDupPicks(u, us) {
+  const notes = [];
+  (u.options || []).forEach((o, oi) => { if (!o.dupOf) return; const k = okey(u, oi), pk = (us.opts || {})[k]; if (!pk || !Object.values(pk).some(Boolean)) return;
+    if (!(o.choiceMap || []).every(x => x >= 0)) return; // correspondance incertaine : on laisse le choix (l'option reste affichée)
+    const dst = us.opts[o.dupOf] || (us.opts[o.dupOf] = {}); for (const [c, q] of Object.entries(pk)) { const t = o.choiceMap[+c]; dst[t] = (dst[t] || 0) + q; }
+    delete us.opts[k]; if (us.sig) delete us.sig[k]; notes.push(L`${u.name} : option Legacies en double retirée, choix reporté sur l'option Legacies`); });
+  return notes;
+}
+/* Démarrage : seul ce report est réenregistré dans toutes les listes (aucun nettoyage destructif). */
+function migrateDupsStored(lists) {
+  let changed = false;
+  for (const a of Object.values(lists || {})) { try { if (!a || typeof a !== 'object' || !Array.isArray(a.dets)) continue;
+    for (const d of a.dets) for (const us of Object.values((d && d.units) || {})) { const u = us && UNITS[us.u]; if (u && us.opts && moveDupPicks(u, us).length) changed = true; } } catch (e) { /* liste abîmée : laissée telle quelle */ } }
+  return changed;
+}
 function migrateArmy(a) {
   const notes = [];
   if (!Array.isArray(a.dets)) a.dets = [];
@@ -774,7 +936,7 @@ function migrateArmy(a) {
     { const mx = u.extra ? u.extra.max : 0, e = Math.floor(+us.extra || 0); us.extra = Math.max(0, Math.min(mx, e)); if (!us.extra) delete us.extra;
       if (us.variant != null && !(u.variants && u.variants[us.variant])) delete us.variant;
       for (const k of Object.keys(us.opts || {})) { const pk = us.opts[k]; if (!pk || typeof pk !== 'object') { delete us.opts[k]; continue; } for (const c of Object.keys(pk)) { const q = Math.floor(+pk[c] || 0); if (q > 0) pk[c] = q; else delete pk[c]; } } }
-    if (!us.sig) continue;
+    if (!us.sig) { notes.push(...moveDupPicks(u, us)); continue; }
     const moved = {};
     for (const [k, sig] of Object.entries(us.sig)) {
       const oi = optIndex(u, k); if (oi >= 0 && optSig(u.options[oi]) === sig) { moved[k] = us.opts[k]; continue; }
@@ -783,7 +945,7 @@ function migrateArmy(a) {
       else notes.push(L`${u.name} : une option choisie n'existe plus dans la base, à vérifier`);
     }
     for (const [k, v] of Object.entries(us.opts || {})) if (!(k in us.sig) && !(k in moved)) moved[k] = v;
-    us.opts = moved; stampArmy({ dets: [{ units: { x: us } }] });
+    us.opts = moved; notes.push(...moveDupPicks(u, us)); stampArmy({ dets: [{ units: { x: us } }] });
   }
   return notes;
 }
@@ -880,7 +1042,9 @@ function renderInner() {
   if (step === 3) host.append(el('p', { class: 'lead' }, L`Remplissez le Détachement Principal : touchez une case pour y placer une unité. Une seule case occupée suffit.` + ((armyDef().forbid || []).includes('aux') ? '' : L` Chaque case État-major ouvrira un Détachement Auxiliaire, la case Quartier Général un Auxiliaire ou un Apex.`)));
   if (step === 4 && (armyDef().forbid || []).includes('aux')) host.append(el('p', { class: 'lead' }, L`Une armée ${armyDef().name} n'a ni Détachement Auxiliaire ni d'Apex : ajoutez des Détachements Alliés ou additionnels si votre liste y a droit.`));
   else if (step === 4) { const g = grants(main), ax = childrenOf(main, 'aux').length, ap = childrenOf(main, 'apex').length;
-    host.append(el('p', { class: 'lead' }, L`Vos choix du Détachement Principal ouvrent ${g.aux} Détachement(s) Auxiliaire(s) par les cases État-major et ${g.flex} Auxiliaire ou Apex par la case Quartier Général. Utilisés : ${ax} Auxiliaire(s), ${ap} Apex. Alliés et Seigneur des Batailles restent possibles sans condition.`)); host.append(detTree()); }
+    const extra = allocOf(main).extra;
+    host.append(el('p', { class: 'lead' }, L`Vos choix du Détachement Principal ouvrent ${g.aux} Détachement(s) Auxiliaire(s) par les cases État-major et ${g.flex} Auxiliaire ou Apex par la case Quartier Général. Utilisés : ${ax} Auxiliaire(s), ${ap} Apex. Alliés et Seigneur des Batailles restent possibles sans condition.`,
+      extra ? ' ' + L`Les cases État-major de vos Détachements Auxiliaires en ouvrent ${extra} de plus.` : '')); host.append(detTree()); }
   if (step === 3) { const alts = DB.detachments.filter(d => d.kind === 'principal' && d.alt && d.army === armyOf(army.faction));
     if (alts.length) { const std = detDef(armyDef().mainDet || 'principal');
       const pick = id => { if (main.type === id) return; if (Object.keys(main.units).length && !confirm(L`Changer de Détachement Principal vide ses cases. Continuer ?`)) return; main.type = id; main.units = {}; main.adv = {}; main.bonusRole = null; main.advSlot = {}; touch(); };
@@ -1153,6 +1317,7 @@ function renderEditor(issues) {
     if (trs.length) host.append(el('label', { class: 'inl blk' }, L`Embarquée à bord de : `, el('select', { onchange: e => { us.embark = e.target.value || null; touch(); } }, el('option', { value: '' }, L`Aucun transport`), trs.map(([k, n]) => el('option', { value: k, selected: us.embark === k }, n))))); }
   (u.options || []).forEach((o, oi) => {
     const ch = optChoices(o), max = optMax(o, us), cnt = optCount(us, oi);
+    if (o.dupOf && !cnt) return; // option Legacies en double de l'option de base : masquée (sauf choix encore dessus)
     if (o.legacy && !legacyOn() && !cnt) return;
     if (o.supersedes && !legacyOn() && !cnt) return;
     if (o.prov && !(army.provenances || []).includes(o.prov) && !cnt) return;
@@ -1185,6 +1350,8 @@ function renderEditor(issues) {
     ch.forEach((c, k) => {
       const q = picked[k] || 0, cost = c.points ? `+${c.points}` : L`gratuit`;
       if (!q && !itemState(c, u, det, us).show) return;
+      // échanger une arme contre la même (combi-bolter contre combi-bolter) : sans effet, mais payant → masqué
+      if (!q && [].concat(c.replaces || o.replaces || []).length === 1 && !Array.isArray([].concat(c.replaces || o.replaces)[0]) && ikey([].concat(c.replaces || o.replaces)[0]) === ikey(c.name)) return;
       if (max === 1 || o.unique) f.append(el('label', { class: 'opt' }, el('input', { type: (o.unique && max > 1) || ch.length === 1 ? 'checkbox' : 'radio', name: 'o' + oi, checked: q > 0, disabled: blocked || (max <= 0) || (!q && (o.unique && max > 1 ? cnt >= cap : cap <= 0)),
         onclick: e => { const was = q > 0; if (!(o.unique && max > 1) ) for (const kk of Object.keys(picked)) delete picked[kk]; if (was) delete picked[k]; else { if (o.unique && optCount(us, oi) >= max) { e.preventDefault(); flash(L`Maximum ${max} choix pour cette option.`); return; } picked[k] = 1; } touch(); } }),
         el('span', {}, c.name), el('b', {}, cost)));
@@ -1345,7 +1512,7 @@ function openLists() {
   for (const a of all) {
     const pts = (() => { const keep = army; army = a; const p = armyPoints(); army = keep; return p; })();
     body.append(el('div', { class: 'pick' + (a.id === army.id ? ' cur' : '') }, el('span', {}, el('b', {}, a.name), el('i', {}, L`${a.faction} · ${pts}/${a.limit} pts · modifiée le ${new Date(a.updated).toLocaleDateString(LANG === 'fr' ? 'fr-FR' : 'en-GB')}`)),
-      el('span', { class: 'acts' }, el('button', { class: 'btn', onclick: () => { army = a; sel = null; dlg.close(); LS.set('30k.last', a.id); if (!army.step) army.step = 3; render(); } }, L`Ouvrir`),
+      el('span', { class: 'acts' }, el('button', { class: 'btn', onclick: () => { army = a; migrateArmy(army); sel = null; dlg.close(); LS.set('30k.last', a.id); if (!army.step) army.step = 3; render(); } }, L`Ouvrir`),
         el('button', { class: 'btn ghost', onclick: () => { const c = JSON.parse(JSON.stringify(a)); c.id = uid(); c.name += L` (copie)`; store.save(c); openLists(); } }, L`Dupliquer`),
         el('button', { class: 'btn ghost', onclick: () => { const k = army; army = a; exportPDF({}); army = k; } }, 'PDF'),
         el('button', { class: 'btn ghost', onclick: () => { const k = army; army = a; exportText(); army = k; } }, L`Texte`),
@@ -1354,7 +1521,7 @@ function openLists() {
   body.append(el('p', { class: 'note' }, L`Les listes sont enregistrées automatiquement dans l'application, sur cet appareil : rien à faire. « PDF » crée la feuille d'armée, « Texte » un fichier lisible que l'on peut aussi réimporter sur un autre appareil.`));
   dlg.showModal();
 }
-const APP_VERSION = '2026.11-p';
+const APP_VERSION = '2026.11-q';
 const UPDATE_DEFAULT = 'https://yaoz52.github.io/forbidden-recruit';
 const updUrl = () => (LS.get('30k.updateUrl', null) || (location.protocol.startsWith('http') ? location.href.replace(/[^/]*$/, '') : UPDATE_DEFAULT) || '').trim().replace(/\/+$/, '');
 async function checkUpdates(statusEl, install) {
@@ -2114,23 +2281,16 @@ function detTree() {
   const roots = [mainDet(), ...army.dets.filter(d => detDef(d.type).kind === 'allie')], box = el('section', { class: 'dtree', 'aria-label': L`Arbre des détachements` });
   box.append(el('h3', {}, L`Ce que vos choix ouvrent`), el('p', { class: 'hint' }, L`Chaque case État-major occupée ouvre un Détachement Auxiliaire, la case Quartier Général un Auxiliaire ou un Apex. Touchez une place libre pour ajouter un détachement.`));
   for (const root of roots) {
-    const isMain = root === mainDet(), group = isMain ? army.dets.filter(d => d === root || detDef(d.type).kind === 'apex') : [root], src = [];
-    for (const d of group) for (const s of slotsOf(d)) { const us = d.units[s.i], u = us && UNITS[us.u]; if (!u) continue;
-      if (d.adv[s.i] === 'affectation' || detDef(d.type).noGrants || detDef(d.type).noUnlock || (advDef(d.adv[s.i]) || {}).noGrants) continue;
-      if (s.role === 'QG' && isMain) src.push({ who: unitLabel(us, u), role: 'QG', kind: 'flex', n: 1 });
-      if (s.role === 'EM' || d.adv[s.i] === 'petty') { const eu = effUnit(u, us) || u, x = ruleX(eu, 'Officier de Ligne') || ruleX(eu, 'Officer of the Line') || 1; src.push({ who: unitLabel(us, u), role: 'EM', kind: 'aux', n: x, unlock: u.name }); } }
-    const apex = isMain ? childrenOf(root, 'apex') : [], aux = childrenOf(root, 'aux');
-    // répartition : les Apex prennent les droits QG, les Auxiliaires d'abord les droits EM (avec leur unité requise), puis le reste
-    const tokens = []; for (const s of src) for (let k = 0; k < s.n; k++) tokens.push({ s, det: null });
-    const take = (det, pred) => { const t = tokens.find(t => !t.det && pred(t)); if (t) { t.det = det; return true; } return false; };
-    for (const d of apex) take(d, t => t.s.kind === 'flex');
-    for (const d of aux) { const req = detDef(d.type).requires; take(d, t => t.s.kind === 'aux' && (!req || t.s.unlock === req)) || take(d, t => t.s.kind === 'aux' && !req) || take(d, t => t.s.kind === 'flex' && !req) || take(d, t => !t.det); }
+    const isMain = root === mainDet(), apex = isMain ? childrenOf(root, 'apex') : [], aux = childrenOf(root, 'aux');
+    // même répartition que la validation : chaque détachement est rattaché au jeton (case) qui l'ouvre
+    const R = allocOf(root), src = R.sources.map(s => ({ ...s, ref: s }));
+    const tokens = R.toks.filter(t => R.free.includes(t) || [...R.byDet.values()].includes(t)).map(t => ({ s: src.find(x => x.ref === t.s), t, dets: [...R.byDet].filter(([d, x]) => x === t).map(([d]) => d) }));
     const node = (d, cls) => el('button', { type: 'button', class: 'dt-node ' + cls, onclick: () => { const x = $(`[data-det="${d.id}"]`); if (x) x.scrollIntoView({ behavior: 'smooth', block: 'start' }); else if (d === mainDet()) { goStep(3); scrollTo({ top: 0, behavior: 'smooth' }); } } }, el('b', {}, detName(d)), el('i', {}, KIND[detDef(d.type).kind] + ' · ' + detPoints(d) + ' pts'));
     const free = t => el('button', { type: 'button', class: 'dt-node free', onclick: () => openDetPicker(t.s.kind === 'flex' ? ['aux', 'apex'] : ['aux']) }, el('b', {}, '＋ ' + (t.s.kind === 'flex' ? L`Auxiliaire ou Apex` : L`Détachement Auxiliaire`)), el('i', {}, L`Place libre — toucher pour choisir`));
-    const rows = src.length ? src.map(s => el('li', {}, el('div', { class: 'dt-src' }, el('span', { class: 'dt-r r-' + s.role }, role(s.role).short), el('span', {}, s.who), s.n > 1 ? el('small', {}, L`Officier de Ligne (${s.n})`) : null),
-      el('div', { class: 'dt-kids' }, tokens.filter(t => t.s === s).map(t => t.det ? node(t.det, t.s.kind === 'flex' && detDef(t.det.type).kind === 'apex' ? 'apex' : 'aux') : free(t)))))
+    const rows = src.length ? src.map(s => el('li', {}, el('div', { class: 'dt-src' }, el('span', { class: 'dt-r r-' + s.role }, role(s.role).short), el('span', {}, s.who), s.where ? el('small', {}, L`dans ${s.where}`) : null, s.n > 1 && s.kind === 'aux' ? el('small', {}, L`Officier de Ligne (${s.n})`) : null),
+      el('div', { class: 'dt-kids' }, tokens.filter(t => t.s === s).flatMap(t => t.dets.length ? t.dets.map(d => node(d, detDef(d.type).kind === 'apex' ? 'apex' : 'aux')) : [free(t)]))))
       : [el('li', { class: 'dt-none' }, isMain ? L`Placez un Quartier Général ou un État-major dans le Détachement Principal pour ouvrir des détachements.` : L`Aucune case État-major occupée dans ce détachement allié.`)];
-    const orphans = [...apex, ...aux].filter(d => !tokens.some(t => t.det === d));
+    const orphans = R.unreached;
     box.append(el('div', { class: 'dt-root' + (isMain ? '' : ' ally') }, node(root, 'root'), el('ul', {}, rows, orphans.length ? el('li', {}, el('div', { class: 'dt-src warn' }, L`Sans droit disponible`), el('div', { class: 'dt-kids' }, orphans.map(d => node(d, 'bad')))) : null)));
   }
   box.append(el('div', { class: 'dt-free' }, el('span', { class: 'lab' }, L`Sans condition :`), el('button', { type: 'button', class: 'btn ghost sm', onclick: () => openDetPicker() }, L`Allié, Seigneur de Guerre, Seigneur des Batailles…`)));
@@ -2315,7 +2475,10 @@ async function start() {
   document.documentElement.lang = LANG; { const b = $('#b-lang'); if (b) { b.textContent = LANG === 'fr' ? 'EN' : 'FR'; b.title = LANG === 'fr' ? 'English' : 'Français'; b.setAttribute('aria-label', LANG === 'fr' ? 'Language: English' : 'Langue : Français'); } }
   translateStatic(document.body);
   store.backup(); try { navigator.storage && navigator.storage.persist && navigator.storage.persist(); } catch (e) {}
-  const lists = store.all(), last = LS.get('30k.last'); { const notes = []; for (const a of Object.values(lists)) notes.push(...migrateArmy(a)); if (notes.length) setTimeout(() => flash([...new Set(notes)].slice(0, 3).join(' · ')), 1200); }
+  let lists = store.all(); const last = LS.get('30k.last'); { // report des doublons Legacies dans TOUTES les listes enregistrées (sans autre changement, sans toucher aux dates)
+    const stored = store.all(); if (migrateDupsStored(stored) && store.safe()) { LS.set('30k.lists', stored); lists = store.all(); }
+    const notes = []; for (const [id, a] of Object.entries(lists)) { try { if (!a || typeof a !== 'object') { delete lists[id]; continue; } notes.push(...migrateArmy(a)); } catch (e) { delete lists[id]; notes.push(L`une liste enregistrée est illisible : ignorée (rien n'est effacé)`); } }
+    if (notes.length) setTimeout(() => flash([...new Set(notes)].slice(0, 3).join(' · ')), 1200); }
   army = lists[last] || Object.values(lists)[0] || newArmy(); if (!mainDet()) army = newArmy(); if (!army.step) army.step = Object.keys(mainDet().units).length ? 3 : 1;
   $('#name').addEventListener('input', e => { army.name = e.target.value; clearTimeout(saveT); saveT = setTimeout(() => { store.save(army); renderSheet(validate()); }, 400); });
   addEventListener('pagehide', () => { clearTimeout(saveT); store.save(army); });
