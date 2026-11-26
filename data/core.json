@@ -1,5 +1,5 @@
 {
- "version": "2026.11-q",
+ "version": "2026.11-r",
  "_doc": "Règles communes de sélection d'armée (Livre de Règles V3, p. 278-291). Modifiez ce fichier après une FAQ : l'application relit tout d'ici.",
  "bookFiles": [
   "legiones-astartes.json",
@@ -3356,7 +3356,7 @@
   "Comptrôleur": "Comptrôleur (X)",
   "Heedless": "Négligence"
  },
- "notes": "Unités Legacies (case à cocher), Imperialis Militia, Conclaves Skitarii, Daemons of the Ruinstorm, Blackshields, Shattered Legions, Détachements Principaux alternatifs, FAQ et errata, contrôles de transport et d'options.",
+ "notes": "Sergents et champions : échanges « bolter et/ou pistolet » corrigés ; options Legacies en double retirées ; Tyrans de Siège ; mises à jour et liens de partage de l'appli Android ; droits de détachement des États-majors.",
  "rites": [
   {
    "id": "da",

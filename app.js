@@ -572,6 +572,7 @@ function allocDets(p, kids, apexKids = []) {
   dem.sort((a, b) => (b.req ? 1 : 0) - (a.req ? 1 : 0)); // les détachements à unité imposée d'abord
   const toks = []; const addTok = (s, dmIdx) => { for (let k = 0; k < s.n; k++) toks.push({ s, src: dmIdx, k }); };
   src.forEach(s => addTok(s, -1)); dem.forEach((x, i) => x.tok.forEach(s => addTok(s, i)));
+  toks.sort((a, b) => (a.s.kind === 'flex') - (b.s.kind === 'flex')); // droits « Auxiliaire » d'abord : les cases QG restent libres pour un Apex
   const fits = (t, x) => x.apex ? t.s.kind === 'flex' && (t.src === -1 || dem[t.src].apex) : x.req ? t.s.kind === 'aux' && t.s.names.includes(x.req) : true;
   const N = dem.length; let best = { n: -1 }, nodes = 0; const memo = new Set();
   const tcls = t => t.s.kind + (t.s.names || []).join('/') + '@' + (t.src === -1 ? 'root' : dem[t.src].sig);
@@ -615,6 +616,15 @@ function syncMain() { const want = armyDef().mainDet || 'principal', m = mainDet
 const childrenOf = (p, kind) => army.dets.filter(d => detDef(d.type).kind === kind && (kind === 'apex' ? true : d.parent === p.id));
 
 /* Peut-on ajouter un détachement de ce type ? -> {ok, why, parents} */
+/* Mémo des répartitions pendant qu'on évalue la même armée (sélecteur : ~90 types testés d'affilée).
+   Un détachement vide n'apporte aucun droit : seuls comptent son genre, son « requires » et s'il est de doctrine. */
+const ALLOC_MEMO = { key: '', map: new Map() };
+function allocProbe(p, def, run) {
+  const st = JSON.stringify(army.dets) + '|' + (army.doctrine || '') + '|' + army.faction;
+  if (ALLOC_MEMO.key !== st) { ALLOC_MEMO.key = st; ALLOC_MEMO.map.clear(); }
+  const k = p.id + '|' + def.kind + '|' + (def.requires || '') + '|' + (isBonus(def.id) ? def.id : '');
+  if (!ALLOC_MEMO.map.has(k)) ALLOC_MEMO.map.set(k, run()); return ALLOC_MEMO.map.get(k);
+}
 function canAddDet(def) {
   const main = mainDet(), lim = army.limit, md = mainDef();
   if (def.legacy && !legacyOn()) return { ok: false, why: L`Détachement Legacies : décochez « Exclure les unités Legacies » à l'étape 1.` };
@@ -642,8 +652,9 @@ function canAddDet(def) {
   const g = grants(main), apex = childrenOf(main, 'apex').length, aux = auxUse(childrenOf(main, 'aux'));
   if (def.kind === 'apex' && def.army && armyOf(army.faction) !== def.army) return { ok: false, why: L`Réservé à la liste ${armyName(def.army)}.` };
   if (def.kind === 'apex') {
-    const probe = { type: def.id, units: {}, adv: {} }, R0 = allocOf(main), R = allocDets(main, childrenOf(main, 'aux'), [...childrenOf(main, 'apex'), probe]);
-    if (!R.unreached.includes(probe) && R.unreached.length <= R0.unreached.length) return { ok: true, parents: [main] };
+    const R0 = allocOf(main), fits = allocProbe(main, def, () => { const probe = { type: def.id, units: {}, adv: {} }, R = allocDets(main, childrenOf(main, 'aux'), [...childrenOf(main, 'apex'), probe]);
+      return !R.unreached.includes(probe) && R.unreached.every(d => R0.unreached.includes(d)); }); // l'ajout ne doit priver aucun détachement déjà débloqué
+    if (fits) return { ok: true, parents: [main] };
     return { ok: false, why: g.flex === 0 && !R0.sources.some(s => s.kind === 'flex')
       ? L`Un Détachement d'Apex nécessite une case Quartier Général occupée dans le Détachement Principal (p. 280).`
       : L`Vos ${g.flex} case(s) Quartier Général occupée(s) sont déjà utilisées pour d'autres détachements (p. 280).` };
@@ -653,8 +664,10 @@ function canAddDet(def) {
   const why = [];
   for (const p of [main, ...army.dets.filter(d => detDef(d.type).kind === 'allie')]) {
     if (def.army && armyOf(detFaction(p)) !== def.army) { why.push(L`${detName(p)} : détachement de la liste ${armyName(def.army)}`); continue; }
-    const probe = { type: def.id, units: {}, adv: {} }, R0 = allocOf(p), R = p === main ? allocDets(p, [...childrenOf(p, 'aux'), probe], childrenOf(p, 'apex')) : allocDets(p, [...childrenOf(p, 'aux'), probe]);
-    if (R.unreached.includes(probe) || R.unreached.length > R0.unreached.length) {
+    const R0 = allocProbe(p, { kind: 'base', id: '' }, () => allocOf(p));
+    const fits = allocProbe(p, def, () => { const probe = { type: def.id, units: {}, adv: {} }, R = p === main ? allocDets(p, [...childrenOf(p, 'aux'), probe], childrenOf(p, 'apex')) : allocDets(p, [...childrenOf(p, 'aux'), probe]);
+      return !R.unreached.includes(probe) && R.unreached.every(d => R0.unreached.includes(d)); });
+    if (!fits) {
       const had = def.requires && R0.sources.some(s => s.kind === 'aux' && s.names.includes(def.requires));
       if (def.requires && (!had || R0.free.length)) why.push(L`${detName(p)} : nécessite une unité « ${def.requires} » dans une case État-major${had ? L` (déjà utilisée)` : ''}`);
       else if (!R0.cap) why.push(L`${detName(p)} : aucune case État-major ou Quartier Général occupée`);
@@ -1042,9 +1055,20 @@ function renderInner() {
   if (step === 3) host.append(el('p', { class: 'lead' }, L`Remplissez le Détachement Principal : touchez une case pour y placer une unité. Une seule case occupée suffit.` + ((armyDef().forbid || []).includes('aux') ? '' : L` Chaque case État-major ouvrira un Détachement Auxiliaire, la case Quartier Général un Auxiliaire ou un Apex.`)));
   if (step === 4 && (armyDef().forbid || []).includes('aux')) host.append(el('p', { class: 'lead' }, L`Une armée ${armyDef().name} n'a ni Détachement Auxiliaire ni d'Apex : ajoutez des Détachements Alliés ou additionnels si votre liste y a droit.`));
   else if (step === 4) { const g = grants(main), ax = childrenOf(main, 'aux').length, ap = childrenOf(main, 'apex').length;
-    const extra = allocOf(main).extra;
-    host.append(el('p', { class: 'lead' }, L`Vos choix du Détachement Principal ouvrent ${g.aux} Détachement(s) Auxiliaire(s) par les cases État-major et ${g.flex} Auxiliaire ou Apex par la case Quartier Général. Utilisés : ${ax} Auxiliaire(s), ${ap} Apex. Alliés et Seigneur des Batailles restent possibles sans condition.`,
-      extra ? ' ' + L`Les cases État-major de vos Détachements Auxiliaires en ouvrent ${extra} de plus.` : '')); host.append(detTree()); }
+    // d'abord le total encore disponible, Principal ET Alliés (le détail suit, l'arbre montre quelle case ouvre quoi)
+    const roots = [main, ...army.dets.filter(d => detDef(d.type).kind === 'allie')], Rs = roots.map(allocOf);
+    // une paire de doctrine « bonus » entamée laisse une place gratuite (seconde moitié de la paire)
+    const halfPairs = Rs.reduce((a, R) => { const c = {}; R.reached.filter(d => isBonus(d.type)).forEach(d => c[d.type] = (c[d.type] || 0) + 1); return a + Object.values(c).filter(n => n % 2).length; }, 0);
+    const fA = halfPairs + Rs.reduce((a, R) => a + R.free.filter(t => t.s.kind === 'aux').length, 0), fF = Rs.reduce((a, R) => a + R.free.filter(t => t.s.kind === 'flex').length, 0);
+    // détachement de doctrine : un droit compatible en ouvre une paire (2 détachements)
+    const bdef = doctrineDef() && doctrineDef().bonusDet ? detDef(doctrineDef().bonusDet) : null, breq = bdef && bdef.requires;
+    const pairMore = bdef ? Rs.reduce((a, R) => a + R.free.filter(t => breq ? t.s.kind === 'aux' && (t.s.names || []).includes(breq) : true).length, 0) : 0;
+    const tot = Rs.reduce((a, R) => a + R.cap, 0), fromAux = Rs.reduce((a, R) => a + R.extra, 0), apexOk = fF && DB.detachments.some(d => d.kind === 'apex' && canAddDet(d).ok);
+    const head = !tot ? L`Aucune case État-major ou Quartier Général occupée : remplissez-en pour ouvrir des Détachements Auxiliaires.`
+      : fA + fF ? L`Vous pouvez encore ajouter ${fA + fF} détachement(s)` + (apexOk ? L` (dont ${fF} Auxiliaire ou Apex)` : '') + (pairMore ? L`, jusqu'à ${fA + fF + pairMore} avec les détachements ${bdef.name}, qui vont par paires` : '') + '.' : L`Tous vos droits à détachement sont utilisés.`;
+    host.append(el('p', { class: 'lead' }, el('b', {}, head), ' ',
+      tot ? L`Vos cases occupées en ouvrent ${tot} en tout` + (fromAux ? L`, dont ${fromAux} par les cases État-major de vos Détachements Auxiliaires` : '') + (Rs.length > 1 ? L`, Détachements Alliés compris` : '') + '. ' : '',
+      L`Chaque case État-major ouvre 1 Détachement Auxiliaire, chaque case Quartier Général du Principal 1 Auxiliaire ou 1 Apex. Utilisés : ${ax} Auxiliaire(s), ${ap} Apex. Alliés et Seigneur des Batailles restent possibles sans condition.`)); host.append(detTree()); }
   if (step === 3) { const alts = DB.detachments.filter(d => d.kind === 'principal' && d.alt && d.army === armyOf(army.faction));
     if (alts.length) { const std = detDef(armyDef().mainDet || 'principal');
       const pick = id => { if (main.type === id) return; if (Object.keys(main.units).length && !confirm(L`Changer de Détachement Principal vide ses cases. Continuer ?`)) return; main.type = id; main.units = {}; main.adv = {}; main.bonusRole = null; main.advSlot = {}; touch(); };
@@ -1521,15 +1545,26 @@ function openLists() {
   body.append(el('p', { class: 'note' }, L`Les listes sont enregistrées automatiquement dans l'application, sur cet appareil : rien à faire. « PDF » crée la feuille d'armée, « Texte » un fichier lisible que l'on peut aussi réimporter sur un autre appareil.`));
   dlg.showModal();
 }
-const APP_VERSION = '2026.11-q';
+const APP_VERSION = '2026.11-r';
 const UPDATE_DEFAULT = 'https://yaoz52.github.io/forbidden-recruit';
-const updUrl = () => (LS.get('30k.updateUrl', null) || (location.protocol.startsWith('http') ? location.href.replace(/[^/]*$/, '') : UPDATE_DEFAULT) || '').trim().replace(/\/+$/, '');
+/* Vraiment sur le site ? L'appli Android tourne sur https://localhost et l'appli Windows/Mac en file:// :
+   dans ces cas, les mises à jour et les liens de partage passent par l'adresse publique du site. */
+const isLocalHost = h => /^(localhost|127\.0\.0\.1|\[::1\]|0\.0\.0\.0)$/i.test(h || '');
+const ON_SITE = location.protocol.startsWith('http') && !NATIVE && !isLocalHost(location.hostname);
+const updUrl = () => { let saved = String(LS.get('30k.updateUrl', null) || '').trim(); try { if (saved && isLocalHost(new URL(saved).hostname)) saved = ''; } catch (e) {}
+  return (saved || (ON_SITE ? location.href.replace(/[^/]*$/, '') : UPDATE_DEFAULT) || '').trim().replace(/\/+$/, ''); };
+/* Lecture d'un fichier JSON du dépôt avec un message clair si la réponse n'en est pas un */
+async function getJSON(url) {
+  const r = await fetch(url, { cache: 'no-store' }); if (!r.ok) throw new Error(L`réponse ${r.status} pour ${url.replace(/\?.*$/, '')}`);
+  const t = await r.text(); if (!t.trim()) throw new Error(L`fichier vide : ${url.replace(/\?.*$/, '')}`);
+  try { return JSON.parse(t); } catch (e) { throw new Error(L`fichier illisible : ${url.replace(/\?.*$/, '')}`); }
+}
 async function checkUpdates(statusEl, install) {
   const base = updUrl();
   if (!base) { statusEl.textContent = L`Indiquez d'abord l'adresse de votre dépôt de mises à jour.`; return; }
   statusEl.textContent = L`Recherche des mises à jour…`;
   try {
-    const man = await (await fetch(base + '/manifest.json?t=' + Date.now(), { cache: 'no-store' })).json();
+    const man = await getJSON(base + '/manifest.json?t=' + Date.now());
     const parts = [];
     const newData = man.dataVersion && man.dataVersion > DB.core.version;
     const newApp = man.appVersion && man.appVersion > APP_VERSION;
@@ -1540,8 +1575,8 @@ async function checkUpdates(statusEl, install) {
     if (newData) statusEl.append(el('button', { class: 'btn', type: 'button', onclick: async () => {
       statusEl.textContent = L`Téléchargement…`;
       try {
-        const core = await (await fetch(base + '/data/core.json?t=' + Date.now(), { cache: 'no-store' })).json();
-        const books = []; for (const f of core.bookFiles) books.push(await (await fetch(base + '/data/' + f + '?t=' + Date.now(), { cache: 'no-store' })).json());
+        const core = await getJSON(base + '/data/core.json?t=' + Date.now());
+        const books = []; for (const f of core.bookFiles) books.push(await getJSON(base + '/data/' + f + '?t=' + Date.now()));
         const pb = checkData({ core, books }); if (pb.length) { statusEl.textContent = L`Mise à jour refusée (fichiers incohérents) : ` + pb.slice(0, 3).join(' ; '); return; }
         if (!LS.set('30k.customData', { core, books, source: 'update' })) { statusEl.textContent = L`Espace de stockage insuffisant sur cet appareil.`; return; }
         statusEl.textContent = L`Données installées. Redémarrage…`; setTimeout(() => location.reload(), 600);
@@ -1624,7 +1659,7 @@ function applyTheme(t) { t = t || LS.get('fr.theme', 'auto'); const dark = t ===
 /* ---------- Partage par lien (hors ligne : la liste est dans l'adresse) ---------- */
 function shareLink() {
   const raw = JSON.stringify(army), b64 = btoa(unescape(encodeURIComponent(raw))).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
-  const base = location.protocol.startsWith('http') ? location.origin + location.pathname : (updUrl() || UPDATE_DEFAULT) + '/';
+  const base = ON_SITE ? location.origin + location.pathname : (updUrl() || UPDATE_DEFAULT) + '/'; // jamais https://localhost (appli Android)
   const url = base + '#liste=' + b64;
   const done = () => flash(L`Lien de la liste copié : collez-le dans un message.`);
   if (navigator.share && matchMedia(L`(pointer: coarse)`).matches) navigator.share({ title: army.name, url }).catch(() => {});
@@ -2505,7 +2540,7 @@ async function start() {
   $('#dbv').textContent = L`Données ` + DB.core.version;
   await loadPhotos();
   render(); setTimeout(gcPhotos, 8000);
-  if ('serviceWorker' in navigator && location.protocol.startsWith('http')) {
+  if ('serviceWorker' in navigator && ON_SITE) {
     navigator.serviceWorker.register('sw.js').then(reg => {
       const ready = w => { const b = $('#update'); b.hidden = false; b.onclick = () => w.postMessage('skip'); };
       if (reg.waiting) ready(reg.waiting);
@@ -2519,11 +2554,11 @@ async function start() {
 async function autoCheckUpdates() {
   const base = updUrl();
   if (!base || !navigator.onLine) return;
-  if (location.protocol.startsWith('http') && location.href.startsWith(base)) return; // version installée : le service worker s'en charge
+  if (ON_SITE && location.href.startsWith(base)) return; // site ou version installée depuis le site : le service worker s'en charge
   const last = +LS.get('30k.lastUpdateCheck', 0); if (Date.now() - last < 12 * 3600e3) return;
   LS.set('30k.lastUpdateCheck', Date.now());
   try {
-    const man = await (await fetch(base + '/manifest.json?t=' + Date.now(), { cache: 'no-store' })).json();
+    const man = await getJSON(base + '/manifest.json?t=' + Date.now());
     if ((man.dataVersion && man.dataVersion > DB.core.version) || (man.appVersion && man.appVersion > APP_VERSION)) {
       const b = $('#update'); b.textContent = L`Mise à jour disponible — voir`; b.hidden = false;
       b.onclick = () => { openSettings(); const st = document.querySelector('#dlg-body .upd-status'); if (st) checkUpdates(st); };
